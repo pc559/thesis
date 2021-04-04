@@ -1,4 +1,6 @@
 %%% ps2ascii thesis.pdf | wc -w
+%%% bc <<< "scale=2; 5./60000."
+%%% word_count=$(ps2ascii thesis.pdf | wc -w) && bc <<< "scale=2; ${word_count}/60000."
 %%% https://www.cst.cam.ac.uk/local/phd/typography
 %%% https://www.cst.cam.ac.uk/local/phd/writingup
 
@@ -48,38 +50,7 @@
 \college{St.\ John's}
 
 %% College shield [optional]:
-% \collegeshield{CollegeShields/Christs}
-% \collegeshield{CollegeShields/Churchill}
-% \collegeshield{CollegeShields/Clare}
-% \collegeshield{CollegeShields/ClareHall}
-% \collegeshield{CollegeShields/CorpusChristi}
-% \collegeshield{CollegeShields/Darwin}
-% \collegeshield{CollegeShields/Downing}
-% \collegeshield{CollegeShields/Emmanuel}
-% \collegeshield{CollegeShields/Fitzwilliam}
-% \collegeshield{CollegeShields/Girton}
-% \collegeshield{CollegeShields/GonCaius}
-% \collegeshield{CollegeShields/Homerton}
-% \collegeshield{CollegeShields/HughesHall}
-% \collegeshield{CollegeShields/Jesus}
-% \collegeshield{CollegeShields/Kings}
-% \collegeshield{CollegeShields/LucyCavendish}
-% \collegeshield{CollegeShields/Magdalene}
-% \collegeshield{CollegeShields/MurrayEdwards}
-% \collegeshield{CollegeShields/Newnham}
-% \collegeshield{CollegeShields/Pembroke}
-% \collegeshield{CollegeShields/Peterhouse}
-% \collegeshield{CollegeShields/Queens}
-% \collegeshield{CollegeShields/Robinson}
-% \collegeshield{CollegeShields/Selwyn}
-% \collegeshield{CollegeShields/SidneySussex}
-% \collegeshield{CollegeShields/StCatharines}
-% \collegeshield{CollegeShields/StEdmunds}
 \collegeshield{CollegeShields/StJohns}
-% \collegeshield{CollegeShields/Trinity}
-% \collegeshield{CollegeShields/TrinityHall}
-% \collegeshield{CollegeShields/Wolfson}
-% \collegeshield{CollegeShields/FitzwilliamRed}
 
 %% Submission date [optional]:
 % \submissiondate{November, 2042}
@@ -139,9 +110,19 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Thesis body:
+%% Chapter 1:
 %%
 \include{primodal_chapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 2:
+%%
+\include{primordial_results_chapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter 3:
+%%
+\include{constraints_chapter}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% References:
@@ -165,7 +146,7 @@
 
 \appendix
 
-\chapter{Extra Information}
+\chapter{Factorising the coefficient matrix}
 Some more text ...
 
 

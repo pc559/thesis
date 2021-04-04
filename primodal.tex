@@ -1,15 +1,88 @@
-\chapter{The separable in-in calculation}
-\section{Abstract}\label{sec:abstract}
-Calculating the primordial bispectrum predicted by a model of inflation and
-comparing it to what we see in the sky is very computationally intensive, necessitating layers
-of approximations and limiting the models which can be constrained.  Exploiting the inherent separability
-of the tree level in-in formalism using expansions in separable basis functions provides a means by which to
-obviate some of these difficulties. Here, we develop this approach further into a practical and efficient
-numerical methodology which can be applied to a much wider and more complicated range of bispectrum
-phenomenology, making an important step forward towards observational pipelines which can directly
-confront specific models of inflation.  We describe a simple augmented Legendre polynomial basis
-and its advantages, then test the method on single-field inflation models with non-trivial phenomenology,
-showing that our calculation of these coefficients is fast and accurate to high orders.
+\documentclass[a4paper,12pt]{extarticle}
+\usepackage[utf8]{inputenc}
+%\usepackage[singlespacing]{setspace}
+\pdfoutput=1
+%\twocolumn
+
+\usepackage{jcappub} % for details on the use of the package, please
+                     % see the JCAP-author-manual
+\usepackage[top=20mm,left=20mm,right=20mm,bottom=25mm,foot=10mm]{geometry}
+\usepackage{subfig}
+\usepackage[dvipsnames]{xcolor}
+                     
+\newcommand{\eps}{\epsilon}
+\newcommand{\Pmax}{p_\text{max}} 	
+\newcommand{\Hint}{H_{int}}
+\newcommand{\kbar}{\bar{k}}
+\newcommand{\Delk}{\Delta}
+\newcommand{\Sumk}{\Sigma}
+\newcommand{\Qrot}{Q_{pq}(\tau_s)}
+\newcommand{\shapecor}{\mathcal{S}}
+\newcommand{\ampcor}{\mathcal{A}}
+\newcommand{\totalcor}{\mathcal{E}}
+\newcommand{\threeLs}{L_p(\kbar_1)L_q(\kbar_2)L_r(\kbar_3)}
+\newcommand{\threePs}{P_p(\kbar_1)P_q(\kbar_2)P_r(\kbar_3)}
+\newcommand{\threeQs}{Q_p(k_1)Q_q(k_2)Q_r(k_3)}
+\newcommand{\Lbasic}{\mathcal{P}_0}
+\newcommand{\Linvk}{\mathcal{P}_1}
+\newcommand{\Lnsinv}{\mathcal{P}^{n_s}_1}
+\newcommand{\Lnsboth}{\mathcal{P}^{n_s}_{01}}
+\newcommand{\Linvksq}{\mathcal{P}_2}
+\newcommand{\Lns}{\mathcal{P}^{n_s}_2}
+\newcommand{\Fbasic}{\mathcal{F}_0}
+\newcommand{\Finvk}{\mathcal{F}_1}
+\newcommand{\Finvksq}{\mathcal{F}_2}
+\newcommand{\quadpot}{V_{\phi^2}(\phi)}
+
+% some new
+%\newcommand{\threeqs}{q_p(\kbar_1)\,q_r(\kbar_2)\,q_s(\kbar_3)}
+\newcommand{\threeqs}{q_p(k_1)\,q_r(k_2)\,q_s(k_3)}
+\newcommand{\threeqstilde}{q_{\tilde{p}}(k_1)\,q_{\tilde{r}}(k_2)\,q_{\tilde{s}}(k_3)}
+\newcommand{\kmin}{{k_\text{min}}}
+\newcommand{\kmax}{{k_\text{max}}}
+\newcommand{\fnl}{f_{NL}}
+\newcommand{\fnllocal}{f^{local}_{NL}}
+\newcommand{\fnlequil}{f^{equil}_{NL}}
+\newcommand{\fnlortho}{f^{ortho}_{NL}}
+
+
+\usepackage[T1]{fontenc} % if needed
+\usepackage[onehalfspacing]{setspace}
+
+\title{Probing Inflation with Precision Bispectra}
+
+\author{
+    Philip Clarke
+}
+\affiliation{Centre for Theoretical Cosmology, DAMTP, University of Cambridge, Cambridge CB3 0WA, United Kingdom}
+
+
+
+
+\abstract{
+    Calculating the primordial bispectrum predicted by a model of inflation and
+    comparing it to what we see in the sky is very computationally intensive, necessitating layers
+    of approximations and limiting the models which can be constrained.  Exploiting the inherent separability
+    of the tree level in-in formalism using expansions in separable basis functions provides a means by which to
+    obviate some of these difficulties. Here, we develop this approach further into a practical and efficient
+    numerical methodology which can be applied to a much wider and more complicated range of bispectrum
+    phenomenology, making an important step forward towards observational pipelines which can directly
+    confront specific models of inflation.  We describe a simple augmented Legendre polynomial basis
+    and its advantages, then test the method on single-field inflation models with non-trivial phenomenology,
+    showing that our calculation of these coefficients is fast and accurate to high orders.
+}
+
+
+
+\begin{document}
+\maketitle
+\begin{figure}[!pth]
+\centering
+\includegraphics[width=0.8\columnwidth]{University_of_Cambridge_coat_of_arms.png}
+\end{figure}
+
+\flushbottom
+\newpage
 
 \section{Introduction}\label{sec:intro}
 %\subsection{The bispectrum}
@@ -2031,6 +2104,13 @@ CMB and LSS data from forthcoming surveys will be able to use
 these separable primordial bispectra to even more precisely constrain the
 parameters of inflationary scenarios.
 
+\acknowledgments
+We are grateful to Wuhyun Sohn and James Fergusson for enlightening discussions and useful comments.
+PC thanks the Robert Gardiner Memorial Scholarship and the Cambridge European Scholarship
+for their support, through the Cambridge Trust, as well as the UK STFC.
+PS acknowledges funding from STFC Consolidated Grant ST/P000673/1.
+
 %\bibliographystyle{unsrt}
-%\bibliographystyle{JHEP}
-%\bibliography{thesis}
+\bibliographystyle{JHEP}
+\bibliography{thesis}
+\end{document}
