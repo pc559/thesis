@@ -20,32 +20,58 @@ Thesis Writing Options
 
 Thesis Outline
 --------
+0. **Abstract**
+    - Faster at primordial level, and suited to obeservable comparisons.
+    - Core concepts are the basis expansion, and the cube vs tetra.
+    - Goal is parameter scan.
+
+    
 1. **Intro 1**
     - General $\Lambda CDM$ intro.
-    - Motivate inflation.
-    - Statistical observables (e.g. P.S.) - intuition coming from determining the weighting of a coin - how does what Wuhyun does differ from this? It's not Bayesian, right? I guess it's just "get the histogram from the Gaussian sims, see where we are in that".
-    - Link primordial NG to the CMB, make explicit the link between NG and non-linearity, possibly with some simple example. 
+    - Motivate inflation
+        - Define SR params
+        - Talk about $c_s$
+    - Perturbations
+        - ICs.
+        - MS equation in various times.
+        - Define the power spectrum.
+    - Statistical observables (e.g. P.S.) - intuition coming from determining the weighting of a coin.
+    - Define the bispectrum.
+        - Isotropy etc
+        - f_{NL} (various definitions).
+    - (How does what Wuhyun does differ from this? It's not Bayesian, right? I guess it's just "get the histogram from the Gaussian sims, see where we are in that".)
+    - Link inflaton non-linearity to primordial NG to the CMB, possibly with some simple example. 
     - Coming from part iii level, a derivation of the in-in formalism.
     - A calculation of the interaction Hamiltonian, through the simpler (and more observationally relevant) form of the self-interactions, i.e. neglecting the metric perturbations. 
-    - Then DBI, then $P(X, \phi)$, then features. 
+    - Then DBI, then $P(X, \phi)$, then features.
+    - Examples of shapes, using $K_{pq}$ notation (link to Enrico's sym polys?).
     - Lit-review of the Maldacena calculation giving explicit mention to the field-redefinition being unnecessary. 
     - Explicit details of how resonance and features generate large NG. 
 
 
 2. **Intro 2** 
-    - Review separability, KSW.
+    - Review separability, KSW (incl. reduced bispectrum integral).
+    - Separable approximations to non-separable templates (equilateral to DBI).
+    - Approximations on approximations.
     - Modal methods, results of Planck.
     - Wuhyun's stuff? Got to include some link...
     - F&RP's work.
-    - Previous config-by-config codes.
+    - Previous config-by-config codes
+        - What have these been used for recently?
+    - Squeezed limit consistency.
 
 
 3. **Cube Decomp** 
-    - Pulling out the $k$-dependance to motivate cube decomp. 
+    - Pulling out the $k$-dependance to motivate cube decomp.
+        - Defining the notation for the two time integrals.
     - Inner product choice.
     - Decomposing shapes on the cube vs tetra.
     - Template testing.
+    - Setting up a basis: augmentation.
+        - Modified GS
+        - Legendre and Fourier as building blocks.
     - Basis choice matters! Why is the basic expansion so bad?
+        - Nice table with descriptions and some single-number comparison on examples.
     - Why does $k_{ratio}$ matter?
     - "Probing..." results and stuff since then - extending to $k_{ratio}=1000$.
     - Log basis for scale-indep basis.
@@ -60,14 +86,23 @@ Thesis Outline
         - How long to evolve them.
     - Integration choices.
         - The $i\varepsilon$ prescription.
-        - Starting the integration with a pinch, validating this in the way suggested by the reviewer.
+        - Suppression from plane wave intuition.
+        - Starting the integration with a pinch.
+        - Validate this in the way suggested by the reviewer, show how easy it is to swamp the result with a sharp cut.
         - Stopping the integration. A note on boundary terms and cancellations.
-    - The interaction Hamiltonian.
+    - The interaction Hamiltonian, using RP by parts.
     - Set-up of DBI example scan, matching the PS etc.
     - Going to high $p_{max}$.
-    - Validation (as in Probing).
-    - Speed comparison.
+    - Validation (on numerical results)
+        - Maldacena quadratic SR
+        - DBI
+        - Tanh step
+        - Resonance
+        - DBI resonance
+    - Speed comparison vs PyTransport. Something BINGO can't do?
     - Map distinguishability of templates at primordial level.
+        - If they're close then templates have broad applicability, if they're not then it's interesting to search across them...
+    - Section on Transporting the Modal coeffs?
 
 
 5. **Constraints** 
