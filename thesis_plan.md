@@ -94,11 +94,11 @@ Thesis Outline
         - Suppression from plane wave intuition.
         - Starting the integration with a pinch.
         - Validate this in the way suggested by the reviewer, show how easy it is to swamp the result with a sharp cut.
-        - FIGURE: Relative error for simple pi^3 and for Reso, in ($\beta$, T). Large $\beta$ is just a sharp start!  
+        - FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T). Large $\beta$ is just a sharp start!  
         - Stopping the integration. A note on boundary terms and cancellations.
     - The interaction Hamiltonian, using RP by parts.
     - Set-up of DBI example scan, matching the PS etc.
-    - Going to high $p_{max}$.
+    - Going to high $P_{max}$.
     - Validation (on numerical results)
         - FIGURE: the various tetrapyd limits.
         - Maldacena quadratic SR
