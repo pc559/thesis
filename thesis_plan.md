@@ -37,6 +37,7 @@ Thesis Outline
     - Modal methods, results of Planck.
     - Wuhyun's stuff? Got to include some link...
     - F&RP's work.
+    - Previous config-by-config codes.
 
 
 3. **Cube Decomp** 
@@ -51,16 +52,43 @@ Thesis Outline
     - Loginv basis for resonant shapes.
     - Factor basis?
 
-4. ***Probing...*** Methods (numerics here for the first time) and validation, as in paper. Numerics of mode evolution. Choices of when to start integration etc. Validation of stuff since Dec: set-up of DBI example scan. Going to high $p_{max}$. Speed comparison. Map distinguishability of templates at primordial level.
+
+4. **Methods and Validation**
+    - Numerics of mode evolution (what do I do differently? $\tau_s$?).
+        - When to set IC's for each mode.
+        - Swapping variables.
+        - How long to evolve them.
+    - Integration choices.
+        - The $i\varepsilon$ prescription.
+        - Starting the integration with a pinch, validating this in the way suggested by the reviewer.
+        - Stopping the integration. A note on boundary terms and cancellations.
+    - The interaction Hamiltonian.
+    - Set-up of DBI example scan, matching the PS etc.
+    - Going to high $p_{max}$.
+    - Validation (as in Probing).
+    - Speed comparison.
+    - Map distinguishability of templates at primordial level.
 
 
-5. **Constraints.** With either CMB-BEst, or James' modes, or both. If this actually gets done! Compare convergence at primordial level to convergence at $f_{NL}$ level (this is just Wuhyun's work though...). Validate this convergence by reproducing Planck constraint using DBI template decomp, then check how the scaling affects this. Enrico's suggestion?
+5. **Constraints** 
+    - With either CMB-BEst, or James' modes, or both. If this actually gets done! 
+    - Compare convergence at primordial level to convergence at $f_{NL}$ level (this is just Wuhyun's work though...). 
+    - Validate this convergence by reproducing Planck constraint using DBI template decomp.
+    - Then check how the scaling affects this. 
+    - Enrico's suggestion?
 
 
-6. **Future Work/Conclusions.** As in RA proposal. Whatever of above doesn't get done; multi-field motivation; factor basis to assess limits; public release of code.
+6. **Future Work/Conclusions** 
+    - Further constraints.
+    - Multi-field motivation.
+    - Factor basis to assess limits.
+    - Public release of code.
 
 
-7. **Appendices.** Numeric choices that aren't specific to mode evolution, etc. Gauss-Legendre integration, fixed weights. Tools used: Numpy, Scipy, Jupyter Notebooks...?
+7. **Appendices** 
+    - Numeric choices that aren't specific to mode evolution, etc.
+    - Gauss-Legendre integration, fixed weights.
+    - Tools used: Numpy, Scipy, Jupyter Notebooks...?
 
 
 
