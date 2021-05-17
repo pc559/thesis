@@ -33,7 +33,8 @@ Thesis Outline
         - Talk about $c_s$
     - Perturbations
         - ICs.
-        - MS equation in various times.
+        - MS equation at various times.
+        - MS equation in $N$, $\tau_s$.
         - Define the power spectrum.
     - Statistical observables (e.g. P.S.) - intuition coming from determining the weighting of a coin.
     - Define the bispectrum.
