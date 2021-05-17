@@ -66,12 +66,17 @@ Thesis Outline
         - Defining the notation for the two time integrals.
     - Inner product choice.
     - Decomposing shapes on the cube vs tetra.
+        - FIGURE: DBI on cube vs tetra.
     - Template testing.
     - Setting up a basis: augmentation.
         - Modified GS
         - Legendre and Fourier as building blocks.
     - Basis choice matters! Why is the basic expansion so bad?
         - Nice table with descriptions and some single-number comparison on examples.
+        - FIGURES: Recon for Malda, DBI, scale-inv, with P0, P1, F0, F1 vs $P_{max}$
+        - FIGURES: Recon for cos, cosDBI, with P0, P1, F0, F1 vs $P_{max}$.
+        - FIGURES: Recon for cos-log, cos-logDBI, with P0, P1, F0, F1 vs $P_{max}$.
+        - FIGURES: Recon for scaled-DBI, with P0, P1, P1ns, P01ns, P_log vs $P_{max}$.
     - Why does $k_{ratio}$ matter?
     - "Probing..." results and stuff since then - extending to $k_{ratio}=1000$.
     - Log basis for scale-indep basis.
@@ -89,16 +94,25 @@ Thesis Outline
         - Suppression from plane wave intuition.
         - Starting the integration with a pinch.
         - Validate this in the way suggested by the reviewer, show how easy it is to swamp the result with a sharp cut.
+        - FIGURE: Relative error for simple pi^3 and for Reso, in ($\beta$, T). Large $\beta$ is just a sharp start!  
         - Stopping the integration. A note on boundary terms and cancellations.
     - The interaction Hamiltonian, using RP by parts.
     - Set-up of DBI example scan, matching the PS etc.
     - Going to high $p_{max}$.
     - Validation (on numerical results)
+        - FIGURE: the various tetrapyd limits.
         - Maldacena quadratic SR
+            - FIGURE: residual for...
         - DBI
+            - FIGURE: residual for...
         - Tanh step
+            - FIGURE: residual for...
+            - FIGURE: PyTransport scan across step size.
         - Resonance
+            - FIGURE: residual for...
+            - FIGURE: PyTransport time comparison.
         - DBI resonance
+            - FIGURE: residual for...
     - Speed comparison vs PyTransport. Something BINGO can't do?
     - Map distinguishability of templates at primordial level.
         - If they're close then templates have broad applicability, if they're not then it's interesting to search across them...
