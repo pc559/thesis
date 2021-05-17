@@ -20,13 +20,47 @@ Thesis Writing Options
 
 Thesis Outline
 --------
-1. **Introduction.** Given the intro of _Probing_, what else needs to be written/expanded upon for an intro? The link between primordial NG and the CMB, certainly. Also, it would be nice to make explicit the link between NG and non-linearity, possibly with some simple example. I should present a derivation of the in-in formalism, and a calculation of the interaction Hamiltonian. I could do the latter through the simpler (and more observationally relevant) form of the self-interactions, i.e. neglecting the metric perturbations. It would be nice to give a proper lit-review of the Maldacena calculation though, giving explicit mention to the field-redefinition being unnecessary. I should also present explicit details of how resonance and features generate large NG.
-2. ***Probing...*** Methods and results, as in paper.
-3. **Primodal Results.** What can I say purely at the primordial level? Present efficient basis sets for features, split between log and linear osc if necessary. Compare Primodal results to templates. How high can I push $p_{max}$? Discuss speed, maybe. Factor basis. Map distinguishability of templates at primordial level.
-4. **Constraints.** With either CMB-BEst, or James' modes, or both.
-5. **Future Work.**
-6. **Conclusions.**
+1. **Intro 1**
+    - General $\Lambda CDM$ intro.
+    - Motivate inflation.
+    - Statistical observables (e.g. P.S.) - intuition coming from determining the weighting of a coin - how does what Wuhyun does differ from this? It's not Bayesian, right? I guess it's just "get the histogram from the Gaussian sims, see where we are in that".
+    - Link primordial NG to the CMB, make explicit the link between NG and non-linearity, possibly with some simple example. 
+    - Coming from part iii level, a derivation of the in-in formalism.
+    - A calculation of the interaction Hamiltonian, through the simpler (and more observationally relevant) form of the self-interactions, i.e. neglecting the metric perturbations. 
+    - Then DBI, then $P(X, \phi)$, then features. 
+    - Lit-review of the Maldacena calculation giving explicit mention to the field-redefinition being unnecessary. 
+    - Explicit details of how resonance and features generate large NG. 
 
+
+2. **Intro 2** 
+    - Review separability, KSW.
+    - Modal methods, results of Planck.
+    - Wuhyun's stuff? Got to include some link...
+    - F&RP's work.
+
+
+3. **Cube Decomp** 
+    - Pulling out the $k$-dependance to motivate cube decomp. 
+    - Inner product choice.
+    - Decomposing shapes on the cube vs tetra.
+    - Template testing.
+    - Basis choice matters! Why is the basic expansion so bad?
+    - Why does $k_{ratio}$ matter?
+    - "Probing..." results and stuff since then - extending to $k_{ratio}=1000$.
+    - Log basis for scale-indep basis.
+    - Loginv basis for resonant shapes.
+    - Factor basis?
+
+4. ***Probing...*** Methods (numerics here for the first time) and validation, as in paper. Numerics of mode evolution. Choices of when to start integration etc. Validation of stuff since Dec: set-up of DBI example scan. Going to high $p_{max}$. Speed comparison. Map distinguishability of templates at primordial level.
+
+
+5. **Constraints.** With either CMB-BEst, or James' modes, or both. If this actually gets done! Compare convergence at primordial level to convergence at $f_{NL}$ level (this is just Wuhyun's work though...). Validate this convergence by reproducing Planck constraint using DBI template decomp, then check how the scaling affects this. Enrico's suggestion?
+
+
+6. **Future Work/Conclusions.** As in RA proposal. Whatever of above doesn't get done; multi-field motivation; factor basis to assess limits; public release of code.
+
+
+7. **Appendices.** Numeric choices that aren't specific to mode evolution, etc. Gauss-Legendre integration, fixed weights. Tools used: Numpy, Scipy, Jupyter Notebooks...?
 
 
 
