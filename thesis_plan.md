@@ -70,6 +70,7 @@ Thesis Outline
 
 3. **Expanding primordial shapes**
     - Pulling out the $k$-dependance
+        - Set up formalism
         - Motivate decomposition on the cube.
         - Defining the notation for the two main time integrals.
     - Inner product choice.
@@ -82,6 +83,7 @@ Thesis Outline
         - Legendre and Fourier as building blocks.
     - Basis choice matters! 
         - Why the basic expansion is so bad.
+        - My new basis sets, and their dramatic improvement.
         - Nice table with descriptions and some single-number comparison on examples.
         - FIGURES: Recon for Malda, DBI, scale-inv, with P0, P1, F0, F1 vs $P_{max}$
         - FIGURES: Recon for cos, cosDBI, with P0, P1, F0, F1 vs $P_{max}$.
@@ -101,17 +103,24 @@ Thesis Outline
         - Swapping variables.
         - How long to evolve them.
     - Integration choices.
-        - The $i\varepsilon$ prescription.
-        - Suppression from plane wave intuition.
-        - Starting the integration with a pinch.
-        - Validate this in the way suggested by the reviewer
-            - Show how easy it is to swamp the result with a sharp cut.
-        - FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T).
-            - Large $\beta$ is just a sharp start!  
-        - Stopping the integration. A note on boundary terms and cancellations.
-    - The interaction Hamiltonian, using RP by parts.
-    - Set-up of DBI example scan, matching the PS etc.
-    - Going to high $P_{max}$.
+        - The $i\varepsilon$ prescription
+            - Expand on what F&RP wrote.
+            - Suppression from plane wave intuition.
+        - Starting the integration with a pinch
+            - When to start.
+            - Show how easy it is to swamp the result with a sharp start.
+            - FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T).
+        - Oscillatory weights
+            - When to swap.
+            - Validation.
+        - Stopping the integration
+            - A note on boundary terms and difficult (time-dep) cancellations.
+    - The interaction Hamiltonian
+        - Using integration by parts from RP paper.
+    - Set-up of DBI example scan
+        - Matching A_s, n_s, r, N*, using $\beta_{IR}$ etc.
+    - Going to high $P_{max}$
+        - How high can I go, in terms of Planck $w$?
     - Validation (on numerical results)
         - FIGURE: the various tetrapyd limits.
         - Maldacena quadratic SR
@@ -127,24 +136,34 @@ Thesis Outline
         - DBI resonance
             - FIGURE: residual for...
     - Speed comparison vs PyTransport. Something BINGO can't do?
-    - Map distinguishability of templates at primordial level.
-        - If they're close then templates have broad applicability, if they're not then it's interesting to search across them...
-    - Section on Transporting the Modal coeffs?
+    - Map distinguishability of templates at primordial level
+        - To determine where to usefully scan.
+    - Section on Transporting the Modal coeffs
+        - Infinite hierarchy of coupled equations.
+        - Choose a basis to make it nice?
+        - Real vs Imag...?
 
 
 5. **Constraints** 
-    - With either CMB-BEst, or James' modes, or both. If this actually gets done! 
-    - Compare convergence at primordial level to convergence at $f_{NL}$ level (this is just Wuhyun's work though...). 
+    - With either CMB-BEst, or James' modes, or both. 
+    - Compare convergence at primordial level to convergence at $f_{NL}$ level
+        - This is just Wuhyun's work though, how do I talk about this?
     - Validate this convergence by reproducing Planck constraint using DBI template decomp.
-    - Then check how the scaling affects this. 
-    - Enrico's suggestion?
+    - Then, check how the scaling affects this. 
+    - EFT stuff, build off Enrico's recent work.
 
 
 6. **Future Work/Conclusions** 
-    - Further constraints.
-    - Multi-field motivation.
-    - Factor basis to assess limits.
-    - Public release of code.
+    - Further SF constraints
+        - (Depending on what gets done)
+    - Multi-field
+        - Specific goals
+        - Notes on implementation
+    - Factor basis to assess limits
+        - (Unless this is already done)
+        - Map shape space?
+    - User guide for Primodal code, public release of Primodal
+        - Not relevant to thesis, but could add some short notes on plans.
 
 
 7. **Appendices** 
