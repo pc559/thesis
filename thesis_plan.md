@@ -21,68 +21,78 @@ Thesis Writing Options
 Thesis Outline
 --------
 0. **Abstract**
-    - Faster at primordial level, and suited to obeservable comparisons.
-    - Core concepts are the basis expansion, and the cube vs tetra.
     - Goal is parameter scan.
+    - Motivation: faster at primordial level, and suited to obeservable comparisons.
+    - Core concepts are the basis expansion, and the cube vs tetra.
+    - Result 1: Finding a basis with broad descriptive power.
+    - Result 2: Validation of the methods.
+    - Result 3: Actual constraints??
 
     
-1. **Intro 1**
+1. **Introduction to inflation**
     - General $\Lambda CDM$ intro.
     - Motivate inflation
-        - Define SR params
-        - Talk about $c_s$
+        - Define SR params, $c_s$.
     - Perturbations
         - ICs.
         - MS equation at various times.
-        - MS equation in $N$, $\tau_s$.
-        - Define the power spectrum.
+        - MS equation in $N$, $\tau_s$ - no numerics yet?
+        - Define the power spectrum, discuss constraints.
     - Statistical observables (e.g. P.S.) - intuition coming from determining the weighting of a coin.
-    - Define the bispectrum.
-        - Isotropy etc
-        - f_{NL} (various definitions).
     - (How does what Wuhyun does differ from this? It's not Bayesian, right? I guess it's just "get the histogram from the Gaussian sims, see where we are in that".)
+    - Define the primordial bispectrum.
+        - Isotropy etc.
+        - f_{NL} (various definitions).
     - Link inflaton non-linearity to primordial NG to the CMB, possibly with some simple example. 
     - Coming from part iii level, a derivation of the in-in formalism.
     - A calculation of the interaction Hamiltonian, through the simpler (and more observationally relevant) form of the self-interactions, i.e. neglecting the metric perturbations. 
-    - Then DBI, then $P(X, \phi)$, then features.
-    - Examples of shapes, using $K_{pq}$ notation (link to Enrico's sym polys?).
-    - Lit-review of the Maldacena calculation giving explicit mention to the field-redefinition being unnecessary. 
-    - Explicit details of how resonance and features generate large NG. 
-
-
-2. **Intro 2** 
-    - Review separability, KSW (incl. reduced bispectrum integral).
-    - Separable approximations to non-separable templates (equilateral to DBI).
-    - Approximations on approximations.
-    - Modal methods, results of Planck.
-    - Wuhyun's stuff? Got to include some link...
-    - F&RP's work.
+    - Then DBI, then $P(X, \phi)$.
+    - Lit-review of the Maldacena calculation giving explicit mention to the field-redefinition being unnecessary.
+    - Examples of shapes, using $K_{pq}$ notation (link to Enrico's sym polys?)
+        - Maldacena, DBI
+        - $P(X, \phi)$, EFT
+        - Features, with explicit details of how resonance and features generate large NG. 
+    - F&RP's work...?
     - Previous config-by-config codes
         - What have these been used for recently?
     - Squeezed limit consistency.
 
 
-3. **Cube Decomp** 
-    - Pulling out the $k$-dependance to motivate cube decomp.
-        - Defining the notation for the two time integrals.
+2. **Introduction to bispectrum data analysis** 
+    - Review estimators, KSW, separability.
+    - Calculating the reduced bispectrum.
+    - Separable approximations to non-separable templates
+        - Equilateral to DBI.
+        - Approximations to approximations.
+    - Modal methods, constraints from Planck.
+    - Wuhyun's stuff? Got to include some link...
+
+
+3. **Expanding primordial shapes**
+    - Pulling out the $k$-dependance
+        - Motivate decomposition on the cube.
+        - Defining the notation for the two main time integrals.
     - Inner product choice.
+        - Notes on observable convergence being the deciding factor.
+    - Template testing.
     - Decomposing shapes on the cube vs tetra.
         - FIGURE: DBI on cube vs tetra.
-    - Template testing.
     - Setting up a basis: augmentation.
-        - Modified GS
+        - Using modified GS.
         - Legendre and Fourier as building blocks.
-    - Basis choice matters! Why is the basic expansion so bad?
+    - Basis choice matters! 
+        - Why the basic expansion is so bad.
         - Nice table with descriptions and some single-number comparison on examples.
         - FIGURES: Recon for Malda, DBI, scale-inv, with P0, P1, F0, F1 vs $P_{max}$
         - FIGURES: Recon for cos, cosDBI, with P0, P1, F0, F1 vs $P_{max}$.
         - FIGURES: Recon for cos-log, cos-logDBI, with P0, P1, F0, F1 vs $P_{max}$.
         - FIGURES: Recon for scaled-DBI, with P0, P1, P1ns, P01ns, P_log vs $P_{max}$.
-    - Why does $k_{ratio}$ matter?
+    - Not obvious, but $k_{ratio}$ matters!
     - "Probing..." results and stuff since then - extending to $k_{ratio}=1000$.
     - Log basis for scale-indep basis.
     - Loginv basis for resonant shapes.
     - Factor basis?
+    - Intermediate result: the log basis is good!
 
 
 4. **Methods and Validation**
@@ -94,8 +104,10 @@ Thesis Outline
         - The $i\varepsilon$ prescription.
         - Suppression from plane wave intuition.
         - Starting the integration with a pinch.
-        - Validate this in the way suggested by the reviewer, show how easy it is to swamp the result with a sharp cut.
-        - FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T). Large $\beta$ is just a sharp start!  
+        - Validate this in the way suggested by the reviewer
+            - Show how easy it is to swamp the result with a sharp cut.
+        - FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T).
+            - Large $\beta$ is just a sharp start!  
         - Stopping the integration. A note on boundary terms and cancellations.
     - The interaction Hamiltonian, using RP by parts.
     - Set-up of DBI example scan, matching the PS etc.
