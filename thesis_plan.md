@@ -21,68 +21,90 @@ Thesis Writing Options
 Thesis Outline
 --------
 0. **Abstract**
-    - Goal is parameter scan.
-    - Motivation: faster at primordial level, and suited to obeservable comparisons.
-    - Core concepts are the basis expansion, and the cube vs tetra.
-    - Result 1: Finding a basis with broad descriptive power.
-    - Result 2: Validation of the methods.
-    - Result 3: Actual constraints??
+    - Goal: connecting inflation models directly to observations, through the bispectrum
+        - Constraining the parameters of inflation models, not pheno templates.
+        - Efficient numerics gives access to new feature shapes.
+    - Method: building separability into the in-in formalism
+        - More suited to obeservable comparisons.
+        - Turns out to be much faster at primordial level.
+    - Core concepts:
+        - Basis expansion needs to converge quickly for a broad range of models.
+        - Convergence on the cube is different to the tetrapyd.
+    - Results:
+        1. First practical description/implementation of the formalism.
+        2. Pointed out the central issue of the cube vs tetra problem.
+        3. Found a basis with broad descriptive power.
+        4. Validated these methods on interesting examples.
+        5. Explore and characterise DBI reso model TBC??
+        6. Connected to CMB, got constraints TBC??
 
     
-1. **Introduction to inflation**
+1. **Introduction to cosmology/inflation**
     - General $\Lambda CDM$ intro.
     - Motivate inflation
-        - Define SR params, $c_s$.
+        - Define SR params.
     - Perturbations
-        - ICs.
-        - MS equation at various times.
-        - MS equation in $N$, $\tau_s$ - no numerics yet?
+        - $c_s$.
+        - Bunch-Davies initial conditions.
+        - MS equation, behaviour at various times.
+        - MS equation in $N$, $\tau_s$ - no numerics here, though, just ref forward.
         - Define the power spectrum, discuss constraints.
-    - Statistical observables (e.g. P.S.) - intuition coming from determining the weighting of a coin.
-    - (How does what Wuhyun does differ from this? It's not Bayesian, right? I guess it's just "get the histogram from the Gaussian sims, see where we are in that".)
+    - Statistical observables
+        - Estimators.
+        - Determining the weighting of a coin.
+        - Link to what Wuhyun does.
     - Define the primordial bispectrum.
         - Isotropy etc.
         - f_{NL} (various definitions).
-    - Link inflaton non-linearity to primordial NG to the CMB, possibly with some simple example. 
+        - Link inflaton non-linearity to primordial NG.
+        - Link primordial NG to the CMB, possibly with some simple example. 
     - Coming from part iii level, a derivation of the in-in formalism.
-    - A calculation of the interaction Hamiltonian, through the simpler (and more observationally relevant) form of the self-interactions, i.e. neglecting the metric perturbations. 
-    - Then DBI, then $P(X, \phi)$.
-    - Lit-review of the Maldacena calculation giving explicit mention to the field-redefinition being unnecessary.
+    - Calculate the interaction Hamiltonian
+        - Through the simpler (and more observationally relevant) form of the self-interactions.
+        - (i.e. neglecting the metric perturbations.)
+        - Discuss DBI, then $P(X, \phi)$.
+        - Lit-review of the Maldacena calculation.
+        - Discuss field-redefinition being unnecessary, as per 1103.4126.
     - Examples of shapes, using $K_{pq}$ notation (link to Enrico's sym polys?)
         - Maldacena, DBI
         - $P(X, \phi)$, EFT
         - Features, with explicit details of how resonance and features generate large NG. 
-    - F&RP's work...?
+    - F&RP's work
+        - Summary of the achievements and limitations.
     - Previous config-by-config codes
-        - What have these been used for recently?
-    - Squeezed limit consistency.
+        - Their limitations.
+        - Their usage in recent works.
+    - The squeezed limit consistency condition.
 
 
-2. **Introduction to bispectrum data analysis** 
+2. **Introduction to bispectrum data analysis**
+    - Estimating the bispectrum, complexity. 
     - Review estimators, KSW, separability.
-    - Calculating the reduced bispectrum.
     - Separable approximations to non-separable templates
         - Equilateral to DBI.
         - Approximations to approximations.
     - Modal methods, constraints from Planck.
-    - Wuhyun's stuff? Got to include some link...
+    - Wuhyun's stuff?
 
 
 3. **Expanding primordial shapes**
     - Pulling out the $k$-dependance
-        - Set up formalism
-        - Motivate decomposition on the cube.
+        - Set up formalism.
+        - Forced to decompose on the cube.
         - Defining the notation for the two main time integrals.
-    - Inner product choice.
+    - Inner product choice
+        - Easier to interpret, more stringent.
         - Notes on observable convergence being the deciding factor.
-    - Template testing.
-    - Decomposing shapes on the cube vs tetra.
+    - Template testing
+        - Need to understand expected convergence before validation. 
+    - Decomposing shapes on the cube vs tetra
+        - Large non-physical contributions.
         - FIGURE: DBI on cube vs tetra.
-    - Setting up a basis: augmentation.
+    - Setting up a basis: augmentation
         - Using modified GS.
         - Legendre and Fourier as building blocks.
     - Basis choice matters! 
-        - Why the basic expansion is so bad.
+        - Why the basic basis expansion is so bad.
         - My new basis sets, and their dramatic improvement.
         - Nice table with descriptions and some single-number comparison on examples.
         - FIGURES: Recon for Malda, DBI, scale-inv, with P0, P1, F0, F1 vs $P_{max}$
@@ -90,8 +112,8 @@ Thesis Outline
         - FIGURES: Recon for cos-log, cos-logDBI, with P0, P1, F0, F1 vs $P_{max}$.
         - FIGURES: Recon for scaled-DBI, with P0, P1, P1ns, P01ns, P_log vs $P_{max}$.
     - Not obvious, but $k_{ratio}$ matters!
-    - "Probing..." results and stuff since then - extending to $k_{ratio}=1000$.
-    - Log basis for scale-indep basis.
+    - The $P_{max}$-$k_{ratio}$ tradeoff (and DBI vs Equil).
+    - Log basis for basis without PS info.
     - Loginv basis for resonant shapes.
     - Factor basis?
     - Intermediate result: the log basis is good!
