@@ -23,6 +23,7 @@ Thesis Outline
 0. **Abstract**
     - Goal: connecting inflation models directly to observations, through the bispectrum
         - Constraining the parameters of inflation models, not pheno templates.
+        - Full shape information, not point samples or a limit.
         - Efficient numerics gives access to new feature shapes.
     - Method: building separability into the in-in formalism
         - More suited to obeservable comparisons.
@@ -116,18 +117,18 @@ Thesis Outline
     - Log basis for basis without PS info.
     - Loginv basis for resonant shapes.
     - Factor basis?
-    - Intermediate result: the log basis is good!
+    - Conclusion: the log basis is good!
 
 
 4. **Methods and Validation**
-    - Numerics of mode evolution (what do I do differently? $\tau_s$?).
+    - Numerics of mode evolution ($\tau_s$)
         - When to set IC's for each mode.
         - Swapping variables.
-        - How long to evolve them.
-    - Integration choices.
+        - Freeze-out.
+    - Integration choices
         - The $i\varepsilon$ prescription
             - Expand on what F&RP wrote.
-            - Suppression from plane wave intuition.
+            - Suppression from plane wave expansion (intuition).
         - Starting the integration with a pinch
             - When to start.
             - Show how easy it is to swamp the result with a sharp start.
@@ -143,6 +144,7 @@ Thesis Outline
         - Matching A_s, n_s, r, N*, using $\beta_{IR}$ etc.
     - Going to high $P_{max}$
         - How high can I go, in terms of Planck $w$?
+        - How high can I go, in terms parameters that can't be compared to Planck?
     - Validation (on numerical results)
         - FIGURE: the various tetrapyd limits.
         - Maldacena quadratic SR
@@ -151,7 +153,7 @@ Thesis Outline
             - FIGURE: residual for...
         - Tanh step
             - FIGURE: residual for...
-            - FIGURE: PyTransport scan across step size.
+            - FIGURE: PyTransport comparison, scan across step size.
         - Resonance
             - FIGURE: residual for...
             - FIGURE: PyTransport time comparison.
@@ -160,18 +162,18 @@ Thesis Outline
     - Speed comparison vs PyTransport. Something BINGO can't do?
     - Map distinguishability of templates at primordial level
         - To determine where to usefully scan.
-    - Section on Transporting the Modal coeffs
-        - Infinite hierarchy of coupled equations.
-        - Choose a basis to make it nice?
-        - Real vs Imag...?
-
+    - Conclusion:
+        - My methods (and their implementation) have been validated on interesting examples.
+        - Have successfully developed separable methods for high orders and features for the first time.
+        - Can obtain full shape info far faster than previous numerical methods.
+        
 
 5. **Constraints** 
-    - With either CMB-BEst, or James' modes, or both. 
+    - With either CMB-BEst, or James' coeffs, or both. 
     - Compare convergence at primordial level to convergence at $f_{NL}$ level
-        - This is just Wuhyun's work though, how do I talk about this?
+        - Talk about Wuhyun's work.
     - Validate this convergence by reproducing Planck constraint using DBI template decomp.
-    - Then, check how the scaling affects this. 
+    - Then, check how the scaling from the real numerical result affects this. 
     - EFT stuff, build off Enrico's recent work.
 
 
@@ -179,8 +181,8 @@ Thesis Outline
     - Further SF constraints
         - (Depending on what gets done)
     - Multi-field
-        - Specific goals
-        - Notes on implementation
+        - Specific models, parameter goals.
+        - Notes on implementation.
     - Factor basis to assess limits
         - (Unless this is already done)
         - Map shape space?
@@ -192,6 +194,12 @@ Thesis Outline
     - Numeric choices that aren't specific to mode evolution, etc.
     - Gauss-Legendre integration, fixed weights.
     - Tools used: Numpy, Scipy, Jupyter Notebooks...?
+    - Transport method for the Modal coeffs
+        - Infinite hierarchy of coupled equations.
+        - Choose a basis to make it nice?
+        - Real vs Imag...?
+        - Sounds cool, not worth pursuing.
+
 
 
 
