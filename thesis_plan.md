@@ -22,17 +22,16 @@ Thesis Outline
 --------
 0. **Abstract**
     - Goal: connecting inflation models directly to observations, through the bispectrum
-        - Constraining the parameters of inflation models, not pheno templates.
+        - Constraining the parameters of inflation models, not pheno templates ($f_{NL}$ etc).
         - Full shape information, not point samples or a limit.
-        - Efficient numerics gives access to new feature shapes.
-    - Method: building separability into the in-in formalism
-        - More suited to obeservable comparisons.
-        - Turns out to be much faster at primordial level.
-    - Core concepts:
-        - Basis expansion needs to converge quickly for a broad range of models.
+        - Efficient numerics gives access to more accurate, and in some cases effectively new, feature shapes.
+    - Method: building separability into the tree-level in-in formalism
+        - CMB calculation expensive, but need only be done once per basis.
+        - So, want a basis expansion that converges quickly for a broad range of models.
         - Convergence on the cube is different to the tetrapyd.
+        - Turns out to be much faster at primordial level than previous numerical methods.
     - Results:
-        1. First practical description/implementation of the formalism.
+        1. First development/implementation of the formalism for high orders, features.
         2. Pointed out the central issue of the cube vs tetra problem.
         3. Found a basis with broad descriptive power.
         4. Validated these methods on interesting examples.
@@ -53,25 +52,24 @@ Thesis Outline
     - Statistical observables
         - Estimators.
         - Determining the weighting of a coin.
-        - Link to what Wuhyun does.
+        - Link to Wuhyun.
     - Define the primordial bispectrum.
         - Isotropy etc.
         - f_{NL} (various definitions).
         - Link inflaton non-linearity to primordial NG.
         - Link primordial NG to the CMB, possibly with some simple example. 
-    - Coming from part iii level, a derivation of the in-in formalism.
+    - Coming from part iii level, a derivation of the tree-level in-in formalism.
     - Calculate the interaction Hamiltonian
-        - Through the simpler (and more observationally relevant) form of the self-interactions.
-        - (i.e. neglecting the metric perturbations.)
+        - Through the self-interactions, i.e. neglecting the metric perturbations.
         - Discuss DBI, then $P(X, \phi)$.
-        - Lit-review of the Maldacena calculation.
+        - Review of the Maldacena calculation, with metric perturbations.
         - Discuss field-redefinition being unnecessary, as per 1103.4126.
     - Examples of shapes, using $K_{pq}$ notation (link to Enrico's sym polys?)
         - Maldacena, DBI
         - $P(X, \phi)$, EFT
         - Features, with explicit details of how resonance and features generate large NG. 
     - F&RP's work
-        - Summary of the achievements and limitations.
+        - Summary of the achievements and limitations, how I went beyond them.
     - Previous config-by-config codes
         - Their limitations.
         - Their usage in recent works.
@@ -97,8 +95,8 @@ Thesis Outline
         - Easier to interpret, more stringent.
         - Notes on observable convergence being the deciding factor.
     - Template testing
-        - Need to understand expected convergence before validation. 
-    - Decomposing shapes on the cube vs tetra
+        - Need to understand expected convergence before validation on numerical results.
+    - Decomposing shapes on the cube vs tetrapyd
         - Large non-physical contributions.
         - FIGURE: DBI on cube vs tetra.
     - Setting up a basis: augmentation
@@ -108,7 +106,7 @@ Thesis Outline
         - Why the basic basis expansion is so bad.
         - My new basis sets, and their dramatic improvement.
         - Nice table with descriptions and some single-number comparison on examples.
-        - FIGURES: Recon for Malda, DBI, scale-inv, with P0, P1, F0, F1 vs $P_{max}$
+        - FIGURES: Recon for Malda, DBI, scale-inv, with P0, P1, F0, F1 vs $P_{max}$.
         - FIGURES: Recon for cos, cosDBI, with P0, P1, F0, F1 vs $P_{max}$.
         - FIGURES: Recon for cos-log, cos-logDBI, with P0, P1, F0, F1 vs $P_{max}$.
         - FIGURES: Recon for scaled-DBI, with P0, P1, P1ns, P01ns, P_log vs $P_{max}$.
@@ -117,11 +115,16 @@ Thesis Outline
     - Log basis for basis without PS info.
     - Loginv basis for resonant shapes.
     - Factor basis?
-    - Conclusion: the log basis is good!
+    - Conclusion:
+        - Basic Legendres/Fourier are not sufficient.
+        - Need to pay attention to the cube.
+        - Including 1/k terms helps massively.
+        - The log basis performs excellently, without being tied to a specific $n_s$.
 
 
 4. **Methods and Validation**
-    - Numerics of mode evolution ($\tau_s$)
+    - Numerics of mode evolution
+        - $tau_s$
         - When to set IC's for each mode.
         - Swapping variables.
         - Freeze-out.
@@ -161,14 +164,14 @@ Thesis Outline
             - FIGURE: residual for...
     - Speed comparison vs PyTransport. Something BINGO can't do?
     - Map distinguishability of templates at primordial level
-        - To determine where to usefully scan.
+        - Determine where to usefully scan.
     - Conclusion:
         - My methods (and their implementation) have been validated on interesting examples.
         - Have successfully developed separable methods for high orders and features for the first time.
         - Can obtain full shape info far faster than previous numerical methods.
         
 
-5. **Constraints** 
+5. **Constraints TO DO** 
     - With either CMB-BEst, or James' coeffs, or both. 
     - Compare convergence at primordial level to convergence at $f_{NL}$ level
         - Talk about Wuhyun's work.
