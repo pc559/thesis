@@ -1,33 +1,13 @@
-To Do
------
-- Implement more realistic DBI scenario (e.g. 0710.1812, 1103.4126, 1801.02187).
-- Efficient basis choices for features (different for linear vs log osc?).
-- Explore factor basis.
-- $c_s^{DBI}$ constraint:
-    1. Reproduce *Planck* result using decomposed template.
-        1. Via CMB-BEst (coeffs sent to Wuhyun, though he is busy writing).
-        2. Via James' basis (need to learn how to use James' code).
-    2. Sharpen constraint with more realistic Primodal scale/shape-dependence.
-        1. Via CMB-BEst (coeffs sent to Wuhyun, though he is busy writing).
-        2. Via James' basis (need to learn how to use James' code).
-- Find other inflation parameters to target and constrain.
-- EFT time dependence?
-
-Thesis Writing Options
---------------
-1. I begin thesis writing now, but do a bit more research when Wuhyun is available again.
-2. I explore efficient feature basis for $k_{ratio}=1000$ **(question - what $k_{ratio}$ is James' code implemented for?)**, do some scans, then start writing.
-
 Thesis Outline
 --------
 0. **Abstract**
     - Goal: connecting inflation models directly to observations, through the bispectrum
         - Constraining the parameters of inflation models, not pheno templates ($f_{NL}$ etc).
         - Full shape information, not point samples or a limit.
-        - Efficient numerics gives access to more accurate, and in some cases effectively new, feature shapes.
+        - Efficient numerics gives access to more accurate, and in some cases new, feature shapes.
     - Method: building separability into the tree-level in-in formalism
-        - CMB calculation expensive, but need only be done once per basis.
-        - So, want a basis expansion that converges quickly for a broad range of models.
+        - CMB calculation expensive, but need only be done once per primordial basis.
+        - So, want a basis expansion that converges quickly for a broad range of inflation models.
         - Convergence on the cube is different to the tetrapyd.
         - Turns out to be much faster at primordial level than previous numerical methods.
     - Results:
@@ -36,7 +16,7 @@ Thesis Outline
         3. Found a basis with broad descriptive power.
         4. Validated these methods on interesting examples.
         5. Explore and characterise DBI reso model TBC??
-        6. Connected to CMB, got constraints TBC??
+        6. Connect to CMB, get constraints TBC??
 
     
 1. **Introduction to cosmology/inflation**
@@ -182,7 +162,7 @@ Thesis Outline
 
 6. **Future Work/Conclusions** 
     - Further SF constraints
-        - (Depending on what gets done)
+        - (Depending on what gets done.)
     - Multi-field
         - Specific models, parameter goals.
         - Notes on implementation.
