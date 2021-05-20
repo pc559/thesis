@@ -1,4 +1,52 @@
-\chapter{The separable in-in calculation}
+\chapter{Methods and Validation}
+\section{Numerics of mode evolution}
+    \subsection{$tau_s$}
+    \subsection{When to set IC's for each mode.}
+    \subsection{Swapping variables.}
+    \subsection{Freeze-out.}
+\section{Integration choices}
+    \subsection{The $i\varepsilon$ prescription}
+    \subsection{Expand on what F\&RP wrote.}
+    \subsection{Suppression from plane wave expansion (intuition).}
+\section{Starting the integration with a pinch}
+    \subsection{When to start.}
+    \subsection{Show how easy it is to swamp the result with a sharp start.}
+    \subsection{FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T).}
+\section{Oscillatory weights}
+    \subsection{When to swap.}
+    \subsection{Validation.}
+\section{Stopping the integration}
+    \subsection{A note on boundary terms and difficult (time-dep) cancellations.}
+\section{The interaction Hamiltonian}
+    \subsection{Using integration by parts from RP paper.}
+\section{Set-up of DBI example scan}
+    \subsection{Matching $A_s$, $n_s$, $r$, $N*$, using $\beta_{IR}$ etc.}
+\section{Going to high $P_{max}$}
+    \subsection{How high can I go, in terms of Planck $w$?}
+    \subsection{How high can I go, in terms parameters that can't be compared to Planck?}
+\section{Validation (on numerical results)}
+    \subsection{FIGURE: the various tetrapyd limits.}
+    \subsection{Maldacena quadratic SR}
+    \subsubsection{FIGURE: residual for...}
+    \subsection{DBI}
+    \subsubsection{FIGURE: residual for...}
+    \subsection{Tanh step}
+    \subsubsection{FIGURE: residual for...}
+    \subsubsection{FIGURE: PyTransport comparison, scan across step size.}
+    \subsection{Resonance}
+    \subsubsection{FIGURE: residual for...}
+    \subsubsection{FIGURE: PyTransport time comparison.}
+    \subsection{DBI resonance}
+    \subsubsection{FIGURE: residual for...}
+\section{Speed comparison vs PyTransport. Something BINGO can't do?}
+\section{Map distinguishability of templates at primordial level}
+    \subsection{Determine where to usefully scan.}
+\section{Conclusion}
+    \subsection{My methods (and their implementation) have been validated on interesting examples.}
+    \subsection{Have successfully developed separable methods for high orders and features for the first time.}
+    \subsection{Can obtain full shape info far faster than previous numerical methods.}
+        
+        
 \section{Abstract}\label{sec:abstract}
 Calculating the primordial bispectrum predicted by a model of inflation and
 comparing it to what we see in the sky is very computationally intensive, necessitating layers
