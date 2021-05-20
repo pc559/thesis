@@ -2,14 +2,639 @@
 \chapter{Decomposing primordial shapes}
 \section{Pulling out the $k$-dependance}
     \subsection{Set up formalism.}
+    Given its separable form, the tree-level in-in formalism is amenable
+to more efficient calculation using separable modes, as first mentioned in~\cite{Funakoshi}.
+That work extended the separable methodology previously implemented for the CMB bispectrum~\cite{FergShell_3}.
+Our goal in this work is the efficient calculation of more general bispectra
+which may have significant (possibly oscillatory) features, requiring searches across free parameter dependencies.
+To achieve this, we represent the shape function~\eqref{shapefn} using a set of basis functions as
+\begin{align}\label{goal}
+S(k_1, k_2,k_3) &= \sum_n \alpha_n  \, Q_n(k_1,k_2,k_3)\,,
+\end{align}
+where the basis functions $Q_n(k_1,k_2,k_3)$ are explicitly separable functions of their arguments.
+Translating this result into a constraint from the CMB
+will require a large once-off computational cost, paid once
+per set of basis functions $Q_n$,
+not per scenario (encoded in $\alpha_n$).
+The details of this once-per-basis calculation will be
+presented in~\cite{Sohn_2020}.
+As such, while the general computational steps we
+describe will be independent of the basis, it is vital we
+explore possible sets of basis functions $Q_n(k_1,k_2,k_3)$
+and their effects on convergence;
+we do this in section~\ref{sec:choice_of_basis}.
+In section~\ref{sec:setting_notation} we set the notation we will use to recast
+the standard numerical in-in calculation into a calculation of $\alpha_n$,
+and sketch the steps involved.
+In section~\ref{sec:h_int} we outline the details of the interaction Hamiltonian,
+including accounting for the spatial derivatives in our final result.
+In section~\ref{sec:k_dep} we make precise the numerical considerations
+of the calculation,
+especially our methods of dealing with the high-frequency
+oscillations at early times.
+
     \subsection{Forced to decompose on the cube.}
     \subsection{Defining the notation for the two main time integrals.}
+    In this section we set up the notation, and sketch the steps required to calculate the
+coefficients $\alpha_n$ in~\eqref{goal}.
+The values of these coefficients will depend on the choice
+of basis, but the description of the methods below will remain mostly basis agnostic.
+Our aim will be to separate out the dependence on $k$ and $\tau_s$,
+without losing information, except in the sense that is controlled by $\Pmax$.
+We will set up an efficient numerical implementation of the calculation,
+a necessary consideration to allow this method to be useful in exploring
+parameter spaces in primordial phenomenology.
+Throughout we will see that we are able to preserve the
+separability of the dependence on $k_1$, $k_2$ and $k_3$.
+
+
+The tree-level in-in formalism for the bispectrum~\eqref{in-in} is inherently separable given
+the form of the cubic interaction Hamiltonian $H_{\rm int}$.
+Consider indexing with ${i=1,2,3...}$ the interaction vertices in $H_{\rm int}$,
+so then the bispectrum~\eqref{in-in} can be expressed as a sum over separable contributions of the form:
+
+
+\begin{eqnarray}\label{inin_sep}
+S(k_1, k_2,k_3) &=& \sum_i I^{(i)} (k_1, k_2,k_3)\nonumber \\
+    &=& \sum_i \bigg[ v^{(i)}(k_1, k_2,k_3) \int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau) F^{(i)}(\tau,k_1)\, G^{(i)}(\tau,k_2)\,J^{(i)}(\tau,k_3)\nonumber\\
+    &&\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad+ \text{cyclic perms}  \bigg] 
+\end{eqnarray}
+where $w^{(i)}(\tau)$ is a function of the scale factor and the other background parameters~\eqref{slowrollparams} for the $i$-th interaction vertex, while the terms $F^{(i)}, G^{(i)}, J^{(i)}$ are given by the Fourier mode functions $k^2\zeta_{\bf k}(0)\zeta^{*}_{\bf k}(\tau)$ or their time derivatives $k^2\zeta_{\bf k}(0)\zeta^{*'}_{\bf k}(\tau)$.
+Spatial derivative terms, such as  $\partial_i \zeta\, \partial_i\zeta \longrightarrow ({\bf k_2}\cdot {\bf k_3} )\zeta_{{\bf k}_2}^*(\tau)\, \zeta_{{\bf k}_3}^*(\tau)$ also separate because of the triangle condition~\eqref{triangle_condition} giving  ${\bf k_2}\cdot {\bf k_3} = (k_1^2 - k_2^2-k_3^2)/2$, yielding a sum of separable terms.
+These time-independent contributions are contained in $v^{(i)}(k_1, k_2,k_3)$,
+as they do not force us to compute extra time integrals.
+Note that $v^{(i)}(k_1, k_2,k_3)$ need not be symmetric in its arguments.
+
+The terms contained in $v^{(i)}(k_1, k_2,k_3)$ depend on the structure of the spatial derivatives in the interaction Hamiltonian,
+but not the specific scenario. These terms are separable; for details, see section~\ref{sec:h_int}.
+We include their contribution to the final result after the time integrals have been computed.
+The factors which depend only on time, $w_i(\tau)$, depend on the scenario
+but do not need to be decomposed in $k$.
+The remaining factors have both $k$ and time dependence;
+they must be decomposed in $k$ at every timestep.
+These terms look like $F^{(i)}(k, \tau) = k^{2} \zeta_{\bf k}(0)\zeta_{\bf k}^*(\tau)$
+(or $k ^{2} \zeta_{\bf k}(0){\zeta_{\bf k}^*}'(\tau)$),
+where $k^2$ comes from using the weighting of the scale-invariant shape function~\eqref{shapefn}.
+This could be absorbed into $v^{(i)}(k_1, k_2,k_3)$, but we have the freedom to keep it here to aid convergence.
+
+If the expressions being expanded have some known pathology in their $k$-dependence,
+we can then see two ways of dealing with this.
+The basis can be augmented to efficiently capture the relevant behaviour
+(see section~\ref{sec:choice_of_basis})
+or the behaviour can be absorbed into the analytic prefactor, $v^{(i)}(k_1, k_2,k_3)$.\footnote{At early times the modes are highly oscillatory in both $k$ and $\tau_s$, which certainly requires special attention.
+We discuss this in section~\ref{sec:k_dep}.}
+We use the former, as the numerics of the latter are less transparent
+and less physically motivated.
+
+The internal basis used for the decomposition at each timestep need not match that
+which is used for the final result,
+and indeed in dealing with the spatial derivatives in section~\ref{sec:h_int}
+we will find it useful to change to a different basis than the one used to perform the
+time integrals of the decompositions.
+
+Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example for the first interaction term in~\eqref{interaction_loc}, i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$, takes the form
+\begin{align}\label{inin_example}
+    F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau} \, , \qquad\,
+    J^{(1)}(\tau,k) ~=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
+\end{align}
+In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.   However, for high precision bispectrum predictions we must incorporate the full time-dependence, while solving~\eqref{modefneqn} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.  Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$, a problem which is drastically compounded by bispectrum parameter searches e.g. for oscillatory models. 
+
+Consider representing the primordial shape function $S(k_1, k_2, k_3)$ in~\eqref{inin_sep} as
+a mode expansion for each interaction term $I^{(i)}(k_1, k_2,k_3)$ as
+\begin{align}\label{modeexp}
+S(k_1, k_2,k_3) &= \sum_i I^{(i)}(k_1,k_2,k_3) =  \sum_i \sum_n \alpha_n^{(i)}  \, Q_n(k_1,k_2,k_3)\,,
+\end{align}
+where $Q_n(k_1,k_2,k_3)$ is separable, built out of some
+orthonormal set $q_p(k)$ as in~\eqref{modes3d}.
+Armed with this set of modes,
+we can expand any of the interaction terms $F^{(i)}(\tau, k)$, $G^{(i)}(\tau, k)$, $J^{(i)}(\tau, k)$
+in~\eqref{inin_sep} as:
+\begin{align}
+    F^{(i)}(\tau, k) &= \sum _p f_p^{(i)} (\tau) \, q_p(k)\,,\label{mode1Dcoeffs_sum}\\
+    \text{where} \quad f_p^{(i)} (\tau)  &= \int _\kmin^\kmax dk \,F^{(i)}(\tau, k) \, q_p(k) \,.\label{mode1Dcoeffs_integral}
+\end{align}
+Note that in the simple mode approximation, as in~\eqref{inin_example},
+we must expand $e^{ic_{\rm s} k\tau}$ in the terms of the $q_p(k)$.
+At early times $\tau$ is large, so in $k$ this is highly oscillatory.
+This creates two problems. Firstly, this seems to require many samples
+in $k$ to accurately calculate each $f_p^{(i)} (\tau)$,
+adding more modes that must be evolved in time.
+To bypass this, we extract the oscillatory part at
+early times, reducing the number of needed
+$k$-samples; see section~\eqref{sec:k_dep} for details.
+Secondly, it forces us to calculate $f_p^{(i)} (\tau)$
+up to very high $p$ if we want to accurately converge to $F^{(i)}(\tau, k)$,
+for sets of basis functions such as the Legendre polynomials.
+In fact, obtaining a convergent final bispectrum result
+does not require calculating the full convergent sum
+for $F^{(i)}(\tau, k)$ in~\eqref{mode1Dcoeffs_sum},
+as the highly oscillatory parts will cancel in the time integrals
+for any sufficiently smooth $S(k_1,k_2,k_3)$.
+
+Substituting these expansions into~\eqref{inin_sep}, we obtain the following decomposition for the $i$-th vertex contribution,
+\begin{eqnarray}\label{inin_kdep}
+    &&I^{(i)}(k_1,k_2,k_3)\nonumber\\
+    &=& v^{(i)}(k_1, k_2,k_3)\int d\tau\, w^{(i)}(\tau)\, \sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\nonumber\\	
+	&=& v^{(i)}(k_1, k_2,k_3)\sum_{prs}\left(\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\right)\threeqs + \text{cyclic perms}\nonumber\,.
+\end{eqnarray}
+For the sake of compactness we use $P$ to stand for the triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
+Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
+we continue,
+\begin{eqnarray}\label{inin_kdep}
+    I^{(i)}(k_1,k_2,k_3) & =& v^{(i)}(k_1, k_2,k_3) \sum_{P} \tilde{\alpha}_{P}^{(i)}\,  q_{P}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
+    & =& \sum_{P} \tilde{\alpha}_{P}^{(i)}\sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
+    & =& \sum_{\tilde{P}} \alpha_{\tilde{P}}^{(i)}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms} \,,
+\end{eqnarray}
+where we have written
+\begin{eqnarray}\label{inin_kindep}
+\tilde{\alpha}_P^{(i)} =  \tilde{\alpha}_{prs}^{(i)} 	= \int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau) \,g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\,,
+\end{eqnarray}
+and included the time-independent $k$-prefactors from the interaction Hamiltonian by writing
+\begin{eqnarray}\label{V_definition}
+    v^{(i)}(k_1, k_2,k_3)q_P(k_1,k_2,k_3) &=& \sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}q_{\tilde{P}}(k_1,k_2,k_3)\,,
+\end{eqnarray}
+and
+\begin{eqnarray}
+    \alpha_P^{(i)} = \sum_{\tilde{P}} \tilde{\alpha}_{\tilde{P}}^{(i)}V^{(i)}_{\tilde{P}P}.
+\end{eqnarray}
+We connect to the coefficients of the ordered, symmetrised basis in~\eqref{modeexp} by taking the symmetry factor into account,
+\begin{eqnarray}
+    \alpha_n^{(i)} = \frac{3!}{\Xi_P}\alpha_P^{(i)}.
+\end{eqnarray}
+The numerical calculation of $V^{(i)}_{P\tilde{P}}$ (as defined by~\eqref{V_definition}) is highly efficient as $v^{(i)}(k_1, k_2,k_3)$
+is a sum of separable terms. The details of these terms
+depend only on the spatial derivatives in the interaction Hamiltonian, not the scenario being
+considered, so the matrix can be precomputed and stored.
+Note that this is not the only way one can organise this calculation to
+explicitly preserve the separability. One could also include the contributions
+coming from the spatial derivatives first, decomposing (as in~\eqref{mode1Dcoeffs_sum}) not only terms
+like $k^{2} \zeta_{\bf k}(0)\zeta_{\bf k}^*(\tau)$, but also terms that include
+each power of $k_1$, $k_2$ or $k_3$ that appears in $v(k_1,k_2,k_3)$. The index $i$
+in the sum in~\eqref{modeexp} would then run over not only each vertex in the interaction
+Hamiltonian, but also each separable term within those vertices.
+We do not choose this path as, for the sake of efficiency, we wish to minimise the
+number of time integrals of the form~\eqref{inin_kindep} we need to calculate.
+
+
+Note the basis sets on the left and right hand side of~\eqref{V_definition}
+need not match. In fact, if those two basis sets do match, then generically information
+will be lost---for example, if the basis set on the left is $\Lbasic$, then terms
+in $v^{(i)}(k_1,k_2,k_3)$ with positive powers will introduce higher order
+dependencies on $k$, and negative powers will introduce $1/k$ behaviour. In
+practice, to prevent this loss of information, we take the basis set on the right hand
+side of~\eqref{V_definition} to be an expanded version of that on the left. For
+example, if the left hand basis was $\Lbasic$ of size $\Pmax$, the right hand basis would
+be $\Linvk$ of size $\Pmax+3$.
+
+
+We can see from~\eqref{inin_kindep} that the number of time integrals needed is controlled by
+$N_V\times\Pmax^3$\footnote{In fact the number is not quite $\Pmax^3$.
+Since we have extracted the spatial derivatives, the only remaining
+possible source of asymmetric $k$-dependence
+comes from $\zeta^3$, $\zeta^2\zeta'$, $\zeta'^2\zeta$ or $\zeta'^3$
+so the time integral in~\eqref{inin_kindep} will always be (at least) symmetric in $p$ and $r$. },
+where $N_v$ is the number of interaction vertices
+and $\Pmax$ is the size of the final basis.
+Since the calculational cost of doing the internal decompositions depends only
+linearly on the size of internal basis, improvements there are dwarfed by improvements
+gained from reducing the number of terms needed in the final basis.
+
+
+We will calculate the contribution of each $\Hint$ vertex separately,
+indexing the vertices as above by $(i)$, so the overall shape function~\eqref{inin_sep},~\eqref{modeexp} is then simply
+\begin{eqnarray}\label{shapemodeexp}
+    S(k_1, k_2,k_3) =   \sum_n \left(\sum_i \alpha_n^{(i)}\right) \, Q_n(k_1,k_2,k_3) =  \sum_n \alpha_n \, Q_n(k_1,k_2,k_3) \,.
+\end{eqnarray}
+Depending on the scenario,  some vertex contributions will converge faster than others 
+or be completely negligible;
+for efficiency the maximum modal resolution defined by $\Pmax$ can be allowed to be different
+for each vertex.  
+ 
+
+The raison d'etre for this approach is that all time integrals~\eqref{inin_kindep} are now independent of the $k$-configuration\footnote{
+    They are not independent of $\kmin$ and $\kmax$ which define the domain of interest,
+    which is analogous to the coefficients of a Taylor expansion depending on its expansion point.
+}.
+In a configuration-by-configuration method one improves the precision by
+decreasing the spacing which defines the density of the grid of points within the tetrapyd.
+Instead, in the modal approach, we increase precision by adding more modes to the shape function expansion~\eqref{shapemodeexp}
+until the result converges at high precision.   At first sight, this appears to increase the dimensionality of the calculation.
+Directly integrating the in-in formalism requires one time
+integration for each $k$-configuration, i.e. $N_k^3$ integrals, ignoring symmetry.
+The method detailed here requires decomposing the modes,
+then a time integral for every coefficient, i.e. $\Pmax^3$ integrals
+(again ignoring symmetry) plus the decomposition.
+However for every model we have explored from the literature,
+our expansion in $\Pmax$ converges far faster than in the number of
+$k$-modes that would be required to have confidence in a sampled bispectrum.
+This is clear in smooth bispectra such as~\eqref{malda_shape} and~\eqref{dbi_shape},
+but is also true of bispectra with complicated features,
+as seen in section~\ref{sec:choice_of_basis}.
+
+To be efficiently connected to a late-time observable
+a sampled bispectrum would have to be fit by a smooth template,
+a complication that is automatically taken care of in this formalism.
+We note that while the primordial basis is chosen for computational speed and convenience, it can be 
+independent of the final bispectrum basis employed for observational tests; a change of basis $Q_n\rightarrow \tilde Q_n$ can be achieved through a linear transformation $\Gamma$ with the new expansion coefficients given by $\tilde \alpha_m = \Gamma_{mn}\alpha_n$. 
+
+
+Discussion of convergence in this work is considered only at the primordial level,
+with no concept of the signal to noise of an actual experiment.
+There could be a basis that converges faster in some observationally weighted sense,
+efficiently describing the primordial modes which will matter most at late times.
+We leave discussion of this point to a later work, as converting between the two,
+after the in-in computation is completed, is trivial.
+
+
+Having now set our notation and outlined the calculation, in the following sections we
+discuss the actual numerical implementation of these methods.
 \section{Inner product choice}
+The inner product of two bispectrum shape functions is given by 
+\begin{align}
+    S_1\cdot S_2  = \langle S_1\,, S_2 \rangle = \int_{T_k} d^3k \: S_1(k_1,k_2,k_3) \: S_2(k_1,k_2,k_3)\,,\label{inner_prod}
+\end{align}
+where $T_k$ refers to the tetrapyd, the region of the cube $[\kmin,\kmax]^3$ that obeys the triangle inequality.
+Following~\cite{hung_1902}
+we define the two correlators:
+\begin{align}
+    \shapecor(S_1,S_2) = \frac{S_1\cdot S_2}{\sqrt{(S_1\cdot S_1)(S_2\cdot S_2})}\,, \qquad\quad 
+\ampcor(S_1,S_2) = \sqrt{\frac{S_1\cdot S_1}{S_2\cdot S_2}}\,.
+\end{align}
+Here, we refer to $\shapecor(S_1,S_2)$ as the shape correlator between the two bispectra;
+$\ampcor(S_1,S_2)$ is the amplitude correlator.
+In principle, we could add some observationally motivated weighting
+to the above measure, as considered in~\cite{FergShell_1,FergShell_2,FergShell_3},
+but in this work we restrict ourselves to accurately calculating the
+full primordial bispectra, weighting each configuration equally.
+
+Writing $|S|^2=S\cdot S$,
+we can then re-express a measure of the relative error
+between one bispectrum template and another:
+\begin{align}\label{relative_difference}
+\totalcor(S_1,S_2) &= \sqrt{\frac{|S_1-S_2|^2}{|S_2|^2}}  = \sqrt{\frac{|S_1|^2-2S_1\cdot S_2+|S_2|^2}{|S_2|^2}}\nonumber\\
+	   &= \sqrt{\ampcor(S_1,S_2)^2-2\ampcor(S_1,S_2)\shapecor(S_1,S_2)+1}.
+\end{align}
+This error measure takes into account differences in overall magnitude as well as shape.
+If we are only interested in comparing the differences coming from the shape,
+we can scale the bispectra so that $\ampcor(S_1,S_2)=1$ and so
+\begin{align}\label{relative_difference_scaled}
+    \totalcor(S_1,S_2) = \sqrt{2(1-\shapecor(S_1,S_2))}.
+\end{align}
+With this measure of relative difference, a shape correlation of $0.9$ corresponds to an error of $45\%$,
+a shape correlation of $0.99$ corresponds to an relative difference of $14\%$,
+a shape correlation of $0.999$ corresponds to an relative difference of $4\%$.
+Thus this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better representation of actual convergence  between two shape functions
+than the correlation used in~\cite{Funakoshi}.
+We will use this measure to test the accuracy and efficiency of our basis expansion
+in reconstructing the standard templates, and later to quantify the convergence
+of our validation examples in section~\ref{sec:validation}.
+In that section we also plot residuals on slices through the tetrapyd,
+relative to the representative value
+\begin{align}\label{rep_val}
+    \sqrt{\frac{S\cdot S}{\int_{T_k} d^3k}}.
+\end{align}
+
+The squeezed limit of canonical single-field bispectra will not cause
+observable deviations from a Gaussian universe,
+due to a cancellation when switching to physical coordinates~\cite{Cabass_2016}.
+Here, we will only consider primordial phenomenology
+in comoving coordinates, so despite this cancellation,
+the squeezed limit is still a useful validation test of our results,
+using the standard single-field squeezed limit consistency condition~\cite{sqz_consistency,not_so_sqz}.
+With $\mathbf{k_S}\equiv\left(\mathbf{k_2}-\mathbf{k_3}\right)/2 $:
+\begin{align}\label{eq:sqz_consistency}
+    S(k_1,k_2,k_3) = -\left[(n_s-1)|_{k_S}+\mathcal{O}\left(\frac{k_1^2}{k_S^2}\right)\right]P_{\zeta}(k_1)P_{\zeta}(k_S),
+\ \ \  k_1\ll k_S
+\end{align}
+where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
+That the error in the consistency relation decreases at least quadratically
+in the long mode was shown in~\cite{not_so_sqz}.
     \subsection{Easier to interpret, more stringent.}
     \subsection{Notes on observable convergence being the deciding factor.}
 \section{Template testing}
     \subsection{Need to understand expected convergence before validation on numerical results.}
 \section{Decomposing shapes on the cube vs tetrapyd}
+We begin our methods discussion by exploring possible sets of separable
+basis functions $Q_n(k_1,k_2,k_3)$
+for use in the expansion~\eqref{goal}.
+Whether the goal is to explore primordial phenomenology or for direct comparison with observations,
+the convergence of our basis set will determine the efficiency and practicality
+of our methods.
+We shall consider constructing the separable basis functions $Q_n(k_1,k_2,k_3)$
+out of symmetrised triplet products of normalized one-dimensional modes $q_p(k)$ as
+\begin{align}\label{modes3d}
+    Q_n(k_1,k_2,k_3) \;\equiv\; {\Xi_{prs} } \, q_{(p} (k_1) \, q_{r}(k_2)\, q_{s)}(k_3)\,.
+\end{align}
+Here,  $n$ labels the ordered integer triplet $n \leftrightarrow \{p r s\}$ in an appropriate manner (see some ordering alternatives in~\cite{FergShell_3}), while the symmetrised average of all $\{p r s\}$ permutations is 
+\begin{align}\label{modes3d}
+    q_{(p}q_{r}q_{s)}\equiv(1/3!)\sum_\text{perms}q_{p}q_{r}q_{s}\qquad \text{and} \qquad 
+     \Xi_{prs}= 
+     \begin{cases}
+     1, & p = r = s ~~~\text{all equal},\\
+     \sqrt{3} & \{p r s\} ~~\text{any two equal,} \\
+     \sqrt{6} & \{p r s\}  ~~\text{all  different.}
+     \end{cases}
+\end{align}
+Unless stated otherwise, the $\{prs\}$ triples for each permutation set $n$
+in~\eqref{modes3d} are represented by the coefficient with $0\le p\le r\le s$,
+that is, $\alpha_n = \alpha_{prs} \equiv \alpha_{(prs)}$.
+This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$. 
+Given the basis-agnostic methods we shall outline in the following 
+sections~\ref{sec:setting_notation},~\ref{sec:h_int} and~\ref{sec:k_dep},
+we are free to choose our set of basis functions to optimise for efficient convergence,
+ensuring our results are useful for comparison with observations. 
+There are a wide variety of options available, such as polynomial bases
+or Fourier series, that can be chosen for the $q_p(k)$.
+While not strictly necessary for the method, it is more convenient if 
+the resulting 3D basis functions $Q_n(k_1,k_2,k_3)$
+are orthogonal on the cubic region of selected wavenumbers, making it much more straightforward to obtain controlled convergence. Overall, then, rapid convergence is the key criterion in choosing the basis functions $q_p(k)$ in~\eqref{modes3d}, thus determining the nature of the numerical errors in the calculated bispectrum.
+However, since we are going beyond the featureless examples of~\cite{Funakoshi}
+this matter deserves considerable care and close attention.
+Ideally we would have a three-dimensional basis that can efficiently
+capture a wide variety of shapes on the tetrapyd, with relatively few modes.
+In this work we aim for basis functions that work well in a wide variety of scenarios,
+so we endeavour to use as little specific information as possible
+(e.g.\ guessing the frequency of bispectrum oscillations from
+the power spectrum of a given scenario), though we
+will allow ourselves to use a representative value
+of the scalar spectral index, $n_s^{*}$.   It is worth emphasising that a major advantage of the flexibility of the basis
+in the methods detailed in the following sections is the ease with which
+the basis can be modified to yield drastic increases in 
+the rate of convergence at the primordial level, for the purposes of
+exploring primordial phenomenology.
+
+
+In this section we will use some standard templates to investigate different possible sets of basis functions.
+An important issue is that when leveraging the separability of the in-in formalism,
+we are essentially forced to expand the shape function on the entire cube ${[\kmin,\kmax]}^3$.
+This is because the only decomposition we actually perform is
+a one-dimensional integral over $[\kmin,\kmax]$
+(as we will see in~\eqref{mode1Dcoeffs_integral}).
+With a uniform weighting, this integral does not know anything about the 
+distinction between the tetrapyd and the cube.
+This is important as it means the non-physical configurations outside the tetrapyd will affect the convergence of our result on the tetrapyd, the region where we require efficient convergence.
+To mimic this in testing our sets of basis functions, each shape will be decomposed on the
+entire cube, but the quoted measures of convergence will be between the shape
+and its reconstruction on the tetrapyd only (unless stated otherwise).
+
+For a shape like~\eqref{malda_shape} the non-physical off-tetrapyd configurations
+will not have a large effect, as the bispectrum on the faces of the cube is comparable
+to the bispectrum in the squeezed limit of the tetrapyd.
+On the other hand, for a shape of the equilateral type such as~\eqref{dbi_shape},
+this effect can be disastrous if not handled properly.
+This can be easily seen from~\eqref{equil_shape}, in the limit of small $k_3$.
+The triangle condition in that limit enforces ${(k_2-k_1)^2\leq k^2_3}$.
+This implies that ${0\leq k^2_3-(k_2-k_1)^2\leq k^2_3}$,
+forcing the shape to go to zero in that limit despite the $k_3$
+in the denominator.
+On the non-physical part of the face, $k_2-k_1$ is not small,
+and so the shape is boosted by $1/k_3$ relative to the equilateral configurations.
+These regions then dominate any attempted basis expansion.
+To overcome this problem, as we shall discuss, we will extend our basis to explicitly include this $1/k$ behaviour\footnote{
+    There are results in the literature that describe
+    generic $K=k_1+k_2+k_3$ poles
+    in correlators---see for example~\cite{cosmo_bootstrap}.
+    A simple example can be understood by recalling that
+    in standard calculations using the in-in formalism, the $i\varepsilon$ prescription
+    is used to damp out contributions in the infinite past.
+    This does not work for $K=0$. While the resulting
+    divergence (in $K$) is clearly outside the physical region of the tetrapyd,
+    we will see its effects in the physical configurations.
+    Given that this three-dimensional behaviour is generic, one might worry that we should
+    take more care in building it into our one-dimensional basis.
+    However, the excellent convergence in
+    section~\ref{sec:validation}
+    shows that $\Linvk$ and $\Lnsboth$ can capture this behaviour well,
+    and that this worry is unwarranted.
+    In fact, since this behaviour comes from the oscillations
+    at early times, observing this behaviour is a useful
+    check on our results.% in section~\ref{sec:validation}.
+}.
+
+To date the most useful starting choice for modal bispectrum expansions has been shifted Legendre polynomials $P_r(x)$:
+\begin{align}\label{P0_definition}
+    q_{r}(k) = \left(\frac{2r+1} {\kmax - \kmin}\right)^{1/2} P_r(\kbar)\,,\qquad 
+\end{align}
+with a rescaling of the argument $\kbar$ to ensure the wavenumber $k$ falls within the chosen (observable) domain $\kmin< k<\kmax$, that is, 
+\begin{align}\label{krescaled}
+    \kbar=\frac{2k-\kmax-\kmin}{\kmax-\kmin}\,.
+\end{align}
+We shall label as $\Lbasic$ the basis function set of pure Legendre polynomials in~\eqref{P0_definition},
+with $r=0,1,\dots, p_{\rm max}\text{$-$}1$.
+These were considered also in~\cite{Funakoshi}, however,
+while they prove to be particularly functional building blocks for other modal applications,
+in the context of the in-in formalism
+they converge so slowly even for simple shapes as to be inadequate when taken on their own.
+This poor rate of convergence with $\Lbasic$ for two local- and equilateral-type shapes is shown in figure~\ref{fig:recon_malda_dbi}.
+It is due to the $1/k$ behaviour inherent in these shapes,
+which is compounded in the equilateral models by pathologies exterior to the tetrapyd,
+as we have discussed.
+We can mitigate against this by including a basis function to capture this $1/k$ behaviour, 
+\begin{align}\label{P1_definition}
+    q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k}\right]\,, ~~ \quad \text{with} \quad  \Linvk = \{ q_r(k) ~\vert~ r= 0, 1,2, \dots , p_{\rm max}\}\,,
+\end{align}
+where $\text{Orth}$ represents the projection orthogonal to the original Legendre polynomial basis $\Lbasic$.
+As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
+
+The two basis function sets actually used in~\cite{Funakoshi} to calculate primordial bispectra were as follows.
+The first was the Legendre polynomials taken with a log-mapping
+between $k$ and the polynomial argument as 
+\begin{align}\label{Pln_definition}
+    q_{r}(k) = \left(\frac{2r+1} {\ln\kmax - \ln\kmin}\right)^{1/2} P_r\left(\overline {\ln k}\right)\quad~ \text{with}\quad~ \overline {\ln k}=\frac{2\ln k-\ln\kmax-\ln\kmin}{\ln\kmax-\ln\kmin}\,.
+\end{align}  
+The second basis was implicitly mentioned in a reference to the possibility of multiplying the functions
+to be decomposed by $k$, and dividing that factor out when evaluating
+the result.
+In our language, this is equivalent to working with an unnormalised 
+basis set of
+the Legendre polynomials divided by $k$:
+\begin{align}\label{Pinv_definition}
+        q_{r}(k) = \left(\frac{2r+1} {\kmax - \kmin}\right)^{1/2} \frac{P_r(\kbar)}{k}\,,
+\end{align}
+where the rescaled $\kbar$ is defined in \eqref{krescaled}.
+This can also be thought of as expanding the bispectrum $k_1k_2k_3\,S(k_1,k_2,k_3)$ in $\Lbasic$,
+instead of the shape function $S(k_1,k_2,k_3)$ itself. The consequence is that neither~\eqref{Pln_definition} nor~\eqref{Pinv_definition}
+are orthogonal with respect to the flat weighting of the inner product~\eqref{inner_prod}.   However, as shown in~\cite{Funakoshi},
+these two basis sets~\eqref{Pln_definition} and~\eqref{Pinv_definition}
+are able to approximate the three canonical bispectrum shapes.   Nevertheless, our aim is to go beyond the featureless examples investigated in~\cite{Funakoshi},
+so we require a basis that can capture many different forms of bispectrum features.
+To this end, we prefer not to weight the large or small wavelengths in our fit,
+as is done in~\eqref{Pln_definition} and~\eqref{Pinv_definition}.
+The deciding factor for which weighting is optimal to include in the primordial inner product
+is information about which configurations are most important for observables, that is, the expected signal-to-noise.
+We will not discuss this matter in detail here, except to note that
+motivated by the form of~\eqref{eq:reduced_cmb}, we will take as our aim the
+accurate calculation of the primordial shape function with a flat weighting.
+Based on this motivation, we will not pursue~\eqref{Pln_definition}
+and~\eqref{Pinv_definition} any further.
+
+
+One could certainly also consider sets of basis functions more tailored to a particular example,
+or indeed even use power spectrum information to, on the fly,
+generate a basis tailored to a rough form of the expected bispectrum features.
+We save this possibility for future work.
+In the following we will perform a more general exploration of orthogonal sets of basis functions that can
+efficiently describe the necessary $1/k$ behaviour.
+In addition to using the Legendre polynomials as building blocks,
+we will also consider a Fourier basis for the purposes of comparison.
+
+Our general strategy will be to augment these basic building blocks
+with a small number of extra basis elements, while retaining orthogonality,
+using the standard modified Gram-Schmidt process.
+If we want to use some function $f$ to augment a given set of orthogonal functions $q_r$, with $r=0,\ldots,\Pmax$$-$$1$,
+then we define
+\begin{align}\label{gram_schmidt}
+  \tilde {f}(k) \;=\;  \text{Orth}\left [f(k)\right] &~\equiv~ f(k) - \sum_{r=0}^{{\Pmax}\text{$-$}1}\frac{\left\langle f,q_r \right\rangle}{\left\langle q_r,q_r \right\rangle}q_r(k)
+\end{align}
+and add $\tilde{f}$ to our basis set, now of size $\Pmax+1$.
+We note that the inner product here $\left\langle f,g \right\rangle$
+is the 1D integral of the product $f(k)g(k)$ from $\kmin$ to $\kmax$.
+The resulting basis is orthogonal, provided sufficient
+care is taken to avoid numerical errors.
+
+In addition to our Legendre basis functions, pure $\Lbasic$ and augmented $\Linvk$, we will also introduce a Fourier series basis denoted by $\Fbasic$ and defined by
+\begin{align}\label{F0_definition}
+    &q_{0}(k)    = 1\,, ~~
+    q_{2r-1}(k)   = \sin(\pi r\kbar)\,,  ~~
+    q_{2r}(k) = \cos(\pi r\kbar)\,,  ~~  1\leq r\leq(\Pmax\text{$-$}3)/2\\
+    &q_{\Pmax\text{$-$}2}(k)=\bar k\,, ~~~q_{\Pmax\text{$-$}1}(k)=\bar k^2\,.
+    \end{align}
+Here, even the basic Fourier series have to be augmented by the linear $k$ and quadratic $k^2$ terms (for a total size of $\Pmax$),
+in order to satisfactorily approximate equilateral shapes (reflecting in part the preference for periodic functions). 
+As with $\Linvk$ defined in \eqref{P1_definition}, we will similarly create an augmented Fourier basis $\Finvk$ by adding the inverse $1/k$ term to the  $\Fbasic$ basis, i.e.\ using $q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k}\right]$ with \eqref{gram_schmidt}.
+When we refer to convergence, we mean in increasing number
+of Legendre polynomials (or sines and cosines) within the initial set.
+The total size of the set will always be referred to as $\Pmax$.
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{c|c|l|c}
+      \textbf{Notation} & \textbf{Building Blocks} & \textbf{Augmented by} & \textbf{Definition}\\
+      \hline
+        $\Lbasic$  & Legendre polynomials &                & \eqref{P0_definition}\\
+        $\Fbasic$  & Fourier Series & $k$, $k^2$           & \eqref{F0_definition}\\
+        $\Linvk$   & Legendre polynomials & $k^{-1}$       & \\
+        $\Finvk$   & Fourier Series & $k$, $k^2$, $k^{-1}$ & \\
+        $\Lnsinv$  & Legendre polynomials & $k^{-1+(n_s^{*}-1)}$   & \eqref{Lns_inv}\\
+        $\Lnsboth$ & Legendre polynomials& $k^{n_s^{*}-1}$, $k^{-1+(n_s^{*}-1)}$ & \eqref{Lns_both}\\
+    \end{tabular}
+    \caption{
+          Basis summary---the augmentation of the basis is done
+          using~\eqref{gram_schmidt}. The size of each basis is
+          referred to as $\Pmax$.
+      }\label{tab:basis_summary}
+  \end{center}
+\end{table}
+
+In order to compare the efficacy of these four different basis function sets ($\Lbasic$, $\Fbasic$, $\Linvk$ and $\Finvk$), we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the DBI shape~\eqref{dbi_shape}.  To mimic the in-in calculation, we expand the shape on the cube, but test the result on the tetrapyd
+using~\eqref{relative_difference}.
+The results are shown in figure~\ref{fig:recon_malda_dbi} where we find that the Legendre polynomials basis set $\Lbasic$ converges so slowly as to be unusable (with the Fourier modes $\Fbasic$ worse and not plotted).
+However, the augmented Legendre basis $\Linvk$ (including $1/k$) leads to rapid convergence with an improvement of four orders
+of magnitude at $\Pmax=15$. The augmented Fourier basis $\Finvk$ also converges
+quickly relative to $\Lbasic$, but is outdone by $\Linvk$.
+Though we do not show the convergence on the cube, we find that for Maldacena's
+template this is of the same order of magnitude as
+the error on the tetrapyd.  For the DBI shape, however, the
+fit on the tetrapyd lags significantly behind, due to the effect
+of the large non-physical configurations. This explains the order of
+magnitude difference between the convergence at
+each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
+
+
+\begin{figure}[!pth]
+\centering     %%% not \center
+\subfloat[Reconstructing the Maldacena Template]{\label{fig:a}\includegraphics[width=.49\columnwidth]{plots/template_reconstruction_quadratic_sr.png}}
+\subfloat[Reconstructing the DBI Template]{\label{fig:b}\includegraphics[width=.49\columnwidth]{plots/template_reconstruction_DBI.png}}
+\caption{
+    Convergence comparisons for the Legendre and Fourier basis functions for (a) the Maldacena 
+    template~\eqref{malda_shape} and (b) the DBI template~\eqref{dbi_shape}.
+    The pure Legendre $\Lbasic$ basis requires many terms to fit the $1/k$ behaviour
+    in both Maldacena's template~\eqref{malda_shape} and the DBI template~\eqref{dbi_shape}.
+    In contrast, the $\Linvk$ basis (with an orthogonalised $1/k$ term) mitigates this dramatically, with the 
+    error already reduced by a factor of $100$ at $\Pmax=5$.
+    The Fourier $\Finvk$ basis performs well, but converges more slowly than the $\Linvk$ basis.
+    Note that the convergence errors for~\eqref{dbi_shape} are larger than~\eqref{malda_shape} because of the larger contributions outside the tetrapyd dominating the fit.
+}\label{fig:recon_malda_dbi}
+\end{figure}
+
+
+Next, we investigate oscillatory model templates.
+The simple feature model~\eqref{cos_shape} and the resonance model~\eqref{ln_cos_shape}
+have scale dependence, but no shape dependence (in that they only depend on the perimeter
+of the triangle, $K=k_1+k_2+k_3$).
+We test our sets of basis functions on these two shapes,
+and also when they are multiplied by~\eqref{dbi_shape} to obtain a feature
+template with both shape and scale dependence.
+As shown in figure~\ref{fig:recon_osc_dbiosc},
+$\Fbasic$ naturally outperforms $\Lbasic$ for a pure oscillation,
+but when the equilateral-type DBI template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
+$\Finvk$ converge poorly and the Legendre modes $\Linvk$ clearly offer a better more robust option.
+In figure~\ref{fig:log_recon_osc_dbiosc} we see that for a logarithmic
+oscillation, $\Linvk$ always converges in the fewest modes.
+
+
+\begin{figure}[!pth]
+\centering     %%% not \center
+\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.49\columnwidth]{plots/template_reconstruction_osc5.png}}
+\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.49\columnwidth]{plots/template_reconstruction_DBI_osc5.png}}
+\caption{
+    Convergence comparison for oscillatory models. (a) As expected, the $\Finvk$ basis fits an oscillation with
+    no shape dependence~\eqref{cos_shape} (that is periodic in the $k$-range) perfectly.
+    For this special case, the $\Lbasic$ and $\Linvk$ sets of basis functions require more modes
+    to accurately describe the shape. (b) However, moving to the more complex and realistic case of a
+    feature with scale and shape dependence (in this case the product of~\eqref{dbi_shape}
+    and~\eqref{cos_shape}), we see that again $\Linvk$ converges with the fewest modes.
+    Note that before the expansion has fully converged, the fit on the tetrapyd
+    can actually degrade slightly when the basis set is extended. This is an artifact
+    of fitting on the cube and restricting~\eqref{relative_difference}
+    to the physical configurations on the tetrapyd; when considered over the
+    entire cube the fit improves monotonically.
+}\label{fig:recon_osc_dbiosc}
+\end{figure}
+\begin{figure}[!pth]
+\centering     %%% not \center
+\subfloat[$\cos(f\log(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.49\columnwidth]{plots/template_reconstruction_logosc2.png}}
+\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.49\columnwidth]{plots/template_reconstruction_DBI_logosc2.png}}
+\caption{
+    (a) The convergence for a log oscillation model~\eqref{ln_cos_shape} with no shape dependence.
+    For this type of feature, the $\Lbasic$ and $\Linvk$ sets of basis functions require fewer modes
+    to accurately describe the shape than the $\Finvk$ basis.
+    (b) For the more complex and realistic case of a
+    feature with scale and shape dependence (in this case the product of~\eqref{dbi_shape}
+    and~\eqref{ln_cos_shape}), we see that again $\Linvk$ converges with the fewest modes,
+    though in this case $\Finvk$ outperforms $\Lbasic$.
+}\label{fig:log_recon_osc_dbiosc}
+\end{figure}
+
+\begin{figure}[!pth]
+\centering
+\includegraphics[width=0.8\columnwidth]{plots/template_reconstruction_DBI_ns.png}
+\caption{
+    For the scale-dependent DBI template~\eqref{dbi_ns_shape},
+    by including a minimal amount of power spectrum information
+    using~\eqref{Lns_inv} and~\eqref{Lns_both} (here with
+    $n_s^{*}=0.97$), we can push the errors
+    to less than $0.1\%$ at $\Pmax=15$,
+    allowing us to work with a basis that can efficiently
+    capture the expected scale dependence of the shape function.
+    }\label{fig:recon_dbi_ns}
+\end{figure}
+
+Finally, we consider convergence in the light of the more subtle scale-dependence due to the spectral index $n_s$ of the power spectrum.  The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence, but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
+When we include this scale dependence, using~\eqref{dbi_ns_shape} with $n_s$, 
+it proves very useful to include these deviations from
+integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure \eqref{gram_schmidt}, 
+\begin{align}\label{Lns_inv}
+    q_{\Pmax}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}}\right],
+\end{align}
+which we refer to as $\Lnsinv$.
+Secondly, we also augment $\Lbasic$ with an additional scale-dependent constant term as 
+\begin{align}\label{Lns_both}
+    q_{\Pmax}(k) = \text{Orth}\left[{k^{(n_s^{*}-1)}}\right],\qquad  q_{\Pmax\text{$+$}1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}}\right],
+\end{align}
+which we refer to as $\Lnsboth$.
+As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
+even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.  However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.    We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra. 
     \subsection{Large non-physical contributions.}
     \subsection{FIGURE: DBI on cube vs tetra.}
 \section{Setting up a basis: augmentation}

@@ -1,6 +1,119 @@
 %\input{commands}
 \chapter{Introduction to cosmology/inflation}
+Calculating the primordial bispectrum predicted by a model of inflation and
+comparing it to what we see in the sky is very computationally intensive, necessitating layers
+of approximations and limiting the models which can be constrained.  Exploiting the inherent separability
+of the tree level in-in formalism using expansions in separable basis functions provides a means by which to
+obviate some of these difficulties. Here, we develop this approach further into a practical and efficient
+numerical methodology which can be applied to a much wider and more complicated range of bispectrum
+phenomenology, making an important step forward towards observational pipelines which can directly
+confront specific models of inflation.  We describe a simple augmented Legendre polynomial basis
+and its advantages, then test the method on single-field inflation models with non-trivial phenomenology,
+showing that our calculation of these coefficients is fast and accurate to high orders.
+
 \section{General intro}\label{sec:general_intro}
+%\subsection{The bispectrum}
+The primordial bispectrum is one of the main
+characteristics used to distinguish between models of inflation. While it is well
+known that the physics of inflation must have been extremely close
+to linear, and the initial seeds of structure it laid down
+very close to Gaussian, there is expected to have been some level of coupling
+between the Fourier modes of the perturbations.
+In the simplest example of an inflation model this is
+expected to be unobservable~\cite{Maldacena},
+but the possibility remains that inflation was driven by
+more complex physics that may have left an observable imprint on our universe today.
+Some models of inflation have interactions that predict non-Gaussian
+correlations at observable levels. Ways this can happen include
+self-interactions~\cite{px_burrage,dbi_in_the_sky},
+interactions between multiple fields~\cite{Byrnes_2010},
+sharp features~\cite{adshead}
+and periodic features~\cite{flauger_pajer_resonant}.
+However, constraining such imprints is extremely difficult observationally.
+Even once the data has been obtained, using existing methods it is
+extremely computationally intensive to translate this into constraints
+on specific inflation scenarios. Much progress has been made by course-graining
+the model space into a small number of approximate templates,
+and leveraging the simplifying characteristic of separability
+with respect to the three parameters of the bispectrum~\cite{Komatsu_2005, Munchmeyer_2014}.
+
+
+The primordial bispectrum is the Fourier equivalent of the
+three-point correlator of the primordial curvature perturbation.
+If this field is Gaussian, the bispectrum vanishes, so
+it is a valuable measure of the interactions in play during inflation.
+If some inflation model predicts a bispectrum that is sufficiently well approximated by
+the standard separable templates, the constraints on those standard templates
+can be translated into constraints on the parameters of the model.
+The fact that all primordial templates estimated thus far from the CMB
+are consistent with zero has already provided such constraints
+in certain scenarios~\cite{Planck_NG_2015, Planck_NG_2018}.
+With this high-precision \textit{Planck} data, and data from forthcoming experiments
+such as the Simons Observatory (SO)~\cite{simons}
+and CMB-S4~\cite{abazajian2016cmbs4},
+robust pipelines must be developed to circumvent the computational difficulties and
+extract the maximum amount of information possible.
+Due to the nature of bispectrum estimation in the CMB and
+LSS~\cite{lss_baldauf,lss_karagiannis,chen_future_lss,Scoccimarro_2012}
+constraining an arbitrary template is difficult.
+Our aim in this work is to develop the inflationary part
+of a pipeline to allow to efficiently test a much broader range of models.
+In this work, we explore shapes arising from tree-level effects in single field models.
+We do this numerically, allowing quantitative results for a broad
+range of models, and avoiding extra approximations.
+Our general aim is to apply the modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}
+to calculating primordial bispectra.
+This modal philosophy is a flexible method that has broadened the range of constrained
+bispectrum templates, by expanding them in a carefully chosen basis.
+The Modal estimator is thus capable of constraining
+non-separable templates, while the KSW estimator cannot.
+In this work we exploit the intrinsic separability of the
+tree-level in-in formalism to apply these methods at the level of inflation.
+Expressing the primordial bispectrum in a separable
+basis expansion leads to vast increases in efficiency both at the primordial
+and late-universe parts of the calculation.
+The main advantage is that expressing the primordial shape function
+in this way reduces the process of bispectrum estimation in the CMB to a
+cost which is large, but need only be paid once per basis,
+not per scenario.
+A proof of concept of this approach at the primordial level was presented in~\cite{Funakoshi},
+and the details of the bispectrum estimation part will be detailed in~\cite{Sohn_2020}.
+We go beyond the work of~\cite{Funakoshi} both in developing the choice of basis
+(the feasibility of the method depending vitally on the chosen basis
+achieving sufficiently fast convergence in a broad range of interesting models)
+and in the methods we use to allow us to go to much higher order in our modal expansion,
+allowing us to apply the method to feature bispectra for the first time.
+
+
+The paper is organised as follows. In section~\ref{sec:review} we present brief reviews
+of the various parts of the pipeline that connects inflation scenarios to observations
+through the bispectrum.
+We review the usual paradigm of bispectrum estimation in the CMB,
+and the motivation for separable bispectra. We review the in-in formalism,
+for calculating the tree level bispectrum for a given model of inflation.
+We review $P(X,\phi)$ models of inflation as an example, and
+some of the usual approximate bispectrum templates
+that we aim to bypass.
+We will draw our validation scenarios from these models.
+We discuss previous numerical codes for
+calculating the primordial bispectrum $k$-configuration by $k$-configuration,
+which contrasts our separable basis expansion.
+We review the previous work in achieving separability through modal expansions
+in~\cite{Funakoshi},
+and we discuss methods of testing
+numerical bispectrum results, defining our relative difference measurement.
+In section~\ref{sec:methods} we present our methods.
+Since the paradigm we aim to present is only viable if we can find a basis
+that can efficiently represent a wide variety of bispectra,
+we begin with this vital discussion. We discuss the effects of the
+non-physical $k$-configurations on the convergence of our expansion on
+the tetrapyd, and present an efficient basis.
+Then, we recast the usual in-in calculation into an explicitly separable form,
+in terms of an expansion in an arbitrary basis,
+and detail our methods for carefully calculating the coefficients to high order.
+In section~\ref{sec:validation} we validate our methods and implementation
+on inflation scenarios with varied features from the literature,
+and we finish with a discussion of future work in section~\ref{sec:future}.
     \subsection{GR.}
     \subsection{$\Lambda CDM$.}
 \section{Before the Big Bang (cf popsci)}

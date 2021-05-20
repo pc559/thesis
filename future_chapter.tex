@@ -10,6 +10,60 @@
 \section{User guide for Primodal code, public release of Primodal}
     \subsection{Not relevant to thesis, but could add some short notes on plans.}
 
+\section{Discussion}
+In this work we have extended the modal methods of~\cite{FergShell_1,FergShell_2,FergShell_3}
+to recast the calculation of the tree-level primordial bispectrum~\eqref{in-in}
+into a form that explicitly preserves its separability.
+We emphasise again that this work has two main advantages over previous
+numerical methods. The more immediate is that by calculating the primordial
+bispectrum in terms of an expansion in some basis, the full bispectrum can
+be obtained much more efficiently than through repetitive integration
+separately for each $k$-configuration. The second, more important, advantage
+is the link to observations.
+Unlike previous numerical and semi-analytic methods,
+once the shape function is expressed in some basis
+as in~\eqref{shapefn},
+the integral~\eqref{eq:reduced_cmb} and other computationally intensive steps involved
+in estimating a particular bispectrum in the CMB, can be precomputed. Since this
+large cost is only paid once per basis, once a basis
+which converges well for a broad range of models
+has been found, an extremely broad exploration of primordial bispectra becomes immediately feasible in the CMB.
+Making explicit the $k$-dependence in this way also opens the door to vast increases in efficiency in
+connecting to other observables, by precomputation using the basis set, then performing a (relatively) cheap
+scan over inflation parameters.
+
+
+Our work here goes beyond that of~\cite{Funakoshi} in that our careful methodology
+allows us to accurately and efficiently go to much higher orders,
+in particular our methods of starting the time integrals~\eqref{inin_kindep}
+and of including the spatial derivative terms in the calculation.
+This allowed us to present this method for feature bispectra for the first time,
+demonstrating the efficient exploration of much more general primordial bispectrum phenomenology.
+We have also identified and addressed the effects
+of the non-physical $k$-configurations on convergence within the three-dimensional tetrapyd.
+We explored, for the first time, possible basis set choices in the context
+of those effects.
+We showed rapid convergence on a broad range of scenarios,
+including cases with oscillatory features with non-trivial shape dependence,
+using our augmented Legendre polynomial basis, $\Lnsboth$.
+
+The immediate application of this work is the efficient exploration of
+bispectrum phenomenology, as our methods can much more quickly
+converge to the full shape information than previous numerical methods,
+which relied on calculating the shape function point-by-point, for each $k$-configuration separately.
+We have implemented these methods for single field scenarios
+with a varying sound speed, scenarios which
+have a rich feature phenomenology. An important goal will be extending
+these methods to the case of multiple-field inflation.
+
+The next immediate application will be to directly constrain parameters of
+inflationary scenarios through modal bispectrum results from the \textit{Planck} satellite~\cite{Planck_NG_2018}.
+The details of the work required to directly connect our coefficients to the observed data,
+and the large but once-per-basis cost of this calculation, will be detailed in
+a forthcoming paper~\cite{Sohn_2020}.
+CMB and LSS data from forthcoming surveys will be able to use
+these separable primordial bispectra to even more precisely constrain the
+parameters of inflationary scenarios.
 
 \section*{PhD project (1/2 page)}
 The standard cosmological history, the $\Lambda CDM$ model, explains the structure we see in the distribution of matter (large-scale structure, LSS) and radiation (the cosmic microwave background, \textit{CMB}) in our universe. However, this model still requires initial conditions. These initial conditions – adiabatic perturbations on a uniform background, close to Gaussian, with a power spectrum that is nearly (but not exactly) scale-invariant – are provided by an epoch of “inflation”, an epoch before the Big Bang of the $\Lambda CDM$ model. 
