@@ -1,5 +1,5 @@
 %\input{commands}
-\chapter{Introduction to bispectra}
+\chapter{Introduction to bispectra}\label{chapter:intro_bispectra}
 \section{Inflation}
     \subsection{Perturbations}
     Words
@@ -124,7 +124,6 @@ allow comparison with the CMB.
     \subsubsection{Maldacena, DBI}
     Words
     \subsubsection{$P(X, \phi)$, EFT}
-    Words
     There is an extensive literature on the calculation
 of bispectra from models of inflation~\cite{chen_easther_lim_1,chen_easther_lim_2,chen_ng_0605,seery_ng_0503,px_burrage,adshead,flauger_pajer_resonant,features_bartolo,bdy_passaglia}.
 Multi-field models can produce large
@@ -341,7 +340,7 @@ We also detail a particular set of basis functions that improves upon those desc
 in~\cite{Funakoshi} in its rate of convergence, its transparency,
 and its flexibility.
 We do this without sacrificing orthogonality.
-This is detailed in section~\ref{sec:choice_of_basis}.
+This is detailed in chapter~\ref{chapter:decomp}.
 Our improvements over the methods sketched in~\cite{Funakoshi} allow us to validate
 on non-trivial bispectra for the first time, including sharp deviations from slow-roll, which we present in
 section~\ref{sec:validation}.
@@ -349,7 +348,7 @@ We quote our results in terms of a measure that is
 easier to interpret than the correlation defined in~\cite{Funakoshi},
 and that includes the magnitude as well as the shape information
 on the full tetrapyd.
-This is discussed in section~\ref{sec:rev_precision_tests}.
+This is discussed in section~\ref{sec:inner_product}.
     \subsubsection{Summary of the achievements and limitations, how I went beyond them.}
     Words
     \subsection{Previous config-by-config codes}
@@ -495,7 +494,7 @@ to a tetrapyd (illustrated in figure~\ref{slice_explained}),
 the intersection of that cube with the
 tetrahedron that satisfies~\eqref{triangle_inequality}.
 This has important implications that we will explore in
-section~\ref{sec:choice_of_basis}. 
+chapter~\ref{chapter:decomp}. 
 
 
 The amplitude of a bispectrum shape is usually
@@ -556,13 +555,14 @@ features can be applied.
     Words
 \newpage
     \subsection{Link to Wuhyun.}
-    Words
+    What Wuhyun does is purely frequentist, not Bayesian. It is essentially linear regression, so can do Fisher forecast to determine
+    the best possible variance for an estimator.
 \newpage
     \subsection{Estimating the bispectrum, complexity.}
     Words
 \newpage
     \subsection{Review estimators, KSW, separability.}
-    Words
+    Words \cite{Smith_2011, Komatsu_2005}.
 \newpage
     \subsection{Separable approximations to non-separable templates}
     Words

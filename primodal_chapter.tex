@@ -1,4 +1,4 @@
-\chapter{Methods and Validation}
+\chapter{Methods and Validation}\label{chapter:methods}
 \section{Numerics of mode evolution}
     \subsection{$\tau_s$}
     Words
@@ -223,7 +223,7 @@ be useful in comparison with observation.
     \subsection{A note on boundary terms and difficult (time-dep) cancellations.}
     Words
     \newpage
-\section{The interaction Hamiltonian}
+\section{The interaction Hamiltonian}\label{sec:h_int}
 The methods detailed in the previous section depend on the separability of
 the third-order interaction Hamiltonian, $\Hint$,
 and the possibility of including the spatial derivatives in a
@@ -327,7 +327,7 @@ Of course, these methods are not restricted to this example of $\Hint$.
     \subsection{How high can I go, in terms of Planck $w$?}
     \subsection{How high can I go, in terms parameters that can't be compared to Planck?}
 
-\section{Validation (on numerical results)}
+\section{Validation (on numerical results)}\label{sec:validation}
 \subsection{Validation methods}\label{sec:validation_methods}
 In this section we validate our implementation of our methods
 on different types of non-Gaussianity, sourced in different ways.
@@ -540,7 +540,7 @@ Including the minimal information of an individual, approximately
 representative value of $n_s^{*}-1$
 in $\Lnsboth$ allows us to converge to these smooth shapes quickly
 and robustly, overcoming the tetrapyd-vs-cube difficulties described
-in~\ref{sec:choice_of_basis}. Our accurate match to these shapes validates our
+in~\ref{chapter:decomp}. Our accurate match to these shapes validates our
 implementation in code, and the ability of the method
 (and our basis in particular) to capture very different types of
 bispectrum shapes, local and equilateral.

@@ -1,5 +1,7 @@
 %\input{commands}
-\chapter{Introduction to cosmology/inflation}
+\chapter{Introduction to cosmology}\label{chapter:intro_general}
+We outline a formalism, do quantitative comparisons, describe difficulties encountered$\ldots$
+
 Calculating the primordial bispectrum predicted by a model of inflation and
 comparing it to what we see in the sky is very computationally intensive, necessitating layers
 of approximations and limiting the models which can be constrained.  Exploiting the inherent separability
@@ -77,7 +79,7 @@ in this way reduces the process of bispectrum estimation in the CMB to a
 cost which is large, but need only be paid once per basis,
 not per scenario.
 A proof of concept of this approach at the primordial level was presented in~\cite{Funakoshi},
-and the details of the bispectrum estimation part will be detailed in~\cite{Sohn_2020}.
+and the details of the bispectrum estimation part will be detailed in~\cite{Sohn_2021}.
 We go beyond the work of~\cite{Funakoshi} both in developing the choice of basis
 (the feasibility of the method depending vitally on the chosen basis
 achieving sufficiently fast convergence in a broad range of interesting models)
@@ -85,7 +87,7 @@ and in the methods we use to allow us to go to much higher order in our modal ex
 allowing us to apply the method to feature bispectra for the first time.
 
 
-The paper is organised as follows. In section~\ref{sec:review} we present brief reviews
+The paper is organised as follows. In chapter~\ref{chapter:intro_bispectra} we present brief reviews
 of the various parts of the pipeline that connects inflation scenarios to observations
 through the bispectrum.
 We review the usual paradigm of bispectrum estimation in the CMB,
@@ -102,10 +104,11 @@ We review the previous work in achieving separability through modal expansions
 in~\cite{Funakoshi},
 and we discuss methods of testing
 numerical bispectrum results, defining our relative difference measurement.
-In section~\ref{sec:methods} we present our methods.
+In chapter~\ref{chapter:methods} we present our methods.
 Since the paradigm we aim to present is only viable if we can find a basis
 that can efficiently represent a wide variety of bispectra,
-we begin with this vital discussion. We discuss the effects of the
+we begin with this distinct and separate, but nonetheless vital, discussion.
+We discuss the effects of the
 non-physical $k$-configurations on the convergence of our expansion on
 the tetrapyd, and present an efficient basis.
 Then, we recast the usual in-in calculation into an explicitly separable form,
@@ -113,44 +116,46 @@ in terms of an expansion in an arbitrary basis,
 and detail our methods for carefully calculating the coefficients to high order.
 In section~\ref{sec:validation} we validate our methods and implementation
 on inflation scenarios with varied features from the literature,
-and we finish with a discussion of future work in section~\ref{sec:future}.
-    \subsection{GR.}
+and we finish with a discussion of future work in chapter~\ref{chapter:conclusion}.
+    \subsection{Fundamentals}
     Words
 \newpage
     Words
 \newpage
-    \subsection{$\Lambda CDM$.}
-    Words
-\newpage
-    Words
-\newpage
-    Words
-\newpage
-    Words
-\newpage
-\section{Before the Big Bang (cf popsci)}
-    \subsection{Motivate inflation.}
+    \subsection{$\lcdm$}
     Words
 \newpage
     Words
 \newpage
     Words
 \newpage
-    \subsection{Define SR params.}
+    Words
+\newpage
+\section{Starting conditions for $\lcdm$}
+    \subsection{Motivations for inflation (before the Big Bang?)}
     Words
 \newpage
     Words
 \newpage
-\section{Determining the weighting of a coin}
-    \subsection{The PS.}
+    Words
+\newpage
+    \subsection{Criteria for successful inflation}
     Words
 \newpage
     Words
 \newpage
-\section{Simons, Planck}
-    \subsection{Descriptions}
+\section{Statistical observables}
+    \subsection{Determining the weighting of a coin}
+    The technicalities and limitations involved with determining a statistical observable.
+\newpage
+    \subsection{Power spectra}
     Words
 \newpage
+\section{Observational data}
+    \subsection{Simons, Planck}
+    Words
+\newpage
+    \subsection{Future missions}
     Words
 \newpage
 \section{Goals}
@@ -184,8 +189,8 @@ and we finish with a discussion of future work in section~\ref{sec:future}.
     Words
     \subsection{Validated these methods on interesting examples.}
     Words
-    \subsection{Explore and characterise DBI reso model TBC?? Validity of approximations, eg Tanh kink.}
+    \subsection{Explore and characterise DBI reso model TBC? Validity of approximations, eg Tanh kink.}
     Words
-    \subsection{Connect to CMB, get constraints TBC??}
+    \subsection{Connect to CMB, get constraints TBC?}
     Words
 

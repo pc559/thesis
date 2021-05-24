@@ -1,7 +1,7 @@
 %\input{commands}
-\chapter{Decomposing primordial shapes}
-\section{Pulling out the $k$-dependance}
-    \subsection{Set up formalism.}
+\chapter{Decomposing primordial shapes}\label{chapter:decomp}
+\section{Pulling out the $k$-dependance}\label{sec:k_dep}
+    \subsection{Set up formalism.}\label{sec:setting_notation}
     Given its separable form, the tree-level in-in formalism is amenable
 to more efficient calculation using separable modes, as first mentioned in~\cite{Funakoshi}.
 That work extended the separable methodology previously implemented for the CMB bispectrum~\cite{FergShell_3}.
@@ -17,12 +17,12 @@ will require a large once-off computational cost, paid once
 per set of basis functions $Q_n$,
 not per scenario (encoded in $\alpha_n$).
 The details of this once-per-basis calculation will be
-presented in~\cite{Sohn_2020}.
+presented in~\cite{Sohn_2021}.
 As such, while the general computational steps we
 describe will be independent of the basis, it is vital we
 explore possible sets of basis functions $Q_n(k_1,k_2,k_3)$
 and their effects on convergence;
-we do this in section~\ref{sec:choice_of_basis}.
+we do this in chapter~\ref{chapter:decomp}.
 In section~\ref{sec:setting_notation} we set the notation we will use to recast
 the standard numerical in-in calculation into a calculation of $\alpha_n$,
 and sketch the steps involved.
@@ -80,7 +80,7 @@ This could be absorbed into $v^{(i)}(k_1, k_2,k_3)$, but we have the freedom to 
 If the expressions being expanded have some known pathology in their $k$-dependence,
 we can then see two ways of dealing with this.
 The basis can be augmented to efficiently capture the relevant behaviour
-(see section~\ref{sec:choice_of_basis})
+(see chapter~\ref{chapter:decomp})
 or the behaviour can be absorbed into the analytic prefactor, $v^{(i)}(k_1, k_2,k_3)$.\footnote{At early times the modes are highly oscillatory in both $k$ and $\tau_s$, which certainly requires special attention.
 We discuss this in section~\ref{sec:k_dep}.}
 We use the former, as the numerics of the latter are less transparent
@@ -229,7 +229,7 @@ our expansion in $\Pmax$ converges far faster than in the number of
 $k$-modes that would be required to have confidence in a sampled bispectrum.
 This is clear in smooth bispectra such as~\eqref{malda_shape} and~\eqref{dbi_shape},
 but is also true of bispectra with complicated features,
-as seen in section~\ref{sec:choice_of_basis}.
+as seen in chapter~\ref{chapter:decomp}.
 
 To be efficiently connected to a late-time observable
 a sampled bispectrum would have to be fit by a smooth template,
@@ -248,7 +248,7 @@ after the in-in computation is completed, is trivial.
 
 Having now set our notation and outlined the calculation, in the following sections we
 discuss the actual numerical implementation of these methods.
-\section{Inner product choice}
+\section{Inner product choice}\label{sec:inner_product}
 The inner product of two bispectrum shape functions is given by 
 \begin{align}
     S_1\cdot S_2  = \langle S_1\,, S_2 \rangle = \int_{T_k} d^3k \: S_1(k_1,k_2,k_3) \: S_2(k_1,k_2,k_3)\,,\label{inner_prod}
@@ -645,6 +645,8 @@ even a small overall scale dependence causes significant degradation in the conv
 \section{Basis choice matters!}
     \subsection{Why the basic basis expansion is so bad.}
     Words
+    \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$.}
+    Refit mixed basis functions to pure Legendre,s subtract to show convergence of rest?
     \newpage
     \subsection{My new basis sets, and their dramatic improvement.}
     \subsection{Nice table with descriptions and some single-number comparison on examples.}
