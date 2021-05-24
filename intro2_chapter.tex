@@ -1,39 +1,41 @@
 %\input{commands}
-\chapter{Introduction to bispectra}\label{chapter:intro_bispectra}
+\chapter{Probing inflation}\label{chapter:intro_bispectra}
 \section{Inflation}
-    \subsection{Perturbations}
+    \subsection{Perturbations about the background}
     Words
     \newpage
-    \subsection{$c_s$.}
+    The sound speed $c_s$.
+    \newpage
+    \subsection{Initial conditions for the perturbations}
+    The Bunch-Davies vacuum.
+    \newpage
+    \subsection{Evolution of the perturbations}
+    Derivation of the Mukhanov-Sasaki equation, behaviour at various times.
+    \newpage
+    The Mukhanov-Sasaki equation in $N$, $\tau_s$ - no numerics here, though, just ref forward.
     Words
     \newpage
-    \subsection{Bunch-Davies initial conditions.}
-    Words
-    \newpage
-    \subsection{MS equation, behaviour at various times.}
-    Words
-    \newpage
-    \subsection{MS equation in $N$, $\tau_s$ - no numerics here, though, just ref forward.}
-    Words
-    \newpage
-    \subsection{Define the power spectrum, discuss constraints.}
-    Words
+    \subsection{Connecting the primordial power spectrum to observables}
+    Define the power spectrum, discuss constraints
 \newpage
 \section{The primordial bispectrum}
-    \subsection{Isotropy etc.}
-    Words
+    \subsection{The shape function}
+    Shape versus scale dependence.
+    Consequences of isotropy, homogeneity.
+    Define the shape function.
     \newpage
-    \subsection{$f_{NL}$ (various definitions).}
-    Words
+    \subsection{The definitions of $f_{NL}$}
+    Describe the various definitions of $f_{NL}$ in different
+    parts of the literature.
     \newpage
-    \subsection{Link inflaton non-linearity to primordial NG.}
-    Words
+    \subsection{Non-linearity during inflation}
+    Connect (self-)interactions during inflation to non-Gaussianity.
     \newpage
-    \subsection{Link primordial NG to the CMB, possibly with some simple example.}
-    Words
+    \subsection{Connecting the primordial bispectrum to observables}
+    Connecting to the CMB---transfer functions, etc.
 \newpage
-\section{Calculating the bispectrum}
-    \subsection{Coming from part iii level, a derivation of the tree-level in-in formalism}
+    \section{Calculating the primordial bispectrum}
+    (Coming from part iii level, a derivation of the tree-level in-in formalism.)
     The standard starting point for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
 The in-in formalism takes the time evolution of the interaction picture mode
@@ -101,29 +103,31 @@ However, by breaking these assumptions large signals can arise.
 These signals are usually calculated using~\eqref{in-in} within tailored approximations.
 The results are not always separable, so further approximations must then be made to
 allow comparison with the CMB.
-    \subsection{Calculate the interaction Hamiltonian}
+    \section{Calculating the interaction Hamiltonian}
     Words
     \newpage
-    \subsection{Through the self-interactions, i.e. neglecting the metric perturbations.}
+    \section{Self-interactions}
+    Neglect the metric perturbations to begin with.
+    \newpage
+    \section{Discuss DBI, then $P(X, \phi)$.}
     Words
     \newpage
-    \subsection{Discuss DBI, then $P(X, \phi)$.}
-    Words
+    \section{The Maldacena calculation}
+    Review, with metric perturbations.
     \newpage
-    \subsection{Review of the Maldacena calculation, with metric perturbations.}
-    Words
+    \section{The field-redefinition}
+    Discuss field-redefinition being unnecessary, as per~\cite{px_burrage}.
     \newpage
-    \subsection{Discuss field-redefinition being unnecessary, as per 1103.4126.}
-    Words
+    \section{Templates and shapes}
+    Using $K_{pq}$ notation.
+    Link to Enrico's symmetric polynomials, reference discussiom under
+    equation (57) in~\cite{Fergusson_2010}.
     \newpage
-    \subsection{Examples of shapes, using $K_{pq}$ notation (link to Enrico's sym polys?)}
-    Words
-    \newpage
-    \subsubsection{Basic shapes, $f_{NL}$}
-    Words
-    \subsubsection{Maldacena, DBI}
-    Words
-    \subsubsection{$P(X, \phi)$, EFT}
+    \subsection{Basic templates, $f_{NL}$}
+    The three basic phenomenological templates, \planck.
+    \subsection{Basic shapes}
+    Maldacena, DBI.
+    \subsection{$P(X, \phi)$, EFT}
     There is an extensive literature on the calculation
 of bispectra from models of inflation~\cite{chen_easther_lim_1,chen_easther_lim_2,chen_ng_0605,seery_ng_0503,px_burrage,adshead,flauger_pajer_resonant,features_bartolo,bdy_passaglia}.
 Multi-field models can produce large
@@ -268,7 +272,7 @@ For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
 \end{align}
 to leading order in slow-roll.
 Any constraint on the magnitude $A^{DBI}$ can be translated into one 
-on the effective sound speed which from \textit{Planck} has a lower limit $c_s^{DBI} \geq 0.087$
+on the effective sound speed which from \planck~has a lower limit $c_s^{DBI} \geq 0.087$
 at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template
 \begin{align}\label{equil_shape}
@@ -308,9 +312,9 @@ bispectrum in a separable form is to build towards
 a pipeline to constrain a broader section of the model space,
 removing these layers of approximations,
 though these standard results provide useful validation tests.
-    \subsubsection{Features, with explicit details of how resonance and features generate large NG.}
-    Words
-    \subsection{F\&RP's work}
+    \subsection{Shapes from features during inflation}
+    Explicit details of how resonance and features generate large NG.
+    \subsection{Previous work on in-in separability.}
     In~\cite{Funakoshi} it was pointed out that one can compute using the
 tree-level in-in formalism in such a way as to preserve its intrinsic
 separability. In addition to making this point,~\cite{Funakoshi} lays
@@ -349,9 +353,9 @@ easier to interpret than the correlation defined in~\cite{Funakoshi},
 and that includes the magnitude as well as the shape information
 on the full tetrapyd.
 This is discussed in section~\ref{sec:inner_product}.
-    \subsubsection{Summary of the achievements and limitations, how I went beyond them.}
-    Words
-    \subsection{Previous config-by-config codes}
+    \subsection{Comparison to the present work}
+    Summary of the achievements and limitations, how I went beyond them.
+    \section{Configuration-by-configuration codes}
     Previous work on the numerical calculations of inflationary
 non-Gaussianity include the BINGO code~\cite{BINGO},
 Chen et al~\cite{chen_easther_lim_1,chen_easther_lim_2},
@@ -393,22 +397,21 @@ Secondly, they must carefully implement some variation
 of the $i\eps$ prescription without affecting the numerical results.
 In~\cite{transport_main} this is achieved in the initial conditions for the bispectra;
 other methods impose some non-trivial cutoff at early times.
-    \subsubsection{Their limitations.}
+    \subsection{Their usage in recent works.}
     Words
-    \subsubsection{Their usage in recent works.}
+    \subsection{Their limitations.}
     Words
     \newpage
-    \subsection{The squeezed limit consistency condition.}
-    Words
+    \section{The squeezed limit consistency condition.}
+    Could this be better placed somewhere?
 \newpage
-\section{Bispectrum data analysis}
-    \subsection{Simons, Planck, projections}
+    \section{Simons, Planck, projections}
     Words
     \newpage
-    \subsection{Statistical observables}
+    \section{Statistical observables}
     Words
     \newpage
-    \subsection{Estimators.}
+    \section{Estimators.}
     The bispectrum, like the power spectrum, is a quantity that describes
 the statistical distribution of which our universe is only one realisation.
 We use this one sky we have access to to estimate the amplitude of
@@ -551,32 +554,29 @@ In particular, if one is interested in a feature model,
 it may be be difficult to see how constraints on existing
 features can be applied.
 \newpage
-    \subsection{Determining the weighting of a coin.}
-    Words
-\newpage
-    \subsection{Link to Wuhyun.}
+    \section{Link to Wuhyun.}
     What Wuhyun does is purely frequentist, not Bayesian. It is essentially linear regression, so can do Fisher forecast to determine
     the best possible variance for an estimator.
 \newpage
-    \subsection{Estimating the bispectrum, complexity.}
+    \section{Estimating the bispectrum, complexity.}
     Words
 \newpage
-    \subsection{Review estimators, KSW, separability.}
+    \section{Review estimators, KSW, separability.}
     Words \cite{Smith_2011, Komatsu_2005}.
 \newpage
-    \subsection{Separable approximations to non-separable templates}
+    \section{Separable approximations to non-separable templates}
     Words
 \newpage
-    \subsection{Equilateral to DBI.}
+    \section{Equilateral to DBI.}
     Words
 \newpage
-    \subsection{Approximations to approximations.}
+    \section{Approximations to approximations.}
     Words
 \newpage
-    \subsection{Modal methods, constraints from Planck.}
+    \section{Modal methods, constraints from Planck.}
     Words
 \newpage
-    \subsection{Wuhyun's stuff as development of Modal methods (cite Wuhyun paper)}
+    \section{Wuhyun's stuff as development of Modal methods (cite Wuhyun paper)}
     Words
     
 

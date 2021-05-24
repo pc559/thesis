@@ -13,7 +13,7 @@ confront specific models of inflation.  We describe a simple augmented Legendre 
 and its advantages, then test the method on single-field inflation models with non-trivial phenomenology,
 showing that our calculation of these coefficients is fast and accurate to high orders.
 
-\section{General intro}\label{sec:general_intro}
+\section{General introduction}\label{sec:general_intro}
 %\subsection{The bispectrum}
 The primordial bispectrum is one of the main
 characteristics used to distinguish between models of inflation. While it is well
@@ -145,52 +145,46 @@ and we finish with a discussion of future work in chapter~\ref{chapter:conclusio
     Words
 \newpage
 \section{Statistical observables}
-    \subsection{Determining the weighting of a coin}
+    \subsection{Checking dice for fairness}
     The technicalities and limitations involved with determining a statistical observable.
 \newpage
     \subsection{Power spectra}
     Words
 \newpage
 \section{Observational data}
-    \subsection{Simons, Planck}
+    \subsection{Planck, Simons} 
     Words
 \newpage
     \subsection{Future missions}
     Words
 \newpage
-\section{Goals}
-    \subsection{connecting inflation models directly to observations, through the bispectrum ("which will be defined in section...")}
-    Words
-    \subsection{Constraining the parameters of inflation models, not pheno templates ($f_{NL}$ etc).}
-    Words
-    \subsection{Full shape information, not point samples or a limit.}
-    Words
-    \subsection{Efficient numerics gives access to more accurate, and in some cases new, feature shapes.}
-    Words
+\section{Outline of thesis}
+    \subsection{Goals}
+    \begin{enumerate}
+        \item Connecting inflation models directly to observations,
+            through the bispectrum (say where things will be defined).
+        \item Constraining the parameters of inflation models, not phenomenological templates
+            ($f_{NL}$ etc---make more explicitly distinct).
+        \item To obtain the full shape information, not point samples or a limit.
+        \item Efficient numerics gives access to more accurate, and in some cases new, feature shapes.
+    \end{enumerate}
 \newpage
-\section{Methods}
-    \subsection{building separability into the tree-level in-in formalism}
-    Words
-    \subsection{CMB calculation expensive, but need only be done once per primordial basis.}
-    Words
-    \subsection{So, want a basis expansion that converges quickly for a broad range of inflation models.}
-    Words
-    \subsection{Convergence on the cube is different to the tetrapyd.}
-    Words
-    \subsection{Turns out to be much faster at primordial level than previous numerical methods.}
-    Words
+    \subsection{Methods}
+    \begin{enumerate}
+        \item Building separability into the tree-level in-in formalism.
+        \item The CMB calculation: expensive, but need only be done once per primordial basis.
+        \item So, we want a basis expansion that converges quickly for a broad range of inflation models.
+        \item Convergence on the cube is different to the tetrapyd.
+        \item Turns out to be much faster at primordial level than previous numerical methods
+            (as it in a sense converges way faster, and as it enables us to use faster numerical methods than otherwise).
+    \end{enumerate}
 \newpage
-\section{Results}
-    \subsection{First development/implementation of the formalism for high orders, features.}
-    We recognised\ldots which allowed us to\ldots
-    \subsection{Pointed out the central issue of the cube vs tetra problem.}
-    Words
-    \subsection{Found a basis with broad descriptive power.}
-    Words
-    \subsection{Validated these methods on interesting examples.}
-    Words
-    \subsection{Explore and characterise DBI reso model TBC? Validity of approximations, eg Tanh kink.}
-    Words
-    \subsection{Connect to CMB, get constraints TBC?}
-    Words
-
+    \subsection{Results}
+    \begin{enumerate}
+        \item First development/implementation of the formalism for calculating the expansion to high orders.
+        \item We recognised and described the central issue of the cube vs tetra problem.
+        \item Found a basis with broad descriptive power (and other less powerful basis sets).
+        \item This allowed the first validation of these methods on features.
+        \item Explore and characterise DBI reso model TBC? Validity of approximations, eg Tanh kink.
+        \item Connect to CMB, get constraints TBC?
+    \end{enumerate}
