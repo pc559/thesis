@@ -38,7 +38,7 @@ can be translated into constraints on the parameters of the model.
 The fact that all primordial templates estimated thus far from the CMB
 are consistent with zero has already provided such constraints
 in certain scenarios~\cite{Planck_NG_2015, Planck_NG_2018}.
-With this high-precision \textit{Planck} data, and data from forthcoming experiments
+With this high-precision \planck~data, and data from forthcoming experiments
 such as the Simons Observatory (SO)~\cite{simons}
 and CMB-S4~\cite{abazajian2016cmbs4},
 robust pipelines must be developed to circumvent the computational difficulties and
@@ -136,12 +136,13 @@ and we finish with a discussion of future work in chapter~\ref{chapter:conclusio
     \subsection{Checking dice for fairness}
     The technicalities and limitations involved in determining a statistical observable,
     the concept of variance, cosmic variance.
+    Ergodicity: ``In an ergodic scenario, the average outcome of the group is the same as the average outcome of the individual over time. An example of an ergodic systems would be the outcomes of a coin toss (heads/tails). If 100 people flip a coin once or 1 person flips a coin 100 times, you get the same outcome.'' from https://taylorpearson.me/ergodicity/
 \newpage
     \subsection{Power spectra}
     Define n-point correlations, their Fourier transforms, talk about them as observables.
 \newpage
 \section{Observational data}
-    \subsection{Planck, Simons} 
+    \subsection{\planck, Simons} 
     High-level descriptions.
 \newpage
     \subsection{Future missions}
@@ -151,9 +152,8 @@ and we finish with a discussion of future work in chapter~\ref{chapter:conclusio
     \subsection{Goals}
     \begin{enumerate}
         \item Connecting inflation models directly to observations,
-            through the bispectrum (say where things will be defined).
-        \item Constraining the parameters of inflation models, not phenomenological templates
-            ($f_{NL}$ etc---make more explicitly distinct).
+            through the bispectrum.
+        \item Constraining the parameters of inflation models, not phenomenological templates and $f_{NL}$.
         \item To obtain the full shape information, not point samples or a limit.
         \item Efficient numerics gives access to more accurate, and in some cases new, feature shapes.
     \end{enumerate}
@@ -161,7 +161,7 @@ and we finish with a discussion of future work in chapter~\ref{chapter:conclusio
     \subsection{Methods}
     \begin{enumerate}
         \item Building separability into the tree-level in-in formalism.
-        \item The CMB calculation: expensive, but need only be done once per primordial basis.
+        \item The CMB calculation~\cite{Sohn_2021}: expensive, but need only be done once per primordial basis.
         \item So, we want a basis expansion that converges quickly for a broad range of inflation models.
         \item Convergence on the cube is different to the tetrapyd.
         \item Turns out to be much faster at primordial level than previous numerical methods
