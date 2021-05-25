@@ -1,21 +1,22 @@
 \chapter{Methods and Validation}\label{chapter:methods}
 \section{Numerics of mode evolution}
-    \subsection{$\tau_s$}
+    \subsection{Choice of time coordinate}
+    $\tau_s$
+    \subsection{The initial conditions}
+    When to set IC's for each mode.
+    \subsection{Factoring out oscillatory behaviour}
+    Swapping variables.
+    \subsection{Freeze-out}
     Words
-    \subsection{When to set IC's for each mode.}
-    Words
-    \subsection{Swapping variables.}
-    Words
-    \subsection{Freeze-out.}
-    Words
-\section{Integration choices}
+\section{Integration methods}
     \subsection{The $i\varepsilon$ prescription}
     Words
-    \subsection{Expand on what F\&RP wrote.}
+    \subsection{Contrast previous work}
     Words
-    \subsection{Suppression from plane wave expansion (intuition).}
-    Words
+    \subsection{Suppression at early times}
+    Intuition for suppresion from plane wave expansion.
 \section{Starting the integration with a pinch}
+(Contrast this to $i\varepsilon$!!)
 The previous two sections detailed the methods required to calculate
 the coefficients $\alpha_n$ in~\eqref{goal}, obtaining an
 explicitly separable expression for the shape function.
@@ -205,25 +206,22 @@ allowing us to ({\romannumeral 1}) preserve the intrinsic separability of the tr
 in-in formalism and ({\romannumeral 2}) do so in a way that allows easy exploration of possible
 sets of basis functions, to find a set that converges quickly enough to
 be useful in comparison with observation.
-    \subsection{When to start.}
+    \subsection{When to start the integration}
     Words
-    \subsection{Show how easy it is to swamp the result with a sharp start.}
-    Words
+    \subsection{Dangers of a sharp start}
+    Show how easy it is to swamp the result with a sharp start.
     \newpage
-    \subsection{FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T).}
+    \subsection{FIGURE: Relative error for simple $\pi^3$ and for Reso, in ($\beta$, T)}
     Words
     \newpage
 \section{Oscillatory weights}
-    \subsection{When to swap.}
-    Words
-    \subsection{Validation.}
-    Words
+    When to swap, validation.
     \newpage
 \section{Stopping the integration}
-    \subsection{A note on boundary terms and difficult (time-dep) cancellations.}
-    Words
+    A note on boundary terms and difficult (time-dep) cancellations.
     \newpage
 \section{The interaction Hamiltonian}\label{sec:h_int}
+    (Using integration by parts from RP paper.)
 The methods detailed in the previous section depend on the separability of
 the third-order interaction Hamiltonian, $\Hint$,
 and the possibility of including the spatial derivatives in a
@@ -318,14 +316,13 @@ we assemble the integrands, integrate them with respect to time,
 include the prefactors coming from the spatial derivatives,
 then sum the resulting sets of basis coefficients.
 Of course, these methods are not restricted to this example of $\Hint$.
-    \subsection{Using integration by parts from RP paper.}
 \newpage
-\section{Set-up of DBI example scan}
-    \subsection{Matching $A_s$, $n_s$, $r$, $N*$, using $\beta_{IR}$ etc.}
+\section{Set-up a DBI scan}
+    Matching $A_s$, $n_s$, $r$, $N*$, using $\beta_{IR}$ etc.
 \newpage
 \section{Going to high $P_{max}$}
-    \subsection{How high can I go, in terms of Planck $w$?}
-    \subsection{How high can I go, in terms parameters that can't be compared to Planck?}
+    How high can I go, in terms of Planck $w$?
+    How high can I go, in terms of parameters that can't be compared to Planck?
 
 \section{Validation (on numerical results)}\label{sec:validation}
 \subsection{Validation methods}\label{sec:validation_methods}
@@ -778,19 +775,18 @@ of $0.15\%$, and a squeezed limit test result of $6.5\%$.
 }\label{slice_plot_dbi_reso}
 \end{figure}
 \newpage
-\section{Speed comparison vs PyTransport. Something BINGO can't do?}
-    Words
+\section{Speed comparison vs PyTransport.}
+    Something BINGO can't do?
 \newpage
 \section{Map distinguishability of templates at primordial level}
-    \subsection{Determine where to usefully scan.}
-    Words
+    To determine where to usefully scan.
 \newpage
 \section{Conclusion}
-    \subsection{My methods (and their implementation) have been validated on interesting examples.}
+    \subsection{My methods (and their implementation) have been validated on interesting examples}
     Words
-    \subsection{Have successfully developed separable methods for high orders and features for the first time.}
+    \subsection{Separable methods for high orders and features for the first time}
     Words
-    \subsection{Can obtain full shape info far faster than previous numerical methods.}
+    \subsection{Full shape info far faster than previous numerical methods}
     Words
 
 %\bibliographystyle{unsrt}
