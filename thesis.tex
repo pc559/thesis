@@ -71,18 +71,50 @@
 %% Abstract:
 %%
 \abstract{%
-We outline a formalism, do quantitative comparisons, describe difficulties encountered$\ldots$
-
-Calculating the primordial bispectrum predicted by a model of inflation and
+Calculating the full primordial bispectrum predicted by a model of inflation and
 comparing it to what we see in the sky is very computationally intensive, necessitating layers
-of approximations and limiting the models which can be constrained.  Exploiting the inherent separability
-of the tree level in-in formalism using expansions in separable basis functions provides a means by which to
-obviate some of these difficulties. Here, we develop this approach further into a practical and efficient
+of approximations and limiting the models which can be constrained. The inherent separability
+of the tree level in-in formalism provides a means by which to
+obviate some of these difficulties.
+To exploit this property, one can expand in separable basis functions.
+The practicality of this method is then determined by the descriptive
+power of the basis chosen, i.e.\ by the range of scenarios for which that basis provides a convergent representation
+of the bispectrum. The central difficulty encountered in obtaining fast convergence is the effect of dominant non-physical
+$k$-configurations. A secondary difficulty encountered is accurately including the early-time contributions
+to the higher-order coefficients (which are necessary to capture feature effects, such as resonance non-Gaussianity).
+
+
+In this thesis we develop this separable approach into a practical and efficient
 numerical methodology which can be applied to a much wider and more complicated range of bispectrum
-phenomenology, making an important step forward towards observational pipelines which can directly
-confront specific models of inflation.  We describe a simple augmented Legendre polynomial basis
-and its advantages, then test the method on single-field inflation models with non-trivial phenomenology,
-showing that our calculation of these coefficients is fast and accurate to high orders.
+phenomenology than previous analyses. This is an important step forward towards observational pipelines which can directly
+confront specific models of inflation.
+
+
+The specific results involved can be categorised into two main lines of research.
+The first line of research is in determining the feasibility of the method.
+Our initial result here was identifying the contributions of the non-physical configurations
+as a novel problem to this analysis, and identifying basis choice as the key method of overcoming this difficulty.
+In this work we describe multiple basis sets and make quantitative comparisons
+of their convergence on realistic and interesting models, including ones with features.
+We find basis sets that can overcome the difficulty of the dominant non-physical $k$-configurations,
+converging far more efficiently than the basic basis sets, for physically interesting models.
+
+
+The second line of research we follow is in developing basis-independent methods that allow the fast and accurate calculation
+of higher order coefficients of the basis expansion of the tree-level in-in formalism.
+To this end we set up the separable formalism and describe the methods we use to overcome the difficulties encountered.
+These difficulties include accurately including the highly oscillatory early-time contributions.
+We present a careful and comprehensive validation of our methods,
+showing that we can overcome the convergence problems and capture the oscillatory contributions efficiently.
+At the primordial level we do this by validating our results on established templates with non-trivial
+phenomenology, using the squeezed-limit consistency condition, and by comparing our
+full bispectrum results to previous codes through point-tests.
+
+
+TO-DO: At the level of the CMB, we validate the convergence of our basis by ensuring we can reproduce the
+$\planck$ constraints on the DBI sound speed, and we translate this constraint into a constraint on
+a fundamental parameter in the context of a physically realistic scan. We then go beyond this by exploring how
+this constraint changes as we add features to this scenario.
 }
 
 
