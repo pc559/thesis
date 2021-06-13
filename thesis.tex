@@ -35,6 +35,7 @@
 % Citations using numbers
 \usepackage[numbers]{natbib}
 \usepackage{subfig}
+\usepackage[dvipsnames]{xcolor}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Thesis meta-information
@@ -209,11 +210,20 @@ Numeric choices that aren't specific to mode evolution, etc.
 Gauss-Legendre integration, fixed weights.
 \section{Tools used}
 Numpy, Scipy, Jupyter Notebooks, QUADPTS...?
-\section{Transport method for the Modal coeffs}
+\section{Transport method for the Modal coeffs}\label{appendix_modal_transport}
 Infinite hierarchy of coupled equations.
 Choose a basis to make it nice?
 Real vs Imag...?
 Sounds cool, not worth pursuing.
+One could imagine applying the same philosophy to our method.
+Certainly, at first sight this seems more natural, that if the core
+quantities in our method are the coefficients in some basis expansion,
+why not evolve them directly? Why take the apparently circuitous route
+of evolving the $\zeta_k(\tau)$, and decomposing them at every timestep?
+The answer is that the ``equations of motion'' for the coefficients of the expansion
+obtained by substituting the mode expansion of $\zeta_k(\tau)$ into~\eqref{modefneqn}
+are coupled in an infinite hierarchy.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
