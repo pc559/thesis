@@ -522,6 +522,8 @@ The total size of the set will always be referred to as $\Pmax$.
         $\Finvk$   & Fourier Series & $k$, $k^2$, $k^{-1}$ & \\
         $\Lnsinv$  & Legendre polynomials & $k^{-1+(n_s^{*}-1)}$   & \eqref{Lns_inv}\\
         $\Lnsboth$ & Legendre polynomials& $k^{n_s^{*}-1}$, $k^{-1+(n_s^{*}-1)}$ & \eqref{Lns_both}\\
+        $\scalingbasis$ & Legendre polynomials& $k^{-1}$, $\ln(k)k^{-1}$ &\\
+        $\resobasis$ & Legendre polynomials, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& &\\
     \end{tabular}
     \caption{
           Basis summary---the augmentation of the basis is done
@@ -548,8 +550,10 @@ each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
 
 \begin{figure}[!pth]
 \centering     %%% not \center
-\subfloat[Reconstructing the Maldacena Template]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_quadratic_sr.png}}\\
-\subfloat[Reconstructing the DBI Template]{\label{fig:b}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI.png}}
+%\subfloat[Reconstructing the Maldacena Template]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_quadratic_sr.png}}\\
+%\subfloat[Reconstructing the DBI Template]{\label{fig:b}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI.png}}
+\subfloat[Reconstructing the Maldacena Template]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/malda.png}}\\
+\subfloat[Reconstructing the DBI Template]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi.png}}
 \caption{
     Convergence comparisons for the Legendre and Fourier basis functions for (a) the Maldacena 
     template~\eqref{malda_shape} and (b) the DBI template~\eqref{dbi_shape}.
@@ -580,48 +584,61 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 
 \begin{figure}[!pth]
 \centering     %%% not \center
-\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_osc5.png}}\\
-\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_osc5.png}}
+%\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_osc5.png}}\\
+%\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_osc5.png}}
+\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/cos15.png}}\\
+\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos15.png}}
 \caption{
     Convergence comparison for oscillatory models. (a) As expected, the $\Finvk$ basis fits an oscillation with
     no shape dependence~\eqref{cos_shape} (that is periodic in the $k$-range) perfectly.
-    For this special case, the $\Lbasic$ and $\Linvk$ sets of basis functions require more modes
+    For this special case, the $\Lbasic$, $\scalingbasis$ and $\resobasis$ sets of basis functions require more modes
     to accurately describe the shape. (b) However, moving to the more complex and realistic case of a
     feature with scale and shape dependence (in this case the product of~\eqref{dbi_shape}
-    and~\eqref{cos_shape}), we see that again $\Linvk$ converges with the fewest modes.
+    and~\eqref{cos_shape}), we see that again $\scalingbasis$ converges with the fewest modes.
     Note that before the expansion has fully converged, the fit on the tetrapyd
     can actually degrade slightly when the basis set is extended. This is an artifact
     of fitting on the cube and restricting~\eqref{relative_difference}
     to the physical configurations on the tetrapyd; when considered over the
     entire cube the fit improves monotonically.
+    The $\resobasis$ basis, naturally, does not converge well to a linear osciallation.
 }\label{fig:recon_osc_dbiosc}
 \end{figure}
 \begin{figure}[!pth]
 \centering     %%% not \center
-\subfloat[$\cos(f\log(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_logosc2.png}}\\
-\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_logosc2.png}}
+%\subfloat[$\cos(f\log(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_logosc2.png}}\\
+%\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_logosc2.png}}
+\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos5_log.png}}
 \caption{
-    (a) The convergence for a log oscillation model~\eqref{ln_cos_shape} with no shape dependence.
-    For this type of feature, the $\Lbasic$ and $\Linvk$ sets of basis functions require fewer modes
-    to accurately describe the shape than the $\Finvk$ basis.
-    (b) For the more complex and realistic case of a
+    %(a) The convergence for a log oscillation model~\eqref{ln_cos_shape} with no shape dependence.
+    %For this type of feature, the $\Lbasic$ and $\Linvk$ sets of basis functions require fewer modes
+    %to accurately describe the shape than the $\Finvk$ basis.
+    %(b)
+    %For the more complex and realistic case of a
+    For the more complex case of a resonant
     feature with scale and shape dependence (in this case the product of~\eqref{dbi_shape}
-    and~\eqref{ln_cos_shape}), we see that again $\Linvk$ converges with the fewest modes,
-    though in this case $\Finvk$ outperforms $\Lbasic$.
+    and~\eqref{ln_cos_shape}), we see that the $\scalingbasis$ basis converges well,
+    but is, as expected for logarithmic oscillations, outperformed by the $\resobasis$ basis.
 }\label{fig:log_recon_osc_dbiosc}
 \end{figure}
 
 \begin{figure}[!pth]
 \centering
-\includegraphics[width=0.8\columnwidth]{plots/template_reconstruction_DBI_ns.png}
+%\includegraphics[width=0.8\columnwidth]{plots/template_reconstruction_DBI_ns.png}
+%\includegraphics[width=0.8\columnwidth]{pmax_reduction_plots_1_1000/dbi_scaling.png}
+\subfloat[$\kmax/\kmin=550$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_550/dbi_scaling.png}}\\
+\subfloat[$\kmax/\kmin=1000$]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_scaling.png}}\\
 \caption{
     For the scale-dependent DBI template~\eqref{dbi_ns_shape},
     by including a minimal amount of power spectrum information
-    using~\eqref{Lns_inv} and~\eqref{Lns_both} (here with
-    $n_s^{*}=0.97$), we can push the errors
-    to less than $0.1\%$ at $\Pmax=15$,
-    allowing us to work with a basis that can efficiently
-    capture the expected scale dependence of the shape function.
+    using~\eqref{Lns_inv} and~\eqref{Lns_both} ($\Lnsinv$ with
+    $n_s^{*}=0.9649$), we can decrease the convergence error
+    by nearly an order of magnitude (compared to $\Linvk$), reaching sub-percent errors at $\Pmax=30$.
+    The $\scalingbasis$ basis performs far better, even without the extra
+    power spectrum information.
+    By far the fastest convergence, however, results from the $\resobasis$ basis.
+    The convergence of this example also has a dependance on $\kmax/\kmin$.
+    The convergence power of these basis sets will allow us to efficiently
+    capture the scale dependence of the numerically calculated shape function.
     }\label{fig:recon_dbi_ns}
 \end{figure}
 
