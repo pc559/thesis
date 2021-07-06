@@ -119,20 +119,31 @@ one would need to accurately impose a sharp cut on the integrand).
     errors that would otherwise swamp our result.
     The coefficient being calculated is the
     $\alpha_{012}$ coefficient of the $\Lbasic$ expansion of~\eqref{example_eft2}.
-}\label{time_integrands}
+}\label{fig:time_integrands}
+\end{figure}
+
+\begin{figure}[!pth]
+\centering
+\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{time_integrand_convergence_plots/time_integrand_convergence_dbi.png}}\\
+\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{time_integrand_convergence_plots/time_integrand_convergence_malda_reso_0.02.png}}\\
+\caption{
+    Time integrand scans.
+    }\label{fig:plot_time_integrand}
 \end{figure}
 
 
-We use a damping of the form $e^{-\beta^2(\tau_s-T)^2}$ for $\tau_s<T$ to smoothly
+We use a damping of the form $e^{-\beta^2{(\tau_s-T)}^2}$ for $\tau_s<T$ to smoothly
 set the integrand to zero before a certain initial time, $T$.
 As long as $T$ is sufficiently early and $\beta$ is not too large
 their precise values have no significant effect on the final result.
 For definiteness, we take $\beta/w=1\times10^{-4}$, small enough that
 the integrand has many oscillations while it is ``turning on'',
 so matches the contribution of an infinite limit to high accuracy.
-We demonstrate this in figure~\ref{time_integrands}
+We demonstrate this in figure~\ref{fig:time_integrands}
 for a toy $\Hint=(-1/\tau)\dot{\zeta}^3$,
 as in~\eqref{example_eft2}.
+We also demonstrate this for a realistic DBI model and resonance model
+in figure~\ref{fig:plot_time_integrand}.
 
 
 To obtain a $k$-sample we must evolve a Fourier mode from Bunch-Davies initial conditions deep in the horizon
