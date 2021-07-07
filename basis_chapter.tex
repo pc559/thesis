@@ -644,18 +644,29 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 
 \begin{figure}[!pth]
 \centering
-\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_freq_scan.png}}\\
-\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_log_freq_scan.png}}\\
+\subfloat[$\cos(\omega(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_freq_scan.png}}\\
+\subfloat[$\cos(\omega\ln(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_log_freq_scan.png}}\\
 \caption{
-    Frequency scans.
+    Here we test our basis sets on oscillatory templates, which are a good proxy for feature models.
+    These plots are useful to aid in deciding which basis to run BEstModal for,
+    figuring out which covers the widest range of features \textcolor{red}{PLANCK COMPARISON}.
+    P1ns isn't included in all the plots, but it would always lie in between~$\Lnsinv$ and $\scalingbasis$ basis.
+    The basis sets are defined in table~\ref{tab:basis_summary}.
+    Basis sets~$\Lnsinv$ and $\scalingbasis$ work well for the linear oscillations,
+    converging up to around $\omega\approx200$.
+    For logarithmic oscillations the resonant basis works best, as expected.
+    However, the improvement is less dramatic.
     }\label{fig:plot_freq_scan}
 \end{figure}
 \begin{figure}[!pth]
 \centering
-\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_freq_scan.png}}\\
-\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_log_freq_scan.png}}\\
+\subfloat[$\cos(\omega(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_freq_scan.png}}\\
+\subfloat[$\cos(\omega\ln(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_log_freq_scan.png}}\\
 \caption{
-    Frequency scans, with DBI.
+    For linear oscillations,
+    $\Lnsinv$ and $\scalingbasis$ work best, converging well up to $\omega\approx170$.
+    For logarithmic oscillations the resonant basis works best,
+    again, converging up to around $\omega\approx7$.
     }\label{fig:plot_freq_scan_dbi}
 \end{figure}
 
@@ -712,4 +723,4 @@ even a small overall scale dependence causes significant degradation in the conv
     \subsection{Including 1/k terms makes the method feasible}
     Words
     \subsection{The log basis performs as well, but without being tied to a specific $n_s$}
-    Words
+    One possible route forward is doing two runs, i.e.\ doing both the scaling basis (for linear oscillations) and the resonant basis (for log oscillations).
