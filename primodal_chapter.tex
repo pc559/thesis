@@ -138,7 +138,7 @@ one would need to accurately impose a sharp cut on the integrand).
     In both cases we also see that for values of $\tau_s^{start}$ which are too late in time,
     we do not recover the correct result in the range of the scan. This is expected,
     as in this case we are losing relevant physical information.
-    }\label{fig:plot_time_integrand}
+    }\label{fig:plot_time_integrand_scan}
 \end{figure}
 
 
@@ -152,8 +152,16 @@ so matches the contribution of an infinite limit to high accuracy.
 We demonstrate this in figure~\ref{fig:time_integrands}
 for a toy $\Hint=(-1/\tau)\dot{\zeta}^3$,
 as in~\eqref{example_eft2}.
+
+
 We also demonstrate this for a realistic DBI model and resonance model
-in figure~\ref{fig:plot_time_integrand}.
+in figure~\ref{fig:plot_time_integrand_scan}.
+Here we reparametrise the damping in a form that with a more obvious physical
+interpretation.
+We use the form $e^{-100{\left(\frac{{\tau_s^{start}-\tau_s}}{\tau_s^{start}-\tau_s^{cut}}\right)}^2}$.
+The point $\tau_s=\tau_s^{start}$ is the earliest point we calculate the integrand for,
+i.e.\ before this point we set the integrand to exactly zero---we
+see that at this point the integrand is suppressed by a factor of $e^{-100}$.
 
 
 To obtain a $k$-sample we must evolve a Fourier mode from Bunch-Davies initial conditions deep in the horizon
