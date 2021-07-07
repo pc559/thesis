@@ -124,10 +124,20 @@ one would need to accurately impose a sharp cut on the integrand).
 
 \begin{figure}[!pth]
 \centering
-\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{time_integrand_convergence_plots/time_integrand_convergence_dbi.png}}\\
-\subfloat[temp]{\label{fig:a}\includegraphics[width=.75\columnwidth]{time_integrand_convergence_plots/time_integrand_convergence_malda_reso_0.02.png}}\\
+    \subfloat[$\mathcal{E}$ for DBI model.]{\label{fig:a}\includegraphics[width=.75\columnwidth]{time_integrand_convergence_plots/time_integrand_convergence_dbi.png}}\\
+    \subfloat[$\mathcal{E}$ for resonant model.]{\label{fig:a}\includegraphics[width=.75\columnwidth]{time_integrand_convergence_plots/time_integrand_convergence_malda_reso_0.02.png}}\\
 \caption{
-    Time integrand scans.
+    Here we show the convergence in $\tau_s^{start}$ and $\tau_s^{cut}$ for a DBI scenario and a resonant scenario
+    (with a canonical kinetic term, on a quadratic potential).
+    We quantify the convergence by plotting the error compared to the fully converged result,
+    measured by $\mathcal{E}$.
+    In both cases, the error is unacceptably high for a sharp cut, $\tau_s^{start}-\tau_s^{cut}=0$,
+    across the entire width of the scan. However, for even moderately positive values of $\tau_s^{start}-\tau_s^{cut}$
+    we see that the error can be reduced by orders of magnitude, for the same computational cost
+    (i.e.\ the same $\tau_s^{cut}$).
+    In both cases we also see that for values of $\tau_s^{start}$ which are too late in time,
+    we do not recover the correct result in the range of the scan. This is expected,
+    as in this case we are losing relevant physical information.
     }\label{fig:plot_time_integrand}
 \end{figure}
 
