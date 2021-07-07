@@ -129,6 +129,7 @@ one would need to accurately impose a sharp cut on the integrand).
 \caption{
     Here we show the convergence in $\tau_s^{start}$ and $\tau_s^{cut}$ for a DBI scenario and a resonant scenario
     (with a canonical kinetic term, on a quadratic potential).
+    Note the different scales on the top and bottom plots.
     We quantify the convergence by plotting the error compared to the fully converged result,
     measured by $\mathcal{E}$.
     In both cases, the error is unacceptably high for a sharp cut, $\tau_s^{start}-\tau_s^{cut}=0$,
@@ -162,6 +163,20 @@ We use the form $e^{-100{\left(\frac{{\tau_s^{start}-\tau_s}}{\tau_s^{start}-\ta
 The point $\tau_s=\tau_s^{start}$ is the earliest point we calculate the integrand for,
 i.e.\ before this point we set the integrand to exactly zero---we
 see that at this point the integrand is suppressed by a factor of $e^{-100}$.
+In figure~\ref{fig:plot_time_integrand_scan} we see that $\tau_s^{start}-\tau_s^{cut}=0$
+gives unnacceptably large errors across the range of the scan, but for sufficiently large
+$\tau_s^{start}$ this is ameliorated by a positive $\tau_s^{start}-\tau_s^{cut}$.
+This effect is more relevant for the DBI scenario, as the size of the errors coming
+from early times can easily dominate the final result, whereas in the resonant example
+the large contributions from the resonance at later times is more robust.
+For the resonant scenario~\eqref{eq:resonant_potential} we have $c_s=1$,
+so we expect (from~\cite{flauger_pajer_resonant}) the point of resonance $\tau^k_s$
+for each mode $k$ to be approximately given by $\tau^k_s = \frac{-\left|\phi'\right|}{2fk}$.
+For our example, we have $\phi'\approx-0.14$, $f=0.02$, $\kmin=2.088\times10^{-4}$ and $\kmax=2.088\times10^{-1}$.
+This means that we expect the earliest physically relevant time to be
+$\tau_s\approx-\frac{0.14}{2(0.02)(2.088\times10^{-4})}\approx-1.7\times10^{4}$.
+Indeed, in figure~\ref{fig:plot_time_integrand_scan} we see that $\kmax\tau_s^{start}$ must be
+set earlier that $-10^3$ to correctly capture the feature.
 
 
 To obtain a $k$-sample we must evolve a Fourier mode from Bunch-Davies initial conditions deep in the horizon
