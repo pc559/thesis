@@ -523,7 +523,7 @@ The total size of the set will always be referred to as $\Pmax$.
         $\Lnsinv$  & Legendre polynomials & $k^{-1+(n_s^{*}-1)}$   & \eqref{Lns_inv}\\
         $\Lnsboth$ & Legendre polynomials& $k^{n_s^{*}-1}$, $k^{-1+(n_s^{*}-1)}$ & \eqref{Lns_both}\\
         $\scalingbasis$ & Legendre polynomials& $k^{-1}$, $\ln(k)k^{-1}$ &\\
-        $\resobasis$ & Legendre polynomials, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& &\\
+        $\resobasis$ & $\frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}$, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& &\\
     \end{tabular}
     \caption{
           Basis summary---the augmentation of the basis is done
@@ -673,7 +673,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 Finally, we consider convergence in the light of the more subtle scale-dependence due to the spectral index $n_s$ of the power spectrum.  The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence, but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
 When we include this scale dependence, using~\eqref{dbi_ns_shape} with $n_s$, 
 it proves very useful to include these deviations from
-integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure \eqref{gram_schmidt}, 
+integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure~\eqref{gram_schmidt}, 
 \begin{align}\label{Lns_inv}
     q_{\Pmax}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}}\right],
 \end{align}
@@ -704,13 +704,43 @@ even a small overall scale dependence causes significant degradation in the conv
     Make table.
 \section{The $P_{max}$-$k_{ratio}$ tradeoff}
     Not obvious, but $k_{ratio}$ matters!
-    And DBI vs Equil.
+    We can see this in figure~\ref{fig:recon_dbi_ns}.
+    We plot the convergence of various basis sets for the scale-dependent
+    DBI template~\eqref{dbi_ns_shape}, for $\kmax/\kmin=550$ and
+    for $\kmax/\kmin=1000$. We see that the convergence is slower
+    for higher $\kmax/\kmin$,  i.e.\ that to achieve the same convergence
+    to a given shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.
     \newpage
-\section{Log basis}
-    For basis without PS info.
+\section{Scaling basis}
+    While the power spectrum information can give us an estimate of the scaling of
+    the bispectrum, different models can have different bispectrum scalings,
+    despite having the same power spectrum scaling.
+    To take this into account, we would like a basis that could fit
+    a range of fractional powers of $k$.
+    We achieve this using the $\scalingbasis$ basis.
+    The $\scalingbasis$ basis is the Legendre polynomials,
+    augmented (in the sense of~\eqref{gram_schmidt}) with $k^{-1}$, $\ln(k)k^{-1}$.
+    This is motivated by
+    \begin{align}
+        k^\varepsilon &= e^{\varepsilon\ln k}\\
+                      &\approx 1+\varepsilon\ln k
+    \end{align}
+    when $\varepsilon\ln\left(\kmax\right)$ is sufficiently small.
     \newpage
-\section{Loginv basis}
-    For resonant shapes.
+\section{Resonant basis}
+    We also describe a basis specifically designed to capture logarithmic oscillations.
+    This goes against our philosophy of desiring a basis that is not tied to
+    any specific shape, as $\cmbbest$ is expensive but need only be run once.
+    However, logarithmic oscillations are an important type of feature in the literature~\cite{Planck_NG_2018},
+    and running $\cmbbest$ twice, once for general features and once for logarithmic oscillations
+    may be a viable strategy to cover a very broad range of models.
+
+
+    The $\resobasis$ basis is based on the Legendre polynomials:
+    \begin{align}
+        \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{, with }\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}
+    \end{align}
+    where the factor of $\frac{1}{\sqrt{k}}$ is needed to retain orthogonality.
     \newpage
 \section{Factor basis?}
     Words
