@@ -68,7 +68,33 @@
     \\
     The convergence in the $\scalingbasis$ basis is better,
     falling in the range $[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
+    However, for this analysis the $\cmbbest$ code had only been run for
+    the $\Lnsinv$ basis. We see that it is sufficient in any case.
+    When we examine the convergence to the sum and product scaling templates,
+    in figure~\ref{fig:dbi_primodal_scan_template_corrs_log30},
+    we see that neither is obviously the better match to the numerical result.
+    This is due to the numerical result having a non-zero squeezed limit
+    coming from the usual slow-roll suppressed local-type contributions
+    (as in~\eqref{malda_shape}) which are neglected in the DBI templates.
     \\
+\begin{figure}[!pth]
+\centering
+\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_log30.png}
+\caption{
+    The $\scalingbasis$ basis converges well across the scan range.
+    We see that the bare DBI template is a poor match to the true numerical result.
+    This is mostly due to the error in the overall magnitude.
+    Once this is corrected, we see that the numerical result matches the
+    approximate template to better than $1\%$. As the convergence of the
+    numerical result is better than $0.1\%$ for the $\scalingbasis$ basis
+    we can see that sum scaling and the product scaling perform
+    comparably in matching the numerical result. This is mostly
+    due to those templates neglecting the usual slow-roll suppressed
+    contributions (as in~\eqref{malda_shape}),
+    which do in fact become relevant to the primordial
+    bispctrum deep enough into the squeezed limit, due to their local-type shape.
+}\label{fig:dbi_primodal_scan_template_corrs_log30}
+\end{figure}
     \\
 \section{Compare convergence at primordial level to convergence at $f_{NL}$ level}
     We will compare primordial convergence to CMB convergence,
