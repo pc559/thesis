@@ -1,3 +1,4 @@
+make
 word_count=$(ps2ascii thesis.pdf | wc -w)
 page_count=$(pdftk thesis.pdf dump_data | grep NumberOfPages | cut -d' ' -f 2)
 echo "$(date)"
