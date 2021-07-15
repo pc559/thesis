@@ -628,7 +628,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \subfloat[$\kmax/\kmin=550$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_550/dbi_scaling.png}}\\
 \subfloat[$\kmax/\kmin=1000$]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_scaling.png}}\\
 \caption{
-    For the scale-dependent DBI template~\eqref{dbi_ns_shape},
+    For the scale-dependent DBI template~\eqref{dbi_prod_shape},
     by including a minimal amount of power spectrum information
     using~\eqref{Lns_inv} and~\eqref{Lns_both} ($\Lnsinv$ with
     $n_s^{*}=0.9649$), we can decrease the convergence error
@@ -671,7 +671,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \end{figure}
 
 Finally, we consider convergence in the light of the more subtle scale-dependence due to the spectral index $n_s$ of the power spectrum.  The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence, but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
-When we include this scale dependence, using~\eqref{dbi_ns_shape} with $n_s$, 
+When we include this scale dependence, using~\eqref{dbi_prod_shape} with $n_s$, 
 it proves very useful to include these deviations from
 integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure~\eqref{gram_schmidt}, 
 \begin{align}\label{Lns_inv}
@@ -708,7 +708,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     Not obvious, but $k_{ratio}$ matters!
     We can see this in figure~\ref{fig:recon_dbi_ns}.
     We plot the convergence of various basis sets for the scale-dependent
-    DBI template~\eqref{dbi_ns_shape}, for $\kmax/\kmin=550$ and
+    DBI template~\eqref{dbi_prod_shape}, for $\kmax/\kmin=550$ and
     for $\kmax/\kmin=1000$. We see that the convergence is slower
     for higher $\kmax/\kmin$,  i.e.\ that to achieve the same convergence
     to a given shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.

@@ -13,4 +13,3 @@ echo "$word_count"
 echo "$page_count"
 echo "$relative_wc"
 python3 wc_plotter.py
-echo "Add a spell check!"

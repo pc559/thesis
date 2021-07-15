@@ -385,10 +385,15 @@ The shape~\eqref{dbi_shape} can be approximated by the separable equilateral tem
 \end{align}
 These templates can be modified to be more physically realistic by including
 scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
-For example, we can add some scale dependence to the DBI model in a reasonable first approximation by including a prefactor
-\begin{align}\label{dbi_ns_shape}
-    S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{n_s-1}S^{DBI}(k_1,k_2,k_3).
+For example, we can add some scale dependence to the DBI model in a reasonable first approximation by including a prefactor. We define the product scaling template
+\begin{align}\label{dbi_prod_shape}
+    S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{DBI}(k_1,k_2,k_3)
 \end{align}
+and the sum scaling template
+\begin{align}\label{dbi_sum_shape}
+    S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{DBI}(k_1,k_2,k_3)
+\end{align}
+with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
 We now turn to feature templates.
 The result of adding a feature of the form~\eqref{eq:kink_potential}
 is to add oscillatory features of the form
