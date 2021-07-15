@@ -94,17 +94,17 @@ I developed this separable approach into a practical and efficient numerical met
 wider and more complicated range of bispectrum phenomenology, making an important step forward towards observational
 pipelines which can directly confront specific models of inflation using the full bispectrum information in a template-free analysis.
 
-The latter part of this bispectrum estimation pipeline (\textit{CMB-BEst}~\cite{Sohn_2021}) was recently completed
+The latter part of this bispectrum estimation pipeline ($\cmbbest$~\cite{Sohn_2021}) was recently completed
 by my collaborators (Wuhyun Sohn, Dr James Fergusson).
-This code constrains the inflationary output of my ``\textit{Primodal}'' code using \textit{CMB} data.
+This code constrains the inflationary output of my ``$\primodal$'' code using \textit{CMB} data.
 
 In my recent paper (with E. P. S. Shellard)~\cite{probing_precision}, which has been submitted to JCAP,
 we explored and described various basis choices and their advantages, and thoroughly validated the methods on single-field inflation models with non-trivial phenomenology, showing that our calculation of these coefficients is fast and accurate to high orders.
 
 
 More recently I have reached the key exploitation phase of my research.
-My collaborators and I have tested the integration of the \textit{Primodal} and \textit{CMB-BEst}
-parts of the pipeline, and at present, my focus is on running \textit{Primodal} on the Cambridge HPC facility,
+My collaborators and I have tested the integration of the $\primodal$ and $\cmbbest$
+parts of the pipeline, and at present, my focus is on running $\primodal$ on the Cambridge HPC facility,
 scanning models of inflation with the goal of obtaining some improved constraints on parameters of fundamental
 physics using our pipeline.
 Specifically, we are looking at models of DBI inflation~\cite{dbi_in_the_sky} with sharp or
@@ -127,7 +127,7 @@ A prime goal I would pursue in this RA position would be to extend these methods
 to the case of multiple fields. This would open the path to placing constraints on this
 more general class of theories.
 
-Readying \textit{Primodal} for a public release is another immediate goal.
+Readying $\primodal$ for a public release is another immediate goal.
 This would benefit the community by providing it with a powerful tool
 that can capture the full shape information of a wide class of models far more efficiently
 that previous similar codes, as described in~\cite{probing_precision}.
@@ -151,7 +151,7 @@ and are therefore constrained by the current experimental bounds~\cite{Planck_NG
 include string theory-inspired models such as DBI inflation~\cite{dbi_silverstein}
 and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
 (which gives large non-Gaussianity through the resonance mechanism).
-Also within reach with the current implementation of \textit{Primodal}
+Also within reach with the current implementation of $\primodal$
 is the exploration of the effects of sudden
 features in the inflationary dynamics, and of more general
 time-dependence within the formalism of the effective field theory (EFT) of inflation. 
@@ -185,13 +185,13 @@ the observables, not the bispectrum at the end of inflation---exploring the
 relative efficiencies of different basis sets in this context could be very
 fruitful in expanding the range of models which could be constrained.
 
-\subsubsection{Public release of \textit{Primodal}}
-The public release of \textit{Primodal} is a clear and worthwhile
+\subsubsection{Public release of $\primodal$}
+The public release of $\primodal$ is a clear and worthwhile
 deliverable of this project. While other publicly released software
 for the calculation of inflationary non-Gaussianities does exist,
 they are based on point-by-point methods, and are thus inefficient
 in their calculation and description of the smooth bispectrum.
-\textit{Primodal}, which calculates the same quantity in an intrinsically
+$\primodal$, which calculates the same quantity in an intrinsically
 smooth way, and whose result is tailored to comparison with observations,
 would thus fill an important gap.
 
@@ -223,7 +223,7 @@ less efficient than our modal expansion method, and less suited to parameter sca
 Secondly, the resulting grid of points is not easily comparable to observations,
 which is the main motivator of the separability of our method.
 
-I will extend the methods I have already developed to the case of multiple active fields during inflation, and implement them in the \textit{Primodal} code.
+I will extend the methods I have already developed to the case of multiple active fields during inflation, and implement them in the $\primodal$ code.
 I will validate my established basis sets on standard templates for multi-field bispectra,
 and test their ability to capture the expected scale-dependence of the shapes,
 a property usually excluded in standard templates.
@@ -239,15 +239,15 @@ previously been exploited in the setting of bispectrum calculation and estimatio
 One possible avenue is tensor rank decomposition techniques and other methods of tensor approximation,
 which are of use in, for example, signal processing.
 
-By using these techniques to approximate the coefficient matrix (which is the output of \textit{Primodal})
+By using these techniques to approximate the coefficient matrix (which is the output of $\primodal$)
 we can determine a linear combination of our basis functions which can more efficiently
 describe that particular bispectrum.
 I will apply these techniques to explore the general limits of separable approximations to primordial bispectra,
 with a focus on convergence at the level of observations. This will make clear the widest possible set
 of models that can be constrained through the bispectrum.
 
-\subsubsection{Public release of \textit{Primodal}}
-My intention is to follow best practices when preparing \textit{Primodal} for
+\subsubsection{Public release of $\primodal$}
+My intention is to follow best practices when preparing $\primodal$ for
 public release. I will document the code, prepare example test cases for validation by users
 on their local machines,
 and release the code within a container to package the code along with its
@@ -255,18 +255,18 @@ dependencies, libraries, and system settings to ensure reproducability.
 
 \subsection{Work plan}
 \begin{itemize}
-    \item Obtain single-field constraints using the already-validated codes \textit{Primodal} and \textit{CMB-BEst}.
+    \item Obtain single-field constraints using the already-validated codes $\primodal$ and $\cmbbest$.
     \item Exploit tensor rank decomposition for basis choice optimisation, and explore tools from other fields, e.g.~signal processing.
     \item Explore further applications to single-field models, for example time dependence within the EFT of inflation.
-    \item Prepare \textit{Primodal} for public release in its single-field form.
+    \item Prepare $\primodal$ for public release in its single-field form.
     \item Test the basis sets that were used in the single-field case on multi-field templates.
         If needed, explore new basis sets to cover multi-field shapes.
     \item Generalise the methods for separable in-in calculation to the multi-field case.
     \item Prepare single-field constraint results for publication.
-    \item Implement multi-field methods in code, extending \textit{Primodal}.
+    \item Implement multi-field methods in code, extending $\primodal$.
     \item Investigate multi-field phenomenology, with the goal of understanding which scenarios predict observable non-Gaussianity, and thus can be constrained.
     \item Explore the application of these methods in other contexts, such as preparing non-Gaussian initial conditions for simulations of large scale structure evolution.
-    \item Prepare the multi-field extension of \textit{Primodal} for release.
+    \item Prepare the multi-field extension of $\primodal$ for release.
     \item Prepare multi-field results for publication.
 \end{itemize}
 

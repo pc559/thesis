@@ -1,3 +1,4 @@
+./spellcheck_all.sh
 read -p "Commit description: " desc
 make
 word_count=$(ps2ascii thesis.pdf | wc -w)

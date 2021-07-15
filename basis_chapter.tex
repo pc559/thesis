@@ -1,7 +1,7 @@
 %\input{commands}
 \chapter{Decomposing primordial shapes}\label{chapter:decomp}
 \section{Setting up the formalism}\label{sec:setting_notation}
-    \subsection{Pulling out the $k$-dependance}\label{sec:k_dep}
+    \subsection{Pulling out the $k$-dependence}\label{sec:k_dep}
     Given its separable form, the tree-level in-in formalism is amenable
 to more efficient calculation using separable modes, as first mentioned in~\cite{Funakoshi}.
 That work extended the separable methodology previously implemented for the CMB bispectrum~\cite{FergShell_3}.
@@ -600,7 +600,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     of fitting on the cube and restricting~\eqref{relative_difference}
     to the physical configurations on the tetrapyd; when considered over the
     entire cube the fit improves monotonically.
-    The $\resobasis$ basis, naturally, does not converge well to a linear osciallation.
+    The $\resobasis$ basis, naturally, does not converge well to a linear oscillation.
 }\label{fig:recon_osc_dbiosc}
 \end{figure}
 \begin{figure}[!pth]
@@ -633,10 +633,10 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     using~\eqref{Lns_inv} and~\eqref{Lns_both} ($\Lnsinv$ with
     $n_s^{*}=0.9649$), we can decrease the convergence error
     by nearly an order of magnitude (compared to $\Linvk$), reaching sub-percent errors at $\Pmax=30$.
-    The $\scalingbasis$ basis performs far better, even without the extra
+    The $\scalingbasis$ basis performs far better again, even without the extra
     power spectrum information.
     By far the fastest convergence, however, results from the $\resobasis$ basis.
-    The convergence of this example also has a dependance on $\kmax/\kmin$.
+    The convergence of this template also has a dependence on $\kmax/\kmin$.
     The convergence power of these basis sets will allow us to efficiently
     capture the scale dependence of the numerically calculated shape function.
     }\label{fig:recon_dbi_ns}
@@ -684,7 +684,9 @@ Secondly, we also augment $\Lbasic$ with an additional scale-dependent constant 
 \end{align}
 which we refer to as $\Lnsboth$.
 As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
-even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.  However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.    We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra. 
+even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.
+However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.
+We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra. 
     \subsection{Large non-physical contributions}
     Take from above.
 \section{Setting up a basis}
@@ -695,7 +697,7 @@ even a small overall scale dependence causes significant degradation in the conv
 \section{Basis choice matters!}
     \subsection{Why the basic basis expansion is so bad}
     Take from above.
-    \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$}
+    \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
     Refit mixed basis functions to pure Legendre's subtract to show convergence of rest?
     \newpage
     \subsection{My new basis sets, and their dramatic improvement}
@@ -746,7 +748,7 @@ even a small overall scale dependence causes significant degradation in the conv
     Words
 \newpage
 \section{Conclusion}
-    \subsection{Basic Legendres/Fourier are not sufficient}
+    \subsection{Basic Legendre/Fourier are not sufficient}
     Words
     \subsection{Need to pay attention to the cube}
     Words
