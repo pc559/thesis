@@ -765,19 +765,34 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     equivalently to $\Linvk$, as expected.
     \newpage
 \section{Resonant basis}
-    We also describe a basis specifically designed to capture logarithmic oscillations.
+    We finally describe a basis specifically designed to capture logarithmic oscillations,
+    a type of feature that is usually very difficult to accurately fit.
     This goes against our philosophy of desiring a basis that is not tied to
-    any specific shape, as $\cmbbest$ is expensive but need only be run once.
-    However, logarithmic oscillations are an important type of feature in the literature~\cite{Planck_NG_2018},
-    and running $\cmbbest$ twice, once for general features and once for logarithmic oscillations
+    any specific shape, which was motivated by the fact that $\cmbbest$
+    is expensive but need only be run once per basis.
+    However, logarithmic oscillations are an important type of feature in the
+    literature~\cite{Planck_NG_2018}.
+    Running $\cmbbest$ twice, once for a basis that can cover
+    a broad range of general features, and once for
+    logarithmic oscillations in particular,
     may be a viable strategy to cover a very broad range of models.
 
 
-    The $\resobasis$ basis is based on the Legendre polynomials:
+    The $\resobasis$ basis is built using the Legendre polynomials,
+    however the argument has been scaled logarithmically.
+    It differs from the basis described in~\cite{Funakoshi} in that it
+    also includes a factor of $\frac{1}{\sqrt{k}}$ to retain orthogonality.
+    We define the $n$th basis element as
     \begin{align}
-        \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{, with }\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}
+        \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{, with }\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
     \end{align}
-    where the factor of $\frac{1}{\sqrt{k}}$ is needed to retain orthogonality.
+    We then see that
+    \begin{align}
+        \int_{\kmin}^{\kmax}dk\frac{\mathcal{P}_m(\bar{k})}{\sqrt{k}}\frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}
+        &= \int_{\ln\kmin}^{\ln\kmax}d\ln{k}\mathcal{P}_m(\bar{k})\mathcal{P}_n(\bar{k})\\
+        &\propto \delta_{mn}
+    \end{align}
+    due to the way we defined $\bar{k}$ for this basis set.
     \newpage
 \section{Factor basis?}
     Words
