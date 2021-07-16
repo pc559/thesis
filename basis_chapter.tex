@@ -587,7 +587,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 %\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_osc5.png}}\\
 %\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_osc5.png}}
 \subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/cos15.png}}\\
-\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos15.png}}
+\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos15.png}}
 \caption{
     Convergence comparison for oscillatory models. (a) As expected, the $\Finvk$ basis fits an oscillation with
     no shape dependence~\eqref{cos_shape} (that is periodic in the $k$-range) perfectly.
@@ -714,20 +714,28 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     to a given shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.
     \newpage
 \section{Scaling basis}
-    While the power spectrum information can give us an estimate of the scaling of
-    the bispectrum, different models can have different bispectrum scalings,
-    despite having the same power spectrum scaling.
-    To take this into account, we would like a basis that could fit
+    Despite having the same power spectrum scaling,
+    different models can have different bispectrum scalings.
+    Therefore while the power spectrum can give us a
+    rough estimate of the scaling of the bispectrum,
+    the $\Lnsinv$ basis may not converge sufficiently quickly if~\eqref{Lns_inv}
+    is not a sufficiently close match to the required scaling.
+    We would instead like a basis that could fit
     a range of fractional powers of $k$.
     We achieve this using the $\scalingbasis$ basis.
-    The $\scalingbasis$ basis is the Legendre polynomials,
-    augmented (in the sense of~\eqref{gram_schmidt}) with $k^{-1}$, $\ln(k)k^{-1}$.
+    The $\scalingbasis$ basis is built using the Legendre polynomials,
+    augmented (in the sense of~\eqref{gram_schmidt})
+    with
+    \begin{align}\label{scaling_basis_definition}
+        q_{\Pmax-2}(k) &= \text{Orth}\left[{k^{-1}}\right],\\
+        q_{\Pmax-1}(k) &= \text{Orth}\left[{\ln(k)k^{-1}}\right].
+    \end{align}
     This is motivated by
     \begin{align}
-        k^\varepsilon &= e^{\varepsilon\ln k}\\
-                      &\approx 1+\varepsilon\ln k
+        k^\varepsilon &= e^{\varepsilon\ln k}
+                      \approx 1+\varepsilon\ln k
     \end{align}
-    when $\varepsilon\ln\left(\kmax\right)$ is sufficiently small.
+    when $\varepsilon\ln\left(k\right)$ is sufficiently small for $k\in[\kmin,\kmax]$.
     \newpage
 \section{Resonant basis}
     We also describe a basis specifically designed to capture logarithmic oscillations.
