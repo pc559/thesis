@@ -614,10 +614,16 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     %to accurately describe the shape than the $\Finvk$ basis.
     %(b)
     %For the more complex and realistic case of a
-    For the more complex case of a resonant
-    feature with scale and shape dependence (in this case the product of~\eqref{dbi_shape}
-    and~\eqref{ln_cos_shape}), we see that the $\scalingbasis$ basis converges well,
-    but is, as expected for logarithmic oscillations, outperformed by the $\resobasis$ basis.
+    We plot the convergence of various basis sets for the more complex case of a resonant
+    feature with scale and shape dependence, in this case the product of~\eqref{dbi_shape}
+    and~\eqref{ln_cos_shape}.
+    We see that the $\scalingbasis$ basis struggles to converge for this fixed-frequency
+    template, due to the combination of the high frequency logarithmic oscillation
+    and the non-trivial shape dependence coming from $S^{DBI}(k_1,k_2,k_3)$.
+    As expected for logarithmic oscillations,
+    the $\resobasis$ basis performs best for this template, confirming that
+    the basis functions defined in~\eqref{reso_basis_definition} perform well
+    even when there is non-trivial shape dependence.
 }\label{fig:log_recon_osc_dbiosc}
 \end{figure}
 
@@ -785,7 +791,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     We define the $n$th basis element as
     \begin{align}
         \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{, with }\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
-    \end{align}
+    \end{align}\label{reso_basis_definition}
     We then see that
     \begin{align}
         \int_{\kmin}^{\kmax}dk\frac{\mathcal{P}_m(\bar{k})}{\sqrt{k}}\frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}
