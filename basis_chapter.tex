@@ -732,10 +732,16 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     \end{align}
     This is motivated by
     \begin{align}
-        k^\varepsilon &= e^{\varepsilon\ln k}
-                      \approx 1+\varepsilon\ln k
+        k^\epsilon &= e^{\epsilon\ln\left(\frac{k}{\kmin}\right)+\epsilon\ln(\kmin)}\\
+                   &\approx e^{\epsilon\ln\left(\kmin\right)}
+                      \left(1+\epsilon\ln\left(\frac{k}{\kmin}\right)\right)
     \end{align}
-    when $\varepsilon\ln\left(k\right)$ is sufficiently small for $k\in[\kmin,\kmax]$.
+    which is valid when $\epsilon\ln\left(\kmax/\kmin\right)$ is
+    sufficiently small.
+    Since for the DBI case the scaling exponent $\epsilon$ is expected to be of the
+    same order as $n_s-1$ and $\varepsilon_s$, we see that this
+    approximation is good for our case,
+    where $\ln\left(\frac{\kmax}{\kmin}\right)\approx6.91$.
     \newpage
 \section{Resonant basis}
     We also describe a basis specifically designed to capture logarithmic oscillations.
