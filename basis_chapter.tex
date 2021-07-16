@@ -677,7 +677,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     We also see that $\Fbasic$ and $\Finvk$ converge very poorly due to the
     DBI shape, only covering around a tenth of the frequency range that
     the $\scalingbasis$ basis converges for, up to $\omega\approx170$.
-    For logarithmic oscillations the resonant basis converges best
+    For logarithmic oscillations the resonant basis converges best,
     capturing the complex oscillatory templates up to around $\omega\approx7$.
     Beyond this point none of the basis sets converge so the relative
     performance is irrelevant, but we can see that the $\resobasis$ basis
@@ -832,6 +832,23 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     that the $\resobasis$ basis performs best at converging to the
     scale-dependent DBI template. However, the convergence of the
     $\scalingbasis$ basis is still perfectly adequate in this case.
+    \newpage
+    \begin{figure}[!pth]
+        \centering
+        \subfloat[$\Lbasic$]{\label{fig:basis_plot_a}\includegraphics[width=.75\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_P_0}}\\
+        \subfloat[$\Linvk$]{\label{fig:basis_plot_b}\includegraphics[width=.75\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_P_1}}\\
+        \subfloat[$\Fbasic$]{\label{fig:basis_plot_c}\includegraphics[width=.75\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_F_0}}\\
+        \caption{}
+    \end{figure}
+    \begin{figure}[!pth]
+        \ContinuedFloat
+        \centering
+        \subfloat[$\Finvk$]{\label{fig:basis_plot_d}\includegraphics[width=.75\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_F_1}}\\
+        \subfloat[$\scalingbasis$ basis]{\label{fig:basis_plot_e}\includegraphics[width=.75\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_scaling}}\\
+        \subfloat[$\resobasis$ basis]{\label{fig:basis_plot_f}\includegraphics[width=.75\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_reso}}\\
+        \caption{
+            }\label{fig:basis_pmax5_plots}
+    \end{figure}
     \newpage
 \section{Factor basis?}
     Words
