@@ -528,7 +528,8 @@ The total size of the set will always be referred to as $\Pmax$.
     \caption{
           Basis summary---the augmentation of the basis is done
           using~\eqref{gram_schmidt}. The size of each basis is
-          referred to as $\Pmax$.
+          referred to as $\Pmax$. Some of these basis sets are
+          plotted in figure~\ref{fig:basis_pmax5_plots}.
       }\label{tab:basis_summary}
   \end{center}
 \end{table}
@@ -657,7 +658,8 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     These plots are useful to aid in deciding which basis to run BEstModal for,
     figuring out which covers the widest range of features \textcolor{red}{PLANCK COMPARISON}.
     P1ns isn't included in all the plots, but it would always lie in between~$\Lnsinv$ and $\scalingbasis$ basis.
-    The basis sets are defined in table~\ref{tab:basis_summary}.
+    The basis sets are defined in table~\ref{tab:basis_summary},
+    and some are plotted in figure~\ref{fig:basis_pmax5_plots}.
     Basis sets~$\Lnsinv$ and $\scalingbasis$ work well for the linear oscillations,
     converging up to around $\omega\approx200$.
     For logarithmic oscillations the resonant basis works best, as expected.
@@ -847,8 +849,12 @@ We conclude that augmenting the basis functions with terms incorporating the exp
         \subfloat[$\Finvk$]{\label{fig:basis_plot_d}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_F_1}}\\
         \subfloat[$\resobasis$ basis]{\label{fig:basis_plot_f}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_reso}}\\
         \caption{
-            We plot various basis sets from table~\ref{tab:basis_summary},
-            for $\Pmax=5$.
+            We plot various orthogonal basis sets from table~\ref{tab:basis_summary},
+            for $\Pmax=5$. Note that $\Lbasic$, $\Linvk$ and the $\scalingbasis$ basis
+            have Legendre polynomial basis elements in common, but differ in
+            which functions they are augmented by. The $\resobasis$ basis
+            does not have a constant basis element due to the factor of
+            $1/\sqrt{k}$ added to retain orthogonality.
             }\label{fig:basis_pmax5_plots}
     \end{figure}
     \newpage
