@@ -669,10 +669,21 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \subfloat[$\cos(\omega(k_1+k_2+k_3))S^{DBI}$]{\label{fig:freq_c}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_freq_scan.png}}\\
 \subfloat[$\cos(\omega\ln(k_1+k_2+k_3))S^{DBI}$]{\label{fig:freq_d}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_log_freq_scan.png}}\\
 \caption{
-    For linear oscillations,
-    $\Lnsinv$ and $\scalingbasis$ work best, converging well up to $\omega\approx170$.
-    For logarithmic oscillations the resonant basis works best,
-    again, converging up to around $\omega\approx7$.
+    We hold the basis size $\Pmax$ fixed at $30$ and increase the frequency of
+    the oscillatory template.
+    For linear oscillations with non-trivial shape dependence (a) we see that
+    $\Lnsinv$ and the $\scalingbasis$ basis converge for a significantly larger
+    frequency range than the $\resobasis$ basis, as expected.
+    We also see that $\Fbasic$ and $\Finvk$ converge very poorly due to the
+    DBI shape, only covering around a tenth of the frequency range that
+    the $\scalingbasis$ basis converges for, up to $\omega\approx170$.
+    For logarithmic oscillations the resonant basis converges best
+    capturing the complex oscillatory templates up to around $\omega\approx7$.
+    Beyond this point none of the basis sets converge so the relative
+    performance is irrelevant, but we can see that the $\resobasis$ basis
+    actually has the largest error in this region---this is due to that basis
+    being constructed out of orthogonal Legendre polynomials with
+    a log-scaled argument.
     }\label{fig:plot_freq_scan_dbi}
 \end{figure}
 
