@@ -552,8 +552,8 @@ each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
 \centering     %%% not \center
 %\subfloat[Reconstructing the Maldacena Template]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_quadratic_sr.png}}\\
 %\subfloat[Reconstructing the DBI Template]{\label{fig:b}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI.png}}
-\subfloat[Reconstructing the Maldacena Template]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/malda.png}}\\
-\subfloat[Reconstructing the DBI Template]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi.png}}
+\subfloat[Reconstructing the Maldacena Template]{\label{fig:recon_a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/malda.png}}\\
+\subfloat[Reconstructing the DBI Template]{\label{fig:recon_b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi.png}}
 \caption{
     Convergence comparisons for the Legendre and Fourier basis functions for (a) the Maldacena 
     template~\eqref{malda_shape} and (b) the DBI template~\eqref{dbi_shape}.
@@ -586,8 +586,8 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \centering     %%% not \center
 %\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_osc5.png}}\\
 %\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_osc5.png}}
-\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/cos15.png}}\\
-\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos15.png}}
+\subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:reduction_a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/cos15.png}}\\
+\subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:reduction_b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos15.png}}
 \caption{
     Convergence comparison for oscillatory models. (a) As expected, the $\Finvk$ basis fits an oscillation with
     no shape dependence~\eqref{cos_shape} (that is periodic in the $k$-range) perfectly.
@@ -607,7 +607,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \centering     %%% not \center
 %\subfloat[$\cos(f\log(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_logosc2.png}}\\
 %\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_logosc2.png}}
-\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos5_log.png}}
+\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:reduction_c}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos5_log.png}}
 \caption{
     %(a) The convergence for a log oscillation model~\eqref{ln_cos_shape} with no shape dependence.
     %For this type of feature, the $\Lbasic$ and $\Linvk$ sets of basis functions require fewer modes
@@ -625,8 +625,8 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \centering
 %\includegraphics[width=0.8\columnwidth]{plots/template_reconstruction_DBI_ns.png}
 %\includegraphics[width=0.8\columnwidth]{pmax_reduction_plots_1_1000/dbi_scaling.png}
-\subfloat[$\kmax/\kmin=550$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_550/dbi_scaling.png}}\\
-\subfloat[$\kmax/\kmin=1000$]{\label{fig:b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_scaling.png}}\\
+\subfloat[$\kmax/\kmin=550$]{\label{fig:scale_550}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_550/dbi_scaling.png}}\\
+\subfloat[$\kmax/\kmin=1000$]{\label{fig:scale_1000}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_scaling.png}}\\
 \caption{
     For the scale-dependent DBI template~\eqref{dbi_prod_shape},
     by including a minimal amount of power spectrum information
@@ -644,8 +644,8 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 
 \begin{figure}[!pth]
 \centering
-\subfloat[$\cos(\omega(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_freq_scan.png}}\\
-\subfloat[$\cos(\omega\ln(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_log_freq_scan.png}}\\
+\subfloat[$\cos(\omega(k_1+k_2+k_3))$]{\label{fig:freq_a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_freq_scan.png}}\\
+\subfloat[$\cos(\omega\ln(k_1+k_2+k_3))$]{\label{fig:freq_b}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_log_freq_scan.png}}\\
 \caption{
     Here we test our basis sets on oscillatory templates, which are a good proxy for feature models.
     These plots are useful to aid in deciding which basis to run BEstModal for,
@@ -660,8 +660,8 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \end{figure}
 \begin{figure}[!pth]
 \centering
-\subfloat[$\cos(\omega(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_freq_scan.png}}\\
-\subfloat[$\cos(\omega\ln(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_log_freq_scan.png}}\\
+\subfloat[$\cos(\omega(k_1+k_2+k_3))S^{DBI}$]{\label{fig:freq_c}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_freq_scan.png}}\\
+\subfloat[$\cos(\omega\ln(k_1+k_2+k_3))S^{DBI}$]{\label{fig:freq_d}\includegraphics[width=.75\columnwidth]{freq_scan_plots/dbi_cos_log_freq_scan.png}}\\
 \caption{
     For linear oscillations,
     $\Lnsinv$ and $\scalingbasis$ work best, converging well up to $\omega\approx170$.
@@ -742,6 +742,27 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     same order as $n_s-1$ and $\varepsilon_s$, we see that this
     approximation is good for our case,
     where $\ln\left(\frac{\kmax}{\kmin}\right)\approx6.91$.
+    By adding $k^{-1}$ and $\ln(k)k^{-1}$ separately to our
+    basis, their relative coefficient will be set to the value
+    which provides the best fit to the final shape,
+    providing the flexibility needed to fit shapes with different
+    scalings with the same basis, so we have no need to know anything
+    about the scaling a priori (except that it is small).
+
+    As we can see in figure~\ref{fig:recon_dbi_ns} the $\scalingbasis$ basis
+    converges quickly to a DBI template with a realistic scaling, outperforming
+    the $\Lnsinv$ basis. For the feature templates however,
+    for example figure~\ref{fig:plot_freq_scan},
+    we see that the $\scalingbasis$ basis performs equivalently to $\Lnsinv$
+    and $\Lbasic$.
+    This is because these template have no scaling or complex shape dependence,
+    and the fit to the oscillatory feature is due to the Legendre polynomials
+    in the basis.
+
+    In figure~\ref{fig:plot_freq_scan_dbi} we see that the $1/k$ behaviour is
+    necessary to achieve an acceptable fit, but since these templates
+    do not need non-integer scaling, the $\scalingbasis$ basis performs
+    equivalently to $\Linvk$, as expected.
     \newpage
 \section{Resonant basis}
     We also describe a basis specifically designed to capture logarithmic oscillations.
