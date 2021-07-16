@@ -792,7 +792,29 @@ We conclude that augmenting the basis functions with terms incorporating the exp
         &= \int_{\ln\kmin}^{\ln\kmax}d\ln{k}\mathcal{P}_m(\bar{k})\mathcal{P}_n(\bar{k})\\
         &\propto \delta_{mn}
     \end{align}
+    so the $\resobasis$ basis is orthogonal
     due to the way we defined $\bar{k}$ for this basis set.
+
+    In figure~\ref{fig:plot_freq_scan} we see that for linear oscillations, as expected,
+    the $\resobasis$ basis converges for a much smaller range for frequencies
+    (for fixed basis set size $\Pmax=30$) than the other basis sets we test.
+    For logarithmic oscillations however, we see that the range of accessible
+    frequencies is nearly doubled. We also note that for logarithmic oscillations,
+    wherever we have acceptable convergence the $\resobasis$ basis converges best.
+    We also see however that in the frequency range that none of our basis sets
+    converge, the $\resobasis$ basis has the largest error. This is because
+    the $\resobasis$ basis is designed to be a set of orthogonal logarithmic
+    oscillations, and so will be orthogonal to frequencies outside of its range.
+    On the other hand, while the $\scalingbasis$ basis (for example) has
+    a worse fit for lower frequencies, it has a better fit to higher frequencies as
+    it is not orthogonal to them. We emphasise however that this only occurs
+    in the region where none of our basis sets provide acceptable convergence
+    for $\Pmax=30$.
+
+    We also note the surprising result in figure~\ref{fig:recon_dbi_ns}
+    that the $\resobasis$ basis performs best at converging to the
+    scale-dependent DBI template. However, the convergence of the
+    $\scalingbasis$ basis is still perfectly adequate in this case.
     \newpage
 \section{Factor basis?}
     Words
