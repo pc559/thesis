@@ -576,11 +576,12 @@ We test our sets of basis functions on these two shapes,
 and also when they are multiplied by~\eqref{dbi_shape} to obtain a feature
 template with both shape and scale dependence.
 As shown in figure~\ref{fig:recon_osc_dbiosc},
-$\Fbasic$ naturally outperforms $\Lbasic$ for a pure oscillation,
-but when the equilateral-type DBI template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
-$\Finvk$ converge poorly and the Legendre modes $\Linvk$ clearly offer a better more robust option.
+$\Fbasic$ naturally outperform the basis sets built from Legendre modes for a pure oscillation.
+However when the equilateral-type DBI template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
+$\Finvk$ converge poorly. Instead, the basis sets built from Legendre modes offer a better more robust option,
+with the $\scalingbasis$ basis performing best.
 In figure~\ref{fig:log_recon_osc_dbiosc} we see that for a logarithmic
-oscillation, $\Linvk$ always converges in the fewest modes.
+oscillation, the $\resobasis$ basis converges in the fewest modes.
 
 
 \begin{figure}[!pth]
@@ -622,13 +623,15 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     feature with scale and shape dependence, in this case the product of~\eqref{dbi_shape}
     and~\eqref{ln_cos_shape}.
     We choose $f=4.55$ (so we obtain $5$ whole oscillations in the $k$-range).
-    We see that the $\scalingbasis$ basis struggles to converge for this fixed-frequency
+    (a) On the tetrapyd, we see that the $\scalingbasis$ basis struggles to converge for this fixed-frequency
     template, due to the combination of the high frequency logarithmic oscillation
     and the non-trivial shape dependence coming from $S^{DBI}(k_1,k_2,k_3)$.
     As expected for logarithmic oscillations,
     the $\resobasis$ basis performs best for this template, confirming that
     the basis functions defined in~\eqref{reso_basis_definition} perform well
     even when there is non-trivial shape dependence.
+    (b) On the cube, we see that the results converge orders of magnitude faster---see
+    discussion in section~\ref{large_non_physical}.
 }\label{fig:log_recon_osc_dbiosc}
 \end{figure}
 
@@ -710,13 +713,37 @@ As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
 even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.
 However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.
 We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra. 
-    \subsection{Large non-physical contributions}
-    For a pure oscillation we see no significant difference between the convergence on the cube,
-    and on the tetrapyd.
-    \subsection{Non-uniform convergence}
-    Compare tetrapyd and cube. Something about it not really being
-    a fixed basis, as the first basis element changes?
-    Explain why it stays at $1$ for a while.
+    \subsection{Large non-physical contributions}\label{large_non_physical}
+    When a shape is dominated by its non-physical configurations
+    (those that do not obey the triangle inequality~\eqref{triangle_inequality})
+    then we can see slow convergence on the tetrapyd, despite
+    possibly fast convergence on the cube as a whole.
+    We will refer to convergence on the tetrapyd as $\totalcortet$
+    and the convergence on the cube as $\totalcorcub$.
+    For a pure oscillation we see no significant difference between the convergence on the cube
+    and on the tetrapyd, as expected for a shape where the physical and non-physical
+    configurations are of the same order of magnitude.
+    For an oscillation with a DBI shape however, we see a large difference,
+    as shown in figure~\ref{fig:log_recon_osc_dbiosc}.
+    On the cube we see fast, monotonic convergence---the $\resobasis$ basis
+    and $\scalingbasis$ basis perform well, quickly bring $\totalcorcub$
+    below $0.1\%$.
+    On the tetrapyd however, we see that $\totalcortet$ only drops below
+    $0.1\%$ for $\Pmax<30$ for the $\resobasis$ basis.
+
+
+    We also see that the improvement in $\totalcortet$ is no longer
+    monotonic, there are regions where increasing $\Pmax$ results in
+    a larger $\totalcortet$. \textcolor{red}{HERE Explain this better!!}
+    To understand this it is important to remember that we are not simply
+    adding modes as we increase $\Pmax$---the augmented mode is changing
+    each time, and thus while we expect $\totalcorcub$ to decrease monotonically,
+    there is no such guarantee for point-wise convergence. \textcolor{red}{CHECK THIS!!}
+
+
+    We also notice that $\totalcortet$ stays fixed at $1$ for low values of $\Pmax$.
+    This is due to the basis fitting the large non-physical configurations,
+    and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
 \section{Setting up a basis}
     \subsection{Legendre and Fourier as building blocks}
     Take from above. Periodicity!
