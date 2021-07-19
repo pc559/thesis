@@ -256,7 +256,60 @@ be useful in comparison with observation.
     \subsection{Dangers of a sharp start}
     Show how easy it is to swamp the result with a sharp start.
     \newpage
-\section{Oscillatory weights}
+\section{Integration weights}
+    There are two central types of numerical integral that we have to perform
+    in this method,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}.
+    In some regimes these integrals are highly oscillatory, in others they are not.
+    In our method we evolve a fixed number of $k$-modes through the inflation scenario.
+    At each timestep we must perform a decomposition, given the values of the $k$-modes
+    at these given sample points.
+    These decomposition at each timestep involve performing many integrals over the same
+    sample points, one for each of the basis functions.
+    The integrals over time also require many integrals over the sample points---one
+    for each of the final coefficients, over the decompositions calculated at each timestep.
+    Thus, it is important that we can efficiently integrate many different functions
+    over the same sample points.
+
+
+    We do this by calculating integration weights for each of the sample points.
+    In the regimes where the functions are not expected to be oscillatory, we achieve this
+    using the basic method of performing a second order Legendre decomposition on each pair
+    of segments, and integrating the Legendre polynomials to obtain the weights.
+    We break the integral up into segments $[x_0, x_1, x_2,\ell,x_{N-1}]$.
+    To calculate $\int_{x_{i-1}}^{x_{i+1}}f(x)dx$ take each triplet of
+    sample points $[x_{i-1}, x_{i}, x_{i+1}]$, and map it to $[\bar{x}_{i-1}, \bar{x}_{i}, \bar{x}_{i+1}]$,
+    where
+    \begin{align}
+        \bar{x}_{i-1} &= -1,\\
+        \bar{x}_i     &= \frac{2x_i-(x_{i-1}+x_{i+1})}{x_{i+1}-x_{i-1}},\\
+        \bar{x}_{i+1} &= 1.
+    \end{align}
+    We then calculate
+    \begin{align}
+        A_{pq} = \mathcal{P}_p(\bar{x}_q)
+    \end{align}
+    for $p\in[0,1,2]$ and $q\in[i-1,i,i+1]$.
+    Inverting $A_{pq}/(x_{i+1}-x_{i-1})$ gives us the coefficients of the
+    fit, and the definite integral is simply the $0$ coefficient,
+    i.e.\ $\left(A^{-1}\right)_0q$ is the contribution that these segments give to
+    the weight for the sample point $x_q$. When all the weights $w_i$ have been calculated,
+    the resulting approximation for the integral is simply
+    \begin{align}
+        \int_{x_{0}}^{x_{N-1}}f(x)dx\approx\sum_{i=0}^{i=N-1}f(x_i)w_i,
+    \end{align}
+    i.e.\ a simple dot product between the sampled function and the weights,
+    which need only be calculated once for an arbitrary number of functions $f$.
+
+
+    For oscillatory regimes, we can improve our convergence by including the known
+    oscillatory frequency in our calculation of the weights. For example we calculate
+    $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)f(x)dx$ by performing a Legendre expansion of
+    $f$, which is relatively slowly varying. By precomputing $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)\mathcal{P}_n(\bar{x})dx$
+    for each segment, we can then obtain a set of weights which provide a good approximation
+    to the integral, with the cost of integrating an extra function simply
+    the trivial cost of performing an extra dot product.
+
+
     When to swap, validation.
     Why negative weights are usually bad.
     \newpage
