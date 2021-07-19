@@ -754,7 +754,6 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     Take from above.
     \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
     Refit mixed basis functions to pure Legendre's subtract to show convergence of rest?
-    \newpage
     \subsection{My new basis sets, and their dramatic improvement}
     Take from above.
     \subsection{Nice table with descriptions and some single-number comparison on examples}
@@ -897,11 +896,28 @@ We conclude that augmenting the basis functions with terms incorporating the exp
 \section{Factor basis?}
     Words
 \section{Conclusion}
-    \subsection{Basic Legendre/Fourier are not sufficient}
-    Words
-    \subsection{Need to pay attention to the cube}
-    Words
-    \subsection{Including 1/k terms makes the method feasible}
-    Words
-    \subsection{The log basis performs as well, but without being tied to a specific $n_s$}
-    One possible route forward is doing two runs, i.e.\ doing both the scaling basis (for linear oscillations) and the resonant basis (for log oscillations).
+    From the plots presented in this chapter it is clear that the problem of the
+    large non-physical off-tetrapyd configurations is vitally important to the feasibility of the
+    separable in-in calculation of inflationary bispectra.
+    In this setting, where we are effectively forced to fit on the whole cube,
+    we find that the basic Legendre polynomials and Fourier series basis sets
+    are not sufficient to capture the shapes we hope to constrain.
+    However, we found that by augmenting the Legendre polynomials with
+    basis functions that could capture $1/k$ behaviour, the convergence
+    increased dramatically and the range of shapes that could be constrained by
+    this pipeline broadens significantly.
+
+
+    While $\Lnsinv$ improves significantly over $\Lbasic$ for certain examples,
+    as it is tied to a particular scaling it is not as ideal solution for a pipeline which requires
+    a single basis that can capture the broadest range of shapes, including different scalings.
+    To improve upon this situation, we introduced the $\scalingbasis$ basis, which is augmented by
+    terms which allow it more flexibility in capturing the scaling of the shape function,
+    despite being built without any power spectrum information.
+
+    We also presented results from the $\resobasis$ basis, a basis set designed to converge well
+    for logarithmic oscillations, an important target due to the resonance mechanism.
+    While this goes against the philosophy of developing one basis set that converges well across the
+    broadest possible range of bispectrum shapes, it may be useful in the alternative way forward of
+    performing two runs of $\cmbbest$, i.e.\ doing both the scaling basis (for linear oscillations)
+    and the resonant basis (for log oscillations).
