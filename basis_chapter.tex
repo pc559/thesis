@@ -590,7 +590,9 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \subfloat[$\cos(f(k_1+k_2+k_3))$]{\label{fig:reduction_a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/cos15.png}}\\
 \subfloat[$\cos(f(k_1+k_2+k_3))S^{DBI}$]{\label{fig:reduction_b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos15.png}}
 \caption{
-    Convergence comparison for oscillatory models. (a) As expected, the $\Finvk$ basis fits an oscillation with
+    Convergence comparison for oscillatory models.
+    For linear oscillations we choose $f=150.64$ (so we obtain $15$ whole oscillations in the $k$-range).
+    (a) As expected, the $\Finvk$ basis fits an oscillation with
     no shape dependence~\eqref{cos_shape} (that is periodic in the $k$-range) perfectly.
     For this special case, the $\Lbasic$, $\scalingbasis$ and $\resobasis$ sets of basis functions require more modes
     to accurately describe the shape. (b) However, moving to the more complex and realistic case of a
@@ -608,7 +610,8 @@ oscillation, $\Linvk$ always converges in the fewest modes.
 \centering     %%% not \center
 %\subfloat[$\cos(f\log(k_1+k_2+k_3))$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_logosc2.png}}\\
 %\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:a}\includegraphics[width=.75\columnwidth]{plots/template_reconstruction_DBI_logosc2.png}}
-\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$]{\label{fig:reduction_c}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos5_log.png}}
+\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$ on the tetrapyd]{\label{fig:reduction_c}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi_cos5_log.png}}\\
+\subfloat[$\cos(f\log(k_1+k_2+k_3))S^{DBI}$ on the cube]{\label{fig:reduction_ca}\includegraphics[width=.75\columnwidth]{pmax_cube_reduction_plots_1_1000/dbi_cos5_log_cube.png}}
 \caption{
     %(a) The convergence for a log oscillation model~\eqref{ln_cos_shape} with no shape dependence.
     %For this type of feature, the $\Lbasic$ and $\Linvk$ sets of basis functions require fewer modes
@@ -618,6 +621,7 @@ oscillation, $\Linvk$ always converges in the fewest modes.
     We plot the convergence of various basis sets for the more complex case of a resonant
     feature with scale and shape dependence, in this case the product of~\eqref{dbi_shape}
     and~\eqref{ln_cos_shape}.
+    We choose $f=4.55$ (so we obtain $5$ whole oscillations in the $k$-range).
     We see that the $\scalingbasis$ basis struggles to converge for this fixed-frequency
     template, due to the combination of the high frequency logarithmic oscillation
     and the non-trivial shape dependence coming from $S^{DBI}(k_1,k_2,k_3)$.
@@ -707,7 +711,12 @@ even a small overall scale dependence causes significant degradation in the conv
 However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.
 We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra. 
     \subsection{Large non-physical contributions}
-    Take from above.
+    For a pure oscillation we see no significant difference between the convergence on the cube,
+    and on the tetrapyd.
+    \subsection{Non-uniform convergence}
+    Compare tetrapyd and cube. Something about it not really being
+    a fixed basis, as the first basis element changes?
+    Explain why it stays at $1$ for a while.
 \section{Setting up a basis}
     \subsection{Legendre and Fourier as building blocks}
     Take from above. Periodicity!
@@ -723,7 +732,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     Take from above.
     \subsection{Nice table with descriptions and some single-number comparison on examples}
     Make table.
-\section{The $P_{max}$-$k_{ratio}$ tradeoff}
+\section{The $\Pmax$-$k_{ratio}$ tradeoff}
     Not obvious, but $k_{ratio}$ matters!
     We can see this in figure~\ref{fig:recon_dbi_ns}.
     We plot the convergence of various basis sets for the scale-dependent
@@ -860,7 +869,6 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     \newpage
 \section{Factor basis?}
     Words
-\newpage
 \section{Conclusion}
     \subsection{Basic Legendre/Fourier are not sufficient}
     Words
