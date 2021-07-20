@@ -74,13 +74,27 @@
     at a fixed point is the same as the expectation over point for a fixed ensemble.
     This assumes homogeneity, stationarity, and that distant points are uncorrelated.
     %Ergodicity: ``In an ergodic scenario, the average outcome of the group is the same as the average outcome of the individual over time. An example of an ergodic systems would be the outcomes of a coin toss (heads/tails). If 100 people flip a coin once or 1 person flips a coin 100 times, you get the same outcome.'' from https://taylorpearson.me/ergodicity/
+    % See also https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
 
 
+    We can define the expectation value of a function of a discrete or
+    continuous random variable $x$, or a functional $F$ of a field configuration $f(x)$, respectively as
+    \begin{align}
+        \left<f(x)\right> &= \sum_i x_i P(x_i)\label{expectation_value_discrete}\\
+        \left<f(x)\right> &= \int dx~x \rho(x)\label{expectation_value_cont}\\
+        \left<F\left[f(x)\right]\right> &= \int \mathcal{D}f~F\left[f(x)\right] P\left[f(x)\right]\label{expectation_value_field}
+    \end{align}
+    where the sum and integral over $x$ are over the values that $x$ can take,
+    and the functional integral over $f$ is over all the field configurations
+    that $f(x)$ can take.
 
-    Define correlation functions.
 
-
-    How this relates to the sky.
+    In our example of the $100$ coin flips, we used~\eqref{expectation_value_discrete}
+    to calculate the mean and standard deviation. For a continuous variable,
+    like the average height of a population or the average temperature in a given room,
+    we would use~\eqref{expectation_value_cont}. In this thesis, we will be working with
+    the expectation value of field configurations, so we will use~\eqref{expectation_value_field}.
+    \textcolor{red}{Talk about quantum to classical transition!}
 
 
     The power spectrum and other correlations
