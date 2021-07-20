@@ -15,7 +15,7 @@ delta_x = timescale
 words_per_day = delta_y/delta_x.n#.days
 words_left = 60000-data['WordCount'][data['Date'] == data['Date'].iloc[-1]]
 days_left = words_left/words_per_day
-print('Weeks left:', days_left.values[0]/5)
+print('Weeks left:', round(days_left.values[0]/5,1))
 
 #print(data.head())
 fig = plt.figure()

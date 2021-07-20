@@ -758,14 +758,28 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     Take from above.
     \subsection{Nice table with descriptions and some single-number comparison on examples}
     Make table.
-\section{The $\Pmax$-$k_{ratio}$ tradeoff}
-    Not obvious, but $k_{ratio}$ matters!
+\section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
+    While it may not be intuitively apparent, the value of $\kmax/\kmin$
+    affects convergence even in the absence of significant features.
     We can see this in figure~\ref{fig:recon_dbi_ns}.
-    We plot the convergence of various basis sets for the scale-dependent
+    In this figure we plot the convergence of various basis sets for the scale-dependent
     DBI template~\eqref{dbi_prod_shape}, for $\kmax/\kmin=550$ and
     for $\kmax/\kmin=1000$. We see that the convergence is slower
-    for higher $\kmax/\kmin$,  i.e.\ that to achieve the same convergence
-    to a given shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.
+    for higher $\kmax/\kmin$. This means that to achieve the same convergence
+    for this shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.
+    For example, if one wanted to achieve an accuracy of $0.1\%$ for this shape
+    with the $\scalingbasis$ basis,
+    one would need $\Pmax=15$ for $\kmax/\kmin=550$
+    and $\Pmax=20$ for $\kmax/\kmin=1000$
+    We also see this effect for the scale-invariant DBI shape~\eqref{dbi_shape}
+    but it significantly less dramatic.
+
+
+    We of course desire to use as much of the available data as we can.
+    As such, it is desirable to have the largest possible $k$-range.
+    However, as we can see, this must be weighted against the loss
+    of descriptive power, as we will then have a smaller set of shapes which
+    will converge sufficiently well to be constrained.
     \newpage
 \section{Scaling basis}
     Despite having the same power spectrum scaling,
