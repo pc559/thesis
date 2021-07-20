@@ -281,11 +281,20 @@ we can scale the bispectra so that $\ampcor(S_1,S_2)=1$ and so
 \begin{align}\label{relative_difference_scaled}
     \totalcor(S_1,S_2) = \sqrt{2(1-\shapecor(S_1,S_2))}.
 \end{align}
+
+    \subsection{Interpretation}
 With this measure of relative difference, a shape correlation of $0.9$ corresponds to an error of $45\%$,
 a shape correlation of $0.99$ corresponds to an relative difference of $14\%$,
 a shape correlation of $0.999$ corresponds to an relative difference of $4\%$.
-Thus this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better representation of actual convergence  between two shape functions
-than the correlation used in~\cite{Funakoshi}.
+Thus this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better representation of actual convergence
+between two shape functions
+than the correlation used in~\cite{Funakoshi}, as it is easier to interpret and
+more stringent.
+
+
+The full relative difference~\eqref{relative_difference} also includes the amplitude
+in its measure, which will be important in obtaining an precise link
+between fundamental inflationary parameters and the resulting primordial bispectrum.
 We will use this measure to test the accuracy and efficiency of our basis expansion
 in reconstructing the standard templates, and later to quantify the convergence
 of our validation examples in section~\ref{sec:validation}.
@@ -295,6 +304,7 @@ relative to the representative value
     \sqrt{\frac{S\cdot S}{\int_{T_k} d^3k}}.
 \end{align}
 
+\subsection{The Squeezed Limit}
 The squeezed limit of canonical single-field bispectra will not cause
 observable deviations from a Gaussian universe,
 due to a cancellation when switching to physical coordinates~\cite{Cabass_2016}.
@@ -310,14 +320,27 @@ With $\mathbf{k_S}\equiv\left(\mathbf{k_2}-\mathbf{k_3}\right)/2 $:
 where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
 That the error in the consistency relation decreases at least quadratically
 in the long mode was shown in~\cite{not_so_sqz}.
-    \subsection{Interpretation}
-    Easier to interpret, more stringent.
-    Includes amplitude.
-    Compare to correlation.
     \subsection{Weighting}
-    Notes on observable convergence being the deciding factor.
+    One degree of freedom that we have not exploited is weighting the decomposition
+    to optimise the convergence of the final observable.
+    This could be advantageous as it is possible that the CMB could be more sensitive
+    to certain $k$-configurations than others, and so we would like those configurations to
+    converge most efficiently.
+    In this work however we focus on calculating the primordial shape function accurately
+    and efficiently and leave exploiting this freedom to a future work.
 \section{Testing on templates}
-    Need to understand expected convergence before validation on numerical results.
+    An important part of this work is testing the expected convergence of our various
+    basis sets on templates of primordial shapes, before testing them in the setting
+    of the in-in formalism.
+    This testing is important as when testing in the context of the full in-in formalism
+    it can be difficult to distinguish between genuine lack of convergence, and
+    numerical errors coming from other sources.
+    By testing on templates we can estimate the optimal possible
+    convergence for a given shape, once all physical effects that contribute
+    in the in-in calculation are taken into account.
+    Since the feasibility of our method depends on being able
+    to efficiently capture interesting and realistic shapes, this will determine
+    which basis sets are worth implementing and testing in the in-in setting.
 \section{The cube and the tetrapyd}
 We begin our methods discussion by exploring possible sets of separable
 basis functions $Q_n(k_1,k_2,k_3)$
