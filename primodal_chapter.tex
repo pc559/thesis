@@ -1,22 +1,30 @@
 \chapter{Methods and Validation}\label{chapter:methods}
 \section{Numerics of mode evolution}
-    \subsection{Choice of time coordinate}
-    $\tau_s$
     \subsection{The initial conditions}
-    When to set IC's for each mode.
-    \subsection{Factoring out oscillatory behaviour}
-    Swapping variables.
-    \subsection{Freeze-out}
-    Words
-\section{Integration methods}
-    \subsection{The $i\varepsilon$ prescription}
-    Words
-    \subsection{Contrast with previous work}
-    Words
-    \subsection{Suppression at early times}
-    Intuition for suppression from plane wave expansion.
+    The Bunch-Davies initial conditions for each mode are set sufficiently early that they
+    have converged to the attractor solution before the start of the numerical in-in integration,
+    see for example figure~\ref{fig:plot_time_integrand_scan}.
+    When the modes are deep in the horizon they are highly oscillatory, but as they evolve
+    and cross the horizon they stop oscillating and eventually freeze-out.
+    This freeze-out marks the end of the in-in integration,
+    as once all the modes have frozen there will be no more contribution to~\eqref{inin_kindep},
+    as in~\eqref{modeexp} we only keep the imaginary part,
+    and the integrand of~\eqref{inin_sep} will either be real or vanish.
+    In each of these regimes we must use different numerical set-ups to
+    ensure the efficient calculation of an accurate result.
+%\section{Integration methods}
 \section{Starting the integration with a pinch}
-(Contrast this to $i\varepsilon$!!)
+While this method has extra suppression at early times compared to the
+usual in-in calculation~\eqref{inin_kindep} still converges slowly
+in its limit at early times. Due to the fact that the integrand is highly oscillatory
+with a slowly varying amplitude here (so long as we are earlier than
+any relevant features or resonances), this regime will not significantly
+contribute to the final result, but if neglected will cause errors that will
+swamp the true result. To overcome this inefficiency we will discuss in detail
+how to start this time integration.
+
+
+
 The previous two sections detailed the methods required to calculate
 the coefficients $\alpha_n$ in~\eqref{goal}, obtaining an
 explicitly separable expression for the shape function.
