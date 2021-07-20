@@ -447,6 +447,7 @@ with a rescaling of the argument $\kbar$ to ensure the wavenumber $k$ falls with
 \begin{align}\label{krescaled}
     \kbar=\frac{2k-\kmax-\kmin}{\kmax-\kmin}\,.
 \end{align}
+There is freedom to vary this mapping, which we shall exploit in section~\ref{sec:resobasis_definition}.
 We shall label as $\Lbasic$ the basis function set of pure Legendre polynomials in~\eqref{P0_definition},
 with $r=0,1,\dots, p_{\rm max}\text{$-$}1$.
 These were considered also in~\cite{Funakoshi}, however,
@@ -769,18 +770,30 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
 \section{Setting up a basis}
     \subsection{Legendre and Fourier as building blocks}
-    Take from above. Periodicity!
+    Our general strategy will be to start with the Legendre polynomials
+    or the Fourier basis functions as a foundation for our basis set,
+    and augment this set with other basis functions motivated by the
+    expected behaviour of primordial shapes in general.
+    In this way we can quickly capture the known behaviours,
+    but still have the flexibility to converge to a wide range
+    of shape functions.
+
+
+    The Legendre polynomials are a basis set with broad descriptive power.
+    The Fourier basis functions also have broad descriptive power,
+    but are limited by converging poorly to non-periodic functions.
+    This problem can be ameliorated through augmenting the basis as we describe below.
     \subsection{Augmentation}
-    Using modified GS.
-\section{Basis choice matters!}
-    \subsection{Why the basic basis expansion is so bad}
-    Take from above.
-    \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
-    Refit mixed basis functions to pure Legendre's subtract to show convergence of rest?
-    \subsection{My new basis sets, and their dramatic improvement}
-    Take from above.
-    \subsection{Nice table with descriptions and some single-number comparison on examples}
-    Make table.
+    We augment our basis sets with extra orthogonalised basis functions.
+    We build these using the more numerically stable modified Gram-Schmidt process,
+    orthogonalising the new function with respect to all the basis elements already in
+    the basis. This means that while $\Lbasic$ with $\Pmax=20$ is a subset of
+    $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
+    $\Lnsinv$ with $\Pmax=30$, as the orthogonalised term in the former will include a part
+    non-orthogonal to (e.g.) $\mathcal{P}_{25}$ but it will not include that part in the latter.
+
+
+    Define Orth notation, etc.
 \section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
     While it may not be intuitively apparent, the value of $\kmax/\kmin$
     affects convergence even in the absence of significant features.
@@ -803,8 +816,8 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     However, as we can see, this must be weighted against the loss
     of descriptive power, as we will then have a smaller set of shapes which
     will converge sufficiently well to be constrained.
-    \newpage
-\section{Scaling basis}
+
+\section{Scaling basis}\label{sec:scaling_definition}
     Despite having the same power spectrum scaling,
     different models can have different bispectrum scalings.
     Therefore while the power spectrum can give us a
@@ -855,7 +868,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     do not need non-integer scaling, the $\scalingbasis$ basis performs
     equivalently to $\Linvk$, as expected.
     \newpage
-\section{Resonant basis}
+\section{Resonant basis}\label{sec:resobasis_definition}
     We finally describe a basis specifically designed to capture logarithmic oscillations,
     a type of feature that is usually very difficult to accurately fit.
     This goes against our philosophy of desiring a basis that is not tied to
@@ -936,6 +949,12 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     Going beyond $\Pmax=30$.
     How high can I go, in terms of parameters that can't be compared to Planck?
 \section{Conclusion}
+    \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
+    Refit mixed basis functions to pure Legendre's subtract to show convergence of rest?
+    \subsection{My new basis sets, and their dramatic improvement}
+    Take from above.
+    \subsection{Nice table with descriptions and some single-number comparison on examples}
+    Make table.
     From the plots presented in this chapter it is clear that the problem of the
     large non-physical off-tetrapyd configurations is vitally important to the feasibility of the
     separable in-in calculation of inflationary bispectra.
