@@ -8,7 +8,7 @@ fname = "word_counts.csv"
 data = pd.read_csv(fname)
 data['Date'] = pd.to_datetime(data['Date'])
 
-timescale = BDay(2)#pd.Timedelta(5, 'days')
+timescale = BDay(5)#pd.Timedelta(5, 'days')
 last_week = data['WordCount'][data['Date'] > data['Date'].iloc[-1]-timescale]
 delta_y = data['WordCount'][data['Date'] == data['Date'].iloc[-1]]-last_week.iloc[0]
 delta_x = timescale
