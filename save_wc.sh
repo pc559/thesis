@@ -13,5 +13,5 @@ echo "$(date)"
 echo "$word_count"
 echo "$page_count"
 echo "$relative_wc"
-echo "$(bc <<< ${next_percent}-${word_count})"
+echo "Only $(bc <<< ${next_percent}-${word_count}) words until the next percent."
 python3 wc_plotter.py
