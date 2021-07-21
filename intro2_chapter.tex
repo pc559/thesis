@@ -96,6 +96,57 @@ allowing us to apply the method to feature bispectra for the first time.
     Shape versus scale dependence.
     Consequences of isotropy, homogeneity.
     Define the shape function.
+The primordial bispectrum is usually written as:
+\begin{align}
+{
+\left< \zeta_{\bf{k_1}}\zeta_{\bf{k_2}}\zeta_{\bf{k_3}} \right>
+= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3)
+}
+\end{align}
+where $\zeta_{\bf{k}}$ is a Fourier mode of the standard gauge invariant curvature perturbation.
+The delta function comes from demanding statistical homogeneity;
+demanding statistical isotropy restricts the remaining dependence to the magnitudes of the vectors.
+We denote the magnitude of $\mathbf{k_i}$ as $k_i$.
+This leaves us with a function of three parameters,
+$k_1,k_2,k_3$.
+It is useful to define the dimensionless shape function:
+\begin{align}\label{shapefn}
+{
+    S(k_1,k_2,k_3) = (k_1k_2k_3)^2B(k_1,k_2,k_3).
+}
+\end{align}
+The bispectrum is only defined where the triangle condition
+\begin{align}\label{triangle_condition}
+    \mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3} &= 0,
+\end{align}
+is satisfied, which implies that the triangle inequality must hold
+\begin{align}\label{triangle_inequality}
+    k_1+k_2 &\geq k_3~\text{and cyclic perms}.
+\end{align}
+The space of configurations we are interested in is therefore
+reduced from the full cube $[\kmin,\kmax]^3$
+to a tetrapyd (illustrated in figure~\ref{slice_explained}),
+the intersection of that cube with the
+tetrahedron that satisfies~\eqref{triangle_inequality}.
+This has important implications that we will explore in
+chapter~\ref{chapter:decomp}. 
+
+
+The amplitude of a bispectrum shape is usually
+quoted in terms of some $\fnl^F$ parameter.
+We can schematically define $\fnl^F$ for some template $F$ as follows:
+\begin{equation}\label{def:fnl}
+{
+B^{F}(k_1,k_2,k_3) = \fnl^{F}\times F(k_1,k_2,k_3)
+}
+\end{equation}
+where $F$ contains the dependence on the $k$-configuration.
+This definition coincides with the definitions of
+$\fnllocal$, $\fnlequil$ and $\fnlortho$
+when $F$ is (respectively) the local (see \eqref{local_shape}),
+equilateral (see \eqref{equil_shape}) and orthogonal templates,
+as defined in~\cite{Planck_NG_2015}.
+
     \newpage
     \subsection{The definitions of $f_{NL}$}
     Describe the various definitions of $f_{NL}$ in different
@@ -544,57 +595,6 @@ In addition to this improvement in accuracy, calculating the modal decomposition
 directly from the model of inflation is far more efficient 
 than numerically calculating the bispectrum configuration by configuration.
 
-
-The primordial bispectrum is usually written as:
-\begin{align}
-{
-\left< \zeta_{\bf{k_1}}\zeta_{\bf{k_2}}\zeta_{\bf{k_3}} \right>
-= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3)
-}
-\end{align}
-where $\zeta_{\bf{k}}$ is a Fourier mode of the standard gauge invariant curvature perturbation.
-The delta function comes from demanding statistical homogeneity;
-demanding statistical isotropy restricts the remaining dependence to the magnitudes of the vectors.
-We denote the magnitude of $\mathbf{k_i}$ as $k_i$.
-This leaves us with a function of three parameters,
-$k_1,k_2,k_3$.
-It is useful to define the dimensionless shape function:
-\begin{align}\label{shapefn}
-{
-    S(k_1,k_2,k_3) = (k_1k_2k_3)^2B(k_1,k_2,k_3).
-}
-\end{align}
-The bispectrum is only defined where the triangle condition
-\begin{align}\label{triangle_condition}
-    \mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3} &= 0,
-\end{align}
-is satisfied, which implies that the triangle inequality must hold
-\begin{align}\label{triangle_inequality}
-    k_1+k_2 &\geq k_3~\text{and cyclic perms}.
-\end{align}
-The space of configurations we are interested in is therefore
-reduced from the full cube $[\kmin,\kmax]^3$
-to a tetrapyd (illustrated in figure~\ref{slice_explained}),
-the intersection of that cube with the
-tetrahedron that satisfies~\eqref{triangle_inequality}.
-This has important implications that we will explore in
-chapter~\ref{chapter:decomp}. 
-
-
-The amplitude of a bispectrum shape is usually
-quoted in terms of some $\fnl^F$ parameter.
-We can schematically define $\fnl^F$ for some template $F$ as follows:
-\begin{equation}\label{def:fnl}
-{
-B^{F}(k_1,k_2,k_3) = \fnl^{F}\times F(k_1,k_2,k_3)
-}
-\end{equation}
-where $F$ contains the dependence on the $k$-configuration.
-This definition coincides with the definitions of
-$\fnllocal$, $\fnlequil$ and $\fnlortho$
-when $F$ is (respectively) the local (see \eqref{local_shape}),
-equilateral (see \eqref{equil_shape}) and orthogonal templates,
-as defined in~\cite{Planck_NG_2015}.
 
 If the shape function~\eqref{shapefn} has the form:
 \begin{equation}\label{sepXYZ}
