@@ -216,3 +216,35 @@
         \item Explore and characterise DBI reso model TBC? Validity of approximations, e.g.\ Tanh kink.
         \item Connect to CMB, get constraints TBC?
     \end{enumerate}
+
+The thesis is organised as follows. In chapter~\ref{chapter:intro_bispectra} we present brief reviews
+of the various parts of the pipeline that connects inflation scenarios to observations
+through the bispectrum.
+We review the usual paradigm of bispectrum estimation in the CMB,
+and the motivation for separable bispectra. We review the in-in formalism,
+for calculating the tree level bispectrum for a given model of inflation.
+We review $P(X,\phi)$ models of inflation as an example, and
+some of the usual approximate bispectrum templates
+that we aim to bypass.
+We will draw our validation scenarios from these models.
+We discuss previous numerical codes for
+calculating the primordial bispectrum $k$-configuration by $k$-configuration,
+which contrasts our separable basis expansion.
+We review the previous work in achieving separability through modal expansions
+in~\cite{Funakoshi},
+and we discuss methods of testing
+numerical bispectrum results, defining our relative difference measurement.
+In chapter~\ref{chapter:methods} we present our methods.
+Since the paradigm we aim to present is only viable if we can find a basis
+that can efficiently represent a wide variety of bispectra,
+we begin with this distinct and separate, but nonetheless vital, discussion.
+We discuss the effects of the
+non-physical $k$-configurations on the convergence of our expansion on
+the tetrapyd, and present an efficient basis.
+Then, we recast the usual in-in calculation into an explicitly separable form,
+in terms of an expansion in an arbitrary basis,
+and detail our methods for carefully calculating the coefficients to high order.
+In section~\ref{sec:validation} we validate our methods and implementation
+on inflation scenarios with varied features from the literature,
+and we finish with a discussion of future work in chapter~\ref{chapter:conclusion}.
+
