@@ -621,6 +621,17 @@ other methods impose some non-trivial cutoff at early times.
         \frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}\bar{b}_{l_1l_2l_3}}{\tilde{C}_{l_1}\tilde{C}_{l_2}\tilde{C}_{l_3}}
         \left(\triplea-6C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right).
     \end{align}
+    \textcolor{red}{What are the beam effects? What is the noise? What approximations go into this?
+    What are the references for those?}
+    We have here used the Gaunt integral
+    \begin{align}
+        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}{\hat{\mathbf{n}}}Y_{l_2m_2}{\hat{\mathbf{n}}}Y_{l_3m_3}{\hat{\mathbf{n}}}
+        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}},
+    \end{align}
+    and we can then define
+    \begin{align}
+        b_{l_1l_2l_3} = h^{-1}_{l_1l_2l_3}B_{l_1l_2l_3}.
+    \end{align}
 
 
     \section{Separable approximations to non-separable templates}
