@@ -605,6 +605,24 @@ other methods impose some non-trivial cutoff at early times.
     estimator (when applied to the real $\cmb$ sky) can be compared to this distribution
     to determine the significance of the result.
 
+
+    This procedure must be modified to account for experimental noise, beam effects and
+    the presence of a mask (to exclude to regions of the sky saturated by our galaxy).
+    The assumption is also made that the covariance matrix is diagonal, and the
+    following quantities are defined:
+    \begin{align}
+        C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta{m_1~-m_2},\\
+           \tilde{C_l} &= b_l^2C_l+N_l,\\
+           \bar{b}_{l_1l_2l_3} &= b_{l_1}b_{l_2}b_{l_3}b_{l_1l_2l_3}.
+    \end{align}
+    so that the estimator can be written as
+    \begin{align}
+        \mathcal{E} = \frac{1}{\bar{N}^2}\sum_{l_im_i}
+        \frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}\bar{b}_{l_1l_2l_3}}{\tilde{C}_{l_1}\tilde{C}_{l_2}\tilde{C}_{l_3}}
+        \left(\triplea-6C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right).
+    \end{align}
+
+
     \section{Separable approximations to non-separable templates}
     Separability is required, so usually one approximates non-separable templates
     by separable ones.
