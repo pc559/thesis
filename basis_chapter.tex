@@ -769,6 +769,13 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     We also notice that $\totalcortet$ stays fixed at $1$ for low values of $\Pmax$.
     This is due to the basis fitting the large non-physical configurations,
     and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
+
+    For the local shape the mean value of the shape function on the entire cube
+    (thus accounting for volume effects) is approximately a factor of $40$ larger than the mean
+    when restricted to the tetrapyd. For the equilateral template, this factor becomes $-300$.
+    This illustrates why the tetrapyd-vs-cube problem is so much more severe for equilateral-type
+    shapes than for local shapes, as the non-physical configurations are an order of magnitude
+    more dominant.
 \section{Setting up a basis}
     \subsection{Legendre and Fourier as building blocks}
     Our general strategy will be to start with the Legendre polynomials
