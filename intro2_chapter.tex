@@ -595,6 +595,15 @@ other methods impose some non-trivial cutoff at early times.
     \begin{align}
         \mathcal{E} = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
     \end{align}
+    However, if we simply calculate this quantity for some theoretical model we will not be able to
+    interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
+    drawn from a purely Gaussian distribution could, through random chance,
+    result in a non-zero $\mathcal{E}$. This problem is solved using Gaussian maps.
+    Many $\cmb$ are generated from Gaussian initial conditions, and then the estimator
+    is applied to each. This gives a distribution of $\mathcal{E}$, from which we can
+    calculate $1\sigma$ and $2\sigma$ regions for $\mathcal{E}$. Then the result of the
+    estimator (when applied to the real $\cmb$ sky) can be compared to this distribution
+    to determine the significance of the result.
 
     \section{Separable approximations to non-separable templates}
     Separability is required, so usually one approximates non-separable templates
