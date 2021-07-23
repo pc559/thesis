@@ -550,8 +550,52 @@ other methods impose some non-trivial cutoff at early times.
     E.g.~\cite{Smith_2011, Komatsu_2005}.
 
 
-    So.
-\newpage
+    The temperature anisotropies of the $\cmb$ are decomposed in spherical
+    harmonics as
+    \begin{align}
+        \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{lm} a_{lm}Y_{lm}(\hat{\mathbf{n}})
+    \end{align}
+    and the power spectrum is
+    \begin{align}
+        C_l &= \sum_m a_{lm} a_{l-m}.
+    \end{align}
+
+
+    The bispectrum derived from theory is denoted
+    \begin{align}
+        \left<\triplea\right>
+    \end{align}
+    whereas the bispectrum measured from the $\cmb$ is
+    \begin{align}
+        B^{l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
+    \end{align}
+    We also have
+    \begin{align}
+        B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
+    \end{align}
+
+
+    The standard method for estimating the $\cmb$ bispectrum is to calculate the least squares
+    fit between the theory bispectrum and the observed bispectrum. That is, we find $\lambda$
+    such that the following expression is minimised:
+    \begin{align}
+        \sum_{l_i,m_i}{\left(\lambda\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}
+                - \frac{\tripleaobs}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\right)}^2.
+    \end{align}
+    The solution to this is simply
+    \begin{align}
+        \lambda = \frac{\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\cdot\frac{\tripleaobs}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}}{\left|\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\right|^2}
+    \end{align}
+    where $\cdot$ denotes summation over $l_i$ and $m_i$.
+    Defining
+    \begin{align}
+        N = \left|\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\right|^2
+    \end{align}
+    we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator $\mathcal{E}$)
+    \begin{align}
+        \mathcal{E} = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
+    \end{align}
+
     \section{Separable approximations to non-separable templates}
     Separability is required, so usually one approximates non-separable templates
     by separable ones.
