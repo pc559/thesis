@@ -784,7 +784,11 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     expected behaviour of primordial shapes in general.
     In this way we can quickly capture the known behaviours,
     but still have the flexibility to converge to a wide range
-    of shape functions.
+    of shape functions. It also has the advantage that the Legendre polynomials
+    and the Fourier basis functions are automatically orthogonal,
+    so we will only have to use the modified Gram–Schmidt process
+    (which brings in numerical difficulties)
+    a minimal number of times.
 
 
     The Legendre polynomials are a basis set with broad descriptive power.
