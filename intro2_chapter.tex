@@ -170,7 +170,14 @@ as defined in~\cite{Planck_NG_2015}.
     Connect (self-)interactions during inflation to non-Gaussianity.
     \newpage
 \section{Connecting the primordial bispectrum to observables}
-    Connecting to the CMB---transfer functions, etc.
+    The $\cmb$ power spectrum $C_l$ is calculated from the primordial power spectrum $\primpowerspec$
+    using a transfer function
+    \begin{align}
+        C_l \approx 4\pi\int d\ln k~\primpowerspec(k){\left[
+            \frac{(\Theta_0+\psi)(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j_l(k\chi_*)
+            -\frac{v_\gamma(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j'_l(k\chi_*)
+            \right]}^2.
+    \end{align}
 \newpage
     \section{Calculating the primordial bispectrum from an inflation scenario}
     (Coming from part iii level, a derivation of the tree-level in-in formalism.)

@@ -16,13 +16,26 @@
     \end{align}
     where $a(t)$ will have the interpretation as the scale factor
     which describes the evolution of the universe.
-    The Einstein equation then gives us that
+    The components of the universe enter the equations through
+    their stress-energy tensor, which we approximate as that of
+    a perfect fluid
+    \begin{align}
+        T_{ab} = (\rho+P)U_aU_b+Pg_{ab}.
+    \end{align}
+    The quantity $w=\frac{P}{\rho}$ is constant,
+    and takes the values $0$, $1/3$ and $-1$ for matter, radiation
+    and dark energy respectively.
+    The Einstein equation
+    \begin{align}
+        G_{\mu\nu} = 8\pi G T_{\mu\nu}
+    \end{align}
+    then gives us that
     for a flat universe with $\Lambda=0$
     \begin{align}
-        H^2 &= \frac{8\pi G \rho}{3}\\
-        \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3p\right)
+        H^2 &= \frac{8\pi G \rho}{3},\\
+        \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
     \end{align}
-    where $H=\frac{\dot{a}}{a}$, and $\rho$ and $p$ are respectively the sum of the
+    where $H=\frac{\dot{a}}{a}$, and $\rho$ and $P$ are respectively the sum of the
     energy densities and of the pressure densities of the
     components of the universe.
 
@@ -32,8 +45,30 @@
     how photons are redshifted as they freestream through the universe.
 
 
-    Give the Friedmann equations.
-    Set-up the physical effects of transfer functions. Photons travel on geodesics.
+    Photons travel on geodesics. The geodesic equation that we use to determine
+    their evolution is
+    \begin{align}
+        \frac{dP^a}{d\lambda}+\Gamma^a_{bc}P^bP^c=0.
+    \end{align}
+    Using the chain rule, this can be rewritten as
+    \begin{align}
+        P^{0}\frac{\partial P^a}{\partial t}+\Gamma^a_{bc}P^bP^c=0.
+    \end{align}
+    \textcolor{red}{REPHRASE ALL THIS}
+    Writing the components of the photon's 4-momentum $P^a$
+    as $(p, \mathbf{p})$ we get that
+    \begin{align}
+        p\propto \frac{1}{a}.
+    \end{align}
+    The interpretation of this result is that as the universe expands,
+    the photon's energy decreases, and its wavelength increases.
+    The geodesic equation encodes many other physical effects when applied
+    to the evolution of perturbations around the homogeneous background,
+    allowing us to understand how the statistics of the perturbations at the
+    start of the $\lcdm$ evolution evolved into the perturbations we see today.
+
+
+    Set-up the physical effects of transfer functions.
 \newpage
     The history of the universe as a story of falling temperature.
 \newpage
