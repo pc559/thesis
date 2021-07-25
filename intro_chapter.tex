@@ -68,7 +68,34 @@
     start of the $\lcdm$ evolution evolved into the perturbations we see today.
 
 
+    We can rewrite the Friedmann equation as
+    \begin{align}
+        H^2 = H_0^2\left(\frac{\Omega_{r,0}}{a^4}+\frac{\Omega_{m,0}}{a^3}+\Omega_{\Lambda}\right)
+    \end{align}
+    where we define the fractional density
+    \begin{align}
+        \Omega_{X} = \frac{\rho_X}{\rho_{crit,0}}
+    \end{align}
+    for $X$ being radiation, matter and dark energy, using $\rho_{crit,0}$, the critical density for which the universe is flat.
+    Let us take the future of the universe as an example, where $a$ is sufficiently large that $\Omega_{\Lambda}$
+    is the dominant contribution to the expansion.
+    Then
+    \begin{align}
+        H^2 &= H_0^2\Omega_{\Lambda}\\
+        \implies \dot{a} &= \pm H_0\sqrt{\Omega_{\Lambda}}a
+    \end{align}
+    from which the initial conditions pick out the exponentially expanding solution,\\
+    ${a(t)=a_0e^{H_0\sqrt{\Omega_{\Lambda}}\left(t-t_0\right)}}$. Using the Friedmann equation
+    for sufficiently far in the future we can rewrite this as
+    \begin{align}
+        a(t)=a_0e^{H\left(t-t_0\right)}.
+    \end{align}
+    Then, using $ad\tau=dt$, we find that ${\tau(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0}$
+    where as usual a $0$ subscript denotes a quantity evaluated today.
+
+
     Set-up the physical effects of transfer functions.
+
 
 \begin{figure}[!pth]
 \centering     %%% not \center
