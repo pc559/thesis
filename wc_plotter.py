@@ -10,9 +10,11 @@ data = pd.read_csv(fname)
 data['Date'] = pd.to_datetime(data['Date'])
 
 timescale = BDay(5)#pd.Timedelta(5, 'days')
-today = pd.Timestamp.now(tz=pytz.timezone('Europe/London'))
-last_week = data['WordCount'][data['Date'] > today-timescale]
-delta_y = data['WordCount'][data['Date'] == data['Date'].iloc[-1]]-last_week.iloc[0]
+today = pd.Timestamp.now(tz=pytz.timezone('Europe/London')).normalize()
+#print(today, today-timescale)
+last_week = data['WordCount'][data['Date'] < today-timescale]
+#print('Last week:', data['Date'][data['Date'] < today-timescale].iloc[-1], last_week.iloc[-1])
+delta_y = data['WordCount'][data['Date'] == data['Date'].iloc[-1]]-last_week.iloc[-1]
 delta_x = timescale
 words_per_day = delta_y/delta_x.n#.days
 words_left = 60000-data['WordCount'][data['Date'] == data['Date'].iloc[-1]]
