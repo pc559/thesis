@@ -22,7 +22,7 @@ days_left = words_left/words_per_day
 print('Only', round(days_left.values[0]/5,1), 'weeks left until FREEDOM!')
 
 #print(data.head())
-fig = plt.figure()
+fig = plt.figure(dpi=100)
 ax1 = fig.add_subplot(111)
 #days = np.array([x.days for x in (data['Date']-data['Date'][0])])
 #print(days)
