@@ -322,13 +322,21 @@ so then
     \rho' = -6XP,_X.
 \end{align}
 Then, using the Friedmann equation we obtain
-\begin{align}
+\begin{align}\label{PXepsilon}
     \varepsilon &= -\frac{1}{2}{\phi'}^2P,_X.
 \end{align}
 The equation of motion for $\phi$ is~\cite{Hu_2011}
-\begin{align}
+\begin{align}\label{phieom}
     \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
 \end{align}
+We can now evolve $\tau_s$, $\phi$ and $H$ numerically
+using~\eqref{tausdef},~\eqref{phieom} and~\eqref{PXepsilon} respectively.
+In the examples we use, we set the initial conditions by prescribing $phi_{start}$,
+calculating an approximate value of $\phi'_{start, approx}$ using the slow-roll approximation,
+then using $\phi'_{start, approx}$ to obtain values for $c^{start}_s$ and $H_{start}$.
+Taking those values for the sound speed and Hubble parameter as exact, along with the
+prescribed value for $phi_{start}$, we can calculate the corresponding exact value
+of $\phi'_{start}$, obtaining consistent initial conditions to start out numerical evolution.
 
 
 The equation of motion for the perturbations is:
@@ -342,7 +350,10 @@ which leads us to impose the following condition deep in the horizon:
 \zeta_k = \frac{i}{a}\sqrt{\frac{c_s}{4\varepsilon k}} e^{-ik\tau_s}
 \end{align}
 where we define $\tau_s$ through $\tau_s'=\frac{c_s}{aH}$
-in analogy with the usual $\tau$ with $\tau'=\frac{1}{aH}$.
+in analogy with the usual $\tau$ with
+\begin{align}\label{tausdef}
+    \tau'=\frac{1}{aH}.
+\end{align}
 The solution in slow-roll (without features) is then approximately
 \begin{align}\label{modefnsapprox}
     \zeta_k \propto (1+ik\tau_s)e^{-ik\tau_s}.
