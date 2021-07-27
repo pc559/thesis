@@ -20,6 +20,8 @@ words_per_day = delta_y/delta_x.n#.days
 words_left = 60000-data['WordCount'][data['Date'] == data['Date'].iloc[-1]]
 days_left = words_left/words_per_day
 print('Only', round(days_left.values[0]/5,1), 'weeks left until FREEDOM!')
+done_date = today+BDay(int(1+days_left.values[0]))
+print('(', done_date.date(), ')', sep='')
 
 #print(data.head())
 fig = plt.figure(dpi=100)
