@@ -335,11 +335,22 @@
 
 
     For inflation to solve the horizon problem, it must result in a shrinking comoving
-    Hubble radius, disconnecting regions that had previously been in contact.
-    This means that
+    Hubble radius, disconnecting regions that had previously been in thermal contact.
+    This implies that
     \begin{align}
-        \frac{d}{dt}\left(aH\right)^{-1} = 
+        \frac{d}{dt}\left(aH\right)^{-1} = -\frac{\ddot{a}}{\dot{a}^2} < 0
     \end{align}
+    so $\ddot{a}>0$, i.e.\ the expansion is accelerating. Another way of writing this is
+    \begin{align}
+        \frac{d}{dt}\left(aH\right)^{-1} &= -\frac{1}{(aH)^2}\left(\dot{a}H+a\dot{H}\right)\\
+            &= -\frac{1}{a}\left(1-\varepsilon\right)
+    \end{align}
+    and so we need $\varepsilon<1$ to successfully inflate the universe.
+    This is necessary but not sufficient---we still need to generate
+    the correct statistics for the primordial perturbations.
+    This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
+    To match the measured deviation from scale-invariance in standard slow-roll
+    inflation $\varepsilon\sim O(10^{-2})$.
 \newpage
 \section{Statistical observables}
     \subsection{Checking dice for fairness}
