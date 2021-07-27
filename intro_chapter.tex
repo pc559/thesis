@@ -72,7 +72,7 @@
 
 
     We can rewrite the Friedmann equation as
-    \begin{align}
+    \begin{align}\label{friedmann_omega}
         H^2 = H_0^2\left(\frac{\Omega_{r,0}}{a^4}+\frac{\Omega_{m,0}}{a^3}+\Omega_{\Lambda}\right)
     \end{align}
     where we define the fractional density
@@ -80,6 +80,38 @@
         \Omega_{X} = \frac{\rho_X}{\rho_{crit,0}}
     \end{align}
     for $X$ being radiation, matter and dark energy, using $\rho_{crit,0}$, the critical density for which the universe is flat.
+
+
+    From this equation, and the values measured values from~\cite{Planck_parameters_2018}
+    \begin{align}\label{measured_params}
+        \Omega_{m,0} &= 0.3111 \pm 0.0056,\\
+        \Omega_{\Lambda} &=  0.6889 \pm 0.0056.
+    \end{align}
+    Since
+    $\rho = \frac{\pi^2}{15}T^4$
+    for photons, and $T_{\gamma}=2.725\pm0.001K$ \textcolor{red}{CHECK THIS},
+    we have that $\rho_{\gamma}=2.02\times 10^{-15} eV^4$
+    and $\rho_{crit}=9\times 10^{-27} kg m^{-3}$.
+    Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
+    From these numbers, and~\eqref{friedmann_omega}, we can make some statements
+    about the past and future of the universe, illustrated in~\ref{fig:lcdm_components}.
+    We can see that while $\Lambda$ is dominant now, the transition from matter domination
+    to $\Lambda$ domination happened relatively recently in the history of the universe.
+    We can see that this domination will continue as the matter and radiation content of the
+    universe dilute and redshift away.
+    Running the clock backwards, that is to $a<1$, we see that the matter and radiation had
+    higher energy densities in the early universe. Running the clock back far enough, we see
+    that despite $\Omega_{\gamma,0}\ll\Omega_{m,0}$, at one stage it was the
+    case that $\Omega_{\gamma}\gg\Omega_{m}$, and the universe was dominated by radiation.
+    In that early stage of the universe, the temperature was high enough that the photons
+    were tightly coupled to the baryons. The photon pressure supported pressure waves in that
+    nearly-homogeneous fluid, and the coupling meant that the baryons were dragged along with those
+    waves. Once the temperature and density dropped sufficiently that this was no longer the case,
+    the baryons were dropped, and instead began to fall back into the gravitational wells that the dark matter
+    had meanwhile been forming. The imprints of those pressure waves is thus seen in the positions
+    of galaxies today (in the statistics of their separations) and in the acoustic oscillations of the $\cmb$.
+
+
     Let us take the future of the universe as an example, where $a$ is sufficiently large that $\Omega_{\Lambda}$
     is the dominant contribution to the expansion.
     Then
@@ -327,7 +359,7 @@
     The Friedmann equations then become
     \begin{align}
         H^2 &\approx \frac{8\pi G}{3}V(\phi),\\
-        \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(-2V(\phi)\right).
+        \frac{\ddot{a}}{a} &\approx -\frac{4\pi G}{3}\left(-2V(\phi)\right).
     \end{align}
 \newpage
     \subsection{Criteria for successful inflation}
