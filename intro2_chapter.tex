@@ -80,15 +80,59 @@ allowing us to apply the method to feature bispectra for the first time.
     \newpage
     The sound speed $c_s$. What is the intuition for $c_s$?
     What does a photon path look like on a $\tau_s-x$ plot?
+
+
+    We take $X=\frac{1}{2}\left(\frac{\partial\phi}{\partial t}\right)^2$.
+    The sound speed for the adiabatic perturbation is defined as
+    \begin{align}
+        c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}_0}{\dot{\rho}_0}
+        = \frac{P,_X}{\rho,_X}.
+    \end{align}
+    Since we also have $\rho=2X P_X-P$, we see that
+    \begin{align}
+        c_s^2 = \frac{P,_X}{P_X+2X P_{XX}}.
+    \end{align}
+    For canonical inflation models, $P(X,\phi)=X-V(\phi)$
+    so $P_{XX}=0$ and $c_s=1$.
+
+
+    The sound speed $c_s$ characterises propagation speed of the perturbations,
+    and thus the effective pressure that resists the
+    collapse due to the gravitational instability.
+    \textcolor{red}{Check this intuition. How does freeze-out relate to collapse?}
+    The Jeans length is the scale above which the collapse wins out.
+    This defines a sound horizon, $c_s/H$.
+    As the modes cross this sound horizon they freeze-out.
+
+
+    The action for the perturbations is \textcolor{red}{Make notation consistent!!}
+    \begin{align}
+        S_{2} = \frac{1}{2}\int d^3x d\tau \left[v'^2-c_s^2\left(\partial v\right)^2-\frac{z''}{z}v^2\right]
+    \end{align}
+    where $z=\frac{a\sqrt{2\varepsilon}}{c_s}$ and $v=-z\zeta$.
     \newpage
     \subsection{Initial conditions for the perturbations}
-    The Bunch-Davies vacuum.
+    The Bunch-Davies vacuum mode functions become
+    \begin{align}
+        u_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
+    \end{align}
+    The power spectrum is enhanced by a factor of $c_s$,
+    \begin{align}
+        P(k) = \frac{H^2}{8\pi\varepsilon c_s}
+    \end{align}
+    due to the earlier freeze-out.
+
     The vacuum is not unique. We choose it so that it
     asymptotes to the Minkowski vacuum in the limit $\tau\to-\infty$.
     \newpage
     \subsection{Evolution of the perturbations}
     %https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
     %https://www.mpi-hd.mpg.de/lin/events/group_seminar/inflation/schmidt.pdf
+    Systems with multiple degrees of freedom have $\zeta$ evolving even outside
+    the horizon. See~\cite{Christopherson_2009} for a discussion on how this relates
+    to non-adiabatic pressure in inflation models with non-canonical kinetic terms.
+
+
     Derivation of the Mukhanov-Sasaki equation, behaviour at various times.
     Second order action, in comoving gauge.
     Expanding the operator in Fourier modes.
@@ -98,7 +142,7 @@ allowing us to apply the method to feature bispectra for the first time.
         \frac{\partial^2 u_k}{\partial \eta^2} + \left(c_s^2k^2 - \frac{1}{z}\frac{d^2 z}{d \eta^2}\right)u_k = 0
     \end{align}
     where $z^2 = 2a^2\varepsilon/c_s^2$ and $u=z\mathcal{R}$.
-    We can see that at early times$\ell$.
+    We can see that at early times$\ldots$
     \newpage
     The Mukhanov-Sasaki equation in $N$, $\tau_s$---no numerics here, though, just ref forward.
     \newpage
