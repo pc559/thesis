@@ -288,19 +288,19 @@
     We can also calculate that the conformal distance that a photon could have
     freely streamed through the universe since
     last scattering is $\chi_0=14000Mpc$.
-    This means that we would expect that the homogeneous patches at recombination to span
-    an angle of
+    This means that we would expect the homogeneous patches at recombination to span
+    at most an angle of
     \begin{align}
         \tan^{-1}\left(2\frac{\chi_{rec}-0}{\chi_{0}-\chi_{rec}}\right) \approx 2^{\circ}
     \end{align}
-    on the $\cmb$ sky. We can then calculate the number of disconnected patches
+    on the $\cmb$ sky today. We can then calculate the number of disconnected patches
     we should see as
     \begin{align}
         \frac{4\pi(\chi_{0}-\chi_{rec})^2}{\pi(\chi_{rec}-0)^2} \approx 10^5.
     \end{align}
     This is completely at odds with observations---the $\cmb$ is in fact very close to
     homogeneous \textit{across the entire sky}, clearly a feature of our universe
-    that requires and explanation.
+    that requires an explanation.
 
 
     Photons travelling on $45'$ lines on a $\tau-x$ plot. There not being enough time for opposite
@@ -365,7 +365,38 @@
         H^2 &\approx \frac{8\pi G}{3}V(\phi),\\
         \frac{\ddot{a}}{a} &\approx -\frac{4\pi G}{3}\left(-2V(\phi)\right).
     \end{align}
-    \textcolor{red}{SR parameters in terms of $V(\phi)$}.
+We define the Hubble parameter and the standard ``slow-roll'' parameters:
+\begin{equation}
+\label{slowrollparams}
+\begin{split}
+    H = \frac{d\ln a}{dt}	\,,
+    \qquad
+    \eps &= -\frac{d\ln H}{dN}	\\
+    \eta = \frac{d\ln \varepsilon}{dN}	\,,
+    \qquad
+    \eps_s &= +\frac{d\ln c_s}{dN}	\,.
+\end{split}
+\end{equation}
+
+From the continuity equation and the Friedmann equation
+\begin{align}
+    &&\rho' &= -3(\rho+P)\\
+    \implies&&6HH' &= -3(2X P,_{X})\\
+    \implies&&-H^2\varepsilon &= -\left(\frac{1}{2}H^2{\phi'}^2\right) P,_{X}\\
+    \implies&&\varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
+\end{align}
+In the canonical case this simplifies to
+$\varepsilon = \frac{1}{2}{\phi'}^2$.
+In the DBI case we find
+$\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
+
+This allows us to rephrase the Friedmann equation in the following useful
+(and exact) way
+\begin{align}
+    &&H^2 &= \frac{1}{3}\left(\frac{\varepsilon H^2}{P,_{X}}+V(\phi)\right)\\
+    \implies &&  H^2 &= \frac{V(\phi)}{3-\frac{\varepsilon}{P,_{X}}}.
+\end{align}
+
 \newpage
     \subsection{Criteria for successful inflation}
     For inflation to solve the horizon problem, it must result in a shrinking comoving
