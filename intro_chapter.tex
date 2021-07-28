@@ -390,19 +390,6 @@ prescribed value for $\phi_{start}$, we can calculate the corresponding exact va
 of $\phi'_{start}$, obtaining consistent initial conditions to start out numerical evolution.
 
 
-For a model with a canonical kinetic term,~\eqref{phieom} simplifies
-to
-\begin{align}
-    \phi''+(3-\varepsilon)\phi'+H^{-2}V'(\phi)=0.
-\end{align}
-In the slow-roll approximation we take assume $\phi''\ll\phi'$,
-and so
-\begin{align}
-    \phi'\approx\frac{V'(\phi)}{3H^2}\approx\frac{V'(\phi)}{V(\phi)}.
-\end{align}
-From this, we see that demanding that $\varepsilon$ be small places a constraint
-on the flatness of the potential in a canonical model.
-
 
     We desire a period of exponential expansion in the early universe to explain the
     scale-invariance of the initial perturbations.
@@ -471,6 +458,26 @@ This allows us to rephrase the Friedmann equation in the following useful
     This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
     To match the measured deviation from scale-invariance in standard slow-roll
     inflation we would need $\varepsilon\sim O(10^{-2})$.
+
+
+For a model with a canonical kinetic term,~\eqref{phieom} simplifies
+to
+\begin{align}
+    \phi''+(3-\varepsilon)\phi'+H^{-2}V'(\phi)=0.
+\end{align}
+In the slow-roll approximation we take assume $\phi''\ll\phi'$,
+and so
+\begin{align}
+    \phi'\approx\frac{V'(\phi)}{3H^2}\approx\frac{V'(\phi)}{V(\phi)}.
+\end{align}
+From this, we see that demanding that $\varepsilon$ be small places a constraint
+on the flatness of the potential in a canonical model.
+
+
+We also require $\eta\ll1$ to maintain inflation for the sufficient number
+of e-folds.
+
+
 \newpage
 \section{Statistical observables}
     \subsection{Checking dice for fairness}
