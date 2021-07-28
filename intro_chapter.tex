@@ -349,6 +349,47 @@
     It turns out that observations show that this is not precisely true.
     In fact, it was found that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$.
 \newpage
+We will work with an inflaton action of the form
+\begin{align}
+S = \int d^4x \sqrt{-g}P(X,\phi)
+\end{align}
+with $X=-\frac{1}{2}g^{ab}\nabla_a \phi\nabla_b \phi$.
+We work with the number of e-folds, $N$, as our time variable
+$x'=\frac{dx}{dN}=a\frac{dx}{da}$
+and recall the definitions of the slow-roll parameters~\eqref{slowrollparams},
+though we make no assumption that these are actually small.
+$c_s$ is the sound speed of the theory, which can vary with time:
+\begin{align}
+c_s=\frac{P,_X}{P,_X+2XP,_{XX}}.
+\end{align}
+The background quantities are evolved according to the Friedmann equations,
+which are set with consistent initial conditions.
+The expression for the energy density is
+\begin{align}
+    \rho = 2XP,_X-P,
+\end{align}
+so then
+\begin{align}
+    \rho' = -6XP,_X.
+\end{align}
+Then, using the Friedmann equation we obtain
+\begin{align}\label{PXepsilon}
+    \varepsilon &= -\frac{1}{2}{\phi'}^2P,_X.
+\end{align}
+The equation of motion for $\phi$ is~\cite{Hu_2011}
+\begin{align}\label{phieom}
+    \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
+\end{align}
+We can now evolve $\tau_s$, $\phi$ and $H$ numerically
+using~\eqref{tausdef},~\eqref{phieom} and~\eqref{PXepsilon} respectively.
+In the examples we use, we set the initial conditions by prescribing $\phi_{start}$,
+calculating an approximate value of $\phi'_{start, approx}$ using the slow-roll approximation,
+then using $\phi'_{start, approx}$ to obtain values for $c^{start}_s$ and $H_{start}$.
+Taking those values for the sound speed and Hubble parameter as exact, along with the
+prescribed value for $\phi_{start}$, we can calculate the corresponding exact value
+of $\phi'_{start}$, obtaining consistent initial conditions to start out numerical evolution.
+
+
     We desire a period of exponential expansion in the early universe to explain the
     scale-invariance of the initial perturbations.
     One simple way one could imagine driving this expansion is through a single
