@@ -178,7 +178,7 @@ allowing us to apply the method to feature bispectra for the first time.
     However, this is not ideal as $c_s$ depends on time.
     Instead, let us use $\tau_s$ as our time parameter.
     Now we obtain~\cite{Hu_2011}
-    \begin{align}\label{modefneqn_tau}
+    \begin{align}\label{modefneqn_tau_s}
         \frac{\partial^2 u_k}{\partial \tau_s^2} + \left(k^2 - \frac{2\left(aH\right)^2}{c_s^2}+A\right)u_k = 0
     \end{align}
     where $A$ is slow-roll suppressed.
@@ -200,10 +200,43 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}
         v(\tau,\vecx) = \int\frac{d^3\veck}{(2\pi)^3}\left[
             v_k(\tau)\hat{a}_\veck e^{i\veck\cdot\vecx}+
-            v_k(\tau)^*\hat{a}^{\dagger}_\veck e^{-i\veck\cdot\vecx}
+            v^*_k(\tau)\hat{a}^{\dagger}_\veck e^{-i\veck\cdot\vecx}
         \right]
     \end{align}
-    \newpage
+    where $v_k(\tau)$ and $v^*_k(\tau)$ satisfy~\eqref{modefneqn_tau_s}.
+    The creation and annihilation operators satisfy
+    \begin{align}
+        \left[\ahat_{\veck},\ahat^{\dagger}_{\veck'}\right] = (2\pi)^3\delta^{(3)}(\veck-\veck').
+    \end{align}
+    Taking the commutator of $v$ and its conjugate momentum
+    \textcolor{red}{CHECK ALL OF THIS}
+    we can obtain
+    \begin{align}
+        \left[v(\tau,\vecx),v'(\tau,\mathbf{y})\right] &=
+        \int \frac{d^3 \veck}{(2\pi)^3}\left(v_kv'^*_k-v'_kv^*_k\right)e^{i\veck\cdot(\vecx-\mathbf{y})}\\
+        &= i \delta^{(3)}(\vecx-\mathbf{y})
+    \end{align}
+    if we demand that $v_kv'^*_k-v'_kv^*_k=1$.
+
+
+    We can define the vacuum state by $\ahat_{\veck}\left| 0\right>=0$.
+    Demanding this to be an eigenstate of $H$ forces $v'_k=\pm ikv_k$.
+    \textcolor{red}{How does this relate to before?}
+    Demanding that the early time behaviour matches that of flat space
+    gives us that
+    \begin{align}
+        v_k = \frac{1}{\sqrt{2k}}e^{-ik\tau_s}
+    \end{align}
+    when $\tau_s\rightarrow -\infty$.
+    \textcolor{red}{Is this really $\tau_s$ or $\tau$?}
+    Assuming \textcolor{red}{assumptions} we can write the solution to the equations
+    of motion in terms of the Hankel function $H^{(2)}_i$ as~\cite{px_burrage}
+    \begin{align}
+        \zeta_k = \frac{1}{2a}\sqrt{\frac{\pi}{2}}\sqrt{\frac{-(1+s)\tau}{z}}H^{(2)}_{\frac{3}{2}+\varepsilon+\frac{v}{2}+\frac{3\epscs}{2}}\left[-kc_s(1+s)\tau\right].
+    \end{align}
+    \textcolor{red}{Rewrite this in terms of $\tau_s$. Citation?}
+
+
     \subsection{Connecting the primordial power spectrum to observables}
     Define the $\cmb$ power spectrum, discuss constraints.
 
