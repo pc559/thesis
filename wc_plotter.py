@@ -17,11 +17,15 @@ last_week = data['WordCount'][data['Date'] < today-timescale]
 delta_y = data['WordCount'][data['Date'] == data['Date'].iloc[-1]]-last_week.iloc[-1]
 delta_x = timescale
 words_per_day = delta_y/delta_x.n#.days
-words_left = 60000-data['WordCount'][data['Date'] == data['Date'].iloc[-1]]
-days_left = words_left/words_per_day
-print('Only', round(days_left.values[0]/5,1), 'weeks left until FREEDOM!')
-done_date = today+BDay(int(1+days_left.values[0]))
-print('(', done_date.date(), ')', sep='')
+words_left_60 = 60000-data['WordCount'][data['Date'] == data['Date'].iloc[-1]]
+words_left_50 = 50000-data['WordCount'][data['Date'] == data['Date'].iloc[-1]]
+days_left_60 = words_left_60/words_per_day
+days_left_50 = words_left_50/words_per_day
+print('Only', round(days_left_60.values[0]/5,1), 'weeks left until FREEDOM!')
+done_date_60 = today+BDay(int(1+days_left_60.values[0]))
+print('(', done_date_60.date(), ')', sep='')
+done_date_50 = today+BDay(int(1+days_left_50.values[0]))
+print('(or ', round(days_left_50.values[0]/5,1), ' weeks to 50000, on ', done_date_50.date(), '...)', sep='')
 
 #print(data.head())
 fig = plt.figure(dpi=100)
