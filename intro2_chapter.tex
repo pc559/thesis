@@ -126,14 +126,15 @@ allowing us to apply the method to feature bispectra for the first time.
         S_{2} = \frac{1}{2}\int d^3x d\tau \left[v'^2-c_s^2\left(\partial v\right)^2-\frac{z''}{z}v^2\right]
     \end{align}
     where $z=\frac{a\sqrt{2\varepsilon}}{c_s}$.
-    We recognise this as the action for a scalar field, oscillating
+    In terms of $v$, we can recognise the dynamics as that of a scalar field, oscillating
     with a frequency that changes as the universe expands.
     Expanding the mass, we find
     \begin{align}
-        \frac{z''}{z} = 2{\left(aH\right)}^2(1+\frac{\eta}{2}-\varepsilon_s)(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4})
+        \frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\frac{\eta}{2}-\varepsilon_s\right)\left(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4}\right)
     \end{align}
-    so the evolution of the perturbations is well approximated by $\frac{z''}{z} = 2{\left(aH\right)}^2$
+    so the evolution of the perturbations is well approximated using $\frac{z''}{z} = 2{\left(aH\right)}^2$
     unless there are features that make the slow-roll parameters large.
+
     \newpage
     \subsection{Initial conditions for the perturbations}
     The Bunch-Davies vacuum mode functions become
@@ -162,12 +163,29 @@ allowing us to apply the method to feature bispectra for the first time.
     Second order action, in comoving gauge.
     Expanding the operator in Fourier modes.
     Quantization.
+    Varying the second order action, we can calculate the equation of motion
+    of the perturbations.
     In conformal time, we obtain
     \begin{align}\label{modefneqn_tau}
         \frac{\partial^2 u_k}{\partial \tau^2} + \left(c_s^2k^2 - \frac{1}{z}\frac{d^2 z}{d \tau^2}\right)u_k = 0
     \end{align}
     where $z^2 = 2a^2\varepsilon/c_s^2$ and $u=z\mathcal{R}$.
-    We can see that at early times$\ldots$
+    However, this is not ideal as $c_s$ depends on time.
+    Instead, let us use $\tau_s$ as our time parameter.
+    Now we obtain~\cite{Hu_2011}
+    \begin{align}\label{modefneqn_tau}
+        \frac{\partial^2 u_k}{\partial \tau_s^2} + \left(k^2 - \frac{2\left(aH\right)^2}{c_s^2}+A\right)u_k = 0
+    \end{align}
+    where $A$ is slow-roll suppressed.
+
+
+    At early times, well before crossing the sound horizon at $c_sk=aH$,
+    we have $k\gg aH/c_s$. We can see that the equation of motion becomes
+    \textcolor{red}{LOTS OF MISTAKES HERE}
+    \begin{align}
+        \frac{\partial^2 u_k}{\partial \tau_s^2} + k^2 u_k = 0
+    \end{align}
+    and that the solutions look like $u_k\propto e^{\pm ik\tau_s}$.
     \newpage
     The Mukhanov-Sasaki equation in $N$, $\tau_s$---no numerics here, though, just ref forward.
     \newpage
