@@ -9,7 +9,7 @@ fname = "word_counts.csv"
 data = pd.read_csv(fname)
 data['Date'] = pd.to_datetime(data['Date'])
 
-timescale = BDay(5)#pd.Timedelta(5, 'days')
+timescale = BDay(10)#pd.Timedelta(5, 'days')
 today = pd.Timestamp.now(tz=pytz.timezone('Europe/London')).normalize()
 #print(today, today-timescale)
 last_week = data['WordCount'][data['Date'] < today-timescale]

@@ -232,9 +232,24 @@ allowing us to apply the method to feature bispectra for the first time.
     Assuming \textcolor{red}{assumptions} we can write the solution to the equations
     of motion in terms of the Hankel function $H^{(2)}_i$ as~\cite{px_burrage}
     \begin{align}
-        \zeta_k = \frac{1}{2a}\sqrt{\frac{\pi}{2}}\sqrt{\frac{-(1+s)\tau}{z}}H^{(2)}_{\frac{3}{2}+\varepsilon+\frac{v}{2}+\frac{3\epscs}{2}}\left[-kc_s(1+s)\tau\right].
+        \zeta_k = \frac{1}{2a}\sqrt{\frac{\pi}{2}}\sqrt{\frac{-(1+s)\tau}{z}}H^{(2)}_{\nu}\left[-kc_s(1+s)\tau\right].
     \end{align}
+    where $\nu = \frac{3}{2}+\varepsilon+\frac{\eta}{2}+\frac{\epscs}{2}$
     \textcolor{red}{Rewrite this in terms of $\tau_s$. Citation?}
+    At late times we can use the limit
+    \begin{align}
+        \lim_{x\rightarrow 0}H^{(1)}_\nu(x)\rightarrow-\frac{i}{\pi}\Gamma(\nu)\left(\frac{x}{2}\right)^{-\nu}.
+    \end{align}
+    From this limiting behaviour we can calculate the power spectrum predicted by
+    a $P(X,\phi)$ model, as a function of time and $k$.
+    What we find \textcolor{red}{EXPAND!!} is that the time dependence
+    of the prefactor $H^2/(4zc_s^3)$ is precisely canceled out by the time dependence
+    of the limiting behaviour of the Hankel function, as expected.
+    This means we can obtain the final power spectrum by evaluating
+    it separately for each $k$. In fact, we choose to evaluate the asymptotic expression
+    at sound-horizon crossing $c_sk=aH$. Note that we are \textit{not} evaluating
+    $\zeta_k\zeta^*_k$ at horizon crossing---we are evaluating the asymptotic expression
+    for that quantity there.
 
 
     \subsection{Connecting the primordial power spectrum to observables}
