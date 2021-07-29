@@ -191,8 +191,17 @@ allowing us to apply the method to feature bispectra for the first time.
         \frac{\partial^2 u_k}{\partial \tau_s^2} + k^2 u_k = 0
     \end{align}
     and that the solutions look like $u_k\propto e^{\pm ik\tau_s}$.
-    \newpage
-    The Mukhanov-Sasaki equation in $N$, $\tau_s$---no numerics here, though, just ref forward.
+
+
+    We now wish to quantize the perturbations. We will quantize $v$,
+    as at early times it should behave like a free field in Minkowski space.
+    We expand
+    \begin{align}
+        v(\tau,\vecx) = \int\frac{d^3\veck}{(2\pi)^3}\left[
+            v_k(\tau)\hat{a}_\veck e^{i\veck\cdot\vecx}+
+            v_k(\tau)^*\hat{a}^{\dagger}_\veck e^{-i\veck\cdot\vecx}
+        \right]
+    \end{align}
     \newpage
     \subsection{Connecting the primordial power spectrum to observables}
     Define the $\cmb$ power spectrum, discuss constraints.
