@@ -77,7 +77,8 @@ allowing us to apply the method to feature bispectra for the first time.
     We can get a lot of information on the evolution of the perturbations
     from observations, and that tells us about the history of universe,
     which tells us about its content, etc\ldots
-    \newpage
+
+
     The sound speed $c_s$. What is the intuition for $c_s$?
     What does a photon path look like on a $\tau_s-x$ plot?
 
@@ -135,22 +136,6 @@ allowing us to apply the method to feature bispectra for the first time.
     so the evolution of the perturbations is well approximated using $\frac{z''}{z} = 2{\left(aH\right)}^2$
     unless there are features that make the slow-roll parameters large.
 
-    \newpage
-    \subsection{Initial conditions for the perturbations}
-    The Bunch-Davies vacuum mode functions become
-    \begin{align}
-        u_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
-    \end{align}
-    The power spectrum is enhanced by a factor of $c_s$,
-    \begin{align}
-        P(k) = \frac{H^2}{8\pi\varepsilon c_s}
-    \end{align}
-    due to the larger prefactor.
-    \textcolor{red}{How is this related to the earlier freeze-out of the perturbations?}
-
-    The vacuum is not unique. We choose it so that it
-    asymptotes to the Minkowski vacuum in the limit $\tau\to-\infty$.
-    \newpage
     \subsection{Evolution of the perturbations}
     %https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
     %https://www.mpi-hd.mpg.de/lin/events/group_seminar/inflation/schmidt.pdf
@@ -222,6 +207,22 @@ allowing us to apply the method to feature bispectra for the first time.
     We can define the vacuum state by $\ahat_{\veck}\left| 0\right>=0$.
     Demanding this to be an eigenstate of $H$ forces $v'_k=\pm ikv_k$.
     \textcolor{red}{How does this relate to before?}
+
+    \subsection{Initial conditions for the perturbations}
+    The Bunch-Davies vacuum mode functions become
+    \begin{align}
+        u_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
+    \end{align}
+    The power spectrum is enhanced by a factor of $c_s$,
+    \begin{align}
+        P(k) = \frac{H^2}{8\pi\varepsilon c_s}
+    \end{align}
+    due to the larger prefactor.
+    \textcolor{red}{How is this related to the earlier freeze-out of the perturbations?}
+
+    The vacuum is not unique. We choose it so that it
+    asymptotes to the Minkowski vacuum in the limit $\tau\to-\infty$.
+
     Demanding that the early time behaviour matches that of flat space
     gives us that
     \begin{align}
@@ -236,6 +237,8 @@ allowing us to apply the method to feature bispectra for the first time.
     \end{align}
     where $\nu = \frac{3}{2}+\varepsilon+\frac{\eta}{2}+\frac{\epscs}{2}$
     \textcolor{red}{Rewrite this in terms of $\tau_s$. Citation?}
+
+    \subsection{Late time behaviour}
     At late times we can use the limit
     \begin{align}
         \lim_{x\rightarrow 0}H^{(1)}_\nu(x)\rightarrow-\frac{i}{\pi}\Gamma(\nu)\left(\frac{x}{2}\right)^{-\nu}.
@@ -343,7 +346,7 @@ as defined in~\cite{Planck_NG_2015}.
     \end{align}
 \newpage
     \section{Calculating the primordial bispectrum from an inflation scenario}
-    \textcolor{red}{Coming from part iii level, a derivation of the tree-level in-in formalism.
+    \textcolor{red}{Coming from part iii level, a derivation of the tree-level in-in formalism.\\
     https://arxiv.org/pdf/1807.03098.pdf}
     The standard starting point for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
@@ -414,7 +417,6 @@ The results are not always separable, so further approximations must then be mad
 allow comparison with the CMB.
     \section{Calculating the interaction Hamiltonian}
     General overview of how the interaction Hamiltonian is obtained.
-    \newpage
     \section{Self-interactions}
     Simpler derivation neglecting the metric perturbations to begin with.
     \newpage
@@ -422,7 +424,6 @@ allow comparison with the CMB.
     \newpage
     \section{The Maldacena calculation}
     Review, with metric perturbations.
-    \newpage
     \section{The field-redefinition}
     Discuss field-redefinition being unnecessary, as per~\cite{px_burrage}.
     \newpage

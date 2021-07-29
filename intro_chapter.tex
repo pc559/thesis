@@ -73,7 +73,7 @@
 
     Since the photon gas has a black body spectrum \textcolor{red}{TALK ABOUT THIS}
     and is in thermal equilibrium we can assign a temperature to it.
-    This temperature evolves as $T\propto a^{-1}$.
+    This temperature evolves as $T\propto a^{-1}$ away from decoupling temperatures.
 
 
     We can rewrite the Friedmann equation as
@@ -96,10 +96,10 @@
     $\rho = \frac{\pi^2}{15}T^4$
     for photons, and $T_{\gamma}=2.725\pm0.001K$ \textcolor{red}{CHECK THIS},
     we have that $\rho_{\gamma}=2.02\times 10^{-15} eV^4$
-    and $\rho_{crit}=9\times 10^{-27} kg m^{-3}$.
+    and $\rho_{crit}=9\times 10^{-27} kg~m^{-3}$.
     Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
     From these numbers, and~\eqref{friedmann_omega}, we can make some statements
-    about the past and future of the universe, illustrated in~\ref{fig:lcdm_components}.
+    about the past and future of the universe, illustrated in figure~\ref{fig:lcdm_components}.
     We can see that while $\Lambda$ is dominant now, the transition from matter domination
     to $\Lambda$ domination happened relatively recently in the history of the universe.
     We can see that this domination will continue as the matter and radiation content of the
@@ -132,7 +132,7 @@
     \end{align}
     Then, using $ad\tau=dt$, we find that ${\tau(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0}$
     where as usual a $0$ subscript denotes a quantity evaluated today.
-    This is the behaviour we would also like in the very universe, as we will see.
+    This is the behaviour we would also like in the very early universe, as we will see.
 
     \begin{table}[h!]
     \begin{center}
@@ -187,7 +187,8 @@
     \includegraphics[width=.75\columnwidth]{plots/lcdm_components_linear.png}
 \caption{
     The evolution of the components of the universe, zoomed in to more clearly
-    show the matter-dark energy transition.
+    show the matter-dark energy transition. The first vertical grey line is
+    matter-dark energy equality, the second is the present day.
 }\label{fig:lcdm_components_linear}
 \end{figure}
 \begin{figure}[!pth]
@@ -197,6 +198,7 @@
     The evolution of the conformal time $\tau$ since the $\lcdm$ singularity,
     if there is no inflation. Eventually $\tau$ will asymptote to a constant.
     \textcolor{red}{Physical interpretation at early and late times!!}
+    The horizontal grey line is $\tau=\tau_0+(H_0a_0)^{-1}$.
 }\label{fig:lcdm_tau}
 \end{figure}
 \begin{figure}[!pth]
@@ -208,7 +210,9 @@
 }\label{fig:lcdm_z}
 \end{figure}
 
-    The history of the universe as a story of falling temperature.
+    The history of the universe as a story of falling temperature,
+    probing higher energy scales. Rough contrast of looking at the
+    early universe with particle colliders, cosmic variance etc.
     \textcolor{red}{Write this, make consistent with elsewhere!}
     \subsection{$\lcdm$}
     \textcolor{red}{Add references! Don't explain in detail, but do reference.}
@@ -248,7 +252,8 @@
     of the positions of galaxies in the sky \textcolor{red}{Did I use the zooming out thing in
     BlueSci? Can I use it here??} [ref two-point], we will discuss two-point statistics in
     section \textcolor{red}{ref}.
-\newpage
+
+
     Future work on $\lcdm$ includes the solution of the Hubble tension---how old is the universe really?
     All in all, it is incredible only a hundred years ago people were debating whether the universe had a beginning or not
     (and the ``great debate''---were there other galaxies?) to now, where the debate rages over the second and third significant
@@ -257,7 +262,9 @@
 \section{Initial conditions for $\lcdm$}
     \subsection{Motivations for inflation}
     The $\lcdm$ model does not posit a ``Big Bang singularity'', though this is often
-    how it is described in popular science communication. Instead, as we have discussed, it
+    how it is described in popular science communication.
+    \textcolor{red}{Is it a consequence?}
+    Instead, as we have discussed, it
     posits an early epoch in which the components that we have discussed are in thermal equilibrium,
     at an incredibly hot temperature of \textcolor{red}{number}. These components are distributed incredibly uniformly,
     with inhomogeneities of less than \textcolor{red}{number}. This simple scenario then evolves
@@ -433,7 +440,8 @@ In the DBI case we find
 $\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
 
 This allows us to rephrase the Friedmann equation in the following useful
-(and exact) way
+way. Note that this is still exact, the slow-roll approximation has
+not been used.
 \begin{align}
     &&H^2 &= \frac{1}{3}\left(\frac{\varepsilon H^2}{P,_{X}}+V(\phi)\right)\\
     \implies &&  H^2 &= \frac{V(\phi)}{3-\frac{\varepsilon}{P,_{X}}}.
