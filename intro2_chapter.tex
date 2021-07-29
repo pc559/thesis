@@ -107,16 +107,33 @@ allowing us to apply the method to feature bispectra for the first time.
 
     The action for the perturbations is derived by working in a general gauge
     (using the ADM formalism) and splitting the relevant quantities into a background
-    part and a small perturbation.
-    In the uniform density gauge we have
+    part and a small perturbation
     \begin{align}
-        \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}.
+        \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}.
     \end{align}
-    The action for the perturbations is \textcolor{red}{Make notation consistent!!}
+    In the comoving gauge we have (neglecting tensor modes)
+    \begin{align}
+        \delta \phi=0, \qquad g_{ij}=a^2 e^{2\zeta} \delta_{ij}
+    \end{align}
+    where $g_{ij}$ is the spatial part of the metric.
+    The second order action for the perturbations in this gauge is
+    \textcolor{red}{ADD IN SOUND SPEED}
+    \begin{align}
+        S_{2} = \int d^3x dt~a\varepsilon\left(a^2\dot{\zeta}^2-\left(\partial\zeta\right)^2\right)
+    \end{align}
+    Defining $v=-z\zeta$ and switching to conformal time we can rewrite this as
     \begin{align}
         S_{2} = \frac{1}{2}\int d^3x d\tau \left[v'^2-c_s^2\left(\partial v\right)^2-\frac{z''}{z}v^2\right]
     \end{align}
-    where $z=\frac{a\sqrt{2\varepsilon}}{c_s}$ and $v=-z\zeta$.
+    where $z=\frac{a\sqrt{2\varepsilon}}{c_s}$.
+    We recognise this as the action for a scalar field, oscillating
+    with a frequency that changes as the universe expands.
+    Expanding the mass, we find
+    \begin{align}
+        \frac{z''}{z} = 2{\left(aH\right)}^2(1+\frac{\eta}{2}-\varepsilon_s)(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4})
+    \end{align}
+    so the evolution of the perturbations is well approximated by $\frac{z''}{z} = 2{\left(aH\right)}^2$
+    unless there are features that make the slow-roll parameters large.
     \newpage
     \subsection{Initial conditions for the perturbations}
     The Bunch-Davies vacuum mode functions become
