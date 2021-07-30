@@ -399,8 +399,49 @@ as defined in~\cite{Planck_NG_2015}.
         \left<f_{l_1m_1}f_{l_2m_2}f_{l_3m_3}\right> = B_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
     \end{align}
     where ${{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}$ enforces statistical isotropy.
-    \textcolor{red}{
-    Getting to~\eqref{eq:reduced_cmb}. Give example of $S=1$.}
+
+
+    For the $\cmb$ in particular, we calculate the projected bispectrum using
+    \begin{equation}
+    \label{eq:reduced_cmb}
+    b^{X_1X_2X_3}_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
+        \int_{\mathcal{V}_k}d^3k (k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta^{X_i}_{l_i}(k_i)\right],
+    \end{equation}
+    analogously to~\eqref{eqn:transfer_function}.
+    We see that the expression for the shape function $(k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)$ appears directly.
+
+
+    We will repeat the simple example outlined in~\cite{FergShell_2}. If we
+    take $S(k_1,k_2,k_3)=1$ for all configurations, then the above four-dimensional integral
+    simplifies greatly. If we also restrict to large angular scales ($l\ll200$)
+    then we can use the \textcolor{red}{Sachs-Wolfe} approximation
+    \begin{align}
+        \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k).
+    \end{align}
+    \textcolor{red}{How does this relate to $\chi_*$, and why $3$? What is $\mathcal{V}_k$?}
+
+    The integral becomes
+    \begin{equation}
+    \label{eq:reduced_cmb_constant}
+    b_{l_1l_2l_3} = \left(\frac{2}{3\pi}\right)^3\int_{0}^{\infty}drr^2
+        \int_{\mathcal{V}_k}d^3k \prod_{i=1}^{3}\left[j_{l_i}(k_ir)j_l((\tau_0-\tau_{dec})k_i)\right],
+    \end{equation}
+
+
+    Now, using that
+    \begin{align}
+        \int dk~j_l(k)j_l(xk)\qquad=\qquad&\frac{\pi}{2}\frac{x^{-(l+1)}}{2l+1}\qquad&&\text{for $x>1$}\\
+                            \qquad&\frac{\pi}{2}\frac{x^{l}}{2l+1}\qquad&&\text{for $x<1$}
+    \end{align}
+    we find that
+    \begin{align}
+        b_{l_1l_2l_3} &= \frac{f_{NL}}{27}\frac{1}{(2l_1+1)(2l_2+1)(2l_3+1)}
+        \left[\int^1_0dx x^{l_1+l_2+l_3+2}+\int^\infty_1dx x^{-l_1-l_2-l_3-1}\right]\\
+                &= \frac{f_{NL}}{27}\frac{1}{(2l_1+1)(2l_2+1)(2l_3+1)}
+        \left[\frac{1}{l_1+l_2+l_3+3}+\frac{1}{l_1+l_2+l_3}\right]
+    \end{align}
+
+
     \section{Calculating the primordial bispectrum from an inflation scenario}
     \textcolor{red}{Coming from part iii level, a derivation of the tree-level in-in formalism.\\
     https://arxiv.org/pdf/1807.03098.pdf\\
@@ -428,6 +469,7 @@ From this calculation we obtain the dimensionless shape function $S(k_1,k_2,k_2)
 defined in~\eqref{shapefn},
 which is then used as input into~\eqref{eq:reduced_cmb}.
 As an example, if one takes $\Hint\propto\dot{\zeta}^3$, this set-up can produce the standard EFT shape
+\textcolor{red}{expand on this}
 \begin{align}\label{example_eft2}
     S(k_1, k_2, k_3) = \frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}.
 \end{align}
@@ -947,11 +989,7 @@ S(k_1,k_2,k_3) = X(k_1)Y(k_2)Z(k_3),
 or can be expressed as a sum of such terms,
 it is called separable.
 The link between the separability of the primordial bispectrum
-and the reduced CMB bispectrum can be seen from the following expression:
-\begin{equation}
-\label{eq:reduced_cmb}
-b^{X_1X_2X_3}_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2\int_{\mathcal{V}_k}d^3k (k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta^{X_i}_{l_i}(k_i)\right],
-\end{equation}
+and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb},
 where we also see that if the primordial bispectrum is separable
 then the overall dimension
 of the calculation can be reduced from seven to five, 
