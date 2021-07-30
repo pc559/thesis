@@ -489,20 +489,26 @@ allow comparison with the CMB.
 \begin{align}\label{eq:dbi_action}
     S_{DBI}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
 \end{align}
-with
+and we choose
 \begin{align}\label{eq:dbi_warp}
     f(\phi)=\frac{\lambda_{DBI}}{\phi^4},\qquad
     V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
-    m=\sqrt{\beta_{IR}}H.
+    m=\sqrt{\beta_{IR}}H
 \end{align}
+in line with \textcolor{red}{REF}.
 
+    From this we can calculate the useful quantities
     \begin{align}
-        P(X, \phi) &=\\
-        P,_X(X, \phi) &=\\
-        \rho,_X(X, \phi) &=\\
-        \rho,_\phi(X, \phi) &=\\
-        c_s(X, \phi) &=
+        P(X, \phi) &= -\frac{1}{f(\phi)}\left(\sqrt{1-f(\phi)X}-1\right)-V(\phi)\\
+        P,_X(X, \phi) &= \frac{1}{2\sqrt{1-f(\phi)X}}\\
+        \rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
+                    &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
+        \rho,_X(X, \phi) &= \frac{1}{2}\frac{1}{\left(1-f(\phi)X\right)^{\frac{3}{2}}}\\
+        c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
+                    &= 1-f(\phi)X
     \end{align}
+    We see that, as expected, in the limit $\lambda_{DBI}\rightarrow 0$, the sound
+    speed tends to unity.
     \section{The Maldacena calculation}
     Review, with metric perturbations? Maybe this actually just gets discussed elsewhere in
     bits and pieces.
