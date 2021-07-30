@@ -259,6 +259,17 @@ allowing us to apply the method to feature bispectra for the first time.
     Define the $\cmb$ power spectrum, discuss constraints.
 
 
+    In general when projecting a three dimensional random field onto a sphere (the $\cmb$ sky)
+    the statistics are projected as
+    \begin{align}
+        \left<f_{lm}f^*_{l'm'}\right> = 4\pi \delta_{ll'}\delta_{mm'}
+        \int d\ln k \mathcal{P}_{\mathcal{F}}(k) j_l^2(kr)
+    \end{align}
+    where $j_l(x)$ is a Bessel function, and the $\delta_{ll'}$ and $\delta_{mm'}$
+    are demanded by statistical isotropy. The Bessel function encodes the fact that a three dimensional
+    wave of a given wavelength intersects the sphere at multiple different angular separations.
+
+
     The temperature anisotropies of the $\cmb$ are decomposed in spherical
     harmonics as
     \begin{align}
@@ -268,9 +279,38 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}
         C_l &= \sum_m a_{lm} a_{l-m}.
     \end{align}
+    The variance is given by
+    \begin{align}
+        var\left(\hat{C}_l\right) = \frac{2}{2l+1} C^2_l,
+    \end{align}
+    which reflects the fact that for the distribution of $C_l$,
+    there are $2l+1$ independently draws that we can observe.
 
     The $\cmb$ power spectrum $C_l$ is calculated from the primordial power spectrum $\primpowerspec$
     using a transfer function
+    \begin{align}
+        C_l \approx 4\pi\int d\ln k~\primpowerspec(k)
+            \Delta_l(k).
+    \end{align}
+    For large scales, where there was not enough time for oscillations
+    before recombination, there is no processing of the primordial statistics
+    and the transfer function simply encodes the projection effects
+    \begin{align}
+        C_l \approx 4\pi\int d\ln k~\primpowerspec(k){\left[
+            j_l(k\chi_*)/5
+            \right]}^2.
+    \end{align}
+    For $\primpowerspec(k)=A_s$, i.e.\ perfectly scale invariant,
+    we can use that
+    \begin{align}
+        \int_0^{\infty}d\ln x j_l^2(x) = \frac{1}{2l(l+1)}
+    \end{align}
+    to find that $l(l+1)C_l\propto \text{const}$, i.e.\ that on large scales
+    (so small $l$) this quantity is independent of $l$.
+
+
+    For intermediate scales, the acoustic oscillations and the Doppler effect
+    becomes relevant, and the transfer function additionally encodes this processing
     \begin{align}
         C_l \approx 4\pi\int d\ln k~\primpowerspec(k){\left[
             \frac{(\Theta_0+\psi)(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j_l(k\chi_*)
@@ -346,7 +386,15 @@ as defined in~\cite{Planck_NG_2015}.
     Connect (self-)interactions during inflation to non-Gaussianity.
     \newpage
 \section{Connecting the primordial bispectrum to observables}
-    Getting to~\eqref{eq:reduced_cmb}.
+    For a three dimensional statistical distribution projected onto
+    a sphere, we expect the three-point statistics to be projected
+    like (as in~\eqref{eq:bll})
+    \begin{align}
+        \left<f_{l_1m_1}f_{l_2m_2}f_{l_3m_3}\right> = B_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
+    \end{align}
+    where ${{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}$ enforces statistical isotropy.
+    \textcolor{red}{
+    Getting to~\eqref{eq:reduced_cmb}.}
 \newpage
     \section{Calculating the primordial bispectrum from an inflation scenario}
     \textcolor{red}{Coming from part iii level, a derivation of the tree-level in-in formalism.\\
@@ -735,7 +783,7 @@ in the long mode was shown in~\cite{not_so_sqz}.
         B^{l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
     \end{align}
     We also have
-    \begin{align}
+    \begin{align}\label{eq:bll}
         B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
     \end{align}
 
