@@ -483,6 +483,19 @@ allow comparison with the CMB.
     \section{Self-interactions}
     Simpler derivation neglecting the metric perturbations to begin with.
     Discuss DBI, then $P(X, \phi)$.
+
+
+    The DBI model has kinetic term
+\begin{align}\label{eq:dbi_action}
+    S_{DBI}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
+\end{align}
+with
+\begin{align}\label{eq:dbi_warp}
+    f(\phi)=\frac{\lambda_{DBI}}{\phi^4},\qquad
+    V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
+    m=\sqrt{\beta_{IR}}H.
+\end{align}
+
     \begin{align}
         P(X, \phi) &=\\
         P,_X(X, \phi) &=\\
@@ -528,10 +541,11 @@ which leads us to impose the following condition deep in the horizon:
 \begin{align}\label{bd_ic}
 \zeta_k = \frac{i}{a}\sqrt{\frac{c_s}{4\varepsilon k}} e^{-ik\tau_s}
 \end{align}
-where we define $\tau_s$ through $\tau_s'=\frac{c_s}{aH}$
+where we define $\tau_s$
 in analogy with the usual $\tau$ with
 \begin{align}\label{tausdef}
-    \tau'=\frac{1}{aH}.
+    \tau_s'&=\frac{c_s}{aH},\\
+    \tau'&=\frac{1}{aH}.
 \end{align}
 The solution in slow-roll (without features) is then approximately
 \begin{align}\label{modefnsapprox}
@@ -570,17 +584,8 @@ a quadratic potential
     \quadpot = \frac{1}{2}m^2\phi^2.
 \end{align}
 with a canonical kinetic term,
-and a non-canonical model, with a DBI
-kinetic term
-\begin{align}\label{eq:dbi_action}
-    S_{DBI}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
-\end{align}
-with
-\begin{align}\label{eq:dbi_warp}
-    f(\phi)=\frac{\lambda_{DBI}}{\phi^4},\qquad
-    V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
-    m=\sqrt{\beta_{IR}}H.
-\end{align}
+and a non-canonical model,
+the DBI model described in \textcolor{red}{SECTION}.
 
 For our more stringent validation tests we work with feature model scenarios
 based on the above base models.
