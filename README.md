@@ -3,7 +3,7 @@ Intro to the work you did, then
 describe the work you did.\
 Cut it right down!!
 
-### Test
+### Plan
  - [ ] Abstract
     - [ ] Reduce to an abstract.
  - [ ] Acknowledgements
