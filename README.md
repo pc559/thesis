@@ -13,13 +13,13 @@ describe the work you did.
     - [ ] Link to figures.
     - [ ] Motivate inflation properly.
     - [ ] "We will define this properly later in sec..."
-    - [ ] Move P(X,phi) later (do SR after Criteria, separate from Motivations)
+    - [ ] Move $P(X,\phi)$ later (do SR after Criteria, separate from Motivations)
     - [ ] Checking "dice". Move to Chapter 2?
     - [ ] Then $P(X,\phi)$, driving the evolution we need.
     - [ ] Unify outline.
  - [ ] Intro 2
     - [ ] Dicsussion of perturbations, how inflation seeds structure.
-    - [ ] $P(X, phi)$ define perturbations, gauge etc.
+    - [ ] $P(X, \phi)$ define perturbations, gauge etc.
     - [ ] Action.
     - [ ] Evolution, quantize, IC's, freeze-out.
     - [ ] Transfer functions for PS.
@@ -28,7 +28,7 @@ describe the work you did.
     - [ ] What causes a large bispectrum? When is it small?
     - [ ] Define CMB bispectrum.
     - [ ] Transfer functions, example for constant shape.
-    - [ ] In-In formalism, $\dot{zeta}^3$ example.
+    - [ ] In-In formalism, $\dot{\zeta}^3$ example.
     - [ ] How one gets the interaction Hamiltonian in general.
         - [ ] Very rough, we take this as *input*!!
     - [ ] DBI in detail.
