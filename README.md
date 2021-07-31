@@ -1,5 +1,6 @@
 Make it functional first! Intro to the work you did, then
 describe the work you did.
+Cut it right down!!
 
 ### Test
  - [ ] Abstract
@@ -43,6 +44,40 @@ describe the work you did.
     - [ ] Complexity of bispectrum estimation.
     - [ ] Modal methods.
     - [ ] Wuhyun.
+ - [ ] Decomp 3
+    - [ ] Read through carefully.
+    - [ ] Reference equations, figures, definition sections properly.
+    - [ ] Real part only?
+    - [ ] Remove references to sym'd basis?
+    - [ ] Track Orth notation.
+    - [ ] Order basis sets better.
+    - [ ] Tighten conclusions.
+    - [ ] Cut everything that's not done already.
+ - [ ] Impl. and Val. 4
+    - [ ] Split into two?
+    - [ ] Write an intro!
+    - [ ] Numerics of mode evolution.
+        - [ ] Overview.
+    - [ ] Pinched start.
+    - [ ] Link to figure better.
+    - [ ] Check reso time.
+    - [ ] $H^{(3)}$ numerics (by parts, and redefinition).
+        - [ ] The $PS^2$ must cancel with something, as time dependent.
+    - [ ] $550$ vs $1000$.
+ - [ ] Constraints 5
+    - [ ] Get plots from Wuhyun!!
+    - [ ] Tighten up.
+    - [ ] Talk about interpretation.
+    - [ ] Talk about ending inflation.
+ - [ ] Concl./Future 6
+    - [ ] Cut doubles, order into sections.
+    - [ ] What I did.
+    - [ ] Future targets.
+    - [ ] How to achieve those targets.
+ - [ ] References
+    - [ ] Any more to add?
+        - [ ] F&S, Transport, features.
+
 
 
 
