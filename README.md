@@ -1,4 +1,4 @@
 Test
 -----
-    -[ ] Thing 1
-    -[x] Thing 2
+    - [ ] Thing 1
+    - [x] Thing 2
