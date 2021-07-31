@@ -1,7 +1,7 @@
-Make it functional first!\\
+Make it functional first!\
 Intro to the work you did, then
-describe the work you did.\\
-Cut it right down!!\\
+describe the work you did.\
+Cut it right down!!\
 
 ### Test
  - [ ] Abstract
