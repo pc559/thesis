@@ -6,6 +6,8 @@ describe the work you did.
     - [ ] Reduce to an abstract.
  - [ ] Acknowledgements
     - [ ] Write this.
+ - [ ] Statement of originality.
+    - [ ] Write this.
  - [ ] Intro 1
     - [ ] Sort out definitions.
     - [ ] Link to figures.
