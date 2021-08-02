@@ -17,4 +17,4 @@ echo "Only $(bc <<< ${next_percent}-${word_count}) words until the next percent.
 python3 wc_plotter.py
 echo ""
 echo "IMPT FIONA MSG"
-python3 read_fionas_wholesomeness.py test.txt
+python3 read_fionas_wholesomeness.py PHIL.txt
