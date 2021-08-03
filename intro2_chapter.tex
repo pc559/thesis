@@ -551,44 +551,44 @@ We will take
 \end{align}
 We wish to calculate
 \begin{align}\label{inin_example}
-    \left<\zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)\right>&=
-    \Re\left(\left<-2i \zeta^I_{k_1}(t)\zeta^I_{k_2}(t)\zeta^I_{k_3}(t)
+    \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>&=
+    \Re\left(\left<-2i \zeta^I_{\mathbf{k_1}}(t)\zeta^I_{\mathbf{k_2}}(t)\zeta^I_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'\Hint^I(t')
     \right>\right).
 \end{align}
 
 To do this calculation we will use Wick's theorem
 \begin{align}\label{wick}
-    \left<0\left|\zeta_{k_1}\ldots\zeta_{k_n}\right|0\right>
-    &= :\zeta_{k_1}\ldots\zeta_{k_n}:~+~\text{all contractions}.
+    \left<0\left|\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}\right|0\right>
+    &= :\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}:~+~\text{all contractions}.
 \end{align}
 where $:~:$ denotes normal ordering, which vanishes inside $<~>$.
 We will also make use of the fact that, from~\eqref{operator_expansion},
 \begin{align}
-    \left<\zeta_{k_1}(t_1)\zeta_{k_2}(t_2)\right>
+    \left<\zeta_{\mathbf{k_1}}(t_1)\zeta_{\mathbf{k_2}}(t_2)\right>
     &= \left<0\left|
-            \left(u_{k_1}(\tau)\hat{a}_\mathbf{k_1} +
-            u^*_{k_1}(\tau)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
-            \left(u_{k_2}(\tau)\hat{a}_\mathbf{k_2} +
-            u^*_{k_2}(\tau)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
+            \left(u_{k_1}(t_1)\hat{a}_\mathbf{k_1} +
+            u^*_{k_1}(t_1)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
+            \left(u_{k_2}(t_2)\hat{a}_\mathbf{k_2} +
+            u^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
         \right|0\right>\\
     &= \left<0\left|
-            u_{k_1}(\tau)\hat{a}_\mathbf{k_1}
-            u^*_{k_2}(\tau)\hat{a}^{\dagger}_{-\mathbf{k_2}}
+            u_{k_1}(t_1)\hat{a}_\mathbf{k_1}
+            u^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}
         \right|0\right>\\
-    &= u_{k_1}(\tau)u^*_{k_2}(\tau)\left<0\left|
+    &= u_{k_1}(t_1)u^*_{k_2}(t_2)\left<0\left|
             \left[\hat{a}_\mathbf{k_1},
             \hat{a}^{\dagger}_{-\mathbf{k_2}}\right]
         \right|0\right>\\
-    &= u_{k_1}(\tau)u^*_{k_2}(\tau)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
+    &= u_{k_1}(t_1)u^*_{k_2}(t_2)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
 \end{align}
 where we used~\eqref{creation_annihilation_commutator}.
 So, inserting~\eqref{hint_example} into~\eqref{inin_example}
 and rewriting $\dzeta(\vecx)$ in terms of its Fourier transform,
 we get
 \begin{align}\label{inin_example_start}
-    \left<\zeta_{k_1}(t)\right.&\left.\zeta_{k_2}(t)\zeta_{k_3}(t)\right>\\
-    &=\Re\left(\left<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \left<\zeta_{\mathbf{k_1}}(t)\right.&\left.\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>\\
+    &=\Re\left(\left<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'
     \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
     \right>\right).
@@ -597,37 +597,49 @@ where the operators on the right hand side are in the interaction picture,
 but we have dropped the $I$ for simplicity of notation.
 Continuing,
 \begin{align}\label{inin_example_2}
-    \bigg<-2i \zeta_{k_1}(t)&\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \bigg<-2i \zeta_{\mathbf{k_1}}(t)&\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'
     \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
     \bigg>\\
-    =&\left<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
+    =&\left<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'
     \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
     \right>\\
-    =&\bigg<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\\
-    &\qquad\qquad\cdot
+    =&\bigg<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\nonumber\\
+    &\qquad\cdot
     \int \frac{d^3p}{(2\pi)^3}
-    \int \frac{d^3q}{(2\pi)^3}
-    \int \frac{d^3r}{(2\pi)^3}
+    \frac{d^3q}{(2\pi)^3}
+    \frac{d^3r}{(2\pi)^3}
     \dzeta_{\mathbf{p}}(t')
     \dzeta_{\mathbf{q}}(t')
     \dzeta_{\mathbf{r}}(t')
     \int d^3x e^{i\vecx\cdot(\mathbf{p}+\mathbf{q}+\mathbf{r})}
     \bigg>\\
-    =&\bigg<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\\
-    &\qquad\qquad\cdot
+    =&\bigg<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\nonumber\\
+    &\qquad\cdot
     \int \frac{d^3p}{(2\pi)^3}
-    \int \frac{d^3q}{(2\pi)^3}
-    \int \frac{d^3r}{(2\pi)^3}
+    \frac{d^3q}{(2\pi)^3}
+    \frac{d^3r}{(2\pi)^3}
     \dzeta_{\mathbf{p}}(t')
     \dzeta_{\mathbf{q}}(t')
     \dzeta_{\mathbf{r}}(t')
     (2\pi)^3\delta^{(3)}(\mathbf{p}+\mathbf{q}+\mathbf{r})
-    \bigg>
+    \bigg>.
 \end{align}
+We now perform the contractions. If we contract one of the $\zeta{\mathbf{k_i}}$ with
+another, then the delta function will force one of $\mathbf{p}$, $\mathbf{q}$
+or $\mathbf{r}$ to be zero. Since we want $\zeta_\mathbf{k}$ to be a perturbation
+and not a contribution to the background, this cannot contribute.
+\textcolor{red}{CHECK THIS.}
+
+The results of the contractions will therefore have the form
+\begin{align}
+    \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{p}}(t')\right>
+    &= u_{k_1}(t)u^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
+\end{align}
+
 
     \section{Calculating the interaction Hamiltonian}
     General overview of how the interaction Hamiltonian is obtained.
