@@ -224,8 +224,8 @@ allowing us to apply the method to feature bispectra for the first time.
     \textcolor{red}{How does this relate to before?}
 
     \subsection{Initial conditions for the perturbations}
-    The Bunch-Davies vacuum mode functions become
-    \begin{align}
+    The Bunch-Davies vacuum mode functions lead us to
+    \begin{align}\label{uk_solution}
         u_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
     \end{align}
     The power spectrum is enhanced by a factor of $c_s$,
@@ -346,7 +346,7 @@ allowing us to apply the method to feature bispectra for the first time.
     Consequences of isotropy, homogeneity.
     Define the shape function.
 The primordial bispectrum is usually written as:
-\begin{align}
+\begin{align}\label{bispectrum_definition}
 {
 \left< \zeta_{\bf{k_1}}\zeta_{\bf{k_2}}\zeta_{\bf{k_3}} \right>
 = (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3)
@@ -628,7 +628,7 @@ Continuing,
     (2\pi)^3\delta^{(3)}(\mathbf{p}+\mathbf{q}+\mathbf{r})
     \bigg>.
 \end{align}
-We now perform the contractions. If we contract one of the $\zeta{\mathbf{k_i}}$ with
+We now perform the contractions. If we contract one of the $\zeta_{\mathbf{k_i}}$ with
 another, then the delta function will force one of $\mathbf{p}$, $\mathbf{q}$
 or $\mathbf{r}$ to be zero. Since we want $\zeta_\mathbf{k}$ to be a perturbation
 and not a contribution to the background, this cannot contribute.
@@ -636,9 +636,37 @@ and not a contribution to the background, this cannot contribute.
 
 The results of the contractions will therefore have the form
 \begin{align}
-    \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{p}}(t')\right>
-    &= u_{k_1}(t)u^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
+    \left<\zeta_{\mathbf{k_1}}(t)\dzeta_{\mathbf{p}}(t')\right>
+    &= u_{k_1}(t)\udot^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
 \end{align}
+and permutations.
+Using the delta functions to perform the momentum integrals,
+and recalling~\eqref{bispectrum_definition}, we obtain
+\begin{align}\label{inin_computer}
+    &B(k_1, k_1, k_3)\nonumber\\
+    &=
+    \Re\left(-2i u_{k_1}(t)u_{k_2}(t)u_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\bigg(-2\lambda(t') a^3(t')\bigg)
+    \udot^*_{k_1}(t')
+    \udot^*_{k_2}(t')
+    \udot^*_{k_3}(t')
+    \right).
+\end{align}
+If one wanted to numerically calculate the bispectrum resulting from~\eqref{hint_example},
+one could use this form. Until this point we have assumed nothing about the solutions of the
+equations of motion, and we have not made a slow-roll approximation (although we have
+of course only included the tree-level effects).
+After one had chosen some prescription for numerically implementing the
+$i\varepsilon$ prescription, one would need to evolve a set of $u_{k}$
+according to the equations of motion and then perform the above time integral.
+
+
+This is the point where our work will diverge from the standard calculation---this
+will be detailed in section~\ref{sec:k_dep}.
+
+
+We will now continue the calculation within the slow-roll approximation,
+using~\ref{uk_solution}.
 
 
     \section{Calculating the interaction Hamiltonian}
