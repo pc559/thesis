@@ -641,15 +641,16 @@ The results of the contractions will therefore have the form
 \end{align}
 and permutations.
 Using the delta functions to perform the momentum integrals,
+switching to conformal time,
 and recalling~\eqref{bispectrum_definition}, we obtain
 \begin{align}\label{inin_computer}
     &B(k_1, k_1, k_3)\nonumber\\
     &=
-    \Re\left(-2i u_{k_1}(t)u_{k_2}(t)u_{k_3}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'\bigg(-2\lambda(t') a^3(t')\bigg)
-    \udot^*_{k_1}(t')
-    \udot^*_{k_2}(t')
-    \udot^*_{k_3}(t')
+    \Re\left(-2i u_{k_1}(0)u_{k_2}(0)u_{k_3}(0)
+    \int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(-2\lambda(\tau') a^4(\tau')\bigg)
+    \udot^*_{k_1}(\tau')
+    \udot^*_{k_2}(\tau')
+    \udot^*_{k_3}(\tau')
     \right).
 \end{align}
 If one wanted to numerically calculate the bispectrum resulting from~\eqref{hint_example},
@@ -662,11 +663,24 @@ according to the equations of motion and then perform the above time integral.
 
 
 This is the point where our work will diverge from the standard calculation---this
-will be detailed in section~\ref{sec:k_dep}.
+will be detailed in section~\ref{sec:k_dep}. For now, we merely note that
+the integrand of~\eqref{inin_computer} is explicitly separable in $k_1$, $k_2$ and $k_3$.
 
 
 We will now continue the calculation within the slow-roll approximation,
-using~\ref{uk_solution}.
+using~\eqref{uk_solution}. We approximate $\lambda(\tau')$ and the slow-roll
+parameters as constant, and use $a\approx-1/(H\tau)$.
+We see that we will need to perform the following integral by parts
+\begin{align}
+    \int_{-\infty(1+i\varepsilon)}^{0}d\tau~\tau^2 e^{ic_sK\tau}
+    &= \frac{-2i}{c_s^3K^3}
+\end{align}
+where we recall $K=k_1+k_2+k_3$.
+Using this, we finally obtain
+\begin{align}
+    S(k_1, k_2, k_3) = \frac{8\lambda H^7 c_s^2}{4\varepsilon}\frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}.
+\end{align}
+\textcolor{red}{Check the prefactor!!}
 
 
     \section{Calculating the interaction Hamiltonian}
