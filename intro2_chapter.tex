@@ -193,15 +193,19 @@ allowing us to apply the method to feature bispectra for the first time.
     We now wish to quantize the perturbations. We will quantize $v$,
     as at early times it should behave like a free field in Minkowski space.
     We expand
-    \begin{align}
-        v(\tau,\vecx) = \int\frac{d^3\veck}{(2\pi)^3}\left[
+    \begin{align}\label{operator_expansion}
+        v(\tau,\vecx) &= \int\frac{d^3\veck}{(2\pi)^3}\left[
             v_k(\tau)\hat{a}_\veck e^{i\veck\cdot\vecx}+
             v^*_k(\tau)\hat{a}^{\dagger}_\veck e^{-i\veck\cdot\vecx}
-        \right]
+        \right]\\
+            &= \int\frac{d^3\veck}{(2\pi)^3}\left[
+            v_k(\tau)\hat{a}_\veck +
+            v^*_k(\tau)\hat{a}^{\dagger}_{-\veck}
+        \right]e^{i\veck\cdot\vecx}
     \end{align}
     where $v_k(\tau)$ and $v^*_k(\tau)$ satisfy~\eqref{modefneqn_tau_s}.
     The creation and annihilation operators satisfy
-    \begin{align}
+    \begin{align}\label{creation_annihilation_commutator}
         \left[\ahat_{\veck},\ahat^{\dagger}_{\veck'}\right] = (2\pi)^3\delta^{(3)}(\veck-\veck').
     \end{align}
     Taking the commutator of $v$ and its conjugate momentum
@@ -538,6 +542,48 @@ However, by breaking these assumptions large signals can arise.
 These signals are usually calculated using~\eqref{in-in} within tailored approximations.
 The results are not always separable, so further approximations must then be made to
 allow comparison with the CMB.
+
+
+We now detail an explicit example of an in-in calculation.
+We will take
+\begin{align}
+    \Hint=\int d^3x~-2\lambda a^3\dzeta^3.
+\end{align}
+We wish to calculate
+\begin{align}
+    \left<\zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)\right>&=
+    \Re\left(\left<-2i \zeta^I_{k_1}(t)\zeta^I_{k_2}(t)\zeta^I_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\Hint^I(t')
+    \right>\right).
+\end{align}
+
+To do this calculation we will use Wick's theorem
+\begin{align}
+    \left<0\left|\zeta_{k_1}\ldots\zeta_{k_n}\right|0\right>
+    &= :\zeta_{k_1}\ldots\zeta_{k_n}:~+~\text{all contractions}.
+\end{align}
+where $:~:$ denotes normal ordering, which vanishes inside $<~>$.
+We will also make use of the fact that, from~\eqref{operator_expansion},
+\begin{align}
+    \left<\zeta_{k_1}(t_1)\zeta_{k_2}(t_2)\right>
+    &= \left<0\left|
+            \left(u_{k_1}(\tau)\hat{a}_\mathbf{k_1} +
+            u^*_{k_1}(\tau)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
+            \left(u_{k_2}(\tau)\hat{a}_\mathbf{k_2} +
+            u^*_{k_2}(\tau)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
+        \right|0\right>\\
+    &= \left<0\left|
+            u_{k_1}(\tau)\hat{a}_\mathbf{k_1}
+            u^*_{k_2}(\tau)\hat{a}^{\dagger}_{-\mathbf{k_2}}
+        \right|0\right>\\
+    &= u_{k_1}(\tau)u^*_{k_2}(\tau)\left<0\left|
+            \left[\hat{a}_\mathbf{k_1},
+            \hat{a}^{\dagger}_{-\mathbf{k_2}}\right]
+        \right|0\right>\\
+    &= u_{k_1}(\tau)u^*_{k_2}(\tau)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
+\end{align}
+where we used~\eqref{creation_annihilation_commutator}.
+
     \section{Calculating the interaction Hamiltonian}
     General overview of how the interaction Hamiltonian is obtained.
     EFT? Or slow-roll? Our method takes the interaction Hamiltonian
