@@ -546,11 +546,11 @@ allow comparison with the CMB.
 
 We now detail an explicit example of an in-in calculation.
 We will take
-\begin{align}
-    \Hint=\int d^3x~-2\lambda a^3\dzeta^3.
+\begin{align}\label{hint_example}
+    \Hint=\int d^3x~\left(-2\lambda a^3\dzeta^3\right).
 \end{align}
 We wish to calculate
-\begin{align}
+\begin{align}\label{inin_example}
     \left<\zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)\right>&=
     \Re\left(\left<-2i \zeta^I_{k_1}(t)\zeta^I_{k_2}(t)\zeta^I_{k_3}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'\Hint^I(t')
@@ -558,7 +558,7 @@ We wish to calculate
 \end{align}
 
 To do this calculation we will use Wick's theorem
-\begin{align}
+\begin{align}\label{wick}
     \left<0\left|\zeta_{k_1}\ldots\zeta_{k_n}\right|0\right>
     &= :\zeta_{k_1}\ldots\zeta_{k_n}:~+~\text{all contractions}.
 \end{align}
@@ -583,6 +583,51 @@ We will also make use of the fact that, from~\eqref{operator_expansion},
     &= u_{k_1}(\tau)u^*_{k_2}(\tau)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
 \end{align}
 where we used~\eqref{creation_annihilation_commutator}.
+So, inserting~\eqref{hint_example} into~\eqref{inin_example}
+and rewriting $\dzeta(\vecx)$ in terms of its Fourier transform,
+we get
+\begin{align}\label{inin_example_start}
+    \left<\zeta_{k_1}(t)\right.&\left.\zeta_{k_2}(t)\zeta_{k_3}(t)\right>\\
+    &=\Re\left(\left<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'
+    \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
+    \right>\right).
+\end{align}
+where the operators on the right hand side are in the interaction picture,
+but we have dropped the $I$ for simplicity of notation.
+Continuing,
+\begin{align}\label{inin_example_2}
+    \bigg<-2i \zeta_{k_1}(t)&\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'
+    \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
+    \bigg>\\
+    =&\left<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'
+    \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
+    \right>\\
+    =&\bigg<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\\
+    &\qquad\qquad\cdot
+    \int \frac{d^3p}{(2\pi)^3}
+    \int \frac{d^3q}{(2\pi)^3}
+    \int \frac{d^3r}{(2\pi)^3}
+    \dzeta_{\mathbf{p}}(t')
+    \dzeta_{\mathbf{q}}(t')
+    \dzeta_{\mathbf{r}}(t')
+    \int d^3x e^{i\vecx\cdot(\mathbf{p}+\mathbf{q}+\mathbf{r})}
+    \bigg>
+    =&\bigg<-2i \zeta_{k_1}(t)\zeta_{k_2}(t)\zeta_{k_3}(t)
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\\
+    &\qquad\qquad\cdot
+    \int \frac{d^3p}{(2\pi)^3}
+    \int \frac{d^3q}{(2\pi)^3}
+    \int \frac{d^3r}{(2\pi)^3}
+    \dzeta_{\mathbf{p}}(t')
+    \dzeta_{\mathbf{q}}(t')
+    \dzeta_{\mathbf{r}}(t')
+    (2\pi)^3\delta^{(3)}(\mathbf{p}+\mathbf{q}+\mathbf{r})
+    \bigg>
+\end{align}
 
     \section{Calculating the interaction Hamiltonian}
     General overview of how the interaction Hamiltonian is obtained.
