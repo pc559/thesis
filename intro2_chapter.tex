@@ -181,16 +181,18 @@ allowing us to apply the method to feature bispectra for the first time.
 
     At early times, well before crossing the sound horizon at $c_sk=aH$,
     we have $k\gg aH/c_s$. We can see that the equation of motion becomes
-    \textcolor{red}{LOTS OF MISTAKES HERE}
+    \textcolor{red}{LOTS OF MISTAKES HERE, NOTATION VERY INCONSISTENT.}
     \begin{align}
-        \frac{\partial^2 y_k}{\partial \tau_s^2} + k^2 y_k = 0
+        \frac{\partial^2 y_k}{\partial \tau_s^2} + k^2 y_k \approx 0
     \end{align}
     and we can clearly see that the solutions look like $u_k\propto e^{\pm ik\tau_s}$.
     %In practice we extract this oscillatory behaviour and numerically evolve $u_ke^{\mp ik\tau_s}$.
 
 
     \subsection{Quantizing the perturbations}
-    We now wish to quantize the perturbations. We will quantize $v$,
+    We now wish to quantize the perturbations.
+    \textcolor{red}{Or at least, provide quantum initial conditions for the classical evolution.}
+    We will quantize $v$,
     as at early times it should behave like a free field in Minkowski space.
     We expand
     \begin{align}\label{operator_expansion}
@@ -224,11 +226,12 @@ allowing us to apply the method to feature bispectra for the first time.
     \textcolor{red}{How does this relate to before?}
 
     \subsection{Initial conditions for the perturbations}
-    The Bunch-Davies vacuum mode functions lead us to
+    The Bunch-Davies vacuum leads us to the mode functions
     \begin{align}\label{uk_solution}
         u_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
     \end{align}
     The power spectrum is enhanced by a factor of $c_s$,
+    \textcolor{red}{because of collapse at earlier times, when the density is higher?}
     \begin{align}
         P(k) = \frac{H^2}{8\pi\varepsilon c_s}
     \end{align}
@@ -403,9 +406,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     shape, see especially the scale-dependent ones. Sometimes there are
     factors of the power spectrum involved. Sometimes it is the shape
     function evaluated on the equilateral limit, sometimes the squeezed limit
-    (even that is not dominant, e.g.~\cite{dbi_in_the_sky}).
-    \subsection{Non-linearity during inflation}
-    Connect (self-)interactions during inflation to non-Gaussianity.
+    (even when that is not dominant, e.g.~\cite{dbi_in_the_sky}).
 \section{Connecting the primordial bispectrum to observables}
     For a three dimensional statistical distribution projected onto
     a sphere, we expect the three-point statistics to be projected
@@ -464,7 +465,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     and~\eqref{eq:bll_constant}.
 
 
-    \section{Calculating the primordial bispectrum from an inflation scenario}
+    \section{Calculating the primordial bispectrum from an inflation scenario}\label{sec:inin_example}
     \textcolor{red}{Coming from part iii level, a derivation of the tree-level in-in formalism.\\
     https://arxiv.org/pdf/1807.03098.pdf\\
     Simple example---$\dot{\zeta}^3$, or maybe $\dot{\zeta}\zeta^2$ and point out cancellation?
@@ -687,6 +688,7 @@ of which give the same result in this example.
 
     \section{Calculating the interaction Hamiltonian}
     General overview of how the interaction Hamiltonian is obtained.
+    Metric perturbations.
     EFT? Or slow-roll? Our method takes the interaction Hamiltonian
     as input.
     \section{Self-interactions}
@@ -729,13 +731,24 @@ in line with \textcolor{red}{REF}.
     \textcolor{red}{Check and compare with https://arxiv.org/abs/hep-th/0310221~\cite{dbi_silverstein}\\
     See also https://arxiv.org/abs/1207.2186~\cite{warp_features_dbi}\\
     and https://arxiv.org/abs/0903.4920~\cite{cmb_pol_ics} for initial conditions}.
-    \section{The Maldacena calculation}
-    Review, with metric perturbations? Maybe this actually just gets discussed elsewhere in
-    bits and pieces.
     \section{Templates}
     Using $K_{pq}$ notation.
     Link to Enrico's symmetric polynomials, reference discussion under
     equation (57) in~\cite{Fergusson_2010}.
+
+
+To express the bispectrum results more compactly we use the symmetric polynomial notation employed in~\cite{FergShell_2}:
+\begin{align}\label{shape_notation}
+\begin{split}
+    K_p &= \sum_{i=1,2,3} k_i^p, \\
+    K_{pq} &= \frac{1}{\Delta_{pq}}\sum_{i\neq j} k_i^p k_j^q,   \\
+    K_{prs} &= \frac{1}{\Delta_{prs}}\sum_{i\neq j\neq l} k_i^p k_j^r k_l^s,
+\end{split}
+\end{align}
+where $\Delta_{pq}$ is $2$ if $p=q$, $1$ otherwise
+and $\Delta_{prs}$ is $6$ if $p=r=s$, $2$ if $p=r\neq s$ (and permutations),
+and $1$ if $p,r,s$ are all distinct.
+
     \subsection{Basic templates, $f_{NL}$}
     The three basic phenomenological templates, \planck.
     $f_{NL}$ from the data analysis perspective,
@@ -826,17 +839,6 @@ extended resonant features on the basic potential
     V(\phi) = \quadpot\left(1+bf\sin\left(\frac{\phi}{f}\right)\right).
 \end{align}
 For more details on these models, see~\cite{chen_easther_lim_2}.
-To express the bispectrum results more compactly we use the symmetric polynomial notation employed in~\cite{FergShell_2}:
-\begin{align}\label{shape_notation}
-\begin{split}
-    K_p &= \sum_{i=1,2,3} k_i^p, \\
-    K_{pq} &= \frac{1}{\Delta_{pq}}\sum_{i\neq j} k_i^p k_j^q,   \\
-    K_{prs} &= \frac{1}{\Delta_{prs}}\sum_{i\neq j\neq l} k_i^p k_j^r k_l^s,
-\end{split}
-\end{align}
-where $\Delta_{pq}$ is $2$ if $p=q$, $1$ otherwise
-and $\Delta_{prs}$ is $6$ if $p=r=s$, $2$ if $p=r\neq s$ (and permutations),
-and $1$ if $p,r,s$ are all distinct.
 With a canonical kinetic term, the slow-roll result for the shape is:
 \begin{align}\label{malda_shape}
     S^{Malda}(k_1,k_2,k_3) &= A^{Malda} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right),\\
@@ -907,6 +909,7 @@ removing these layers of approximations,
 though these standard results provide useful validation tests.
     \subsection{Shapes from features during inflation}
     Explicit details of how resonance and features generate large NG.
+    Refer to~\ref{sec:inin_example}.
 \section{Previous work on in-in separability.}
     In~\cite{Funakoshi} it was pointed out that one can compute using the
 tree-level in-in formalism in such a way as to preserve its intrinsic
@@ -1092,12 +1095,6 @@ in the long mode was shown in~\cite{not_so_sqz}.
     \end{align}
 
 
-    \section{Separable approximations to non-separable templates}
-    Separability is required, so usually one approximates non-separable templates
-    by separable ones.
-    Focus on equilateral to DBI.
-    Quantitative comparison of equilateral template and DBI shape,
-    with and without scaling.
     \section{Estimating the bispectrum, complexity}
     The bispectrum, like the power spectrum, is a quantity that describes
 the statistical distribution of which our universe is only one realisation.
@@ -1186,6 +1183,13 @@ the real shape function by some standard template.
 In particular, if one is interested in a feature model,
 it may be be difficult to see how constraints on existing
 features can be applied.
+    \section{Separable approximations to non-separable templates}
+    Separability is required, so usually one approximates non-separable templates
+    by separable ones.
+    Focus on equilateral to DBI.
+    Quantitative comparison of equilateral template and DBI shape,
+    with and without scaling.
+
     \section{Modal methods, constraints from Planck}
     Cite~\cite{FergShell_2014}
     Leveraging the separable benefits in a broader set of models through expansion.
