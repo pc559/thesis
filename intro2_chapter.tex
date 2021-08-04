@@ -756,11 +756,40 @@ and $1$ if $p,r,s$ are all distinct.
 
     \subsection{Basic templates, $f_{NL}$}
     The three basic phenomenological templates, \planck.
+\begin{align}\label{local_shape}
+S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2} = \frac{K_3}{6\,K_{111}}.
+\end{align}
+\begin{align}\label{equil_shape}
+    S^{equil}(k_1,k_2,k_3) = \frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}.
+\end{align}
+
+
     $f_{NL}$ from the data analysis perspective,
     and from the primordial perspective.
     \section{Shapes}
     \subsection{Basic shapes}
-    Maldacena, DBI.
+    With a canonical kinetic term, the slow-roll result for the shape is:
+\begin{align}\label{malda_shape}
+    S^{Malda}(k_1,k_2,k_3) &= A^{Malda} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right),\\
+    A^{Malda} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}.
+\end{align}
+with $\eta=2\varepsilon$ for~\eqref{eq:quadratic_potential}.
+At the primordial level, this is well approximated by the separable local template
+However, the amplitude of this shape is expected to be tiny,
+and the dominant contributions (the squeezed configurations) are expected
+to have no observable effect~\cite{Cabass_2016}.
+The local template is in fact used to test for multi-field effects~\cite{Planck_NG_2015}.
+For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
+\begin{align}\label{dbi_shape}
+    S^{DBI}(k_1,k_2,k_3) &= A^{DBI}\frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2},\\
+    A^{DBI} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right),
+\end{align}
+to leading order in slow-roll.
+Any constraint on the magnitude $A^{DBI}$ can be translated into one 
+on the effective sound speed which from \planck~has a lower limit $c_s^{DBI} \geq 0.087$
+at $95\%$ significance~\cite{Planck_NG_2015}.
+The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template
+
     \subsection{$P(X, \phi)$, EFT}
     There is an extensive literature on the calculation
 of bispectra from models of inflation~\cite{chen_easther_lim_1,chen_easther_lim_2,chen_ng_0605,seery_ng_0503,px_burrage,adshead,flauger_pajer_resonant,features_bartolo,bdy_passaglia}.
@@ -844,33 +873,8 @@ extended resonant features on the basic potential
     V(\phi) = \quadpot\left(1+bf\sin\left(\frac{\phi}{f}\right)\right).
 \end{align}
 For more details on these models, see~\cite{chen_easther_lim_2}.
-With a canonical kinetic term, the slow-roll result for the shape is:
-\begin{align}\label{malda_shape}
-    S^{Malda}(k_1,k_2,k_3) &= A^{Malda} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right),\\
-    A^{Malda} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}.
-\end{align}
-with $\eta=2\varepsilon$ for~\eqref{eq:quadratic_potential}.
-At the primordial level, this is well approximated by the separable local template
-\begin{align}\label{local_shape}
-S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2} = \frac{K_3}{6\,K_{111}}.
-\end{align}
-However, the amplitude of this shape is expected to be tiny,
-and the dominant contributions (the squeezed configurations) are expected
-to have no observable effect~\cite{Cabass_2016}.
-The local template is in fact used to test for multi-field effects~\cite{Planck_NG_2015}.
-For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
-\begin{align}\label{dbi_shape}
-    S^{DBI}(k_1,k_2,k_3) &= A^{DBI}\frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2},\\
-    A^{DBI} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right),
-\end{align}
-to leading order in slow-roll.
-Any constraint on the magnitude $A^{DBI}$ can be translated into one 
-on the effective sound speed which from \planck~has a lower limit $c_s^{DBI} \geq 0.087$
-at $95\%$ significance~\cite{Planck_NG_2015}.
-The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template
-\begin{align}\label{equil_shape}
-    S^{equil}(k_1,k_2,k_3) = \frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}.
-\end{align}
+
+
 These templates can be modified to be more physically realistic by including
 scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
 For example, we can add some scale dependence to the DBI model in a reasonable first approximation by including a prefactor. We define the product scaling template
