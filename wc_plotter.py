@@ -8,6 +8,7 @@ import sys
 fname = "word_counts.csv"
 data = pd.read_csv(fname)
 data['Date'] = pd.to_datetime(data['Date'])
+data = data[~data['PageCount'].isna()]
 
 timescale = BDay(10)#pd.Timedelta(5, 'days')
 today = pd.Timestamp.now(tz=pytz.timezone('Europe/London')).normalize()
