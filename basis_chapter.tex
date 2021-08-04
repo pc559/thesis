@@ -94,9 +94,9 @@ we will find it useful to change to a different basis than the one used to perfo
 time integrals of the decompositions.
 
 Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example for the first interaction term in~\eqref{interaction_loc}, i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$, takes the form
-\begin{align}\label{inin_example}
-    F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau} \, , \qquad\,
-    J^{(1)}(\tau,k) ~=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
+\begin{align}\label{inin_example_FG}
+    F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau}~,\\
+    J^{(1)}(\tau,k) ~&=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
 \end{align}
 In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.   However, for high precision bispectrum predictions we must incorporate the full time-dependence, while solving~\eqref{modefneqn} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.  Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$, a problem which is drastically compounded by bispectrum parameter searches e.g. for oscillatory models. 
 
@@ -115,7 +115,7 @@ in~\eqref{inin_sep} as:
     F^{(i)}(\tau, k) &= \sum _p f_p^{(i)} (\tau) \, q_p(k)\,,\label{mode1Dcoeffs_sum}\\
     \text{where} \quad f_p^{(i)} (\tau)  &= \int _\kmin^\kmax dk \,F^{(i)}(\tau, k) \, q_p(k) \,.\label{mode1Dcoeffs_integral}
 \end{align}
-Note that in the simple mode approximation, as in~\eqref{inin_example},
+Note that in the simple mode approximation, as in~\eqref{inin_example_FG},
 we must expand $e^{ic_{\rm s} k\tau}$ in the terms of the $q_p(k)$.
 At early times $\tau$ is large, so in $k$ this is highly oscillatory.
 This creates two problems. Firstly, this seems to require many samples
