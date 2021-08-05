@@ -274,7 +274,7 @@ allowing us to apply the method to feature bispectra for the first time.
     for that quantity there.
 
 
-    \subsection{Connecting the primordial power spectrum to observables}
+    \section{Connecting the primordial power spectrum to observables}
     Define the $\cmb$ power spectrum, discuss constraints.
     \textcolor{red}{Note we neglect ISW throughout. Mention polarisation, B-modes~\cite{Baumann_bmodes_2014}.\\
     How does this rule out e.g.\ $m^2\phi^2$?}
@@ -409,7 +409,55 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     factors of the power spectrum involved. Sometimes it is the shape
     function evaluated on the equilateral limit, sometimes the squeezed limit
     (even when that is not dominant, e.g.~\cite{dbi_in_the_sky}).
-\section{Connecting the primordial bispectrum to observables}
+
+    \subsection{Templates}
+    The momentum dependence of the various possible bispectrum shapes can be complex
+    and it is therefore useful to define a standard notation in which to express this dependence.
+    For example in~\cite{Fergusson_2010, Pajer_boostless_2020} the elementary
+    symmetric polynomials are used to compactly represent the results in a way that is manifestly
+    symmetric\footnote{This representation is useful here in presenting analytic templates, however in performing
+    our calculations we will require a one-dimensional basis, not a basis in three variables.
+    There are also numerical advantages to the Legendre polynomials, as discussed in~\cite{Fergusson_2010}.}.
+
+
+In this work we will use the notation employed in~\cite{FergShell_2}:
+\begin{align}\label{shape_notation}
+\begin{split}
+    K_p &= \sum_{i=1,2,3} k_i^p, \\
+    K_{pq} &= \frac{1}{\Delta_{pq}}\sum_{i\neq j} k_i^p k_j^q,   \\
+    K_{prs} &= \frac{1}{\Delta_{prs}}\sum_{i\neq j\neq l} k_i^p k_j^r k_l^s,
+\end{split}
+\end{align}
+where $\Delta_{pq}$ is $2$ if $p=q$, $1$ otherwise
+and $\Delta_{prs}$ is $6$ if $p=r=s$, $2$ if $p=r\neq s$ (and permutations),
+and $1$ if $p,r,s$ are all distinct.
+
+    \subsection{Basic templates, $f_{NL}$}
+    The three basic phenomenological templates, \planck.
+    $f_{NL}$ from the data analysis perspective,
+    and from the primordial perspective.
+
+    The local template is the shape which results from assuming the perturbation is
+    quadratic in a Gaussian field~\textcolor{red}{CHECK THIS}
+\begin{align}\label{local_shape}
+S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2} = \frac{K_3}{6\,K_{111}}.
+\end{align}
+This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
+    The local template is used to test for multi-field effects~\cite{Planck_NG_2015}.
+
+
+    Non-Gaussianity arising from gravitational collapse \textcolor{red}{CHECK THIS}
+    and from inflation with a non-canonical kinetic term can be described by the
+    equilateral template
+\begin{align}\label{equil_shape}
+    S^{equil}(k_1,k_2,k_3) = \frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}.
+\end{align}
+This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
+
+
+
+
+\section{From a primordial bispectrum to observations}
     For a three dimensional statistical distribution projected onto
     a sphere, we expect the three-point statistics to be projected
     like (as in~\eqref{eq:bll})
@@ -467,7 +515,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     and~\eqref{eq:bll_constant}.
 
 
-    \section{Calculating the primordial bispectrum from an inflation scenario}\label{sec:inin_calc_example}
+    \section{From an interaction Hamiltonian to a primordial bispectrum}\label{sec:inin_calc_example}
     \textcolor{red}{Coming from part iii level, a derivation of the tree-level in-in formalism.\\
     https://arxiv.org/pdf/1807.03098.pdf\\
     Simple example---$\dot{\zeta}^3$, or maybe $\dot{\zeta}\zeta^2$ and point out cancellation?
@@ -688,7 +736,7 @@ of which give the same result in this example.
 \textcolor{red}{Check the prefactor!!}
 
 
-    \section{Calculating the interaction Hamiltonian}
+    \section{From an inflation scenario to an interaction Hamiltonian}
     General overview of how the interaction Hamiltonian is obtained.
     Metric perturbations.
     EFT? Or slow-roll? Our method takes the interaction Hamiltonian
@@ -733,50 +781,6 @@ in line with \textcolor{red}{REF}.
     \textcolor{red}{Check and compare with https://arxiv.org/abs/hep-th/0310221~\cite{dbi_silverstein}\\
     See also https://arxiv.org/abs/1207.2186~\cite{warp_features_dbi}\\
     and https://arxiv.org/abs/0903.4920~\cite{cmb_pol_ics} for initial conditions}.
-    \section{Templates}
-    The momentum dependence of the various possible bispectrum shapes can be complex
-    and it is therefore useful to define a standard notation in which to express this dependence.
-    For example in~\cite{Fergusson_2010, Pajer_boostless_2020} the elementary
-    symmetric polynomials are used to compactly represent the results in a way that is manifestly
-    symmetric\footnote{This representation is useful here in presenting analytic templates, however in performing
-    our calculations we will require a one-dimensional basis, not a basis in three variables.
-    There are also numerical advantages to the Legendre polynomials, as discussed in~\cite{Fergusson_2010}.}.
-
-
-In this work we will use the notation employed in~\cite{FergShell_2}:
-\begin{align}\label{shape_notation}
-\begin{split}
-    K_p &= \sum_{i=1,2,3} k_i^p, \\
-    K_{pq} &= \frac{1}{\Delta_{pq}}\sum_{i\neq j} k_i^p k_j^q,   \\
-    K_{prs} &= \frac{1}{\Delta_{prs}}\sum_{i\neq j\neq l} k_i^p k_j^r k_l^s,
-\end{split}
-\end{align}
-where $\Delta_{pq}$ is $2$ if $p=q$, $1$ otherwise
-and $\Delta_{prs}$ is $6$ if $p=r=s$, $2$ if $p=r\neq s$ (and permutations),
-and $1$ if $p,r,s$ are all distinct.
-
-    \subsection{Basic templates, $f_{NL}$}
-    The three basic phenomenological templates, \planck.
-    $f_{NL}$ from the data analysis perspective,
-    and from the primordial perspective.
-
-    The local template is the shape which results from assuming the perturbation is
-    quadratic in a Gaussian field~\textcolor{red}{CHECK THIS}
-\begin{align}\label{local_shape}
-S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2} = \frac{K_3}{6\,K_{111}}.
-\end{align}
-This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
-    The local template is used to test for multi-field effects~\cite{Planck_NG_2015}.
-
-
-    Non-Gaussianity arising from gravitational collapse \textcolor{red}{CHECK THIS}
-    and from inflation with a non-canonical kinetic term can be described by the
-    equilateral template
-\begin{align}\label{equil_shape}
-    S^{equil}(k_1,k_2,k_3) = \frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}.
-\end{align}
-This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
-
 
     \section{Shapes}
     \subsection{Basic shapes}
