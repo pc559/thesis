@@ -432,7 +432,7 @@ where $\Delta_{pq}$ is $2$ if $p=q$, $1$ otherwise
 and $\Delta_{prs}$ is $6$ if $p=r=s$, $2$ if $p=r\neq s$ (and permutations),
 and $1$ if $p,r,s$ are all distinct.
 
-    \subsection{Basic templates, $f_{NL}$}
+    %\subsection{Basic templates, $f_{NL}$}
     The three basic phenomenological templates, \planck.
     $f_{NL}$ from the data analysis perspective,
     and from the primordial perspective.
@@ -975,8 +975,10 @@ easier to interpret than the correlation defined in~\cite{Funakoshi},
 and that includes the magnitude as well as the shape information
 on the full tetrapyd.
 This is discussed in section~\ref{sec:inner_product}.
-    \subsection{Comparison to the present work}
-    Summary of the achievements and limitations of~\cite{Funakoshi}, how I went beyond them.
+    %\subsection{Comparison to the present work}
+
+
+    \textcolor{red}{Summary of the achievements and limitations of~\cite{Funakoshi}, how I went beyond them.}
     \section{Configuration-by-configuration codes}
     Cite~\cite{Ringeval}.
     Previous work on the numerical calculations of inflationary
@@ -1035,17 +1037,19 @@ where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
 That the error in the consistency relation decreases at least quadratically
 in the long mode was shown in~\cite{not_so_sqz}.
 
-    \section{Review forecasts for future surveys}
-    Work on forecasting future constraints on features was performed
+    %\section{Review forecasts for future surveys}
+    \section{$\cmb$ bispectrum estimation}
+    % https://arxiv.org/pdf/1006.1642.pdf
+    % https://arxiv.org/pdf/0912.5516.pdf
+    E.g.~\cite{Smith_2011, Komatsu_2005, Byun_1, Byun_2, modal_battefeld}.
+
+
+Work on forecasting future constraints on features was performed
     in~\cite{Sohn_2019} \textcolor{red}{Where else?}
     For recent reviews, see~\cite{astro2020_png, astro2020_features, Ballardini_2017, Sypsas_2017,
     Palma_2017}.
     While there are some standard shapes with very tight constraints,
     there are still regions of the model space that have not been constrained.
-    \section{Review estimators, KSW, separability}
-    % https://arxiv.org/pdf/1006.1642.pdf
-    % https://arxiv.org/pdf/0912.5516.pdf
-    E.g.~\cite{Smith_2011, Komatsu_2005, Byun_1, Byun_2, modal_battefeld}.
 
 
     The bispectrum derived from theory is denoted
@@ -1121,7 +1125,13 @@ in the long mode was shown in~\cite{not_so_sqz}.
     \end{align}
 
 
-    \section{Estimating the bispectrum, complexity}
+    \section{Complexity of bispectrum estimation, separability}
+
+\textcolor{red}{
+Memory bound computation, so tabulation won't help. The time is due to moving data.
+Not much to do with the maps?}
+
+
     The bispectrum, like the power spectrum, is a quantity that describes
 the statistical distribution of which our universe is only one realisation.
 We use this one sky we have access to to estimate the amplitude of
@@ -1219,9 +1229,10 @@ features can be applied.
     \section{Modal methods, constraints from Planck}
     Cite~\cite{FergShell_2014}
     Leveraging the separable benefits in a broader set of models through expansion.
-    \section{Wuhyun's work as development of Modal methods}
-    Contrast Wuhyun's work (our pipeline) to previous modal methods.
+    \section{Wuhyun's work}
+    Contrast Wuhyun's work (our pipeline) to previous modal methods, KSW.
     What Wuhyun does is purely frequentist, not Bayesian. It is essentially linear regression, so can do Fisher forecast to determine
     the best possible variance for an estimator.
+    It is a superset of KSW, but a little different to Modal.
     
 

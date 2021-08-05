@@ -283,7 +283,8 @@ we can scale the bispectra so that $\ampcor(S_1,S_2)=1$ and so
     \totalcor(S_1,S_2) = \sqrt{2(1-\shapecor(S_1,S_2))}.
 \end{align}
 
-    \subsection{Interpretation}
+
+    %\subsection{Interpretation}
 With this measure of relative difference, a shape correlation of $0.9$ corresponds to an error of $45\%$,
 a shape correlation of $0.99$ corresponds to an relative difference of $14\%$,
 a shape correlation of $0.999$ corresponds to an relative difference of $4\%$.
@@ -305,7 +306,8 @@ relative to the representative value
     \sqrt{\frac{S\cdot S}{\int_{T_k} d^3k}}.
 \end{align}
 
-    \subsection{Weighting}
+
+    %\subsection{Weighting}
     One degree of freedom that we have not exploited is weighting the decomposition
     to optimise the convergence of the final observable.
     This could be advantageous as it is possible that the CMB could be more sensitive
@@ -326,7 +328,10 @@ relative to the representative value
     Since the feasibility of our method depends on being able
     to efficiently capture interesting and realistic shapes, this will determine
     which basis sets are worth implementing and testing in the in-in setting.
-\section{The cube and the tetrapyd}
+
+
+%\section{The cube and the tetrapyd}
+\section{Large non-physical contributions}\label{large_non_physical}
 We begin our methods discussion by exploring possible sets of separable
 basis functions $Q_n(k_1,k_2,k_3)$
 for use in the expansion~\eqref{goal}.
@@ -721,8 +726,10 @@ which we refer to as $\Lnsboth$.
 As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
 even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.
 However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.
-We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra. 
-    \subsection{Large non-physical contributions}\label{large_non_physical}
+We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra.
+
+
+    %\subsection{Large non-physical contributions}\label{large_non_physical}
     When a shape is dominated by its non-physical configurations
     (those that do not obey the triangle inequality~\eqref{triangle_inequality})
     then we can see slow convergence on the tetrapyd, despite
@@ -761,7 +768,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     shapes than for local shapes, as the non-physical configurations are an order of magnitude
     more dominant.
 \section{Setting up a basis}
-    \subsection{Legendre and Fourier as building blocks}
+    \subsection{Basis set building blocks}
     Our general strategy will be to start with the Legendre polynomials
     or the Fourier basis functions as a foundation for our basis set,
     and augment this set with other basis functions motivated by the
@@ -813,7 +820,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     of descriptive power, as we will then have a smaller set of shapes which
     will converge sufficiently well to be constrained.
 
-\section{Scaling basis}\label{sec:scaling_definition}
+\section{The $\scalingbasis$ basis}\label{sec:scaling_definition}
     Despite having the same power spectrum scaling,
     different models can have different bispectrum scalings.
     Therefore while the power spectrum can give us a
@@ -863,7 +870,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     necessary to achieve an acceptable fit, but since these templates
     do not need non-integer scaling, the $\scalingbasis$ basis performs
     equivalently to $\Linvk$, as expected.
-\section{Resonant basis}\label{sec:resobasis_definition}
+\section{The $\resobasis$ basis}\label{sec:resobasis_definition}
     We finally describe a basis specifically designed to capture logarithmic oscillations,
     a type of feature that is usually very difficult to accurately fit.
     This goes against our philosophy of desiring a basis that is not tied to
@@ -936,17 +943,18 @@ We conclude that augmenting the basis functions with terms incorporating the exp
             $1/\sqrt{k}$ added to retain orthogonality.
             }\label{fig:basis_pmax5_plots}
     \end{figure}
-\section{Factor basis?}
-    Words~\cite{tensor_decomp_review}.
-\section{Higher $\Pmax$}
-    Going beyond $\Pmax=30$.
-    How high can I go, in terms of parameters that can't be compared to Planck?
+%\section{Factor basis?}
+%    Words~\cite{tensor_decomp_review}.
+%\section{Higher $\Pmax$}
+%    Going beyond $\Pmax=30$.
+%    How high can I go, in terms of parameters that can't be compared to Planck?
 \section{Conclusion}
-    \subsection{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
+Future work, using parafac~\cite{tensor_decomp_review}.
+    \textcolor{red}{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
     Refit mixed basis functions to pure Legendre's subtract to show convergence of rest?
-    \subsection{My new basis sets, and their dramatic improvement}
+    \textcolor{red}{My new basis sets, and their dramatic improvement}
     Take from above.
-    \subsection{Nice table with descriptions and some single-number comparison on examples}
+    \textcolor{red}{Nice table with descriptions and some single-number comparison on examples}
     Make table.
     From the plots presented in this chapter it is clear that the problem of the
     large non-physical off-tetrapyd configurations is vitally important to the feasibility of the
