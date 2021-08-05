@@ -401,6 +401,7 @@ equilateral (see~\eqref{equil_shape}) and orthogonal templates,
 as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
 
     \subsection{The definitions of $f_{NL}$}
+    \textcolor{red}{See note 19 on pg 25 of~\cite{px_burrage}.}
     Describe the various definitions of $f_{NL}$ in different
     parts of the literature.
     Sometimes it is a function of $k_i$. Planck defines it for each
@@ -756,16 +757,27 @@ and $1$ if $p,r,s$ are all distinct.
 
     \subsection{Basic templates, $f_{NL}$}
     The three basic phenomenological templates, \planck.
+    $f_{NL}$ from the data analysis perspective,
+    and from the primordial perspective.
+
+    The local template is the shape which results from assuming the perturbation is
+    quadratic in a Gaussian field~\textcolor{red}{CHECK THIS}
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2} = \frac{K_3}{6\,K_{111}}.
 \end{align}
+This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
+    The local template is used to test for multi-field effects~\cite{Planck_NG_2015}.
+
+
+    Non-Gaussianity arising from gravitational collapse \textcolor{red}{CHECK THIS}
+    and from inflation with a non-canonical kinetic term can be described by the
+    equilateral template
 \begin{align}\label{equil_shape}
     S^{equil}(k_1,k_2,k_3) = \frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}.
 \end{align}
+This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
 
-    $f_{NL}$ from the data analysis perspective,
-    and from the primordial perspective.
     \section{Shapes}
     \subsection{Basic shapes}
     With a canonical kinetic term, the slow-roll result for the shape is:
@@ -774,11 +786,12 @@ S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{
     A^{Malda} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}.
 \end{align}
 with $\eta=2\varepsilon$ for~\eqref{eq:quadratic_potential}.
-At the primordial level, this is well approximated by the separable local template
+At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
 However, the amplitude of this shape is expected to be tiny,
 and the dominant contributions (the squeezed configurations) are expected
 to have no observable effect~\cite{Cabass_2016}.
-The local template is in fact used to test for multi-field effects~\cite{Planck_NG_2015}.
+
+
 For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
 \begin{align}\label{dbi_shape}
     S^{DBI}(k_1,k_2,k_3) &= A^{DBI}\frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2},\\
@@ -788,7 +801,7 @@ to leading order in slow-roll.
 Any constraint on the magnitude $A^{DBI}$ can be translated into one 
 on the effective sound speed which from \planck~has a lower limit $c_s^{DBI} \geq 0.087$
 at $95\%$ significance~\cite{Planck_NG_2015}.
-The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template
+The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
 
     \subsection{$P(X, \phi)$, EFT}
     There is an extensive literature on the calculation

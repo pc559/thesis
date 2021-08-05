@@ -479,15 +479,14 @@ for the degree of Doctor of Philosophy%
 \chapter*{Declaration}
 \thispagestyle{empty}
 This dissertation is the result of my own work and includes nothing which is the outcome
-of work done in collaboration except as declared in the Preface and specified in the text.
+of work done in collaboration except as declared in the statement of contributions and specified in the text.
 It is not substantially the same as any that I have submitted, or am concurrently
 submitting, for a degree or diploma or other qualification at the University of Cambridge
-or any other University or similar institution except as declared in the Preface and
-specified in the text. I further state that no substantial part of my dissertation has
+or any other University or similar institution.
+I further state that no substantial part of my dissertation has
 already been submitted, or is being concurrently submitted, for any such degree, diploma
 or other qualification at the University of Cambridge or any other University or similar
-institution except as declared in the Preface and specified in the text.
-This dissertation does not exceed the prescribed limit of 60\,000 words.
+institution.
 
 % Leaving some space for the signature:
 \vspace{15mm}
@@ -500,6 +499,31 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 \fi
 \fi}
 \fi
+
+\chapter*{Statement of contributions}
+\thispagestyle{empty}
+This thesis was written by myself and describes the research I performed during my PhD
+at the University of Cambridge, supervised by Paul Shellard.
+Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
+describe my original work, except where specified in the text.
+
+Chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
+and mostly follow standard textbook material, collected and written by myself.
+Some of chapter~\ref{chapter:intro_bispectra} is edited material from~\cite{probing_precision},
+which was co-authored with Paul Shellard.
+
+Chapters~\ref{chapter:decomp} and~\ref{chapter:methods}
+describe original research I performed in collaboration with Paul Shellard, and
+mostly consists of edited material that was originally published
+in~\cite{probing_precision}.
+I have updated the text and figures in chapter~\ref{chapter:decomp}
+to include improved basis sets, however.
+Figure~\ref{fig:plot_time_integrand_scan} is also new,
+and I am grateful to the anonymous referee of~\cite{probing_precision} for
+suggesting it.
+
+Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
+James Fergusson and Paul Shellard.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
