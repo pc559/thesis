@@ -4,7 +4,8 @@
     \subsection{Pulling out the $k$-dependence}\label{sec:k_dep}
     Given its separable form, the tree-level in-in formalism is amenable
 to more efficient calculation using separable modes, as first mentioned in~\cite{Funakoshi}.
-That work extended the separable methodology previously implemented for the CMB bispectrum~\cite{FergShell_3}.
+That work extended the separable methodology previously implemented for the CMB
+bispectrum~\cite{FergShell_1,FergShell_2,FergShell_3}.
 Our goal in this work is the efficient calculation of more general bispectra
 which may have significant (possibly oscillatory) features, requiring searches across free parameter dependencies.
 To achieve this, we represent the shape function~\eqref{shapefn} using a set of basis functions as
@@ -12,36 +13,39 @@ To achieve this, we represent the shape function~\eqref{shapefn} using a set of 
 S(k_1, k_2,k_3) &= \sum_n \alpha_n  \, Q_n(k_1,k_2,k_3)\,,
 \end{align}
 where the basis functions $Q_n(k_1,k_2,k_3)$ are explicitly separable functions of their arguments.
+The specific phenomenology of each scenario is encoded in $\alpha_n$.
 Translating this result into a constraint from the CMB
 will require a large once-off computational cost, paid once
 per set of basis functions $Q_n$,
-not per scenario (encoded in $\alpha_n$).
+not per scenario.
 The details of this once-per-basis calculation will be
 presented in~\cite{Sohn_2021}.
 As such, while the general computational steps we
 describe will be independent of the basis, it is vital we
 explore possible sets of basis functions $Q_n(k_1,k_2,k_3)$
 and their effects on convergence;
-we do this in chapter~\ref{chapter:decomp}.
-In section~\ref{sec:setting_notation} we set the notation we will use to recast
+that is what we will explore in this chapter.
+In section~\ref{sec:main_notation} we set the notation we will use to recast
 the standard numerical in-in calculation into a calculation of $\alpha_n$,
-and sketch the steps involved.
-In section~\ref{sec:h_int} we outline the details of the interaction Hamiltonian,
-including accounting for the spatial derivatives in our final result.
-In section~\ref{sec:k_dep} we make precise the numerical considerations
-of the calculation,
+and sketch the steps involved, including accounting for the effect of spatial derivatives
+in the interaction Hamiltonian on our final result.
+The rest of this chapter is then devoted to developing and comparing possible basis sets.
+In chapter~\ref{chapter:methods} we will then use the formalism and the basis sets of this chapter to
+make precise the numerical considerations of the calculation,
 especially our methods of dealing with the high-frequency
 oscillations at early times.
 
     \subsection{Relationship to decomposition on the cube}
-    \subsection{The core of the calculation}
+    \subsection{The core of the calculation}\label{sec:main_notation}
     (Defining the notation for the two main time integrals.)
     In this section we set up the notation, and sketch the steps required to calculate the
 coefficients $\alpha_n$ in~\eqref{goal}.
 The values of these coefficients will depend on the choice
-of basis, but the description of the methods below will remain mostly basis agnostic.
+of basis, but the description of the methods below will remain mostly
+\textcolor{red}{quantify} basis agnostic.
 Our aim will be to separate out the dependence on $k$ and $\tau_s$,
-without losing information, except in the sense that is controlled by $\Pmax$.
+without losing any of the information contained in the tree-level in-in formalism,
+except in the sense that is controlled by $\Pmax$.
 We will set up an efficient numerical implementation of the calculation,
 a necessary consideration to allow this method to be useful in exploring
 parameter spaces in primordial phenomenology.
@@ -75,13 +79,14 @@ The remaining factors have both $k$ and time dependence;
 they must be decomposed in $k$ at every timestep.
 These terms look like $F^{(i)}(k, \tau) = k^{2} \zeta_{\bf k}(0)\zeta_{\bf k}^*(\tau)$
 (or $k ^{2} \zeta_{\bf k}(0){\zeta_{\bf k}^*}'(\tau)$),
-where $k^2$ comes from using the weighting of the scale-invariant shape function~\eqref{shapefn}.
+where $k^2$ comes from using the weighting of the scale-invariant shape function~\eqref{shapefn}
+\textcolor{red}{MOVE EARLIER}.
 This could be absorbed into $v^{(i)}(k_1, k_2,k_3)$, but we have the freedom to keep it here to aid convergence.
 
 If the expressions being expanded have some known pathology in their $k$-dependence,
 we can then see two ways of dealing with this.
 The basis can be augmented to efficiently capture the relevant behaviour
-(see chapter~\ref{chapter:decomp})
+(see chapter~\ref{sec:large_non_physical})
 or the behaviour can be absorbed into the analytic prefactor, $v^{(i)}(k_1, k_2,k_3)$.\footnote{At early times the modes are highly oscillatory in both $k$ and $\tau_s$, which certainly requires special attention.
 We discuss this in section~\ref{sec:k_dep}.}
 We use the former, as the numerics of the latter are less transparent
@@ -98,6 +103,7 @@ Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example 
     F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau}~,\\
     J^{(1)}(\tau,k) ~&=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
 \end{align}
+\textcolor{red}{Move elsewhere!}
 In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.   However, for high precision bispectrum predictions we must incorporate the full time-dependence, while solving~\eqref{modefneqn} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.  Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$, a problem which is drastically compounded by bispectrum parameter searches e.g. for oscillatory models. 
 
 Consider representing the primordial shape function $S(k_1, k_2, k_3)$ in~\eqref{inin_sep} as
@@ -225,13 +231,13 @@ Directly integrating the in-in formalism requires one time
 integration for each $k$-configuration, i.e. $N_k^3$ integrals, ignoring symmetry.
 The method detailed here requires decomposing the modes,
 then a time integral for every coefficient, i.e. $\Pmax^3$ integrals
-(again ignoring symmetry) plus the decomposition.
+(again ignoring symmetry) in addition to the decomposition.
 However for every model we have explored from the literature,
 our expansion in $\Pmax$ converges far faster than in the number of
 $k$-modes that would be required to have confidence in a sampled bispectrum.
 This is clear in smooth bispectra such as~\eqref{malda_shape} and~\eqref{dbi_shape},
 but is also true of bispectra with complicated features,
-as seen in chapter~\ref{chapter:decomp}.
+as quantified by the figures in this chapter.
 
 To be efficiently connected to a late-time observable
 a sampled bispectrum would have to be fit by a smooth template,
@@ -241,6 +247,7 @@ independent of the final bispectrum basis employed for observational tests; a ch
 
 
 Discussion of convergence in this work is considered only at the primordial level,
+\textcolor{red}{Maybe not, see chapter~\ref{chapter:constraints}!}
 with no concept of the signal to noise of an actual experiment.
 There could be a basis that converges faster in some observationally weighted sense,
 efficiently describing the primordial modes which will matter most at late times.
@@ -324,14 +331,14 @@ relative to the representative value
     numerical errors coming from other sources.
     By testing on templates we can estimate the optimal possible
     convergence for a given shape, once all physical effects that contribute
-    in the in-in calculation are taken into account.
+    in the tree-level in-in calculation are taken into account.
     Since the feasibility of our method depends on being able
     to efficiently capture interesting and realistic shapes, this will determine
     which basis sets are worth implementing and testing in the in-in setting.
 
 
 %\section{The cube and the tetrapyd}
-\section{Large non-physical contributions}\label{large_non_physical}
+\section{Large non-physical contributions}\label{sec:large_non_physical}
 We begin our methods discussion by exploring possible sets of separable
 basis functions $Q_n(k_1,k_2,k_3)$
 for use in the expansion~\eqref{goal}.
@@ -357,8 +364,9 @@ Unless stated otherwise, the $\{prs\}$ triples for each permutation set $n$
 in~\eqref{modes3d} are represented by the coefficient with $0\le p\le r\le s$,
 that is, $\alpha_n = \alpha_{prs} \equiv \alpha_{(prs)}$.
 This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$. 
-Given the basis-agnostic methods we shall outline in the following 
-sections~\ref{sec:setting_notation},~\ref{sec:h_int} and~\ref{sec:k_dep},
+Given the basis-agnostic formalism we outlined in~\ref{sec:main_notation} and
+the basis-agnostic methods we will outline in chapter~\ref{chapter:methods}
+%sections~\ref{sec:setting_notation},~\ref{sec:h_int} and~\ref{sec:k_dep},
 we are free to choose our set of basis functions to optimise for efficient convergence,
 ensuring our results are useful for comparison with observations. 
 There are a wide variety of options available, such as polynomial bases
@@ -387,7 +395,7 @@ An important issue is that when leveraging the separability of the in-in formali
 we are essentially forced to expand the shape function on the entire cube ${[\kmin,\kmax]}^3$.
 This is because the only decomposition we actually perform is
 a one-dimensional integral over $[\kmin,\kmax]$
-(as we will see in~\eqref{mode1Dcoeffs_integral}).
+(as we saw in~\eqref{mode1Dcoeffs_integral}).
 With a uniform weighting, this integral does not know anything about the 
 distinction between the tetrapyd and the cube.
 This is important as it means the non-physical configurations outside the tetrapyd will affect the convergence of our result on the tetrapyd, the region where we require efficient convergence.
@@ -449,10 +457,12 @@ It is due to the $1/k$ behaviour inherent in these shapes,
 which is compounded in the equilateral models by pathologies exterior to the tetrapyd,
 as we have discussed.
 We can mitigate against this by including a basis function to capture this $1/k$ behaviour, 
+\textcolor{red}{Change this to look like $Orth[new~function,~old~basis]$.}
 \begin{align}\label{P1_definition}
     q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k}\right]\,, ~~ \quad \text{with} \quad  \Linvk = \{ q_r(k) ~\vert~ r= 0, 1,2, \dots , p_{\rm max}\}\,,
 \end{align}
 where $\text{Orth}$ represents the projection orthogonal to the original Legendre polynomial basis $\Lbasic$.
+\textcolor{red}{Not just $\Lbasic$!}
 As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
 
 The two basis function sets actually used in~\cite{Funakoshi} to calculate primordial bispectra were as follows.
@@ -645,7 +655,7 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
     the basis functions defined in~\eqref{reso_basis_definition} perform well
     even when there is non-trivial shape dependence.
     (b) On the cube, we see that the results converge orders of magnitude faster---see
-    discussion in section~\ref{large_non_physical}.
+    discussion in section~\ref{sec:large_non_physical}.
 }\label{fig:log_recon_osc_dbiosc}
 \end{figure}
 
