@@ -697,8 +697,9 @@ of e-folds.
     The concrete results we aimed for were constraints on the parameters of inflation models,
     not constraints on phenomenological templates or summary $f_{NL}$ parameters.
     We aimed to obtain the full bispectrum shape information from an inflation scenario,
-    not point samples or a limit. The motivation for these goals was
-    the desire for access to more accurate, and in some cases new, bispectrum shapes.
+    not point samples or a limit. The novelty of our goals comes from the separable
+    and numerical methods
+    granting access to more accurate, and in some cases new, bispectrum shapes.
 
 
     To achieve these goals we have developed methods to preserve the
@@ -710,18 +711,18 @@ of e-folds.
 
 
     Our main result is the first development of a formalism
-    for calculating the separable expansion we describe to high orders to sufficiently
+    for calculating the separable expansion we describe to sufficiently
     high orders as to describe inflationary features.
     These methods are implemented in the $\primodal$ code.
     Another result is the recognition and description of the central issue of the
-    convergence of the expansion, and how it is affected by the non-physical $k$-configurations.
+    convergence of the expansion, and in particular how it is affected by the non-physical $k$-configurations.
     The result of our work in circumventing this problem is the development of multiple
     sets of basis functions, which efficiently capture a broad range of bispectra.
     This allowed the first validation of our separable methods on features.
     We also note that
     as a side-effect of this desire for a separable primordial bispectrum,
     the primordial calculation of the inflationary bispectrum that we present is much more efficient
-    that previous methods,
+    than previous methods,
     in the sense converges far faster in modes than previous methods would in point samples.
 
 
@@ -750,17 +751,20 @@ and we discuss methods of testing
 numerical bispectrum results, defining our relative difference measurement.
 
 
-In chapter~\ref{chapter:methods} we present the precise methods involved in this pipeline.
+We begin chapter~\ref{chapter:decomp} by recasting the usual in-in calculation into an explicitly separable form,
+in terms of an expansion in an arbitrary basis.
 Since the paradigm we aim to present is only viable if we can find a basis
 that can efficiently represent a wide variety of bispectra,
-we first, in chapter~\ref{chapter:decomp}, present this distinct and separate but nonetheless vital, discussion.
+we devote the rest of chapter~\ref{chapter:decomp} to presenting this discussion, which is
+distinct and separate from our numerical methods but nonetheless vital.
 We discuss the effects of the
 non-physical $k$-configurations on the convergence of our expansion on
-the tetrapyd, and present an efficient basis.
-Then, we recast the usual in-in calculation into an explicitly separable form,
-in terms of an expansion in an arbitrary basis,
+the tetrapyd, and present multiple efficient basis sets.
+In chapter~\ref{chapter:methods} we present the precise methods involved in the
+separable formalism and its numerical implementation,
 and detail our methods for carefully calculating the coefficients to high order.
-In section~\ref{sec:validation} we validate our methods and implementation
-on inflation scenarios with varied features from the literature,
-and we finish with a discussion of future work in chapter~\ref{chapter:conclusion}.
+In particular in section~\ref{sec:validation} we validate our methods and implementation
+on inflation scenarios with varied features from the literature.
+We present a constraint on an inflation model in chapter~\ref{chapter:constraints},
+and finish with a discussion of future work in chapter~\ref{chapter:conclusion}.
 
