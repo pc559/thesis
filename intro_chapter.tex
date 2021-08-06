@@ -3,7 +3,7 @@
 \section{General introduction}\label{sec:general_intro}
 %\subsection{The bispectrum}
     \subsection{Fundamentals}
-\textcolor{red}{Remove some of the plots, sort out ordering.}
+\textcolor{red}{Remove some of the plots, sort out ordering. Talk about cosmological constant, curvature?}
 
 
 When we look out into the sky, we see light that has traveled for a very long time to get to us.
@@ -33,41 +33,56 @@ to the sky we see today; more precisely, we aim to use the light from the early 
 background, the $\cmb$)
 to constrain physical theories of the very early universe (the epoch of inflation) using a particular
 statistical description, known as the bispectrum.
-We aim to mature this primary tool for looking out at the universe, so we can use it to look
-back in time into its high-temperature youth, and the fundamental physics to be found there.
+We aim to mature the connection between models of inflation and their predicted bispectra, so we can better
+extract the fundamental physics waiting to be found in the universe's youth.
 
 
-    General relativity tells us how the expansion of the universe depends
-    on its matter and energy content.
-    This expansion affects the light that travels through the universe,
+    General relativity is the theory which describes how the evolution of the universe depends
+    on its matter and energy content. It describes the path of light as a geodesic, a straight line
+    in spacetime---with spacetime being described in terms of curved geometry.
+    The equations that we derive from this theory (the Einstein equations) are written in terms of a metric,
+    which we denote by $g_{\mu\nu}$. This object defines our notion of distance, and thus encodes
+    the causal structure of the universe---which events can influence which other events.
     
-    In the context of a spatially homogeneous and isotropic universe
-    (known as an FLRW universe)
-    the Einstein equations become the Friedmann equations.
+
+    Spatially homogeneous and isotropic universes (i.e.\ ones that at some given
+    time, look the same everywhere and in every direction)
+    define a class of solutions to the Einstein equations.
+    The metric of each universe is known as a Friedmann–Lemaître–Robertson–Walker metric
+    (or more usually, and FLRW metric) and in this context
+    the Einstein equations become the Friedmann equations, which we will soon present.
 
 
-    We begin with a homogeneous and isotropic metric with $c=1$
-    \begin{align}
-        ds^2 = a(t)^2 ds_3^2 - dt^2
+    The form of the FLRW metric (we will always set the speed of light to unity) is
+    \begin{align}\label{flrw_metric}
+        ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2
     \end{align}
     where $a(t)$ will have the interpretation as the scale factor
     which describes the evolution of the universe.
+    The homogeneity, isotropy and curvature of space are encoded in $dS_3$,
+    but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
     The components of the matter and energy content of the universe enter the equations through
     their stress-energy tensors, which we approximate as that of
     a perfect fluid
     \begin{align}
-        T_{ab} = (\rho+P)U_aU_b+Pg_{ab}.
+        T^{\mu\nu} = (\rho+P)U^\mu U^\nu+Pg^{\mu\nu},
     \end{align}
-    The quantity $w=\frac{P}{\rho}$ is constant,
-    and takes the values $0$, $1/3$ and $-1$ for matter, radiation
-    and a cosmological constant respectively.
-    \textcolor{red}{Cosmological constant vs. dark energy!}
-    The Einstein equation
-    \begin{align}
+    where the index structure ensures the fluid is isotropic in its rest frame.
+    These fluids are completely characterised by the time dependence
+    of their energy density $\rho(t)$ and their pressure density $P(t)$,
+    both of which have no dependence on $\vecx$, to preserve the homogeneity of the solution.
+    For the components of the universe that we wish to describe,
+    taking the quantity $w=\frac{P}{\rho}$ as constant will be a good description.
+    This quantity $w$ takes the values $0$, $1/3$ and $-1$ for matter, radiation
+    and dark energy (described by a cosmological constant) respectively.
+    If we take the spatial curvature of the universe to be vanishingly small,
+    the Einstein equation are then
+    \begin{align}\label{einstein_equations}
         G_{\mu\nu} = 8\pi G T_{\mu\nu}
     \end{align}
-    then gives us the Friedmann equations
-    for a flat universe with $\Lambda=0$
+    where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$.
+    Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
+    these equations simplify as promised to the Friedmann equations
     \begin{align}
         H^2 &= \frac{8\pi G \rho}{3},\\
         \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
@@ -76,27 +91,38 @@ back in time into its high-temperature youth, and the fundamental physics to be 
     energy densities and of the pressure densities of the
     components of the universe. We also have the continuity equation
     \begin{align}
-        \dot{\rho} + 3\frac{\dot{a}}{a}\left(\rho+P\right) &= 0.
+        \dot{\rho} + 3\frac{\dot{a}}{a}\left(\rho+P\right) &= 0
     \end{align}
+    which is satisfied for each component separately.
 
     Given the equations of state and the densities of the different
     components of the universe, one can then calculate the time dependence of the
-    scale factor $a(t)$. From this, one can understand how perturbations evolve, and understand
-    how photons are redshifted as they freestream through the universe.
-
-
+    scale factor $a(t)$ and of the densities $\rho_X$ and $P_X$ of each component $X$.
+    This defines the homogeneous background evolution of the universe---physical phenomena
+    such as the redshifting of photons as they freestream through the universe.
     Photons travel on geodesics. The geodesic equation that we use to determine
     their evolution is
-    \begin{align}
-        \frac{dP^a}{d\lambda}+\Gamma^a_{bc}P^bP^c=0.
+    \begin{align}\label{geodesic_eqn_1}
+        \frac{dP^\mu}{d\lambda}+\Gamma^\mu_{\nu\sigma}P^\nu P^\sigma=0
     \end{align}
-    Using the chain rule, this can be rewritten as
-    \begin{align}
-        P^{0}\frac{\partial P^a}{\partial t}+\Gamma^a_{bc}P^bP^c=0.
+    where $P^a$ is the photon's $4$-momentum, and $\lambda$ is an affine parameter
+    for the path.
+    The Christoffel symbols, $\Gamma^\mu_{\nu\sigma}$ are functions of the
+    metric, and are used to build the $G_{\mu\nu}$ that appeared in the Einstein equations~\eqref{einstein_equations}
+    \begin{align}\label{christoffel_symbols}
+        \Gamma^\mu_{\nu\sigma} = \frac{1}{2}g^{\mu\gamma}\left(
+        \frac{\partial g_{\gamma\nu}}{\partial x^{\sigma}}
+        +\frac{\partial g_{\gamma\sigma}}{\partial x^{\nu}}
+        -\frac{\partial g_{\nu\sigma}}{\partial x^{\gamma}}
+        \right)
     \end{align}
-    \textcolor{red}{REPHRASE ALL THIS}
-    Writing the components of the photon's 4-momentum $P^a$
-    as $(p, \mathbf{p})$ we get that
+    Using the chain rule,~\eqref{geodesic_eqn_1} can be rewritten in terms of $t$
+    \begin{align}
+        P^{0}\frac{\partial P^\mu}{\partial t}+\Gamma^\mu_{\nu\sigma}P^\nu P^\sigma=0.
+    \end{align}
+    Writing the components of the photon's null vector 4-momentum $P^\mu$
+    as $(p, \mathbf{p})$, and evaluating~\eqref{christoffel_symbols}
+    for the metric~\eqref{flrw_metric} we get that
     \begin{align}
         p\propto \frac{1}{a}.
     \end{align}
