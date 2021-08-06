@@ -595,10 +595,13 @@ of e-folds.
 \section{Statistical observables}
     \subsection{Checking if dice are fair}
 \textcolor{red}{Move earlier.}
-    The prediction of the fundamental quantum theory is a statistical one,
-    i.e.\ a prediction of the distribution from which our observation will be drawn.
-    As such, we need to talk in terms of estimators, estimating how likely it
-    would be to see the sky we do, assuming some fundamental theory.
+    Everything we have discussed until this point has dealt with quantities
+    with definite values, that have a definite evolution. This will no longer
+    be true when we discuss quantities that have a quantum origin, as
+    the prediction of a fundamental quantum theory is a statistical one.
+    The true prediction is of a distribution from which our observation will be drawn;
+    as such, to link the sky we see to some fundamental theory,
+    we must talk in terms of probabilities.
 
 
     Our result will be a constraint on an inflationary parameter, stated at e.g.\ $95\%$ confidence.
@@ -671,7 +674,7 @@ of e-folds.
     \end{align}
 
 
-    \subsection{Power spectra}
+    \subsection{Correlation functions}
     Cite~\cite{Planck_inflation_2015, Planck_inflation_2018}.
     The power spectrum and other correlations
     are predicted by inflation. 
@@ -687,34 +690,46 @@ of e-folds.
     of different modes.}
 
 \section{Outline of thesis}
-\textcolor{red}{Should some of this be moved to the end of chapter 2? Maybe a high-level outline here
-and then a technical outline at the end of chapter 2.
-Remove numbered list, turn into paragraphs?}
-    Goals \textcolor{red}{MERGE.}
-    \begin{enumerate}
-        \item Connecting inflation models directly to observations,
-            through the bispectrum.
-        \item Constraining the parameters of inflation models, not phenomenological templates and $f_{NL}$.
-        \item To obtain the full shape information, not point samples or a limit.
-        \item Efficient numerics gives access to more accurate, and in some cases new, feature shapes.
-    \end{enumerate}
-    Methods.
-    \begin{enumerate}
-        \item Building separability into the tree-level in-in formalism.
-        \item The CMB calculation~\cite{Sohn_2021}: expensive, but need only be done once per primordial basis.
-        \item So, we want a basis expansion that converges quickly for a broad range of inflation models.
-        \item Convergence on the cube is different to the tetrapyd.
-        \item Turns out to be much faster at primordial level than previous numerical methods
-            (as it in a sense converges way faster, and as it enables us to use faster numerical methods than otherwise).
-    \end{enumerate}
-    Results.
-    \begin{enumerate}
-        \item First development/implementation of the formalism for calculating the expansion to high orders.
-        \item We recognised and described the central issue of the cube vs tetra problem.
-        \item Found a basis with broad descriptive power (and other less powerful basis sets).
-        \item This allowed the first validation of these methods on features.
-        \item Connect to CMB, get constraints on DBI $c_s$.
-    \end{enumerate}
+    We are now in a position to give a more precise description of the goals, methods
+    and results outlined in this thesis.
+    Our main goal was to develop an efficient numerical pipeline for
+    connecting inflation models directly to observations through the $\cmb$ bispectrum.
+    The concrete results we aimed for were constraints on the parameters of inflation models,
+    not constraints on phenomenological templates or summary $f_{NL}$ parameters.
+    We aimed to obtain the full bispectrum shape information from an inflation scenario,
+    not point samples or a limit. The motivation for these goals was
+    the desire for access to more accurate, and in some cases new, bispectrum shapes.
+
+
+    To achieve these goals we have developed methods to preserve the
+    separability that is built in to the tree-level in-in formalism.
+    This will link to a $\cmb$ calculation that will be presented in~\cite{Sohn_2021}.
+    That calculation is expensive, but need only be done once per primordial basis.
+    This motivates the desire for a basis that converges quickly for a broad range of inflation models,
+    and as such we have developed methods to achieve this.
+
+
+    Our main result is the first development of a formalism
+    for calculating the separable expansion we describe to high orders to sufficiently
+    high orders as to describe inflationary features.
+    These methods are implemented in the $\primodal$ code.
+    Another result is the recognition and description of the central issue of the
+    convergence of the expansion, and how it is affected by the non-physical $k$-configurations.
+    The result of our work in circumventing this problem is the development of multiple
+    sets of basis functions, which efficiently capture a broad range of bispectra.
+    This allowed the first validation of our separable methods on features.
+    We also note that
+    as a side-effect of this desire for a separable primordial bispectrum,
+    the primordial calculation of the inflationary bispectrum that we present is much more efficient
+    that previous methods,
+    in the sense converges far faster in modes than previous methods would in point samples.
+
+
+    Our final highlighted result, which we obtained in collaboration, is the connection
+    of our inflationary scenario to the $\cmb$ through the $\cmbbest$ code developed
+    by Wuhyun Sohn. This allowed us to obtain constraint on the sound speed of DBI
+    inflation, $c_s$.
+
 
 The thesis is organised as follows. In chapter~\ref{chapter:intro_bispectra} we present brief reviews
 of the various parts of the pipeline that connects inflation scenarios to observations
@@ -733,11 +748,12 @@ We review the previous work in achieving separability through modal expansions
 in~\cite{Funakoshi},
 and we discuss methods of testing
 numerical bispectrum results, defining our relative difference measurement.
-\textcolor{red}{CHAPTER 3.}
-In chapter~\ref{chapter:methods} we present our methods.
+
+
+In chapter~\ref{chapter:methods} we present the precise methods involved in this pipeline.
 Since the paradigm we aim to present is only viable if we can find a basis
 that can efficiently represent a wide variety of bispectra,
-we begin with this distinct and separate, but nonetheless vital, discussion.
+we first, in chapter~\ref{chapter:decomp}, present this distinct and separate but nonetheless vital, discussion.
 We discuss the effects of the
 non-physical $k$-configurations on the convergence of our expansion on
 the tetrapyd, and present an efficient basis.
