@@ -3,7 +3,8 @@
 \section{General introduction}\label{sec:general_intro}
 %\subsection{The bispectrum}
     \subsection{Fundamentals}
-\textcolor{red}{Remove some of the plots, sort out ordering. Talk about cosmological constant, curvature?}
+\textcolor{red}{Remove some of the plots, sort out ordering. Talk about cosmological constant, curvature?
+Blackbody, being able to define a temperature. Define conformal time!}
 
 
 When we look out into the sky, we see light that has traveled for a very long time to get to us.
@@ -63,16 +64,16 @@ extract the fundamental physics waiting to be found in the universe's youth.
     but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
     The components of the matter and energy content of the universe enter the equations through
     their stress-energy tensors, which we approximate as that of
-    a perfect fluid
+    a perfect fluid (denoted $X$)
     \begin{align}
-        T^{\mu\nu} = (\rho+P)U^\mu U^\nu+Pg^{\mu\nu},
+        T_X^{\mu\nu} = (\rho_X+P_X)U_X^\mu U_X^\nu+P_Xg^{\mu\nu},
     \end{align}
     where the index structure ensures the fluid is isotropic in its rest frame.
     These fluids are completely characterised by the time dependence
-    of their energy density $\rho(t)$ and their pressure density $P(t)$,
+    of their energy density $\rho_X(t)$ and their pressure density $P_X(t)$,
     both of which have no dependence on $\vecx$, to preserve the homogeneity of the solution.
     For the components of the universe that we wish to describe,
-    taking the quantity $w=\frac{P}{\rho}$ as constant will be a good description.
+    taking the quantity $w_X=\frac{P_X}{\rho_X}$ as constant will be a good description.
     This quantity $w$ takes the values $0$, $1/3$ and $-1$ for matter, radiation
     and dark energy (described by a cosmological constant) respectively.
     If we take the spatial curvature of the universe to be vanishingly small,
@@ -83,15 +84,15 @@ extract the fundamental physics waiting to be found in the universe's youth.
     where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$.
     Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
     these equations simplify as promised to the Friedmann equations
-    \begin{align}
+    \begin{align}\label{friedmann_1}
         H^2 &= \frac{8\pi G \rho}{3},\\
         \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
     \end{align}
     where $H=\frac{\dot{a}}{a}$, and $\rho$ and $P$ are respectively the sum of the
     energy densities and of the pressure densities of the
     components of the universe. We also have the continuity equation
-    \begin{align}
-        \dot{\rho} + 3\frac{\dot{a}}{a}\left(\rho+P\right) &= 0
+    \begin{align}\eqref{continuity_equation}
+        \dot{\rho_X} + 3\frac{\dot{a}}{a}\left(\rho_X+P_X\right) &= 0
     \end{align}
     which is satisfied for each component separately.
 
@@ -127,19 +128,49 @@ extract the fundamental physics waiting to be found in the universe's youth.
         p\propto \frac{1}{a}.
     \end{align}
     The interpretation of this result is that as the universe expands,
-    the photon's energy decreases, and its wavelength increases.
-    The geodesic equation encodes many other physical effects when applied
-    to the evolution of perturbations around the homogeneous background,
+    the photon's measured energy decreases, and its measured wavelength increases.
+    The geodesic equation~\eqref{geodesic_eqn_1} encodes many other physical effects when applied
+    to the evolution of perturbations around the homogeneous background
+    (i.e.\, allowing $g_{\mu\nu}$ to deviate from homogeneity)
     allowing us to understand how the statistics of the perturbations at the
     start of the $\lcdm$ evolution evolved into the perturbations we see today.
 
 
-    Since the photon gas has a black body spectrum \textcolor{red}{TALK ABOUT THIS}
-    and is in thermal equilibrium we can assign a temperature to it.
-    This temperature evolves as $T\propto a^{-1}$ away from decoupling temperatures.
+    \begin{table}[h!]
+    \begin{center}
+        \begin{tabular}{ c c c c }
+            Epoch & $w$ & $a(t)$ & $a(\tau)$ \\ 
+            \toprule
+            Radiation & $\frac{1}{3}$ & $t^{\frac{1}{2}}$ & $\tau$ \\
+            Matter & $0$ & $t^{\frac{2}{3}}$ & $\tau^2$ \\
+            $\Lambda$ & $-1$ & $e^{Ht}$ & $-\frac{1}{\tau}$
+        \end{tabular}\caption{
+            How the scale factor, $a(t)$, evolves in the
+            different epochs of the universe.
+        }\label{lcdm_dep_table}
+    \end{center}
+    \end{table}
 
 
-    We can rewrite the Friedmann equation as
+
+    %Since the photon gas has a black body spectrum \textcolor{red}{TALK ABOUT THIS}
+    %and is in thermal equilibrium we can assign a temperature to it.
+    %This temperature evolves as $T\propto a^{-1}$ away from decoupling temperatures.
+    Using~\eqref{continuity_equation} and the equation of state ($w$, summarized in table~\ref{lcdm_dep_table})
+    for matter, radiation and dark energy (described as a cosmological constant $\Lambda$)
+    we can solve for the dependence of $\rho_X$ on $a$.
+    For matter, we obtain the simple result that $\rho_m\propto a^{-3}$,
+    i.e.\ that it dilutes with the expansion of the universe.
+    For radiation we find $\rho_r\propto a^{-4}$,
+    i.e.\ that it dilutes with the expansion of the universe,
+    and also loses energy as it redshifts.
+    For $\Lambda$, we find $\rho_\Lambda\propto a^0$, by design.
+    The Friedmann equation~\eqref{friedmann_1} then gives the time dependence of
+    $a(t)$, again summarized in table~\ref{lcdm_dep_table}.
+
+
+    Using this knowledge we can
+    rewrite the Friedmann equation~\eqref{friedmann_1} as
     \begin{align}\label{friedmann_omega}
         H^2 = H_0^2\left(\frac{\Omega_{r,0}}{a^4}+\frac{\Omega_{m,0}}{a^3}+\Omega_{\Lambda}\right)
     \end{align}
@@ -147,10 +178,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}
         \Omega_{X} = \frac{\rho_X}{\rho_{crit,0}}
     \end{align}
-    for $X$ being radiation, matter and dark energy, using $\rho_{crit,0}$, the critical density for which the universe is flat.
+    for $X$ being radiation, matter and dark energy.
+    The critical density $\rho_{crit,0}$ is the density for which the universe is flat.
 
 
-    From this equation, and the values measured values from~\cite{Planck_parameters_2018}
+    The measured values for these quantities, as presented in~\cite{Planck_parameters_2018},
+    are
     \begin{align}\label{measured_params}
         \Omega_{m,0} &= 0.3111 \pm 0.0056,\\
         \Omega_{\Lambda} &=  0.6889 \pm 0.0056.
@@ -161,6 +194,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     we have that $\rho_{\gamma}=2.02\times 10^{-15} eV^4$
     and $\rho_{crit}=9\times 10^{-27} kg~m^{-3}$.
     Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
+
+
     From these numbers, and~\eqref{friedmann_omega}, we can make some statements
     about the past and future of the universe, illustrated in figure~\ref{fig:lcdm_components}.
     We can see that while $\Lambda$ is dominant now, the transition from matter domination
@@ -180,8 +215,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
     of galaxies today (in the statistics of their separations) and in the acoustic oscillations of the $\cmb$.
 
 
-    Let us take the future of the universe as an example, where $a$ is sufficiently large that $\Omega_{\Lambda}$
-    is the dominant contribution to the expansion.
+    Before focusing our whole attention on the past, let us briefly
+    look toward the future of the universe. Eventually $a$ will be
+    sufficiently large that $\Omega_{\Lambda}$
+    is the dominant contribution to the energy budget of the universe.
     Then
     \begin{align}
         H^2 &= H_0^2\Omega_{\Lambda}\\
@@ -191,30 +228,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
     ${a(t)=a_0e^{H_0\sqrt{\Omega_{\Lambda}}\left(t-t_0\right)}}$. Using the Friedmann equation
     for sufficiently far in the future we can rewrite this as
     \begin{align}
-        a(t)=a_0e^{H\left(t-t_0\right)}.
+        a(t)=a_0e^{H\left(t-t_0\right)}
     \end{align}
+    where $H$ is now constant, and a factor $\sqrt{\Omega_{\Lambda}}$ smaller than today.
     Then, using $ad\tau=dt$, we find that ${\tau(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0}$
     where as usual a $0$ subscript denotes a quantity evaluated today.
     This is the behaviour we would also like in the very early universe, as we will see.
-
-    \begin{table}[h!]
-    \begin{center}
-        \begin{tabular}{ c c c }
-            Epoch & $a(t)$ & $a(\tau)$ \\ 
-            \toprule
-            Radiation & $t^{\frac{1}{2}}$ & $\tau$ \\
-            Matter & $t^{\frac{2}{3}}$ & $\tau^2$ \\
-            $\Lambda$ & $e^{Ht}$ & $-\frac{1}{\tau}$
-        \end{tabular}\caption{
-            How the scale factor, $a(t)$, evolves in the
-            different epochs of the universe.
-        }\label{lcdm_dep_table}
-    \end{center}
-    \end{table}
-
-
-    Set-up the physical effects of transfer functions.
-
 
 \begin{figure}[!pth]
 \centering     %%% not \center
@@ -265,7 +284,11 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \includegraphics[width=.75\columnwidth]{plots/lcdm_tau.png}
 \caption{
     The evolution of the conformal time $\tau$ since the $\lcdm$ singularity,
-    if there is no inflation. Eventually $\tau$ will asymptote to a constant,
+    if there is no inflation.
+    We see that without inflation there is finite conformal time in the past
+    \textcolor{red}{do we?},
+    and that due to eventual $\Lambda$ dominance
+    eventually $\tau$ will asymptote to a constant,
     denoted here by the horizontal grey line at $\tau=\tau_0+(H_0a_0)^{-1}$.
     \textcolor{red}{Physical interpretation at early and late times!!}
 }\label{fig:lcdm_tau}
@@ -276,7 +299,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
 \caption{
     The correspondence between redshift $z$ and $t$.
     \textcolor{red}{Talk about the observational effects of having an
-    evolving $\dot{a}$.}
+    evolving $\dot{a}$, or maybe cut this? Too many plots.}
 }\label{fig:lcdm_z}
 \end{figure}
 
@@ -322,8 +345,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     When the baryons decoupled from the radiation (due to the falling temperature) they were dropped,
     no longer supported by the photon pressure. They began to collapse back into the gravitational
     wells the dark matter had been forming. The imprint of this can be seen in the statistics
-    of the positions of galaxies in the sky \textcolor{red}{Did I use the zooming out thing in
-    BlueSci? Can I use it here??} [ref two-point], we will discuss two-point statistics in
+    of the positions of galaxies in the sky \textcolor{red}{zooming out story} [ref two-point],
+    we will discuss two-point statistics in
     section \textcolor{red}{ref}.
 
 
@@ -331,7 +354,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     All in all, it is incredible only a hundred years ago people were debating whether the universe had a beginning or not
     (and the ``great debate''---were there other galaxies?) to now, where the debate rages over the second and third significant
     figures.
-\newpage
+
 \section{Initial conditions for $\lcdm$}
     \subsection{Motivations for inflation}
 \textcolor{red}{This is important, but shouldn't be long!}
