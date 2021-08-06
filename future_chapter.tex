@@ -18,6 +18,7 @@
     Not relevant to thesis, but could add some short notes on plans.
 
 \section{Discussion}
+\textcolor{red}{Link back to bigger picture.}
 In this work we have extended the modal methods of~\cite{FergShell_1,FergShell_2,FergShell_3}
 to recast the calculation of the tree-level primordial bispectrum~\eqref{in-in}
 into a form that explicitly preserves its separability.
@@ -52,7 +53,7 @@ We explored, for the first time, possible basis set choices in the context
 of those effects.
 We showed rapid convergence on a broad range of scenarios,
 including cases with oscillatory features with non-trivial shape dependence,
-using our augmented Legendre polynomial basis, $\Lnsboth$.
+using our augmented Legendre polynomial basis sets.
 
 The immediate application of this work is the efficient exploration of
 bispectrum phenomenology, as our methods can much more quickly
@@ -116,32 +117,12 @@ oscillatory features, which are reviewed in, for example,~\cite{astro2020_featur
 
 \section{Research proposal}
 \subsection{General Aims}
-My research goals are to develop methods which will allow us to connect the fundamental physics of the early universe to observations.
-My most immediate goal is to connect single-field models of inflation with the full three-point correlations of the \textit{CMB}.
-Beyond that, my goal is to generalise these methods to theories with multiple fields
-(which are well-motivated by ``string swampland'' considerations~\cite{achucarro_multifield1}),
-and later to connect the same theories to other observables coming from large-scale structure.
-
-My PhD has focused on the first of these goals,
-calculating the bispectrum of the inflationary curvature perturbations, in a way tailored to be linked to observations.
-I have developed methods to do this in the case of single field inflation.
-A prime goal I would pursue in this RA position would be to extend these methods (and their implementation in code)
-to the case of multiple fields. This would open the path to placing constraints on this
-more general class of theories.
-
-Readying $\primodal$ for a public release is another immediate goal.
-This would benefit the community by providing it with a powerful tool
-that can capture the full shape information of a wide class of models far more efficiently
-that previous similar codes, as described in~\cite{probing_precision}.
-
-
 These goals support those laid out in the recent community white paper~\cite{astro2020_png},
 by improving predictions of the phenomenology of non-linearities in the very early universe.
 The ability to efficiently compare the phenomenology of these scenarios to observation and thus constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
 
-I will do this work in collaboration with Wuhyun Sohn, Dr James Fergusson and Prof.~E.P.S.Shellard.
-
 \subsection{Specific Objectives}
+\textcolor{red}{Move to interactions?}
 \subsubsection{Non-linearities from inflaton self-interactions}
 If the fundamental physical model of inflation is of a single field,
 then the non-linearities of the self-interactions of that field may have
@@ -217,6 +198,7 @@ improving bispectrum constraints on parameters of single-field inflation models.
 Categorising models into distinguishability classes would be a useful initial goal.
 
 \subsubsection{Non-linearities from multi-field inflation}
+\textcolor{red}{Our methods should extend well to multi-field.}
 While some aspects of multi-field scenarios have been previously explored
 numerically~\cite{Fumagalli_2019} using the transport method~\cite{transport_pytransport_2}
 we can go beyond these explorations in two ways. Firstly, the transport method is a
@@ -255,20 +237,4 @@ on their local machines,
 and release the code within a container to package the code along with its
 dependencies, libraries, and system settings to ensure reproducability.
 
-\subsection{Work plan}
-\begin{itemize}
-    \item Obtain single-field constraints using the already-validated codes $\primodal$ and $\cmbbest$.
-    \item Exploit tensor rank decomposition for basis choice optimisation, and explore tools from other fields, e.g.~signal processing.
-    \item Explore further applications to single-field models, for example time dependence within the EFT of inflation.
-    \item Prepare $\primodal$ for public release in its single-field form.
-    \item Test the basis sets that were used in the single-field case on multi-field templates.
-        If needed, explore new basis sets to cover multi-field shapes.
-    \item Generalise the methods for separable in-in calculation to the multi-field case.
-    \item Prepare single-field constraint results for publication.
-    \item Implement multi-field methods in code, extending $\primodal$.
-    \item Investigate multi-field phenomenology, with the goal of understanding which scenarios predict observable non-Gaussianity, and thus can be constrained.
-    \item Explore the application of these methods in other contexts, such as preparing non-Gaussian initial conditions for simulations of large scale structure evolution.
-    \item Prepare the multi-field extension of $\primodal$ for release.
-    \item Prepare multi-field results for publication.
-\end{itemize}
 
