@@ -741,7 +741,7 @@ of which give the same result in this example.
     Metric perturbations.
     EFT? Or slow-roll? Our method takes the interaction Hamiltonian
     as input.
-    \section{Self-interactions}
+    \section{Self-interactions}\label{sec:interactions}
     Simpler derivation neglecting the metric perturbations to begin with.
     Discuss DBI, then $P(X, \phi)$.
 
@@ -775,12 +775,12 @@ in line with \textcolor{red}{REF}.
     \begin{align}
         \phi'' &= -(3c_s^2-\varepsilon)\phi'
                 -\frac{3f_\phi(\phi)}{2f(\phi)}\phi'^2
-                +\frac{f_\phi(\phi)}{H^2f(\phi)^2}\phi'^2
+                +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
                 -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
     \end{align}
-    \textcolor{red}{Check and compare with https://arxiv.org/abs/hep-th/0310221~\cite{dbi_silverstein}\\
-    See also https://arxiv.org/abs/1207.2186~\cite{warp_features_dbi}\\
-    and https://arxiv.org/abs/0903.4920~\cite{cmb_pol_ics} for initial conditions}.
+    This can be compared with the equations of motion presented in~\cite{dbi_silverstein}
+    and~\cite{warp_features_dbi}.
+    See also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
 
     \section{Shapes}
     \subsection{Basic shapes}
@@ -894,7 +894,9 @@ For more details on these models, see~\cite{chen_easther_lim_2}.
 
 These templates can be modified to be more physically realistic by including
 scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
-For example, we can add some scale dependence to the DBI model in a reasonable first approximation by including a prefactor. We define the product scaling template
+For example, we can add some scale dependence to the DBI~\eqref{dbi_shape}
+in a reasonable first approximation by including a prefactor.
+We define the product scaling template
 \begin{align}\label{dbi_prod_shape}
     S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{DBI}(k_1,k_2,k_3)
 \end{align}

@@ -1,5 +1,5 @@
 %\input{commands}
-\chapter{Constraints TO DO}\label{chapter:constraints}
+\chapter{Constraints}\label{chapter:constraints}
 \section{Connecting to $\cmbbest$}
     The goal here is to validate our pipeline by reproducing the $\planck$~result
     from~\cite{Planck_NG_2018}, equation (55):
@@ -9,7 +9,7 @@
     We would not expect to reproduce this exactly due to
     \textcolor{red}{Lack of maps? Different approximations? Numerics?}
     Though we can estimate a reasonable disagreement by looking at
-    the expected scatter between the Planck estimators, and by calculating
+    the expected scatter between the $\planck$ estimators, and by calculating
     \textcolor{red}{$\sigma$??}.
 
 \section{Set-up of the scan}
@@ -66,6 +66,8 @@
     For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
     \\
     \\
+\begin{table}[h!]
+  \begin{center}
     \begin{tabular}{lrrrr}
         \toprule
         $\beta_{IR}$ & Sum Template & Product Template & Bare Template & With $\Pmax=25$ \\
@@ -74,6 +76,14 @@
         $5.80\times 10^{-1}$  &  $4.51\times 10^{-3}$  &  $3.63\times 10^{-3}$  &  $5.28\times 10^{-2}$  &  $2.6\times 10^{-3}$ \\
         \bottomrule
     \end{tabular}
+    \caption{
+        Comparing the $\Lnsinv(\Pmax=30)$ result compared to
+        templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
+        We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
+        result to estimate the convergence at the primordial level.
+    }\label{fig:template_errors}
+  \end{center}
+\end{table}
     \\
     \\
     The convergence in the $\scalingbasis$ basis is better,
@@ -127,7 +137,7 @@
     At the $\cmb$ level, the convergence is $O(10^{-5})$. What is it for $\Pmax=29$?
     at the primordial level?
     For DBI, and also for DBI resonance?
-\section{Validate this convergence by reproducing Planck constraint using DBI template decomposition.}
+\section{Validate this convergence by reproducing $\planck$ constraint using DBI template decomposition.}
     \begin{figure}[htbp!]
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/dbi_sound_speed_scan_annotated.pdf}
@@ -137,8 +147,9 @@
             value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
             %0.464
             is outside of our $2\sigma$ confidence interval. This plot was obtained by
-            scanning across values of $\beta_{IR}$ calculating the corresponding primordial bispectra
-            using $\primodal$ and comparing them to the $\planck$ $\cmb$ temperature data using
+            scanning across values of $\beta_{IR}$ and calculating the corresponding primordial bispectra
+            using $\primodal$, then projecting those bispectra onto the $\cmb$
+            and comparing them to the $\planck$ $\cmb$ temperature data using
             $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
             scenario by ruling out $f_{NL}^{DBI}=1$.
             Note that the constraint obtained for $\Pmax=30$ and $\Pmax=29$ is identical,
