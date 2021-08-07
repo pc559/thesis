@@ -124,12 +124,32 @@
     This will show that the CMB convergence is slightly better, i.e.\ that
     the squeezed limit (which is where the primordial shape converges most slowly)
     is suppressed.
+    At the $\cmb$ level, the convergence is $O(10^{-5})$. What is it for $\Pmax=29$?
+    at the primordial level?
     For DBI, and also for DBI resonance?
 \section{Validate this convergence by reproducing Planck constraint using DBI template decomposition.}
     \begin{figure}[htbp!]
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/dbi_sound_speed_scan_annotated.pdf}
-        \caption{DBI sound speed scan}\label{fig:dbi_sound_speed_scan}
+        \caption{
+            Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
+            (unlike in the template case), instead it is time dependent, and the plotted
+            value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
+            %0.464
+            is outside of our $2\sigma$ confidence interval. This plot was obtained by
+            scanning across values of $\beta_{IR}$ calculating the corresponding primordial bispectra
+            using $\primodal$ and comparing them to the $\planck$ $\cmb$ temperature data using
+            $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
+            scenario by ruling out $f_{NL}^{DBI}=1$.
+            Note that the constraint obtained for $\Pmax=30$ and $\Pmax=29$ is identical,
+            so we can be confident that our constraint has converged in $\Pmax$.
+            \textcolor{red}{Could add vertical line at $\planck$ constraint.
+            How sure are we that the factor of two is a coincidence??
+            Legendre probably needs to be replaced with $\Lnsinv$.
+            I'd probably prefer $\Pmax=25$ comparison, as sometimes step convergence is
+            a thing (and also that would demonstrate robustness of including high order modes).
+            }
+        }\label{fig:dbi_sound_speed_scan}
     \end{figure}
 \section{Then, check how the scaling from the real numerical result affects this.}
     Here we will compare template decompositions to Primodal results.
