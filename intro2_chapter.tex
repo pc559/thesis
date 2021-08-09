@@ -600,6 +600,8 @@ We will take
 \begin{align}\label{hint_example}
     \Hint=\int d^3x~\left(-2\lambda a^3\dzeta^3\right).
 \end{align}
+This example is particularly simple as it contains no spatial derivatives.
+We will include those when we outline our formalism fully in section~\ref{sec:main_notation}.
 We wish to calculate
 \begin{align}\label{inin_example}
     \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>&=
@@ -646,16 +648,12 @@ we get
 \end{align}
 where the operators on the right hand side are in the interaction picture,
 but we have dropped the $I$ for simplicity of notation.
-Continuing,
+Continuing, we replace $\zeta$ with its Fourier transform
 \begin{align}\label{inin_example_2}
     \bigg<-2i \zeta_{\mathbf{k_1}}(t)&\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'
     \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
     \bigg>\\
-    =&\left<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'
-    \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
-    \right>\\
     =&\bigg<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\nonumber\\
     &\qquad\cdot
