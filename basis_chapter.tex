@@ -105,7 +105,12 @@ Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example 
     J^{(1)}(\tau,k) ~&=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
 \end{align}
 \textcolor{red}{Move elsewhere!}
-In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.   However, for high precision bispectrum predictions we must incorporate the full time-dependence, while solving~\eqref{modefneqn} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.  Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$, a problem which is drastically compounded by bispectrum parameter searches e.g. for oscillatory models. 
+In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
+However, for high precision bispectrum predictions we must incorporate the full time-dependence,
+while solving~\eqref{modefneqn_zeta_N} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.
+Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because
+it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$,
+a problem which is drastically compounded by bispectrum parameter searches e.g.\ for oscillatory models. 
 
 Consider representing the primordial shape function $S(k_1, k_2, k_3)$ in~\eqref{inin_sep} as
 a mode expansion for each interaction term $I^{(i)}(k_1, k_2,k_3)$ as

@@ -892,10 +892,10 @@ The methods outlined in this thesis have been implemented
 and tested for single-field models,
 with multi-field models being a prime target for future work.
 
-The equation of motion for the perturbations is:
-\begin{align}\label{modefneqn}
-\zeta_k''+(3-\varepsilon+\eta-2\varepsilon_s)\zeta_k'+\frac{c_s^2k^2}{a^2H^2}\zeta_k=0
-\end{align}
+The equation of motion for the perturbations is~\eqref{modefneqn_zeta_N},
+%\begin{align}\label{modefneqn}
+%\zeta_k''+(3-\varepsilon+\eta-2\varepsilon_s)\zeta_k'+\frac{c_s^2k^2}{a^2H^2}\zeta_k=0
+%\end{align}
 where $c_s=1$ for standard canonical inflation.
 We use standard Bunch-Davies initial conditions,
 which leads us to impose the following condition deep in the horizon:
@@ -916,22 +916,6 @@ The spectral index is (also to leading order):
 \begin{align}
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s.
 \end{align}
-Similarly to~\cite{Funakoshi}, at early times we extract the factor of $e^{-ik\tau_s}$ from the mode functions
-and numerically evolve $\zeta_ke^{ik\tau_s}$\footnote{
-    In fact~\cite{Funakoshi} extracts a factor of $e^{-ikc_s(\tau)\tau}$, losing efficiency
-    due to slow-roll corrections.
-}.
-Unless interrupted, this prefactor decays exponentially.
-Eventually we switch to evolving $\zeta_k$ directly.
-For featureless slow-roll inflation the timing of the switch is simple;
-so long as it is around horizon crossing, or a couple of e-folds after,
-the precise location will not affect the result.
-This becomes trickier when we are dealing with a model with
-a step feature, for example.
-Here, we found that navigating the feature in the first set of variables
-causes difficulty for the stepper.
-Switching to $\zeta_k$ before the onset of the feature
-gives robust results without needing to loosen the tolerance.
 
 
 Initially we consider the same basic models as in~\cite{Funakoshi};

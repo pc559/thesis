@@ -13,6 +13,25 @@
     and the integrand of~\eqref{inin_sep} will either be real or vanish.
     In each of these regimes we must use different numerical set-ups to
     ensure the efficient calculation of an accurate result.
+
+
+Similarly to~\cite{Funakoshi}, at early times we extract the factor of $e^{-ik\tau_s}$ from the mode functions
+and numerically evolve $\zeta_ke^{ik\tau_s}$\footnote{
+    In fact~\cite{Funakoshi} extracts a factor of $e^{-ikc_s(\tau)\tau}$, losing efficiency
+    due to slow-roll corrections.
+}.
+Unless interrupted, this prefactor decays exponentially.
+Eventually we switch to evolving $\zeta_k$ directly.
+For featureless slow-roll inflation the timing of the switch is simple;
+so long as it is around horizon crossing, or a couple of e-folds after,
+the precise location will not affect the result.
+This becomes trickier when we are dealing with a model with
+a step feature, for example.
+Here, we found that navigating the feature in the first set of variables
+causes difficulty for the stepper.
+Switching to $\zeta_k$ before the onset of the feature
+gives robust results without needing to loosen the tolerance.
+
 %\section{Integration methods}
 \section{Starting the integration with a pinch}
 While this method has extra suppression at early times compared to the
