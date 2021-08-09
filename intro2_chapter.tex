@@ -127,6 +127,8 @@ allowing us to apply the method to feature bispectra for the first time.
         \delta \phi=0, \qquad g_{ij}=a^2 e^{2\zeta} \delta_{ij}
     \end{align}
     where $g_{ij}$ is the spatial part of the metric.
+    We can convert between gauges using $\zeta=\frac{v}{\sqrt{2\varepsilon}a}$.
+    \textcolor{red}{Check this!}
     The second order action for the perturbations in this gauge is
     \textcolor{red}{ADD IN SOUND SPEED}
     \begin{align}
@@ -797,6 +799,15 @@ of which give the same result in this example.
     Metric perturbations.
     EFT? Or slow-roll? Our method takes the interaction Hamiltonian
     as input. Getting $\Hint$ from $\Lint$.}
+    To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
+    For a simple Lagrangian such as $\mathcal{L}_0=\frac{1}{2}\dzeta^2$,
+    we find $\pi=\dzeta$. However if the Lagrangian contains other cubic terms
+    with an explicit $\dzeta$, this relation will change and may not be invertible.
+    However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(\zeta^4,\dzeta^4)$,
+    so calculating the cubic interaction Hamiltonian from the interaction Lagrangian is trivial
+    if $\zeta$ and $\dzeta$ are small.
+
+
     \section{Self-interactions}\label{sec:interactions}
     Simpler derivation neglecting the metric perturbations to begin with.
     Discuss DBI, then $P(X, \phi)$.

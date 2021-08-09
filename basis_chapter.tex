@@ -525,12 +525,12 @@ The resulting basis is orthogonal, provided sufficient
 care is taken to avoid numerical errors.
 
 
-We can mitigate against this by including a basis function to capture this $1/k$ behaviour, 
+We can mitigate against this by including a basis function to capture this $1/k$ behaviour,
+i.e.\ defining $\Linvk$ such that the first $\Pmax-1$ basis functions match $\Lbasic^{\Pmax-1}$,
+and the final basis function is
 \begin{align}\label{P1_definition}
-    q_{\Pmax-1}(k) = \text{Orth}\left[{1}/ {k},~\Lbasic^{\Pmax-1}\right]\,, ~~ \quad \text{with} \quad  \Linvk = \{ q_r(k) ~\vert~ r= 0, 1,2, \dots , \Pmax-1\}\,,
+    q_{\Pmax-1}(k) = \text{Orth}\left[{1}/ {k},~\Lbasic^{\Pmax-1}\right].
 \end{align}
-where $\text{Orth}$ represents the projection orthogonal to the original Legendre polynomial basis $\Lbasic$.
-\textcolor{red}{Not just $\Lbasic$!}
 As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
 
 
@@ -543,7 +543,9 @@ In addition to our Legendre basis functions, pure $\Lbasic$ and augmented $\Linv
     \end{align}
 Here, even the basic Fourier series have to be augmented by the linear $k$ and quadratic $k^2$ terms (for a total size of $\Pmax$),
 in order to satisfactorily approximate equilateral shapes (reflecting in part the preference for periodic functions). 
-As with $\Linvk$ defined in \eqref{P1_definition}, we will similarly create an augmented Fourier basis $\Finvk$ by adding the inverse $1/k$ term to the  $\Fbasic$ basis, i.e.\ using $q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k}\right]$ with \eqref{gram_schmidt}.
+As with $\Linvk$ defined in~\eqref{P1_definition}, we will similarly create an augmented Fourier basis $\Finvk$
+by adding the inverse $1/k$ term to the $\Fbasic$ basis, i.e.\ using
+$q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k},~\Fbasic\right]$ with~\eqref{gram_schmidt}.
 When we refer to convergence, we mean in increasing number
 of Legendre polynomials (or sines and cosines) within the initial set.
 The total size of the set will always be referred to as $\Pmax$.
@@ -571,7 +573,10 @@ The total size of the set will always be referred to as $\Pmax$.
   \end{center}
 \end{table}
 
-In order to compare the efficacy of these four different basis function sets ($\Lbasic$, $\Fbasic$, $\Linvk$ and $\Finvk$), we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the DBI shape~\eqref{dbi_shape}.  To mimic the in-in calculation, we expand the shape on the cube, but test the result on the tetrapyd
+In order to compare the efficacy of these four \textcolor{red}{update all this!} different basis
+function sets ($\Lbasic$, $\Fbasic$, $\Linvk$ and $\Finvk$),
+we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the DBI shape~\eqref{dbi_shape}.
+To mimic the in-in calculation, we expand the shape on the cube, but test the result on the tetrapyd
 using~\eqref{relative_difference}.
 The results are shown in figure~\ref{fig:recon_malda_dbi} where we find that the Legendre polynomials basis set $\Lbasic$ converges so slowly as to be unusable (with the Fourier modes $\Fbasic$ worse and not plotted).
 However, the augmented Legendre basis $\Linvk$ (including $1/k$) leads to rapid convergence with an improvement of four orders
@@ -739,12 +744,13 @@ When we include this scale dependence, using~\eqref{dbi_prod_shape} with $n_s$,
 it proves very useful to include these deviations from
 integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure~\eqref{gram_schmidt}, 
 \begin{align}\label{Lns_inv}
-    q_{\Pmax}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}}\right],
+    q_{\Pmax}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
 \end{align}
 which we refer to as $\Lnsinv$.
 Secondly, we also augment $\Lbasic$ with an additional scale-dependent constant term as 
+\textcolor{red}{Need notation for two functions!}
 \begin{align}\label{Lns_both}
-    q_{\Pmax}(k) = \text{Orth}\left[{k^{(n_s^{*}-1)}}\right],\qquad  q_{\Pmax\text{$+$}1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}}\right],
+    q_{\Pmax}(k) = \text{Orth}\left[{k^{(n_s^{*}-1)}},~\Lbasic\right],\qquad  q_{\Pmax\text{$+$}1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
 \end{align}
 which we refer to as $\Lnsboth$.
 As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
@@ -820,7 +826,6 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     non-orthogonal to (e.g.) $\mathcal{P}_{25}$ but it will not include that part in the latter.
 
 
-    Define Orth notation, etc.
 \section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
     While it may not be intuitively apparent, the value of $\kmax/\kmin$
     affects convergence even in the absence of significant features.
@@ -857,9 +862,10 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     The $\scalingbasis$ basis is built using the Legendre polynomials,
     augmented (in the sense of~\eqref{gram_schmidt})
     with
+    \textcolor{red}{Need better notation!}
     \begin{align}\label{scaling_basis_definition}
-        q_{\Pmax-2}(k) &= \text{Orth}\left[{k^{-1}}\right],\\
-        q_{\Pmax-1}(k) &= \text{Orth}\left[{\ln(k)k^{-1}}\right].
+        q_{\Pmax-2}(k) &= \text{Orth}\left[{k^{-1}},~\Lbasic\right],\\
+        q_{\Pmax-1}(k) &= \text{Orth}\left[{\ln(k)k^{-1}},~\Lbasic\right].
     \end{align}
     This is motivated by
     \begin{align}
