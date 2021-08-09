@@ -462,14 +462,7 @@ This poor rate of convergence with $\Lbasic$ for two local- and equilateral-type
 It is due to the $1/k$ behaviour inherent in these shapes,
 which is compounded in the equilateral models by pathologies exterior to the tetrapyd,
 as we have discussed.
-We can mitigate against this by including a basis function to capture this $1/k$ behaviour, 
-\textcolor{red}{Change this to look like $Orth[new~function,~old~basis]$.}
-\begin{align}\label{P1_definition}
-    q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k}\right]\,, ~~ \quad \text{with} \quad  \Linvk = \{ q_r(k) ~\vert~ r= 0, 1,2, \dots , p_{\rm max}\}\,,
-\end{align}
-where $\text{Orth}$ represents the projection orthogonal to the original Legendre polynomial basis $\Lbasic$.
-\textcolor{red}{Not just $\Lbasic$!}
-As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
+
 
 The two basis function sets actually used in~\cite{Funakoshi} to calculate primordial bispectra were as follows.
 The first was the Legendre polynomials taken with a log-mapping
@@ -516,16 +509,30 @@ we will also consider a Fourier basis for the purposes of comparison.
 Our general strategy will be to augment these basic building blocks
 with a small number of extra basis elements, while retaining orthogonality,
 using the standard modified Gram-Schmidt process.
-If we want to use some function $f$ to augment a given set of orthogonal functions $q_r$, with $r=0,\ldots,\Pmax$$-$$1$,
+We will now introduce notation that we will use to describe the construction of our basis sets.
+We begin with some initial set of orthonormal basis functions, $q_r$, with $r=0,\ldots,N_{initial}-1$
+(in practice these will usually be the
+Legendre polynomials or the Fourier basis functions).
+If we then wish to use some function $f$ to this initial set, which we will denote here by $B_0$,
 then we define
 \begin{align}\label{gram_schmidt}
-  \tilde {f}(k) \;=\;  \text{Orth}\left [f(k)\right] &~\equiv~ f(k) - \sum_{r=0}^{{\Pmax}\text{$-$}1}\frac{\left\langle f,q_r \right\rangle}{\left\langle q_r,q_r \right\rangle}q_r(k)
+    \tilde {f}(k) \;=\;  \text{Orth}\left [f(k),~B_0\right] &~\equiv~ f(k) - \sum_{q\in B_0}\frac{\left\langle f,q \right\rangle}{\left\langle q,q \right\rangle}q(k)
 \end{align}
-and add $\tilde{f}$ to our basis set, now of size $\Pmax+1$.
+and add $\tilde{f}$ to our basis set.
 We note that the inner product here $\left\langle f,g \right\rangle$
 is the 1D integral of the product $f(k)g(k)$ from $\kmin$ to $\kmax$.
 The resulting basis is orthogonal, provided sufficient
 care is taken to avoid numerical errors.
+
+
+We can mitigate against this by including a basis function to capture this $1/k$ behaviour, 
+\begin{align}\label{P1_definition}
+    q_{\Pmax-1}(k) = \text{Orth}\left[{1}/ {k},~\Lbasic^{\Pmax-1}\right]\,, ~~ \quad \text{with} \quad  \Linvk = \{ q_r(k) ~\vert~ r= 0, 1,2, \dots , \Pmax-1\}\,,
+\end{align}
+where $\text{Orth}$ represents the projection orthogonal to the original Legendre polynomial basis $\Lbasic$.
+\textcolor{red}{Not just $\Lbasic$!}
+As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
+
 
 In addition to our Legendre basis functions, pure $\Lbasic$ and augmented $\Linvk$, we will also introduce a Fourier series basis denoted by $\Fbasic$ and defined by
 \begin{align}\label{F0_definition}
