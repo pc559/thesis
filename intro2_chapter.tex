@@ -404,11 +404,44 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     \textcolor{red}{See note 19 on pg 25 of~\cite{px_burrage}.}
     Describe the various definitions of $f_{NL}$ in different
     parts of the literature.
-    Sometimes it is a function of $k_i$. Planck defines it for each
+    Planck defines it for each
     shape, see especially the scale-dependent ones. Sometimes there are
-    factors of the power spectrum involved. Sometimes it is the shape
-    function evaluated on the equilateral limit, sometimes the squeezed limit
-    (even when that is not dominant, e.g.~\cite{dbi_in_the_sky}).
+    factors of the power spectrum involved.
+
+
+    For the local form, we have \textcolor{red}{Check prefactor!}
+    \begin{align}
+        \zeta(\vecx) = \zeta_G(\vecx) + \frac{3}{5}\fnllocal\left(\zeta_G(\vecx)^2-\left<\zeta_G(\vecx)^2\right>\right)
+    \end{align}
+    where $\zeta_G(\vecx)$ is a Gaussian field. The parameter $\fnllocal$ therefore has a clear
+    interpretation as parametrising the deviation from Gaussianity. From this form,
+    one obtains a bispectrum of the form~\eqref{local_shape}.
+    In~\cite{dbi_in_the_sky} $\fnl$ is defined this way, using~\eqref{local_shape}
+    evaluated on the equilateral limit.
+
+
+    In~\cite{Planck_NG_2013}, $\fnl$ is defined individually for each template, in such a way
+    that for some template $X$, in the equilateral limit $k_1=k_2=k_3$
+    \begin{align}
+        B^X_\Phi(k,k,k) = \frac{6A^2\fnl^X}{k^6},
+    \end{align}
+    for example equation $(5)$ in~\cite{Planck_NG_2013},
+    or
+    \begin{align}
+        B^X_\Phi(k,k,k) = \frac{6A^2\fnl^X}{k^{8-2n_s}},
+    \end{align}
+    as in equation $(6)$ in~\cite{Planck_NG_2013}.
+    The parameter $A$ comes from
+    \begin{align}
+        P_\phi(k) = \frac{A}{k^{4-n_s}}.
+    \end{align}
+
+
+    In~\eqref{px_burrage, transport_main} we see $\fnl$ defined as the reduced bispectrum
+    \begin{align}
+        \fnl = \frac{5}{6}\frac{B(k_1,k_2,k_3)}{P(k_1)P(k_2)+P(k_1)P(k_3)+P(k_2)P(k_3)},
+    \end{align}
+    which clearly (except for the local case) depends on $k_1$, $k_2$ and $k_3$.
 
     \subsection{Templates}
     The momentum dependence of the various possible bispectrum shapes can be complex
@@ -525,6 +558,19 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     so we need non-canonical kinetic term, or features, or something.\\
     Cite~\cite{Bartolo_review_2004, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
     Renaux-Petel_2015, Meerburg_clock}.}
+
+
+    We will work with a Hamiltonian that has been split into three parts,
+    \begin{align}
+        H = H_b + H_0 + H_{int},
+    \end{align}
+    where $H_b$ evolves the homogeneous background, $H_0$ is quadratic in $\zeta$ and evolves the free
+    fields, and the interaction Hamiltonian $H_{int}$ contains the terms cubic and above.
+    In practice we will only use the part cubic in $\zeta$, $H_{int}^{(3)}$, which we will use to calculate
+    the higher order correlations coming from the interactions. We will occasionally drop the superscript and
+    refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $H_{int}$.
+
+
     The standard starting point for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
 The in-in formalism takes the time evolution of the interaction picture mode
