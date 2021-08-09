@@ -520,7 +520,7 @@ I have updated the text and figures in chapter~\ref{chapter:decomp}
 to include improved basis sets, however.
 Figure~\ref{fig:plot_time_integrand_scan} is also new,
 and I am grateful to the anonymous referee of~\cite{probing_precision} for
-suggesting it.
+their comments which suggested it.
 Most of the results presented in these two chapters were obtained using the $\primodal$ code,
 which I designed and wrote, which implements the methods described in
 this work and is validated in these sections.
