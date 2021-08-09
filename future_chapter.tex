@@ -1,17 +1,6 @@
 \chapter{Future Work/Conclusions}\label{chapter:conclusion}
 
-\section{PhD project}
-The standard cosmological history, the $\Lambda CDM$ model, explains the structure we see in the distribution of matter (large-scale structure, LSS) and radiation (the cosmic microwave background, \textit{CMB}) in our universe. However, this model still requires initial conditions. These initial conditions – adiabatic perturbations on a uniform background, close to Gaussian, with a power spectrum that is nearly (but not exactly) scale-invariant – are provided by an epoch of “inflation”, an epoch before the Big Bang of the $\Lambda CDM$ model. 
-
-During inflation, the universe is supposed to have expanded rapidly, stretching quantum fluctuations from small scales to large. This seeded the formation of structure and encoded correlations that we would eventually measure today.
-Much information on fundamental physics has been gleaned from the two-point correlators of observations. For higher order correlators (which probe the non-linearities of interactions in the early universe) calculating the predictions of a model of inflation and comparing them to what we see in the sky is much more computationally intensive. Previous work, including that done by the Planck collaboration~\cite{Planck_NG_2018}, has managed to constrain some models of inflation through their three-point correlations (or rather through their proxy, the bispectrum).
-The computational complexity was dealt with by making layers of approximations and the space
-of models which could be constrained was limited.
-One notable simplifying assumption is that of “separability”, which makes the process of \textit{CMB} estimation much more tractable~\cite{Komatsu_2005}.
-
-
-The formalism used to calculate inflationary non-Gaussianities within an inflation scenario is
-known as the in-in formalism~\cite{weinberg_in_in}.
+\section{Summary}
 In my PhD, I have exploited the inherent separability of the tree level in-in formalism,
 using expansions in separable basis functions. Following the modal philosophy of~\cite{FergShell_3}, and building on the basic idea of~\cite{Funakoshi}, this method obviates the requirement of considering an approximate separable template,
 which was a limitation of previous analyses. Instead,
@@ -46,7 +35,6 @@ oscillatory features, which are reviewed in, for example,~\cite{astro2020_featur
 \section{Discussion}
 \textcolor{red}{
     Link back to bigger picture.
-    Extension to non-Bunch-Davies effects~\cite{RKWKB}, more Agocs papers?
 }
 In this work we have extended the modal methods of~\cite{FergShell_1,FergShell_2,FergShell_3}
 to recast the calculation of the tree-level primordial bispectrum~\eqref{in-in}
@@ -103,15 +91,17 @@ these separable primordial bispectra to even more precisely constrain the
 parameters of inflationary scenarios.
 
 
-\section{Research proposal}
-\subsection{General Aims}
 These goals support those laid out in the recent community white paper~\cite{astro2020_png},
 by improving predictions of the phenomenology of non-linearities in the very early universe.
 The ability to efficiently compare the phenomenology of these scenarios to observation and thus constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
 
-\subsection{Specific Objectives}
+
 \textcolor{red}{Move to interactions?}
-\subsubsection{Non-linearities from inflaton self-interactions}
+\subsection{Future Work}
+\textcolor{red}{
+    Extension to non-Bunch-Davies effects~\cite{RKWKB}, more Agocs papers?
+}
+\subsubsection*{Non-linearities from inflaton self-interactions}
 If the fundamental physical model of inflation is of a single field,
 then the non-linearities of the self-interactions of that field may have
 produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
@@ -147,7 +137,7 @@ Categorising models into distinguishability classes would be a useful initial go
 
 
 
-\subsubsection{Non-linearities from multi-field inflation}
+\subsubsection*{Non-linearities from multi-field inflation}
 Another source of possibly observable non-Gaussian signatures can be
 found in inflation scenarios with more than one active field.
 In these models, which are motivated by string theory considerations~\cite{achucarro_multifield1},
@@ -168,7 +158,8 @@ less efficient than our modal expansion method, and less suited to parameter sca
 Secondly, the resulting grid of points is not easily comparable to observations,
 which is the main motivator of the separability of our method.
 
-I will extend the methods I have already developed to the case of multiple active fields during inflation, and implement them in the $\primodal$ code.
+I will extend the methods I have already developed to the case of multiple active fields during inflation,
+and implement them in the $\primodal$ code.
 I will validate my established basis sets on standard templates for multi-field bispectra,
 and test their ability to capture the expected scale-dependence of the shapes,
 a property usually excluded in standard templates.
@@ -179,7 +170,7 @@ I will explore the phenomenology of multi-field inflation,
 understanding which theories and scenarios can be constrained through the bispectrum, and obtaining those constraints.
 
 
-\subsubsection{Optimising the separable decomposition of primordial bispectra}
+\subsubsection*{Optimising the separable decomposition of primordial bispectra}
 The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
 This convergence depends centrally on the basis choice, as we explored in~\cite{probing_precision}.
 While in that work we described basis sets that could efficiently capture both the
@@ -211,7 +202,7 @@ with a focus on convergence at the level of observations. This will make clear t
 of models that can be constrained through the bispectrum.
 
 
-\subsubsection{Public release of $\primodal$}
+\subsubsection*{Public release of $\primodal$}
 The public release of $\primodal$ is a clear and worthwhile
 deliverable of this project. While other publicly released software
 for the calculation of inflationary non-Gaussianities does exist,
