@@ -450,12 +450,9 @@ extract the fundamental physics waiting to be found in the universe's youth.
     The Gaussianity of the initial conditions is the statement that their statistics are completely described by
     their two-point function. We will discuss this in more detail in a later section.
     The deviation from perfect scale invariance has been measured to high confidence by the $\planck$
-    satellite. \textcolor{red}{Refer to WMAP!}~\cite{Senatore_wmap_2009}. Scale invariance is the statement that
-    \begin{align}
-        \left<f(\mathbf{x})f(\mathbf{x'})\right> = \left<f(\lambda\mathbf{x})f(\lambda\mathbf{x'})\right>.
-    \end{align}
-    From this, we can see that scale invariance needs $P(k)\propto k^{-3}$.
-    It turns out that observations show that this is not precisely true.
+    satellite. \textcolor{red}{Refer to WMAP!}~\cite{Senatore_wmap_2009}.
+    Later in section~\ref{corr_functions} we will define scale invariance.
+    It turns out that observations show that this is not precisely respected.
     In fact, it was found that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$.
 
     \subsection{Driving inflation with a scalar field}
@@ -677,7 +674,7 @@ of e-folds.
     \end{align}
 
 
-    \subsection{Correlation functions}
+    \subsection{Correlation functions}\label{corr_functions}
     Cite~\cite{Planck_inflation_2015, Planck_inflation_2018}.
     The power spectrum and other correlations
     are predicted by inflation. 
@@ -688,9 +685,41 @@ of e-folds.
     that forms the initial conditions for the $\lcdm$ evolution of our universe.
     From this, we can calculate the statistical properties of the $\cmb$ sky that we see.
     One such property is the two-point correlation of the temperature $\phi$
-    at a point $x$ on the sky, $\left<\phi(x)\phi(x')\right>$. When there is a large
-    angular separation between $x$ and $x'$ \textcolor{red}{talk about cosmic variance
-    of different modes.}
+    at a point $x$ in space, $\left<\phi(x)\phi(x')\right>$. When there is a large
+    separation between $x$ and $x'$ \textcolor{red}{talk about cosmic variance
+    of different modes. Angular?}
+
+    Scale invariance is the statement that
+    \begin{align}
+        \left<f(\mathbf{x})f(\mathbf{x'})\right> = \left<f(\lambda\mathbf{x})f(\lambda\mathbf{x'})\right>.
+    \end{align}
+    From this, we can see that scale invariance needs $P(k)\propto k^{-3}$.
+
+
+    The ensemble average~\eqref{expectation_value_field} of a product of two fields is known as the
+    two-point correlator, or the two-point function $\left<f(\mathbf{x})f(\mathbf{x'})\right>$.
+    There are two properties we wish to immediately impose on this function, and higher order correlators
+    (products of more fields). Those conditions are statistical homogeneity and statistical isotropy.
+    That is, we demand that the correlators are invariant under translations and rotations---that is,
+    while some realisation of the ensemble might have special points (e.g.\ a maximum value),
+    when averaged over the entire ensemble these special points are equally likely to appear anywhere in
+    the space.
+
+
+    These conditions on $f(\vecx)$ place useful constraints on the correlators of the
+    Fourier transform, $f(\veck)$. They demand the form
+    \begin{align}
+        \left<f(\mathbf{k_1})f(\mathbf{k_2})\right> &= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})P(k_1),\\
+        \left<f(\mathbf{k_1})f(\mathbf{k_2})f(\mathbf{k_3})\right> &= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3),
+    \end{align}
+    where the delta functions come from statistical homogeneity, and the fact that $P(k)$ (the power spectrum)
+    and $B(k_1,k_2,k_3)$ depend only on the magnitudes of the vectors ($k=\left|\veck\right|$) is a result
+    of demanding statistical isotropy. Note that $\left<f(\mathbf{k_1})f(\mathbf{k_2})f(\mathbf{k_3})\right>$
+    has $9$ degrees of freedom, but $B(k_1,k_2,k_3)$ has only three. This is due to the delta function in
+    demanding the $\mathbf{k_i}$ sum to a triangle, and since the orientation of this triangle cannot matter,
+    three parameters will suffice---we choose the magnitudes.
+
+
 
 \section{Outline of thesis}
     We are now in a position to give a more precise description of the goals, methods
