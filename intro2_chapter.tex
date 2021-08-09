@@ -927,20 +927,6 @@ with a canonical kinetic term,
 and a non-canonical model,
 the DBI model described in \textcolor{red}{SECTION}.
 
-For our more stringent validation tests we work with feature model scenarios
-based on the above base models.
-To explore non-Gaussianity coming from sharp features we include
-a kink~\cite{Adams_step}
-\begin{align}\label{eq:kink_potential}
-    V(\phi) = \quadpot\left(1-c\tanh\left(\frac{\phi_f-\phi}{d}\right)\right).
-\end{align}
-To explore non-Gaussianity from deeper in the horizon we imprint
-extended resonant features on the basic potential
-\begin{align}\label{eq:resonant_potential}
-    V(\phi) = \quadpot\left(1+bf\sin\left(\frac{\phi}{f}\right)\right).
-\end{align}
-For more details on these models, see~\cite{chen_easther_lim_2}.
-
 
 These templates can be modified to be more physically realistic by including
 scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
@@ -955,6 +941,38 @@ and the sum scaling template
     S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{DBI}(k_1,k_2,k_3)
 \end{align}
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
+
+
+Much success has been had in constraining non-Gaussianity
+in the CMB using separable approximations to these approximate templates.
+Other methods target oscillations~\cite{reso_estimator, excited_estimator},
+by expanding the shape function
+in $k_1+k_2+k_3$, thus limiting their ability to capture shapes whose
+phase varies across the tetrapyd.
+Our motivation in this work for directly calculating the primordial
+bispectrum in a separable form is to build towards
+a pipeline to constrain a broader section of the model space,
+removing these layers of approximations,
+though these standard results provide useful validation tests.
+    \subsection{Shapes from features during inflation}
+    Explicit details of how resonance and features generate large NG.
+    Refer to~\ref{sec:inin_calc_example}.
+
+
+For our more stringent validation tests we work with feature model scenarios
+based on the above base models.
+To explore non-Gaussianity coming from sharp features we include
+a kink~\cite{Adams_step}
+\begin{align}\label{eq:kink_potential}
+    V(\phi) = \quadpot\left(1-c\tanh\left(\frac{\phi_f-\phi}{d}\right)\right).
+\end{align}
+To explore non-Gaussianity from deeper in the horizon we imprint
+extended resonant features on the basic potential
+\begin{align}\label{eq:resonant_potential}
+    V(\phi) = \quadpot\left(1+bf\sin\left(\frac{\phi}{f}\right)\right).
+\end{align}
+For more details on these models, see~\cite{chen_easther_lim_2}.
+
 
 We now turn to feature templates.
 The result of adding a feature of the form~\eqref{eq:kink_potential}
@@ -974,20 +992,6 @@ cause out-of-phase oscillations in the folded limit as well as a modulating shap
 see~\cite{chen_folded_resonant}.
 
 
-Much success has been had in constraining non-Gaussianity
-in the CMB using separable approximations to these approximate templates.
-Other methods target oscillations~\cite{reso_estimator, excited_estimator},
-by expanding the shape function
-in $k_1+k_2+k_3$, thus limiting their ability to capture shapes whose
-phase varies across the tetrapyd.
-Our motivation in this work for directly calculating the primordial
-bispectrum in a separable form is to build towards
-a pipeline to constrain a broader section of the model space,
-removing these layers of approximations,
-though these standard results provide useful validation tests.
-    \subsection{Shapes from features during inflation}
-    Explicit details of how resonance and features generate large NG.
-    Refer to~\ref{sec:inin_calc_example}.
 \section{Previous work on in-in separability.}
     In~\cite{Funakoshi} it was pointed out that one can compute using the
 tree-level in-in formalism in such a way as to preserve its intrinsic
