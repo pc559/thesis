@@ -233,10 +233,24 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}
         a(t)=a_0e^{H\left(t-t_0\right)}
     \end{align}
-    where $H$ is now constant, and a factor $\sqrt{\Omega_{\Lambda}}$ smaller than today.
-    Then, using $ad\tau=dt$, we find that ${\tau(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0}$
+    where $H$ is a constant, having frozen in to a factor $\sqrt{\Omega_{\Lambda}}$ smaller than
+    its value today.
+
+
+    One question we can ask is how far light will travel in the remainder of the universe.
+    Since $ds^2=0$ for a photon, if we define the conformal time $\tau$ such that
+    \begin{align}\label{conformal_time_defn}
+        \frac{d\tau}{dt} = \frac{1}{a},
+    \end{align}
+    we find that for the photon, $d\chi=d\tau$.
+    Integrating, we then find that
+    \begin{align}
+        \tau(t)=\chi(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0
+    \end{align}
     where as usual a $0$ subscript denotes a quantity evaluated today.
-    This is the behaviour we would also like in the very early universe, as we will see.
+    We see that the comoving distance traveled is finite, even though the physical
+    distance diverges.
+    %This is the behaviour we would also like in the very early universe, as we will see.
 
 \begin{figure}[!pth]
 \centering     %%% not \center
@@ -507,10 +521,9 @@ The equation of motion for $\phi$ is~\cite{Hu_2011}
 
     For reasons we will discuss in section~\ref{pert_evol} we will
     define a quantity $\tau_s$
-    in analogy with the usual $\tau$:
+    in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
     \begin{align}\label{tausdef}
         \tau_s'&=\frac{c_s}{aH},\\
-        \tau'&=\frac{1}{aH}.
     \end{align}
 
 
