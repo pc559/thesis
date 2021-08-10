@@ -84,30 +84,18 @@ allowing us to apply the method to feature bispectra for the first time.
 
 \section{Perturbations about the background}
 \textcolor{red}{
-    The sound speed $c_s$. What is the intuition for $c_s$?
+    What is the intuition for $c_s$?
     What does a photon path look like on a $\tau_s-x$ plot?
 }
 
     We can get a lot of information on the evolution of the perturbations
     from observations, and that tells us about the history of universe,
     which tells us about its content, etc\ldots
+    We now turn our attention to the details of the perturbations.
 
 
-    We take $X=\frac{1}{2}\left(\frac{\partial\phi}{\partial t}\right)^2$.
-    The sound speed for the adiabatic perturbation is defined as
-    \begin{align}
-        c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}_0}{\dot{\rho}_0}
-        = \frac{P,_X}{\rho,_X}.
-    \end{align}
-    Since we also have $\rho=2X P_X-P$, we see that
-    \begin{align}
-        c_s^2 = \frac{P,_X}{P_X+2X P_{XX}}.
-    \end{align}
-    For canonical inflation models, $P(X,\phi)=X-V(\phi)$
-    so $P_{XX}=0$ and $c_s=1$.
-
-
-    The sound speed $c_s$ characterises propagation speed of the perturbations,
+    The sound speed $c_s$~\eqref{sound_speed_definition} characterises
+    propagation speed of the perturbations,
     and thus the effective pressure that resists the
     collapse due to the gravitational instability.
     \textcolor{red}{Check this intuition. How does freeze-out relate to collapse?}
@@ -122,76 +110,78 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}
         \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}.
     \end{align}
-    In the comoving gauge we have (neglecting tensor modes)
+    In the uniform density gauge we have (neglecting tensor modes)
     \begin{align}
-        \delta \phi=0, \qquad g_{ij}=a^2 e^{2\zeta} \delta_{ij}
+        \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}
     \end{align}
-    where $g_{ij}$ is the spatial part of the metric.
-    We can convert between gauges using $\zeta=\frac{v}{\sqrt{2\varepsilon}a}$.
-    \textcolor{red}{Check this!}
-    The second order action for the perturbations in this gauge is
-    \textcolor{red}{ADD IN SOUND SPEED}
+    where $h_{ij}$ is the spatial part of the metric.
+    The relation between $\zeta$ in uniform density gauge and
+    $\delphi$ in spatially flat gauge is
+    \textcolor{red}{SOUND SPEED?}
     \begin{align}
-        S_{2} = \int d^3x dt~a\varepsilon\left(a^2\dot{\zeta}^2-\left(\partial\zeta\right)^2\right)
+        \zeta=-\frac{\delphi}{\sqrt{2\varepsilon}a}.
+    \end{align}
+    The second order action for the perturbations in this gauge is
+    \begin{align}\label{zeta_action}
+        S_{2} = \int d^3x dt~\frac{a\varepsilon}{c_s^2}\left(a^2\dot{\zeta}^2-c_s^2\left(\partial\zeta\right)^2\right)
     \end{align}
     Defining $v=-z\zeta$ and switching to conformal time we can rewrite this as
-    \begin{align}
-        S_{2} = \frac{1}{2}\int d^3x d\tau \left[v'^2-c_s^2\left(\partial v\right)^2-\frac{z''}{z}v^2\right]
+    \begin{align}\label{v_action}
+        S_{2} = \frac{1}{2}\int d^3x d\tau \left[{\left(\frac{d v}{d \tau}\right)}^2-c_s^2\left(\partial v\right)^2+\frac{1}{z}\frac{d^2z}{d\tau^2}v^2\right]
     \end{align}
-    where $z=\frac{a\sqrt{2\varepsilon}}{c_s}$.
-    In terms of $v$, we can recognise the dynamics as that of a scalar field, oscillating
+    where $z^2 = 2a^2\varepsilon/c_s^2 = a^2\left(\rho+P\right)/\left(c_sH\right)^2$.
+    In terms of $v$, we can recognise the dynamics as that of a
+    canonically normalised scalar field, oscillating
     with a frequency that changes as the universe expands.
     Expanding the mass, we find
     \begin{align}
-        \frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\frac{\eta}{2}-\varepsilon_s\right)\left(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4}\right)
+        %\frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\frac{\eta}{2}-\varepsilon_s\right)\left(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4}\right)
+        \frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\ldots\right)
     \end{align}
+    where \ldots~represents the terms that are slow-roll suppressed,
     so the evolution of the perturbations is well approximated using $\frac{z''}{z} = 2{\left(aH\right)}^2$
     unless there are features that make the slow-roll parameters large.
 
     \subsection{Evolution of the perturbations}\label{pert_evol}
     %https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
     %https://www.mpi-hd.mpg.de/lin/events/group_seminar/inflation/schmidt.pdf
-    Systems with multiple degrees of freedom have $\zeta$ evolving even outside
-    the horizon. See~\cite{Christopherson_2009} for a discussion on how this relates
-    to non-adiabatic pressure in inflation models with non-canonical kinetic terms.
-
-
-    Derivation of the Mukhanov-Sasaki equation, behaviour at various times.
-    Second order action, in comoving gauge.
-    Expanding the operator in Fourier modes.
-    Quantization.
-    Varying the second order action, we can calculate the equation of motion
+    Varying the second order action~\eqref{zeta_action}, we can calculate the equation of motion
     of the perturbations.
-    In e-folds, we obtain
+    In terms of derivatives with respect to $N$, we obtain
     \begin{align}\label{modefneqn_zeta_N}
         {\zeta_k}'' + (3-\varepsilon+\eta-2\epscs){\zeta_k}'+\left(\frac{kc_s}{aH}\right)^2\zeta_k=0.
     \end{align}
     We can see that at late times, when $kc_s\ll aH$, $\zeta_k$ will freeze.
-    In conformal time, we obtain
+    This conservation of $\zeta$ outside the horizon~\cite{Lyth_conserved} will be
+    a useful property we will exploit\footnote{
+    Systems with multiple degrees of freedom have $\zeta$ evolving even outside
+    the horizon. See~\cite{Christopherson_2009} for a discussion on how this relates
+    to non-adiabatic pressure in inflation models with non-canonical kinetic terms.}.
+
+
+    From~\eqref{v_action}, in conformal time, we obtain the Mukhanov-Sasaki equation
     \begin{align}\label{modefneqn_tau}
-        \frac{\partial^2 u_k}{\partial \tau^2} + \left(c_s^2k^2 - \frac{1}{z}\frac{d^2 z}{d \tau^2}\right)u_k = 0
+        \frac{\partial^2 v_k}{\partial \tau^2} + \left(c_s^2k^2 - \frac{1}{z}\frac{d^2 z}{d \tau^2}\right)v_k = 0
     \end{align}
-    where $z^2 = 2a^2\varepsilon/c_s^2 = a^2\left(\rho+P\right)/\left(c_sH\right)^2$ and $u=z\mathcal{R}$.
-    However, this is not ideal as $c_s$ depends on time.
+    however, this is not ideal as $c_s$ depends on time.
     Instead, let us use $\tau_s$ as our time parameter.
     If we follow~\cite{Hu_2011} and define
     \begin{align}
-        y_k=\sqrt{2kc_s}u_k,
+        y_k=\sqrt{2kc_s}v_k,
     \end{align}
     we obtain
     \begin{align}\label{modefneqn_tau_s}
-        \frac{\partial^2 y_k}{\partial \tau_s^2} + \left(k^2 - \frac{2\left(aH\right)^2}{c_s^2}(1+A)\right)y_k = 0
+        \frac{\partial^2 y_k}{\partial \tau_s^2} + \left(k^2 - 2\left(\frac{aH}{c_s}\right)^2(1+\ldots)\right)y_k = 0
     \end{align}
-    where $A$ is slow-roll suppressed. \textcolor{red}{Expand A!}
+    where again \ldots~represents terms which are slow-roll suppressed.
 
 
     At early times, well before crossing the sound horizon at $c_sk=aH$,
     we have $k\gg aH/c_s$. We can see that the equation of motion becomes
-    \textcolor{red}{LOTS OF MISTAKES HERE, NOTATION VERY INCONSISTENT.}
     \begin{align}
         \frac{\partial^2 y_k}{\partial \tau_s^2} + k^2 y_k \approx 0
     \end{align}
-    and we can clearly see that the solutions look like $u_k\propto e^{\pm ik\tau_s}$.
+    and we can clearly see that the solutions look like $y_k\propto e^{\pm ik\tau_s}$.
     %In practice we extract this oscillatory behaviour and numerically evolve $u_ke^{\mp ik\tau_s}$.
 
 
@@ -235,7 +225,7 @@ allowing us to apply the method to feature bispectra for the first time.
     \subsubsection{Initial conditions for the perturbations}
     The Bunch-Davies vacuum leads us to the mode functions
     \begin{align}\label{uk_solution}
-        u_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
+        v_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
     \end{align}
     The power spectrum is enhanced by a factor of $c_s$,
     \textcolor{red}{because of collapse at earlier times, when the density is higher?}
