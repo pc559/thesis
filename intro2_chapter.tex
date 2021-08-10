@@ -435,7 +435,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
 
 
     In~\cite{px_burrage, transport_main} we see $\fnl$ defined as the reduced bispectrum
-    \begin{align}
+    \begin{align}\label{transport_fnl_defn}
         \fnl = \frac{5}{6}\frac{B(k_1,k_2,k_3)}{P(k_1)P(k_2)+P(k_1)P(k_3)+P(k_2)P(k_3)},
     \end{align}
     which clearly (except for the local case) depends on $k_1$, $k_2$ and $k_3$.
@@ -1055,17 +1055,27 @@ However the method is different in its details.
 Instead of performing integrals,
 a set of coupled ODEs is set up and solved.
 The power spectra and bispectra themselves are evolved, their time derivatives calculated by
-differentiating the in-in formalism.\footnote{See~\ref{appendix_modal_transport}
-    for details on applying this strategy to our own modal coefficients.
+differentiating the in-in formalism.\footnote{
+    See~\ref{appendix_modal_transport}
+    for details on why we did not apply this strategy to our own modal coefficients.
     }
 The publicly released code is very sophisticated,
 able to deal with multiple fields in curved field spaces,
 recently being used to explore the bispectra resulting from
 sidetracked inflation~\cite{RP_1}.
     \subsection{Usage in recent works}
-    Sidetracked inflation, etc\ldots~\cite{Fumagalli_2019} using the transport method~\cite{transport_pytransport_2}.
-    \textcolor{red}{What do they do with the bispectrum they calculate?}
-    Also~\cite{RP_1, Fumagalli_2019, Marzouk_D3}.
+    \textcolor{red}{CHECK ALL THIS.}
+    In~\cite{RP_1, Fumagalli_2019} and especially
+    in~\cite{Marzouk_D3}, a large ensemble of inflationary trajectories is considered
+    using the transport method~\cite{transport_pytransport_2}.
+    For these trajectories, the bispectrum is calculated for a certain number of $k$-configurations---in
+    these papers, $\fnlequil$ and $\fnl^{flat}$ refer to the definition given in~\eqref{transport_fnl_defn}
+    evaluated on equilateral and flat configurations respectively.
+    In these works it was found that squeezed limit configurations were much more
+    difficult to calculate using that software. While this analysis is very sophisticated, much
+    information is lost due to taking the bispectrum at points only, and not using the full
+    inflationary shape function.
+    % See figure 2 and 20 for their time taken, which is ~100s, for 6(?) scalar fields.
     \subsection{Limitations}
     However despite the differences, all configuration-by-configuration methods face the same problems:
 firstly, that calculating enough points in the bispectrum to ensure that
