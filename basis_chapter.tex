@@ -56,16 +56,18 @@ separability of the dependence on $k_1$, $k_2$ and $k_3$.
 
 The tree-level in-in formalism for the bispectrum~\eqref{in-in} is inherently separable given
 the form of the cubic interaction Hamiltonian $H_{\rm int}$.
+This can be clearly seen in the integrand of the example in~\eqref{inin_computer}.
 Consider indexing with ${i=1,2,3...}$ the interaction vertices in $H_{\rm int}$,
 so then the bispectrum~\eqref{in-in} can be expressed as a sum over separable contributions of the form:
 
 
 \begin{eqnarray}\label{inin_sep}
 S(k_1, k_2,k_3) &=& \sum_i I^{(i)} (k_1, k_2,k_3)\nonumber \\
-    &=& \sum_i \bigg[ v^{(i)}(k_1, k_2,k_3) \int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau) F^{(i)}(\tau,k_1)\, G^{(i)}(\tau,k_2)\,J^{(i)}(\tau,k_3)\nonumber\\
+    &=& \Re\sum_i \bigg[ v^{(i)}(k_1, k_2,k_3) \int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau) F^{(i)}(\tau,k_1)\, G^{(i)}(\tau,k_2)\,J^{(i)}(\tau,k_3)\nonumber\\
     &&\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad+ \text{cyclic perms}  \bigg] 
 \end{eqnarray}
 where $w^{(i)}(\tau)$ is a function of the scale factor and the other background parameters~\eqref{slowrollparams} for the $i$-th interaction vertex, while the terms $F^{(i)}, G^{(i)}, J^{(i)}$ are given by the Fourier mode functions $k^2\zeta_{\bf k}(0)\zeta^{*}_{\bf k}(\tau)$ or their time derivatives $k^2\zeta_{\bf k}(0)\zeta^{*'}_{\bf k}(\tau)$.
+\textcolor{red}{Change to $v_k$?}
 Spatial derivative terms, such as  $\partial_i \zeta\, \partial_i\zeta \longrightarrow ({\bf k_2}\cdot {\bf k_3} )\zeta_{{\bf k}_2}^*(\tau)\, \zeta_{{\bf k}_3}^*(\tau)$ also separate because of the triangle condition~\eqref{triangle_condition} giving  ${\bf k_2}\cdot {\bf k_3} = (k_1^2 - k_2^2-k_3^2)/2$, yielding a sum of separable terms.
 These time-independent contributions are contained in $v^{(i)}(k_1, k_2,k_3)$,
 as they do not force us to compute extra time integrals.
@@ -114,7 +116,6 @@ a problem which is drastically compounded by bispectrum parameter searches e.g.\
 
 Consider representing the primordial shape function $S(k_1, k_2, k_3)$ in~\eqref{inin_sep} as
 a mode expansion for each interaction term $I^{(i)}(k_1, k_2,k_3)$ as
-\textcolor{red}{HERE real part only?????}
 \begin{align}\label{modeexp}
 S(k_1, k_2,k_3) &= \sum_i I^{(i)}(k_1,k_2,k_3) =  \sum_i \sum_n \alpha_n^{(i)}  \, Q_n(k_1,k_2,k_3)\,,
 \end{align}
@@ -148,8 +149,8 @@ for any sufficiently smooth $S(k_1,k_2,k_3)$.
 Substituting these expansions into~\eqref{inin_sep}, we obtain the following decomposition for the $i$-th vertex contribution,
 \begin{eqnarray}\label{inin_kdep}
     &&I^{(i)}(k_1,k_2,k_3)\nonumber\\
-    &=& v^{(i)}(k_1, k_2,k_3)\int d\tau\, w^{(i)}(\tau)\, \sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\nonumber\\	
-	&=& v^{(i)}(k_1, k_2,k_3)\sum_{prs}\left(\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\right)\threeqs + \text{cyclic perms}\nonumber\,.
+    &=& \Re\left[v^{(i)}(k_1, k_2,k_3)\int d\tau\, w^{(i)}(\tau)\, \sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\right]\nonumber\\	
+	&=& v^{(i)}(k_1, k_2,k_3)\sum_{prs}\left(\Re\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\right)\threeqs + \text{cyclic perms}\,.
 \end{eqnarray}
 For the sake of compactness we use $P$ to stand for the triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
@@ -161,7 +162,7 @@ we continue,
 \end{eqnarray}
 where we have written
 \begin{eqnarray}\label{inin_kindep}
-\tilde{\alpha}_P^{(i)} =  \tilde{\alpha}_{prs}^{(i)} 	= \int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau) \,g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\,,
+\tilde{\alpha}_P^{(i)} =  \tilde{\alpha}_{prs}^{(i)} 	= \Re\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau) \,g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\,,
 \end{eqnarray}
 and included the time-independent $k$-prefactors from the interaction Hamiltonian by writing
 \begin{eqnarray}\label{V_definition}
@@ -523,6 +524,9 @@ We note that the inner product here $\left\langle f,g \right\rangle$
 is the 1D integral of the product $f(k)g(k)$ from $\kmin$ to $\kmax$.
 The resulting basis is orthogonal, provided sufficient
 care is taken to avoid numerical errors.
+When we augment an initial basis by multiple extra functions, each function
+is added in to the set one at a time, and orthogonalised with respect to all the
+functions already in the set.
 
 
 We can mitigate against this by including a basis function to capture this $1/k$ behaviour,
