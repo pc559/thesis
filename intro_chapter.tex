@@ -243,13 +243,21 @@ extract the fundamental physics waiting to be found in the universe's youth.
         \frac{d\tau}{dt} = \frac{1}{a},
     \end{align}
     we find that for the photon, $d\chi=d\tau$.
+    This means that on a plot of $\chi$ vs. $\tau$, the path of a photon
+    will be a line of slope $1$, even in an expanding universe.
     Integrating, we then find that
     \begin{align}
         \tau(t)=\chi(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0
     \end{align}
     where as usual a $0$ subscript denotes a quantity evaluated today.
-    We see that the comoving distance traveled is finite, even though the physical
-    distance diverges.
+    We see that the comoving distance the photon will travel is finite, even though the physical
+    distance (and the time taken $\int a d\chi$) diverges.
+    Integrating~\eqref{friedmann_omega} in the same way that generated figure~\ref{fig:lcdm_tau}
+    we find that the points that we see in today's $\cmb$ is a comoving distance of $14.2Gpc$ away.
+    We also find the asymptotic value of $\tau$ to be $19.2Gpc$, indicating that we will never see the
+    light that was emitted from the $\cmb$ at comoving distances greater than this.
+    Since $a_0=1$, the present physical distance to these points is equal to the comoving distance,
+    but this will increase exponentially in the future.
     %This is the behaviour we would also like in the very early universe, as we will see.
 
 \begin{figure}[!pth]
@@ -399,14 +407,14 @@ extract the fundamental physics waiting to be found in the universe's youth.
     To fit observations, $\lcdm$ requires initial conditions with a particular set of properties.
     Some of these properties are surprising, and require an explanation.
     Since $a(\tau)\propto \tau$ during the radiation dominated era we can calculate
-    the total conformal distance a photon could have traveled between the singularity at $a_i=0$
+    the total comoving distance a photon could have traveled between the singularity at $a_i=0$
     and recombination at $a_{rec}=1/1100$. We find
     \begin{align}
         \chi_{rec} = \int_{0}^{\tau_{rec}} d \tau = \int_{0}^{a_{rec}} \frac{d\tau}{da}da \propto a_{rec}.
     \end{align}
     We can see that this is finite.
     Including the prefactor we find more precisely that $\chi_{rec}=280Mpc$.
-    We can also calculate that the conformal distance that a photon could have
+    We can also calculate that the comoving distance that a photon could have
     freely streamed through the universe since
     last scattering is $\chi_0=14000Mpc$.
     This means that we would expect the homogeneous patches at recombination to span
@@ -424,7 +432,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     that requires an explanation.
 
 
-    Photons travelling on $45'$ lines on a $\tau-x$ plot. There not being enough time for opposite
+    %Photons travelling on $45'$ lines on a $\tau-x$ plot.
+    There not being enough time for opposite
     sides of the $\cmb$ to come into thermal equilibrium. But if you change the relation between
     $t$ and $\tau$ then you extend the plot, and you do make contact.
     \textcolor{red}{PLOT THIS? Everyone plots this\ldots}
