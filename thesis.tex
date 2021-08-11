@@ -39,6 +39,20 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{booktabs}
 
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+%\rhead{\thepage}
+%\lhead{\thesection}
+
+%\renewcommand{\chaptermark}[1]{\markboth{##1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1\ }}
+\fancyhead[RO]{\nouppercase \rightmark\hspace{0.25em} |
+  \hspace{0.25em} \bfseries{\thepage}}
+\fancyhead[LE]{ {\bfseries\thepage} \hspace{0.25em} |
+  \hspace{0.25em} \nouppercase \leftmark}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Thesis meta-information
 %%

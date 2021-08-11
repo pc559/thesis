@@ -591,7 +591,8 @@ James Fergusson and Paul Shellard and \textcolor{red}{words.}
 \fi
 
 \cleardoublepage
-\pagestyle{plain}
+%\pagestyle{plain}
+\pagestyle{fancy}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
