@@ -372,7 +372,7 @@ for the degree of Doctor of Philosophy%
 
 %% LOGO box
 \newlength{\cam@logorightnudge}
-\setlength{\cam@logorightnudge}{-0.5\paperwidth+12mm}
+\setlength{\cam@logorightnudge}{0.0mm}%-0.5\paperwidth+12mm}
 \newsavebox{\cam@logo}
 \begin{lrbox}{\cam@logo}
 \hspace*{\cam@logorightnudge}\includegraphics[width=73mm]{CollegeShields/CUni}
