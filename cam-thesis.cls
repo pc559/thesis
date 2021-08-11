@@ -336,7 +336,7 @@ for the degree of Doctor of Philosophy%
 % TODO: Check whether numbering up to the fourth level is okay. It is not
 % specified in the guidelines.
 \setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -503,9 +503,9 @@ institution.
 \chapter*{Statement of contributions}
 \thispagestyle{empty}
 In this thesis I describe the research I performed during my PhD
-at the University of Cambridge, supervised by Paul Shellard.
+at the University of Cambridge, supervised by Professor Paul Shellard.
 Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
-describe my original work, except where specified in the text.
+describe my original work, except where specified below, and in the text.
 
 Chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
 and mostly follow standard textbook material, collected and written by myself.
