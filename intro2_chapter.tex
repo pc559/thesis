@@ -1322,16 +1322,10 @@ features can be applied.
 
     \textcolor{red}{These methods have been used to obtain constraints\ldots}
     \section{$\cmbbest$}
-    Contrast Wuhyun's work (our pipeline) to previous modal methods, KSW.
-    What Wuhyun does is purely frequentist, not Bayesian. It is essentially linear regression, so can do Fisher forecast to determine
-    the best possible variance for an estimator.
-    It is a superset of KSW, but a little different to Modal.
-    
-
     The method implemented in $\cmbbest$~\cite{Sohn_2021} is roughly a generalisation of the KSW method.
     Contrasting the Modal method, $\cmbbest$ requires only one basis, a primordial one, in $k$ space.
     This basis is then projected forwards onto the $\cmb$. This is a massively resource-intensive calculation
-    with the naive implementation scaling as $\Pmax^6$ and requiring terabytes of RAM for reasonable parameters,
+    with the naive implementation scaling as $\Pmax^6$ and requiring terabytes of RAM for reasonable method parameters,
     which slow the calculation due to the need to move data back and forth \textcolor{red}{because data
     is really heavy and hard to carry}.
     This calculation was tackled in~\cite{Sohn_2021}, which implemented optimisations which allowed this calculation
