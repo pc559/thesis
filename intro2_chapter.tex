@@ -1171,7 +1171,7 @@ Work on forecasting future constraints on features was performed
     The assumption is also made that the covariance matrix is diagonal, and the
     following quantities are defined:
     \begin{align}
-        C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta{m_1~-m_2},\\
+        C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta{m_1~-m_2},\label{diagonal_covariance}\\
            \tilde{C_l} &= b_l^2C_l+N_l,\\
            \bar{b}_{l_1l_2l_3} &= b_{l_1}b_{l_2}b_{l_3}b_{l_1l_2l_3}.
     \end{align}
@@ -1291,17 +1291,79 @@ features can be applied.
     \section{Separable approximations to non-separable templates}
     Separability is required, so usually one approximates non-separable templates
     by separable ones.
-    Focus on equilateral to DBI.
-    Quantitative comparison of equilateral template and DBI shape,
-    with and without scaling.
+    For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
+    template~\eqref{equil_shape}.
+    \textcolor{red}{Quantitative comparison of equilateral template and DBI shape,
+    with and without scaling.}
 
-    \section{Modal methods, constraints from Planck}
-    Cite~\cite{FergShell_2014}
-    Leveraging the separable benefits in a broader set of models through expansion.
-    \section{Wuhyun's work}
+
+    KSW-type estimators take as their starting point the realisation that many
+    templates can be rewritten as a simple finite sum of separable functions.
+    For example, the simple local~\eqref{local_shape}, equilateral~\eqref{equil_shape} and orthogonal~\cite{Planck_NG_2013}
+    templates can be built up from a small set of
+    simple monomials, namely $k^{-1}$, $1$, $k$ and $k^{2}$.
+    This method is able to constrain shapes with that contain very high frequency linear oscillations\footnote{
+    Since $e^{iw(k_1+k_2+k_3)}=e^{iwk_1}e^{iwk_2}e^{iwk_3}$.},
+    but is limited in that it cannot function for shapes whose shape dependence is not
+    sum-separable.
+
+
+    The Modal method~\cite{FergShell_2014} is more versatile, 
+    leveraging the benefits of separability in a broader set of models through expansion.
+    For example, this method can deal with primordial templates with envelopes.
+    The Modal code proceeds using two sets of basis functions, one in $k$ space at the end
+    of inflation, and another in $l$ space for the $\cmb$.
+    For a given primordial template, the best-fit linear combination of the primordial basis
+    is found, generating a set of coefficients.
+    The template need not be a sum of separable functions, but should be well-approximated by this
+    decomposition in the primordial basis.
+    The coefficients of this decomposition are then projected onto the $\cmb$ basis, to calculate the constraint.
+
+
+    \textcolor{red}{These methods have been used to obtain constraints\ldots}
+    \section{$\cmbbest$}
     Contrast Wuhyun's work (our pipeline) to previous modal methods, KSW.
     What Wuhyun does is purely frequentist, not Bayesian. It is essentially linear regression, so can do Fisher forecast to determine
     the best possible variance for an estimator.
     It is a superset of KSW, but a little different to Modal.
     
+
+    The method implemented in $\cmbbest$~\cite{Sohn_2021} is roughly a generalisation of the KSW method.
+    Contrasting the Modal method, $\cmbbest$ requires only one basis, a primordial one, in $k$ space.
+    This basis is then projected forwards onto the $\cmb$. This is a massively resource-intensive calculation
+    with the naive implementation scaling as $\Pmax^6$ and requiring terabytes of RAM for reasonable parameters,
+    which slow the calculation due to the need to move data back and forth \textcolor{red}{because data
+    is really heavy and hard to carry}.
+    This calculation was tackled in~\cite{Sohn_2021}, which implemented optimisations which allowed this calculation
+    to be run for $\Pmax=30$ using reasonable supercomputer resources. The motivation for implementing this algorithmically
+    and numerically difficult calculation is that it need only be done once per basis. Once it is done, then
+    any primordial bispectrum represented in that basis can be constrained in the $\cmb$ immediately.
+
+
+    $\cmbbest$ is a generalisation of the KSW method in the sense that for a specific choice of basis, it simplifies
+    to the KSW method. However, by choosing a more descriptive basis set (for example, one of the basis sets we have developed
+    in chapter~\ref{chapter:decomp}) a much broader range of models can be constrained. This was one of our main
+    motivations in carefully exploring and comparing the basis sets in chapter~\ref{chapter:decomp},
+    as more descriptive basis sets translate directly into more constraints on inflationary models.
+
+
+    The quantity in~\eqref{diagonal_covariance} is not assumed to be diagonal\textcolor{red}{CHECK THIS},
+    it is calculated by taking an
+    ensemble average of $140$ Gaussian simulations. $\fnl$ estimates are made for all of these simulations,
+    with the results found to be distributed normally. The variance of this distribution then provides us with
+    a measure to assess the significance of any $\fnl$ detection in the true $\cmb$.
+
+
+    The convergence of the final estimate is always the primary arbiter for setting method
+    parameters, even at the primordial level. It was shown in~\cite{Sohn_2021} that the ratio of $\kmax$
+    to $\kmin$ was important in determining the success of the method. If $\kmax/\kmin$ was too small
+    then important information was lost, and validation estimates of $\fnl$ for the local shape
+    did not agree with previous methods. In that work it was determined that $\kmax/\kmin=1000$ was
+    sufficient, hence that is the value we will use in testing out basis sets
+    \textcolor{red}{CHECK THIS!!!}.
+
+
+
+
+
 
