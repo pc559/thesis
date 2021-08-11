@@ -39,19 +39,25 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{booktabs}
 
-\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+%\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[left=37mm,right=30mm,top=35mm,bottom=30mm]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth {##1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1}}
 \fancyhf{}
+\fancyhead[LO]{\nouppercase \rightmark}
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[RE]{\nouppercase \leftmark}
 %\rhead{\thepage}
 %\lhead{\thesection}
 
 %\renewcommand{\chaptermark}[1]{\markboth{##1}{}}
 %\renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1\ }}
-\fancyhead[RO]{\nouppercase \rightmark\hspace{0.25em} |
-  \hspace{0.25em} \bfseries{\thepage}}
-\fancyhead[LE]{ {\bfseries\thepage} \hspace{0.25em} |
-  \hspace{0.25em} \nouppercase \leftmark}
+%\fancyhead[RO]{\nouppercase \rightmark\hspace{0.25em} |
+  %\hspace{0.25em} \bfseries{\thepage}}
+%\fancyhead[LE]{ {\bfseries\thepage} \hspace{0.25em} |
+  %\hspace{0.25em} \nouppercase \leftmark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Thesis meta-information
