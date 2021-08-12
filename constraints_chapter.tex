@@ -149,6 +149,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions.
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/dbi_sound_speed_scan_annotated.pdf}
         \caption{
+            \textcolor{red}{To replace the above---need to make less cramped!}
             Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
             (unlike in the template case), instead it is time dependent, and the plotted
             value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
@@ -161,14 +162,44 @@ See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions.
             scenario by ruling out $f_{NL}^{DBI}=1$.
             Note that the constraint obtained for $\Pmax=30$ and $\Pmax=29$ is identical,
             so we can be confident that our constraint has converged in $\Pmax$.
-            \textcolor{red}{Could add vertical line at $\planck$ constraint.
-            How sure are we that the factor of two is a coincidence??
-            Legendre probably needs to be replaced with $\Lnsinv$.
-            I'd probably prefer $\Pmax=25$ comparison, as sometimes step convergence is
-            a thing (and also that would demonstrate robustness of including high order modes).
-            }
         }\label{fig:dbi_sound_speed_scan}
     \end{figure}
+    \begin{figure}[htbp!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
+        \caption{
+            Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
+            (unlike in the template case), instead it is time dependent, and the plotted
+            value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
+            %0.464
+            is outside of our $2\sigma$ confidence interval. This plot was obtained by
+            scanning across values of $\beta_{IR}$ and calculating the corresponding primordial bispectra
+            using $\primodal$, then projecting those bispectra onto the $\cmb$
+            and comparing them to the $\planck$ $\cmb$ temperature data using
+            $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
+            scenario by ruling out $f_{NL}^{DBI}=1$.
+            Note that the constraint obtained for $\Pmax=30$ and $\Pmax=29$ is identical,
+            so we can be confident that our constraint has converged in $\Pmax$.
+            We can see that the $\cmbbest$ result does not agree with the $\modal$ result,
+            but as we see in figure~\ref{fig:equil_constraints_comparison},
+            the discrepancy is not unexpected. We discuss possible explanations
+            \textcolor{red}{in the text}.
+        }\label{fig:dbi_sound_speed_scan_beta}
+    \end{figure}
+    \begin{figure}[htbp!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
+        \caption{
+            A comparison of the various estimation methods used in $\planck$
+            (as presented in table 5 of~\cite{Planck_NG_2018}).
+            We plot the constraints obtained by each method for $\fnlequil$,
+            as well as the constraint obtained by $\cmbbest$ (presented in~\cite{Sohn_2021})
+            along with their $68\%$ uncertainty margin.
+            We see that while the estimators do not agree, there is no discrepancy with any
+            significance---in particular, we see that $\cmbbest$ is not an outlier.
+        }\label{fig:equil_constraints_comparison}
+    \end{figure}
+
 \section{Then, check how the scaling from the real numerical result affects this.}
     Here we will compare template decompositions to Primodal results.
     This will tell us how large the slow-roll corrections are to the
