@@ -427,7 +427,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     as in equation $(6)$ in~\cite{Planck_NG_2013}.
     The parameter $A$ comes from
     \begin{align}
-        P_\phi(k) = \frac{A}{k^{4-n_s}}.
+        P_\Phi(k) = \frac{A}{k^{4-n_s}}.
     \end{align}
     In~\cite{seery_ng_0503, chen_ng_0605, dbi_in_the_sky} $\fnl$ is similarly defined in terms
     of the shape function evaluated on equilateral triangles,
@@ -436,7 +436,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
 
     In~\cite{px_burrage, transport_main} we see $\fnl$ defined as the reduced bispectrum
     \begin{align}\label{transport_fnl_defn}
-        \fnl = \frac{5}{6}\frac{B(k_1,k_2,k_3)}{P(k_1)P(k_2)+P(k_1)P(k_3)+P(k_2)P(k_3)},
+        \fnl(k_1,k_2,k_3) = \frac{5}{6}\frac{B(k_1,k_2,k_3)}{P(k_1)P(k_2)+P(k_1)P(k_3)+P(k_2)P(k_3)},
     \end{align}
     which clearly (except for the local case) depends on $k_1$, $k_2$ and $k_3$.
 
@@ -653,6 +653,7 @@ We will take
 \begin{align}\label{hint_example}
     \Hint=\int d^3x~\left(-2\lambda a^3\dzeta^3\right).
 \end{align}
+\textcolor{red}{Change to $M_3$? Then match to (57) of~\cite{Planck_NG_2018}.}
 This example is particularly simple as it contains no spatial derivatives.
 We will include those when we outline our formalism fully in section~\ref{sec:main_notation}.
 We wish to calculate

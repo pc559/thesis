@@ -135,7 +135,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions.
 }\label{fig:dbi_primodal_scan_template_corrs_p1ns}
 \end{figure}
     \\
-\section{Compare convergence at primordial level to convergence at $f_{NL}$ level}
+\section{Convergence}
     We will compare primordial convergence to CMB convergence,
     by comparing the $\Pmax=29$ and $\Pmax=30$ results.
     This will show that the CMB convergence is slightly better, i.e.\ that
@@ -144,7 +144,16 @@ See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions.
     At the $\cmb$ level, the convergence is $O(10^{-5})$. What is it for $\Pmax=29$?
     at the primordial level?
     For DBI, and also for DBI resonance?
-\section{Validate this convergence by reproducing $\planck$ constraint using DBI template decomposition.}
+\section{Validation}
+    Validate this convergence by reproducing $\planck$ constraint using DBI template decomposition.
+    Explain our understanding of the discrepancy.
+    The result we get is different, but not surprisingly different.
+    The possible reasons for this are the fact we are using slightly different
+    scales (since we are limited to $\kmax/\kmin=1000$ for convergence reasons we cannot
+    use all the scales in the $\planck$ data), convergence in the number of maps
+    ($\modal$ uses $~300$ while $\cmbbest$ using 140) or possibly numerical issues,
+    implementation error. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities
+    \textcolor{red}{summarise here}.
     \begin{figure}[htbp!]
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/dbi_sound_speed_scan_annotated.pdf}
