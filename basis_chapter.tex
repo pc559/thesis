@@ -61,11 +61,11 @@ Consider indexing with ${i=1,2,3...}$ the interaction vertices in $H_{\rm int}$,
 so then the bispectrum~\eqref{in-in} can be expressed as a sum over separable contributions of the form:
 
 
-\begin{eqnarray}\label{inin_sep}
-S(k_1, k_2,k_3) &=& \sum_i I^{(i)} (k_1, k_2,k_3)\nonumber \\
-    &=& \Re\sum_i \bigg[ v^{(i)}(k_1, k_2,k_3) \int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau) F^{(i)}(\tau,k_1)\, G^{(i)}(\tau,k_2)\,J^{(i)}(\tau,k_3)\nonumber\\
-    &&\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad+ \text{cyclic perms}  \bigg] 
-\end{eqnarray}
+\begin{align}\label{inin_sep}
+    S(k_1, k_2,k_3) &= \sum_i I^{(i)} (k_1, k_2,k_3)\nonumber \\
+    &= \Re\sum_i \bigg[ v^{(i)}(k_1, k_2,k_3) \int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau) F^{(i)}(\tau,k_1)\, G^{(i)}(\tau,k_2)\,J^{(i)}(\tau,k_3)\nonumber\\
+    &\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad+ \text{cyclic perms}  \bigg] 
+\end{align}
 where $w^{(i)}(\tau)$ is a function of the scale factor and the other background parameters~\eqref{slowrollparams} for the $i$-th interaction vertex, while the terms $F^{(i)}, G^{(i)}, J^{(i)}$ are given by the Fourier mode functions $k^2\zeta_{\bf k}(0)\zeta^{*}_{\bf k}(\tau)$ or their time derivatives $k^2\zeta_{\bf k}(0)\zeta^{*'}_{\bf k}(\tau)$.
 \textcolor{red}{Change to $v_k$?}
 Spatial derivative terms, such as  $\partial_i \zeta\, \partial_i\zeta \longrightarrow ({\bf k_2}\cdot {\bf k_3} )\zeta_{{\bf k}_2}^*(\tau)\, \zeta_{{\bf k}_3}^*(\tau)$ also separate because of the triangle condition~\eqref{triangle_condition} giving  ${\bf k_2}\cdot {\bf k_3} = (k_1^2 - k_2^2-k_3^2)/2$, yielding a sum of separable terms.
@@ -161,35 +161,37 @@ as the highly oscillatory parts will cancel in the time integrals
 for any sufficiently smooth $S(k_1,k_2,k_3)$.
 
 Substituting these expansions into~\eqref{inin_sep}, we obtain the following decomposition for the $i$-th vertex contribution,
-\begin{eqnarray}\label{inin_kdep}
-    &&I^{(i)}(k_1,k_2,k_3)\nonumber\\
-    &=& \Re\left[v^{(i)}(k_1, k_2,k_3)\int d\tau\, w^{(i)}(\tau)\, \sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\right]\nonumber\\	
-	&=& v^{(i)}(k_1, k_2,k_3)\sum_{prs}\left(\Re\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\right)\threeqs + \text{cyclic perms}\,.
-\end{eqnarray}
+\begin{align}\label{inin_kdep}
+    &I^{(i)}(k_1,k_2,k_3)
+    = \Re\bigg[v^{(i)}(k_1, k_2,k_3)\int d\tau\, w^{(i)}(\tau)\nonumber\\
+    &\qquad\cdot\sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\bigg]\\
+	&= v^{(i)}(k_1, k_2,k_3)\sum_{prs}\bigg(\Re\int d\tau\, w^{(i)}(\tau)\nonumber\\
+    &\qquad\qquad\cdot f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\bigg)\threeqs + \text{cyclic perms}\,.
+\end{align}
 For the sake of compactness we use $P$ to stand for the triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
-\begin{eqnarray}\label{inin_kdep_cont}
+\begin{align}\label{inin_kdep_cont}
     I^{(i)}(k_1,k_2,k_3) & =& v^{(i)}(k_1, k_2,k_3) \sum_{P} \tilde{\alpha}_{P}^{(i)}\,  q_{P}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
     & =& \sum_{P} \tilde{\alpha}_{P}^{(i)}\sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
     & =& \sum_{\tilde{P}} \alpha_{\tilde{P}}^{(i)}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms} \,,
-\end{eqnarray}
+\end{align}
 where we have written
-\begin{eqnarray}\label{inin_kindep}
+\begin{align}\label{inin_kindep}
 \tilde{\alpha}_P^{(i)} =  \tilde{\alpha}_{prs}^{(i)} 	= \Re\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau) \,g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\,,
-\end{eqnarray}
+\end{align}
 and included the time-independent $k$-prefactors from the interaction Hamiltonian by writing
-\begin{eqnarray}\label{V_definition}
-    v^{(i)}(k_1, k_2,k_3)q_P(k_1,k_2,k_3) &=& \sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}q_{\tilde{P}}(k_1,k_2,k_3)\,,
-\end{eqnarray}
+\begin{align}\label{V_definition}
+    v^{(i)}(k_1, k_2,k_3)q_P(k_1,k_2,k_3) = \sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}q_{\tilde{P}}(k_1,k_2,k_3)\,,
+\end{align}
 and
-\begin{eqnarray}
+\begin{align}
     \alpha_P^{(i)} = \sum_{\tilde{P}} \tilde{\alpha}_{\tilde{P}}^{(i)}V^{(i)}_{\tilde{P}P}.
-\end{eqnarray}
+\end{align}
 We connect to the coefficients of the ordered, symmetrised basis in~\eqref{modeexp} by taking the symmetry factor into account,
-\begin{eqnarray}
+\begin{align}
     \alpha_n^{(i)} = \frac{3!}{\Xi_P}\alpha_P^{(i)}.
-\end{eqnarray}
+\end{align}
 The numerical calculation of $V^{(i)}_{P\tilde{P}}$ (as defined by~\eqref{V_definition}) is highly efficient as $v^{(i)}(k_1, k_2,k_3)$
 is a sum of separable terms. The details of these terms
 depend only on the spatial derivatives in the interaction Hamiltonian, not the scenario being
@@ -231,9 +233,9 @@ gained from reducing the number of terms needed in the final basis.
 
 We will calculate the contribution of each $\Hint$ vertex separately,
 indexing the vertices as above by $(i)$, so the overall shape function~\eqref{inin_sep},~\eqref{modeexp} is then simply
-\begin{eqnarray}\label{shapemodeexp}
+\begin{align}\label{shapemodeexp}
     S(k_1, k_2,k_3) =   \sum_n \left(\sum_i \alpha_n^{(i)}\right) \, Q_n(k_1,k_2,k_3) =  \sum_n \alpha_n \, Q_n(k_1,k_2,k_3) \,.
-\end{eqnarray}
+\end{align}
 Depending on the scenario,  some vertex contributions will converge faster than others 
 or be completely negligible;
 for efficiency the maximum modal resolution defined by $\Pmax$ can be allowed to be different
