@@ -73,6 +73,20 @@ These time-independent contributions are contained in $v^{(i)}(k_1, k_2,k_3)$,
 as they do not force us to compute extra time integrals.
 Note that $v^{(i)}(k_1, k_2,k_3)$ need not be symmetric in its arguments.
 
+
+We can connect this form to the example given in~\eqref{inin_computer}.
+In that example, we see there is no sum over $i$ as we took only one term of $\Hint$.
+We also see that $v^{(i)}(k_1,k_2,k_3)=1$ as there are no spatial derivatives.
+Collecting the terms with no $k$ dependence, we see that
+$w^{(i)}(\tau)=(-2i)(-2\lambda(\tau)a^4(\tau))$.
+The remaining terms then give
+\begin{align}
+    F^{(i)}(\tau,k) = G^{(i)}(\tau,k) = J^{(i)}(\tau,k) = k^2u_k(0)\dot{u}_k^*(\tau)
+\end{align}
+where the $k^2$ comes from the definition of the shape function~\eqref{shapefn},
+and we obtain $u_k(\tau)$ by numerically solving the equations of motion.
+
+
 The terms contained in $v^{(i)}(k_1, k_2,k_3)$ depend on the structure of the spatial derivatives in the interaction Hamiltonian,
 but not the specific scenario. These terms are separable; for details, see section~\ref{sec:h_int}.
 We include their contribution to the final result after the time integrals have been computed.

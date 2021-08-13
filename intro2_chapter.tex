@@ -747,14 +747,15 @@ Using the delta functions to perform the momentum integrals,
 switching to conformal time,
 and recalling~\eqref{bispectrum_definition}, we obtain
 \begin{align}\label{inin_computer}
-    &B(k_1, k_1, k_3)\nonumber\\
-    &=
-    \Re\left(-2i u_{k_1}(0)u_{k_2}(0)u_{k_3}(0)
-    \int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(-2\lambda(\tau') a^4(\tau')\bigg)
+    B(k_1, k_1,&k_3)
+    =
+    \Re\bigg(-2i u_{k_1}(0)u_{k_2}(0)u_{k_3}(0)\nonumber\\
+    &\cdot\int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(-2\lambda(\tau') a^4(\tau')\bigg)
     \udot^*_{k_1}(\tau')
     \udot^*_{k_2}(\tau')
     \udot^*_{k_3}(\tau')
-    \right).
+    +\text{perms}
+    \bigg).
 \end{align}
 If one wanted to numerically calculate the bispectrum resulting from~\eqref{hint_example},
 one could use this form. Until this point we have assumed nothing about the solutions of the
