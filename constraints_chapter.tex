@@ -59,7 +59,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions. \textcolor{r
 
     We use equation~\eqref{eq:dbi_warp}, which has four free parameters,
     $\beta_{IR}$, $\lambda_{DBI}$, $\phi_0$, and $V_0$.
-    We use $\beta_{IR}$ to parametrise our scan,
+    We use $\beta_{IR}$ to parameterise our scan,
     $\beta_{IR}\in[0.1885, 0.58]$.
 We hold $\lambda_{DBI}=2.00475\times10^{15}$, $V_0 = 5.2\times10^{-12}$
 and $\phi_0 = 0.46042$ fixed.
@@ -216,13 +216,11 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
 
 
 \section{Validation}
-    Validate this convergence by reproducing $\planck$ constraint using DBI template decomposition.
-    Explain our understanding of the discrepancy.
     The result we get is different, but not surprisingly different.
     The possible reasons for this are the fact we are using slightly different
     scales (since we are limited to $\kmax/\kmin=1000$ for convergence reasons we cannot
     use all the scales in the $\planck$ data), convergence in the number of maps
-    ($\modal$ uses $~300$ while $\cmbbest$ using 140) or possibly numerical issues,
+    ($\modal$ uses $~300$ while $\cmbbest$ using $140$) or possibly numerical issues,
     implementation error. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities
     \textcolor{red}{summarise here}.
     \begin{figure}[htbp!]
