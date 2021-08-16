@@ -1,19 +1,34 @@
 %\input{commands}
 \chapter{Constraints}\label{chapter:constraints}
 \section{Connecting to $\cmbbest$}
-\textcolor{red}{We don't get an exact match, maybe due
-to $140$ Gaussian simulations vs. Modal's $~300$.
-Or perhaps it is simply a statistical fluctuation.}
-    The goal here is to validate our pipeline by reproducing the $\planck$~result
-    from~\cite{Planck_NG_2018}, equation (55):
+    In this chapter, we validate the full $\primodal$-$\cmbbest$ pipeline
+    using the $\planck$ data to place a constraint on the sound speed in DBI inflation,
+    and comparing it to the same result obtained from $\planck$.
+    The $\planck$ result was obtained by constraining the amplitude
+    of the DBI template, and using a slow-roll relation to map this
+    to a constraint on the sound speed.
+    In our pipeline, however, we scan over a fundamental parameter of the model,
+    and the sound speed (specifically $c_s^*$, the sound speed at horizon crossing of
+    the pivot scale) is a calculated quantity.
+    We obtain the full shape and amplitude information for
+    each scenario in our scan (within our $k$-range) and the final
+    constraint makes use of the entirety of that information, up to
+    convergence in $\Pmax$.
+
+
+    In~\cite{Planck_NG_2018}, equation (55), the $\cmb$ bispectrum was used to
+    place a constraint on the sound speed during DBI inflation:
     \begin{align}
         c_s^{DBI}&\ge0.079\qquad(95\%,~T~\text{only}).
     \end{align}
-    We would not expect to reproduce this exactly due to
-    \textcolor{red}{Lack of maps? Different approximations? Numerics?}
-    Though we can estimate a reasonable disagreement by looking at
-    the expected scatter between the $\planck$ estimators, and by calculating
-    \textcolor{red}{$\sigma$??}.
+    While our goal is to validate our pipeline by reproducing this constraint,
+    we would not expect to reproduce it exactly.
+    This is due to numerous effects, including
+    \textcolor{red}{Lack of maps? Different approximations? Numerics?},
+    as discussed in detail in~\cite{Sohn_2021}.
+    We can however understand the expected scatter by simply examining the
+    scatter between the estimators used in the $\planck$ analysis, as
+    we show in figure~\ref{fig:equil_constraints_comparison}.
 
 \section{Set-up of the scan}
 The potential we use is the IR one discussed in~\cite{Bean_ir_dbi} as discussed \textcolor{red}{earlier}.
