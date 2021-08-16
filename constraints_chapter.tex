@@ -21,7 +21,7 @@
     Equation (55) in~\cite{Planck_NG_2018} presents the 
     constraint on the sound speed during DBI inflation
     derived from the $\cmb$ bispectrum
-    \begin{align}
+    \begin{align}\label{eq:planck_dbi_constraint}
         c_s^{DBI}&\ge0.079\qquad(95\%,~T~\text{only}).
     \end{align}
     While our goal is to validate our pipeline by reproducing this constraint,
@@ -55,21 +55,27 @@
 
 \section{Set-up of the scan}
 The potential we use is the IR one discussed in~\cite{Bean_ir_dbi} as discussed \textcolor{red}{earlier}.
-See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions.
-We hold $\lambda_{DBI}=2.00475\times10^{15}$ and $V_0 = 5.2\times10^{-12}$ fixed.
+See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions. \textcolor{red}{Reasons.}
+
+    We use equation~\eqref{eq:dbi_warp}, which has four free parameters,
+    $\beta_{IR}$, $\lambda_{DBI}$, $\phi_0$, and $V_0$.
+    We use $\beta_{IR}$ to parametrise our scan,
+    $\beta_{IR}\in[0.1885, 0.58]$.
+We hold $\lambda_{DBI}=2.00475\times10^{15}$, $V_0 = 5.2\times10^{-12}$
+and $\phi_0 = 0.46042$ fixed.
 We start the background evolution on the slow-roll attractor, finding initial conditions which
-satisfy the Friedman constraint.
+satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
+    For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
+    is within $3.044\pm0.014$,
+    and that $n_s^{*}$ is within $0.9649\pm0.0042$.
 
 
-    We use equation~\eqref{eq:dbi_warp}, with $\beta_{IR}\in[0.1885, 0.58]$.
     We find that $\beta_{IR}=0.331$ produces $c_s^{*}=0.0794$,
-    which is close to the above constraint.
+    which is close to the $\planck$ constraint~\eqref{eq:planck_dbi_constraint}.
     Thus, we roughly expect to find that $\beta_{IR}<0.331$ is ruled out
-    (for all the other scenario parameters held fixed).
-    We also have that $\ln\left(10^{10}A_s\right)$ for each scenario
-    is within $3.044\pm0.014$ across the scan,
-    and that $n_s^{*}$ is within $0.9649\pm0.0042$ across the scan.
-    This set-up produces a scenario with ($*$ denotes horizon crossing of the pivot scale):
+    (for all the other scenario parameters held fixed at the above values).
+
+
 %    \begin{tabular}{lrrrrrrrrrr}
 %        \toprule
 %        $\beta_{IR}$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ &   $n_s^{*}$ &  $n_{NG}^{*}$ &   $\phi^{*}$ &     $H^{*}$ &   $\eta^{*}$ \\
@@ -78,19 +84,22 @@ satisfy the Friedman constraint.
 %        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $-3.63\times 10^{-2}$  &  $-8.99\times 10^{-2}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$  &  $2.71\times 10^{-2}$ \\
 %        \bottomrule
 %    \end{tabular}
+    In table~\ref{tab:scan_summary_sr} we summarise the slow-roll parameters for the scan,
+    in table~\ref{tab:scan_summary_bkgd} we summarise the background parameters,
+    and in table~\ref{tab:scan_summary_ns} we summarise the resulting scaling indices.
     \\
     \\
 \begin{table}[h!]
   \begin{center}
     \begin{tabular}{lrrrrrrr}
         \toprule
-        $\beta_{IR}$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ &   $n_s^{*}$ &  $n_{NG}^{*}$\\
+        $\beta_{IR}$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ &   $\eta^{*}$ \\
         \midrule
-        $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  &  $9.650\times 10^{-1}$  &  $-8.72\times 10^{-2}$\\
-        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $9.637\times 10^{-1}$  &  $-8.99\times 10^{-2}$\\
+        $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  &  $2.63\times 10^{-2}$ \\
+        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $2.71\times 10^{-2}$ \\
         \bottomrule
     \end{tabular}
-    \caption{Summary of scenario parameters across the scan.}\label{tab:scan_summary}
+    \caption{Summary of slow-roll parameters across the scan.}\label{tab:scan_summary_sr}
   \end{center}
 \end{table}
     \\
@@ -99,18 +108,33 @@ satisfy the Friedman constraint.
   \begin{center}
     \begin{tabular}{lrrr}
         \toprule
-        $\beta_{IR}$ &  $\phi^{*}$ &     $H^{*}$ &   $\eta^{*}$ \\
+        $\beta_{IR}$ &  $\phi^{*}$ &     $H^{*}$ \\
         \midrule
-        $1.89\times 10^{-1}$  &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$  &  $2.63\times 10^{-2}$ \\
-        $5.80\times 10^{-1}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$  &  $2.71\times 10^{-2}$ \\
+        $1.89\times 10^{-1}$  &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$\\
+        $5.80\times 10^{-1}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
         \bottomrule
     \end{tabular}
-    \caption{Summary of scenario parameters across the scan.}\label{tab:scan_summary2}
+    \caption{Summary of scenario parameters across the scan.}\label{tab:scan_summary_bkgd}
   \end{center}
 \end{table}
     \\
     \\
-    We now show convergence results for $\Lnsinv$ with $\Pmax=30$.
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{lrrrrrrr}
+        \toprule
+        $\beta_{IR}$ &  $n_s^{*}$ &  $n_{NG}^{*}$\\
+        \midrule
+        $1.89\times 10^{-1}$  &  $9.650\times 10^{-1}$  &  $-8.72\times 10^{-2}$\\
+        $5.80\times 10^{-1}$  &  $9.637\times 10^{-1}$  &  $-8.99\times 10^{-2}$\\
+        \bottomrule
+    \end{tabular}
+    \caption{Summary of scaling indices across the scan.}\label{tab:scan_summary_ns}
+  \end{center}
+\end{table}
+\\
+\\
+    In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
     For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
     \\
     \\
@@ -129,7 +153,7 @@ satisfy the Friedman constraint.
         templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
         We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
         result to estimate the convergence at the primordial level.
-    }\label{fig:template_errors}
+    }\label{tab:template_errors}
   \end{center}
 \end{table}
     \\
@@ -177,16 +201,20 @@ satisfy the Friedman constraint.
 \end{figure}
     \\
 \section{Convergence}
-\textcolor{red}{Emphasise that it is not obvious how primordial convergence translates
-to $\cmb$ convergence, as different configurations will be processed differently.}
-    We will compare primordial convergence to CMB convergence,
-    by comparing the $\Pmax=29$ and $\Pmax=30$ results.
-    This will show that the CMB convergence is slightly better, i.e.\ that
+    It is not obvious how the convergence of the primordial bispectrum translates to
+    convergence of the estimate for $\fnl$, as different
+    momentum configurations will be processed and projected differently.
+
+
+    Comparing primordial convergence to CMB convergence,
+    we typically find that the CMB convergence is slightly better.
+    This is a result of the fact that
     the squeezed limit (which is where the primordial shape converges most slowly)
-    is suppressed.
-    At the $\cmb$ level, the convergence is $O(10^{-5})$. What is it for $\Pmax=29$?
-    at the primordial level?
-    For DBI, and also for DBI resonance?
+    is suppressed by \textcolor{red}{by what?}
+    At the $\cmb$ level, the convergence is $O(10^{-5})$,
+    found by comparing the $\Pmax=29$ and $\Pmax=30$ results.
+
+
 \section{Validation}
     Validate this convergence by reproducing $\planck$ constraint using DBI template decomposition.
     Explain our understanding of the discrepancy.
@@ -241,10 +269,16 @@ to $\cmb$ convergence, as different configurations will be processed differently
     \end{figure}
 
 \section{Slow-roll effects}
-    Here we will compare template decompositions to Primodal results.
-    This will tell us how large the slow-roll corrections are to the
-    final CMB result, but not anything about the primordial convergence.
     The main slow-roll corrections are a correction to the amplitude,
-    and a deviation from perfect scale-dependence.
+    a deviation from perfect scale-dependence,
+    and a local-type contribution in the squeezed limit which eventually comes to dominate
+    the comoving curvature primordial bispectrum
+    for sufficiently squeezed triangles.
+    \textcolor{red}{This is obvious because of that cancellation?}
+    From these results we can quantitatively see that slow-roll suppressed effects,
+    despite becoming dominant in the squeezed limit,
+    do not appreciably affect the constraint on the DBI scenario.
+    We can see this since the template decompositions do not include these effects, but the numerical $\primodal$
+    results do, and both result in the same constraint.
 %\section{EFT stuff, build off Enrico's recent work.}
 %    Words
