@@ -664,14 +664,28 @@ We wish to calculate
     \int_{-\infty(1+i\varepsilon)}^{t}dt'\Hint^I(t')
     \right>\right).
 \end{align}
-
-To do this calculation we will use Wick's theorem
+We note that the operators inside the expectation value on the right hand side are
+time-ordered, as $t'\leq t$.
+To proceed with this calculation we will use Wick's theorem
 \begin{align}\label{wick}
     \left<0\left|\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}\right|0\right>
-    &= :\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}:~+~\text{all contractions}.
+    &= \left<0\left|:\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}:~+:\sum~\text{pairwise contractions:}~\right|0\right>
 \end{align}
 where $:~:$ denotes normal ordering, which vanishes inside $<~>$.
-We will also make use of the fact that, from~\eqref{operator_expansion},
+
+
+By ``$\sum$ pairwise contractions'' we mean the sum over every possible permutation of contracting one pair,
+and of contracting two pairs, and so on.
+The contraction of two operators $\zeta_{\mathbf{k_1}}$ and $\zeta_{\mathbf{k_2}}$
+is defined as the difference between their time ordered product and their normal ordered product.
+Since the operators are built up of creation and annihilation operators, this will simply
+be proportional to the commutator of $\hat{a}$ and $\hat{a}^{\dagger}$,
+and so can be pulled out of the expectation value.
+Therefore, the only surviving contribution will the term with every $\zeta_{\mathbf{k}}$
+contracted in a pair.
+
+
+To evaluate the pairwise contractions we will make use of the fact that, from~\eqref{operator_expansion},
 \begin{align}
     \left<\zeta_{\mathbf{k_1}}(t_1)\zeta_{\mathbf{k_2}}(t_2)\right>
     &= \left<0\left|
@@ -691,6 +705,8 @@ We will also make use of the fact that, from~\eqref{operator_expansion},
     &= u_{k_1}(t_1)u^*_{k_2}(t_2)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
 \end{align}
 where we used~\eqref{creation_annihilation_commutator}.
+
+
 So, inserting~\eqref{hint_example} into~\eqref{inin_example}
 and rewriting $\dzeta(\vecx)$ in terms of its Fourier transform,
 we get
