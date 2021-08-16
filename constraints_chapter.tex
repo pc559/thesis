@@ -1,23 +1,26 @@
 %\input{commands}
-\chapter{An Inflationary Constraint from the Bispectrum}\label{chapter:constraints}
+\chapter{An Inflationary Constraint from the $\cmb$ Bispectrum}\label{chapter:constraints}
 \section{Connecting to $\cmbbest$}
-    In this chapter, we validate the full $\primodal$-$\cmbbest$ pipeline
-    using the $\planck$ data to place a constraint on the sound speed in DBI inflation,
-    and comparing it to the same result obtained from $\planck$.
+    In this chapter, we 
+    use $\planck$ data to place a constraint on the sound speed in DBI inflation.
+    We then compare this result to the same constraint obtained in the $\planck$
+    analysis~\cite{Planck_NG_2018},
+    with the aim of validating the full $\primodal$-$\cmbbest$ pipeline.
     The $\planck$ result was obtained by constraining the amplitude
     of the DBI template, and using a slow-roll relation to map this
     to a constraint on the sound speed.
     In our pipeline, however, we scan over a fundamental parameter of the model,
-    and the sound speed (specifically $c_s^*$, the sound speed at horizon crossing of
+    and the sound speed (more precisely $c_s^*$, the sound speed at horizon crossing of
     the pivot scale) is a calculated quantity.
-    We obtain the full shape and amplitude information for
-    each scenario in our scan (within our $k$-range) and the final
+    We obtain the full shape and amplitude information (within our $k$-range) for
+    each scenario in our scan and the final
     constraint makes use of the entirety of that information, up to
     convergence in $\Pmax$.
 
 
-    In~\cite{Planck_NG_2018}, equation (55), the $\cmb$ bispectrum was used to
-    place a constraint on the sound speed during DBI inflation:
+    Equation (55) in~\cite{Planck_NG_2018} presents the 
+    constraint on the sound speed during DBI inflation
+    derived from the $\cmb$ bispectrum
     \begin{align}
         c_s^{DBI}&\ge0.079\qquad(95\%,~T~\text{only}).
     \end{align}
@@ -26,9 +29,29 @@
     This is due to numerous effects, including
     \textcolor{red}{Lack of maps? Different approximations? Numerics?},
     as discussed in detail in~\cite{Sohn_2021}.
-    We can however understand the expected scatter by simply examining the
-    scatter between the estimators used in the $\planck$ analysis, as
-    we show in figure~\ref{fig:equil_constraints_comparison}.
+    We can however understand the expected variance of such estimators by simply examining the
+    scatter between the estimators used in the $\planck$ analysis.
+    We show this in figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
+    which is closely related to the DBI template.
+
+
+    \begin{figure}[htbp!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
+        \caption{
+            A comparison of the various estimation methods used in $\planck$
+            (as presented in table 5 of~\cite{Planck_NG_2018}).
+            We plot the constraints obtained by each method for $\fnlequil$,
+            as well as the constraint obtained by $\cmbbest$ (presented in~\cite{Sohn_2021})
+            along with their $68\%$ uncertainty margin.
+            We see that while the estimators do not agree, there is no discrepancy with any
+            significance---in particular, we see that $\cmbbest$ is not an outlier.
+            The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
+            template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
+            in the $\Lnsinv$ basis for $\Pmax=30$.
+        }\label{fig:equil_constraints_comparison}
+    \end{figure}
+
 
 \section{Set-up of the scan}
 The potential we use is the IR one discussed in~\cite{Bean_ir_dbi} as discussed \textcolor{red}{earlier}.
@@ -215,22 +238,6 @@ to $\cmb$ convergence, as different configurations will be processed differently
             the discrepancy is not unexpected. We discuss possible explanations
             \textcolor{red}{in the text}.
         }\label{fig:dbi_sound_speed_scan_beta}
-    \end{figure}
-    \begin{figure}[htbp!]
-        \centering
-        \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
-        \caption{
-            A comparison of the various estimation methods used in $\planck$
-            (as presented in table 5 of~\cite{Planck_NG_2018}).
-            We plot the constraints obtained by each method for $\fnlequil$,
-            as well as the constraint obtained by $\cmbbest$ (presented in~\cite{Sohn_2021})
-            along with their $68\%$ uncertainty margin.
-            We see that while the estimators do not agree, there is no discrepancy with any
-            significance---in particular, we see that $\cmbbest$ is not an outlier.
-            The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
-            template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
-            in the $\Lnsinv$ basis for $\Pmax=30$.
-        }\label{fig:equil_constraints_comparison}
     \end{figure}
 
 \section{Slow-roll effects}
