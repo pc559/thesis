@@ -527,6 +527,7 @@ this work, and is validated in these sections.
 
 Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
 James Fergusson and Paul Shellard and \textcolor{red}{words.}
+This work will be published in~\cite{Sohn_2021}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
