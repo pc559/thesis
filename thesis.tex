@@ -95,8 +95,6 @@
 %% Abstract:
 %%
 \abstract{%
-\textcolor{red}{This is just a placeholder outline, will be reduced to proper abstract size eventually.}
-%    \textbf{Dissertation Summary.}
 Calculating the full primordial bispectrum predicted by a model of inflation and
 comparing it to what we see in the sky is very computationally intensive, necessitating layers
 of approximations and limiting the models which can be constrained. The inherent separability
@@ -114,75 +112,6 @@ In this thesis we develop this separable approach into a practical and efficient
 numerical methodology which can be applied to a much wider and more complicated range of bispectrum
 phenomenology than previous analyses. This is an important step forward towards observational pipelines which can directly
 confront specific models of inflation.
-
-
-The specific results involved can be categorised into two main lines of research.
-The first line of research is in determining the feasibility of the method.
-Our initial result here was identifying the contributions of the non-physical configurations
-as a novel problem to this analysis, and identifying basis choice as the key method of overcoming this difficulty.
-In this work we describe multiple basis sets and make quantitative comparisons
-of their convergence on realistic and interesting models, including ones with features.
-We find basis sets that can overcome the difficulty of the dominant non-physical $k$-configurations,
-converging far more efficiently than the basic basis sets, for physically interesting models.
-
-
-The second line of research we follow is in developing basis-independent methods that allow the fast and accurate calculation
-of higher order coefficients of the basis expansion of the tree-level in-in formalism.
-To this end we set up the separable formalism and describe the methods we use to overcome the difficulties encountered.
-These difficulties include accurately including the highly oscillatory early-time contributions.
-We present a careful and comprehensive validation of our methods,
-showing that we can overcome the convergence problems and capture the oscillatory contributions efficiently.
-At the primordial level we do this by validating our results using three distinct tests.
-We validate on established templates with non-trivial
-phenomenology; we use the squeezed-limit consistency condition; and we compare our
-full bispectrum results to previous codes through point-tests.
-
-
-At the level of the CMB, we validate the convergence of our basis by ensuring we can reproduce the
-$\planck$ constraints (using the $\planck$ data) on the DBI sound speed, and we translate this constraint into a constraint on
-a fundamental parameter in the context of a physically realistic scan.
-
-
-Chapter~\ref{chapter:intro_general} is a general introduction to cosmology, and
-chapter~\ref{chapter:intro_bispectra} is an introduction to the bispectrum as an observable.
-
-
-Chapter~\ref{chapter:decomp} describes the first line of research mentioned above---we
-discuss why we need to take the non-physical configurations into account, how we build our
-basis sets, and present quantitative comparisons of the convergence of each basis set to
-relevant examples of bispectrum shapes.
-
-
-In chapter~\ref{chapter:methods} we detail the second line of research mentioned above---we
-discuss the details of recasting the in-in formalism in an explicitly separable form,
-making explicit each step of the calculation.
-We discuss how to efficiently deal with the early time contributions to the integrals,
-and other numerical issues that require considerable care and attention.
-We also present validation tests on a very broad range of types of non-Gaussianity.
-
-
-In chapter~\ref{chapter:constraints} we present constraints (obtained in collaboration with Wuhyun Sohn)
-on the sound speed of the DBI model, which validate our pipeline against $\planck$.
-This chapter will describe the parametrisation of the scan, and the physical
-interpretation of the results.
-
-
-In chapter~\ref{chapter:conclusion} we discuss possible avenues of future work, and present our conclusions.
-
-
-\textcolor{red}{Put this somewhere:}
-The standard cosmological history, the $\Lambda CDM$ model, explains the structure we see in the distribution of matter (large-scale structure, LSS) and radiation (the cosmic microwave background, \textit{CMB}) in our universe. However, this model still requires initial conditions. These initial conditions – adiabatic perturbations on a uniform background, close to Gaussian, with a power spectrum that is nearly (but not exactly) scale-invariant – are provided by an epoch of “inflation”, an epoch before the Big Bang of the $\Lambda CDM$ model. 
-
-During inflation, the universe is supposed to have expanded rapidly, stretching quantum fluctuations from small scales to large. This seeded the formation of structure and encoded correlations that we would eventually measure today.
-Much information on fundamental physics has been gleaned from the two-point correlators of observations. For higher order correlators (which probe the non-linearities of interactions in the early universe) calculating the predictions of a model of inflation and comparing them to what we see in the sky is much more computationally intensive. Previous work, including that done by the Planck collaboration~\cite{Planck_NG_2018}, has managed to constrain some models of inflation through their three-point correlations (or rather through their proxy, the bispectrum).
-The computational complexity was dealt with by making layers of approximations and the space
-of models which could be constrained was limited.
-One notable simplifying assumption is that of “separability”, which makes the process of \textit{CMB} estimation much more tractable~\cite{Komatsu_2005}.
-
-
-The formalism used to calculate inflationary non-Gaussianities within an inflation scenario is
-known as the in-in formalism~\cite{weinberg_in_in}\ldots
-
 }
 
 
