@@ -3,11 +3,6 @@
 \section{The standard cosmological history}\label{sec:general_intro}
 %\subsection{The bispectrum}
     \subsection{Fundamentals}
-\textcolor{red}{Remove some of the plots, sort out ordering. Talk about cosmological constant, curvature?
-Blackbody, being able to define a temperature. Define conformal time!
-Mention template-free.}
-
-
 When we look out into the sky, we see light that has traveled for a very long time to get to us.
 In that light we see images of the universe as it was when the light left its source.
 We see the moon as it was a second ago, or the Andromeda Galaxy as it was millions of
@@ -63,8 +58,14 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     where $a(t)$ will have the interpretation as the scale factor
     which describes the evolution of the universe.
+    The line element $ds^2$ then determines the distance between two spacetime points,
+    or more intuitively, the proper time measured by an observer who freely falls
+    between two events will be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
     The homogeneity, isotropy and curvature of space are encoded in $dS_3$,
     but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
+    We will only consider a flat universe, so $dS_3^2=dx^2+dy^2+dz^2$.
+
+
     The components of the matter and energy content of the universe enter the equations through
     their stress-energy tensors, which we approximate as that of
     a perfect fluid (denoted $X$)
@@ -72,8 +73,11 @@ extract the fundamental physics waiting to be found in the universe's youth.
         T_X^{\mu\nu} = (\rho_X+P_X)U_X^\mu U_X^\nu+P_Xg^{\mu\nu},
     \end{align}
     where the index structure ensures the fluid is isotropic in its rest frame.
+    $U_X^\mu$ is the four-velocity of the fluid, with $U_X^0=1$ and $U_X^i=0$
+    in the rest frame.
     These fluids are completely characterised by the time dependence
-    of their energy density $\rho_X(t)$ and their pressure density $P_X(t)$,
+    of their rest-frame energy density $\rho_X(t)$ and their rest-frame
+    pressure density $P_X(t)$,
     both of which have no dependence on $\vecx$, to preserve the homogeneity of the solution.
     For the components of the universe that we wish to describe,
     taking the quantity $w_X=\frac{P_X}{\rho_X}$ as constant will be a good description.
@@ -86,14 +90,17 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$.
     Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
-    these equations simplify as promised to the Friedmann equations
+    these equations simplify to the promised Friedmann equations
+    (with $8\pi G$ temporarily reinstated)
     \begin{align}\label{friedmann_1}
         H^2 &= \frac{8\pi G \rho}{3},\\
         \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
     \end{align}
     where $H=\frac{\dot{a}}{a}$, and $\rho$ and $P$ are respectively the sum of the
     energy densities and of the pressure densities of the
-    components of the universe. We also have the continuity equation
+    components of the universe.
+    A dot will refer to a derivative with respect to coordinate time $t$.
+    We also have the continuity equation
     \begin{align}\label{continuity_equation}
         \dot{\rho}_X + 3\frac{\dot{a}}{a}\left(\rho_X+P_X\right) &= 0
     \end{align}
@@ -182,7 +189,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
         \Omega_{X} = \frac{\rho_X}{\rho_{crit,0}}
     \end{align}
     for $X$ being radiation, matter and dark energy.
-    The critical density $\rho_{crit,0}$ is the density for which the universe is flat.
+    A subscript of $0$ will denote a quantity evaluated today.
+    The critical density $\rho_{crit,0}$ is the density for which the universe is flat,
+    so for our universe $\sum\Omega_i=1$.
+    We will choose our scaling such that $a_0=1$.
 
 
     The measured values for these quantities, as presented in~\cite{Planck_parameters_2018},
@@ -191,12 +201,15 @@ extract the fundamental physics waiting to be found in the universe's youth.
         \Omega_{m,0} &= 0.3111 \pm 0.0056,\\
         \Omega_{\Lambda} &=  0.6889 \pm 0.0056.
     \end{align}
-    Since
-    $\rho = \frac{\pi^2}{15}T^4$
-    for photons, and $T_{\gamma}=2.725\pm0.001K$ \textcolor{red}{CHECK THIS},
-    we have that $\rho_{\gamma}=2.02\times 10^{-15} eV^4$
-    and $\rho_{crit}=9\times 10^{-27} kg~m^{-3}$.
-    Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
+    The temperature of the blackbody $\cmb$ radiation is
+    also found to be $T_{\gamma}=2.725\pm0.001K$, from which
+    we can calculate $\Omega_{\gamma,0}=9.4\times10^{-5}$.
+    %Since
+    %$\rho = \frac{\pi^2}{15}T^4$
+    %for photons, and $T_{\gamma}=2.725\pm0.001K$ \textcolor{red}{CHECK THIS},
+    %we have that $\rho_{\gamma}=2.02\times 10^{-15} eV^4$
+    %and $\rho_{crit}=9\times 10^{-27} kg~m^{-3}$.
+    %Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
 
 
     From these numbers, and~\eqref{friedmann_omega}, we can make some statements
@@ -318,15 +331,15 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \textcolor{red}{Physical interpretation at early and late times!!}
 }\label{fig:lcdm_tau}
 \end{figure}
-\begin{figure}[!pth]
-\centering     %%% not \center
-    \includegraphics[width=.75\columnwidth]{plots/lcdm_z.png}
-\caption{
-    The correspondence between redshift $z$ and $t$.
-    \textcolor{red}{Talk about the observational effects of having an
-    evolving $\dot{a}$, or maybe cut this? Too many plots.}
-}\label{fig:lcdm_z}
-\end{figure}
+%\begin{figure}[!pth]
+%\centering     %%% not \center
+%    \includegraphics[width=.75\columnwidth]{plots/lcdm_z.png}
+%\caption{
+%    The correspondence between redshift $z$ and $t$.
+%    \textcolor{red}{Talk about the observational effects of having an
+%    evolving $\dot{a}$, or maybe cut this? Too many plots.}
+%}\label{fig:lcdm_z}
+%\end{figure}
 
     The history of the universe as a story of falling temperature,
     probing higher energy scales. Rough contrast of looking at the
@@ -354,10 +367,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     effect of its gravity[ref]. Another component is what cosmologists refer to as baryonic matter, which is
     the protons, electrons, neutrons and all the other particles which make up the visible galaxies, stars
     and humans.
-
-
-    What is the evidence for $\lcdm$? Two main pieces of evidence are the relative abundances of
-    primordial elements, and the baryon acoustic oscillations (BAOs).
 
 
     While it is thought that the heavier elements are made in incredibly energetic supernovae and
@@ -441,7 +450,13 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     The flatness problem is the statement that our universe is much flatter that one would expect.
-    The reason we would expect otherwise, is that deviations from flatness are unstable.
+    In~\eqref{flrw_metric}, the possibility exists that $dS_3^2$ is not the simple flat form we
+    see observationally.
+    One can write down this curvature as a contribution on the right hand side of~\eqref{friedmann_omega},
+    taking the form $\Omega_K=\frac{-K}{a^2H_0^2}$.
+    One then observes that this relative contribution would be expected to increase with time,
+    as it drops off more slowly than either matter or radiation.
+    \textcolor{red}{But now $\sum \Omega_i\neq1$ check this!}
     This means that if the universe is very close to flat now (as we measure it to be)
     then it must have been surprisingly close to flat at the beginning of the $\lcdm$
     evolution. A natural explanation of this would be an attractive quality in a
