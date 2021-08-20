@@ -618,17 +618,6 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     Renaux-Petel_2015, Meerburg_clock}.}
 
 
-    We will work with a Hamiltonian that has been split into three parts,
-    \begin{align}
-        H = H_b + H_0 + H_{int},
-    \end{align}
-    where $H_b$ evolves the homogeneous background, $H_0$ is quadratic in $\zeta$ and evolves the free
-    fields, and the interaction Hamiltonian $H_{int}$ contains the terms cubic and above.
-    In practice we will only use the part cubic in $\zeta$, $H_{int}^{(3)}$, which we will use to calculate
-    the higher order correlations coming from the interactions. We will occasionally drop the superscript and
-    refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $H_{int}$.
-
-
     The standard starting point for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
 The in-in formalism takes the time evolution of the interaction picture mode
@@ -868,13 +857,6 @@ and recalling $\Phi=\frac{3}{5}\zeta$.
 
 
     \section{Step 1: the interaction Hamiltonian}
-    \textcolor{red}{
-    General overview of how the interaction Hamiltonian is obtained.
-    Metric perturbations.
-    EFT? Or slow-roll? Our method takes the interaction Hamiltonian
-    as input. Getting $\Hint$ from $\Lint$.}
-
-
     Since General Relativity has a diffeomorphism invariance, it has a redundancy
     which must be settled before the true degrees of freedom are manifest.
     One does this by decomposing the metric (typically in the $ADM$ formalism)
@@ -899,6 +881,17 @@ and recalling $\Phi=\frac{3}{5}\zeta$.
     However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(\zeta^4,\dzeta^4)$,
     so calculating the cubic interaction Hamiltonian to this order
     from the cubic interaction Lagrangian is trivial.
+
+
+    We will work with a Hamiltonian that has been split into three parts,
+    \begin{align}
+        H = H_b + H_0 + H_{int},
+    \end{align}
+    where $H_b$ evolves the homogeneous background, $H_0$ is quadratic in $\zeta$ and evolves the free
+    fields, and the interaction Hamiltonian $H_{int}$ contains the terms cubic and above.
+    In practice we will only use the part cubic in $\zeta$, $H_{int}^{(3)}$, which we will use to calculate
+    the higher order correlations coming from the interactions. We will occasionally drop the superscript and
+    refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $H_{int}$.
 
 
     \section{Interactions and shape functions}\label{sec:interactions}
