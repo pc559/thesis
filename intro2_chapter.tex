@@ -605,7 +605,7 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     into account here---these would imprint oscillations at higher $l$.
     Nevertheless, it is instructive to write down the scaling behaviour of this
     simple example, and to see how separability is lost between~\eqref{eq:reduced_cmb_constant}
-    and~\eqref{eq:bll_constant}.
+    and~\eqref{eq:bll_constant} even for this simple case.
 
 
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
@@ -702,8 +702,9 @@ allow comparison with the CMB.
 We now detail an explicit example of an in-in calculation.
 We will take
 \begin{align}\label{hint_example}
-    \Hint=\int d^3x~\left(-2\lambda a^3\dzeta^3\right).
+    \Hint=\int d^3x~\left(g(t) a^3\dzeta^3\right)
 \end{align}
+where $g(t)$ is some function of time.
 \textcolor{red}{Change to $M_3$? Then match to (57) of~\cite{Planck_NG_2018}.}
 This example is particularly simple as it contains no spatial derivatives.
 We will include those when we outline our formalism fully in section~\ref{sec:main_notation}.
@@ -764,7 +765,7 @@ we get
     \left<\zeta_{\mathbf{k_1}}(t)\right.&\left.\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>\\
     &=\Re\left(\left<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'
-    \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
+    \int d^3x~\left(g(t) a^3\dzeta^3(\vecx,t')\right)
     \right>\right).
 \end{align}
 where the operators on the right hand side are in the interaction picture,
@@ -773,10 +774,10 @@ Continuing, we replace $\zeta$ with its Fourier transform
 \begin{align}\label{inin_example_2}
     \bigg<-2i \zeta_{\mathbf{k_1}}(t)&\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
     \int_{-\infty(1+i\varepsilon)}^{t}dt'
-    \int d^3x~\left(-2\lambda a^3\dzeta^3(\vecx,t')\right)
+    \int d^3x~\left(g(t) a^3\dzeta^3(\vecx,t')\right)
     \bigg>\\
     =&\bigg<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\nonumber\\
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(g(t) a^3\right)\nonumber\\
     &\qquad\cdot
     \int \frac{d^3p}{(2\pi)^3}
     \frac{d^3q}{(2\pi)^3}
@@ -787,7 +788,7 @@ Continuing, we replace $\zeta$ with its Fourier transform
     \int d^3x e^{i\vecx\cdot(\mathbf{p}+\mathbf{q}+\mathbf{r})}
     \bigg>\\
     =&\bigg<-2i \zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(-2\lambda a^3\right)\nonumber\\
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\left(g(t) a^3\right)\nonumber\\
     &\qquad\cdot
     \int \frac{d^3p}{(2\pi)^3}
     \frac{d^3q}{(2\pi)^3}
@@ -817,7 +818,7 @@ and recalling~\eqref{bispectrum_definition}, we obtain
     B(k_1, k_1,&k_3)
     =
     \Re\bigg(-2i u_{k_1}(0)u_{k_2}(0)u_{k_3}(0)\nonumber\\
-    &\cdot\int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(-2\lambda(\tau') a^4(\tau')\bigg)
+    &\cdot\int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(g(\tau') a^4(\tau')\bigg)
     \udot^*_{k_1}(\tau')
     \udot^*_{k_2}(\tau')
     \udot^*_{k_3}(\tau')
@@ -839,7 +840,7 @@ the integrand of~\eqref{inin_computer} is explicitly separable in $k_1$, $k_2$ a
 
 
 We will now continue the calculation within the slow-roll approximation,
-using~\eqref{uk_solution}. We approximate $\lambda(\tau')$ and the slow-roll
+using~\eqref{uk_solution}. We approximate $g(\tau')$ and the slow-roll
 parameters as constant, and use $a\approx-1/(H\tau)$.
 We see that we will need to perform the following integral by parts
 \begin{align}
@@ -849,7 +850,7 @@ We see that we will need to perform the following integral by parts
 where we recall $K=k_1+k_2+k_3$.
 Using this, we finally obtain
 \begin{align}
-    S(k_1, k_2, k_3) = 6\frac{\lambda H^5}{8\varepsilon^3}\frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}
+    S(k_1, k_2, k_3) = -3\frac{g H^5}{8\varepsilon^3}\frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}
 \end{align}
 where the factor of $6$ comes from the different possible contractions, all
 of which give the same result in this example.
