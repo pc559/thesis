@@ -1,6 +1,9 @@
 %\input{commands}
 \chapter{Introduction II: Probing Inflation}\label{chapter:intro_bispectra}
 \textcolor{red}{Put this somewhere:}
+In this chapter we will review details of the bispectrum and how it is obtained.
+
+
 The standard cosmological history, the $\Lambda CDM$ model, explains the structure we see in the distribution of matter (large-scale structure, LSS) and radiation (the cosmic microwave background, \textit{CMB}) in our universe. However, this model still requires initial conditions. These initial conditions – adiabatic perturbations on a uniform background, close to Gaussian, with a power spectrum that is nearly (but not exactly) scale-invariant – are provided by an epoch of “inflation”, an epoch before the Big Bang of the $\Lambda CDM$ model. 
 
 During inflation, the universe is supposed to have expanded rapidly, stretching quantum fluctuations from small scales to large. This seeded the formation of structure and encoded correlations that we would eventually measure today.
@@ -99,25 +102,16 @@ allowing us to apply the method to feature bispectra for the first time.
 
 
 \section{Perturbations about the background}
-\textcolor{red}{
-    What is the intuition for $c_s$?
-    What does a photon path look like on a $\tau_s-x$ plot?
-}
-
     We can get a lot of information on the evolution of the perturbations
     from observations, and that tells us about the history of universe,
     which tells us about its content, etc\ldots
     We now turn our attention to the details of the perturbations.
 
 
-    The sound speed $c_s$~\eqref{sound_speed_definition} characterises
-    propagation speed of the perturbations,
-    and thus the effective pressure that resists the
-    collapse due to the gravitational instability.
-    \textcolor{red}{Check this intuition. How does freeze-out relate to collapse?}
-    The Jeans length is the scale above which the collapse wins out.
-    This defines a sound horizon, $c_s/H$.
-    As the modes cross this sound horizon they freeze-out.
+    The sound speed $c_s$~\eqref{sound_speed_definition} is
+    the propagation speed of the perturbations.
+    This defines a sound horizon, $c_s/H$---as the modes cross this sound
+    horizon they freeze.
 
 
     The action for the perturbations is derived by working in a general gauge
@@ -131,13 +125,13 @@ allowing us to apply the method to feature bispectra for the first time.
         \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}
     \end{align}
     where $h_{ij}$ is the spatial part of the metric.
-    The relation between $\zeta$ in uniform density gauge and
-    $\delphi$ in spatially flat gauge is
-    \textcolor{red}{SOUND SPEED?}
-    \begin{align}
-        \zeta=-\frac{\delphi}{\sqrt{2\varepsilon}a}.
-    \end{align}
-    The second order action for the perturbations in this gauge is
+    %The relation between $\zeta$ in uniform density gauge and
+    %$\delphi$ in spatially flat gauge is
+    %\textcolor{red}{SOUND SPEED?}
+    %\begin{align}
+    %    \zeta=-\frac{\delphi}{\sqrt{2\varepsilon}a}.
+    %\end{align}
+    The second order action for the perturbations in this gauge can be found to be
     \begin{align}\label{zeta_action}
         S_{2} = \int d^3x dt~\frac{a\varepsilon}{c_s^2}\left(a^2\dot{\zeta}^2-c_s^2\left(\partial\zeta\right)^2\right)
     \end{align}
@@ -152,10 +146,11 @@ allowing us to apply the method to feature bispectra for the first time.
     Expanding the mass, we find
     \begin{align}
         %\frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\frac{\eta}{2}-\varepsilon_s\right)\left(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4}\right)
-        \frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\ldots\right)
+        \frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2\left(1+\ldots\right)
     \end{align}
     where \ldots~represents the terms that are slow-roll suppressed,
-    so the evolution of the perturbations is well approximated using $\frac{z''}{z} = 2{\left(aH\right)}^2$
+    so the evolution of the perturbations is well approximated using
+    $\frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2$
     unless there are features that make the slow-roll parameters large.
 
     \subsection{Evolution of the perturbations}\label{pert_evol}
@@ -168,11 +163,14 @@ allowing us to apply the method to feature bispectra for the first time.
         {\zeta_k}'' + (3-\varepsilon+\eta-2\epscs){\zeta_k}'+\left(\frac{kc_s}{aH}\right)^2\zeta_k=0.
     \end{align}
     We can see that at late times, when $kc_s\ll aH$, $\zeta_k$ will freeze.
-    This conservation of $\zeta$ outside the horizon~\cite{Lyth_conserved} will be
-    a useful property we will exploit\footnote{
+    This conservation of $\zeta$ outside the horizon~\cite{Lyth_conserved} is an
+    important property\footnote{
     Systems with multiple degrees of freedom have $\zeta$ evolving even outside
     the horizon. See~\cite{Christopherson_2009} for a discussion on how this relates
     to non-adiabatic pressure in inflation models with non-canonical kinetic terms.}.
+    This is useful as it means that $\zeta_k$ will then be frozen during the transition from inflation to the
+    usual radiation dominated period, and we need only pick up the evolution again once it
+    re-enters the horizon in the well-understood radiation era.
 
 
     From~\eqref{v_action}, in conformal time, we obtain the Mukhanov-Sasaki equation
@@ -204,7 +202,6 @@ allowing us to apply the method to feature bispectra for the first time.
     \subsection{Early time behaviour}
     \subsubsection{Quantizing the perturbations}
     We now wish to quantize the perturbations.
-    \textcolor{red}{Or at least, provide quantum initial conditions for the classical evolution.}
     We will quantize $v$,
     as at early times it should behave like a free field in Minkowski space.
     We expand
@@ -223,19 +220,19 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}\label{creation_annihilation_commutator}
         \left[\ahat_{\veck},\ahat^{\dagger}_{\veck'}\right] = (2\pi)^3\delta^{(3)}(\veck-\veck').
     \end{align}
-    Taking the commutator of $v$ and its conjugate momentum
+    Taking the commutator of $v$ and its conjugate momentum $\pi=\frac{dv}{d\tau}$
     \textcolor{red}{CHECK ALL OF THIS}
     we can obtain
     \begin{align}
-        \left[v(\tau,\vecx),v'(\tau,\mathbf{y})\right] &=
-        \int \frac{d^3 \veck}{(2\pi)^3}\left(v_kv'^*_k-v'_kv^*_k\right)e^{i\veck\cdot(\vecx-\mathbf{y})}\\
+        \left[v(\tau,\vecx),\pi(\tau,\mathbf{y})\right] &=
+        \int \frac{d^3 \veck}{(2\pi)^3}\left(v_k\pi^*_k-\pi_kv^*_k\right)e^{i\veck\cdot(\vecx-\mathbf{y})}\\
         &= i \delta^{(3)}(\vecx-\mathbf{y})
     \end{align}
-    if we demand that $v_kv'^*_k-v'_kv^*_k=1$.
+    if we demand that $v_k\pi^*_k-\pi_kv^*_k=1$.
 
 
     We can define the vacuum state by $\ahat_{\veck}\left| 0\right>=0$.
-    Demanding this to be an eigenstate of $H$ forces $v'_k=\pm ikv_k$.
+    Demanding this to be an eigenstate of $H$ forces $\pi_k=\pm ikv_k$.
     \textcolor{red}{How does this relate to before?}
 
     \subsubsection{Initial conditions for the perturbations}
@@ -244,12 +241,10 @@ allowing us to apply the method to feature bispectra for the first time.
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
     \end{align}
     The power spectrum is enhanced by a factor of $c_s$,
-    \textcolor{red}{because of collapse at earlier times, when the density is higher?}
     \begin{align}
-        P(k) = \frac{H^2}{8\pi\varepsilon c_s}
+        P(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
     due to the larger prefactor.
-    \textcolor{red}{How is this related to the earlier freeze-out of the perturbations?}
 
     The vacuum is not unique. We choose it so that it
     asymptotes to the Minkowski vacuum in the limit $\tau\to-\infty$.
@@ -264,7 +259,7 @@ allowing us to apply the method to feature bispectra for the first time.
     Assuming \textcolor{red}{assumptions} we can write the solution to the equations
     of motion in terms of the Hankel function $H^{(2)}_i$ as~\cite{px_burrage}
     \begin{align}
-        \zeta_k = \frac{1}{2a}\sqrt{\frac{\pi}{2}}\sqrt{\frac{-(1+s)\tau}{z}}H^{(2)}_{\nu}\left[-kc_s(1+s)\tau\right].
+        \zeta_k = \frac{1}{2a}\sqrt{\frac{\pi}{2}}\sqrt{\frac{-\tau_s}{zc_s}}H^{(2)}_{\nu}\left[-k\tau_s\right].
     \end{align}
     where $\nu = \frac{3}{2}+\varepsilon+\frac{\eta}{2}+\frac{\epscs}{2}$
     \textcolor{red}{Rewrite this in terms of $\tau_s$. Citation?}
@@ -333,6 +328,8 @@ allowing us to apply the method to feature bispectra for the first time.
             j_l(k\chi_*)/5
             \right]}^2.
     \end{align}
+    For large $l$ the spherical Bessel functions have a sharp peak when $k\chi_*=l$,
+    so for large $l$ we see that $C_l$ is mostly determined by $\primpowerspec(l/\chi_*)$.
     For $\primpowerspec(k)=A_s$, i.e.\ perfectly scale invariant,
     we can use that
     \begin{align}
@@ -350,6 +347,7 @@ allowing us to apply the method to feature bispectra for the first time.
             -\frac{v_\gamma(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j'_l(k\chi_*)
             \right]}^2.
     \end{align}
+    \textcolor{red}{Derivative of $j$ with respect to its argument.}
 
 
     For small scales, diffusion of photons escaping \textcolor{red}{pressure waves??}
@@ -414,7 +412,6 @@ equilateral (see~\eqref{equil_shape}) and orthogonal templates,
 as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
 
     \section{A field guide to the definitions of $\fnl$}
-    \textcolor{red}{Add in DBI specifically, so I can reference later.}
     In our template-free pipeline, we take $\fnl$ as a coefficient of our expansion
     of the numerically calculated primordial shape. Thus, for us, we rule out an
     inflation scenario by ruling out $\fnl=1$. There are, however, many competing
@@ -434,21 +431,31 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     In~\cite{Planck_NG_2013}, $\fnl$ is defined individually for each template, in such a way
     that for some template $X$, in the equilateral limit $k_1=k_2=k_3$
     \begin{align}\label{planck_fnl_defn}
-        B^X_\Phi(k,k,k) = \frac{6A^2\fnl^X}{k^6},
+        B^X_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^X}{k^6},
     \end{align}
     for example equation $(5)$ in~\cite{Planck_NG_2013},
     or
     \begin{align}\label{planck_fnl_defn_ns}
-        B^X_\Phi(k,k,k) = \frac{6A^2\fnl^X}{k^{8-2n_s}},
+        B^X_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^X}{k^{8-2n_s}},
     \end{align}
     as in equation $(6)$ in~\cite{Planck_NG_2013}.
-    The parameter $A$ comes from
+    The parameter $A_\phi$ comes from
     \begin{align}
-        P_\Phi(k) = \frac{A}{k^{4-n_s}}.
+        P_\Phi(k) = \frac{A_\phi}{k^{4-n_s}}\approx\frac{3}{5}\frac{H^2}{4\varepsilon c_sk^{4-n_s}}
     \end{align}
+    where we used $\Phi=\frac{3}{5}\zeta$ and the slow-roll result for $\primpowerspec$.
     In~\cite{seery_ng_0503, chen_ng_0605, dbi_in_the_sky} $\fnl$ is similarly defined in terms
     of the shape function evaluated on equilateral triangles,
     as the templates considered had no scale dependence.
+    One particular example is the DBI template, which we will present explicitly in~\eqref{dbi_shape}.
+    For now, we briefly state the definition of $\fnl^{DBI}$, from~\cite{Planck_NG_2013}
+    \begin{align}
+        B^{DBI}_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^{DBI}}{k^{6}}.
+    \end{align}
+    Comparing to~\eqref{dbi_shape}, we find that
+    \begin{align}
+        \fnl^{DBI} = -\frac{35}{108}\left(c_s^{-2}-1\right).
+    \end{align}
 
 
     In~\cite{px_burrage, transport_main} we see $\fnl$ defined as the reduced bispectrum
@@ -911,8 +918,7 @@ which for a $P(X,\phi)$ model evaluates to
     \subsection{Basic shapes}
     With a canonical kinetic term, the slow-roll result for the shape is:
 \begin{align}\label{malda_shape}
-    S^{Malda}(k_1,k_2,k_3) &= A^{Malda} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right),\\
-    A^{Malda} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}.
+    S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
 \end{align}
 with $\eta=2\varepsilon$ for~\eqref{eq:quadratic_potential}.
 At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
@@ -923,8 +929,14 @@ to have no observable effect~\cite{Cabass_2016}.
 
 For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
 \begin{align}\label{dbi_shape}
-    S^{DBI}(k_1,k_2,k_3) &= A^{DBI}\frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2},\\
-    A^{DBI} &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right),
+    %S^{DBI}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right)
+    %     \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}\\
+    S^{DBI}(k_1,k_2,k_3) &= -\frac{35}{108}
+         \left(\frac{1}{c_s^2}-1\right)
+         6\left(\frac{H^2}{4\varepsilon c_s}\right)^2
+         \left(\frac{3}{5}\right)
+         \left(-\frac{3}{7}\right)
+         \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}
 \end{align}
 to leading order in slow-roll.
 Any constraint on the magnitude $A^{DBI}$ can be translated into one 
