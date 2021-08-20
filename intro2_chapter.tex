@@ -702,7 +702,7 @@ allow comparison with the CMB.
 We now detail an explicit example of an in-in calculation.
 We will take
 \begin{align}\label{hint_example}
-    \Hint=\int d^3x~g(t) a^3\dzeta^3
+    \Hint=\int d^3x~g(t) a^3{\left(\dzeta^I\right)^3}
 \end{align}
 where $g(t)$ is some function of time.
 This example is particularly simple as it contains no spatial derivatives.
@@ -711,11 +711,13 @@ We wish to calculate
 \begin{align}\label{inin_example}
     \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>&=
     \Re\left(\left<-2i \zeta^I_{\mathbf{k_1}}(t)\zeta^I_{\mathbf{k_2}}(t)\zeta^I_{\mathbf{k_3}}(t)
-    \int_{-\infty(1+i\varepsilon)}^{t}dt'\Hint^I(t')
+    \int_{-\infty(1+i\varepsilon)}^{t}dt'\Hint(t')
     \right>\right).
 \end{align}
 We note that the operators inside the expectation value on the right hand side are
 time-ordered, as $t'\leq t$.
+All the operators on the right hand side are in the interaction picture, though for
+notational convenience we will drop the superscript $I$.
 To proceed with this calculation we will use Wick's theorem
 \begin{align}\label{wick}
     \left<0\left|\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}\right|0\right>
@@ -871,13 +873,32 @@ and recalling $\Phi=\frac{3}{5}\zeta$.
     Metric perturbations.
     EFT? Or slow-roll? Our method takes the interaction Hamiltonian
     as input. Getting $\Hint$ from $\Lint$.}
+
+
+    Since General Relativity has a diffeomorphism invariance, it has a redundancy
+    which must be settled before the true degrees of freedom are manifest.
+    One does this by decomposing the metric (typically in the $ADM$ formalism)
+    and expanding the action \textcolor{red}{is this what I want?}
+    \begin{align}\label{}
+        S=\intdx^4\sqrt{g}\left[\frac{R}{2}-\frac{1}{2}(\nabla\phi)^2-V(\phi)\right]
+    \end{align}
+    to obtain the constraint equations---one can then solve the constraints
+    (perturbatively, aided by choice of gauge) and substitute
+    back into the action, leaving only the dynamical variables.
+    At the level of the background one then obtains the Friedmann equations;
+    at second order one obtains the quadratic action, which evolves the
+    interaction picture fields; and at third order, one obtains the cubic
+    interaction Hamiltonian.
+    \textcolor{red}{Check this!}
+
+
     To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
     For a simple Lagrangian such as $\mathcal{L}_0=\frac{1}{2}\dzeta^2$,
     we find $\pi=\dzeta$. However if the Lagrangian contains other cubic terms
-    with an explicit $\dzeta$, this relation will change and may not be invertible.
+    with an explicit $\dzeta$, this relation will change and may not be easily invertible.
     However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(\zeta^4,\dzeta^4)$,
-    so calculating the cubic interaction Hamiltonian from the interaction Lagrangian is trivial
-    if $\zeta$ and $\dzeta$ are small.
+    so calculating the cubic interaction Hamiltonian to this order
+    from the cubic interaction Lagrangian is trivial.
 
 
     \section{Interactions and shape functions}\label{sec:interactions}
