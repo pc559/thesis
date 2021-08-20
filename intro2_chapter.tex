@@ -281,7 +281,43 @@ allowing us to apply the method to feature bispectra for the first time.
     for that quantity there.
 
 
-    \section{Connecting the primordial power spectrum to observables}
+The equation of motion for the perturbations is~\eqref{modefneqn_zeta_N},
+%\begin{align}\label{modefneqn}
+%\zeta_k''+(3-\varepsilon+\eta-2\varepsilon_s)\zeta_k'+\frac{c_s^2k^2}{a^2H^2}\zeta_k=0
+%\end{align}
+where $c_s=1$ for standard canonical inflation.
+We use standard Bunch-Davies initial conditions,
+which leads us to impose the following condition deep in the horizon:
+\begin{align}\label{bd_ic}
+\zeta_k = \frac{i}{a}\sqrt{\frac{c_s}{4\varepsilon k}} e^{-ik\tau_s}
+\end{align}
+where $\tau_s$ is defined in~\eqref{tausdef}.
+The solution in slow-roll (without features) is then approximately
+\begin{align}\label{modefnsapprox}
+    \zeta_k \propto (1+ik\tau_s)e^{-ik\tau_s}.
+\end{align}
+At leading order in slow-roll the power spectrum is~\cite{mukhanov_1999,chen_ng_0605}:
+\begin{align}
+P^{\zeta}(k) = \frac{1}{8\pi^2}\frac{H^2}{c_s\varepsilon},
+\end{align}
+where the right hand side is evaluated at $c_{s}k=aH$.
+The spectral index is (also to leading order):
+\begin{align}
+n_s-1 = -2\varepsilon-\eta-\varepsilon_s.
+\end{align}
+
+
+Initially we consider the same basic models as in~\cite{Funakoshi};
+a quadratic potential
+\begin{align}\label{eq:quadratic_potential}
+    \quadpot = \frac{1}{2}m^2\phi^2.
+\end{align}
+with a canonical kinetic term,
+and a non-canonical model,
+the DBI model described in \textcolor{red}{SECTION}.
+
+
+    \section{The primordial power spectrum}
     Define the $\cmb$ power spectrum, discuss constraints.
     \textcolor{red}{Note we neglect ISW throughout. Mention polarisation, B-modes~\cite{Baumann_bmodes_2014}.\\
     How does this rule out e.g.\ $m^2\phi^2$?}
@@ -356,9 +392,7 @@ allowing us to apply the method to feature bispectra for the first time.
 
 \section{The primordial bispectrum}
     \subsection{The shape function}
-    Shape versus scale dependence.
-    Consequences of isotropy, homogeneity.
-    Define the shape function.
+    \textcolor{red}{Shape versus scale dependence.}
 The primordial bispectrum is usually written as:
 \begin{align}\label{bispectrum_definition}
 {
@@ -1007,41 +1041,6 @@ mostly orthogonal to the usual equilateral and local templates~\cite{RP_1}.
 The methods outlined in this thesis have been implemented
 and tested for single-field models,
 with multi-field models being a prime target for future work.
-
-The equation of motion for the perturbations is~\eqref{modefneqn_zeta_N},
-%\begin{align}\label{modefneqn}
-%\zeta_k''+(3-\varepsilon+\eta-2\varepsilon_s)\zeta_k'+\frac{c_s^2k^2}{a^2H^2}\zeta_k=0
-%\end{align}
-where $c_s=1$ for standard canonical inflation.
-We use standard Bunch-Davies initial conditions,
-which leads us to impose the following condition deep in the horizon:
-\begin{align}\label{bd_ic}
-\zeta_k = \frac{i}{a}\sqrt{\frac{c_s}{4\varepsilon k}} e^{-ik\tau_s}
-\end{align}
-where $\tau_s$ is defined in~\eqref{tausdef}.
-The solution in slow-roll (without features) is then approximately
-\begin{align}\label{modefnsapprox}
-    \zeta_k \propto (1+ik\tau_s)e^{-ik\tau_s}.
-\end{align}
-At leading order in slow-roll the power spectrum is~\cite{mukhanov_1999,chen_ng_0605}:
-\begin{align}
-P^{\zeta}(k) = \frac{1}{8\pi^2}\frac{H^2}{c_s\varepsilon},
-\end{align}
-where the right hand side is evaluated at $c_{s}k=aH$.
-The spectral index is (also to leading order):
-\begin{align}
-n_s-1 = -2\varepsilon-\eta-\varepsilon_s.
-\end{align}
-
-
-Initially we consider the same basic models as in~\cite{Funakoshi};
-a quadratic potential
-\begin{align}\label{eq:quadratic_potential}
-    \quadpot = \frac{1}{2}m^2\phi^2.
-\end{align}
-with a canonical kinetic term,
-and a non-canonical model,
-the DBI model described in \textcolor{red}{SECTION}.
 
 
 These templates can be modified to be more physically realistic by including
