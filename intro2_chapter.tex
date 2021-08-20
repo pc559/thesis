@@ -843,18 +843,23 @@ We will now continue the calculation within the slow-roll approximation,
 using~\eqref{uk_solution}. We approximate $g(\tau')$ and the slow-roll
 parameters as constant, and use $a\approx-1/(H\tau)$.
 We see that we will need to perform the following integral by parts
+\textcolor{red}{sign?}
 \begin{align}
-    \int_{-\infty(1+i\varepsilon)}^{0}d\tau~\tau^2 e^{ic_sK\tau}
+    \int_{-\infty(1+i\varepsilon)}^{0}d\tau~\tau^2 e^{-ic_sK\tau}
     &= \frac{-2i}{c_s^3K^3}
 \end{align}
 where we recall $K=k_1+k_2+k_3$.
 Using this, we finally obtain
+\textcolor{red}{sign?}
 \begin{align}
     S(k_1, k_2, k_3) = -3\frac{g H^5}{8\varepsilon^3}\frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}
 \end{align}
 where the factor of $6$ comes from the different possible contractions, all
 of which give the same result in this example.
-\textcolor{red}{Check the prefactor!! Sign? Remember sign from $\Lint$ to $\Hint$!}
+We can make contact with $\fnl^{EFT2}$ of~\cite{Planck_NG_2018, Senatore_wmap_2009}
+by setting $g(t)=-\frac{\varepsilon}{Hc_s^2}(1-c_s^2)\left(1+\frac{2\tilde{c}_3}{3c_s^2}\right)$
+and recalling $\Phi=\frac{3}{5}\zeta$.
+\textcolor{red}{Check this again!}
 
 
     \section{Step 1: the interaction Hamiltonian}
