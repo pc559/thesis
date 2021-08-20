@@ -420,7 +420,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
 
 
     For the local form, we have \textcolor{red}{Check prefactor!}
-    \begin{align}
+    \begin{align}\label{fnllocal_quadratic}
         \zeta(\vecx) = \zeta_G(\vecx) - \frac{3}{5}\fnllocal\left(\zeta_G(\vecx)^2-\left<\zeta_G(\vecx)^2\right>\right)
     \end{align}
     where $\zeta_G(\vecx)$ is a Gaussian field. The parameter $\fnllocal$ therefore has a clear
@@ -453,7 +453,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
         B^{DBI}_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^{DBI}}{k^{6}}.
     \end{align}
     Comparing to~\eqref{dbi_shape}, we find that
-    \begin{align}
+    \begin{align}\label{fnl_dbi_defn}
         \fnl^{DBI} = -\frac{35}{108}\left(c_s^{-2}-1\right).
     \end{align}
 
@@ -478,7 +478,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
 
 \begin{table}[h!]
   \begin{center}
-    \begin{tabular}{lrrrr}
+    \begin{tabular}{ccccc}
         \toprule
         Here & Definition &~\cite{px_burrage}&~\cite{Hu_2011} &~\cite{warp_features_dbi}\\
         \midrule
@@ -516,15 +516,24 @@ where $\Delta_{pq}$ is $2$ if $p=q$, $1$ otherwise
 and $\Delta_{prs}$ is $6$ if $p=r=s$, $2$ if $p=r\neq s$ (and permutations),
 and $1$ if $p,r,s$ are all distinct.
 
-    %\subsection{Basic templates, $f_{NL}$}
+
+    The local template is the shape which results from assuming the perturbation is
+    quadratic in a Gaussian field~\textcolor{red}{Shouldn't be dimensionless, check
+    this everywhere. Note on $n_s$, that's wrong here too.
+    Connect to~\eqref{fnllocal_quadratic}
     The three basic phenomenological templates, \planck.
     $f_{NL}$ from the data analysis perspective,
     and from the primordial perspective.
-
-    The local template is the shape which results from assuming the perturbation is
-    quadratic in a Gaussian field~\textcolor{red}{CHECK THIS}
+    }
 \begin{align}\label{local_shape}
-S^{local}(k_1,k_2,k_3) = \frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2} = \frac{K_3}{6\,K_{111}}.
+S^{local}(k_1,k_2,k_3)
+    &= \frac{6}{5}A_\zeta^2\fnllocal\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\\
+    &= \frac{6}{5}\fnllocal\bigg(
+        \primpowerspec(k_2)\primpowerspec(k_3)
+        +\primpowerspec(k_3)\primpowerspec(k_1)
+        +\primpowerspec(k_1)\primpowerspec(k_2)
+    \bigg)\\
+    &= \frac{6}{5}A_\zeta^2\fnllocal\frac{K_3}{6\,K_{111}}.
 \end{align}
 This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
     The local template is used to test for multi-field effects~\cite{Planck_NG_2015}.
@@ -534,11 +543,11 @@ This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
     and from inflation with a non-canonical kinetic term can be described by the
     equilateral template
 \begin{align}\label{equil_shape}
-    S^{equil}(k_1,k_2,k_3) = \frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}.
+    S^{equil}(k_1,k_2,k_3)
+    &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}\\
+    &= \frac{18}{5}A_\zeta^2\fnlequil\frac{K_3??}{6\,K_{111}??}.
 \end{align}
 This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
-
-
 
 
 \section{Step 3: the $\cmb$ bispectrum}
@@ -551,11 +560,11 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     where ${{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}$ enforces statistical isotropy.
 
 
-    For the $\cmb$ in particular, we calculate the projected bispectrum using
+    For the $\cmb$ in particular, we calculate the projected bispectrum using~\cite{FergShell_2}
     \begin{equation}
     \label{eq:reduced_cmb}
-    b^{X_1X_2X_3}_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
-        \int_{\mathcal{V}_k}d^3k (k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta^{X_i}_{l_i}(k_i)\right],
+    b_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
+        \int~d^3k (k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta_{l_i}(k_i)\right],
     \end{equation}
     analogously to~\eqref{eqn:transfer_function}.
     We see that the expression for the shape function $(k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)$ appears directly.
@@ -568,19 +577,19 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     \begin{align}
         \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k).
     \end{align}
-    \textcolor{red}{How does this relate to $\chi_*$, and why $3$? What is $\mathcal{V}_k$?}
+    \textcolor{red}{How does this relate to $\chi_*$, and why $3$?}
 
     The integral becomes
     \begin{equation}
     \label{eq:reduced_cmb_constant}
     b_{l_1l_2l_3} = \left(\frac{2}{3\pi}\right)^3\int_{0}^{\infty}drr^2
-        \int_{\mathcal{V}_k}d^3k \prod_{i=1}^{3}\left[j_{l_i}(k_ir)j_l((\tau_0-\tau_{dec})k_i)\right],
+        \int d^3k \prod_{i=1}^{3}\left[j_{l_i}(k_ir)j_l((\tau_0-\tau_{dec})k_i)\right].
     \end{equation}
 
 
     Now, using that
     \begin{align}
-        \int dk~j_l(k)j_l(xk)\qquad=\qquad&\frac{\pi}{2}\frac{x^{-(l+1)}}{2l+1}\qquad&&\text{for $x>1$}\\
+        \int_0^\infty dk~j_l(k)j_l(xk)\qquad=\qquad&\frac{\pi}{2}\frac{x^{-(l+1)}}{2l+1}\qquad&&\text{for $x>1$}\\
                             \qquad&\frac{\pi}{2}\frac{x^{l}}{2l+1}\qquad&&\text{for $x<1$}
     \end{align}
     we find that
