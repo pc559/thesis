@@ -441,7 +441,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     as in equation $(6)$ in~\cite{Planck_NG_2013}.
     The parameter $A_\phi$ comes from
     \begin{align}
-        P_\Phi(k) = \frac{A_\phi}{k^{4-n_s}}\approx\frac{3}{5}\frac{H^2}{4\varepsilon c_sk^{4-n_s}}
+        P_\Phi(k) = \frac{A_\phi}{k^{4-n_s}}\approx\left(\frac{3}{5}\right)^2\frac{H^2}{4\varepsilon c_sk^{4-n_s}}
     \end{align}
     where we used $\Phi=\frac{3}{5}\zeta$ and the slow-roll result for $\primpowerspec$.
     In~\cite{seery_ng_0503, chen_ng_0605, dbi_in_the_sky} $\fnl$ is similarly defined in terms
@@ -473,8 +473,26 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     which we defined in~\eqref{tausdef}.
     In~\cite{warp_features_dbi}, $\tau_s^{here}$ is also referred to as $s$,
     but $\epscs^{here}$ is referred to as $\sigma_1$.
-    \textcolor{red}{Turn this into a table? Also mention that
-    sometimes $X=\frac{1}{2}\dphi^2$ and sometimes $X=\dphi^2$.}
+    This is summarised in table~\ref{tab:notation}.
+
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{lrrrr}
+        \toprule
+        Here & Definition &~\cite{px_burrage}&~\cite{Hu_2011} &~\cite{warp_features_dbi}\\
+        \midrule
+        $\tau_s$ &~\eqref{tausdef} & ~ & $s$ & $s$ \\
+        $\epscs$ &~\eqref{slowrollparams} & $s$ & ~ & $\sigma_1$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+        Notation summary and comparison.
+        \textcolor{red}{Check N/A's. What about $X=\frac{1}{2}\dphi^2$ vs.\ $X=\dphi^2$?}
+    }\label{tab:notation}
+  \end{center}
+\end{table}
+
 
     \subsection{Templates}
     The momentum dependence of the various possible bispectrum shapes can be complex
@@ -939,7 +957,7 @@ For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
          \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}
 \end{align}
 to leading order in slow-roll.
-Any constraint on the magnitude $A^{DBI}$ can be translated into one 
+Any constraint on the magnitude of this template can be translated into one 
 on the effective sound speed which from \planck~has a lower limit $c_s^{DBI} \geq 0.087$
 at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
