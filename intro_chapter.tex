@@ -632,7 +632,9 @@ of e-folds.
 \subsection{Correlation functions}\label{corr_functions}
     \textcolor{red}{If you find yourself in a universe with\ldots
     Expectation value of an ensemble.
-    Monte-Carlo simulations are used to estimate covariance matrices.
+    Monte-Carlo simulations are used to estimate covariance matrices
+    $\left<a_{lm}a_{l'm'}\right>$,
+    which are not diagonal in the presence of a sky mask.
     Classical vs.\ quantum correlators (order matters), ensemble vs.\ spatial averages.}
 
 
@@ -723,6 +725,8 @@ thus allowing us to make contact between spatial measurements made in our one un
 If you make the assumption that your universe was drawn from a Gaussian
 distribution, you could use Gaussian Monte-Carlo simulations to,
 for example, estimate your rate of false positives for non-Gaussianity.
+The assumed Gaussian distribution (values of $C_l$) is used to generate $a_{lm}$ draws
+\textcolor{red}{check this}.
 But, of course, they will not allow you to get from observations to the true distribution. 
 
 
