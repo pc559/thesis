@@ -281,10 +281,8 @@ allowing us to ({\romannumeral 1}) preserve the intrinsic separability of the tr
 in-in formalism and ({\romannumeral 2}) do so in a way that allows easy exploration of possible
 sets of basis functions, to find a set that converges quickly enough to
 be useful in comparison with observation.
-    \subsection{When to start the integration}
-    Words
-    \subsection{Dangers of a sharp start}
-    Show how easy it is to swamp the result with a sharp start.
+
+
 \section{Integration weights}
     There are two central types of numerical integral that we have to perform
     in this method,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}.
@@ -315,7 +313,7 @@ be useful in comparison with observation.
     \end{align}
     We then calculate
     \begin{align}
-        A_{pq} = \mathcal{P}_p(\bar{x}_q)
+        A_{pq} = P_p(\bar{x}_q)
     \end{align}
     for $p\in[0,1,2]$ and $q\in[i-1,i,i+1]$.
     Inverting $A_{pq}/(x_{i+1}-x_{i-1})$ gives us the coefficients of the
@@ -339,8 +337,6 @@ be useful in comparison with observation.
     the trivial cost of performing an extra dot product.
 
 
-    When to swap, validation.
-    Why negative weights are usually bad.
 \section{The interaction Hamiltonian}\label{sec:h_int}
     (Using integration by parts from RP paper.)
 The methods detailed in the previous section depend on the separability of
