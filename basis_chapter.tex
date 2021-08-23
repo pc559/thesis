@@ -35,15 +35,13 @@ make precise the numerical considerations of the calculation,
 especially our methods of dealing with the high-frequency
 oscillations at early times.
 
-    \subsection{Relationship to decomposition on the cube}
-    \textcolor{red}{Don't talk about large non-physical contributions here, just the cube.}
     \subsection{The core of the calculation}\label{sec:main_notation}
-    (Defining the notation for the two main time integrals.)
+    \textcolor{red}{Make $\zeta$ vs.\ $u_k$ vs.\ $v_k$ consistent throughout! Hats, maybe?}
     In this section we set up the notation, and sketch the steps required to calculate the
 coefficients $\alpha_n$ in~\eqref{goal}.
 The values of these coefficients will depend on the choice
-of basis, but the description of the methods below will remain mostly
-\textcolor{red}{quantify} basis agnostic.
+of basis, but the methods we will describe will be practical for
+any basis.
 Our aim will be to separate out the dependence on $k$ and $\tau_s$,
 without losing any of the information contained in the tree-level in-in formalism,
 except in the sense that is controlled by $\Pmax$.
@@ -120,7 +118,6 @@ Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example 
     F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau}~,\\
     J^{(1)}(\tau,k) ~&=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
 \end{align}
-\textcolor{red}{Move elsewhere!}
 In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
 However, for high precision bispectrum predictions we must incorporate the full time-dependence,
 while solving~\eqref{modefneqn_zeta_N} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.
@@ -150,7 +147,8 @@ in $k$ to accurately calculate each $f_p^{(i)} (\tau)$,
 adding more modes that must be evolved in time.
 To bypass this, we extract the oscillatory part at
 early times, reducing the number of needed
-$k$-samples; see section~\eqref{sec:k_dep} for details.
+$k$-samples; see section \textcolor{red}{do I spell this out
+anywhere?} for details.
 Secondly, it forces us to calculate $f_p^{(i)} (\tau)$
 up to very high $p$ if we want to accurately converge to $F^{(i)}(\tau, k)$,
 for sets of basis functions such as the Legendre polynomials.
@@ -361,7 +359,36 @@ relative to the representative value
 
 
 %\section{The cube and the tetrapyd}
-\section{Large non-physical contributions}\label{sec:large_non_physical}
+\section{Setting up a basis}
+\textcolor{red}{Rearrange!}
+    \subsection{Basis set building blocks}
+    Our general strategy will be to start with the Legendre polynomials
+    or the Fourier basis functions as a foundation for our basis set,
+    and augment this set with other basis functions motivated by the
+    expected behaviour of primordial shapes in general.
+    In this way we can quickly capture the known behaviours,
+    but still have the flexibility to converge to a wide range
+    of shape functions. It also has the advantage that the Legendre polynomials
+    and the Fourier basis functions are automatically orthogonal,
+    so we will only have to use the modified Gram–Schmidt process
+    (which brings in numerical difficulties)
+    a minimal number of times.
+
+
+    The Legendre polynomials are a basis set with broad descriptive power.
+    The Fourier basis functions also have broad descriptive power,
+    but are limited by converging poorly to non-periodic functions.
+    This problem can be ameliorated through augmenting the basis as we describe below.
+    \subsection{Augmentation}
+    We augment our basis sets with extra orthogonalised basis functions.
+    We build these using the more numerically stable modified Gram-Schmidt process,
+    orthogonalising the new function with respect to all the basis elements already in
+    the basis. This means that while $\Lbasic$ with $\Pmax=20$ is a subset of
+    $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
+    $\Lnsinv$ with $\Pmax=30$, as the orthogonalised term in the former will include a part
+    non-orthogonal to (e.g.) $\mathcal{P}_{25}$ but it will not include that part in the latter.
+
+\subsection{Large non-physical contributions}\label{sec:large_non_physical}
 We begin our methods discussion by exploring possible sets of separable
 basis functions $Q_n(k_1,k_2,k_3)$
 for use in the expansion~\eqref{goal}.
@@ -588,7 +615,8 @@ The total size of the set will always be referred to as $\Pmax$.
           Basis summary---the augmentation of the basis is done
           using~\eqref{gram_schmidt}. The size of each basis is
           referred to as $\Pmax$. Some of these basis sets are
-          plotted in figure~\ref{fig:basis_pmax5_plots}.
+          plotted in figures~\ref{fig:basis_pmax5_plots_a}
+          and~\ref{fig:basis_pmax5_plots_b}.
       }\label{tab:basis_summary}
   \end{center}
 \end{table}
@@ -729,7 +757,8 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
     The $\Lnsinv$ basis isn't included in all the plots, but it would always lie in between
     the $\Lbasic$ and $\scalingbasis$ basis.
     The basis sets are defined in table~\ref{tab:basis_summary},
-    and some are plotted in figure~\ref{fig:basis_pmax5_plots}.
+    and some are plotted in figures~\ref{fig:basis_pmax5_plots_a}
+          and~\ref{fig:basis_pmax5_plots_b}.
     Basis sets~$\Lnsinv$ and $\scalingbasis$ work well for the linear oscillations,
     converging up to around $\omega\approx200$.
     For logarithmic oscillations the resonant basis works best, as expected.
@@ -817,34 +846,6 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     This illustrates why the tetrapyd-vs-cube problem is so much more severe for equilateral-type
     shapes than for local shapes, as the non-physical configurations are an order of magnitude
     more dominant.
-\section{Setting up a basis}
-    \subsection{Basis set building blocks}
-    Our general strategy will be to start with the Legendre polynomials
-    or the Fourier basis functions as a foundation for our basis set,
-    and augment this set with other basis functions motivated by the
-    expected behaviour of primordial shapes in general.
-    In this way we can quickly capture the known behaviours,
-    but still have the flexibility to converge to a wide range
-    of shape functions. It also has the advantage that the Legendre polynomials
-    and the Fourier basis functions are automatically orthogonal,
-    so we will only have to use the modified Gram–Schmidt process
-    (which brings in numerical difficulties)
-    a minimal number of times.
-
-
-    The Legendre polynomials are a basis set with broad descriptive power.
-    The Fourier basis functions also have broad descriptive power,
-    but are limited by converging poorly to non-periodic functions.
-    This problem can be ameliorated through augmenting the basis as we describe below.
-    \subsection{Augmentation}
-    We augment our basis sets with extra orthogonalised basis functions.
-    We build these using the more numerically stable modified Gram-Schmidt process,
-    orthogonalising the new function with respect to all the basis elements already in
-    the basis. This means that while $\Lbasic$ with $\Pmax=20$ is a subset of
-    $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
-    $\Lnsinv$ with $\Pmax=30$, as the orthogonalised term in the former will include a part
-    non-orthogonal to (e.g.) $\mathcal{P}_{25}$ but it will not include that part in the latter.
-
 
 \section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
     While it may not be intuitively apparent, the value of $\kmax/\kmin$
@@ -976,7 +977,12 @@ We conclude that augmenting the basis functions with terms incorporating the exp
         \subfloat[$\Lbasic$]{\label{fig:basis_plot_a}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_P_0}}\\
         \subfloat[$\Linvk$]{\label{fig:basis_plot_b}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_P_1}}\\
         \subfloat[$\scalingbasis$ basis]{\label{fig:basis_plot_e}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_scaling}}\\
-        \caption{}
+        \caption{
+            We plot the $\Lbasic$, $\Linvk$ and $\scalingbasis$ basis sets from
+            table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that these sets
+            have Legendre polynomial basis elements in common, but differ in
+            which functions they are augmented by.
+        }\label{fig:basis_pmax5_plots_a}
     \end{figure}
     \begin{figure}[!pth]
         \ContinuedFloat
@@ -985,13 +991,15 @@ We conclude that augmenting the basis functions with terms incorporating the exp
         \subfloat[$\Finvk$]{\label{fig:basis_plot_d}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_F_1}}\\
         \subfloat[$\resobasis$ basis]{\label{fig:basis_plot_f}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_reso}}\\
         \caption{
-            We plot various orthogonal basis sets from table~\ref{tab:basis_summary},
-            for $\Pmax=5$. Note that $\Lbasic$, $\Linvk$ and the $\scalingbasis$ basis
-            have Legendre polynomial basis elements in common, but differ in
+            We plot the $\Fbasic$, $\Finvk$ and $\resobasis$ basis sets from
+            table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that
+            $\Fbasic$ and $\Finvk$
+            have Fourier basis elements in common, but differ in
             which functions they are augmented by. The $\resobasis$ basis
-            does not have a constant basis element due to the factor of
+            differs in all of its basis elements, lacking even
+            a constant basis element due to the factor of
             $1/\sqrt{k}$ added to retain orthogonality.
-            }\label{fig:basis_pmax5_plots}
+        }\label{fig:basis_pmax5_plots_b}
     \end{figure}
 %\section{Factor basis?}
 %    Words~\cite{tensor_decomp_review}.
