@@ -582,8 +582,8 @@ is added in to the set one at a time, and orthogonalised with respect to all the
 functions already in the set.
 
 
-We can mitigate against this by including a basis function to capture this $1/k$ behaviour,
-i.e.\ defining $\Linvk$ such that the first $\Pmax-1$ basis functions match $\Lbasic^{\Pmax-1}$,
+Motivated by the form of the basic templates, we can introduce a basis function to capture the $1/k$ behaviour.
+We define $\Linvk$ such that the first $\Pmax-1$ basis functions match $\Lbasic^{\Pmax-1}$,
 and the final basis function is
 \begin{align}\label{P1_definition}
     q_{\Pmax-1}(k) = \text{Orth}\left[{1}/ {k},~\Lbasic^{\Pmax-1}\right].
@@ -591,14 +591,16 @@ and the final basis function is
 As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
 
 
-In addition to our Legendre basis functions, pure $\Lbasic$ and augmented $\Linvk$, we will also introduce a Fourier series basis denoted by $\Fbasic$ and defined by
+In addition to our Legendre basis functions, the pure $\Lbasic$ basis and
+the augmented $\Linvk$ basis, we will also introduce a Fourier series basis denoted by $\Fbasic$ and defined by
 \begin{align}\label{F0_definition}
     &q_{0}(k)    = 1\,, ~~
     q_{2r-1}(k)   = \sin(\pi r\kbar)\,,  ~~
-    q_{2r}(k) = \cos(\pi r\kbar)\,,  ~~  1\leq r\leq(\Pmax\text{$-$}3)/2\\
-    &q_{\Pmax\text{$-$}2}(k)=\bar k\,, ~~~q_{\Pmax\text{$-$}1}(k)=\bar k^2\,.
-    \end{align}
-Here, even the basic Fourier series have to be augmented by the linear $k$ and quadratic $k^2$ terms (for a total size of $\Pmax$),
+    q_{2r}(k) = \cos(\pi r\kbar)\,,  ~~  1\leq r\leq(\Pmax\text{$-$}3)/2
+    %&q_{\Pmax\text{$-$}2}(k)=\bar k\,, ~~~q_{\Pmax\text{$-$}1}(k)=\bar k^2\,.
+\end{align}
+augmented by $k$ and then by $k^2$ for a total basis size of $\Pmax$.
+The basic Fourier series have to be augmented by the linear $k$ and quadratic $k^2$ terms
 in order to satisfactorily approximate equilateral shapes (reflecting in part the preference for periodic functions). 
 As with $\Linvk$ defined in~\eqref{P1_definition}, we will similarly create an augmented Fourier basis $\Finvk$
 by adding the inverse $1/k$ term to the $\Fbasic$ basis, i.e.\ using
@@ -631,12 +633,13 @@ The total size of the set will always be referred to as $\Pmax$.
   \end{center}
 \end{table}
 
-In order to compare the efficacy of these four \textcolor{red}{update all this!} different basis
-function sets ($\Lbasic$, $\Fbasic$, $\Linvk$ and $\Finvk$),
+In order to compare the efficacy of the different basis function sets,
 we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the DBI shape~\eqref{dbi_shape}.
 To mimic the in-in calculation, we expand the shape on the cube, but test the result on the tetrapyd
 using~\eqref{relative_difference}.
-The results are shown in figure~\ref{fig:recon_malda_dbi} where we find that the Legendre polynomials basis set $\Lbasic$ converges so slowly as to be unusable (with the Fourier modes $\Fbasic$ worse and not plotted).
+The results are shown in figure~\ref{fig:recon_malda_dbi}.
+We find that the Legendre polynomials basis set $\Lbasic$ converges so slowly as to be unusable
+(with the Fourier modes $\Fbasic$ worse and not plotted).
 However, the augmented Legendre basis $\Linvk$ (including $1/k$) leads to rapid convergence with an improvement of four orders
 of magnitude at $\Pmax=15$. The augmented Fourier basis $\Finvk$ also converges
 quickly relative to $\Lbasic$, but is outdone by $\Linvk$.
@@ -656,7 +659,6 @@ each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
 \subfloat[Reconstructing the Maldacena Template]{\label{fig:recon_a}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/malda.png}}\\
 \subfloat[Reconstructing the DBI Template]{\label{fig:recon_b}\includegraphics[width=.75\columnwidth]{pmax_reduction_plots_1_1000/dbi.png}}
 \caption{
-    \textcolor{red}{Emphasise these are for $1:1000$.}
     Convergence comparisons for the Legendre and Fourier basis functions for (a) the Maldacena 
     template~\eqref{malda_shape} and (b) the DBI template~\eqref{dbi_shape}.
     The pure Legendre $\Lbasic$ basis requires many terms to fit the $1/k$ behaviour
@@ -665,6 +667,7 @@ each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
     error already reduced by a factor of $100$ at $\Pmax=5$.
     The Fourier $\Finvk$ basis performs well, but converges more slowly than the $\Linvk$ basis.
     Note that the convergence errors for~\eqref{dbi_shape} are larger than~\eqref{malda_shape} because of the larger contributions outside the tetrapyd dominating the fit.
+    In this plot and the following, unless otherwise stated, $\kmax=1000\kmin$.
 }\label{fig:recon_malda_dbi}
 \end{figure}
 
@@ -699,7 +702,7 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
     For this special case, the $\Lbasic$, $\scalingbasis$ and $\resobasis$ sets of basis functions require more modes
     to accurately describe the shape. (b) However, moving to the more complex and realistic case of a
     feature with scale and shape dependence (in this case the product of~\eqref{dbi_shape}
-    and~\eqref{cos_shape}), we see that again $\scalingbasis$ converges with the fewest modes.
+    and~\eqref{cos_shape}), we see that again the $\scalingbasis$ basis converges with the fewest modes.
     Note that before the expansion has fully converged, the fit on the tetrapyd
     can actually degrade slightly when the basis set is extended. This is an artifact
     of fitting on the cube and restricting~\eqref{relative_difference}
@@ -763,14 +766,14 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
 \subfloat[$\cos(\omega\ln(k_1+k_2+k_3))$]{\label{fig:freq_b}\includegraphics[width=.75\columnwidth]{freq_scan_plots/cos_log_freq_scan.png}}\\
 \caption{
     Here we test our basis sets on oscillatory templates, which are a good proxy for feature models.
-    These plots are useful to aid in deciding which basis to run BEstModal for,
-    figuring out which covers the widest range of features \textcolor{red}{PLANCK COMPARISON}.
-    The $\Lnsinv$ basis isn't included in all the plots, but it would always lie in between
+    These plots are useful to aid in deciding which basis to run $\cmbbest$ for,
+    in determining which covers the widest range of features.
+    The $\Lnsinv$ basis is not included in every plot, but would always perform between
     the $\Lbasic$ and $\scalingbasis$ basis.
     The basis sets are defined in table~\ref{tab:basis_summary},
     and some are plotted in figures~\ref{fig:basis_pmax5_plots_a}
           and~\ref{fig:basis_pmax5_plots_b}.
-    Basis sets~$\Lnsinv$ and $\scalingbasis$ work well for the linear oscillations,
+    Basis sets~$\Linvk$ and $\scalingbasis$ work well for the linear oscillations,
     converging up to around $\omega\approx200$.
     For logarithmic oscillations the resonant basis works best, as expected.
     However, the improvement is less dramatic.
@@ -800,22 +803,22 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
 \end{figure}
 
 Finally, we consider convergence in the light of the more subtle scale-dependence due to the spectral index $n_s$ of the power spectrum.  The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence, but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
-When we include this scale dependence, using~\eqref{dbi_prod_shape} with $n_s$, 
+When we include this scale dependence, using~\eqref{dbi_prod_shape} with $n^*_s$, 
 it proves very useful to include these deviations from
 integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure~\eqref{gram_schmidt}, 
 \begin{align}\label{Lns_inv}
-    q_{\Pmax}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
+    q_{\Pmax-1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
 \end{align}
 which we refer to as $\Lnsinv$.
-Secondly, we also augment $\Lbasic$ with an additional scale-dependent constant term as 
-\textcolor{red}{Need notation for two functions!}
+Secondly, we instead augment $\Lbasic$ with an additional scale-dependent terms
 \begin{align}\label{Lns_both}
-    q_{\Pmax}(k) = \text{Orth}\left[{k^{(n_s^{*}-1)}},~\Lbasic\right],\qquad  q_{\Pmax\text{$+$}1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
+    %q_{\Pmax}(k) = \text{Orth}\left[{k^{(n_s^{*}-1)}},~\Lbasic\right],\qquad  q_{\Pmax\text{$+$}1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
+    {k^{(n_s^{*}-1)}},\qquad{k^{-1+(n_s^{*}-1)}}
 \end{align}
 which we refer to as $\Lnsboth$.
 
 
-    It is worth noting that while $\Lbasic$ with $\Pmax=20$ is a subset of
+    It is worth noting that while $\Lbasic$ with (e.g.) $\Pmax=20$ is a subset of
     $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
     $\Lnsinv$ with $\Pmax=30$ as the augmented term will be orthogonalised
     with respect to a different set of functions.
@@ -890,6 +893,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
     will converge sufficiently well to be constrained.
 
 \section{The $\scalingbasis$ basis}\label{sec:scaling_definition}
+\textcolor{red}{Move earlier!}
     Despite having the same power spectrum scaling,
     different models can have different bispectrum scalings.
     Therefore while the power spectrum can give us a
@@ -1004,7 +1008,7 @@ We conclude that augmenting the basis functions with terms incorporating the exp
         }\label{fig:basis_pmax5_plots_a}
     \end{figure}
     \begin{figure}[!pth]
-        \ContinuedFloat
+        %\ContinuedFloat
         \centering
         \subfloat[$\Fbasic$]{\label{fig:basis_plot_c}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_F_0}}\\
         \subfloat[$\Finvk$]{\label{fig:basis_plot_d}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_F_1}}\\
