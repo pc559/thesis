@@ -155,13 +155,15 @@ in~\eqref{inin_sep} as:
 Substituting these expansions into~\eqref{inin_sep}, we obtain the following decomposition for the $i$-th vertex contribution,
 \begin{align}\label{inin_kdep}
     &I^{(i)}(k_1,k_2,k_3)
-    = \Re\bigg[v^{(i)}(k_1, k_2,k_3)\int d\tau\, w^{(i)}(\tau)\nonumber\\
+    = \Re\bigg[v^{(i)}(k_1, k_2,k_3)\int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau)\nonumber\\
     &\qquad\cdot\sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\bigg]\\
-	&= v^{(i)}(k_1, k_2,k_3)\sum_{prs}\bigg(\Re\int d\tau\, w^{(i)}(\tau)\nonumber\\
+	&= v^{(i)}(k_1, k_2,k_3)\sum_{prs}\bigg(\Re\int^0_{-\infty} d\tau\, w^{(i)}(\tau)\nonumber\\
     &\qquad\qquad\cdot f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\bigg)\threeqs + \text{cyclic perms}\,.
 \end{align}
 For the sake of compactness of notation we use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
+Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
+integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in section~\ref{sec:starting}.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
 \begin{align}\label{inin_kdep_cont}
@@ -171,7 +173,7 @@ we continue,
 \end{align}
 where we have written
 \begin{align}\label{inin_kindep}
-\tilde{\alpha}_P^{(i)} =  \tilde{\alpha}_{prs}^{(i)} 	= \Re\int d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau) \,g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\,,
+\tilde{\alpha}_P^{(i)} =  \tilde{\alpha}_{prs}^{(i)} 	= \Re\int^0_{-\infty} d\tau\, w^{(i)}(\tau)\, f_p^{(i)}(\tau) \,g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\,,
 \end{align}
 and included the time-independent $k$-prefactors from the interaction Hamiltonian by writing
 \begin{align}\label{V_definition}
@@ -389,8 +391,8 @@ relative to the representative value
     the basis.
 
 
-\subsection{Large non-physical contributions}\label{sec:large_non_physical}
-We begin our methods discussion by exploring possible sets of separable
+\subsection{Basis choices}\label{sec:large_non_physical}
+We now begin our discussion of specific possible sets of separable
 basis functions $Q_n(k_1,k_2,k_3)$
 for use in the expansion~\eqref{goal}.
 Whether the goal is to explore primordial phenomenology or for direct comparison with observations,
@@ -401,7 +403,7 @@ out of
 %symmetrised
 triplet products of normalized one-dimensional modes $q_p(k)$ as
 \begin{align}\label{modes3d}
-    Q_n(k_1,k_2,k_3)\equiv q_{(p} (k_1) \, q_{r}(k_2)\, q_{s)}(k_3)\,.
+    Q_n(k_1,k_2,k_3)\equiv q_{p} (k_1) \, q_{r}(k_2)\, q_{s}(k_3)\,.
 \end{align}
 Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appropriate manner.
 %(see some ordering alternatives in~\cite{FergShell_3}), while the symmetrised average of all $\{p r s\}$ permutations is 
@@ -491,7 +493,8 @@ To overcome this problem, as we shall discuss, we will extend our basis to expli
     check on our results.% in section~\ref{sec:validation}.
 }.
 
-To date the most useful starting choice for modal bispectrum expansions has been shifted Legendre polynomials $P_r(x)$:
+One useful starting choice for modal bispectrum expansions has been the shifted,
+normalised Legendre polynomials $P_r(x)$:
 \begin{align}\label{P0_definition}
     q_{r}(k) = \left(\frac{2r+1} {\kmax - \kmin}\right)^{1/2} P_r(\kbar)\,,\qquad 
 \end{align}
@@ -507,7 +510,7 @@ while they prove to be particularly functional building blocks for other modal a
 in the context of the in-in formalism
 they converge so slowly even for simple shapes as to be inadequate when taken on their own.
 This poor rate of convergence with $\Lbasic$ for two local- and equilateral-type shapes is shown in figure~\ref{fig:recon_malda_dbi}.
-It is due to the $1/k$ behaviour inherent in these shapes,
+This is due to the $1/k$ behaviour inherent in these shapes,
 which is compounded in the equilateral models by pathologies exterior to the tetrapyd,
 as we have discussed.
 
@@ -516,7 +519,8 @@ The two basis function sets actually used in~\cite{Funakoshi} to calculate primo
 The first was the Legendre polynomials taken with a log-mapping
 between $k$ and the polynomial argument as 
 \begin{align}\label{Pln_definition}
-    q_{r}(k) = \left(\frac{2r+1} {\ln\kmax - \ln\kmin}\right)^{1/2} P_r\left(\overline {\ln k}\right)\quad~ \text{with}\quad~ \overline {\ln k}=\frac{2\ln k-\ln\kmax-\ln\kmin}{\ln\kmax-\ln\kmin}\,.
+    q_{r}(k) = &\left(\frac{2r+1} {\ln\kmax - \ln\kmin}\right)^{1/2} P_r\left(\overline {\ln k}\right),\\
+    \overline {\ln k}=&\frac{2\ln k-\ln\kmax-\ln\kmin}{\ln\kmax-\ln\kmin}\,.
 \end{align}  
 The second basis was implicitly mentioned in a reference to the possibility of multiplying the functions
 to be decomposed by $k$, and dividing that factor out when evaluating
@@ -549,10 +553,12 @@ One could certainly also consider sets of basis functions more tailored to a par
 or indeed even use power spectrum information to, on the fly,
 generate a basis tailored to a rough form of the expected bispectrum features.
 We save this possibility for future work.
-In the following we will perform a more general exploration of orthogonal sets of basis functions that can
-efficiently describe the necessary $1/k$ behaviour.
-In addition to using the Legendre polynomials as building blocks,
-we will also consider a Fourier basis for the purposes of comparison.
+While it may be useful in the context of purely primordial phenomenology,
+connecting to $\cmbbest$ requires one broadly useful basis.
+%In the following we will perform a more general exploration of orthogonal sets of basis functions that can
+%efficiently describe the necessary $1/k$ behaviour.
+%In addition to using the Legendre polynomials as building blocks,
+%we will also consider a Fourier basis for the purposes of comparison.
 
 Our general strategy will be to augment these basic building blocks
 with a small number of extra basis elements, while retaining orthogonality,
