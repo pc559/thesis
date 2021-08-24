@@ -1,33 +1,43 @@
 %\input{commands}
 \chapter{Decomposing Primordial Shapes}\label{chapter:decomp}
+As we have seen, while at tree level the bispectrum is an integral
+over a separable integrand (see~\eqref{inin_integral} and
+the example presented in~\eqref{inin_computer}),
+this separability is usually lost
+in the final result. In this chapter we outline a formalism that preserves the
+separability, by expanding the integrand in a separable basis. We also explore
+possible choices for this separable basis, testing them on various
+shape functions from the literature and highlighting the choices with
+sufficiently fast and broad convergence to be useful in realistic
+inflationary parameter scans.
+
+
 \section{Setting up the formalism}\label{sec:setting_notation}
-    \subsection{Pulling out the $k$-dependence}\label{sec:k_dep}
-    Given its separable form, the tree-level in-in formalism is amenable
+Given its separable form, the tree-level in-in formalism is amenable
 to more efficient calculation using separable modes, as first mentioned in~\cite{Funakoshi}.
 That work extended the separable methodology previously implemented for the CMB
 bispectrum~\cite{FergShell_1,FergShell_2,FergShell_3}.
 Our goal in this work is the efficient calculation of more general bispectra
-which may have significant (possibly oscillatory) features, requiring searches across free parameter dependencies.
+which may have significant (possibly oscillatory) features, requiring searches across inflationary parameters.
 To achieve this, we represent the shape function~\eqref{shapefn} using a set of basis functions as
 \begin{align}\label{goal}
 S(k_1, k_2,k_3) &= \sum_n \alpha_n  \, Q_n(k_1,k_2,k_3)\,,
 \end{align}
 where the basis functions $Q_n(k_1,k_2,k_3)$ are explicitly separable functions of their arguments.
-The specific phenomenology of each scenario is encoded in $\alpha_n$.
+The specific bispectrum information of each scenario is encoded in $\alpha_n$.
 Translating this result into a constraint from the CMB
-will require a large once-off computational cost, paid once
-per set of basis functions $Q_n$,
-not per scenario.
+will require a large once-off computational cost---however, this cost will be
+paid once per set of basis functions $Q_n$, not per scenario.
 The details of this once-per-basis calculation will be
 presented in~\cite{Sohn_2021}.
 As such, while the general computational steps we
 describe will be independent of the basis, it is vital we
 explore possible sets of basis functions $Q_n(k_1,k_2,k_3)$
 and their effects on convergence;
-that is what we will explore in this chapter.
-In section~\ref{sec:main_notation} we set the notation we will use to recast
-the standard numerical in-in calculation into a calculation of $\alpha_n$,
-and sketch the steps involved, including accounting for the effect of spatial derivatives
+that will be the main subject of this chapter.
+In this section we will set the notation we will use to recast
+the standard numerical in-in calculation into a calculation of $\alpha_n$ in~\eqref{goal}.
+We will sketch the steps involved, including accounting for the effect of spatial derivatives
 in the interaction Hamiltonian on our final result.
 The rest of this chapter is then devoted to developing and comparing possible basis sets.
 In chapter~\ref{chapter:methods} we will then use the formalism and the basis sets of this chapter to
@@ -35,13 +45,10 @@ make precise the numerical considerations of the calculation,
 especially our methods of dealing with the high-frequency
 oscillations at early times.
 
-    \subsection{The core of the calculation}\label{sec:main_notation}
-    \textcolor{red}{Make $\zeta$ vs.\ $u_k$ vs.\ $v_k$ consistent throughout! Hats, maybe?}
-    In this section we set up the notation, and sketch the steps required to calculate the
-coefficients $\alpha_n$ in~\eqref{goal}.
-The values of these coefficients will depend on the choice
-of basis, but the methods we will describe will be practical for
-any basis.
+
+The values of the coefficients $\alpha_n$ will depend on the choice
+of basis, but the methods we will describe to calculate them
+will be practical for any basis.
 Our aim will be to separate out the dependence on $k$ and $\tau_s$,
 without losing any of the information contained in the tree-level in-in formalism,
 except in the sense that is controlled by $\Pmax$.
@@ -52,11 +59,12 @@ Throughout we will see that we are able to preserve the
 separability of the dependence on $k_1$, $k_2$ and $k_3$.
 
 
-The tree-level in-in formalism for the bispectrum~\eqref{in-in} is inherently separable given
+The tree-level in-in formalism for the bispectrum~\eqref{inin_integral} is inherently separable given
 the form of the cubic interaction Hamiltonian $H_{\rm int}$.
 This can be clearly seen in the integrand of the example in~\eqref{inin_computer}.
 Consider indexing with ${i=1,2,3...}$ the interaction vertices in $H_{\rm int}$,
-so then the bispectrum~\eqref{in-in} can be expressed as a sum over separable contributions of the form:
+so then after the contractions have been performed,
+the bispectrum~\eqref{inin_integral} can be expressed as a sum over separable contributions of the form:
 
 
 \begin{align}\label{inin_sep}
@@ -64,9 +72,11 @@ so then the bispectrum~\eqref{in-in} can be expressed as a sum over separable co
     &= \Re\sum_i \bigg[ v^{(i)}(k_1, k_2,k_3) \int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau) F^{(i)}(\tau,k_1)\, G^{(i)}(\tau,k_2)\,J^{(i)}(\tau,k_3)\nonumber\\
     &\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad+ \text{cyclic perms}  \bigg] 
 \end{align}
-where $w^{(i)}(\tau)$ is a function of the scale factor and the other background parameters~\eqref{slowrollparams} for the $i$-th interaction vertex, while the terms $F^{(i)}, G^{(i)}, J^{(i)}$ are given by the Fourier mode functions $k^2\zeta_{\bf k}(0)\zeta^{*}_{\bf k}(\tau)$ or their time derivatives $k^2\zeta_{\bf k}(0)\zeta^{*'}_{\bf k}(\tau)$.
-\textcolor{red}{Change to $v_k$?}
-Spatial derivative terms, such as  $\partial_i \zeta\, \partial_i\zeta \longrightarrow ({\bf k_2}\cdot {\bf k_3} )\zeta_{{\bf k}_2}^*(\tau)\, \zeta_{{\bf k}_3}^*(\tau)$ also separate because of the triangle condition~\eqref{triangle_condition} giving  ${\bf k_2}\cdot {\bf k_3} = (k_1^2 - k_2^2-k_3^2)/2$, yielding a sum of separable terms.
+where $w^{(i)}(\tau)$ is a function of the scale factor and the other background parameters~\eqref{slowrollparams} for the $i$-th interaction vertex, while the terms $F^{(i)}, G^{(i)}, J^{(i)}$ are given by the Fourier mode functions $k^2\zeta_{k}(0)\zeta^{*}_{k}(\tau)$ or their time derivatives $k^2\zeta_{k}(0)\dzeta^{*}_{k}(\tau)$.
+Spatial derivative terms also separate because of the triangle condition~\eqref{triangle_condition}.
+For example, a term such as  $\partial_i \zeta\, \partial_i\zeta$ becomes
+$(-{\bf k_2}\cdot {\bf k_3} )\zeta_{{k}_2}(\tau)\, \zeta_{{k}_3}(\tau)$.
+Since  ${\bf k_2}\cdot {\bf k_3} = (k_1^2 - k_2^2-k_3^2)/2$, this yields a sum of separable terms.
 These time-independent contributions are contained in $v^{(i)}(k_1, k_2,k_3)$,
 as they do not force us to compute extra time integrals.
 Note that $v^{(i)}(k_1, k_2,k_3)$ need not be symmetric in its arguments.
@@ -76,34 +86,32 @@ We can connect this form to the example given in~\eqref{inin_computer}.
 In that example, we see there is no sum over $i$ as we took only one term of $\Hint$.
 We also see that $v^{(i)}(k_1,k_2,k_3)=1$ as there are no spatial derivatives.
 Collecting the terms with no $k$ dependence, we see that
-$w^{(i)}(\tau)=(-2i)(-2\lambda(\tau)a^4(\tau))$.
+$w^{(i)}(\tau)=-2ig(\tau)a^4(\tau)$.
 The remaining terms then give
 \begin{align}
-    F^{(i)}(\tau,k) = G^{(i)}(\tau,k) = J^{(i)}(\tau,k) = k^2u_k(0)\dot{u}_k^*(\tau)
+    F^{(i)}(\tau,k) = G^{(i)}(\tau,k) = J^{(i)}(\tau,k) = k^2\zeta_k(0)\dzeta_k^*(\tau)
 \end{align}
 where the $k^2$ comes from the definition of the shape function~\eqref{shapefn},
-and we obtain $u_k(\tau)$ by numerically solving the equations of motion.
+and we obtain $\zeta_k(\tau)$ by numerically solving the equation of motion~\eqref{modefneqn_zeta_N}.
 
 
 The terms contained in $v^{(i)}(k_1, k_2,k_3)$ depend on the structure of the spatial derivatives in the interaction Hamiltonian,
-but not the specific scenario. These terms are separable; for details, see section~\ref{sec:h_int}.
+but not the specific scenario. These terms are separable;
+we will discuss their precise form in section~\ref{sec:h_int}.
 We include their contribution to the final result after the time integrals have been computed.
 The factors which depend only on time, $w_i(\tau)$, depend on the scenario
 but do not need to be decomposed in $k$.
 The remaining factors have both $k$ and time dependence;
 they must be decomposed in $k$ at every timestep.
-These terms look like $F^{(i)}(k, \tau) = k^{2} \zeta_{\bf k}(0)\zeta_{\bf k}^*(\tau)$
-(or $k ^{2} \zeta_{\bf k}(0){\zeta_{\bf k}^*}'(\tau)$),
-where $k^2$ comes from using the weighting of the scale-invariant shape function~\eqref{shapefn}
-\textcolor{red}{MOVE EARLIER}.
-This could be absorbed into $v^{(i)}(k_1, k_2,k_3)$, but we have the freedom to keep it here to aid convergence.
+As we have mentioned, these terms look like $F^{(i)}(k, \tau) = k^{2} \zeta_{\bf k}(0)\zeta_{\bf k}^*(\tau)$,
+with a possible time derivative.
+The factor of $k^2$ could be absorbed into $v^{(i)}(k_1, k_2,k_3)$, but we have the freedom to keep it here to aid convergence.
 
 If the expressions being expanded have some known pathology in their $k$-dependence,
 we can then see two ways of dealing with this.
 The basis can be augmented to efficiently capture the relevant behaviour
-(see chapter~\ref{sec:large_non_physical})
-or the behaviour can be absorbed into the analytic prefactor, $v^{(i)}(k_1, k_2,k_3)$.\footnote{At early times the modes are highly oscillatory in both $k$ and $\tau_s$, which certainly requires special attention.
-We discuss this in section~\ref{sec:k_dep}.}
+(as we will explore in the rest of this chapter)
+or the behaviour can be absorbed into the analytic prefactor, $v^{(i)}(k_1, k_2,k_3)$.\footnote{At early times the modes are highly oscillatory in both $k$ and $\tau_s$, to which we will certainly give special attention.}
 We use the former, as the numerics of the latter are less transparent
 and less physically motivated.
 
@@ -113,6 +121,7 @@ and indeed in dealing with the spatial derivatives in section~\ref{sec:h_int}
 we will find it useful to change to a different basis than the one used to perform the
 time integrals of the decompositions.
 
+\textcolor{red}{Jarring, move earlier.}
 Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example for the first interaction term in~\eqref{interaction_loc}, i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$, takes the form
 \begin{align}\label{inin_example_FG}
     F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau}~,\\
@@ -125,6 +134,8 @@ Obtaining the full 3D bispectrum directly is computationally demanding at high r
 it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$,
 a problem which is drastically compounded by bispectrum parameter searches e.g.\ for oscillatory models. 
 
+
+We will now link~\eqref{inin_sep} to~\eqref{goal}.
 Consider representing the primordial shape function $S(k_1, k_2, k_3)$ in~\eqref{inin_sep} as
 a mode expansion for each interaction term $I^{(i)}(k_1, k_2,k_3)$ as
 \begin{align}\label{modeexp}
@@ -139,24 +150,7 @@ in~\eqref{inin_sep} as:
     F^{(i)}(\tau, k) &= \sum _p f_p^{(i)} (\tau) \, q_p(k)\,,\label{mode1Dcoeffs_sum}\\
     \text{where} \quad f_p^{(i)} (\tau)  &= \int _\kmin^\kmax dk \,F^{(i)}(\tau, k) \, q_p(k) \,.\label{mode1Dcoeffs_integral}
 \end{align}
-Note that in the simple mode approximation, as in~\eqref{inin_example_FG},
-we must expand $e^{ic_{\rm s} k\tau}$ in the terms of the $q_p(k)$.
-At early times $\tau$ is large, so in $k$ this is highly oscillatory.
-This creates two problems. Firstly, this seems to require many samples
-in $k$ to accurately calculate each $f_p^{(i)} (\tau)$,
-adding more modes that must be evolved in time.
-To bypass this, we extract the oscillatory part at
-early times, reducing the number of needed
-$k$-samples; see section \textcolor{red}{do I spell this out
-anywhere?} for details.
-Secondly, it forces us to calculate $f_p^{(i)} (\tau)$
-up to very high $p$ if we want to accurately converge to $F^{(i)}(\tau, k)$,
-for sets of basis functions such as the Legendre polynomials.
-In fact, obtaining a convergent final bispectrum result
-does not require calculating the full convergent sum
-for $F^{(i)}(\tau, k)$ in~\eqref{mode1Dcoeffs_sum},
-as the highly oscillatory parts will cancel in the time integrals
-for any sufficiently smooth $S(k_1,k_2,k_3)$.
+
 
 Substituting these expansions into~\eqref{inin_sep}, we obtain the following decomposition for the $i$-th vertex contribution,
 \begin{align}\label{inin_kdep}
@@ -166,7 +160,8 @@ Substituting these expansions into~\eqref{inin_sep}, we obtain the following dec
 	&= v^{(i)}(k_1, k_2,k_3)\sum_{prs}\bigg(\Re\int d\tau\, w^{(i)}(\tau)\nonumber\\
     &\qquad\qquad\cdot f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\bigg)\threeqs + \text{cyclic perms}\,.
 \end{align}
-For the sake of compactness we use $P$ to stand for the triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
+For the sake of compactness of notation we use $P$ to stand for the
+triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
 \begin{align}\label{inin_kdep_cont}
@@ -184,12 +179,12 @@ and included the time-independent $k$-prefactors from the interaction Hamiltonia
 \end{align}
 and
 \begin{align}
-    \alpha_P^{(i)} = \sum_{\tilde{P}} \tilde{\alpha}_{\tilde{P}}^{(i)}V^{(i)}_{\tilde{P}P}.
+    \alpha_P^{(i)} = \sum_{\tilde{P}} \tilde{\alpha}_{\tilde{P}}^{(i)}V^{(i)}_{\tilde{P}P} + \text{cyclic perms}.
 \end{align}
-We connect to the coefficients of the ordered, symmetrised basis in~\eqref{modeexp} by taking the symmetry factor into account,
-\begin{align}
-    \alpha_n^{(i)} = \frac{3!}{\Xi_P}\alpha_P^{(i)}.
-\end{align}
+%We connect to the coefficients of the ordered, symmetrised basis in~\eqref{modeexp} by taking the symmetry factor into account,
+%\begin{align}
+%    \alpha_n^{(i)} = \frac{3!}{\Xi_P}\alpha_P^{(i)}.
+%\end{align}
 The numerical calculation of $V^{(i)}_{P\tilde{P}}$ (as defined by~\eqref{V_definition}) is highly efficient as $v^{(i)}(k_1, k_2,k_3)$
 is a sum of separable terms. The details of these terms
 depend only on the spatial derivatives in the interaction Hamiltonian, not the scenario being
@@ -396,25 +391,28 @@ Whether the goal is to explore primordial phenomenology or for direct comparison
 the convergence of our basis set will determine the efficiency and practicality
 of our methods.
 We shall consider constructing the separable basis functions $Q_n(k_1,k_2,k_3)$
-out of symmetrised triplet products of normalized one-dimensional modes $q_p(k)$ as
+out of
+%symmetrised
+triplet products of normalized one-dimensional modes $q_p(k)$ as
 \begin{align}\label{modes3d}
-    Q_n(k_1,k_2,k_3) \;\equiv\; {\Xi_{prs} } \, q_{(p} (k_1) \, q_{r}(k_2)\, q_{s)}(k_3)\,.
+    Q_n(k_1,k_2,k_3)\equiv q_{(p} (k_1) \, q_{r}(k_2)\, q_{s)}(k_3)\,.
 \end{align}
-Here,  $n$ labels the ordered integer triplet $n \leftrightarrow \{p r s\}$ in an appropriate manner (see some ordering alternatives in~\cite{FergShell_3}), while the symmetrised average of all $\{p r s\}$ permutations is 
-\begin{align}\label{modes3dsum}
-    q_{(p}q_{r}q_{s)}\equiv(1/3!)\sum_\text{perms}q_{p}q_{r}q_{s}\qquad \text{and} \qquad 
-     \Xi_{prs}= 
-     \begin{cases}
-     1, & p = r = s ~~~\text{all equal},\\
-     \sqrt{3} & \{p r s\} ~~\text{any two equal,} \\
-     \sqrt{6} & \{p r s\}  ~~\text{all  different.}
-     \end{cases}
-\end{align}
-Unless stated otherwise, the $\{prs\}$ triples for each permutation set $n$
-in~\eqref{modes3d} are represented by the coefficient with $0\le p\le r\le s$,
-that is, $\alpha_n = \alpha_{prs} \equiv \alpha_{(prs)}$.
+Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appropriate manner.
+%(see some ordering alternatives in~\cite{FergShell_3}), while the symmetrised average of all $\{p r s\}$ permutations is 
+%\begin{align}\label{modes3dsum}
+%    q_{(p}q_{r}q_{s)}\equiv(1/3!)\sum_\text{perms}q_{p}q_{r}q_{s}\qquad \text{and} \qquad 
+%     \Xi_{prs}= 
+%     \begin{cases}
+%     1, & p = r = s ~~~\text{all equal},\\
+%     \sqrt{3} & \{p r s\} ~~\text{any two equal,} \\
+%     \sqrt{6} & \{p r s\}  ~~\text{all  different.}
+%     \end{cases}
+%\end{align}
+%Unless stated otherwise, the $\{prs\}$ triples for each permutation set $n$
+%in~\eqref{modes3d} are represented by the coefficient with $0\le p\le r\le s$,
+%that is, $\alpha_n = \alpha_{prs} \equiv \alpha_{(prs)}$.
 This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$. 
-Given the basis-agnostic formalism we outlined in~\ref{sec:main_notation} and
+Given the basis-agnostic formalism we outlined in~\ref{sec:setting_notation} and
 the basis-agnostic methods we will outline in chapter~\ref{chapter:methods}
 %sections~\ref{sec:setting_notation},~\ref{sec:h_int} and~\ref{sec:k_dep},
 we are free to choose our set of basis functions to optimise for efficient convergence,

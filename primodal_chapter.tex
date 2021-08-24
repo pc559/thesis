@@ -227,6 +227,27 @@ We have found the best convergence results from distributing the k-samples
 according to the prescription of Gauss-Legendre quadrature.
 
 
+\textcolor{red}{Place this!}
+Note that we can see from the simple mode approximation, as in~\eqref{inin_example_FG},
+we must expand $e^{ic_{\rm s} k\tau}$ in the terms of the $q_p(k)$.
+At early times $\tau$ is large, so in $k$ this is highly oscillatory.
+This creates two problems. Firstly, this seems to require many samples
+in $k$ to accurately calculate each $f_p^{(i)} (\tau)$,
+adding more modes that must be evolved in time.
+To bypass this, we extract the oscillatory part at
+early times, reducing the number of needed
+$k$-samples; see section \textcolor{red}{do I spell this out
+anywhere?} for details.
+Secondly, it forces us to calculate $f_p^{(i)} (\tau)$
+up to very high $p$ if we want to accurately converge to $F^{(i)}(\tau, k)$,
+for sets of basis functions such as the Legendre polynomials.
+In fact, obtaining a convergent final bispectrum result
+does not require calculating the full convergent sum
+for $F^{(i)}(\tau, k)$ in~\eqref{mode1Dcoeffs_sum},
+as the highly oscillatory parts will cancel in the time integrals
+for any sufficiently smooth $S(k_1,k_2,k_3)$.
+
+
 To calculate the basis expansion of the bispectrum using the in-in formalism
 we must first calculate the basis expansion of the mode
 functions at each timestep~\eqref{mode1Dcoeffs_integral}.

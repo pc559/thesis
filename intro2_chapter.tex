@@ -722,11 +722,11 @@ The in-in formalism takes the time evolution of the interaction picture mode
 functions as an input for calculating the bispectrum.
 At tree-level, the in-in formalism gives us the
 following expression:
-\begin{align}
+\begin{align}\label{inin_integral}
 {
     \left< \zeta_{\mathbf{k_1}}(\tau)\zeta_{\mathbf{k_2}}(\tau)\zeta_{\mathbf{k_3}}(\tau) \right>
 =-i\int_{-\infty(1-i\varepsilon)}^{\tau}d\tau'a(\tau')
-    \left<0\lvert \zeta_{\mathbf{k_1}}(\tau)\zeta_{\mathbf{k_2}}(\tau)\zeta_{\mathbf{k_3}}(\tau)\Hint(\tau') \rvert0\right>+c.c\label{in-in}
+    \left<0\lvert \zeta_{\mathbf{k_1}}(\tau)\zeta_{\mathbf{k_2}}(\tau)\zeta_{\mathbf{k_3}}(\tau)\Hint(\tau') \rvert0\right>+c.c
 }
 \end{align}
 where all the operators on the right-hand side are in the interaction picture
@@ -793,7 +793,7 @@ We will take
 \end{align}
 where $g(t)$ is some function of time.
 This example is particularly simple as it contains no spatial derivatives.
-We will include those when we outline our formalism fully in section~\ref{sec:main_notation}.
+We will include those when we outline our formalism fully in section~\ref{sec:setting_notation}.
 We wish to calculate
 \begin{align}\label{inin_example}
     \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>&=
@@ -927,7 +927,7 @@ according to the equations of motion and then perform the above time integral.
 
 
 This is the point where our work will diverge from the standard calculation---this
-will be detailed in section~\ref{sec:k_dep}. For now, we merely note that
+will be detailed in section~\ref{sec:setting_notation}. For now, we merely note that
 the integrand of~\eqref{inin_computer} is explicitly separable in $k_1$, $k_2$ and $k_3$.
 
 
@@ -1390,10 +1390,10 @@ However the method is different in its details.
 Instead of performing integrals,
 a set of coupled ODEs is set up and solved.
 The power spectra and bispectra themselves are evolved, their time derivatives calculated by
-differentiating the in-in formalism.\footnote{
+differentiating the in-in formalism\footnote{
     See~\ref{appendix_modal_transport}
     for details on why we did not apply this strategy to our own modal coefficients.
-    }
+    }.
 The publicly released code is very sophisticated,
 able to deal with multiple fields in curved field spaces,
 recently being used to explore the bispectra resulting from
