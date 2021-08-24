@@ -146,10 +146,11 @@ allowing us to apply the method to feature bispectra for the first time.
     Expanding the mass, we find
     \begin{align}
         %\frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\frac{\eta}{2}-\varepsilon_s\right)\left(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4}\right)
-        \frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2\left(1+\ldots\right)
+        %\frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2\left(1+\ldots\right)
+        \frac{1}{z}\frac{d^2z}{d\tau^2} \approx 2{\left(aH\right)}^2
     \end{align}
-    where \ldots~represents the terms that are slow-roll suppressed,
-    so the evolution of the perturbations is well approximated using
+    where we have neglected terms that are slow-roll suppressed.
+    The evolution of the perturbations is therefore well approximated using
     $\frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2$
     unless there are features that make the slow-roll parameters large.
 
@@ -185,9 +186,10 @@ allowing us to apply the method to feature bispectra for the first time.
     \end{align}
     we obtain
     \begin{align}\label{modefneqn_tau_s}
-        \frac{\partial^2 y_k}{\partial \tau_s^2} + \left(k^2 - 2\left(\frac{aH}{c_s}\right)^2(1+\ldots)\right)y_k = 0
+        \frac{\partial^2 y_k}{\partial \tau_s^2} + \left(k^2 - 2\left(\frac{aH}{c_s}\right)^2(1+\ldots)\right)y_k \approx 0
     \end{align}
-    where again \ldots~represents terms which are slow-roll suppressed.
+    where we have neglected terms which are slow-roll suppressed.
+    %where again \ldots~represents terms which are slow-roll suppressed.
 
 
     At early times, well before crossing the sound horizon at $c_sk=aH$,
@@ -297,15 +299,25 @@ The solution in slow-roll (without features) is then approximately
 \begin{align}\label{modefnsapprox}
     \zeta_k \propto (1+ik\tau_s)e^{-ik\tau_s}.
 \end{align}
-At leading order in slow-roll the power spectrum is~\cite{mukhanov_1999,chen_ng_0605}:
+At leading order in slow-roll, using definition~\eqref{spectrum_definitions},
+the power spectrum is~\cite{mukhanov_1999,chen_ng_0605}
 \begin{align}
-P^{\zeta}(k) = \frac{1}{8\pi^2}\frac{H^2}{c_s\varepsilon},
+P_{\zeta}(k) = \frac{H^2}{4\varepsilon c_sk^3},
 \end{align}
 where the right hand side is evaluated at $c_{s}k=aH$.
-The spectral index is (also to leading order):
+We also define a dimensionless version
 \begin{align}
-n_s-1 = -2\varepsilon-\eta-\varepsilon_s.
+    \primpowerspec(k) = \frac{k^3}{2\pi^2}P_\zeta(k)
 \end{align}
+which is typically parametrised as
+\begin{align}
+    \primpowerspec(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
+\end{align}
+The spectral index can be found to be
+\begin{align}
+n_s-1 = -2\varepsilon-\eta-\varepsilon_s
+\end{align}
+at leading order in slow-roll.
 
 
 Initially we consider the same basic models as in~\cite{Funakoshi};
@@ -315,7 +327,7 @@ a quadratic potential
 \end{align}
 with a canonical kinetic term,
 and a non-canonical model,
-the DBI model described in \textcolor{red}{SECTION}.
+the DBI model described in section~\ref{sec:interactions}.
 
 
     \section{The primordial power spectrum}
@@ -519,6 +531,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
         \midrule
         $\tau_s$ &~\eqref{tausdef} & ~ & $s$ & $s$ \\
         $\epscs$ &~\eqref{slowrollparams} & $s$ & ~ & $\sigma_1$ \\
+        $z$ & ~ & $\varepsilon/c_s^2$ & ~ & ~ \\
         \bottomrule
     \end{tabular}
     \caption{
@@ -556,9 +569,6 @@ and $1$ if $p,r,s$ are all distinct.
     quadratic in a Gaussian field~\textcolor{red}{Shouldn't be dimensionless, check
     this everywhere. Note on $n_s$, that's wrong here too.
     Connect to~\eqref{fnllocal_quadratic}
-    The three basic phenomenological templates, \planck.
-    $f_{NL}$ from the data analysis perspective,
-    and from the primordial perspective.
     }
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3)
