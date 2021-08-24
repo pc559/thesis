@@ -218,14 +218,14 @@ possible source of asymmetric $k$-dependence
 comes from $\zeta^3$, $\zeta^2\zeta'$, $\zeta'^2\zeta$ or $\zeta'^3$
 so the time integral in~\eqref{inin_kindep} will always be (at least) symmetric in $p$ and $r$. },
 where $N_v$ is the number of interaction vertices
-and $\Pmax$ is the size of the final basis.
+and $\Pmax$ is the size of the basis.
 Since the calculational cost of doing the internal decompositions depends only
 linearly on the size of internal basis, improvements there are dwarfed by improvements
 gained from reducing the number of terms needed in the final basis.
 
 
-We will calculate the contribution of each $\Hint$ vertex separately,
-indexing the vertices as above by $(i)$, so the overall shape function~\eqref{inin_sep},~\eqref{modeexp} is then simply
+Having calculated the contribution of each $\Hint$ vertex separately,
+indexed as above by $(i)$, the overall shape function~\eqref{modeexp} is then simply
 \begin{align}\label{shapemodeexp}
     S(k_1, k_2,k_3) =   \sum_n \left(\sum_i \alpha_n^{(i)}\right) \, Q_n(k_1,k_2,k_3) =  \sum_n \alpha_n \, Q_n(k_1,k_2,k_3) \,.
 \end{align}
@@ -235,7 +235,7 @@ for efficiency the maximum modal resolution defined by $\Pmax$ can be allowed to
 for each vertex.  
  
 
-The raison d'etre for this approach is that all time integrals~\eqref{inin_kindep} are now independent of the $k$-configuration\footnote{
+It is worth emphasising that the raison d'etre for this approach is that all time integrals~\eqref{inin_kindep} are now independent of the $k$-configuration\footnote{
     They are not independent of $\kmin$ and $\kmax$ which define the domain of interest,
     which is analogous to the coefficients of a Taylor expansion depending on its expansion point.
 }.
@@ -253,17 +253,20 @@ our expansion in $\Pmax$ converges far faster than in the number of
 $k$-modes that would be required to have confidence in a sampled bispectrum.
 This is clear in smooth bispectra such as~\eqref{malda_shape} and~\eqref{dbi_shape},
 but is also true of bispectra with complicated features,
-as quantified by the figures in this chapter.
+as quantified by the figures later in this chapter.
+
 
 To be efficiently connected to a late-time observable
 a sampled bispectrum would have to be fit by a smooth template,
 a complication that is automatically taken care of in this formalism.
-We note that while the primordial basis is chosen for computational speed and convenience, it can be 
-independent of the final bispectrum basis employed for observational tests; a change of basis $Q_n\rightarrow \tilde Q_n$ can be achieved through a linear transformation $\Gamma$ with the new expansion coefficients given by $\tilde \alpha_m = \Gamma_{mn}\alpha_n$. 
+We note that the primordial basis can be chosen
+independently of the final bispectrum basis employed for observational tests---a change of
+basis $Q_{pqr}\rightarrow \tilde Q_{pqr}$ can be trivially
+and cheaply achieved through a linear transformation $\Gamma$
+with the new expansion coefficients given by $\tilde \alpha_{abc} = \Gamma_{ap}\Gamma_{bq}\Gamma_{cr}\alpha_{pqr}$. 
 
 
-Discussion of convergence in this work is considered only at the primordial level,
-\textcolor{red}{Maybe not, see chapter~\ref{chapter:constraints}!}
+Discussion of convergence in this chapter is considered only at the primordial level,
 with no concept of the signal to noise of an actual experiment.
 There could be a basis that converges faster in some observationally weighted sense,
 efficiently describing the primordial modes which will matter most at late times.
@@ -272,7 +275,10 @@ after the in-in computation is completed, is trivial.
 
 
 Having now set our notation and outlined the calculation, in the following sections we
-discuss the actual numerical implementation of these methods.
+discuss possible basis sets, before presenting the details on
+the numerical implementation of these methods in chapter~\ref{chapter:methods}.
+
+
 \section{Inner product choice}\label{sec:inner_product}
 The inner product of two bispectrum shape functions is given by 
 \begin{align}
