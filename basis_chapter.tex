@@ -279,8 +279,8 @@ discuss possible basis sets, before presenting the details on
 the numerical implementation of these methods in chapter~\ref{chapter:methods}.
 
 
-\section{Inner product choice}\label{sec:inner_product}
-The inner product of two bispectrum shape functions is given by 
+\section{Testing basis sets}\label{sec:inner_product}
+We define the inner product of two bispectrum shape functions as
 \begin{align}
     S_1\cdot S_2  = \langle S_1\,, S_2 \rangle = \int_{T_k} d^3k \: S_1(k_1,k_2,k_3) \: S_2(k_1,k_2,k_3)\,,\label{inner_prod}
 \end{align}
@@ -309,15 +309,16 @@ This error measure takes into account differences in overall magnitude as well a
 If we are only interested in comparing the differences coming from the shape,
 we can scale the bispectra so that $\ampcor(S_1,S_2)=1$ and so
 \begin{align}\label{relative_difference_scaled}
-    \totalcor(S_1,S_2) = \sqrt{2(1-\shapecor(S_1,S_2))}.
+    \totalcor^{(\ampcor=1)}(S_1,S_2) = \sqrt{2(1-\shapecor(S_1,S_2))}.
 \end{align}
 
 
-    \subsection{Interpretation}
-With this measure of relative difference, a shape correlation of $0.9$ corresponds to an error of $45\%$,
-a shape correlation of $0.99$ corresponds to an relative difference of $14\%$,
-a shape correlation of $0.999$ corresponds to an relative difference of $4\%$.
-Thus this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better representation of actual convergence
+With this measure of relative difference, a shape correlation of $0.9$ corresponds to a
+relative difference of $45\%$,
+a shape correlation of $0.99$ corresponds to a relative difference of $14\%$,
+a shape correlation of $0.999$ corresponds to a relative difference of $4\%$.
+Thus (for our purposes in calculating feature bispectra)
+this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better representation of actual convergence
 between two shape functions
 than the correlation used in~\cite{Funakoshi}, as it is easier to interpret and
 more stringent.
@@ -332,11 +333,10 @@ of our validation examples in section~\ref{sec:validation}.
 In that section we also plot residuals on slices through the tetrapyd,
 relative to the representative value
 \begin{align}\label{rep_val}
-    \sqrt{\frac{S\cdot S}{\int_{T_k} d^3k}}.
+    S^{rep}=\sqrt{\frac{S\cdot S}{\int_{T_k} d^3k}}.
 \end{align}
 
 
-    \subsection{Weighting}
     One degree of freedom that we have not exploited is weighting the decomposition
     to optimise the convergence of the final observable.
     This could be advantageous as it is possible that the CMB could be more sensitive
@@ -344,7 +344,8 @@ relative to the representative value
     converge most efficiently.
     In this work however we focus on calculating the primordial shape function accurately
     and efficiently and leave exploiting this freedom to a future work.
-\section{Testing on templates}
+
+
     An important part of this work is testing the expected convergence of our various
     basis sets on templates of primordial shapes, before testing them in the setting
     of the in-in formalism.
@@ -361,11 +362,10 @@ relative to the representative value
 
 %\section{The cube and the tetrapyd}
 \section{Setting up a basis}
-\textcolor{red}{Rearrange!}
     \subsection{Basis set building blocks}
     Our general strategy will be to start with the Legendre polynomials
-    or the Fourier basis functions as a foundation for our basis set,
-    and augment this set with other basis functions motivated by the
+    or the Fourier basis functions as a foundation for our basis set.
+    We will augment this set with additional basis functions motivated by the
     expected behaviour of primordial shapes in general.
     In this way we can quickly capture the known behaviours,
     but still have the flexibility to converge to a wide range
@@ -379,15 +379,15 @@ relative to the representative value
     The Legendre polynomials are a basis set with broad descriptive power.
     The Fourier basis functions also have broad descriptive power,
     but are limited by converging poorly to non-periodic functions.
-    This problem can be ameliorated through augmenting the basis as we describe below.
-    \subsection{Augmentation}
-    We augment our basis sets with extra orthogonalised basis functions.
+    This problem can be ameliorated through augmenting the basis
+    with extra basis functions.
+
+
+    We augment our basis sets with extra (orthogonalised) basis functions.
     We build these using the more numerically stable modified Gram-Schmidt process,
     orthogonalising the new function with respect to all the basis elements already in
-    the basis. This means that while $\Lbasic$ with $\Pmax=20$ is a subset of
-    $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
-    $\Lnsinv$ with $\Pmax=30$, as the orthogonalised term in the former will include a part
-    non-orthogonal to (e.g.) $\mathcal{P}_{25}$ but it will not include that part in the latter.
+    the basis.
+
 
 \subsection{Large non-physical contributions}\label{sec:large_non_physical}
 We begin our methods discussion by exploring possible sets of separable
@@ -807,6 +807,14 @@ Secondly, we also augment $\Lbasic$ with an additional scale-dependent constant 
     q_{\Pmax}(k) = \text{Orth}\left[{k^{(n_s^{*}-1)}},~\Lbasic\right],\qquad  q_{\Pmax\text{$+$}1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
 \end{align}
 which we refer to as $\Lnsboth$.
+
+
+    It is worth noting that while $\Lbasic$ with $\Pmax=20$ is a subset of
+    $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
+    $\Lnsinv$ with $\Pmax=30$ as the augmented term will be orthogonalised
+    with respect to a different set of functions.
+
+
 As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
 even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.
 However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.
