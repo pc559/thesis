@@ -1063,12 +1063,11 @@ in section~\ref{sec:scaling_definition}.
 %    Going beyond $\Pmax=30$.
 %    How high can I go, in terms of parameters that can't be compared to Planck?
 \section{Conclusions}
-    \textcolor{red}{My new basis sets, and their dramatic improvement}
     From the plots presented in this chapter it is clear that the problem of the
     large non-physical off-tetrapyd configurations is vitally important to the feasibility of the
     separable in-in calculation of inflationary bispectra.
     In this setting, where we are effectively forced to fit on the whole cube,
-    we find that the basic Legendre polynomials and Fourier series basis sets
+    we find that the basic Legendre polynomials or Fourier series basis sets alone
     are not sufficient to capture the shapes we hope to constrain.
     However, we found that by augmenting the Legendre polynomials with
     basis functions that could capture $1/k$ behaviour, the convergence
@@ -1077,9 +1076,11 @@ in section~\ref{sec:scaling_definition}.
 
 
     While $\Lnsinv$ improves significantly over $\Lbasic$ for certain examples,
-    as it is tied to a particular scaling it is not as ideal solution for a pipeline which requires
-    a single basis that can capture the broadest range of shapes, including different scalings.
-    To improve upon this situation, we introduced the $\scalingbasis$ basis, which is augmented by
+    as it is tied to a particular scaling it is not an ideal solution. This is due the desire to create
+    a full pipeline, which connects to real $\cmb$ data using $\cmbbest$, and the constraint
+    that the expense of this code (for reasonable large $\Pmax$) limits the full pipeline to one (or very few) basis sets.
+    Thus we desire a single basis that can capture the broadest range of shapes, including different scalings.
+    To improve upon $\Lnsinv$, we introduced the $\scalingbasis$ basis, which is augmented by
     terms which allow it more flexibility in capturing the scaling of the shape function,
     despite being built without any power spectrum information.
 
@@ -1087,13 +1088,23 @@ in section~\ref{sec:scaling_definition}.
     We also presented results from the $\resobasis$ basis, a basis set designed to converge well
     for logarithmic oscillations, an important target due to the resonance mechanism.
     While this goes against the philosophy of developing one basis set that converges well across the
-    broadest possible range of bispectrum shapes, it may be useful in the alternative way forward of
-    performing two runs of $\cmbbest$, i.e.\ doing both the scaling basis (for linear oscillations)
-    and the resonant basis (for log oscillations).
+    broadest possible range of bispectrum shapes, it may be useful as an alternative way forward---performing
+    two runs of $\cmbbest$, i.e.\ with both the scaling basis (for linear oscillations and general features)
+    and the resonant basis (for logarithmic oscillations).
 
 
-Future work, using parafac~\cite{tensor_decomp_review}.
+    Possible future improvements in the design of basis sets could be obtained using tensor decomposition methods,
+    such as the parafac method described in~\cite{tensor_decomp_review}. Given the output of $\primodal$,
+    the coefficients $\alpha_{pqr}$, one could imagine performing a tensor decomposition on $\alpha_{pqr}$,
+    expressing it as a sum of outer products of vectors.
+    If this decomposition resulted in a compact description, a sum of only a few terms, then it is possible
+    the methods of $\cmbbest$ as described in~\cite{Sohn_2021} could be efficiently applied to individual
+    models, as this would effectively have a much smaller $\Pmax$.
 
 
     Now that we have demonstrated the feasibility of the overall method, in the next chapter we will
-    present its detailed implementation.
+    present its detailed implementation in the context of the in-in formalism.
+
+
+
+
