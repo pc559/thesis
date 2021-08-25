@@ -802,10 +802,14 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
     }\label{fig:plot_freq_scan_dbi}
 \end{figure}
 
-Finally, we consider convergence in the light of the more subtle scale-dependence due to the spectral index $n_s$ of the power spectrum.  The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence, but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
+Finally, we consider convergence in the light of the more subtle scale-dependence due to
+the spectral index $n_s$ of the power spectrum.
+The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence,
+but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
 When we include this scale dependence, using~\eqref{dbi_prod_shape} with $n^*_s$, 
 it proves very useful to include these deviations from
-integer power laws in the basis functions.  We consider two cases, first augmenting $\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure~\eqref{gram_schmidt}, 
+integer power laws in the basis functions.  We will now consider two cases, first augmenting
+$\Lbasic$ by a scale-dependent $1/k$ term using the orthogonalisation procedure~\eqref{gram_schmidt}, 
 \begin{align}\label{Lns_inv}
     q_{\Pmax-1}(k) = \text{Orth}\left[{k^{-1+(n_s^{*}-1)}},~\Lbasic\right],
 \end{align}
@@ -819,78 +823,23 @@ which we refer to as $\Lnsboth$.
 
 
     It is worth noting that while $\Lbasic$ with (e.g.) $\Pmax=20$ is a subset of
-    $\Lbasic$ with $\Pmax=30$, $\Lnsinv$ with $\Pmax=20$ is not a subset of
-    $\Lnsinv$ with $\Pmax=30$ as the augmented term will be orthogonalised
+    $\Lbasic$ with any higher $\Pmax$, $\Lnsinv$ with (e.g.) $\Pmax=20$ is not a subset of
+    $\Lnsinv$ with any higher $\Pmax$ as the augmented term will be orthogonalised
     with respect to a different set of functions.
 
 
 As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
-even a small overall scale dependence causes significant degradation in the convergence of the original augmented Legendre basis $\Linvk$.
-However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$ results again in rapid convergence to the scale-dependent DBI template, which can be accurately approximated with a limited number of modes.
-We conclude that augmenting the basis functions with terms incorporating the expected dependence on the spectral index enables the efficient approximation of high precision primordial bispectra.
+even a small overall scale dependence causes significant degradation in the convergence of
+the original augmented Legendre basis $\Linvk$.
+However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$
+results again in rapid convergence to the scale-dependent DBI template, which can then be accurately
+approximated with a limited number of modes.
+We conclude using power spectrum information to augment the basis functions with terms incorporating the expected dependence
+on the spectral index enables the efficient approximation of high precision primordial bispectra.
+This is still not optimal, however, as the scaling of the bispectrum is not uniquely defined by the
+scaling of the power spectrum, so more flexibility would be desirable---we will explore this further
+in section~\ref{sec:scaling_definition}.
 
-
-    %\subsection{Large non-physical contributions}\label{large_non_physical}
-    When a shape is dominated by its non-physical configurations
-    (those that do not obey the triangle inequality~\eqref{triangle_inequality})
-    then we can see slow convergence on the tetrapyd, despite
-    possibly fast convergence on the cube as a whole.
-    We will refer to convergence on the tetrapyd as $\totalcortet$
-    and the convergence on the cube as $\totalcorcub$.
-    For a pure oscillation we see no significant difference between the convergence on the cube
-    and on the tetrapyd, as expected for a shape where the physical and non-physical
-    configurations are of the same order of magnitude.
-    For an oscillation with a DBI shape however, we see a large difference,
-    as shown in figure~\ref{fig:log_recon_osc_dbiosc}.
-    On the cube we see fast, monotonic convergence---the $\resobasis$ basis
-    and $\scalingbasis$ basis perform well, quickly bring $\totalcorcub$
-    below $0.1\%$.
-    On the tetrapyd however, we see that $\totalcortet$ only drops below
-    $0.1\%$ for $\Pmax<30$ for the $\resobasis$ basis.
-
-
-    We also see that the improvement in $\totalcortet$ is no longer
-    monotonic, there are regions where increasing $\Pmax$ results in
-    a larger $\totalcortet$. \textcolor{red}{HERE Explain this better!!}
-    To understand this it is important to remember that we are not simply
-    adding modes as we increase $\Pmax$---the augmented mode is changing
-    each time, and thus while we expect $\totalcorcub$ to decrease monotonically,
-    there is no such guarantee for point-wise convergence. \textcolor{red}{CHECK THIS!!}
-
-
-    We also notice that $\totalcortet$ stays fixed at $1$ for low values of $\Pmax$.
-    This is due to the basis fitting the large non-physical configurations,
-    and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
-
-    For the local shape the mean value of the shape function on the entire cube
-    (thus accounting for volume effects) is approximately a factor of $40$ larger than the mean
-    when restricted to the tetrapyd. For the equilateral template, this factor becomes $-300$.
-    This illustrates why the tetrapyd-vs-cube problem is so much more severe for equilateral-type
-    shapes than for local shapes, as the non-physical configurations are an order of magnitude
-    more dominant.
-
-\section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
-    While it may not be intuitively apparent, the value of $\kmax/\kmin$
-    affects convergence even in the absence of significant features.
-    We can see this in figure~\ref{fig:recon_dbi_ns}.
-    In this figure we plot the convergence of various basis sets for the scale-dependent
-    DBI template~\eqref{dbi_prod_shape}, for $\kmax/\kmin=550$ and
-    for $\kmax/\kmin=1000$. We see that the convergence is slower
-    for higher $\kmax/\kmin$. This means that to achieve the same convergence
-    for this shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.
-    For example, if one wanted to achieve an accuracy of $0.1\%$ for this shape
-    with the $\scalingbasis$ basis,
-    one would need $\Pmax=15$ for $\kmax/\kmin=550$
-    and $\Pmax=20$ for $\kmax/\kmin=1000$
-    We also see this effect for the scale-invariant DBI shape~\eqref{dbi_shape}
-    but it significantly less dramatic.
-
-
-    We of course desire to use as much of the available data as we can.
-    As such, it is desirable to have the largest possible $k$-range.
-    However, as we can see, this must be weighted against the loss
-    of descriptive power, as we will then have a smaller set of shapes which
-    will converge sufficiently well to be constrained.
 
 \section{The $\scalingbasis$ basis}\label{sec:scaling_definition}
 \textcolor{red}{Move earlier!}
@@ -1024,6 +973,70 @@ We conclude that augmenting the basis functions with terms incorporating the exp
             $1/\sqrt{k}$ added to retain orthogonality.
         }\label{fig:basis_pmax5_plots_b}
     \end{figure}
+
+
+\subsection{Large non-physical contributions}\label{large_non_physical}
+    When a shape is dominated by its non-physical configurations
+    (those that do not obey the triangle inequality~\eqref{triangle_inequality})
+    then we can see slow convergence on the tetrapyd, despite
+    possibly fast convergence on the cube as a whole.
+    We will refer to convergence on the tetrapyd as $\totalcortet$
+    and the convergence on the cube as $\totalcorcub$.
+    For a pure oscillation we see no significant difference between the convergence on the cube
+    and on the tetrapyd, as expected for a shape where the physical and non-physical
+    configurations are of the same order of magnitude.
+    For an oscillation with a DBI shape however, we see a large difference,
+    as shown in figure~\ref{fig:log_recon_osc_dbiosc}.
+    On the cube we see fast, monotonic convergence---the $\resobasis$ basis
+    and $\scalingbasis$ basis perform well, quickly bring $\totalcorcub$
+    below $0.1\%$.
+    On the tetrapyd however, we see that $\totalcortet$ only drops below
+    $0.1\%$ for $\Pmax<30$ for the $\resobasis$ basis.
+
+
+    We also see that the improvement in $\totalcortet$ is no longer
+    monotonic, there are regions where increasing $\Pmax$ results in
+    a larger $\totalcortet$. \textcolor{red}{HERE Explain this better!!}
+    To understand this it is important to remember that we are not simply
+    adding modes as we increase $\Pmax$---the augmented mode is changing
+    each time, and thus while we expect $\totalcorcub$ to decrease monotonically,
+    there is no such guarantee for point-wise convergence. \textcolor{red}{CHECK THIS!!}
+
+
+    We also notice that $\totalcortet$ stays fixed at $1$ for low values of $\Pmax$.
+    This is due to the basis fitting the large non-physical configurations,
+    and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
+
+    For the local shape the mean value of the shape function on the entire cube
+    (thus accounting for volume effects) is approximately a factor of $40$ larger than the mean
+    when restricted to the tetrapyd. For the equilateral template, this factor becomes $-300$.
+    This illustrates why the tetrapyd-vs-cube problem is so much more severe for equilateral-type
+    shapes than for local shapes, as the non-physical configurations are an order of magnitude
+    more dominant.
+
+\section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
+    While it may not be intuitively apparent, the value of $\kmax/\kmin$
+    affects convergence even in the absence of significant features.
+    We can see this in figure~\ref{fig:recon_dbi_ns}.
+    In this figure we plot the convergence of various basis sets for the scale-dependent
+    DBI template~\eqref{dbi_prod_shape}, for $\kmax/\kmin=550$ and
+    for $\kmax/\kmin=1000$. We see that the convergence is slower
+    for higher $\kmax/\kmin$. This means that to achieve the same convergence
+    for this shape for a higher $\kmax/\kmin$, we must also go to a higher $\Pmax$.
+    For example, if one wanted to achieve an accuracy of $0.1\%$ for this shape
+    with the $\scalingbasis$ basis,
+    one would need $\Pmax=15$ for $\kmax/\kmin=550$
+    and $\Pmax=20$ for $\kmax/\kmin=1000$
+    We also see this effect for the scale-invariant DBI shape~\eqref{dbi_shape}
+    but it significantly less dramatic.
+
+
+    We of course desire to use as much of the available data as we can.
+    As such, it is desirable to have the largest possible $k$-range.
+    However, as we can see, this must be weighted against the loss
+    of descriptive power, as we will then have a smaller set of shapes which
+    will converge sufficiently well to be constrained.
+
 %\section{Factor basis?}
 %    Words~\cite{tensor_decomp_review}.
 %\section{Higher $\Pmax$}
