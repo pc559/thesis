@@ -8,23 +8,25 @@ well various basis sets fit standard shape templates.
 Given that understanding, in this chapter we will now turn
 our attention to the numerics of the calculation---specifically, the calculation of
 the integrals~\eqref{mode1Dcoeffs_integral} and~\eqref{inin_kindep}, and the numerical
-evolution of $\zeta_k$. We will also validate the implementation of our methods
-(the $\primodal$ code) on phenomenologically interesting examples.
+evolution of $\zeta_k$ according to~\eqref{modefneqn_zeta_N}. We will also
+validate the implementation of our methods (the $\primodal$ code) on phenomenologically interesting examples.
 
 
 \section{Numerics of mode evolution}
     \subsection{The initial conditions}
-    The Bunch-Davies initial conditions for each mode are set sufficiently early that they
+    The Bunch-Davies initial conditions for each mode are set sufficiently early that the modes
     have converged to the attractor solution before the start of the numerical in-in integration.
-    It is necessary to start the numerical integration when all modes are deep
-    in the horizon, see figure~\ref{fig:plot_time_integrand_scan}.
-    When the modes are deep in the horizon they are highly oscillatory, but as they evolve
-    and cross the horizon they stop oscillating and eventually freeze-out.
+    Since it is necessary to start the numerical integration when all modes are deep
+    in the horizon (as we will see in figure~\ref{fig:plot_time_integrand_scan})
+    this means the modes must start their evolution when they are are oscillating
+    with a high frequency. As they evolve
+    and cross the horizon they will stop oscillating and eventually freeze-out.
     This freeze-out marks the end of the in-in integration,
-    as once all the modes have frozen there will be no more contribution to~\eqref{inin_kindep},
-    as in~\eqref{modeexp} we only keep the imaginary part,
-    and the integrand of~\eqref{inin_sep} will either be real or vanish.
-    In each of these regimes we must use different numerical set-ups to
+    as once all the modes have frozen there will be no more contribution to~\eqref{inin_kindep}.
+    This happens as the integrand of~\eqref{inin_kindep} either becomes purely
+    imaginary or vanishes (although this is dependent on the form of $\Hint$ used,
+    as we will discuss in section~\ref{sec:stopping}).
+    We must use different numerical set-ups in early times versus late times to
     ensure the efficient calculation of an accurate result.
 
 
@@ -34,8 +36,9 @@ functions\footnote{
     due to slow-roll corrections.
 }
 and numerically evolve $\zeta_ke^{ik\tau_s}$.
-Unless interrupted, this prefactor decays exponentially.
-Eventually we switch to evolving $\zeta_k$ directly.
+Unless interrupted by a feature, this quantity decays exponentially
+at early times.
+At late times we switch to evolving $\zeta_k$ directly.
 For featureless slow-roll inflation the timing of the switch is simple;
 so long as it is around horizon crossing, or a couple of e-folds after,
 the precise location will not affect the result.
@@ -44,7 +47,7 @@ a step feature, for example.
 Here, we found that navigating the feature in the first set of variables
 causes difficulty for the stepper.
 Switching to $\zeta_k$ before the onset of the feature
-gives robust results without needing to loosen the tolerance.
+gave robust results without needing to loosen the tolerance.
 
 
 \section{Integration weights}
@@ -52,9 +55,9 @@ gives robust results without needing to loosen the tolerance.
     in this method,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}.
     In some regimes these integrals are highly oscillatory, in others they are not.
     In our method we evolve a fixed number of $k$-modes through the inflation scenario.
-    At each timestep we must perform a decomposition, given the values of the $k$-modes
-    at these given sample points.
-    These decomposition at each timestep involve performing many integrals over the same
+    At each timestep we must perform a decomposition~\eqref{mode1Dcoeffs_integral},
+    given the values of the $k$-modes at these given sample points.
+    These decompositions at each timestep involve performing many integrals over the same
     sample points, one for each of the basis functions.
     The integrals over time also require many integrals over the sample points---one
     for each of the final coefficients, over the decompositions calculated at each timestep.
@@ -66,8 +69,8 @@ gives robust results without needing to loosen the tolerance.
     In the regimes where the functions are not expected to be oscillatory, we achieve this
     using the basic method of performing a second order Legendre decomposition on each pair
     of segments, and integrating the Legendre polynomials to obtain the weights.
-    We break the integral up into segments $[x_0, x_1, x_2,\ell,x_{N-1}]$.
-    To calculate $\int_{x_{i-1}}^{x_{i+1}}f(x)dx$ take each triplet of
+    We break the integral up into segments $[x_0, x_1, x_2,\ldots,x_{N-1}]$.
+    To calculate $\int_{x_{i-1}}^{x_{i+1}}f(x)dx$ we take each triplet of
     sample points $[x_{i-1}, x_{i}, x_{i+1}]$, and map it to $[\bar{x}_{i-1}, \bar{x}_{i}, \bar{x}_{i+1}]$,
     where
     \begin{align}
@@ -79,7 +82,7 @@ gives robust results without needing to loosen the tolerance.
     \begin{align}
         A_{pq} = P_p(\bar{x}_q)
     \end{align}
-    for $p\in[0,1,2]$ and $q\in[i-1,i,i+1]$.
+    for the \textit{p}th Legendre polynomial, $p\in[0,1,2]$ and $q\in[i-1,i,i+1]$.
     Inverting $A_{pq}/(x_{i+1}-x_{i-1})$ gives us the coefficients of the
     fit, and the definite integral is simply the $0$ coefficient,
     i.e.\ $\left(A^{-1}\right)_{0q}$ is the contribution that these segments give to
@@ -95,10 +98,10 @@ gives robust results without needing to loosen the tolerance.
     For oscillatory regimes, we can improve our convergence by including the known
     oscillatory frequency in our calculation of the weights. For example we calculate
     $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)f(x)dx$ by performing a Legendre expansion of
-    $f$, which is relatively slowly varying. By precomputing $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)\mathcal{P}_n(\bar{x})dx$
+    $f$, which is relatively slowly varying. By precomputing $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)P_n(\bar{x})dx$
     for each segment, we can then obtain a set of weights which provide a good approximation
     to the integral, with the cost of integrating an extra function simply
-    the trivial cost of performing an extra dot product.
+    the cost of performing an extra dot product.
 
 
 \section{Starting the integration with a pinch}\label{sec:starting}
@@ -372,7 +375,7 @@ sets of basis functions, to find a set that converges quickly enough to
 be useful in comparison with observation.
 
 
-\section{Stopping the integration}
+\section{Stopping the integration}\label{sec:stopping}
 Numerically this is preferable to forms with boundary terms,
 whether they come from undoing a field redefinition or from integration by parts.
 Since the boundary term contribution will depend on the choice of when to end the integration,
@@ -473,7 +476,7 @@ Following the calculation of~\cite{px_burrage} (see also~\cite{bdy_arroja,bdy_pa
 we do not work with any boundary terms.
 
 
-\section{Validation (on numerical results)}\label{sec:validation}
+\section{Validation}\label{sec:validation}
 \subsection{Validation methods}\label{sec:validation_methods}
 In this section we validate our implementation of our methods
 on different types of non-Gaussianity, sourced in different ways.

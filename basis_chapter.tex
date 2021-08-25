@@ -621,7 +621,7 @@ The total size of the set will always be referred to as $\Pmax$.
         $\Lnsinv$  & Legendre polynomials & $k^{-1+(n_s^{*}-1)}$   & \eqref{Lns_inv}\\
         $\Lnsboth$ & Legendre polynomials& $k^{n_s^{*}-1}$, $k^{-1+(n_s^{*}-1)}$ & \eqref{Lns_both}\\
         $\scalingbasis$ & Legendre polynomials& $k^{-1}$, $\ln(k)k^{-1}$ &\\
-        $\resobasis$ & $\frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}$, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& &\\
+        $\resobasis$ & $\frac{P_n(\bar{k})}{\sqrt{k}}$, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& &\\
     \end{tabular}
     \caption{
           Basis summary---the augmentation of the basis is done
@@ -916,12 +916,12 @@ in section~\ref{sec:scaling_definition}.
     also includes a factor of $\frac{1}{\sqrt{k}}$ to retain orthogonality.
     We define the $n$th basis element as
     \begin{align}
-        \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{,}\qquad \bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
+        \frac{P_n(\bar{k})}{\sqrt{k}}\text{,}\qquad \bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
     \end{align}\label{reso_basis_definition}
     We then see that
     \begin{align}
-        \int_{\kmin}^{\kmax}dk\frac{\mathcal{P}_m(\bar{k})}{\sqrt{k}}\frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}
-        = \int_{\ln\kmin}^{\ln\kmax}d\ln{k}~\mathcal{P}_m(\bar{k})\mathcal{P}_n(\bar{k})
+        \int_{\kmin}^{\kmax}dk\frac{P_m(\bar{k})}{\sqrt{k}}\frac{P_n(\bar{k})}{\sqrt{k}}
+        = \int_{\ln\kmin}^{\ln\kmax}d\ln{k}~P_m(\bar{k})P_n(\bar{k})
         \propto \delta_{mn}
     \end{align}
     so the $\resobasis$ basis is orthogonal
