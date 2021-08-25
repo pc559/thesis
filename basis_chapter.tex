@@ -842,7 +842,6 @@ in section~\ref{sec:scaling_definition}.
 
 
 \section{The $\scalingbasis$ basis}\label{sec:scaling_definition}
-\textcolor{red}{Move earlier!}
     Despite having the same power spectrum scaling,
     different models can have different bispectrum scalings.
     Therefore while the power spectrum can give us a
@@ -855,10 +854,10 @@ in section~\ref{sec:scaling_definition}.
     The $\scalingbasis$ basis is built using the Legendre polynomials,
     augmented (in the sense of~\eqref{gram_schmidt})
     with
-    \textcolor{red}{Need better notation!}
     \begin{align}\label{scaling_basis_definition}
-        q_{\Pmax-2}(k) &= \text{Orth}\left[{k^{-1}},~\Lbasic\right],\\
-        q_{\Pmax-1}(k) &= \text{Orth}\left[{\ln(k)k^{-1}},~\Lbasic\right].
+        k^{-1},\qquad \ln(k)k^{-1}
+        %q_{\Pmax-2}(k) &= \text{Orth}\left[{k^{-1}},~\Lbasic\right],\\
+        %q_{\Pmax-1}(k) &= \text{Orth}\left[{\ln(k)k^{-1}},~\Lbasic\right].
     \end{align}
     This is motivated by
     \begin{align}
@@ -871,7 +870,8 @@ in section~\ref{sec:scaling_definition}.
     Since for the DBI case the scaling exponent $\epsilon$ is expected to be of the
     same order as $n_s-1$ and $\varepsilon_s$, we see that this
     approximation is good for our case,
-    where $\ln\left(\frac{\kmax}{\kmin}\right)\approx6.91$.
+    where (as we will discuss in section~\ref{sec:tradeoff})
+    we have $\ln\left(\frac{\kmax}{\kmin}\right)\approx6.91$.
     By adding $k^{-1}$ and $\ln(k)k^{-1}$ separately to our
     basis, their relative coefficient will be set to the value
     which provides the best fit to the final shape,
@@ -879,20 +879,23 @@ in section~\ref{sec:scaling_definition}.
     scalings with the same basis, so we have no need to know anything
     about the scaling a priori (except that it is small).
 
-    As we can see in figure~\ref{fig:recon_dbi_ns} the $\scalingbasis$ basis
-    converges quickly to a DBI template with a realistic scaling, outperforming
-    the $\Lnsinv$ basis. For the feature templates however,
-    for example figure~\ref{fig:plot_freq_scan},
+
+    For the feature templates, for example figure~\ref{fig:plot_freq_scan},
     we see that the $\scalingbasis$ basis performs equivalently to $\Lnsinv$
     and $\Lbasic$.
     This is because these template have no scaling or complex shape dependence,
     and the fit to the oscillatory feature is due to the Legendre polynomials
     in the basis.
-
     In figure~\ref{fig:plot_freq_scan_dbi} we see that the $1/k$ behaviour is
     necessary to achieve an acceptable fit, but since these templates
     do not need non-integer scaling, the $\scalingbasis$ basis performs
     equivalently to $\Linvk$, as expected.
+
+
+    As we can see in figure~\ref{fig:recon_dbi_ns} however, the $\scalingbasis$ basis
+    converges quickly to a DBI template with a realistic scaling. It outperforms
+    the $\Lnsinv$ basis, despite not assuming power spectrum information.
+
 \section{The $\resobasis$ basis}\label{sec:resobasis_definition}
     We finally describe a basis specifically designed to capture logarithmic oscillations,
     a type of feature that is usually very difficult to accurately fit.
@@ -913,13 +916,13 @@ in section~\ref{sec:scaling_definition}.
     also includes a factor of $\frac{1}{\sqrt{k}}$ to retain orthogonality.
     We define the $n$th basis element as
     \begin{align}
-        \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{, with }\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
+        \frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}\text{,}\qquad \bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
     \end{align}\label{reso_basis_definition}
     We then see that
     \begin{align}
         \int_{\kmin}^{\kmax}dk\frac{\mathcal{P}_m(\bar{k})}{\sqrt{k}}\frac{\mathcal{P}_n(\bar{k})}{\sqrt{k}}
-        &= \int_{\ln\kmin}^{\ln\kmax}d\ln{k}\mathcal{P}_m(\bar{k})\mathcal{P}_n(\bar{k})\\
-        &\propto \delta_{mn}
+        = \int_{\ln\kmin}^{\ln\kmax}d\ln{k}~\mathcal{P}_m(\bar{k})\mathcal{P}_n(\bar{k})
+        \propto \delta_{mn}
     \end{align}
     so the $\resobasis$ basis is orthogonal
     due to the way we defined $\bar{k}$ for this basis set.
@@ -928,9 +931,10 @@ in section~\ref{sec:scaling_definition}.
     the $\resobasis$ basis converges for a much smaller range for frequencies
     (for fixed basis set size $\Pmax=30$) than the other basis sets we test.
     For logarithmic oscillations however, we see that the range of accessible
-    frequencies is nearly doubled. We also note that for logarithmic oscillations,
+    frequencies is nearly doubled when compared to the other basis sets.
+    We also note that for logarithmic oscillations,
     wherever we have acceptable convergence the $\resobasis$ basis converges best.
-    We also see however that in the frequency range that none of our basis sets
+    We also see however that in the frequency range where none of our basis sets
     converge, the $\resobasis$ basis has the largest error. This is because
     the $\resobasis$ basis is designed to be a set of orthogonal logarithmic
     oscillations, and so will be orthogonal to frequencies outside of its range.
@@ -953,7 +957,8 @@ in section~\ref{sec:scaling_definition}.
             We plot the $\Lbasic$, $\Linvk$ and $\scalingbasis$ basis sets from
             table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that these sets
             have Legendre polynomial basis elements in common, but differ in
-            which functions they are augmented by.
+            which functions they are augmented by, which are added to the start of the
+            indexing.
         }\label{fig:basis_pmax5_plots_a}
     \end{figure}
     \begin{figure}[!pth]
@@ -996,16 +1001,17 @@ in section~\ref{sec:scaling_definition}.
 
     We also see that the improvement in $\totalcortet$ is no longer
     monotonic, there are regions where increasing $\Pmax$ results in
-    a larger $\totalcortet$. \textcolor{red}{HERE Explain this better!!}
+    a larger $\totalcortet$.
     To understand this it is important to remember that we are not simply
     adding modes as we increase $\Pmax$---the augmented mode is changing
     each time, and thus while we expect $\totalcorcub$ to decrease monotonically,
-    there is no such guarantee for point-wise convergence. \textcolor{red}{CHECK THIS!!}
+    there is no such guarantee for point-wise convergence.
 
 
     We also notice that $\totalcortet$ stays fixed at $1$ for low values of $\Pmax$.
     This is due to the basis fitting the large non-physical configurations,
     and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
+
 
     For the local shape the mean value of the shape function on the entire cube
     (thus accounting for volume effects) is approximately a factor of $40$ larger than the mean
@@ -1014,7 +1020,14 @@ in section~\ref{sec:scaling_definition}.
     shapes than for local shapes, as the non-physical configurations are an order of magnitude
     more dominant.
 
-\section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}
+
+    This phenomenon is a major obstacle to preserving the separability of the in-in formalism,
+    due to the restriction that we must (effectively, if not in a literal sense) fit to the cube---we
+    have seen that neglecting it and using a simple basis such as $\Lbasic$ would be disastrous.
+    However, as we have seen, the more sophisticated basis sets described in this chapter are capable
+    of overcoming this obstacle, without surrendering generality.
+
+\section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}\label{sec:tradeoff}
     While it may not be intuitively apparent, the value of $\kmax/\kmin$
     affects convergence even in the absence of significant features.
     We can see this in figure~\ref{fig:recon_dbi_ns}.
@@ -1037,19 +1050,20 @@ in section~\ref{sec:scaling_definition}.
     of descriptive power, as we will then have a smaller set of shapes which
     will converge sufficiently well to be constrained.
 
+
+    As described in~\cite{sohn_2021}, if too much of the squeezed limit is lost,
+    constraining power on models such as those of the local type is lost. It is shown
+    in that paper that $\kmax/\kmin=1000$ is sufficient, and as we have seen in this chapter
+    this value still retains convergence on a range of interesting models at the primordial level.
+
+
 %\section{Factor basis?}
 %    Words~\cite{tensor_decomp_review}.
 %\section{Higher $\Pmax$}
 %    Going beyond $\Pmax=30$.
 %    How high can I go, in terms of parameters that can't be compared to Planck?
 \section{Conclusions}
-Future work, using parafac~\cite{tensor_decomp_review}.
-    \textcolor{red}{FIGURES: Coefficient plot for $\Lbasic$, $\Linvk$, $\resobasis$}
-    Refit mixed basis functions to pure Legendre's subtract to show convergence of rest?
     \textcolor{red}{My new basis sets, and their dramatic improvement}
-    Take from above.
-    \textcolor{red}{Nice table with descriptions and some single-number comparison on examples}
-    Make table.
     From the plots presented in this chapter it is clear that the problem of the
     large non-physical off-tetrapyd configurations is vitally important to the feasibility of the
     separable in-in calculation of inflationary bispectra.
@@ -1069,12 +1083,17 @@ Future work, using parafac~\cite{tensor_decomp_review}.
     terms which allow it more flexibility in capturing the scaling of the shape function,
     despite being built without any power spectrum information.
 
+
     We also presented results from the $\resobasis$ basis, a basis set designed to converge well
     for logarithmic oscillations, an important target due to the resonance mechanism.
     While this goes against the philosophy of developing one basis set that converges well across the
     broadest possible range of bispectrum shapes, it may be useful in the alternative way forward of
     performing two runs of $\cmbbest$, i.e.\ doing both the scaling basis (for linear oscillations)
     and the resonant basis (for log oscillations).
+
+
+Future work, using parafac~\cite{tensor_decomp_review}.
+
 
     Now that we have demonstrated the feasibility of the overall method, in the next chapter we will
     present its detailed implementation.
