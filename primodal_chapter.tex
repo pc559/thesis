@@ -1,4 +1,17 @@
 \chapter{Methods and Validation}\label{chapter:methods}
+In chapter~\ref{chapter:decomp} we outlined a formalism for recasting the tree-level in-in
+calculation for the bispectrum into a form that preserves its separability.
+We then showed that despite the effects of the non-physical configurations we could still
+achieve sufficient convergence for a range of interesting models, by investigating how
+well various basis sets fit standard shape templates.
+
+Given that understanding, in this chapter we will now turn
+our attention to the numerics of the calculation---specifically, the calculation of
+the integrals~\eqref{mode1Dcoeffs_integral} and~\eqref{inin_kindep}, and the numerical
+evolution of $\zeta_k$. We will also validate the implementation of our methods
+(the $\primodal$ code) on phenomenologically interesting examples.
+
+
 \section{Numerics of mode evolution}
     \subsection{The initial conditions}
     The Bunch-Davies initial conditions for each mode are set sufficiently early that they
@@ -15,11 +28,12 @@
     ensure the efficient calculation of an accurate result.
 
 
-Similarly to~\cite{Funakoshi}, at early times we extract the factor of $e^{-ik\tau_s}$ from the mode functions
-and numerically evolve $\zeta_ke^{ik\tau_s}$\footnote{
+Similarly to~\cite{Funakoshi}, at early times we extract the factor of $e^{-ik\tau_s}$ from the mode
+functions\footnote{
     In fact~\cite{Funakoshi} extracts a factor of $e^{-ikc_s(\tau)\tau}$, losing efficiency
     due to slow-roll corrections.
-}.
+}
+and numerically evolve $\zeta_ke^{ik\tau_s}$.
 Unless interrupted, this prefactor decays exponentially.
 Eventually we switch to evolving $\zeta_k$ directly.
 For featureless slow-roll inflation the timing of the switch is simple;
@@ -32,7 +46,61 @@ causes difficulty for the stepper.
 Switching to $\zeta_k$ before the onset of the feature
 gives robust results without needing to loosen the tolerance.
 
-%\section{Integration methods}
+
+\section{Integration weights}
+    There are two central types of numerical integral that we have to perform
+    in this method,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}.
+    In some regimes these integrals are highly oscillatory, in others they are not.
+    In our method we evolve a fixed number of $k$-modes through the inflation scenario.
+    At each timestep we must perform a decomposition, given the values of the $k$-modes
+    at these given sample points.
+    These decomposition at each timestep involve performing many integrals over the same
+    sample points, one for each of the basis functions.
+    The integrals over time also require many integrals over the sample points---one
+    for each of the final coefficients, over the decompositions calculated at each timestep.
+    Thus, it is important that we can efficiently integrate many different functions
+    over the same sample points.
+
+
+    We do this by calculating integration weights for each of the sample points.
+    In the regimes where the functions are not expected to be oscillatory, we achieve this
+    using the basic method of performing a second order Legendre decomposition on each pair
+    of segments, and integrating the Legendre polynomials to obtain the weights.
+    We break the integral up into segments $[x_0, x_1, x_2,\ell,x_{N-1}]$.
+    To calculate $\int_{x_{i-1}}^{x_{i+1}}f(x)dx$ take each triplet of
+    sample points $[x_{i-1}, x_{i}, x_{i+1}]$, and map it to $[\bar{x}_{i-1}, \bar{x}_{i}, \bar{x}_{i+1}]$,
+    where
+    \begin{align}
+        \bar{x}_{i-1} &= -1,\\
+        \bar{x}_i     &= \frac{2x_i-(x_{i-1}+x_{i+1})}{x_{i+1}-x_{i-1}},\\
+        \bar{x}_{i+1} &= 1.
+    \end{align}
+    We then calculate
+    \begin{align}
+        A_{pq} = P_p(\bar{x}_q)
+    \end{align}
+    for $p\in[0,1,2]$ and $q\in[i-1,i,i+1]$.
+    Inverting $A_{pq}/(x_{i+1}-x_{i-1})$ gives us the coefficients of the
+    fit, and the definite integral is simply the $0$ coefficient,
+    i.e.\ $\left(A^{-1}\right)_{0q}$ is the contribution that these segments give to
+    the weight for the sample point $x_q$. When all the weights $w_i$ have been calculated,
+    the resulting approximation for the integral is simply
+    \begin{align}
+        \int_{x_{0}}^{x_{N-1}}f(x)dx\approx\sum_{i=0}^{i=N-1}f(x_i)w_i,
+    \end{align}
+    i.e.\ a simple dot product between the sampled function and the weights,
+    which need only be calculated once for an arbitrary number of functions $f$.
+
+
+    For oscillatory regimes, we can improve our convergence by including the known
+    oscillatory frequency in our calculation of the weights. For example we calculate
+    $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)f(x)dx$ by performing a Legendre expansion of
+    $f$, which is relatively slowly varying. By precomputing $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)\mathcal{P}_n(\bar{x})dx$
+    for each segment, we can then obtain a set of weights which provide a good approximation
+    to the integral, with the cost of integrating an extra function simply
+    the trivial cost of performing an extra dot product.
+
+
 \section{Starting the integration with a pinch}\label{sec:starting}
 While this method has extra suppression at early times compared to the
 usual in-in calculation~\eqref{inin_kindep} still converges slowly
@@ -304,95 +372,7 @@ sets of basis functions, to find a set that converges quickly enough to
 be useful in comparison with observation.
 
 
-\section{Integration weights}
-    There are two central types of numerical integral that we have to perform
-    in this method,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}.
-    In some regimes these integrals are highly oscillatory, in others they are not.
-    In our method we evolve a fixed number of $k$-modes through the inflation scenario.
-    At each timestep we must perform a decomposition, given the values of the $k$-modes
-    at these given sample points.
-    These decomposition at each timestep involve performing many integrals over the same
-    sample points, one for each of the basis functions.
-    The integrals over time also require many integrals over the sample points---one
-    for each of the final coefficients, over the decompositions calculated at each timestep.
-    Thus, it is important that we can efficiently integrate many different functions
-    over the same sample points.
-
-
-    We do this by calculating integration weights for each of the sample points.
-    In the regimes where the functions are not expected to be oscillatory, we achieve this
-    using the basic method of performing a second order Legendre decomposition on each pair
-    of segments, and integrating the Legendre polynomials to obtain the weights.
-    We break the integral up into segments $[x_0, x_1, x_2,\ell,x_{N-1}]$.
-    To calculate $\int_{x_{i-1}}^{x_{i+1}}f(x)dx$ take each triplet of
-    sample points $[x_{i-1}, x_{i}, x_{i+1}]$, and map it to $[\bar{x}_{i-1}, \bar{x}_{i}, \bar{x}_{i+1}]$,
-    where
-    \begin{align}
-        \bar{x}_{i-1} &= -1,\\
-        \bar{x}_i     &= \frac{2x_i-(x_{i-1}+x_{i+1})}{x_{i+1}-x_{i-1}},\\
-        \bar{x}_{i+1} &= 1.
-    \end{align}
-    We then calculate
-    \begin{align}
-        A_{pq} = P_p(\bar{x}_q)
-    \end{align}
-    for $p\in[0,1,2]$ and $q\in[i-1,i,i+1]$.
-    Inverting $A_{pq}/(x_{i+1}-x_{i-1})$ gives us the coefficients of the
-    fit, and the definite integral is simply the $0$ coefficient,
-    i.e.\ $\left(A^{-1}\right)_{0q}$ is the contribution that these segments give to
-    the weight for the sample point $x_q$. When all the weights $w_i$ have been calculated,
-    the resulting approximation for the integral is simply
-    \begin{align}
-        \int_{x_{0}}^{x_{N-1}}f(x)dx\approx\sum_{i=0}^{i=N-1}f(x_i)w_i,
-    \end{align}
-    i.e.\ a simple dot product between the sampled function and the weights,
-    which need only be calculated once for an arbitrary number of functions $f$.
-
-
-    For oscillatory regimes, we can improve our convergence by including the known
-    oscillatory frequency in our calculation of the weights. For example we calculate
-    $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)f(x)dx$ by performing a Legendre expansion of
-    $f$, which is relatively slowly varying. By precomputing $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)\mathcal{P}_n(\bar{x})dx$
-    for each segment, we can then obtain a set of weights which provide a good approximation
-    to the integral, with the cost of integrating an extra function simply
-    the trivial cost of performing an extra dot product.
-
-
-\section{The interaction Hamiltonian}\label{sec:h_int}
-    (Using integration by parts from RP paper.)
-The methods detailed in the previous section depend on the separability of
-the third-order interaction Hamiltonian, $\Hint$,
-and the possibility of including the spatial derivatives in a
-numerically accurate and efficient way.
-To make precise how our methods take into account the details of
-$\Hint$, we will take $P(X,\phi)$ inflation as an example.
-The full cubic interaction Hamiltonian, not neglecting boundary terms,
-can be calculated as~\cite{px_burrage,chen_ng_0605,seery_ng_0503}
-\begin{align}
-    \Hint(t)=\ \int d^3x\bigg\{& -\frac{a^3\varepsilon}{H c_s^4}\left(1-c_s^{2}-2c_s^{2}\frac{\lambda}{\Sigma}\right)\dot{\zeta}^3
-		+ \frac{a^3\varepsilon}{c_s^{4}}\left(3-3c_s^2-\varepsilon+\eta\right) \zeta\dot{\zeta}^2\nonumber\\
-		&- \frac{a\varepsilon}{c_s^{2}}\left(1-c_s^2+\varepsilon+\eta-2\varepsilon_s\right) \zeta(\partial\zeta)^2\nonumber\\
-        &- \frac{a^3\varepsilon^2}{2c_s^{4}}(\varepsilon-4)\dot{\zeta}\partial\zeta\partial(\partial^{-2}\dot{\zeta})
-        - \frac{a^3\varepsilon^3}{4c_s^4}\partial^2\zeta(\partial(\partial^{-2}\dot{\zeta}))^2\bigg\}\label{interaction_loc}
-\end{align}
-with $\Sigma=\frac{H^2\varepsilon}{c^2_s}$
-and $\lambda = X^2P,_{XX}+\frac{2}{3}X^3P,_{XXX}$.
-See~\cite{px_burrage} for further details.
-
-
-This is commonly quoted with a term proportional to the equation of motion,
-but this will never contribute~\cite{px_burrage,bdy_arroja,bdy_passaglia,bdy_rigopoulos}.
-We do not need to make a slow-roll approximation
-(the quantities defined in~\eqref{slowrollparams} are not required to be small,
-except in that we wish to have a successful inflation scenario),
-nor do we need to neglect any terms in the interaction Hamiltonian.
-We do no field redefinition,
-so do not need to add a correction to the final bispectrum.
-Following the calculation of~\cite{px_burrage} (see also~\cite{bdy_arroja,bdy_passaglia,bdy_rigopoulos})
-we do not work with any boundary terms.
-
 \section{Stopping the integration}
-    (A note on boundary terms and difficult (time-dep) cancellations.)
 Numerically this is preferable to forms with boundary terms,
 whether they come from undoing a field redefinition or from integration by parts.
 Since the boundary term contribution will depend on the choice of when to end the integration,
@@ -457,6 +437,41 @@ we assemble the integrands, integrate them with respect to time,
 include the prefactors coming from the spatial derivatives,
 then sum the resulting sets of basis coefficients.
 Of course, these methods are not restricted to this example of $\Hint$.
+
+
+\section{The interaction Hamiltonian}\label{sec:h_int}
+    (Using integration by parts from RP paper.)
+The methods detailed in the previous section depend on the separability of
+the third-order interaction Hamiltonian, $\Hint$,
+and the possibility of including the spatial derivatives in a
+numerically accurate and efficient way.
+To make precise how our methods take into account the details of
+$\Hint$, we will take $P(X,\phi)$ inflation as an example.
+The full cubic interaction Hamiltonian, not neglecting boundary terms,
+can be calculated as~\cite{px_burrage,chen_ng_0605,seery_ng_0503}
+\begin{align}
+    \Hint(t)=\ \int d^3x\bigg\{& -\frac{a^3\varepsilon}{H c_s^4}\left(1-c_s^{2}-2c_s^{2}\frac{\lambda}{\Sigma}\right)\dot{\zeta}^3
+		+ \frac{a^3\varepsilon}{c_s^{4}}\left(3-3c_s^2-\varepsilon+\eta\right) \zeta\dot{\zeta}^2\nonumber\\
+		&- \frac{a\varepsilon}{c_s^{2}}\left(1-c_s^2+\varepsilon+\eta-2\varepsilon_s\right) \zeta(\partial\zeta)^2\nonumber\\
+        &- \frac{a^3\varepsilon^2}{2c_s^{4}}(\varepsilon-4)\dot{\zeta}\partial\zeta\partial(\partial^{-2}\dot{\zeta})
+        - \frac{a^3\varepsilon^3}{4c_s^4}\partial^2\zeta(\partial(\partial^{-2}\dot{\zeta}))^2\bigg\}\label{interaction_loc}
+\end{align}
+with $\Sigma=\frac{H^2\varepsilon}{c^2_s}$
+and $\lambda = X^2P,_{XX}+\frac{2}{3}X^3P,_{XXX}$.
+See~\cite{px_burrage} for further details.
+
+
+This is commonly quoted with a term proportional to the equation of motion,
+but this will never contribute~\cite{px_burrage,bdy_arroja,bdy_passaglia,bdy_rigopoulos}.
+We do not need to make a slow-roll approximation
+(the quantities defined in~\eqref{slowrollparams} are not required to be small,
+except in that we wish to have a successful inflation scenario),
+nor do we need to neglect any terms in the interaction Hamiltonian.
+We do no field redefinition,
+so do not need to add a correction to the final bispectrum.
+Following the calculation of~\cite{px_burrage} (see also~\cite{bdy_arroja,bdy_passaglia,bdy_rigopoulos})
+we do not work with any boundary terms.
+
 
 \section{Validation (on numerical results)}\label{sec:validation}
 \subsection{Validation methods}\label{sec:validation_methods}
