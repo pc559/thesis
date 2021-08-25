@@ -65,6 +65,17 @@ gave robust results without needing to loosen the tolerance.
     over the same sample points.
 
 
+    \textcolor{red}{Merge}
+A previously mentioned, there are two kinds of integrals we must compute
+in our set-up: integrals over time of
+the form~\eqref{inin_kindep}, and integrals over $k$ of the form~\eqref{mode1Dcoeffs_integral}.
+The first is done once per coefficient for each vertex, the second is a decomposition
+done once for $\zeta_k$ and $\zeta_k'$ each, every timestep.
+In this section we detail how to numerically evaluate these
+integrals accurately and efficiently.
+
+
+
     We do this by calculating integration weights for each of the sample points.
     In the regimes where the functions are not expected to be oscillatory, we achieve this
     using the basic method of performing a second order Legendre decomposition on each pair
@@ -104,28 +115,33 @@ gave robust results without needing to loosen the tolerance.
     the cost of performing an extra dot product.
 
 
+To obtain a $k$-sample we must evolve a Fourier mode from Bunch-Davies initial conditions deep in the horizon
+until it becomes constant after horizon crossing.
+We denote by $N_k$ the number of Fourier modes we evolve.
+Different choices of distributing the k-samples are possible; for example, one could distribute them
+with an even spacing, log-spacing or cluster them more densely near $\kmin$ and $\kmax$.
+The $k$-integrals themselves can be computed quite efficiently since
+at every timestep the integral is over the same sample points.
+One can therefore calculate and store the values of the basis functions at each of these points,
+along with the integration weights which will depend on the distribution of $k$-samples.
+The actual integration at each timestep, the calculation of the 
+coefficients in~\eqref{mode1Dcoeffs_integral}, then becomes nothing more
+than a dot product of a time-independent array with the
+numerically evolved mode functions, for each order up to $\Pmax$.
+We have found the best convergence results from distributing the k-samples
+according to the prescription of Gauss-Legendre quadrature.
+
+
 \section{Starting the integration with a pinch}\label{sec:starting}
-While this method has extra suppression at early times compared to the
-usual in-in calculation~\eqref{inin_kindep} still converges slowly
-in its limit at early times. Due to the fact that the integrand is highly oscillatory
-with a slowly varying amplitude here (so long as we are earlier than
-any relevant features or resonances), this regime will not significantly
-contribute to the final result, but if neglected will cause errors that will
+While our method has extra suppression at early times compared to the
+usual in-in calculation, the integral~\eqref{inin_kindep} still converges slowly
+in its limit at early times. 
+As long as we are earlier in time than any relevant features or resonances,
+the integrand will be highly oscillatory (in $N$) with a slowly varying amplitude.
+Such a regime will not significantly
+contribute to the final result, but if treated without care will cause errors that will
 swamp the true result. To overcome this inefficiency we will discuss in detail
 how to start this time integration.
-
-
-
-The previous two sections detailed the methods required to calculate
-the coefficients $\alpha_n$ in~\eqref{goal}, obtaining an
-explicitly separable expression for the shape function.
-In this set-up,
-there are two kinds of integrals we must compute: integrals over time of
-the form~\eqref{inin_kindep}, and integrals over $k$ of the form~\eqref{mode1Dcoeffs_integral}.
-The first is done once per coefficient for each vertex, the second is a decomposition
-done once for $\zeta_k$ and $\zeta_k'$ each, every timestep.
-In this section we detail how to numerically evaluate these
-integrals accurately and efficiently.
 
 
 Since calculating each point in the time integrand requires a
@@ -136,7 +152,8 @@ we expect the dominant frequency (in $\tau_s$) to be $3\kmax$.
 Assuming we are earlier than any features that might change this,
 we can use this knowledge to sample the integrand at a far lower rate,
 building the oscillation into our quadrature weights.
-A second important consideration comes from how early we sample the integrand.
+A second important consideration comes from how early we
+begin sampling the integrand.
 We can of course only obtain a point in the time integrand after our mode
 functions have burned in from their set initial conditions to their true
 attractor trajectory. This means that sampling earlier in the time integrand
@@ -145,12 +162,12 @@ in the horizon, a regime in which they are expensive to evolve.
 
 
 The integrals of the form~\eqref{inin_kindep} that we must calculate have $\tau=-\infty$ as their lower limit.
-The highly oscillatory nature of the mode functions in these early times ($\lvert k\tau_s\rvert\gg1$) suppresses the
+The highly oscillatory nature of the mode functions (in $k$) in these early times ($\lvert k\tau_s\rvert\gg1$) suppresses the
 coefficients of our basis expansion by a factor of $1/\tau_s$.
 As noted in~\cite{Funakoshi}, this means that we do not need to
 explicitly use the $i\varepsilon$ prescription to force the integrals to converge.
 In the case of using the Legendre polynomials as our
-basis, we can see this more precisely by considering
+basis, we can see this somewhat more precisely by considering
 the plane wave expansion (e.g.~\cite{finite_ft_legendre}):
 \begin{align}\label{exp_expansion}
     e^{-i\bar{k}(\kmax-\kmin)\tau/2} = \sum_{n=0}^{\infty}(2n+1)i^n P_n(\bar{k})j_n(-(\kmax-\kmin)\tau/2)
@@ -158,7 +175,7 @@ the plane wave expansion (e.g.~\cite{finite_ft_legendre}):
 for $\bar{k}$ in $[-1,1]$. When $(\kmax-\kmin)\tau/2$ is large, the spherical Bessel functions
 oscillate with an amplitude $\propto\frac{1}{\tau}$. Thus,
 the initial conditions~\eqref{bd_ic} expanded in Legendre polynomials (and similar)
-give us suppression of $1/\tau^3$ in~\eqref{inin_kindep}.
+give us an extra suppression of $1/\tau^3$ in~\eqref{inin_kindep}.
 
 
 While our method has extra suppression compared to configuration-by-configuration methods
@@ -184,12 +201,12 @@ we can safely use the simpler first method.
 
 
 We understand this situation by
-taking advantage of asymptotic behaviour of highly oscillatory
+taking advantage of the asymptotic behaviour of highly oscillatory
 integrals (for a review see~\cite{iserles_2005}).
-Since the leading order term depends on
+The leading order contribution depends on
 the value of the non-oscillatory part only at the endpoints,
-and the next-to-leading order correction depends on the
-derivative only at the endpoints, we can approximate the integral
+and the next-to-leading order contribution depends on the
+derivative only at the endpoints. Thus we can approximate the integral
 $\int_{-\infty}^T f(\tau_s)e^{iw\tau_s}d\tau_s$
 by replacing the non-oscillatory part $f(\tau_s)$ with a function with
 matching value and derivative at $\tau_s=T$,
@@ -199,12 +216,12 @@ We use
 f(\tau_s)e^{-\beta^2(\tau_s-T)^2},
 \end{align}
 for $\tau_s<T$.
-In this way, for sufficiently large $T$,
+In this way, for sufficiently large negative $T$,
 we obtain the accuracy of the
 first two terms of the asymptotic expansion
 ($O(\beta^2/w^2)$, $w=3\kmax$) without needing to explicitly
-calculate the derivative at $T$, or needing any phase information (as
-one would need to accurately impose a sharp cut on the integrand).
+calculate the derivative at $T$. We also do not need any phase information, as
+one would need to accurately impose a sharp cut on the integrand.
 
 
 \begin{figure}[!pth]
@@ -244,8 +261,8 @@ one would need to accurately impose a sharp cut on the integrand).
 \end{figure}
 
 
-We use a damping of the form $e^{-\beta^2{(\tau_s-T)}^2}$ for $\tau_s<T$ to smoothly
-set the integrand to zero before a certain initial time, $T$.
+Thus the damping $e^{-\beta^2{(\tau_s-T)}^2}$ for $\tau_s<T$ smoothly
+sets the integrand to zero before a certain initial time, $T$.
 As long as $T$ is sufficiently early and $\beta$ is not too large
 their precise values have no significant effect on the final result.
 For definiteness, we take $\beta/w=1\times10^{-4}$, small enough that
@@ -253,7 +270,7 @@ the integrand has many oscillations while it is ``turning on'',
 so matches the contribution of an infinite limit to high accuracy.
 We demonstrate this in figure~\ref{fig:time_integrands}
 for a toy $\Hint=(-1/\tau)\dot{\zeta}^3$,
-as in~\eqref{example_eft2}.
+which produces the shape~\eqref{example_eft2}.
 
 
 We also demonstrate this for a realistic DBI model and resonance model
@@ -265,40 +282,28 @@ The point $\tau_s=\tau_s^{start}$ is the earliest point we calculate the integra
 i.e.\ before this point we set the integrand to exactly zero---we
 see that at this point the integrand is suppressed by a factor of $e^{-100}$.
 In figure~\ref{fig:plot_time_integrand_scan} we see that $\tau_s^{start}-\tau_s^{cut}=0$
-gives unacceptably large errors across the range of the scan, but for sufficiently large
-$\tau_s^{start}$ this is ameliorated by a positive $\tau_s^{start}-\tau_s^{cut}$.
+(i.e.\ the naive method of starting the integrand with a sharp cut)
+gives unacceptably large errors across the range of the scan. For sufficiently large
+$\tau_s^{start}$ this is ameliorated by a positive $\tau_s^{start}-\tau_s^{cut}$,
+however, validating the accuracy and usefulness of this method.
+
+
 This effect is more relevant for the DBI scenario, as the size of the errors coming
 from early times can easily dominate the final result, whereas in the resonant example
-the large contributions from the resonance at later times is more robust.
+the large contributions from the resonance at later times are more robust.
 For the resonant scenario~\eqref{eq:resonant_potential} we have $c_s=1$,
 so we expect (from~\cite{flauger_pajer_resonant}) the point of resonance $\tau^k_s$
 for each mode $k$ to be approximately given by $\tau^k_s = \frac{-\left|\phi'\right|}{2fk}$.
 For our example, we have $\phi'\approx-0.14$, $f=0.02$, $\kmin=2.088\times10^{-4}$ and $\kmax=2.088\times10^{-1}$.
-This means that we expect the earliest physically relevant time to be
+This means that we expect the earliest resonance time to be
 $\tau_s\approx-\frac{0.14}{2(0.02)(2.088\times10^{-4})}\approx-1.7\times10^{4}$.
-Indeed, in figure~\ref{fig:plot_time_integrand_scan} we see that $\kmax\tau_s^{start}$ must be
-set earlier that $-10^3$ to correctly capture the feature.
+Indeed, in figure~\ref{fig:plot_time_integrand_scan} we see that
+we must have $\kmax\tau_s^{start}<-10^3$
+to correctly capture the feature.
 \textcolor{red}{Double check this, reduce numbers.}
 
 
-To obtain a $k$-sample we must evolve a Fourier mode from Bunch-Davies initial conditions deep in the horizon
-until it becomes constant after horizon crossing.
-We denote by $N_k$ the number of Fourier modes we evolve.
-Different choices of distributing the k-samples are possible; for example, one could distribute them
-with an even spacing, log-spacing or cluster them more densely near $\kmin$ and $\kmax$.
-The $k$-integrals themselves can be computed quite efficiently since
-at every timestep the integral is over the same sample points.
-One can therefore calculate and store the values of the basis functions at each of these points,
-along with the integration weights which will depend on the distribution of $k$-samples.
-The actual integration at each timestep, the calculation of the 
-coefficients in~\eqref{mode1Dcoeffs_integral}, then becomes nothing more
-than a dot product of a time-independent array with the
-numerically evolved mode functions, for each order up to $\Pmax$.
-We have found the best convergence results from distributing the k-samples
-according to the prescription of Gauss-Legendre quadrature.
-
-
-\textcolor{red}{Place this!}
+\section{Decompositions}
 Note that we can see from the simple mode approximation, as in~\eqref{inin_example_FG},
 we must expand $e^{ic_{\rm s} k\tau}$ in the terms of the $q_p(k)$.
 At early times $\tau$ is large, so in $k$ this is highly oscillatory.
