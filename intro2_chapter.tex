@@ -741,7 +741,7 @@ As an example, if one takes $\Hint\propto\dot{\zeta}^3$, this set-up can produce
 \end{align}
 
 The central point, as noticed in~\cite{Funakoshi}, is that the
-integrand of~\eqref{in-in} is intrinsically separable
+integrand of~\eqref{inin_integral} is intrinsically separable
 in its dependence on $k_1$, $k_2$ and $k_3$, and that the time integral
 can be done in such a way as to preserve this separability.
 This intrinsic separability has clearly been lost in
@@ -754,7 +754,7 @@ We now briefly outline the set-up of the standard calculation.
 The Lagrangian is expanded in the perturbations and used to obtain the Hamiltonian.
 The Hamiltonian is split into $H_0$ and $\Hint$.
 The first part is used to evolve the interaction picture fields, $\zeta_I$,
-which we will simply refer to as $\zeta$, as in~\eqref{in-in}.
+which we will simply refer to as $\zeta$, as in~\eqref{inin_integral}.
 The perturbations see an interaction Hamiltonian $\Hint$,
 of which we will consider the part cubic in the perturbations,
 with time dependent coefficients due to the evolution of the background fields.
@@ -781,7 +781,7 @@ The bispectrum arising from a single field inflation model,
 with a canonical kinetic term, slowly rolling, turns out to produce
 unobservably small non-Gaussianity~\cite{Maldacena}.
 However, by breaking these assumptions large signals can arise.
-These signals are usually calculated using~\eqref{in-in} within tailored approximations.
+These signals are usually calculated using~\eqref{inin_integral} within tailored approximations.
 The results are not always separable, so further approximations must then be made to
 allow comparison with the CMB.
 
@@ -1391,8 +1391,18 @@ Instead of performing integrals,
 a set of coupled ODEs is set up and solved.
 The power spectra and bispectra themselves are evolved, their time derivatives calculated by
 differentiating the in-in formalism\footnote{
-    See~\ref{appendix_modal_transport}
-    for details on why we did not apply this strategy to our own modal coefficients.
+    Infinite hierarchy of coupled equations.
+    Choose a basis to make it nice?
+    Real vs Imag...?
+    Sounds cool, not worth pursuing.
+    One could imagine applying the same philosophy to our method.
+    Certainly, at first sight this seems more natural, that if the core
+    quantities in our method are the coefficients in some basis expansion,
+    why not evolve them directly? Why take the apparently circuitous route
+    of evolving the $\zeta_k(\tau)$, and decomposing them at every timestep?
+    The answer is that the ``equations of motion'' for the coefficients of the expansion
+    obtained by substituting the mode expansion of $\zeta_k(\tau)$ into~\eqref{modefneqn_zeta_N}
+    are coupled in an infinite hierarchy.
     }.
 The publicly released code is very sophisticated,
 able to deal with multiple fields in curved field spaces,

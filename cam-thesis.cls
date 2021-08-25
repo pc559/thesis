@@ -527,7 +527,8 @@ Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhy
 James Fergusson and Paul Shellard and \textcolor{red}{words.}
 This work will be published in~\cite{Sohn_2021}.
 
-
+Numpy, Scipy, Jupyter Notebooks, QUADPTS!
+Cite~\cite{scipy, numpy}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Abstract
