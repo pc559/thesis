@@ -1076,9 +1076,9 @@ in section~\ref{sec:scaling_definition}.
 
 
     While $\Lnsinv$ improves significantly over $\Lbasic$ for certain examples,
-    as it is tied to a particular scaling it is not an ideal solution. This is due the desire to create
+    as it is tied to a particular scaling it is not an ideal solution. This is due to the desire to create
     a full pipeline, which connects to real $\cmb$ data using $\cmbbest$, and the constraint
-    that the expense of this code (for reasonable large $\Pmax$) limits the full pipeline to one (or very few) basis sets.
+    that the expense of that code (for reasonably large $\Pmax$) limits the full pipeline to one (or very few) basis sets.
     Thus we desire a single basis that can capture the broadest range of shapes, including different scalings.
     To improve upon $\Lnsinv$, we introduced the $\scalingbasis$ basis, which is augmented by
     terms which allow it more flexibility in capturing the scaling of the shape function,
@@ -1094,12 +1094,14 @@ in section~\ref{sec:scaling_definition}.
 
 
     Possible future improvements in the design of basis sets could be obtained using tensor decomposition methods,
-    such as the parafac method described in~\cite{tensor_decomp_review}. Given the output of $\primodal$,
+    such as the \textsc{parafac} method described in, for example,~\cite{tensor_decomp_review}.
+    Given the output of $\primodal$,
     the coefficients $\alpha_{pqr}$, one could imagine performing a tensor decomposition on $\alpha_{pqr}$,
-    expressing it as a sum of outer products of vectors.
+    approximating it as a sum of outer products of vectors.
     If this decomposition resulted in a compact description, a sum of only a few terms, then it is possible
     the methods of $\cmbbest$ as described in~\cite{Sohn_2021} could be efficiently applied to individual
-    models, as this would effectively have a much smaller $\Pmax$.
+    models, as this would effectively have a much smaller $\Pmax$. This could allow a very broad,
+    but still template-free, analysis of bispectrum constraints on inflationary models.
 
 
     Now that we have demonstrated the feasibility of the overall method, in the next chapter we will
