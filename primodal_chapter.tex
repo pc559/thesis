@@ -65,7 +65,7 @@ gave robust results without needing to loosen the tolerance.
     The integrals over time also require many integrals over the sample points---one
     for each of the shape coefficients, per vertex, over the decomposition
     coefficients calculated at each timestep.
-    Thus, it is important that we can efficiently integrate many different functions
+    Thus, it is important that we have a general method to efficiently integrate many different functions
     over the same sample points.
     In this section we detail how to numerically evaluate these
     integrals accurately and efficiently.
@@ -99,7 +99,8 @@ gave robust results without needing to loosen the tolerance.
     \end{align}
     i.e.\ a simple dot product between the sampled function and the weights,
     which need only be calculated once before being used for an arbitrary number of functions $f$.
-    Thus this method very efficient, without needing to sacrifice accuracy.
+    Thus this method very efficient, without needing to sacrifice accuracy,
+    and allows us to keep the sample points $x_i$ flexible instead of mandated.
 
 
     For oscillatory regimes, we can improve our convergence by including the known
@@ -182,7 +183,7 @@ While our method has extra suppression at early times compared to the
 usual in-in calculation, the integral~\eqref{inin_kindep} still converges slowly
 in its limit at early times. 
 As long as we are earlier in time than any relevant features or resonances,
-the integrand will be oscillate far faster than its amplitude varies.
+the integrand will oscillate far faster than its amplitude varies.
 Such a regime will not significantly
 contribute to the final result, but if treated without care will cause errors that will
 swamp the true result, possibly by orders of magnitude.
@@ -207,7 +208,7 @@ in the horizon, a regime in which they are expensive to evolve.
 
 
 The integrals of the form~\eqref{inin_kindep} that we must calculate have $\tau=-\infty$ as their lower limit.
-The highly oscillatory nature of the mode functions (in $k$) in these early times ($\lvert k\tau_s\rvert\gg1$) suppresses the
+The highly oscillatory nature of the mode functions (in $k$) in these early times ($\lvert (\kmax-\kmin)\tau_s\rvert\gg1$) suppresses the
 coefficients of our basis expansion by a factor of $1/\tau_s$.
 As noted in~\cite{Funakoshi}, this means that we do not need to
 explicitly use the $i\varepsilon$ prescription to force the integrals to converge.
@@ -489,12 +490,14 @@ so we choose the line
     \frac{k_L}{k_S}&=\frac{2\kmin}{\kmax},
 \end{align}
 which connects $(\kmax,\kmax,2\kmin)$ to $(\kmax/2,\kmax/2,\kmin)$.
-We will take $\frac{\kmin}{\kmax}=\frac{1}{550}$, so this is still sufficiently squeezed to be a stringent test.
+While we took $\frac{\kmin}{\kmax}=\frac{1}{1000}$ in chapter~\ref{chapter:decomp},
+we will take $\frac{\kmin}{\kmax}=\frac{1}{550}$ in this chapter---this
+still allows $\frac{2\kmin}{\kmax}$ to be sufficiently squeezed to be a stringent test.
 
 First, we investigate convergence on simple featureless models,
 both local-type~\eqref{eq:quadratic_potential}
 and equilateral-type~\eqref{eq:dbi_warp}.
-We find that in our chosen basis $\Lnsboth$ our results
+We find that in the basis $\Lnsboth$ our results
 converge quickly and robustly as we increase the number of modes,
 where we quantify the convergence using~\eqref{relative_difference}.
 We compare the converged results against analytic
@@ -527,12 +530,12 @@ We also test both resonant scenarios using the squeezed limit consistency condit
     \subfloat{\includegraphics[width=.75\columnwidth]{plots/slice_explained.png}}
 \caption{
     For ease of display, we will plot the two-dimensional $k_1=k_2$ slice of the tetrapyd
-    for each of our validation examples, as shown schematically here.
+    for each of our validation examples, as shown schematically here in the bottom plot.
     Horizontal lines on this plot have
     constant $k_3$. The bottom edge is $k_3=\kmin$, the top
     edge is $k_3=\kmax$. The right edge is $k_1=k_2=\kmax$, the
     left edge is $k_1=k_2=k_3/2$, i.e.\ the limit imposed by the triangle condition.
-    Plotted in red (in the right hand plot) from top-left to bottom-right,
+    Plotted in red (in the bottom plot) from top-left to bottom-right,
     are the flattened, equilateral and squeezed limits. For comparison,
     half of the tetrapyd is shown in the three-dimensional plot above
     (which was made by \textcolor{red}{WHOM?}).
@@ -914,27 +917,25 @@ of $0.15\%$, and a squeezed limit test result of $6.5\%$.
 %    To determine where to usefully scan.
 %\newpage
 \section{Conclusions}
-    Using the methods outlined above,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}
-    can be computed precisely and efficiently in a basis-agnostic context
-    allowing us to ({\romannumeral 1}) preserve the intrinsic separability of the tree-level
+    In this chapter we outlined methods that
+    allow~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}
+    to be computed precisely and efficiently for a wide range of basis sets.
+    This allows us to ({\romannumeral 1}) preserve the intrinsic separability of the tree-level
     in-in formalism and ({\romannumeral 2}) do so in a way that allows easy exploration of possible
     sets of basis functions, to find a set that converges quickly enough to
-    be useful in comparison with observation.
-
-
-    We conclude that our methods have been validated on interesting and realistic
-    example scenarios, for a sufficiently large $k$-range, $\kmax/\kmin=1000$.
-    We have confidence in this due to the varied test we have performed, against templates,
+    be useful in comparison with observation. These methods were then validated on interesting and realistic
+    example scenarios.
+    We have confidence in this due to the varied tests we have performed---against templates,
     other numerical codes, and also against the squeezed limit consistency condition.
-    We have in this work demonstrated separable in-in methods for high orders and features for the first time,
-    going beyond the work done in~\cite{Funakoshi}.
+
+
     For the standard shapes, we have obtained the full shape information far faster than previous numerical methods,
     for the single-field models that we used as validation examples.
-
-
-    With our methods validated, in the next chapter we will present work performed in collaboration with
-    Wuhyun Sohn, validating the combined $\primodal$ and $\cmbbest$ pipeline by obtaining
-    a constraint on the sound speed of a DBI inflation scenario.
+    We then demonstrated separable in-in methods for high orders and features for the first time,
+    going beyond the work done in~\cite{Funakoshi}.
+    With our methods validated, in the next chapter we will present work performed in collaboration~\cite{Sohn_2021},
+    validating the combined $\primodal$ and $\cmbbest$ pipeline by obtaining
+    a constraint on the sound speed of a DBI inflation scenario from $\planck$ data.
 %\bibliographystyle{unsrt}
 %\bibliographystyle{JHEP}
 %\bibliography{thesis}
