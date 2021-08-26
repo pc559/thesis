@@ -119,6 +119,8 @@ Different choices of distributing the $k$-samples are possible; for example, one
 with an even spacing, log-spacing or cluster them more densely near $\kmin$ and $\kmax$.
 We have found the best convergence results from distributing the $k$-samples
 according to the prescription of Gauss-Legendre quadrature.
+
+
 One complication that arises in the calculation of the integration weights for the decompositions
 is that the oscillation frequency (in $k$) at each timestep depends on time.
 At early times $\tau_s$ is large, so in $k$ this is highly oscillatory.
@@ -126,7 +128,6 @@ This creates two problems. Firstly, this seems to require many samples
 in $k$ to accurately calculate each $f_p^{(i)} (\tau)$,
 adding more modes that must be evolved in time.
 To bypass this, we extract the oscillatory part at early times.
-\textcolor{red}{MERGE.}
 One may think that this would require us to recompute the integration weights for each timestep,
 reducing the efficiency of the method (or forcing us to use a less sophisticated integration method
 but to evolve more $\zeta_k$ samples). In fact, due to the simple $e^{ik\tau_s}$ behaviour the integration
@@ -154,8 +155,11 @@ for $F^{(i)}(\tau, k)$,
 as the higher order parts will cancel in the time integrals
 for any sufficiently smooth $S(k_1,k_2,k_3)$.
 That is, assuming the expansion in~\eqref{shapemodeexp} converges within our $\Pmax$,
-we need only compute the first $\Pmax$ of the
-coefficients in the expansion~\eqref{mode1Dcoeffs_sum} of the $F^{(i)}(\tau, k)$,
+we need only compute the first $\Pmax$ of the coefficients\footnote{
+    This is slightly complicated by the later inclusion of the spatial derivatives in~\eqref{inin_kdep}
+    and~\eqref{V_definition}, which mixes the modes---see later discussion in that section.
+}
+in the expansion~\eqref{mode1Dcoeffs_sum} of the $F^{(i)}(\tau, k)$,
 not until the actual sum~\eqref{mode1Dcoeffs_sum} converges, since for high enough orders the integrals
 in~\eqref{inin_kindep} will integrate to zero.
 This will no longer be true, of course, in the presence of features---in
@@ -170,7 +174,7 @@ this switch will need to be made sooner.
 Also, this method would need to be adapted for non-Bunch-Davies initial conditions.
 Since anything related to the basis but independent of the scenario can be
 precomputed, certain parts of this calculation do not hurt the efficiency of this
-method in the context of, for example, a parameter scan.
+method in the context of a parameter scan.
 
 
 \section{Starting the integration with a pinch}\label{sec:starting}
