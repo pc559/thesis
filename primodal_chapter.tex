@@ -182,21 +182,21 @@ While our method has extra suppression at early times compared to the
 usual in-in calculation, the integral~\eqref{inin_kindep} still converges slowly
 in its limit at early times. 
 As long as we are earlier in time than any relevant features or resonances,
-the integrand will be highly oscillatory (in $N$) with a slowly varying amplitude.
+the integrand will be oscillate far faster than its amplitude varies.
 Such a regime will not significantly
 contribute to the final result, but if treated without care will cause errors that will
-swamp the true result. To overcome this inefficiency we will discuss in detail
+swamp the true result, possibly by orders of magnitude.
+To overcome this inefficiency we will discuss in detail
 how to start this time integration.
 
 
-Since calculating each point in the time integrand requires a
-decomposition~\eqref{mode1Dcoeffs_integral}, which is highly oscillatory
-at early times, it is worthwhile to consider how to perform the
-time integral efficiently. From the form of the Bunch-Davies mode functions,
+Since calculating each extra point in the time integrand requires a
+decomposition~\eqref{mode1Dcoeffs_integral}, it is worthwhile to consider how to perform the
+time integral with the minimal number of sample points. From the form of the Bunch-Davies mode functions,
 we expect the dominant frequency (in $\tau_s$) to be $3\kmax$.
 Assuming we are earlier than any features that might change this,
 we can use this knowledge to sample the integrand at a far lower rate,
-building the oscillation into our quadrature weights.
+building the oscillation into our quadrature weights, as previously described.
 A second important consideration comes from how early we
 begin sampling the integrand.
 We can of course only obtain a point in the time integrand after our mode
@@ -329,8 +329,8 @@ see that at this point the integrand is suppressed by a factor of $e^{-100}$.
 In figure~\ref{fig:plot_time_integrand_scan} we see that $\tau_s^{start}-\tau_s^{cut}=0$
 (i.e.\ the naive method of starting the integrand with a sharp cut)
 gives unacceptably large errors across the range of the scan. For sufficiently large
-$\tau_s^{start}$ this is ameliorated by a positive $\tau_s^{start}-\tau_s^{cut}$,
-however, validating the accuracy and usefulness of this method.
+$\tau_s^{start}$ this is ameliorated by a positive $\tau_s^{start}-\tau_s^{cut}$.
+This validates the accuracy and usefulness of this method.
 
 
 This effect is more relevant for the DBI scenario, as the size of the errors coming
@@ -346,73 +346,6 @@ Indeed, in figure~\ref{fig:plot_time_integrand_scan} we see that
 we must have $\kmax\tau_s^{start}<-10^3$
 to correctly capture the feature.
 \textcolor{red}{Double check this, reduce numbers.}
-
-
-\section{Stopping the integration}\label{sec:stopping}
-Numerically this is preferable to forms with boundary terms,
-whether they come from undoing a field redefinition or from integration by parts.
-Since the boundary term contribution will depend on the choice of when to end the integration,
-its time dependence must cancel with a late-time time-dependent
-contribution of some vertex, requiring us to track the necessary quantities
-much longer than otherwise needed to obtain the desired precision.
-
-Schematically, the correction from a field redefinition would look like
-\begin{align}
-{
-\left< \zeta_{\bf{k_1}}\zeta_{\bf{k_2}}\zeta_{\bf{k_3}} \right>
-    = \left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_2}}\tilde{\zeta}_{\bf{k_3}} \right>
-    + \lambda \left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_2}} \right>\left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_3}} \right>
-    + cyclic
-}
-\end{align}
-where $\lambda$ is some function of the slow-roll parameters.
-The correction terms will have a time dependence from $\lambda$,
-so the $\left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_2}}\tilde{\zeta}_{\bf{k_3}} \right>$
-term must have some late time contribution to cancel it.
-To obtain an accurate result, care would need to be taken with this cancellation,
-an unnecessary complication.
-
-By integrating by parts and using the equation of motion,
-the interaction Hamiltonian can be rewritten without
-picking up boundary terms~\cite{rp_integ_by_parts}.
-Using $(3.7)$ from~\cite{rp_integ_by_parts},
-with $f=-\varepsilon/(c_s^2H)$,
-we obtain the following form:
-\begin{align}
-    \Hint(t)=\ \int d^3x\bigg\{& -\frac{a^3\varepsilon}{H c_s^4}\left(-c_s^{2}-2c_s^{2}\frac{\lambda}{\Sigma}\right)\dot{\zeta}^3
-		+ \frac{a^3\varepsilon}{c_s^{4}}\left(-3c_s^2\right) \zeta\dot{\zeta}^2\nonumber\\
-		&- \frac{a\varepsilon}{c_s^{2}}\left(-c_s^2\right) \zeta(\partial\zeta)^2
-        - \frac{a\varepsilon}{Hc_s^2}\dot{\zeta}(\partial\zeta)^2\nonumber\\
-        &- \frac{a^3\varepsilon^2}{2c_s^{4}}(\varepsilon-4)\dot{\zeta}\partial\zeta\partial(\partial^{-2}\dot{\zeta})
-        - \frac{a^3\varepsilon^3}{4c_s^4}\partial^2\zeta(\partial(\partial^{-2}\dot{\zeta}))^2\bigg\}.\label{interaction_eql}
-\end{align}
-To leading order, this formulation is made up of terms that
-give equilateral shapes when the slow-roll parameters are roughly constant.
-It was pointed out in~\cite{Funakoshi} that
-using~\eqref{interaction_loc} in a scenario that results in an equilateral shape
-would require sensitive cancellations in the squeezed limit.
-Likewise, using~\eqref{interaction_eql} for a local scenario
-would require sensitive cancellations in the equilateral limit.
-
-As mentioned in~\cite{Funakoshi}, the spatial derivatives
-can be manipulated into simple prefactors of $k_i$ using the
-triangle condition ($\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3}=0$),
-and so preserve the separability of the result.
-To absorb these prefactors in our calculation, we precompute
-$k^{p}q_a(k)$ as a linear combination of the $q_a(k)$ for the
-relevant values of $p$,
-from which $V^{(i)}_{P\tilde{P}}$ defined in~\eqref{V_definition} is built.
-For certain sets of basis functions this matrix can be calculated analytically,
-but it is simpler and more robust to numerically calculate the relevant integral directly.
-The processing cost this incurs is small, and must only be
-paid once per basis. We note especially that this means the matrix can
-be stored and efficiently used in many scenarios.
-To summarise,
-we calculate the bispectrum contribution from each vertex in $\Hint$ separately:
-we assemble the integrands, integrate them with respect to time,
-include the prefactors coming from the spatial derivatives,
-then sum the resulting sets of basis coefficients.
-Of course, these methods are not restricted to this example of $\Hint$.
 
 
 \section{The interaction Hamiltonian}\label{sec:h_int}
@@ -446,6 +379,82 @@ We do no field redefinition,
 so do not need to add a correction to the final bispectrum.
 Following the calculation of~\cite{px_burrage} (see also~\cite{bdy_arroja,bdy_passaglia,bdy_rigopoulos})
 we do not work with any boundary terms.
+
+
+\section{Stopping the integration}\label{sec:stopping}
+Numerically, it is preferable to write $\Hint$ in a form with no boundary terms,
+whether they come from undoing a field redefinition or from integration by parts.
+Since the boundary term contribution will depend on the choice of when to end the integration,
+its time dependence must cancel with a late-time time-dependent
+contribution of some vertex, requiring us to track the necessary quantities
+much longer than otherwise needed to obtain the desired precision.
+
+Schematically, the correction from a field redefinition would look like
+\begin{align}
+{
+\left< \zeta_{\bf{k_1}}\zeta_{\bf{k_2}}\zeta_{\bf{k_3}} \right>
+    = \left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_2}}\tilde{\zeta}_{\bf{k_3}} \right>
+    + \lambda \left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_2}} \right>\left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_3}} \right>
+    + cyclic
+}
+\end{align}
+where $\lambda$ is some function of the slow-roll parameters.
+The correction terms will have a time dependence from $\lambda$,
+so the $\left< \tilde{\zeta}_{\bf{k_1}}\tilde{\zeta}_{\bf{k_2}}\tilde{\zeta}_{\bf{k_3}} \right>$
+term must have some late time contribution to cancel it.
+To obtain an accurate result, care would need to be taken with this cancellation,
+an unnecessary (and possibly quite difficult) complication.
+
+
+Even among the forms of $\Hint$ that have no boundary terms, we have some
+extra freedom that can be used to increase the numerical accuracy of our calculation.
+By integrating by parts and using the equation of motion,
+the interaction Hamiltonian can be rewritten without
+picking up boundary terms~\cite{rp_integ_by_parts}.
+Using $(3.7)$ from~\cite{rp_integ_by_parts},
+with $f=-\varepsilon/(c_s^2H)$,
+we obtain the following form:
+\begin{align}
+    \Hint(t)=\ \int d^3x\bigg\{& -\frac{a^3\varepsilon}{H c_s^4}\left(-c_s^{2}-2c_s^{2}\frac{\lambda}{\Sigma}\right)\dot{\zeta}^3
+		+ \frac{a^3\varepsilon}{c_s^{4}}\left(-3c_s^2\right) \zeta\dot{\zeta}^2\nonumber\\
+		&- \frac{a\varepsilon}{c_s^{2}}\left(-c_s^2\right) \zeta(\partial\zeta)^2
+        - \frac{a\varepsilon}{Hc_s^2}\dot{\zeta}(\partial\zeta)^2\nonumber\\
+        &- \frac{a^3\varepsilon^2}{2c_s^{4}}(\varepsilon-4)\dot{\zeta}\partial\zeta\partial(\partial^{-2}\dot{\zeta})
+        - \frac{a^3\varepsilon^3}{4c_s^4}\partial^2\zeta(\partial(\partial^{-2}\dot{\zeta}))^2\bigg\}.\label{interaction_eql}
+\end{align}
+To leading order, this formulation is made up of terms that
+give equilateral shapes when the slow-roll parameters are roughly constant.
+It was pointed out in~\cite{Funakoshi} that
+using~\eqref{interaction_loc} in a scenario that results in an equilateral shape
+would require sensitive cancellations in the squeezed limit.
+Likewise, using~\eqref{interaction_eql} for a local scenario
+would require sensitive cancellations in the equilateral limit.
+As such, we can choose whether to use~\eqref{interaction_loc} or~\eqref{interaction_eql}
+depending on our expected result---both are fully implemented in the $\primodal$ code.
+
+
+Finally, we mention some points relating to including the spatial derivatives in
+the calculation.
+As mentioned in~\cite{Funakoshi}, the spatial derivatives
+can be manipulated into simple prefactors of $k_i$ using the
+triangle condition ($\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3}=0$),
+and so preserve the separability of the result.
+To absorb these prefactors in our calculation, we precompute
+$k^{p}q_a(k)$ as a linear combination of the $q_a(k)$ for the
+relevant values of $p$,
+from which $V^{(i)}_{P\tilde{P}}$ defined in~\eqref{V_definition} is built.
+For certain sets of basis functions this matrix can be calculated analytically,
+but it is simpler and more robust to numerically calculate the relevant integral directly.
+The processing cost this incurs is small, and must only be
+paid once per basis. We note especially that this means the matrix can
+be stored and efficiently used in many scenarios.
+To summarise,
+we calculate the bispectrum contribution from each vertex in $\Hint$ separately:
+we assemble the integrands, integrate them with respect to time,
+include the prefactors coming from the spatial derivatives,
+then sum the resulting sets of basis coefficients.
+Of course, these methods are not restricted to this example of
+the interaction Hamiltonian of $P(X,\phi)$ models.
 
 
 \section{Validation}\label{sec:validation}
