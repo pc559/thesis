@@ -55,25 +55,20 @@ gave robust results without needing to loosen the tolerance.
     in this method,~\eqref{inin_kindep} and~\eqref{mode1Dcoeffs_integral}.
     In some regimes these integrals are highly oscillatory, in others they are not.
     In our method we evolve a fixed number of $k$-modes through the inflation scenario.
-    At each timestep we must perform a decomposition~\eqref{mode1Dcoeffs_integral},
-    given the values of the $k$-modes at these given sample points.
+    At each timestep we must perform two decompositions~\eqref{mode1Dcoeffs_integral},
+    one for both $\zeta_k$ and $\zeta_k'$,
+    by integrating over these given sample $k$-points.
     These decompositions at each timestep involve performing many integrals over the same
     sample points, one for each of the basis functions.
+
+
     The integrals over time also require many integrals over the sample points---one
-    for each of the final coefficients, over the decompositions calculated at each timestep.
+    for each of the shape coefficients, per vertex, over the decomposition
+    coefficients calculated at each timestep.
     Thus, it is important that we can efficiently integrate many different functions
     over the same sample points.
-
-
-    \textcolor{red}{Merge}
-A previously mentioned, there are two kinds of integrals we must compute
-in our set-up: integrals over time of
-the form~\eqref{inin_kindep}, and integrals over $k$ of the form~\eqref{mode1Dcoeffs_integral}.
-The first is done once per coefficient for each vertex, the second is a decomposition
-done once for $\zeta_k$ and $\zeta_k'$ each, every timestep.
-In this section we detail how to numerically evaluate these
-integrals accurately and efficiently.
-
+    In this section we detail how to numerically evaluate these
+    integrals accurately and efficiently.
 
 
     We do this by calculating integration weights for each of the sample points.
@@ -103,7 +98,8 @@ integrals accurately and efficiently.
         \int_{x_{0}}^{x_{N-1}}f(x)dx\approx\sum_{i=0}^{i=N-1}f(x_i)w_i,
     \end{align}
     i.e.\ a simple dot product between the sampled function and the weights,
-    which need only be calculated once for an arbitrary number of functions $f$.
+    which need only be calculated once before being used for an arbitrary number of functions $f$.
+    Thus this method very efficient, without needing to sacrifice accuracy.
 
 
     For oscillatory regimes, we can improve our convergence by including the known
@@ -112,24 +108,26 @@ integrals accurately and efficiently.
     $f$, which is relatively slowly varying. By precomputing $\int_{x_{i-1}}^{x_{i+1}}\cos(wx)P_n(\bar{x})dx$
     for each segment, we can then obtain a set of weights which provide a good approximation
     to the integral, with the cost of integrating an extra function simply
-    the cost of performing an extra dot product.
+    the cost of performing an extra dot product---again, very efficient without a
+    sacrifice in accuracy.
 
 
 To obtain a $k$-sample we must evolve a Fourier mode from Bunch-Davies initial conditions deep in the horizon
 until it becomes constant after horizon crossing.
 We denote by $N_k$ the number of Fourier modes we evolve.
-Different choices of distributing the k-samples are possible; for example, one could distribute them
+Different choices of distributing the $k$-samples are possible; for example, one could distribute them
 with an even spacing, log-spacing or cluster them more densely near $\kmin$ and $\kmax$.
-The $k$-integrals themselves can be computed quite efficiently since
-at every timestep the integral is over the same sample points.
-One can therefore calculate and store the values of the basis functions at each of these points,
-along with the integration weights which will depend on the distribution of $k$-samples.
-The actual integration at each timestep, the calculation of the 
-coefficients in~\eqref{mode1Dcoeffs_integral}, then becomes nothing more
-than a dot product of a time-independent array with the
-numerically evolved mode functions, for each order up to $\Pmax$.
-We have found the best convergence results from distributing the k-samples
+We have found the best convergence results from distributing the $k$-samples
 according to the prescription of Gauss-Legendre quadrature.
+One complication that arises in the calculation of the integration weights for the decompositions
+is that the oscillation frequency (in $k$) at each timestep depends on time.
+One may think that this would require us to recompute the integration weights for each timestep,
+reducing the efficiency of the method (or forcing us to use a less sophisticated integration method
+but to evolve more $\zeta_k$ samples). In fact, due to the simple $e^{ik\tau_s}$ behaviour the integration
+weights can be calculated in closed form for each $\tau_s$. Even if this were not true however,
+since this early-time oscillatory behaviour is scenario-independent, one could simply numerically precalculate the
+weights for a given set of timesteps, thus maintaining accuracy without adding significant overhead to
+a parameter scan.
 
 
 \section{Decompositions}
