@@ -111,17 +111,34 @@
 
 
 \section{Connecting to $\cmbbest$}\label{sec:setup}
-The potential we use is the IR one discussed in~\cite{Bean_ir_dbi} as discussed \textcolor{red}{earlier}.
+The potential we use is the IR one discussed in~\cite{Bean_ir_dbi} as discussed in~\ref{sec:interactions}.
 See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions. \textcolor{red}{Reasons.}
 
     We use equation~\eqref{eq:dbi_warp}, which has four free parameters,
     $\beta_{IR}$, $\lambda_{DBI}$, $\phi_0$, and $V_0$.
     We use $\beta_{IR}$ to parameterise our scan,
-    $\beta_{IR}\in[0.1885, 0.58]$.
-We hold $\lambda_{DBI}=2.00475\times10^{15}$, $V_0 = 5.2\times10^{-12}$
-and $\phi_0 = 0.46042$ fixed.
-We start the background evolution on the slow-roll attractor, finding initial conditions which
-satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
+    which we take across the range
+    \begin{align}\label{eq:bir_range}
+        \beta_{IR}\in[0.1885, 0.58].
+    \end{align}
+    with the parameters
+    \begin{align}\label{eq:scan_params}
+        \lambda_{DBI}&=2.00475\times10^{15}\\
+        V_0 &= 5.2\times10^{-12}\\
+        \phi_0 &= 0.46042
+    \end{align}
+    held fixed.
+
+
+    From~\cite{Chen_dbi} we can use the relations
+    \begin{align}
+        N_e &= \frac{\sqrt{\lambda_{DBI}}H}{\phi}&&\approx112,\\
+        c_s &\approx \frac{3}{\beta N_e}&&\approx 0.054.
+    \end{align}
+
+
+    We start the background evolution on the slow-roll attractor, finding initial conditions which
+    satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
     For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
     is within $3.044\pm0.014$,
     and that $n_s^{*}$ is within $0.9649\pm0.0042$.
