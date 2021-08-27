@@ -57,6 +57,7 @@
             The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
             template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
             in the $\Lnsinv$ basis for $\Pmax=30$.
+            \textcolor{red}{Which is the abstract one in Planck?}
         }\label{fig:equil_constraints_comparison}
     \end{figure}
 
@@ -209,16 +210,15 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
 \end{figure}
 \begin{figure}[!pth]
 \centering
-\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_fnl_errs_p1ns30}
+%\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_fnl_errs_p1ns30}
+\includegraphics[width=\columnwidth]{wuhyun_plots/errors_for_planck_map.png}
 \caption{
-    We plot the relative error in the value of $\fnl$ obtained for the $\planck$ map
-    across the scan.
-    We also plot the relative error in the standard deviation of the $\fnl$ values obtained for
-    the Gaussian simulations used in~\cite{Sohn_2021}. Both relative errors are comparing the
-    value obtained for $\Pmax=25$ with that obtained for $\Pmax=30$.
+    We plot the relative error in the value of $\fnl^{2\sigma}=\fnl+2\sigma$,
+    between $\Pmax=30$ and $\Pmax=25$,
+    with $\fnl$ obtained from $\planck$ map for each scenario in the scan.
     We see that the convergence across the majority of the scan is better than that of the
-    convergence in the primordial bispectrum, as plotted in figure~\ref{fig:dbi_primodal_scan_template_corrs_log30},
-    validating the $\Pmax$ convergence of our pipeline as a whole.
+    convergence in the primordial bispectrum, as plotted in figure~\ref{fig:dbi_primodal_scan_template_corrs_p1ns}.
+    This validates the $\Pmax$ convergence of our pipeline as a whole.
 }\label{fig:dbi_primodal_scan_template_corrs_p1ns}
 \end{figure}
 
@@ -248,7 +248,8 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
     \textcolor{red}{summarise here}.
     \begin{figure}[htbp!]
         \centering
-        \includegraphics[width=0.9\textwidth]{wuhyun_plots/dbi_sound_speed_scan_annotated.pdf}
+        %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
+        \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
         \caption{
             Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
             (unlike in the template case), instead it is time dependent, and the plotted
@@ -260,32 +261,11 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
             and comparing them to the $\planck$ $\cmb$ temperature data using
             $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
             scenario by ruling out $f_{NL}^{DBI}=1$.
-            Note that the constraint obtained for $\Pmax=30$ and $\Pmax=29$ is identical,
-            so we can be confident that our constraint has converged in $\Pmax$.
-        }\label{fig:dbi_sound_speed_scan}
-    \end{figure}
-    \begin{figure}[htbp!]
-        \centering
-        \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
-        \caption{
-            \textcolor{red}{To replace the above---need to make less cramped!
-            Note that the $\beta_{IR}$ scale is not linear!}
-            Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
-            (unlike in the template case), instead it is time dependent, and the plotted
-            value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
-            %0.464
-            is outside of our $2\sigma$ confidence interval. This plot was obtained by
-            scanning across values of $\beta_{IR}$ and calculating the corresponding primordial bispectra
-            using $\primodal$, then projecting those bispectra onto the $\cmb$
-            and comparing them to the $\planck$ $\cmb$ temperature data using
-            $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
-            scenario by ruling out $f_{NL}^{DBI}=1$.
-            Note that the constraint obtained for $\Pmax=30$ and $\Pmax=29$ is identical,
-            so we can be confident that our constraint has converged in $\Pmax$.
             We can see that the $\cmbbest$ result does not agree with the $\modal$ result,
             but as we see in figure~\ref{fig:equil_constraints_comparison},
             the discrepancy is not unexpected. We discuss possible explanations
-            \textcolor{red}{in the text}.
+            in the text.
+            Note that the $\beta_{IR}$ is approximately proportional to $\left(c^*_s\right)^{-2}$.
         }\label{fig:dbi_sound_speed_scan_beta}
     \end{figure}
 
