@@ -1,6 +1,36 @@
 %\input{commands}
 \chapter{An Inflationary Constraint from the $\cmb$ Bispectrum}\label{chapter:constraints}
-\section{Connecting to $\cmbbest$}
+\section{DBI sound speed constraint}
+    The result we get is different, but not surprisingly different.
+    The possible reasons for this are the fact we are using slightly different
+    scales (since we are limited to $\kmax/\kmin=1000$ for convergence reasons we cannot
+    use all the scales in the $\planck$ data), convergence in the number of maps
+    ($\modal$ uses $\tilde300$ while $\cmbbest$ uses $140$) or possibly numerical issues,
+    implementation error. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities
+    \textcolor{red}{summarise here}.
+    \begin{figure}[htbp!]
+        \centering
+        %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
+        \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
+        \caption{
+            Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
+            (unlike in the template case), instead it is time dependent, and the plotted
+            value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
+            %0.464
+            is outside of our $2\sigma$ confidence interval. This plot was obtained by
+            scanning across values of $\beta_{IR}$ and calculating the corresponding primordial bispectra
+            using $\primodal$, then projecting those bispectra onto the $\cmb$
+            and comparing them to the $\planck$ $\cmb$ temperature data using
+            $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
+            scenario by ruling out $f_{NL}^{DBI}=1$.
+            We can see that the $\cmbbest$ result does not agree with the $\modal$ result,
+            but as we see in figure~\ref{fig:equil_constraints_comparison},
+            the discrepancy is not unexpected. We discuss possible explanations
+            in the text.
+            Note that the $\beta_{IR}$ is approximately proportional to $\left(c^*_s\right)^{-2}$.
+        }\label{fig:dbi_sound_speed_scan_beta}
+    \end{figure}
+
     In this chapter, we 
     use $\planck$ data to place a constraint on the sound speed in DBI inflation.
     We then compare this result to the same constraint obtained in the $\planck$
@@ -62,7 +92,7 @@
     \end{figure}
 
 
-\section{Set-up of the scan}
+\section{Connecting to $\cmbbest$}
 The potential we use is the IR one discussed in~\cite{Bean_ir_dbi} as discussed \textcolor{red}{earlier}.
 See also~\cite{Chen_dbi, warp_features_dbi} for useful discussions. \textcolor{red}{Reasons.}
 
@@ -141,44 +171,8 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
     \caption{Summary of scaling indices across the scan.}\label{tab:scan_summary_ns}
   \end{center}
 \end{table}
-\\
-\\
-    In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
-    For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
-    \\
-    \\
-\begin{table}[h!]
-  \begin{center}
-    \begin{tabular}{lrrrr}
-        \toprule
-        $\beta_{IR}$ & Sum Template & Product Template & Bare Template & With $\Pmax=25$ \\
-        \midrule
-        $1.89\times 10^{-1}$  &  $6.15\times 10^{-3}$  &  $7.22\times 10^{-3}$  &  $5.16\times 10^{-2}$  &  $5.3\times 10^{-3}$ \\
-        $5.80\times 10^{-1}$  &  $4.51\times 10^{-3}$  &  $3.63\times 10^{-3}$  &  $5.28\times 10^{-2}$  &  $2.6\times 10^{-3}$ \\
-        \bottomrule
-    \end{tabular}
-    \caption{
-        Comparing the $\Lnsinv(\Pmax=30)$ result compared to
-        templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
-        We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
-        result to estimate the convergence at the primordial level.
-    }\label{tab:template_errors}
-  \end{center}
-\end{table}
-    \\
-    \\
-    The convergence in the $\scalingbasis$ basis is better,
-    falling in the range $[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
-    However, for this analysis the $\cmbbest$ code had only been run for
-    the $\Lnsinv$ basis. We see that it is sufficient in any case.
-    When we examine the convergence to the sum~\eqref{dbi_sum_shape}
-    and product~\eqref{dbi_prod_shape} scaling templates,
-    in figure~\ref{fig:dbi_primodal_scan_template_corrs_log30},
-    we see that neither is obviously the better match to the numerical result.
-    This is due to the numerical result having a non-zero squeezed limit
-    coming from the usual slow-roll suppressed local-type contributions
-    (as in~\eqref{malda_shape}) which are neglected in the DBI templates.
-    \\
+
+
 \begin{figure}[!pth]
 \centering
 \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_log30.png}
@@ -238,36 +232,41 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
     found by comparing the $\Pmax=29$ and $\Pmax=30$ results.
 
 
-\section{DBI sound speed constraint}
-    The result we get is different, but not surprisingly different.
-    The possible reasons for this are the fact we are using slightly different
-    scales (since we are limited to $\kmax/\kmin=1000$ for convergence reasons we cannot
-    use all the scales in the $\planck$ data), convergence in the number of maps
-    ($\modal$ uses $\tilde300$ while $\cmbbest$ uses $140$) or possibly numerical issues,
-    implementation error. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities
-    \textcolor{red}{summarise here}.
-    \begin{figure}[htbp!]
-        \centering
-        %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
-        \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
-        \caption{
-            Our constraint on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
-            (unlike in the template case), instead it is time dependent, and the plotted
-            value is taken from the horizon crossing of the pivot scale. We find that $\beta_{IR}<0.5$
-            %0.464
-            is outside of our $2\sigma$ confidence interval. This plot was obtained by
-            scanning across values of $\beta_{IR}$ and calculating the corresponding primordial bispectra
-            using $\primodal$, then projecting those bispectra onto the $\cmb$
-            and comparing them to the $\planck$ $\cmb$ temperature data using
-            $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
-            scenario by ruling out $f_{NL}^{DBI}=1$.
-            We can see that the $\cmbbest$ result does not agree with the $\modal$ result,
-            but as we see in figure~\ref{fig:equil_constraints_comparison},
-            the discrepancy is not unexpected. We discuss possible explanations
-            in the text.
-            Note that the $\beta_{IR}$ is approximately proportional to $\left(c^*_s\right)^{-2}$.
-        }\label{fig:dbi_sound_speed_scan_beta}
-    \end{figure}
+    In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
+    For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{lrrrr}
+        \toprule
+        $\beta_{IR}$ & Sum Template & Product Template & Bare Template & With $\Pmax=25$ \\
+        \midrule
+        $1.89\times 10^{-1}$  &  $6.15\times 10^{-3}$  &  $7.22\times 10^{-3}$  &  $5.16\times 10^{-2}$  &  $5.3\times 10^{-3}$ \\
+        $5.80\times 10^{-1}$  &  $4.51\times 10^{-3}$  &  $3.63\times 10^{-3}$  &  $5.28\times 10^{-2}$  &  $2.6\times 10^{-3}$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+        Comparing the $\Lnsinv(\Pmax=30)$ result compared to
+        templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
+        We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
+        result to estimate the convergence at the primordial level.
+    }\label{tab:template_errors}
+  \end{center}
+\end{table}
+
+
+    The convergence in the $\scalingbasis$ basis is better,
+    falling in the range $[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
+    However, for this analysis the $\cmbbest$ code had only been run for
+    the $\Lnsinv$ basis. We see that it is sufficient in any case.
+    When we examine the convergence to the sum~\eqref{dbi_sum_shape}
+    and product~\eqref{dbi_prod_shape} scaling templates,
+    in figure~\ref{fig:dbi_primodal_scan_template_corrs_log30},
+    we see that neither is obviously the better match to the numerical result.
+    This is due to the numerical result having a non-zero squeezed limit
+    coming from the usual slow-roll suppressed local-type contributions
+    (as in~\eqref{malda_shape}) which are neglected in the DBI templates.
+
+
 
 \section{Slow-roll effects}
     The main slow-roll corrections are a correction to the amplitude,
@@ -284,4 +283,5 @@ satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
 %\section{EFT stuff, build off Enrico's recent work.}
 %    Words
 \section{Conclusions}
-    Conclusions.
+    We conclude that this result validates out pipeline as a whole, laying a solid foundation
+    to move forward to shapes that have no standard template, obtaining new constraints.
