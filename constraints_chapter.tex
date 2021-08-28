@@ -164,8 +164,10 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $2.71\times 10^{-2}$ &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
         \bottomrule
     \end{tabular}
-    \caption{Summary of scenario parameters across the scan, evaluated at the horizon
-      crossing of the pivot scale.}\label{tab:scan_summary_sr}
+    \caption{
+        Summary of scenario parameters across the scan, evaluated at the horizon
+      crossing of the pivot scale. \textcolor{red}{Remove something so it fits.}
+      }\label{tab:scan_summary_sr}
   \end{center}
 \end{table}
 
@@ -195,7 +197,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         $5.80\times 10^{-1}$  &  $9.637\times 10^{-1}$  &  $-8.99\times 10^{-2}$\\
         \bottomrule
     \end{tabular}
-    \caption{Summary of scaling indices across the scan.}\label{tab:scan_summary_ns}
+      \caption{
+          Summary of \textcolor{red}{the slow-roll predictions for the} scaling indices across the scan.
+      }\label{tab:scan_summary_ns}
   \end{center}
 \end{table}
 
@@ -248,19 +252,13 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     It is not obvious how the convergence of the primordial bispectrum translates to
     convergence of the estimate for $\fnl$, as different
     momentum configurations will be processed and projected differently.
+    For example, if the primordial bispectrum has equal absolute error in a given
+    equilateral configuration v.s.\ a squeezed configuration, will the error in
+    each have comparable effect on the final constraint, or will one matter more?
+    We will now discuss the convergence at the primordial level and compare it to
+    the convergence in the final constraint.
 
 
-    Comparing primordial convergence to CMB convergence,
-    we typically find that the CMB convergence is slightly better.
-    This is a result of the fact that
-    the squeezed limit (which is where the primordial shape converges most slowly)
-    is suppressed by \textcolor{red}{by what?}
-    At the $\cmb$ level, the convergence is $O(10^{-5})$,
-    found by comparing the $\Pmax=29$ and $\Pmax=30$ results.
-
-
-    In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
-    For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
 \begin{table}[h!]
   \begin{center}
     \begin{tabular}{lrrrr}
@@ -281,6 +279,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 \end{table}
 
 
+    In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
+    For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
     The convergence in the $\scalingbasis$ basis is better,
     falling in the range $[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
     However, for this analysis the $\cmbbest$ code had only been run for
