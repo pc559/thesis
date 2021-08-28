@@ -32,7 +32,30 @@
     \end{align}
 
 
-    \begin{figure}[htbp!]
+    Equation (55) in~\cite{Planck_NG_2018} presents the 
+    constraint on the sound speed during DBI inflation
+    derived from the $\cmb$ bispectrum using the $\modal$ estimator
+    \begin{align}\label{eq:planck_dbi_constraint}
+        c_s^{DBI}&\ge0.079\qquad(95\%,~T~\text{only},~\modal)
+    \end{align}
+    using the definition~\eqref{fnl_dbi_defn}.
+    While our goal is to use this previous constraint as a validation of our own pipeline,
+    we would not expect to reproduce it exactly.
+    One possible reason for this is the fact we are using slightly different
+    scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
+    use all the scales in the $\planck$ data. Another possible reason is convergence in the number of
+    maps---$\modal$ uses $\sim300$ maps while $\cmbbest$ uses $140$. Numerical issues and
+    implementation error could also contribute. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
+    We can however understand the expected variance of such estimators by simply examining the
+    scatter between the estimators used within the $\planck$ analysis.
+    Note that this is not statistical variance, but simply method variance.
+    We show this in figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
+    which is closely related to the DBI template.
+    We see that the result obtained by $\cmbbest$ is different, but still lies
+    between the results of the $\ksw$ and $\modal$ estimators.
+
+
+    \begin{figure}[htb!]
         \centering
         %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
@@ -58,30 +81,7 @@
     \end{figure}
 
 
-    Equation (55) in~\cite{Planck_NG_2018} presents the 
-    constraint on the sound speed during DBI inflation
-    derived from the $\cmb$ bispectrum using the $\modal$ estimator
-    \begin{align}\label{eq:planck_dbi_constraint}
-        c_s^{DBI}&\ge0.079\qquad(95\%,~T~\text{only},~\modal)
-    \end{align}
-    using the definition~\eqref{fnl_dbi_defn}.
-    While our goal is to use this previous constraint as a validation of our own pipeline,
-    we would not expect to reproduce it exactly.
-    One possible reason for this is the fact we are using slightly different
-    scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
-    use all the scales in the $\planck$ data. Another possible reason is convergence in the number of
-    maps---$\modal$ uses $\sim300$ maps while $\cmbbest$ uses $140$. Numerical issues and
-    implementation error could also contribute. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
-    We can however understand the expected variance of such estimators by simply examining the
-    scatter between the estimators used within the $\planck$ analysis.
-    Note that this is not statistical variance, but simply method variance.
-    We show this in figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
-    which is closely related to the DBI template.
-    We see that the result obtained by $\cmbbest$ is different, but still lies
-    between the results of the $\ksw$ and $\modal$ estimators.
-
-
-    \begin{figure}[htbp!]
+    \begin{figure}[htb!]
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
         \caption{
@@ -204,7 +204,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 \end{table}
 
 
-\begin{figure}[!pth]
+\begin{figure}[htb!]
 \centering
 \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_log30.png}
 \caption{
@@ -223,7 +223,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     bispectrum deep enough into the squeezed limit, due to their local-type shape.
 }\label{fig:dbi_primodal_scan_template_corrs_log30}
 \end{figure}
-\begin{figure}[!pth]
+\begin{figure}[htb!]
 \centering
 \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_p1ns30}
 \caption{
@@ -231,9 +231,13 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     to obtain the desired constraint.
     We see that the convergence error is only slightly better than the error
     in the slow-roll corrected templates.
+    Comparing the $\Lnsinv(\Pmax=30)$ result compared to
+    templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
+    We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
+    result to estimate the convergence at the primordial level.
 }\label{fig:dbi_primodal_scan_template_corrs_p1ns}
 \end{figure}
-\begin{figure}[!pth]
+\begin{figure}[htb!]
 \centering
 %\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_fnl_errs_p1ns30}
 \includegraphics[width=\columnwidth]{wuhyun_plots/errors_for_planck_map.png}
@@ -259,24 +263,24 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     the convergence in the final constraint.
 
 
-\begin{table}[h!]
-  \begin{center}
-    \begin{tabular}{lrrrr}
-        \toprule
-        $\beta_{IR}$ & Sum Template & Product Template & Bare Template & With $\Pmax=25$ \\
-        \midrule
-        $1.89\times 10^{-1}$  &  $6.15\times 10^{-3}$  &  $7.22\times 10^{-3}$  &  $5.16\times 10^{-2}$  &  $5.3\times 10^{-3}$ \\
-        $5.80\times 10^{-1}$  &  $4.51\times 10^{-3}$  &  $3.63\times 10^{-3}$  &  $5.28\times 10^{-2}$  &  $2.6\times 10^{-3}$ \\
-        \bottomrule
-    \end{tabular}
-    \caption{
-        Comparing the $\Lnsinv(\Pmax=30)$ result compared to
-        templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
-        We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
-        result to estimate the convergence at the primordial level.
-    }\label{tab:template_errors}
-  \end{center}
-\end{table}
+%\begin{table}[h!]
+%  \begin{center}
+%    \begin{tabular}{lrrrr}
+%        \toprule
+%        $\beta_{IR}$ & Sum Template & Product Template & Bare Template & With $\Pmax=25$ \\
+%        \midrule
+%        $1.89\times 10^{-1}$  &  $6.15\times 10^{-3}$  &  $7.22\times 10^{-3}$  &  $5.16\times 10^{-2}$  &  $5.3\times 10^{-3}$ \\
+%        $5.80\times 10^{-1}$  &  $4.51\times 10^{-3}$  &  $3.63\times 10^{-3}$  &  $5.28\times 10^{-2}$  &  $2.6\times 10^{-3}$ \\
+%        \bottomrule
+%    \end{tabular}
+%    \caption{
+%        Comparing the $\Lnsinv(\Pmax=30)$ result compared to
+%        templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
+%        We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
+%        result to estimate the convergence at the primordial level.
+%    }\label{tab:template_errors}
+%  \end{center}
+%\end{table}
 
 
     In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
@@ -307,6 +311,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     do not appreciably affect the constraint on the DBI scenario.
     We can see this since the template decompositions do not include these effects, but the numerical $\primodal$
     results do, and both result in the same constraint.
+
+
 %\section{EFT stuff, build off Enrico's recent work.}
 %    Words
 \section{Conclusions}
