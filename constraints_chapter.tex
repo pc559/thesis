@@ -52,8 +52,8 @@
     One possible reason for this is the fact we are using slightly different
     scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
     use all the scales in the $\planck$ data. Another possible reason is convergence in the number of
-    maps---$\modal$ uses $\sim300$ maps while $\cmbbest$ uses $140$. Numerical issues and
-    implementation error could also contribute. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
+    maps---$\modal$ uses $\sim300$ maps while $\cmbbest$ uses $140$. Numerical issues
+    could also contribute. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
     We can however understand the expected variance of such estimators by simply examining the
     scatter between the estimators used within the $\planck$ analysis.
     Note that this is not statistical variance, but simply method variance.
@@ -99,6 +99,7 @@
             with the $\cmbbest$ result, presented in~\cite{Sohn_2021}.
             We plot the constraints obtained by each method for $\fnlequil$,
             along with their $68\%$ uncertainty margin.
+            \textcolor{red}{Double check $68$ v.s.\ $95$ everywhere.}
             Note that all the estimation methods use the same data
             \textcolor{red}{and maps},
             and are near optimal, hence their uncertainty margins are close
@@ -106,8 +107,8 @@
             We see that while the estimators do not agree, there is no discrepancy with any
             significance---in particular, we see that $\cmbbest$ is not an outlier.
             Possible contributions to the difference in the central values are convergence in each
-            method (for their respective convergence parameters), implementation error,
-            and numerical stability. It is important to note that the differences between the
+            method (for their respective convergence parameters)
+            and numerical issues. It is important to note that the differences between the
             different results are not due to statistical variance.
             The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
             template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
@@ -291,6 +292,16 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     This is due to the numerical result having a non-zero squeezed limit
     coming from the usual slow-roll suppressed local-type contributions
     (as in~\eqref{malda_shape}) which are neglected in the $\dbi$ templates.
+
+
+    In figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
+    in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
+    between $\Pmax=25$ and $\Pmax=30$,
+    the relative error in $\fnl+2\sigma$ is sufficiently small that we can be
+    confident our results have converged in $\Pmax$.
+    We also see that it is (for the majority of the scan) smaller
+    that the corresponding relative error at the primordial level, plotted in
+    figure~\ref{fig:prim_conv}.
 
 
 %\begin{table}[h!]
