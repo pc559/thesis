@@ -33,7 +33,7 @@ We scanned across a fundamental parameter, $\bir$, of the $\dbi$ model of inflat
 Our goal was to obtain a constraint on this parameter using our pipeline---we found 
 $\bir\le0.46$ at $95\%$ confidence using $\planck$ temperature data.
 This differed from the equivalent constraint found by the $\modal$ estimator
-in the $\planck$ analysis, but the result were sufficiently in agreement that we
+in the $\planck$ analysis, but the results were sufficiently in agreement that we
 can take this as a broad validation of our pipeline.
 
 
@@ -83,14 +83,12 @@ with a varying sound speed, scenarios which
 have a rich feature phenomenology. An important goal will be extending
 these methods to the case of multiple-field inflation.
 
-The next immediate application will be to directly constrain parameters of
-inflationary scenarios through modal bispectrum results from the $\planck$ satellite~\cite{Planck_NG_2018}.
+The next immediate application will be to use $\planck$ data to directly constrain parameters of
+inflationary scenarios which do not have standard templates, thus obtaining new constraints
+on inflationary parameters.
 The details of the work required to directly connect our coefficients to the observed data,
 and the large but once-per-basis cost of this calculation, will be detailed in
 a forthcoming paper~\cite{Sohn_2021}.
-$\cmb$ and \textit{LSS} data from forthcoming surveys will be able to use
-these separable primordial bispectra to even more precisely constrain the
-parameters of inflationary scenarios.
 
 
 These goals support those laid out in the recent community white paper~\cite{astro2020_png},
@@ -98,11 +96,7 @@ by improving predictions of the phenomenology of non-linearities in the very ear
 The ability to efficiently compare the phenomenology of these scenarios to observation and thus constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
 
 
-\textcolor{red}{Move to interactions?}
 \section{Future Work}
-\textcolor{red}{
-    Extension to non-Bunch-Davies effects~\cite{RKWKB}, more Agocs papers?
-}
 \subsubsection*{Non-linearities from inflaton self-interactions}
 If the fundamental physical model of inflation is of a single field,
 then the non-linearities of the self-interactions of that field may have
@@ -111,7 +105,7 @@ Detecting these signatures in the $\cmb$ bispectrum requires an understanding
 of their form~\cite{Komatsu_2005}, which motivates the study of these dynamics.
 Models of inflation that can produce observably large non-Gaussian signatures,
 and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
-include string theory-inspired models such as DBI inflation~\cite{dbi_silverstein}
+include string theory-inspired models such as $\dbi$ inflation~\cite{dbi_silverstein}
 and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
 (which gives large non-Gaussianity through the resonance mechanism).
 Also within reach with the current implementation of $\primodal$
@@ -120,19 +114,16 @@ features in the inflationary dynamics, and of more general
 time-dependence within the formalism of the effective field theory (EFT) of inflation. 
 
 
-Using the basis sets and the separable formulation of the in-in calculation developed in my PhD,
-We will reproduce and improve upon the established constraints on single-field inflation models.
-An initial target will be exploring how the scale-dependence of the numerically calculated DBI bispectrum
-affects the constraint on the sound speed, which was found in~\cite{Planck_NG_2018}
-using a scale-invariant approximate template. We will also explore oscillatory models,
+Using the basis sets and the separable formulation of the in-in calculation developed in this work,
+it will be possible to reproduce and improve upon the established constraints on single-field inflation models.
+We will also explore oscillatory models,
 obtaining constraints using the full shape dependence, complementing the
 searches done in~\cite{Planck_NG_2018} which again used approximate templates
 (which exclude, for example, drifting frequencies).
 
 Beyond this,
-we will expand the focus beyond DBI inflation, resonance features and sharp features
-and fully exploit the current implementation of my methods and code
-by comprehensively reviewing the single-field inflation models popular in the literature.
+we will expand the focus beyond $\dbi$ inflation, resonance features and sharp features
+and fully exploit the current implementation of our methods.
 We will explore the effects of including the full shape information in a template-free analysis,
 improving bispectrum constraints on parameters of single-field inflation models.
 Categorising models into distinguishability classes would be a useful initial goal.
@@ -160,17 +151,6 @@ less efficient than our modal expansion method, and less suited to parameter sca
 Secondly, the resulting grid of points is not easily comparable to observations,
 which is the main motivator of the separability of our method.
 
-I will extend the methods I have already developed to the case of multiple active fields during inflation,
-and implement them in the $\primodal$ code.
-I will validate my established basis sets on standard templates for multi-field bispectra,
-and test their ability to capture the expected scale-dependence of the shapes,
-a property usually excluded in standard templates.
-Once these validations are passed, I will recast the multi-field in-in calculation
-into a separable form (as I have already done for the single-field case)
-and implement that calculation in code. Using that implementation,
-I will explore the phenomenology of multi-field inflation,
-understanding which theories and scenarios can be constrained through the bispectrum, and obtaining those constraints.
-
 
 \subsubsection*{Optimising the separable decomposition of primordial bispectra}
 The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
@@ -191,7 +171,8 @@ relative efficiencies of different basis sets in this context could be very
 fruitful in expanding the range of models which could be constrained.
 
 
-To pursue efficient separable decomposition, I intend to research techniques which have not
+To pursue efficient separable decomposition, one avenue that could be explored is
+the use of techniques which have not
 previously been exploited in the setting of bispectrum calculation and estimation.
 One possible avenue is tensor rank decomposition techniques and other methods of tensor approximation,
 which are of use in, for example, signal processing.
@@ -199,7 +180,7 @@ which are of use in, for example, signal processing.
 By using these techniques to approximate the coefficient matrix (which is the output of $\primodal$)
 we can determine a linear combination of our basis functions which can more efficiently
 describe that particular bispectrum.
-I will apply these techniques to explore the general limits of separable approximations to primordial bispectra,
+These techniques can be applied to explore the general limits of separable approximations to primordial bispectra,
 with a focus on convergence at the level of observations. This will make clear the widest possible set
 of models that can be constrained through the bispectrum.
 
@@ -214,11 +195,5 @@ $\primodal$, which calculates the same quantity in an intrinsically
 smooth way, and whose result is tailored to comparison with observations,
 would thus fill an important gap.
 
-
-My intention is to follow best practices when preparing $\primodal$ for
-public release. I will document the code, prepare example test cases for validation by users
-on their local machines,
-and release the code within a container to package the code along with its
-dependencies, libraries, and system settings to ensure reproducability.
 
 
