@@ -1,6 +1,10 @@
 %\input{commands}
 \chapter{An Inflationary Constraint from the $\cmb$ Bispectrum}\label{chapter:constraints}
 \section{DBI sound speed constraint}
+\textcolor{red}{We use $\Lnsinv$ because that is what $\cmbbest$ was run for,
+other basis sets described will be used in future runs of $\cmbbest$.}
+
+
     In this chapter, we use $\planck$ data to place a constraint on DBI inflation.
     We then compare this result to a constraint on the same parameter obtained by the $\planck$
     collaboration~\cite{Planck_NG_2018},
@@ -55,7 +59,7 @@
     between the results of the $\ksw$ and $\modal$ estimators.
 
 
-    \begin{figure}[htb!]
+    \begin{figure}[htbp!]
         \centering
         %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
@@ -81,7 +85,7 @@
     \end{figure}
 
 
-    \begin{figure}[htb!]
+    \begin{figure}[htbp!]
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
         \caption{
@@ -204,9 +208,12 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 \end{table}
 
 
-\begin{figure}[htb!]
+\begin{figure}[htbp!]
 \centering
-\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_log30.png}
+    \subfloat[The $\scalingbasis$ basis]{\label{fig:prim_conv_log30}
+        \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_log30.png}}\\
+    \subfloat[The $\Lnsinv$ basis]{\label{fig:prim_conv_p1ns30}
+        \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_p1ns30}}\\
 \caption{
     The $\scalingbasis$ basis converges well across the scan range.
     We see that the bare DBI template is a poor match to the true numerical result.
@@ -221,12 +228,6 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     contributions (as in~\eqref{malda_shape}),
     which do in fact become relevant to the primordial
     bispectrum deep enough into the squeezed limit, due to their local-type shape.
-}\label{fig:dbi_primodal_scan_template_corrs_log30}
-\end{figure}
-\begin{figure}[htb!]
-\centering
-\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_p1ns30}
-\caption{
     The $\Lnsinv$ basis is sufficiently convergent across the scan range
     to obtain the desired constraint.
     We see that the convergence error is only slightly better than the error
@@ -235,9 +236,10 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     templates~\eqref{dbi_shape},~\eqref{dbi_sum_shape} and~\eqref{dbi_prod_shape}.
     We also refit the result with $\Lnsinv(\Pmax=25)$, and compare with the full
     result to estimate the convergence at the primordial level.
-}\label{fig:dbi_primodal_scan_template_corrs_p1ns}
+}\label{fig:prim_conv}
 \end{figure}
-\begin{figure}[htb!]
+
+\begin{figure}[htbp!]
 \centering
 %\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_fnl_errs_p1ns30}
 \includegraphics[width=\columnwidth]{wuhyun_plots/errors_for_planck_map.png}
@@ -246,9 +248,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     between $\Pmax=30$ and $\Pmax=25$,
     with $\fnl$ obtained from $\planck$ map for each scenario in the scan.
     We see that the convergence across the majority of the scan is better than that of the
-    convergence in the primordial bispectrum, as plotted in figure~\ref{fig:dbi_primodal_scan_template_corrs_p1ns}.
+    convergence in the primordial bispectrum, as plotted in figure~\ref{fig:prim_conv}.
     This validates the $\Pmax$ convergence of our pipeline as a whole.
-}\label{fig:dbi_primodal_scan_template_corrs_p1ns}
+}\label{fig:cmb_conv}
 \end{figure}
 
 
@@ -283,7 +285,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 %\end{table}
 
 
-    In table~\ref{tab:template_errors} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
+    In figure~\ref{fig:prim_conv} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
     For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
     The convergence in the $\scalingbasis$ basis is better,
     falling in the range $[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
@@ -291,7 +293,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     the $\Lnsinv$ basis. We see that it is sufficient in any case.
     When we examine the convergence to the sum~\eqref{dbi_sum_shape}
     and product~\eqref{dbi_prod_shape} scaling templates,
-    in figure~\ref{fig:dbi_primodal_scan_template_corrs_log30},
+    in figure~\ref{fig:prim_conv},
     we see that neither is obviously the better match to the numerical result.
     This is due to the numerical result having a non-zero squeezed limit
     coming from the usual slow-roll suppressed local-type contributions
@@ -316,11 +318,17 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 %\section{EFT stuff, build off Enrico's recent work.}
 %    Words
 \section{Conclusions}
-    Using the $\alpha_{pqr}$ provided by the $\primodal$ code for each value of $\bir$ in
-    the scan, $\cmbbest$ could place a constraint on the amplitude of that predicted bispectrum,
-    using the $\planck$ temperature data. This is done by giving each scenario an amplitude
+    Using our methods (as implemented in the $\primodal$ code), for each value of $\bir$ in
+    the scan we can calculate the shape coefficients $\alpha_{pqr}$ with respect to our
+    chosen basis, $\Lnsinv$.
+    Using these coefficients, we can use the methods described in~\cite{Sohn_2021} (as implemented
+    in the $\cmbbest$ code) to place a constraint on the amplitude of that predicted bispectrum,
+    using the $\planck$ temperature data.
+    This then directly translates to a constraint on the inflationary parameters of that scenario,
+    without the need for further approximations.
+    This is done by giving the bispectrum of each scenario an amplitude
     parameter, which we call $\fnl$---this is then scenario specific, in contrast to previous works.
-    Since then by definition the scenario predicts $\fnl=1$,
+    Since by definition the scenario predicts $\fnl=1$,
     if it is found that $\fnl=1$ is ruled out for a given scenario, then that scenario is judged to
     be inconsistent with the data.
 
@@ -350,6 +358,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
     Thus we conclude that our constraint on the $DBI$ sound speed validates our pipeline as a whole,
     laying a solid foundation
-    to move forward to shapes that have no standard template, obtaining totally new constraints.
+    to move forward to shapes that have a standard template,
+    obtaining totally new constraints.
 
 
