@@ -525,7 +525,9 @@ this work, and is validated in these sections.
 
 Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
 James Fergusson and Paul Shellard and \textcolor{red}{words.}
-This work will be published in~\cite{Sohn_2021}.
+This work will be published in~\cite{Sohn_2021}. The methods described therein have
+been implemented in the $\cmbbest$ code, which was designed and implemented by Wuhyun Sohn.
+My main contribution to~\cite{Sohn_2021} is contained in chapter~\ref{chapter:constraints}.
 
 Numpy, Scipy, Jupyter Notebooks, QUADPTS!
 Cite~\cite{scipy, numpy}.

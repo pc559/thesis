@@ -74,6 +74,7 @@ We showed rapid convergence on a broad range of scenarios,
 including cases with oscillatory features with non-trivial shape dependence,
 using our augmented Legendre polynomial basis sets.
 
+
 The immediate application of this work is the efficient exploration of
 bispectrum phenomenology, as our methods can much more quickly
 converge to the full shape information than previous numerical methods,
@@ -82,6 +83,7 @@ We have implemented these methods for single field scenarios
 with a varying sound speed, scenarios which
 have a rich feature phenomenology. An important goal will be extending
 these methods to the case of multiple-field inflation.
+
 
 The next immediate application will be to use $\planck$ data to directly constrain parameters of
 inflationary scenarios which do not have standard templates, thus obtaining new constraints
@@ -115,16 +117,17 @@ time-dependence within the formalism of the effective field theory (EFT) of infl
 
 
 Using the basis sets and the separable formulation of the in-in calculation developed in this work,
-it will be possible to reproduce and improve upon the established constraints on single-field inflation models.
-We will also explore oscillatory models,
+it will be possible to reproduce and improve upon the established constraints on single-field inflation models
+and oscillatory models,
 obtaining constraints using the full shape dependence, complementing the
 searches done in~\cite{Planck_NG_2018} which again used approximate templates
 (which exclude, for example, drifting frequencies).
 
-Beyond this,
-we will expand the focus beyond $\dbi$ inflation, resonance features and sharp features
+
+Beyond this, it will be possible to expand the focus beyond $\dbi$ inflation, resonance features and sharp features
 and fully exploit the current implementation of our methods.
-We will explore the effects of including the full shape information in a template-free analysis,
+The effects of including the full shape information in a template-free analysis
+can be explored,
 improving bispectrum constraints on parameters of single-field inflation models.
 Categorising models into distinguishability classes would be a useful initial goal.
 
@@ -142,7 +145,6 @@ seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagal
 making the exploration of the case of multiple fields a prime target.
 
 
-\textcolor{red}{Our methods should extend well to multi-field.}
 While some aspects of multi-field scenarios have been previously explored
 numerically~\cite{Fumagalli_2019} using the transport method~\cite{transport_pytransport_2}
 we can go beyond these explorations in two ways. Firstly, the transport method is a
@@ -150,6 +152,8 @@ point-by-point method of calculating the bispectrum, and is thus significantly
 less efficient than our modal expansion method, and less suited to parameter scans.
 Secondly, the resulting grid of points is not easily comparable to observations,
 which is the main motivator of the separability of our method.
+Our methods should extend well to the multi-field case, and the efficiency of our
+methods should be especially beneficial in that numerically intensive context.
 
 
 \subsubsection*{Optimising the separable decomposition of primordial bispectra}
@@ -181,19 +185,5 @@ By using these techniques to approximate the coefficient matrix (which is the ou
 we can determine a linear combination of our basis functions which can more efficiently
 describe that particular bispectrum.
 These techniques can be applied to explore the general limits of separable approximations to primordial bispectra,
-with a focus on convergence at the level of observations. This will make clear the widest possible set
+with a focus on convergence at the level of observations. This would make clear the widest possible set
 of models that can be constrained through the bispectrum.
-
-
-\subsubsection*{Public release of $\primodal$}
-The public release of $\primodal$ is a clear and worthwhile
-deliverable of this project. While other publicly released software
-for the calculation of inflationary non-Gaussianities does exist,
-they are based on point-by-point methods, and are thus inefficient
-in their calculation and description of the smooth bispectrum.
-$\primodal$, which calculates the same quantity in an intrinsically
-smooth way, and whose result is tailored to comparison with observations,
-would thus fill an important gap.
-
-
-
