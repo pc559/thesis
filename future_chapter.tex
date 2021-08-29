@@ -1,41 +1,43 @@
 \chapter{Conclusions and Future Work}\label{chapter:conclusion}
 
 \section{Summary}
-In my PhD, I have exploited the inherent separability of the tree level in-in formalism,
-using expansions in separable basis functions. Following the modal philosophy of~\cite{FergShell_3}, and building on the basic idea of~\cite{Funakoshi}, this method obviates the requirement of considering an approximate separable template,
+In the work detailed in this thesis, we have exploited the inherent separability of the tree level in-in formalism,
+using expansions in separable basis functions.
+Following the modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}, and building on the basic idea of~\cite{Funakoshi},
+this method obviates the requirement of considering an approximate separable template,
 which was a limitation of previous analyses. Instead,
-the goal is to work with the full numerically calculated tree-level inflationary bispectrum of the theory
-being considered---the output is not a grid of points however, but a set of coefficients of
+the goal is to work with the full numerically calculated tree-level inflationary bispectrum of the scenario
+being considered. The output is not a grid of points, but a set of coefficients of
 an explicitly separable basis expansion.
 This preserves the separability and therefore allows us to skip the usual template-approximation step.
 
-I developed this separable approach into a practical and efficient numerical methodology which can be applied to a
-wider and more complicated range of bispectrum phenomenology, making an important step forward towards observational
+
+In this work we developed this separable approach into a practical and efficient numerical methodology,
+allowing it to be applied to a
+wider and more complicated range of bispectrum phenomenology than previously.
+This is an important step forward towards observational
 pipelines which can directly confront specific models of inflation using the full bispectrum information in a template-free analysis.
-
-The latter part of this bispectrum estimation pipeline ($\cmbbest$~\cite{Sohn_2021}) was recently completed
-by my collaborators (Wuhyun Sohn, Dr James Fergusson).
-This code constrains the inflationary output of my ``$\primodal$'' code using \textit{CMB} data.
-
-In my recent paper (with E. P. S. Shellard)~\cite{probing_precision}, which has been submitted to JCAP,
-we explored and described various basis choices and their advantages, and thoroughly validated the methods on single-field inflation models with non-trivial phenomenology, showing that our calculation of these coefficients is fast and accurate to high orders.
+We also implemented the methods and basis sets we developed in the $\primodal$ code, which calculates
+the shape coefficients for a given inflation scenario, in a given basis.
+We have explored and described various basis choices and their advantages, and thoroughly
+validated our methods on single-field inflation models with non-trivial phenomenology,
+showing that our calculation of these coefficients is fast and accurate to high orders.
 
 
-More recently I have reached the key exploitation phase of my research.
-My collaborators and I have tested the integration of the $\primodal$ and $\cmbbest$
-parts of the pipeline, and at present, my focus is on running $\primodal$ on the Cambridge HPC facility,
-scanning models of inflation with the goal of obtaining some improved constraints on parameters of fundamental
-physics using our pipeline.
-Specifically, we are looking at models of DBI inflation~\cite{dbi_in_the_sky} with sharp or
-oscillatory features, which are reviewed in, for example,~\cite{astro2020_features}.
-
-
+The latter part of this bispectrum estimation pipeline is described and
+validated in~\cite{Sohn_2021} and implemented in the $\cmbbest$ code.
+This code constrains the inflationary output of the $\primodal$ code using \textit{$\cmb$} data.
+In chapter~\ref{chapter:constraints} we tested the integration of the $\primodal$ and $\cmbbest$
+parts of the pipeline.
+We scanned across a fundamental parameter, $\bir$, of the $\dbi$ model of inflation.
+Our goal was to obtain a constraint on this parameter using our pipeline---we found 
+$\bir\le0.46$ at $95\%$ confidence using $\planck$ temperature data.
+This differed from the equivalent constraint found by the $\modal$ estimator
+in the $\planck$ analysis, but the result were sufficiently in agreement that we
+can take this as a broad validation of our pipeline.
 
 
 \section{Discussion}
-\textcolor{red}{
-    Link back to bigger picture.
-}
 In this work we have extended the modal methods of~\cite{FergShell_1,FergShell_2,FergShell_3}
 to recast the calculation of the tree-level primordial bispectrum~\eqref{inin_integral}
 into a form that explicitly preserves its separability.
@@ -47,12 +49,12 @@ separately for each $k$-configuration. The second, more important, advantage
 is the link to observations.
 Unlike previous numerical and semi-analytic methods,
 once the shape function is expressed in some basis
-as in~\eqref{shapefn},
+as in~\eqref{goal},
 the integral~\eqref{eq:reduced_cmb} and other computationally intensive steps involved
-in estimating a particular bispectrum in the CMB, can be precomputed. Since this
+in estimating a particular bispectrum in the $\cmb$, can be precomputed. Since this
 large cost is only paid once per basis, once a basis
 which converges well for a broad range of models
-has been found, an extremely broad exploration of primordial bispectra becomes immediately feasible in the CMB.
+has been found, an extremely broad exploration of primordial bispectra becomes immediately feasible in the $\cmb$.
 Making explicit the $k$-dependence in this way also opens the door to vast increases in efficiency in
 connecting to other observables, by precomputation using the basis set, then performing a (relatively) cheap
 scan over inflation parameters.
@@ -82,11 +84,11 @@ have a rich feature phenomenology. An important goal will be extending
 these methods to the case of multiple-field inflation.
 
 The next immediate application will be to directly constrain parameters of
-inflationary scenarios through modal bispectrum results from the \textit{Planck} satellite~\cite{Planck_NG_2018}.
+inflationary scenarios through modal bispectrum results from the $\planck$ satellite~\cite{Planck_NG_2018}.
 The details of the work required to directly connect our coefficients to the observed data,
 and the large but once-per-basis cost of this calculation, will be detailed in
 a forthcoming paper~\cite{Sohn_2021}.
-CMB and LSS data from forthcoming surveys will be able to use
+$\cmb$ and \textit{LSS} data from forthcoming surveys will be able to use
 these separable primordial bispectra to even more precisely constrain the
 parameters of inflationary scenarios.
 
@@ -105,7 +107,7 @@ The ability to efficiently compare the phenomenology of these scenarios to obser
 If the fundamental physical model of inflation is of a single field,
 then the non-linearities of the self-interactions of that field may have
 produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
-Detecting these signatures in the CMB bispectrum requires an understanding
+Detecting these signatures in the $\cmb$ bispectrum requires an understanding
 of their form~\cite{Komatsu_2005}, which motivates the study of these dynamics.
 Models of inflation that can produce observably large non-Gaussian signatures,
 and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
