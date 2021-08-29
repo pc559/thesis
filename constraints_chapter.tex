@@ -1,16 +1,16 @@
 %\input{commands}
 \chapter{An Inflationary Constraint from the $\cmb$ Bispectrum}\label{chapter:constraints}
-\section{DBI sound speed constraint}
+\section{$\dbi$ sound speed constraint}
 \textcolor{red}{We use $\Lnsinv$ because that is what $\cmbbest$ was run for,
 other basis sets described will be used in future runs of $\cmbbest$.}
 
 
-    In this chapter, we use $\planck$ data to place a constraint on DBI inflation.
+    In this chapter, we use $\planck$ data to place a constraint on $\dbi$ inflation.
     We then compare this result to a constraint on the same parameter obtained by the $\planck$
     collaboration~\cite{Planck_NG_2018},
     with the aim of validating the full $\primodal$-$\cmbbest$ pipeline.
     The $\planck$ result was obtained by constraining the amplitude
-    of the DBI template~\eqref{dbi_shape}, and using a slow-roll relation~\eqref{fnl_dbi_defn}
+    of the $\dbi$ template~\eqref{dbi_shape}, and using a slow-roll relation~\eqref{fnl_dbi_defn}
     to map this to a constraint on the sound speed.
     In our pipeline, in contrast, we scan over a fundamental parameter of the model, $\bir$,
     with the other parameters of the model held fixed.
@@ -37,7 +37,7 @@ other basis sets described will be used in future runs of $\cmbbest$.}
 
 
     Equation (55) in~\cite{Planck_NG_2018} presents the 
-    constraint on the sound speed during DBI inflation
+    constraint on the sound speed during $\dbi$ inflation
     derived from the $\cmb$ bispectrum using the $\modal$ estimator
     \begin{align}\label{eq:planck_dbi_constraint}
         c_s^{DBI}&\ge0.079\qquad(95\%,~T~\text{only},~\modal)
@@ -54,7 +54,7 @@ other basis sets described will be used in future runs of $\cmbbest$.}
     scatter between the estimators used within the $\planck$ analysis.
     Note that this is not statistical variance, but simply method variance.
     We show this in figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
-    which is closely related to the DBI template.
+    which is closely related to the $\dbi$ template.
     We see that the result obtained by $\cmbbest$ is different, but still lies
     between the results of the $\ksw$ and $\modal$ estimators.
 
@@ -64,7 +64,7 @@ other basis sets described will be used in future runs of $\cmbbest$.}
         %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
         \caption{
-            The constraint we obtain on DBI inflation. Here $c_s^{DBI}$ is not an input parameter
+            The constraint we obtain on $\dbi$ inflation. Here $c_s^{DBI}$ is not an input parameter
             (unlike in the template case), instead it is time dependent, and the value plotted as $c_s^{DBI}$
             here is the value at horizon crossing of the pivot scale, which can be used to label the
             scenarios we scanned over.
@@ -216,7 +216,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_p1ns30}}\\
 \caption{
     The $\scalingbasis$ basis converges well across the scan range.
-    We see that the bare DBI template is a poor match to the true numerical result.
+    We see that the bare $\dbi$ template is a poor match to the true numerical result.
     This is mostly due to the error in the overall magnitude.
     Once this is corrected, we see that the numerical result matches the
     approximate template to better than $1\%$. As the convergence of the
@@ -297,7 +297,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     we see that neither is obviously the better match to the numerical result.
     This is due to the numerical result having a non-zero squeezed limit
     coming from the usual slow-roll suppressed local-type contributions
-    (as in~\eqref{malda_shape}) which are neglected in the DBI templates.
+    (as in~\eqref{malda_shape}) which are neglected in the $\dbi$ templates.
 
 
 
@@ -310,7 +310,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     \textcolor{red}{This is obvious because of that cancellation?}
     From these results we can quantitatively see that slow-roll suppressed effects,
     despite becoming dominant in the squeezed limit,
-    do not appreciably affect the constraint on the DBI scenario.
+    do not appreciably affect the constraint on the $\dbi$ scenario.
     We can see this since the template decompositions do not include these effects, but the numerical $\primodal$
     results do, and both result in the same constraint.
 
@@ -318,13 +318,13 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 %\section{EFT stuff, build off Enrico's recent work.}
 %    Words
 \section{Conclusions}
-    Using our methods (as implemented in the $\primodal$ code), for each value of $\bir$ in
-    the scan we can calculate the shape coefficients $\alpha_{pqr}$ with respect to our
-    chosen basis, $\Lnsinv$.
+    Using our methods (as implemented in the $\primodal$ code) we can calculate the shape coefficients
+    $\alpha_{pqr}$ for each value of $\bir$ in the scan described above.
+    In this scan, these coefficients are with respect to the $\Lnsinv$ basis.
     Using these coefficients, we can use the methods described in~\cite{Sohn_2021} (as implemented
-    in the $\cmbbest$ code) to place a constraint on the amplitude of that predicted bispectrum,
-    using the $\planck$ temperature data.
-    This then directly translates to a constraint on the inflationary parameters of that scenario,
+    in the $\cmbbest$ code) to place a constraint on the amplitude of that predicted bispectrum.
+    This constraint uses the $\planck$ temperature data.
+    The constraint then directly translates to a constraint on the inflationary parameters of that scenario,
     without the need for further approximations.
     This is done by giving the bispectrum of each scenario an amplitude
     parameter, which we call $\fnl$---this is then scenario specific, in contrast to previous works.
@@ -346,19 +346,18 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
     Keeping the other scenario parameters~\eqref{eq:scan_params} held fixed,
     the $\planck$ constraint~\eqref{eq:planck_dbi_constraint}
-    would instead imply that $\bir\le0.331$ is ruled out at $95\%$ confidence.
+    would instead imply that $\bir\le0.33$ is ruled out at $95\%$ confidence.
     The difference between our result and the $\planck$ result cannot be explained by
     statistical variance, as they are based on the same $\planck$ temperature data.
-    However, as we see in figure~\ref{fig:equil_constraints_comparison},
-    even between the estimation methods used within $\planck$, there is some variance,
-    with possible contributions including convergence (for their respective convergence parameters),
+    However, as we see for $\fnlequil$ in figure~\ref{fig:equil_constraints_comparison},
+    even between the estimation methods used within $\planck$ there is some variance.
+    Possible contributions to this disagreement include convergence (for their respective convergence parameters),
     numerical errors, and differing numbers of Gaussian maps used \textcolor{red}{this obviously
     affects the convergence of $\sigma$, but does it affect $\fnl$? Through the normalisation?}
 
 
-    Thus we conclude that our constraint on the $DBI$ sound speed validates our pipeline as a whole,
-    laying a solid foundation
-    to move forward to shapes that have a standard template,
+    Thus we conclude that our constraint on the $\dbi$ sound speed validates our pipeline as a whole,
+    laying a solid foundation to move forward to shapes that have no standard template,
     obtaining totally new constraints.
 
 

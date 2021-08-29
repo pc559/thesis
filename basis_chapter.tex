@@ -634,7 +634,7 @@ The total size of the set will always be referred to as $\Pmax$.
 \end{table}
 
 In order to compare the efficacy of the different basis function sets,
-we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the DBI shape~\eqref{dbi_shape}.
+we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the $\dbi$ shape~\eqref{dbi_shape}.
 To mimic the in-in calculation, we expand the shape on the cube, but test the result on the tetrapyd
 using~\eqref{relative_difference}.
 The results are shown in figure~\ref{fig:recon_malda_dbi}.
@@ -645,7 +645,7 @@ of magnitude at $\Pmax=15$. The augmented Fourier basis $\Finvk$ also converges
 quickly relative to $\Lbasic$, but is outdone by $\Linvk$.
 Though we do not show the convergence on the cube, we find that for Maldacena's
 template this is of the same order of magnitude as
-the error on the tetrapyd.  For the DBI shape, however, the
+the error on the tetrapyd.  For the $\dbi$ shape, however, the
 fit on the tetrapyd lags significantly behind, due to the effect
 of the large non-physical configurations. This explains the order of
 magnitude difference between the convergence at
@@ -662,7 +662,7 @@ each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
     Convergence comparisons for the Legendre and Fourier basis functions for (a) the Maldacena 
     template~\eqref{malda_shape} and (b) the DBI template~\eqref{dbi_shape}.
     The pure Legendre $\Lbasic$ basis requires many terms to fit the $1/k$ behaviour
-    in both Maldacena's template~\eqref{malda_shape} and the DBI template~\eqref{dbi_shape}.
+    in both Maldacena's template~\eqref{malda_shape} and the $\dbi$ template~\eqref{dbi_shape}.
     In contrast, the $\Linvk$ basis (with an orthogonalised $1/k$ term) mitigates this dramatically, with the 
     error already reduced by a factor of $100$ at $\Pmax=5$.
     The Fourier $\Finvk$ basis performs well, but converges more slowly than the $\Linvk$ basis.
@@ -681,7 +681,7 @@ and also when they are multiplied by~\eqref{dbi_shape} to obtain a feature
 template with both shape and scale dependence.
 As shown in figure~\ref{fig:recon_osc_dbiosc},
 $\Fbasic$ naturally outperform the basis sets built from Legendre modes for a pure oscillation.
-However when the equilateral-type DBI template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
+However when the equilateral-type $\dbi$ template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
 $\Finvk$ converge poorly. Instead, the basis sets built from Legendre modes offer a better more robust option,
 with the $\scalingbasis$ basis performing best.
 In figure~\ref{fig:log_recon_osc_dbiosc} we see that for a logarithmic

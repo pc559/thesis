@@ -327,7 +327,7 @@ a quadratic potential
 \end{align}
 with a canonical kinetic term,
 and a non-canonical model,
-the DBI model described in section~\ref{sec:interactions}.
+the $\dbi$ model described in section~\ref{sec:interactions}.
 
 
     \section{The primordial power spectrum}
@@ -494,14 +494,14 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     In~\cite{seery_ng_0503, chen_ng_0605, dbi_in_the_sky} $\fnl$ is similarly defined in terms
     of the shape function evaluated on equilateral triangles,
     as the templates considered had no scale dependence.
-    One particular example is the DBI template, which we will present explicitly in~\eqref{dbi_shape}.
-    For now, we briefly state the definition of $\fnl^{DBI}$, from~\cite{Planck_NG_2013}
+    One particular example is the $\dbi$ template, which we will present explicitly in~\eqref{dbi_shape}.
+    For now, we briefly state the definition of $\fnl^{\dbi}$, from~\cite{Planck_NG_2013}
     \begin{align}
-        B^{DBI}_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^{DBI}}{k^{6}}.
+        B^{\dbi}_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^{\dbi}}{k^{6}}.
     \end{align}
     Comparing to~\eqref{dbi_shape}, we find that
     \begin{align}\label{fnl_dbi_defn}
-        \fnl^{DBI} = -\frac{35}{108}\left(c_s^{-2}-1\right).
+        \fnl^{\dbi} = -\frac{35}{108}\left(c_s^{-2}-1\right).
     \end{align}
 
 
@@ -638,16 +638,16 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
     \subsection{Interactions}\label{sec:interactions}
     Simpler derivation neglecting the metric perturbations to begin with.
-    Discuss DBI, then $P(X, \phi)$.
+    Discuss $\dbi$, then $P(X, \phi)$.
 
 
-    The DBI model has kinetic term
+    The $\dbi$ model has kinetic term
 \begin{align}\label{eq:dbi_action}
-    S_{DBI}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
+    S_{\dbi}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
 \end{align}
 and we choose
 \begin{align}\label{eq:dbi_warp}
-    f(\phi)=\frac{\lambda_{DBI}}{\phi^4},\qquad
+    f(\phi)=\frac{\lambda_{\dbi}}{\phi^4},\qquad
     V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
     m=\sqrt{\beta_{IR}}H
 \end{align}
@@ -678,7 +678,7 @@ which for a $P(X,\phi)$ model evaluates to
                     &= 1-f(\phi)X
     \end{align}
     \textcolor{red}{Factor of two in $P,_X$?}
-    We see that, as expected, in the limit $\lambda_{DBI}\rightarrow 0$, the sound
+    We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
     speed tends to unity.
     From this, we can calculate the $\phi$ equation of motion~\eqref{phieom}
     \begin{align}
@@ -984,11 +984,11 @@ and the dominant contributions (the squeezed configurations) are expected
 to have no observable effect~\cite{Cabass_2016}.
 
 
-For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
+For the featureless $\dbi$ scenario, the shape function is~\cite{dbi_in_the_sky}:
 \begin{align}\label{dbi_shape}
     %S^{DBI}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right)
     %     \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}\\
-    S^{DBI}(k_1,k_2,k_3) &= -\frac{35}{108}
+    S^{\dbi}(k_1,k_2,k_3) &= -\frac{35}{108}
          \left(\frac{1}{c_s^2}-1\right)
          6\left(\frac{H^2}{4\varepsilon c_s}\right)^2
          \left(\frac{3}{5}\right)
@@ -997,7 +997,7 @@ For the featureless DBI scenario, the shape function is~\cite{dbi_in_the_sky}:
 \end{align}
 to leading order in slow-roll.
 Any constraint on the magnitude of this template can be translated into one 
-on the effective sound speed which from \planck~has a lower limit $c_s^{DBI} \geq 0.087$
+on the effective sound speed which from \planck~has a lower limit $c_s^{\dbi} \geq 0.087$
 at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
 
@@ -1018,15 +1018,15 @@ with multi-field models being a prime target for future work.
 
 These templates can be modified to be more physically realistic by including
 scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
-For example, we can add some scale dependence to the DBI~\eqref{dbi_shape}
+For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
 in a reasonable first approximation by including a prefactor.
 We define the product scaling template
 \begin{align}\label{dbi_prod_shape}
-    S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{DBI}(k_1,k_2,k_3)
+    S^{\dbi-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 and the sum scaling template
 \begin{align}\label{dbi_sum_shape}
-    S^{DBI-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{DBI}(k_1,k_2,k_3)
+    S^{\dbi-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
 
@@ -1438,7 +1438,7 @@ other methods impose some non-trivial cutoff at early times.
     by separable ones.
     For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
     template~\eqref{equil_shape}.
-    \textcolor{red}{Quantitative comparison of equilateral template and DBI shape,
+    \textcolor{red}{Quantitative comparison of equilateral template and $\dbi$ shape,
     with and without scaling.}
 
 
