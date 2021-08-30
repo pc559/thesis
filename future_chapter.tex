@@ -20,14 +20,14 @@ to an inflation scenario, to generate shape coefficients for some given basis.
 inflation scenario, and used the separability of our result to connect to the methods of~\cite{Sohn_2021}.
 This allowed us to place a constraint on that scenario, using $\planck$ $\cmb$ data.
 \end{itemize}
-Through this work we developed this separable approach into a practical and efficient numerical methodology,
-allowing it to be applied to a
-wider and more complicated range of bispectrum phenomenology than previously,
-as we demonstrated in our validation examples.
+Through this work we developed this separable approach into a practical and efficient numerical methodology.
+%allowing it to be applied to a
+%wider and more complicated range of bispectrum phenomenology than previously,
+%as we demonstrated in our validation examples.
 %This is an important step forward towards observational
 %pipelines which can directly confront specific models of inflation using the full bispectrum
 %information in a template-free analysis.
-These methods and basis sets we developed have been implemented in the $\primodal$ code, which calculates
+These methods and basis sets have been implemented in the $\primodal$ code, which calculates
 the shape coefficients for a given inflation scenario, in a given basis.
 We have explored and contrasted the advantages of the various basis sets we described, and thoroughly
 validated our methods on single-field inflation models with non-trivial phenomenology.
@@ -50,8 +50,7 @@ can take this as a broad validation of our pipeline.
 
 
 \section{Discussion}
-In this work we have extended the modal methods of~\cite{FergShell_1,FergShell_2,FergShell_3}
-to recast the calculation of the tree-level primordial bispectrum~\eqref{inin_integral}
+In this work we recast the calculation of the tree-level primordial bispectrum~\eqref{inin_integral}
 into a form that explicitly preserves its separability.
 We emphasise again that this work has two main advantages over previous
 numerical methods. The more immediate is that by calculating the primordial
@@ -92,19 +91,20 @@ converge to the full shape information than previous numerical methods,
 which relied on calculating the shape function point-by-point, for each $k$-configuration separately.
 We have implemented these methods for single field scenarios
 with a varying sound speed, scenarios which
-have a rich feature phenomenology. An important goal will be extending
+have a rich feature phenomenology. An important goal, however, will be extending
 these methods to the case of multiple-field inflation.
 These goals support those laid out in the recent community white paper~\cite{astro2020_png},
 by improving predictions of the phenomenology of non-linearities in the very early universe.
-The ability to efficiently compare the phenomenology of these scenarios to observation and thus
-constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
+%The ability to efficiently compare the phenomenology of these scenarios to observation and thus
+%constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
 
-
-The main advantage of our methods is that it will enable the use of $\planck$ data
+While the phenomenology is of interest in its own right,
+the main advantage of our methods is that it will enable the use of $\planck$ data
 (and data from future experiments)
 to directly constrain parameters of inflationary scenarios which do not have
-standard templates, thus obtaining new constraints on inflationary parameters.
+standard bispectrum templates, thus obtaining new constraints on inflationary parameters.
 Using the basis sets and the separable formulation of the in-in calculation developed in this work,
-it will be possible to reproduce and improve upon the established constraints on inflation models,
-obtaining constraints using the full shape dependence,
-strengthening the connecting between the very early universe and the universe we see today.
+%it will be possible to reproduce and improve upon the established constraints on inflation models,
+it will be possible to obtain constraints using the full shape dependence,
+strengthening the connecting between the very early universe and the universe we
+find ourselves in today.
