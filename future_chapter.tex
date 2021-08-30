@@ -22,16 +22,16 @@ This allowed us to place a constraint on that scenario, using $\planck$ $\cmb$ d
 \end{itemize}
 Through this work we developed this separable approach into a practical and efficient numerical methodology,
 allowing it to be applied to a
-wider and more complicated range of bispectrum phenomenology than previously.
-This is an important step forward towards observational
-pipelines which can directly confront specific models of inflation using the full bispectrum
-information in a template-free analysis.
+wider and more complicated range of bispectrum phenomenology than previously,
+as we demonstrated in our validation examples.
+%This is an important step forward towards observational
+%pipelines which can directly confront specific models of inflation using the full bispectrum
+%information in a template-free analysis.
 These methods and basis sets we developed have been implemented in the $\primodal$ code, which calculates
 the shape coefficients for a given inflation scenario, in a given basis.
 We have explored and contrasted the advantages of the various basis sets we described, and thoroughly
 validated our methods on single-field inflation models with non-trivial phenomenology.
-This validation showed that
-our calculation of these coefficients is fast and accurate to high orders.
+This validation showed that our calculation of these coefficients is fast and accurate to high orders.
 
 
 The latter part of this bispectrum estimation pipeline
@@ -41,7 +41,8 @@ validated in~\cite{Sohn_2021} and implemented in the $\cmbbest$ code.
 In chapter~\ref{chapter:constraints} we tested the integration of the $\primodal$ and $\cmbbest$
 parts of the pipeline.
 We scanned across a fundamental parameter, $\bir$, of the $\dbi$ model of inflation.
-Our goal was to obtain a constraint on this parameter using our pipeline---we found 
+Our goal was to obtain a constraint on this parameter using our
+template-free analysis---we found 
 $\bir\le0.46$ at $95\%$ confidence using $\planck$ temperature data.
 This differed from the equivalent constraint found by the $\modal$ estimator
 in the $\planck$ analysis, but the results were sufficiently in agreement that we
@@ -99,18 +100,11 @@ The ability to efficiently compare the phenomenology of these scenarios to obser
 constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
 
 
-The advantage of our methods is that it will enable the use of $\planck$ data
+The main advantage of our methods is that it will enable the use of $\planck$ data
 (and data from future experiments)
 to directly constrain parameters of inflationary scenarios which do not have
 standard templates, thus obtaining new constraints on inflationary parameters.
-
-
 Using the basis sets and the separable formulation of the in-in calculation developed in this work,
-it will be possible to reproduce and improve upon the established constraints on single-field inflation models
-and oscillatory models,
-obtaining constraints using the full shape dependence, complementing the
-searches done in~\cite{Planck_NG_2018} which again used approximate templates
-(which exclude, for example, drifting frequencies).
-
-
-
+it will be possible to reproduce and improve upon the established constraints on inflation models,
+obtaining constraints using the full shape dependence,
+strengthening the connecting between the very early universe and the universe we see today.
