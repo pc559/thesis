@@ -23,7 +23,12 @@
     the $\primodal$ code) to generate shape coefficients for each scenario in the scan.
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
     then used the $\planck$ temperature data to place a constraint
-    on $\bir$. The $\cmbbest$ code determines the confidence interval of the result
+    on $\bir$. 
+    The bispectrum of each scenario is given an amplitude
+    parameter, which we call $\fnl$, where the scenario prediction
+    corresponds to $\fnl=1$. Thus, if we can rule out $\fnl=1$,
+    we can judge that scenario to be inconsistent with the data.
+    The $\cmbbest$ code determines the confidence interval of the result
     by applying the estimator to $140$ full focal plane realistic Gaussian
     simulations~\cite{Planck_ffp10_2015}. The variance of the results from those
     Gaussian maps is then assumed to approximate the variance of the result
@@ -114,7 +119,8 @@
             with the $\cmbbest$ result, presented in~\cite{Sohn_2021}.
             We plot the constraints obtained by each method for $\fnlequil$,
             along with their $68\%$ uncertainty margin.
-            Note that all the estimation methods use the same data,
+            Note that all the estimation methods
+            \textcolor{red}{are optimal},
             hence their uncertainty margins are close
             to identical.
             We see that while the estimators do not agree, there is no discrepancy with any
@@ -148,7 +154,6 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         \phi_0 &= 0.46042\mpl
     \end{align}
     held fixed.
-    \textcolor{red}{Check units.}
 
 
     From~\cite{Chen_dbi} we can use slow-roll relations to determine the approximate
@@ -296,17 +301,20 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 
     In figure~\ref{fig:prim_conv} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
+    We quantify the convergence by measuring $\totalcor$~\eqref{relative_difference} between
+    $\Pmax=30$ and $\Pmax=25$.
     For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
-    The convergence in the $\scalingbasis$ basis is better,
+    The convergence in the $\scalingbasis$ basis is better, with $\totalcor$
     falling in the range $[10^{-4}, 10^{-3}]$.
     %$[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
     However, to connect to the $\cmbbest$ code we must use
-    the $\Lnsinv$ basis. We see that it is sufficient for our purposes.
+    the $\Lnsinv$ basis. We see from figure~\ref{fig:prim_conv}
+    that it is sufficient for our purposes.
 
 
     In figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
     in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
-    between $\Pmax=25$ and $\Pmax=30$,
+    comparing $\Pmax=25$ and $\Pmax=30$,
     the relative error in $\fnl+2\sigma$ is sufficiently small that we can be
     confident our results have converged in $\Pmax$.
     We also see that it is (for the majority of the scan) smaller
@@ -384,6 +392,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     Using this method we investigated the scenarios in the scan described in~\eqref{eq:bir_range}
     and~\eqref{eq:scan_params}. We found that $\bir\le0.46$ is ruled out at $95\%$ confidence---this
     is shown in figure~\ref{fig:dbi_sound_speed_scan_beta}.
+
+
     In this chapter we also quantified the convergence of this result, by comparing the full $\Pmax=30$
     result with the same results calculated for $\Pmax=25$. We found that this did not affect the
     final constraint, and concluded that our result has converged satisfactorily in $\Pmax$,
