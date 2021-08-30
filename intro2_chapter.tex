@@ -637,6 +637,31 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
 
     \subsection{Interactions}\label{sec:interactions}
+    \textcolor{red}{MERGE}
+If the fundamental physical model of inflation is of a single field,
+then the non-linearities of the self-interactions of that field may have
+produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
+Detecting these signatures in the $\cmb$ bispectrum requires an understanding
+of their form~\cite{Komatsu_2005}, which motivates the study of these dynamics.
+Models of inflation that can produce observably large non-Gaussian signatures,
+and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
+include string theory-inspired models such as $\dbi$ inflation~\cite{dbi_silverstein}
+and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
+(which gives large non-Gaussianity through the resonance mechanism).
+
+
+Another source of possibly observable non-Gaussian signatures can be
+found in inflation scenarios with more than one active field.
+In these models, which are motivated by string theory considerations~\cite{achucarro_multifield1},
+non-linearities of interactions between fields during inflation
+can generate observably large non-Gaussian signals.
+This is in part because they can evade the squeezed limit consistency condition~\cite{sqz_consistency}.
+The extra degrees of freedom in these scenarios can generate bispectrum shapes not usually
+seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}),
+making the exploration of the case of multiple fields a prime target.
+    \textcolor{red}{MERGE}
+
+
     Simpler derivation neglecting the metric perturbations to begin with.
     Discuss $\dbi$, then $P(X, \phi)$.
 
@@ -1503,6 +1528,41 @@ other methods impose some non-trivial cutoff at early times.
 
 
 
+\section{Optimising the separable decomposition of primordial bispectra}
+\textcolor{red}{MERGE}
+The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
+This convergence depends centrally on the basis choice, as we explored in~\cite{probing_precision}.
+While in that work we described basis sets that could efficiently capture both the
+basic shapes and some more complicated oscillatory shapes,
+the question remains as to how to find the optimal separable description of a given bispectrum.
+
+
+This is complementary to the philosophy of the main pipeline,
+which is to find a large general basis which covers a wide range of models.
+Instead, it may be possible to reduce the separable description of any given
+bispectrum to a sufficiently compact form that template-free estimation
+tailored to a scenario could be computationally tractable.
+
+
+Additionally, the most relevant metric for convergence is the convergence of
+the observables, not the bispectrum at the end of inflation---exploring the
+relative efficiencies of different basis sets in this context could be very
+fruitful in expanding the range of models which could be constrained.
+
+
+To pursue efficient separable decomposition, one avenue that could be explored is
+the use of techniques which have not
+previously been exploited in the setting of bispectrum calculation and estimation.
+One possible avenue is tensor rank decomposition techniques and other methods of tensor approximation,
+which are of use in, for example, signal processing. See~\cite{tensor_decomp_review} for a review.
+
+
+By using these techniques to approximate the coefficient matrix (which is the output of $\primodal$)
+we can determine a linear combination of our basis functions which can more efficiently
+describe that particular bispectrum.
+These techniques can be applied to explore the general limits of separable approximations to primordial bispectra,
+with a focus on convergence at the level of observations. This would make clear the widest possible set
+of models that can be constrained through the bispectrum.
 
 
 

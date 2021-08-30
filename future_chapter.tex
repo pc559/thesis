@@ -1,32 +1,43 @@
-\chapter{Conclusions and Future Work}\label{chapter:conclusion}
+\chapter{Conclusions}\label{chapter:conclusion}
 
 \section{Summary}
-In the work detailed in this thesis, we have exploited the inherent separability of the tree level in-in formalism,
-using expansions in separable basis functions.
+Through the work detailed in this thesis the inherent separability of the tree level in-in formalism
+has been exploited, using expansions in separable basis functions.
 Following the modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}, and building on the basic idea of~\cite{Funakoshi},
 this method obviates the requirement of considering an approximate separable template,
 which was a limitation of previous analyses. Instead,
 the goal is to work with the full numerically calculated tree-level inflationary bispectrum of the scenario
 being considered. The output is not a grid of points, but a set of coefficients of
-an explicitly separable basis expansion.
+the explicitly separable basis expansion.
 This preserves the separability and therefore allows us to skip the usual template-approximation step.
-
-
-In this work we developed this separable approach into a practical and efficient numerical methodology,
+We have:
+\begin{itemize}
+    \item developed practical sets of such basis functions, showing the overall method
+to be feasible.
+    \item developed efficient and robust methods of applying the in-in formalism
+to an inflation scenario, to generate shape coefficients for some given basis.
+    \item applied these methods to a particular
+inflation scenario, and used the separability of our result to connect to the methods of~\cite{Sohn_2021}.
+This allowed us to place a constraint on that scenario, using $\planck$ $\cmb$ data.
+\end{itemize}
+Through this work we developed this separable approach into a practical and efficient numerical methodology,
 allowing it to be applied to a
 wider and more complicated range of bispectrum phenomenology than previously.
 This is an important step forward towards observational
-pipelines which can directly confront specific models of inflation using the full bispectrum information in a template-free analysis.
-We also implemented the methods and basis sets we developed in the $\primodal$ code, which calculates
+pipelines which can directly confront specific models of inflation using the full bispectrum
+information in a template-free analysis.
+These methods and basis sets we developed have been implemented in the $\primodal$ code, which calculates
 the shape coefficients for a given inflation scenario, in a given basis.
-We have explored and described various basis choices and their advantages, and thoroughly
-validated our methods on single-field inflation models with non-trivial phenomenology,
-showing that our calculation of these coefficients is fast and accurate to high orders.
+We have explored and contrasted the advantages of the various basis sets we described, and thoroughly
+validated our methods on single-field inflation models with non-trivial phenomenology.
+This validation showed that
+our calculation of these coefficients is fast and accurate to high orders.
 
 
-The latter part of this bispectrum estimation pipeline is described and
+The latter part of this bispectrum estimation pipeline
+connects the shape coefficient output of $\primodal$ to the $\cmb$.
+This part of the pipeline is described and
 validated in~\cite{Sohn_2021} and implemented in the $\cmbbest$ code.
-This code constrains the inflationary output of the $\primodal$ code using \textit{$\cmb$} data.
 In chapter~\ref{chapter:constraints} we tested the integration of the $\primodal$ and $\cmbbest$
 parts of the pipeline.
 We scanned across a fundamental parameter, $\bir$, of the $\dbi$ model of inflation.
@@ -45,34 +56,33 @@ We emphasise again that this work has two main advantages over previous
 numerical methods. The more immediate is that by calculating the primordial
 bispectrum in terms of an expansion in some basis, the full bispectrum can
 be obtained much more efficiently than through repetitive integration
-separately for each $k$-configuration. The second, more important, advantage
-is the link to observations.
+separately for each $k$-configuration. The second (and more important)
+advantage is the link to observations.
 Unlike previous numerical and semi-analytic methods,
-once the shape function is expressed in some basis
-as in~\eqref{goal},
+once the shape function is expressed in some basis as in~\eqref{goal},
 the integral~\eqref{eq:reduced_cmb} and other computationally intensive steps involved
 in estimating a particular bispectrum in the $\cmb$, can be precomputed. Since this
 large cost is only paid once per basis, once a basis
 which converges well for a broad range of models
 has been found, an extremely broad exploration of primordial bispectra becomes immediately feasible in the $\cmb$.
-Making explicit the $k$-dependence in this way also opens the door to vast increases in efficiency in
-connecting to other observables, by precomputation using the basis set, then performing a (relatively) cheap
-scan over inflation parameters.
+%Making explicit the $k$-dependence in this way also opens the door to vast increases in efficiency in
+%connecting to other observables, by precomputation using the basis set, then performing a (relatively) cheap
+%scan over inflation parameters.
 
 
 Our work here goes beyond that of~\cite{Funakoshi} in that our careful methodology
-allows us to accurately and efficiently go to much higher orders,
-in particular our methods of starting the time integrals~\eqref{inin_kindep}
-and of including the spatial derivative terms in the calculation.
+allows us to accurately and efficiently go to much higher orders.
+%in particular our methods of starting the time integrals~\eqref{inin_kindep}
+%and of including the spatial derivative terms in the calculation.
 This allowed us to present this method for feature bispectra for the first time,
-demonstrating the efficient exploration of much more general primordial bispectrum phenomenology.
-We have also identified and addressed the effects
+with linear oscillations, logarithmic oscillations, and complicated shape dependence.
+%demonstrating the efficient exploration of much more general primordial bispectrum phenomenology.
+We also identified and addressed the effects
 of the non-physical $k$-configurations on convergence within the three-dimensional tetrapyd.
-We explored, for the first time, possible basis set choices in the context
-of those effects.
+We explored, for the first time, possible basis set choices in the context of those effects.
 We showed rapid convergence on a broad range of scenarios,
 including cases with oscillatory features with non-trivial shape dependence,
-using our augmented Legendre polynomial basis sets.
+using our augmented basis sets.
 
 
 The immediate application of this work is the efficient exploration of
@@ -83,37 +93,16 @@ We have implemented these methods for single field scenarios
 with a varying sound speed, scenarios which
 have a rich feature phenomenology. An important goal will be extending
 these methods to the case of multiple-field inflation.
-
-
-The next immediate application will be to use $\planck$ data to directly constrain parameters of
-inflationary scenarios which do not have standard templates, thus obtaining new constraints
-on inflationary parameters.
-The details of the work required to directly connect our coefficients to the observed data,
-and the large but once-per-basis cost of this calculation, will be detailed in
-a forthcoming paper~\cite{Sohn_2021}.
-
-
 These goals support those laid out in the recent community white paper~\cite{astro2020_png},
 by improving predictions of the phenomenology of non-linearities in the very early universe.
-The ability to efficiently compare the phenomenology of these scenarios to observation and thus constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
+The ability to efficiently compare the phenomenology of these scenarios to observation and thus
+constrain the space of theories is a very worthwhile goal, though the phenomenology is also of interest in its own right.
 
 
-\section{Future Work}
-\subsubsection*{Non-linearities from inflaton self-interactions}
-If the fundamental physical model of inflation is of a single field,
-then the non-linearities of the self-interactions of that field may have
-produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
-Detecting these signatures in the $\cmb$ bispectrum requires an understanding
-of their form~\cite{Komatsu_2005}, which motivates the study of these dynamics.
-Models of inflation that can produce observably large non-Gaussian signatures,
-and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
-include string theory-inspired models such as $\dbi$ inflation~\cite{dbi_silverstein}
-and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
-(which gives large non-Gaussianity through the resonance mechanism).
-Also within reach with the current implementation of $\primodal$
-is the exploration of the effects of sudden
-features in the inflationary dynamics, and of more general
-time-dependence within the formalism of the effective field theory (EFT) of inflation. 
+The advantage of our methods is that it will enable the use of $\planck$ data
+(and data from future experiments)
+to directly constrain parameters of inflationary scenarios which do not have
+standard templates, thus obtaining new constraints on inflationary parameters.
 
 
 Using the basis sets and the separable formulation of the in-in calculation developed in this work,
@@ -124,66 +113,4 @@ searches done in~\cite{Planck_NG_2018} which again used approximate templates
 (which exclude, for example, drifting frequencies).
 
 
-Beyond this, it will be possible to expand the focus beyond $\dbi$ inflation, resonance features and sharp features
-and fully exploit the current implementation of our methods.
-The effects of including the full shape information in a template-free analysis
-can be explored,
-improving bispectrum constraints on parameters of single-field inflation models.
-Categorising models into distinguishability classes would be a useful initial goal.
 
-
-
-\subsubsection*{Non-linearities from multi-field inflation}
-Another source of possibly observable non-Gaussian signatures can be
-found in inflation scenarios with more than one active field.
-In these models, which are motivated by string theory considerations~\cite{achucarro_multifield1},
-non-linearities of interactions between fields during inflation
-can generate observably large non-Gaussian signals.
-This is in part because they can evade the squeezed limit consistency condition~\cite{sqz_consistency}.
-The extra degrees of freedom in these scenarios can generate bispectrum shapes not usually
-seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}),
-making the exploration of the case of multiple fields a prime target.
-
-
-While some aspects of multi-field scenarios have been previously explored
-numerically~\cite{Fumagalli_2019} using the transport method~\cite{transport_pytransport_2}
-we can go beyond these explorations in two ways. Firstly, the transport method is a
-point-by-point method of calculating the bispectrum, and is thus significantly
-less efficient than our modal expansion method, and less suited to parameter scans.
-Secondly, the resulting grid of points is not easily comparable to observations,
-which is the main motivator of the separability of our method.
-Our methods should extend well to the multi-field case, and the efficiency of our
-methods should be especially beneficial in that numerically intensive context.
-
-
-\subsubsection*{Optimising the separable decomposition of primordial bispectra}
-The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
-This convergence depends centrally on the basis choice, as we explored in~\cite{probing_precision}.
-While in that work we described basis sets that could efficiently capture both the
-basic shapes and some more complicated oscillatory shapes,
-the question remains as to how to find the optimal separable description of a given bispectrum.
-
-This is complementary to the philosophy of the main pipeline,
-which is to find a large general basis which covers a wide range of models.
-Instead, it may be possible to reduce the separable description of any given
-bispectrum to a sufficiently compact form that template-free estimation
-tailored to a scenario could be computationally tractable.
-
-Additionally, the most relevant metric for convergence is the convergence of
-the observables, not the bispectrum at the end of inflation---exploring the
-relative efficiencies of different basis sets in this context could be very
-fruitful in expanding the range of models which could be constrained.
-
-
-To pursue efficient separable decomposition, one avenue that could be explored is
-the use of techniques which have not
-previously been exploited in the setting of bispectrum calculation and estimation.
-One possible avenue is tensor rank decomposition techniques and other methods of tensor approximation,
-which are of use in, for example, signal processing.
-
-By using these techniques to approximate the coefficient matrix (which is the output of $\primodal$)
-we can determine a linear combination of our basis functions which can more efficiently
-describe that particular bispectrum.
-These techniques can be applied to explore the general limits of separable approximations to primordial bispectra,
-with a focus on convergence at the level of observations. This would make clear the widest possible set
-of models that can be constrained through the bispectrum.
