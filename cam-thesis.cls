@@ -500,10 +500,10 @@ institution.
 
 \chapter*{Statement of contributions}
 \thispagestyle{empty}
-In this thesis I describe the research I performed during my PhD
+In this thesis I describe the research I performed during my PhD studies
 at the University of Cambridge, supervised by Professor Paul Shellard.
 Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
-describe my original work, except where specified below, and in the text.
+describe original work, except where specified below, and in the text.
 
 Chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
 and mostly follow standard textbook material, collected and written by myself.
