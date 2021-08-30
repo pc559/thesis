@@ -23,20 +23,26 @@
     the $\primodal$ code) to generate shape coefficients for each scenario in the scan.
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
     then used the $\planck$ temperature data to place a constraint
-    on $\bir$.
+    on $\bir$. The $\cmbbest$ code determines the confidence interval of the result
+    by applying the estimator to $140$ full focal plane realistic Gaussian
+    simulations~\cite{Planck_ffp10_2015}. The variance of the results from those
+    Gaussian maps is then assumed to approximate the variance of the result
+    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnl=1$.
+
+
     At present $\cmbbest$ has only been run for the $\Lnsinv$ basis
     with $\Pmax=30$, so to make contact with it the $\primodal$ scan
     was run with the same basis\footnote{
         Other basis sets described in chapter~\ref{chapter:decomp} will be used in future runs of $\cmbbest$.
-        Future implementations of $\cmbbest$ will include polarisation, but at present it is only
-        implemented for temperature data.
+        Also, while at present the $\cmbbest$ code is implemented for temperature only, the methods are general
+        and future implementations will include polarisation.
     }.
     As shown in figure~\ref{fig:dbi_sound_speed_scan_beta}, we find
     \begin{align}\label{eq:cmbbest_bir_constraint}
         \bir\le0.46\qquad(95\%,~T~\text{only}).
     \end{align}
-    This translates onto a constraint
-    on the sound speed at horizon crossing of
+    This translates into a constraint
+    on the sound speed (at horizon crossing) of
     \begin{align}\label{eq:cmbbest_dbi_constraint}
         c_s^{*}\ge0.056\qquad(95\%,~T~\text{only}).
     \end{align}
@@ -54,8 +60,11 @@
     One possible reason for this is the fact we are using slightly different
     scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
     use all the scales in the $\planck$ data. Another possible reason is convergence in the number of
-    maps---$\modal$ uses $\sim300$ maps while $\cmbbest$ uses $140$. Numerical issues
+    maps---$\modal$ uses approximately $300$ maps while $\cmbbest$ uses $140$. Numerical issues
+    in either method
     could also contribute. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
+
+
     We can however understand the expected variance of such estimators by simply examining the
     scatter between the estimators used within the $\planck$ analysis.
     Note that this is not statistical variance, but simply method variance.
@@ -87,6 +96,10 @@
             %but as we see in figure~\ref{fig:equil_constraints_comparison},
             %the discrepancy is not unexpected. We discuss possible explanations in the text.
             Note that the $\bir$ is approximately inversely proportional to $c^*_s$.
+            The confidence interval is the variance of the estimated $\fnl$ obtained
+            from $140$ Gaussian maps.
+            % $\sigma$ is the expected deviation between the measured $\fnl$ and the
+            % real one? It \textit{feels} like it should be centered on zero\ldots
             %\textcolor{red}{is it?}
         }\label{fig:dbi_sound_speed_scan_beta}
     \end{figure}
@@ -101,10 +114,8 @@
             with the $\cmbbest$ result, presented in~\cite{Sohn_2021}.
             We plot the constraints obtained by each method for $\fnlequil$,
             along with their $68\%$ uncertainty margin.
-            \textcolor{red}{Double check $68$ v.s.\ $95$ everywhere.}
-            Note that all the estimation methods use the same data
-            \textcolor{red}{and maps},
-            and are near optimal, hence their uncertainty margins are close
+            Note that all the estimation methods use the same data,
+            hence their uncertainty margins are close
             to identical.
             We see that while the estimators do not agree, there is no discrepancy with any
             significance---in particular, we see that $\cmbbest$ is not an outlier.
@@ -115,7 +126,6 @@
             The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
             template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
             in the $\Lnsinv$ basis for $\Pmax=30$.
-            \textcolor{red}{Which is the abstract one in Planck?}
         }\label{fig:equil_constraints_comparison}
     \end{figure}
 
