@@ -3,7 +3,7 @@
 \section{The standard cosmological history}\label{sec:general_intro}
 %\subsection{The bispectrum}
     \subsection{Fundamentals}
-When we look out into the sky, we see light that has traveled for a very long time to get to us.
+When we look out into the sky, we see light that has traveled for a long time to get to us.
 In that light we see images of the universe as it was when the light left its source.
 We see the moon as it was a second ago, or the Andromeda Galaxy as it was millions of
 years ago. To what extreme can we push this? How far back in time can we see? As we look further
@@ -46,20 +46,18 @@ extract the fundamental physics waiting to be found in the universe's youth.
     time, look the same everywhere and in every direction)
     define a class of solutions to the Einstein equations.
     The metric of each universe is known as a Friedmann–Lemaître–Robertson–Walker metric
-    (or more usually, and FLRW metric) and in this context
+    (or more usually, an FLRW metric). In this context
     the Einstein equations become the Friedmann equations, which we will soon present.
-
-
-    The form of the FLRW metric (we will always set the speed of light to unity\footnote{
+    But first, we present the the FLRW metric (we will always set the speed of light to unity\footnote{
         We will also set $\hbar=\mpl^{-1}=\sqrt{8\pi G}=1$.
-    }) is
+    })
     \begin{align}\label{flrw_metric}
-        ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2
+        ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2,
     \end{align}
-    where $a(t)$ will have the interpretation as the scale factor
+    where $a(t)$ has the interpretation as the scale factor
     which describes the evolution of the universe.
-    The line element $ds^2$ then determines the distance between two spacetime points,
-    or more intuitively, the proper time measured by an observer who freely falls
+    The line element $ds^2$ then determines the distance between two spacetime points.
+    Or, more intuitively, it determines the proper time measured by an observer who freely falls
     between two events will be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
     The homogeneity, isotropy and curvature of space are encoded in $dS_3$,
     but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
@@ -67,8 +65,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     The components of the matter and energy content of the universe enter the equations through
-    their stress-energy tensors, which we approximate as that of
-    a perfect fluid (denoted $X$)
+    their stress-energy tensors $T^{\mu\nu}$, which we approximate as that of
+    a perfect fluid. Labeling the fluid $X$,
     \begin{align}
         T_X^{\mu\nu} = (\rho_X+P_X)U_X^\mu U_X^\nu+P_Xg^{\mu\nu},
     \end{align}
@@ -83,67 +81,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     taking the quantity $w_X=\frac{P_X}{\rho_X}$ as constant will be a good description.
     This quantity $w$ takes the values $0$, $1/3$ and $-1$ for matter, radiation
     and dark energy (described by a cosmological constant) respectively.
-    If we take the spatial curvature of the universe to be vanishingly small,
-    the Einstein equation are then
-    \begin{align}\label{einstein_equations}
-        G_{\mu\nu} = 8\pi G T_{\mu\nu}
-    \end{align}
-    where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$.
-    Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
-    these equations simplify to the promised Friedmann equations
-    (with $8\pi G$ temporarily reinstated)
-    \begin{align}\label{friedmann_1}
-        H^2 &= \frac{8\pi G \rho}{3},\\
-        \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
-    \end{align}
-    where $H=\frac{\dot{a}}{a}$, and $\rho$ and $P$ are respectively the sum of the
-    energy densities and of the pressure densities of the
-    components of the universe.
-    A dot will refer to a derivative with respect to coordinate time $t$.
-    We also have the continuity equation
-    \begin{align}\label{continuity_equation}
-        \dot{\rho}_X + 3\frac{\dot{a}}{a}\left(\rho_X+P_X\right) &= 0
-    \end{align}
-    which is satisfied for each component separately.
-
-    Given the equations of state and the densities of the different
-    components of the universe, one can then calculate the time dependence of the
-    scale factor $a(t)$ and of the densities $\rho_X$ and $P_X$ of each component $X$.
-    This defines the homogeneous background evolution of the universe---physical phenomena
-    such as the redshifting of photons as they freestream through the universe.
-    Photons travel on geodesics. The geodesic equation that we use to determine
-    their evolution is
-    \begin{align}\label{geodesic_eqn_1}
-        \frac{dP^\mu}{d\lambda}+\Gamma^\mu_{\nu\sigma}P^\nu P^\sigma=0
-    \end{align}
-    where $P^a$ is the photon's $4$-momentum, and $\lambda$ is an affine parameter
-    for the path.
-    The Christoffel symbols, $\Gamma^\mu_{\nu\sigma}$ are functions of the
-    metric, and are used to build the $G_{\mu\nu}$ that appeared in the Einstein equations~\eqref{einstein_equations}
-    \begin{align}\label{christoffel_symbols}
-        \Gamma^\mu_{\nu\sigma} = \frac{1}{2}g^{\mu\gamma}\left(
-        \frac{\partial g_{\gamma\nu}}{\partial x^{\sigma}}
-        +\frac{\partial g_{\gamma\sigma}}{\partial x^{\nu}}
-        -\frac{\partial g_{\nu\sigma}}{\partial x^{\gamma}}
-        \right)
-    \end{align}
-    Using the chain rule,~\eqref{geodesic_eqn_1} can be rewritten in terms of $t$
-    \begin{align}
-        P^{0}\frac{\partial P^\mu}{\partial t}+\Gamma^\mu_{\nu\sigma}P^\nu P^\sigma=0.
-    \end{align}
-    Writing the components of the photon's null vector 4-momentum $P^\mu$
-    as $(p, \mathbf{p})$, and evaluating~\eqref{christoffel_symbols}
-    for the metric~\eqref{flrw_metric} we get that
-    \begin{align}
-        p\propto \frac{1}{a}.
-    \end{align}
-    The interpretation of this result is that as the universe expands,
-    the photon's measured energy decreases, and its measured wavelength increases.
-    The geodesic equation~\eqref{geodesic_eqn_1} encodes many other physical effects when applied
-    to the evolution of perturbations around the homogeneous background
-    (i.e.\, allowing $g_{\mu\nu}$ to deviate from homogeneity)
-    allowing us to understand how the statistics of the perturbations at the
-    start of the $\lcdm$ evolution evolved into the perturbations we see today.
 
 
     \begin{table}[h!]
@@ -162,6 +99,76 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{table}
 
 
+    If we take the spatial curvature of the universe to be vanishingly small,
+    the Einstein equations are then
+    \begin{align}\label{einstein_equations}
+        G_{\mu\nu} = 8\pi G T_{\mu\nu}
+    \end{align}
+    where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$.
+    Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
+    these equations simplify to the promised Friedmann equations\footnote{
+        In~\eqref{einstein_equations} and~\eqref{friedmann_1} we have temporarily reinstated $8\pi G$.}
+    \begin{align}\label{friedmann_1}
+        H^2 &= \frac{8\pi G \rho}{3},\\
+        \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
+    \end{align}
+    where $H=\frac{\dot{a}}{a}$, and $\rho$ and $P$ are respectively the sum of the
+    energy densities and of the pressure densities of the
+    components of the universe.
+    A dot will refer to a derivative with respect to coordinate time $t$.
+    We also have the continuity equation
+    \begin{align}\label{continuity_equation}
+        \dot{\rho}_X + 3\frac{\dot{a}}{a}\left(\rho_X+P_X\right) &= 0
+    \end{align}
+    which is satisfied for each component separately, and describes
+    the effect the expansion of the universe has on the energy density of the fluid.
+
+    Given the equations of state and the densities of the different
+    components of the universe, one can then calculate the time dependence of the
+    scale factor $a(t)$ and of the densities $\rho_X$ and $P_X$ of each component $X$.
+    This defines the homogeneous background evolution of the universe---evolution
+    which observable in physical phenomena
+    such as red-shifted photons arriving from distant galaxies.
+    As we have mentioned, such
+    photons travel on geodesics. The geodesic equation that we use to determine
+    their evolution is
+    \begin{align}\label{geodesic_eqn_1}
+        \frac{dP^\mu}{d\lambda}+\Gamma^\mu_{\nu\sigma}P^\nu P^\sigma=0
+    \end{align}
+    where $P^a$ is the photon's $4$-momentum, and $\lambda$ is an affine parameter
+    for the path.
+    The Christoffel symbols, $\Gamma^\mu_{\nu\sigma}$ are functions of the
+    metric, and are used to build the $G_{\mu\nu}$ that appeared in the Einstein equations~\eqref{einstein_equations}
+    \begin{align}
+        \Gamma^\mu_{\nu\sigma} &= \frac{1}{2}g^{\mu\gamma}\left(
+        \frac{\partial g_{\gamma\nu}}{\partial x^{\sigma}}
+        +\frac{\partial g_{\gamma\sigma}}{\partial x^{\nu}}
+        -\frac{\partial g_{\nu\sigma}}{\partial x^{\gamma}}
+        \right)\label{christoffel_symbols}\\
+        R_{\mu \vu} &= \partial_\mu \Gamma^\mu_{\vu \sigma}-\partial_j\Gamma^\mu_{\sigma\mu}+
+        \Gamma^\mu_{\mu \tau}\Gamma^\tau_{\vu \sigma}-\Gamma^\mu_{\vu \tau}\Gamma^\tau_{\mu \sigma}\label{ricci_tensor}\\
+        G_{\mu\nu} &= R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R\label{einstein_tensor}
+    \end{align}
+    where $R_{\mu \nu}$ is known as the Ricci curvature tensor, and $R$ is its trace.
+    Using the chain rule,~\eqref{geodesic_eqn_1} can be rewritten in terms of $t$
+    \begin{align}
+        P^{0}\frac{\partial P^\mu}{\partial t}+\Gamma^\mu_{\nu\sigma}P^\nu P^\sigma=0.
+    \end{align}
+    Writing the components of the photon's null vector 4-momentum $P^\mu$
+    as $(p, \mathbf{p})$, and evaluating~\eqref{christoffel_symbols}
+    for the metric~\eqref{flrw_metric} we get that
+    \begin{align}\label{eq:redshifting}
+        p\propto \frac{1}{a}.
+    \end{align}
+    The interpretation of this result is that as the universe expands,
+    the photon's measured energy decreases, and its measured wavelength increases.
+    The geodesic equation~\eqref{geodesic_eqn_1} encodes many other physical effects when applied
+    to the evolution of perturbations around the homogeneous background
+    (i.e.\, allowing $g_{\mu\nu}$ to deviate from homogeneity)
+    allowing us to understand how the statistics of the perturbations at the
+    start of the $\lcdm$ evolution evolved into the perturbations we see today.
+    \textcolor{red}{Rephrase.}
+
 
     Using~\eqref{continuity_equation} and the equation of state ($w$, summarised in table~\ref{lcdm_dep_table})
     for matter, radiation and dark energy (described as a cosmological constant $\Lambda$)
@@ -170,7 +177,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     i.e.\ that it dilutes with the expansion of the universe.
     For radiation we find $\rho_r\propto a^{-4}$,
     i.e.\ that it dilutes with the expansion of the universe,
-    and also loses energy as it redshifts.
+    and also loses energy as it redshifts, as we
+    saw in~\eqref{eq:redshifting}.
     For $\Lambda$, we find $\rho_\Lambda\propto a^0$, by design.
     The Friedmann equation~\eqref{friedmann_1} then gives the time dependence of
     $a(t)$, again summarised in table~\ref{lcdm_dep_table}.
@@ -188,7 +196,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     for $X$ being radiation, matter and dark energy.
     A subscript of $0$ will denote a quantity evaluated today.
     The critical density $\rho_{crit,0}$ is the density for which the universe is flat,
-    so for our universe $\sum\Omega_i=1$.
+    so for our universe $\sum\Omega_{i,0}=1$.
     We will choose our scaling such that $a_0=1$.
 
 
@@ -199,7 +207,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
         \Omega_{\Lambda} &=  0.6889 \pm 0.0056.
     \end{align}
     The temperature of the blackbody $\cmb$ radiation is
-    also found to be $T_{\gamma}=2.725\pm0.001K$, from which
+    also found to be $T_{\gamma,0}=2.725\pm0.001K$, from which
     we can calculate $\Omega_{\gamma,0}=9.4\times10^{-5}$.
     %Since
     %$\rho = \frac{\pi^2}{15}T^4$
@@ -209,27 +217,30 @@ extract the fundamental physics waiting to be found in the universe's youth.
     %Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
 
 
-    From these numbers, and~\eqref{friedmann_omega}, we can make some statements
-    about the past and future of the universe, illustrated in figure~\ref{fig:lcdm_components}.
-    We can see that while $\Lambda$ is dominant now, the transition from matter domination
+    Given these numbers, and~\eqref{friedmann_omega}, we can make some statements
+    about the past, present and future of the universe, illustrated in figure~\ref{fig:lcdm_components}.
+    Firstly, the present---we see that the cosmological constant,
+    $\Lambda$, is dominant now. We also see that the energy density of radiation
+    is very small, $\Omega_{\gamma,0}\ll\Omega_{m,0}$.
+    Looking to the past, we see that the transition from matter domination
     to $\Lambda$ domination happened relatively recently in the history of the universe.
     We can see that this domination will continue as the matter and radiation content of the
     universe dilute and redshift away.
     Running the clock backwards, that is towards $a=0$, we see that the matter and radiation had
     higher energy densities in the early universe. Running the clock back far enough, we see
-    that despite $\Omega_{\gamma,0}\ll\Omega_{m,0}$, at one stage it was the
+    that despite $\Omega_{\gamma,0}\ll\Omega_{m,0}$ today, at one stage it was the
     case that $\Omega_{\gamma}\gg\Omega_{m}$, and the universe was dominated by radiation.
-    In that early stage of the universe, the temperature was high enough that the photons
-    were tightly coupled to the baryons. The photon pressure supported pressure waves in that
-    nearly-homogeneous fluid, and the coupling meant that the baryons were dragged along with those
-    waves. Once the temperature and density dropped sufficiently that this was no longer the case,
-    the baryons were dropped, and instead began to fall back into the gravitational wells that the dark matter
-    had meanwhile been forming. The imprints of those pressure waves is thus seen in the positions
-    of galaxies today (in the statistics of their separations) and in the acoustic oscillations of the $\cmb$.
+    %In that early stage of the universe, the temperature was high enough that the photons
+    %were tightly coupled to the baryons. The photon pressure supported pressure waves in that
+    %nearly-homogeneous fluid, and the coupling meant that the baryons were dragged along with those
+    %waves. Once the temperature and density dropped sufficiently that this was no longer the case,
+    %the baryons were dropped, and instead began to fall back into the gravitational wells that the dark matter
+    %had meanwhile been forming. The imprints of those pressure waves is thus seen in the positions
+    %of galaxies today (in the statistics of their separations) and in the acoustic oscillations of the $\cmb$.
 
 
-    The $\lcdm$ model of the history of the universe assumes that at some point in the
-    past, the components of the universe (all the different types of matter and radiation)
+    The $\lcdm$ model of the history of the universe takes this point as its initial condition.
+    In the distant past, the components of the universe (all the different types of matter and radiation)
     were in thermal equilibrium with each other---that is, they were interacting with each other,
     and the interaction was sufficiently efficient that their temperatures matched
     and the net flow of thermal energy between them was zero.
@@ -248,14 +259,17 @@ extract the fundamental physics waiting to be found in the universe's youth.
     elements (which were forged in the first few minutes of the universe) and in correlations in the $\lcdm$
     which can be directly linked to the transition between a universe so densely packed with radiation that it could
     support acoustic pressure waves, and a universe that had dropped below that density.
-    Future work on $\lcdm$ includes the solution of the Hubble tension---how old is the universe really?
+    There are unanswered questions within the $\lcdm$ model.
+    One question is the solution of the Hubble tension~\textcolor{red}{reference!}---how old is the universe really?
     All in all, it is incredible only a hundred years ago people were debating whether the universe had a beginning or not
     (and the ``great debate''---were there other galaxies?) to now, where the debate rages over the second and
     third significant figures.
 
 
     Before focusing our whole attention on the past, let us briefly
-    look toward the future of the universe. Eventually $a$ will be
+    look toward the future of the universe.
+    What will we see as the universe evolves?
+    Eventually $a$ will be
     sufficiently large that $\Omega_{\Lambda}$
     is the dominant contribution to the energy budget of the universe.
     Then
@@ -368,15 +382,14 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \subsection{Motivations for inflation}
     The $\lcdm$ model does not posit a ``Big Bang singularity''---instead, as we have discussed, it
     posits an early epoch in which the components that we have discussed are in thermal equilibrium,
-    at an incredibly hot temperature.
+    at an incredibly hot temperature. \textcolor{red}{Rephrase.}
     However, if one assumes that those components are all there are, and runs the equations backwards,
-    one reaches $a=0$ in finite conformal time.
+    one reaches $a=0$ in finite time.
+    \textcolor{red}{Check.}
 
-
+    \textcolor{red}{Rephrase or move.}
     These components are distributed incredibly uniformly. This simple scenario then evolves
     under gravitational collapse (and other interactions) and forms the universe we know.
-
-
     Is this story of $\lcdm$ enough to explain all the features of the
     universe that we observe? The answer is mostly yes, given the correct initial conditions,
     the correct starting point. But then that begs the question of how those initial conditions
@@ -476,6 +489,46 @@ extract the fundamental physics waiting to be found in the universe's youth.
     the statement that correlations do not depend on the scale at which they are measured.
     It turns out that observations show that this is not precisely respected.
 
+
+\subsection{Criteria for successful inflation}
+    \textcolor{red}{Rewrite entirely in terms of $a$, $H$? And move earlier.}
+    For inflation to solve the horizon problem, it must result in a shrinking comoving
+    Hubble radius, disconnecting regions that had previously been in thermal contact.
+    This implies that
+    \begin{align}
+        \frac{d}{dt}\left(aH\right)^{-1} = -\frac{\ddot{a}}{\dot{a}^2} < 0
+    \end{align}
+    so $\ddot{a}>0$, i.e.\ the expansion is accelerating. Another way of writing this is
+    \begin{align}
+        \frac{d}{dt}\left(aH\right)^{-1} &= -\frac{1}{(aH)^2}\left(\dot{a}H+a\dot{H}\right)\\
+            &= -\frac{1}{a}\left(1-\varepsilon\right)
+    \end{align}
+    and so we need $\varepsilon<1$ to successfully inflate the universe.
+    This is necessary but not sufficient---we still need to generate
+    the correct statistics for the primordial perturbations.
+    This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
+    To match the measured deviation from scale-invariance in standard slow-roll
+    inflation we would need $\varepsilon\sim O(10^{-2})$.
+
+
+For a model with a canonical kinetic term,~\eqref{phieom} simplifies
+to
+\begin{align}
+    \phi''+(3-\varepsilon)\phi'+H^{-2}V'(\phi)=0.
+\end{align}
+In the slow-roll approximation we take assume $\phi''\ll\phi'$,
+and so
+\begin{align}
+    \phi'\approx\frac{V'(\phi)}{3H^2}\approx\frac{V'(\phi)}{V(\phi)}.
+\end{align}
+From this, we see that demanding that $\varepsilon$ be small places a constraint
+on the flatness of the potential in a canonical model.
+
+
+We also require $\eta\ll1$ to maintain inflation for the sufficient number
+of e-folds.
+
+
     \subsection{Driving inflation with a scalar field}
 \textcolor{red}{REORDER WHOLE SECTION.}
 We will work with an inflaton action of the form
@@ -567,11 +620,13 @@ We define the Hubble parameter and the standard ``slow-roll'' parameters:
 \end{equation}
 
 From the continuity equation and the Friedmann equation
+we find the useful relation
 \begin{align}
-    &&\rho' &= -3(\rho+P)\\
-    \implies&&6HH' &= -3(2X P,_{X})\\
-    \implies&&-H^2\varepsilon &= -\left(\frac{1}{2}H^2{\phi'}^2\right) P,_{X}\\
-    \implies&&\varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
+    %&&\rho' &= -3(\rho+P)\\
+    %\implies&&6HH' &= -3(2X P,_{X})\\
+    %\implies&&-H^2\varepsilon &= -\left(\frac{1}{2}H^2{\phi'}^2\right) P,_{X}\\
+    %\implies&&\varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
+    \varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
 \end{align}
 In the canonical case this simplifies to
 $\varepsilon = \frac{1}{2}{\phi'}^2$.
@@ -586,53 +641,15 @@ not been used.
     \implies &&  H^2 &= \frac{V(\phi)}{3-\frac{\varepsilon}{P,_{X}}}.
 \end{align}
 
-\newpage
-    \subsection{Criteria for successful inflation}
-    \textcolor{red}{Rewrite entirely in terms of $a$, $H$? And move earlier.}
-    For inflation to solve the horizon problem, it must result in a shrinking comoving
-    Hubble radius, disconnecting regions that had previously been in thermal contact.
-    This implies that
-    \begin{align}
-        \frac{d}{dt}\left(aH\right)^{-1} = -\frac{\ddot{a}}{\dot{a}^2} < 0
-    \end{align}
-    so $\ddot{a}>0$, i.e.\ the expansion is accelerating. Another way of writing this is
-    \begin{align}
-        \frac{d}{dt}\left(aH\right)^{-1} &= -\frac{1}{(aH)^2}\left(\dot{a}H+a\dot{H}\right)\\
-            &= -\frac{1}{a}\left(1-\varepsilon\right)
-    \end{align}
-    and so we need $\varepsilon<1$ to successfully inflate the universe.
-    This is necessary but not sufficient---we still need to generate
-    the correct statistics for the primordial perturbations.
-    This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
-    To match the measured deviation from scale-invariance in standard slow-roll
-    inflation we would need $\varepsilon\sim O(10^{-2})$.
-
-
-For a model with a canonical kinetic term,~\eqref{phieom} simplifies
-to
-\begin{align}
-    \phi''+(3-\varepsilon)\phi'+H^{-2}V'(\phi)=0.
-\end{align}
-In the slow-roll approximation we take assume $\phi''\ll\phi'$,
-and so
-\begin{align}
-    \phi'\approx\frac{V'(\phi)}{3H^2}\approx\frac{V'(\phi)}{V(\phi)}.
-\end{align}
-From this, we see that demanding that $\varepsilon$ be small places a constraint
-on the flatness of the potential in a canonical model.
-
-
-We also require $\eta\ll1$ to maintain inflation for the sufficient number
-of e-folds.
-
 
 \subsection{Correlation functions}\label{corr_functions}
     \textcolor{red}{If you find yourself in a universe with\ldots
-    Expectation value of an ensemble.
+    Expectation value over an ensemble.
     Monte-Carlo simulations are used to estimate covariance matrices
     $\left<a_{lm}a_{l'm'}\right>$,
     which are not diagonal in the presence of a sky mask.
-    Classical vs.\ quantum correlators (order matters), ensemble vs.\ spatial averages.}
+    Classical vs.\ quantum correlators (order matters), ensemble vs.\ spatial averages.
+    Probability to observations.}
 
 
     Cite~\cite{Planck_inflation_2015, Planck_inflation_2018}.
@@ -690,7 +707,8 @@ of e-folds.
 
 
 \section{Statistical observables}
-    \subsection{Checking if dice are fair}
+    \subsection{Checking if dice are fair.
+    Observations to probability.}
 \textcolor{red}{Move to after defining correlation functions?}
 \textcolor{red}{Organise this!!!}
 Correlation functions are expectation values over ensembles of possible
