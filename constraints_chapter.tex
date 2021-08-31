@@ -18,7 +18,8 @@
     convergence in $\Pmax$.
 
 
-    In the context of the scan described in section~\ref{sec:setup},
+    In the context of the scan
+    (which we will describe in section~\ref{sec:setup}),
     we used the methods described in previous chapters (as implemented in
     the $\primodal$ code) to generate shape coefficients for each scenario in the scan.
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
@@ -156,7 +157,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
     The number of e-folds to the end of inflation is denoted $N_e$.
     From~\cite{Chen_dbi} we can use slow-roll relations to determine the approximate
-    value% of the \textcolor{red}{number of e-folds?}.
+    value of $N_e$
+    % of the \textcolor{red}{number of e-folds?}.
     %We find
     for our values of $\phi$
     \begin{align}
@@ -360,13 +362,19 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     for sufficiently squeezed triangles.
 
 
-    The constraint obtained from applying $\cmbbest$ to the $\Lnsinv$ decomposition
-    of the $\dbi$ template~\eqref{dbi_shape} is plotted in figure~\ref{fig:dbi_sound_speed_scan_beta}.
+    We can test the impact of the slow-roll effects on the constraint by decomposing the
+    $\dbi$ template~\eqref{dbi_shape} in $\Lnsinv$ and using the result
+    to obtain a constraint on $c_s$.
+    The constraint obtained from such a decomposition
+    is plotted as the dashed line in figure~\ref{fig:dbi_sound_speed_scan_beta}.
+    Comparing the template decomposition constraint to the constraint
+    obtained using the $\primodal$ coefficients calculated
+    from the in-in formalism (in the same figure) we see no significant difference.
+
+
     From this we can quantitatively see that the slow-roll
     suppressed effects, despite becoming dominant in the squeezed limit,
     do not appreciably affect the constraint on the $\dbi$ scenario.
-    Comparing the template decomposition constraint to the constraint obtained using the $\primodal$ coefficients calculated
-    from the in-in formalism (in the same figure) we see no significant difference.
     This also confirms that the difference between constraints~\eqref{eq:cmbbest_bir_constraint}
     and~\eqref{eq:planck_dbi_constraint} is not due to the more accurate shape function
     used in our method.
@@ -384,7 +392,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     The constraint then directly translates to a constraint on the inflationary parameters of that scenario,
     without the need for further approximations.
     This is done by giving the bispectrum of each scenario an amplitude
-    parameter, which we call $\fnl$---this is then scenario specific, in contrast to previous works.
+    parameter, which we call $\fnl$---this is then scenario specific
+    and template-free, in contrast to previous works.
     Since by definition the scenario predicts $\fnl=1$,
     if it is found that $\fnl=1$ is ruled out for a given scenario, then that scenario is judged to
     be inconsistent with the data.
