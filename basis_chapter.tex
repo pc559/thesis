@@ -87,12 +87,30 @@ In that example, we see there is no sum over $i$ as we took only one term of $\H
 We also see that $v^{(i)}(k_1,k_2,k_3)=1$ as there are no spatial derivatives.
 Collecting the terms with no $k$ dependence, we see that
 $w^{(i)}(\tau)=-2ig(\tau)a^4(\tau)$.
-The remaining terms then give
+The remaining terms (for this example) then give
 \begin{align}
     F^{(i)}(\tau,k) = G^{(i)}(\tau,k) = J^{(i)}(\tau,k) = k^2\zeta_k(0)\dzeta_k^*(\tau)
 \end{align}
 where the $k^2$ comes from the definition of the shape function~\eqref{shapefn},
 and we obtain $\zeta_k(\tau)$ by numerically solving the equation of motion~\eqref{modefneqn_zeta_N}.
+
+
+Using the approximate mode functions~\eqref{uk_solution}, another explicit
+example is the second interaction term in~\eqref{interaction_loc},
+i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$. It takes the form
+\begin{align}\label{inin_example_FG}
+    F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  k^2 c^2_s \tau\frac{H^2}{4\varepsilon c_s k} e^{-ik\tau_s}~,\\
+    J^{(1)}(\tau,k) ~&=~ (1+ik\tau_s)\frac{H^2}{4\varepsilon c_s k}e^{-ik\tau_s} \,.
+\end{align}
+\textcolor{red}{Check this again.}
+In this slow-roll approximation, such terms in~\eqref{inin_sep} are straightforward
+to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of
+the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
+However, for high precision bispectrum predictions we must incorporate the full time-dependence,
+while solving~\eqref{modefneqn_zeta_N} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.
+Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because
+it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$,
+a problem which is drastically compounded by bispectrum parameter searches e.g.\ for oscillatory models. 
 
 
 The terms contained in $v^{(i)}(k_1, k_2,k_3)$ depend on the structure of the spatial derivatives in the interaction Hamiltonian,
@@ -116,23 +134,10 @@ We use the former, as the numerics of the latter are less transparent
 and less physically motivated.
 
 The internal basis used for the decomposition at each timestep need not match that
-which is used for the final result,
-and indeed in dealing with the spatial derivatives in section~\ref{sec:h_int}
-we will find it useful to change to a different basis than the one used to perform the
-time integrals of the decompositions.
-
-\textcolor{red}{Jarring, move earlier.}
-Using the approximate mode functions~\eqref{modefnsapprox}, an explicit example for the first interaction term in~\eqref{interaction_loc}, i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$, takes the form
-\begin{align}\label{inin_example_FG}
-    F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  c_s k^2 \tau\frac{H^2}{4\varepsilon c_s} e^{ic_{\rm s} k\tau}~,\\
-    J^{(1)}(\tau,k) ~&=~ (1-ik c_{\rm s}\tau)\frac{H^2}{4\varepsilon c_s}e^{ic_{\rm s} k\tau} \,.
-\end{align}
-In the simple mode approximation~\eqref{modefnsapprox}, such terms in~\eqref{inin_sep} are straightforward to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
-However, for high precision bispectrum predictions we must incorporate the full time-dependence,
-while solving~\eqref{modefneqn_zeta_N} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.
-Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because
-it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$,
-a problem which is drastically compounded by bispectrum parameter searches e.g.\ for oscillatory models. 
+which is used for the final result.
+Indeed, in dealing with the spatial derivatives we will find it useful to change
+to a different basis than the one used to perform the time integrals of the
+decompositions---we will discuss this further later in this section.
 
 
 We will now link~\eqref{inin_sep} to~\eqref{goal}.
