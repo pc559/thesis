@@ -643,18 +643,14 @@ not been used.
 
 
 \section{Statistical observables}
-\subsection{Correlation functions}\label{corr_functions}
-    \textcolor{red}{If you find yourself in a universe with\ldots
-    Expectation value over an ensemble.
+\subsection{Probability to observations}\label{corr_functions}
+    \textcolor{red}{
     Monte-Carlo simulations are used to estimate covariance matrices
     $\left<a_{lm}a_{l'm'}\right>$,
     which are not diagonal in the presence of a sky mask.
     Classical vs.\ quantum correlators (order matters), ensemble vs.\ spatial averages.
     Probability to observations.
-    Cite~\cite{Planck_inflation_2015, Planck_inflation_2018}.
-    The power spectrum and other correlations
-    are predicted by inflation. 
-    Define n-point correlations, their Fourier transforms, talk about them as observables.}
+}
     
 
     Everything we have discussed until this point has dealt with quantities
@@ -666,25 +662,29 @@ not been used.
     we must talk in terms of probabilities.
 
 
-    The quantum mechanical nature of the (inflationary) origin of structure means that the predictions
+    In particular, the quantum mechanical nature of the (inflationary)
+    origin of structure means that such predictions
     of inflationary theories will necessarily be statistical. That is to say, the predictions through
     which we will test these theories will be predictions of ensemble averages, expectation
-    values of measurements applied to draws from the predicted probability distribution.
-    The ensemble average~\eqref{expectation_value_field} of a product of two fields is known as the
+    values of measurements applied to some particular draw from the predicted probability distribution.
+    The ensemble average~\eqref{expectation_value_field} of a product of the value of
+    the same field at two different point is known as the
     two-point correlator, or the two-point function $\left<f(\mathbf{x})f(\mathbf{x'})\right>$.
     Here, the brackets $\left<\ldots\right>$ refer to the expected value over the ensemble,
     over all the possible realisations that could be drawn from the probability distribution
-    predicted by the inflation model.
+    predicted by the inflation model, weighted by their probability.
 
 
     There are two assumptions we wish to immediately impose on this function, and higher order correlators
-    (products of more fields). Those conditions are statistical homogeneity and statistical isotropy,
+    (expectation values of products of more fields).
+    Those conditions are statistical homogeneity and statistical isotropy,
     the requirement that the correlators are invariant under translations and rotations.
     This does not mean that some realisation of the ensemble is forbidden from having special points---fields
     are still allowed to be inhomogeneous, and thus (for example) have local extrema.
     The statement of statistical homogeneity is that,
     when averaged over the entire ensemble of possible realisations, these special points
     are equally likely to appear anywhere in space.
+    All observations of the universe so far appear to respect this symmetry of the statistics.
 
 
     These conditions on the correlators of $f(\vecx)$ place useful constraints on the correlators of the
@@ -694,11 +694,11 @@ not been used.
         \left<f(\mathbf{k_1})f(\mathbf{k_2})f(\mathbf{k_3})\right> &= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3),
     \end{align}
     where $P(k)$ is known as the power spectrum and $B(k_1,k_2,k_3)$ is the bispectrum.
-    The delta functions come from statistical homogeneity, and the fact that $P(k)$
+    The delta functions come from statistical homogeneity, while the fact that $P(k)$
     and $B(k_1,k_2,k_3)$ depend only on the magnitudes of the vectors ($k=\left|\veck\right|$) is a result
     of demanding statistical isotropy.
     Note that $\left<f(\mathbf{k_1})f(\mathbf{k_2})f(\mathbf{k_3})\right>$
-    has $9$ degrees of freedom, but $B(k_1,k_2,k_3)$ has only three. This is due to the delta function
+    has $9$ apparent degrees of freedom, but $B(k_1,k_2,k_3)$ has only three. This is due to the delta function
     demanding that the sum of the $\mathbf{k_i}$ vanishes, thus forming a triangle.
     Since the orientation of this triangle
     cannot matter, three parameters will suffice---we choose the magnitudes of the vectors.
@@ -709,34 +709,39 @@ not been used.
     inhomogeneities in the very early universe.
     This defines the initial conditions for the $\lcdm$ evolution that follows---from
     this, we can calculate the statistical properties of the $\cmb$ sky that we see.
-    %One such statistical property is the two-point correlation of the temperature $\phi$
-    %between two points $x$ and $x'$ in space, $\left<\phi(x)\phi(x')\right>$.
 
-
-    %We will want to measure these correlations. How can we do that with only access to one realisation
-    %of the distribution? It is useful to think about the ergodic theorem. Since an integral over
-    %space can be identified with the ensemble average, we can measure, say, the average temperature
-    %across space, which should give us an estimate for the average temperature of the ensemble
-    %(the quantity that will actually be predicted from theory).
-    %\textcolor{red}{Is this related to large cosmic variance at large scales? See pg 94 of Lyth and Liddle.}
-
-
-    %When there is a large
-    %separation between $x$ and $x'$ \textcolor{red}{talk about cosmic variance
-    %of different modes. Angular?}
 
     Another symmetry we could imagine is statistical scale invariance.
     Scale invariance is the statement that
     \begin{align}
         \left<f(\mathbf{x})f(\mathbf{x'})\right> = \left<f(\lambda\mathbf{x})f(\lambda\mathbf{x'})\right>.
     \end{align}
-    From this, we can see that scale invariance needs $P(k)\propto k^{-3}$.
-    Evidence suggests that this symmetry is not respected by the probability
+    From \textcolor{red}{calculation}, we can see that scale invariance needs
+    $P(k)\propto k^{-3}$.
+    Evidence suggests that this symmetry is \textit{not} respected by the probability
     distribution from which our universe was drawn.
-    In fact, it was found that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$.
+    In fact, it was found that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$
+    at $68\%$ CL~\cite{Planck_inflation_2015, Planck_inflation_2018}.
+    The odds of a universe like ours being drawn from a scale-invariant probability
+    distribution are \textcolor{red}{very small. Is this the right way to think about it?}
+    Given that we only have access to one universe, it is reasonable to ask how we could
+    possibly make such a strong statement. We will discuss the resolution of this in the
+    next section.
 
 
-\subsection{Cosmic variance}
+    %One such statistical property is the two-point correlation of the temperature $\phi$
+    %between two points $x$ and $x'$ in space, $\left<\phi(x)\phi(x')\right>$.
+    %We will want to measure these correlations. How can we do that with only access to one realisation
+    %of the distribution? It is useful to think about the ergodic theorem. Since an integral over
+    %space can be identified with the ensemble average, we can measure, say, the average temperature
+    %across space, which should give us an estimate for the average temperature of the ensemble
+    %(the quantity that will actually be predicted from theory).
+    %\textcolor{red}{Is this related to large cosmic variance at large scales? See pg 94 of Lyth and Liddle.}
+    %When there is a large
+    %separation between $x$ and $x'$ \textcolor{red}{talk about cosmic variance
+    %of different modes. Angular?}
+
+\subsection{Observations to probability}
 \textcolor{red}{Checking if dice are fair.
 Organise this!!! Observations to probability.}
 Correlation functions are expectation values over ensembles of possible
