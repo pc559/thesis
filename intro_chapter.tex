@@ -704,7 +704,7 @@ not been used.
     cannot matter, three parameters will suffice---we choose the magnitudes of the vectors.
 
 
-    Our focus will be on the predictions that models of inflation make
+    Our focus in this thesis will be on the predictions that models of inflation make
     for the statistical properties of the distribution of
     inhomogeneities in the very early universe.
     This defines the initial conditions for the $\lcdm$ evolution that follows---from
@@ -881,123 +881,119 @@ So, even in the same spatial region in the one universe, we have access to multi
 
 
 \section{Thesis outline}
-\textcolor{red}{Merge this, make coherent.}
-    We are now in a position to give a more precise description of the goals, methods
-    and results outlined in this thesis.
-    Our main goal was to develop an efficient numerical pipeline for
+Given the context we have outlined,
+    we will now give a description of the goals, methods
+    and results presented in this thesis.
+    The main goal discussed here is to develop an efficient numerical pipeline for
     connecting inflation models directly to observations through the $\cmb$ bispectrum.
-    The concrete results we aimed for were constraints on the parameters of inflation models,
-    not constraints on phenomenological templates or summary $f_{NL}$ parameters.
-    We aimed to obtain the full bispectrum shape information from an inflation scenario,
+    The concrete results of such a goal are constraints on the parameters of inflation models,
+    not constraints on phenomenological templates or summary $\fnl$ parameters.
+    This allows the use of the full bispectrum shape information from an inflation scenario,
     not point samples or a limit. The novelty of our goals comes from the separable
     and numerical methods
     granting access to more accurate, and in some cases new, bispectrum shapes.
 
 
     To achieve these goals we have developed methods to preserve the
-    separability that is built in to the tree-level in-in formalism.
+    separability that is built in to the tree-level in-in formalism,
+    terms that will be defined in chapter~\ref{chapter:intro_bispectra}.
     This will link to a $\cmb$ calculation that will be presented in~\cite{Sohn_2021}.
     That calculation is expensive, but need only be done once per primordial basis.
     This motivates the desire for a basis that converges quickly for a broad range of inflation models,
-    and as such we have developed methods to achieve this.
+    and as such we have explored this topic in detail.
 
 
-    Our main result is the first development of a formalism
-    for calculating the separable expansion we describe to sufficiently
-    high orders as to describe inflationary features.
-    These methods are implemented in the $\primodal$ code.
-    Another result is the recognition and description of the central issue of the
-    convergence of the expansion, and in particular how it is affected by the non-physical $k$-configurations.
-    The result of our work in circumventing this problem is the development of multiple
-    sets of basis functions, which efficiently capture a broad range of bispectra.
-    This allowed the first validation of our separable methods on features.
-    We also note that
-    as a side-effect of this desire for a separable primordial bispectrum,
-    the primordial calculation of the inflationary bispectrum that we present is much more efficient
-    than previous methods,
-    in the sense converges far faster in modes than previous methods would in point samples.
-
-
-    Our final highlighted result, which we obtained in collaboration, is the connection
-    of our inflationary scenario to the $\cmb$ through the $\cmbbest$ code developed
-    by Wuhyun Sohn. This allowed us to obtain constraint on the sound speed of $\dbi$
-    inflation, $c_s$.
-
-
-The thesis is organised as follows. In chapter~\ref{chapter:intro_bispectra} we present brief reviews
-of the various parts of the pipeline that connects inflation scenarios to observations
-through the bispectrum.
-We review the usual paradigm of bispectrum estimation in the CMB,
-and the motivation for separable bispectra. We review the in-in formalism,
-for calculating the tree level bispectrum for a given model of inflation.
-We review $P(X,\phi)$ models of inflation as an example, and
-some of the usual approximate bispectrum templates
-that we aim to bypass.
-We will draw our validation scenarios from these models.
-We discuss previous numerical codes for
-calculating the primordial bispectrum $k$-configuration by $k$-configuration,
-which contrasts our separable basis expansion.
-We review the previous work in achieving separability through modal expansions
-in~\cite{Funakoshi},
-and we discuss methods of testing
-numerical bispectrum results, defining our relative difference measurement.
-
-
-We begin chapter~\ref{chapter:decomp} by recasting the usual in-in calculation into an explicitly separable form,
-in terms of an expansion in an arbitrary basis.
-Since the paradigm we aim to present is only viable if we can find a basis
-that can efficiently represent a wide variety of bispectra,
-we devote the rest of chapter~\ref{chapter:decomp} to presenting this discussion, which is
-distinct and separate from our numerical methods but nonetheless vital.
-We discuss the effects of the
-non-physical $k$-configurations on the convergence of our expansion on
-the tetrapyd, and present multiple efficient basis sets.
-In chapter~\ref{chapter:methods} we present the precise methods involved in the
-separable formalism and its numerical implementation,
-and detail our methods for carefully calculating the coefficients to high order.
-In particular in section~\ref{sec:validation} we validate our methods and implementation
-on inflation scenarios with varied features from the literature.
-We present a constraint on an inflation model in chapter~\ref{chapter:constraints},
-and finish with a discussion of future work in chapter~\ref{chapter:conclusion}.
-
-
-The specific results involved can be categorised into two main lines of research.
-The first line of research is in determining the feasibility of the method.
-Our initial result here was identifying the contributions of the non-physical configurations
+The first line of research presented in this thesis
+is in determining the feasibility of the overall method.
+The initial result here was identifying the contributions of the non-physical configurations
 as a novel problem to this analysis, and identifying basis choice as the key method of overcoming this difficulty.
 In this work we describe multiple basis sets and make quantitative comparisons
 of their convergence on realistic and interesting models, including ones with features.
-We find basis sets that can overcome the difficulty of the dominant non-physical $k$-configurations,
+These basis sets can overcome the difficulty of the dominant non-physical $k$-configurations,
 converging far more efficiently than the basic basis sets, for physically interesting models.
 
 
-The second line of research we follow is in developing basis-independent methods that allow the fast and accurate calculation
+The second line of research presented is the development of
+basis-independent methods that allow the fast and accurate calculation
 of higher order coefficients of the basis expansion of the tree-level in-in formalism.
-To this end we set up the separable formalism and describe the methods we use to overcome the difficulties encountered.
+To this end we set up the separable formalism and describe the methods used to overcome the
+difficulties encountered.
 These difficulties include accurately including the highly oscillatory early-time contributions.
-We present a careful and comprehensive validation of our methods,
-showing that we can overcome the convergence problems and capture the oscillatory contributions efficiently.
-At the primordial level we do this by validating our results using three distinct tests.
-We validate on established templates with non-trivial
-phenomenology; we use the squeezed-limit consistency condition; and we compare our
-full bispectrum results to previous codes through point-tests.
+A careful and comprehensive validation of our methods is presented,
+showing that the convergence problems can be overcome, the oscillatory contributions captured efficiently.
+At the primordial level this is done by validating our results using three distinct tests.
+Validation is done on established templates with non-trivial features;
+the squeezed-limit consistency condition is verified; our
+full bispectrum results are compared to previous codes through point-tests.
+This is the first development of a formalism
+for calculating the separable expansion to sufficiently
+high orders as to describe inflationary features.
+These methods are implemented in the $\primodal$ code.
+A side-effect of this desire for a separable primordial bispectrum,
+the primordial calculation of the inflationary bispectrum presented in this work is much more efficient
+than previous methods,
+in the sense converges far faster in modes than previous methods would in point samples.
 
 
-At the level of the CMB, we validate the convergence of our basis by ensuring we can reproduce the
-$\planck$ constraints (using the $\planck$ data) on the $\dbi$ sound speed, and we translate this constraint into a constraint on
-a fundamental parameter in the context of a physically realistic scan.
+
+
+    The final highlighted result, obtained in collaboration, is the connection
+    of an inflationary scenario to the $\cmb$ through the $\cmbbest$ code\footnote{
+        Developed by Wuhyun Sohn.}.
+    This placed a constraint on the sound speed of $\dbi$ inflation, $c_s$.
+    At the level of the CMB, validation of the method as a whole
+    (when applied to the $\planck$ data)
+    is achieved by comparison with the
+    $\planck$ constraint on the $\dbi$ sound speed.
+    This constraint is the translated into a constraint on
+    a fundamental parameter in the context of a physically realistic scan.
+
+
+    The thesis is organised as follows. 
+
+
+\textbf{Chapter~\ref{chapter:intro_bispectra}} is an introduction to the bispectrum as an observable.
+Brief reviews
+of the various parts of the pipeline that connects inflation scenarios to observations
+through the bispectrum are presented.
+The usual paradigm of bispectrum estimation in the CMB is reviewed,
+along with the motivation for separable bispectra. The in-in formalism
+for calculating the tree level bispectrum for a given model of inflation
+is outlined, and the point at which the separable formalism diverges is
+highlighted.
+Reviews of $P(X,\phi)$ models of inflation, and
+%some of the usual approximate bispectrum templates
+%that we aim to bypass.
+%We will draw our validation scenarios from these models.
+discussions of previous numerical codes for
+calculating the primordial bispectrum $k$-configuration by $k$-configuration
+are presented.
+%which contrasts our separable basis expansion.
+Also reviewed is the previous work in achieving separability through modal expansions
+in~\cite{Funakoshi}.
+%and we discuss methods of testing
+%numerical bispectrum results, defining our relative difference measurement.
 
 
 
-\textbf{Chapter~\ref{chapter:intro_general}} is a general introduction to cosmology, and
-\textbf{chapter~\ref{chapter:intro_bispectra}} is an introduction to the bispectrum as an observable.
-
-
-\textbf{Chapter~\ref{chapter:decomp}} describes the first line of research mentioned above---the discussion covers the need to
+\textbf{Chapter~\ref{chapter:decomp}} describes the first line of research mentioned above---the
+discussion covers the need to
 take the non-physical configurations into account and how the basis sets
 presented in this work are built.
 Also presented is a quantitative comparisons of the convergence of each basis set to
 relevant examples of bispectrum shapes.
+
+
+%By recasting the usual in-in calculation into an explicitly separable form,
+%in terms of an expansion in an arbitrary basis.
+Since the paradigm presented here is only viable if one can find a basis
+that can efficiently represent a wide variety of bispectra,
+the remainder of chapter~\ref{chapter:decomp} is devoted to presenting this exploration,
+which is distinct and separate from our numerical methods, but nonetheless vital.
+Attention is given to the effects of the
+non-physical $k$-configurations on the convergence of our expansion on
+the tetrapyd, and multiple efficient basis sets are presented.
+
 
 
 \textbf{Chapter~\ref{chapter:methods}} details the second line of research mentioned above---a
@@ -1008,8 +1004,16 @@ as well as other numerical issues that require care and attention.
 Also presented are validation tests on a very broad range of types of non-Gaussianity.
 
 
-\textbf{Chapter~\ref{chapter:constraints}} presents constraints (obtained in collaboration with Wuhyun Sohn)
-on the sound speed of the $\dbi$ model, which validate our pipeline against $\planck$.
+%We present the precise methods involved in the
+%separable formalism and its numerical implementation,
+%and detail our methods for carefully calculating the coefficients to high order.
+%In particular in section~\ref{sec:validation} we validate our methods and implementation
+%on inflation scenarios with varied features from the literature.
+
+
+\textbf{Chapter~\ref{chapter:constraints}} presents a constraint
+on the sound speed of the $\dbi$ model, which validate our pipeline against a constraint
+from the $\planck$ analysis.
 This chapter will describe the parametrisation of the scan, and the physical
 interpretation of the results.
 
