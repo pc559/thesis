@@ -744,6 +744,16 @@ not been used.
 \subsection{Observations to probability}
 \textcolor{red}{Checking if dice are fair.
 Organise this!!! Observations to probability.}
+What we wish to do is the opposite, however. Instead of calculating using known probabilities,
+    we wish to take a series of observations of some random variable and use these observations
+    to estimate the probability distribution that they were drawn from. Given an infinite number
+    of observations this task has a straightforward solution, simply plotting the normalised
+    histogram of the results. However, in the context of cosmology we will only have a finite amount
+    of information available to us, and thus a limit to how well we can ever measure the relevant
+    probability distributions. This limitation is known as cosmic variance.
+
+
+
 Correlation functions are expectation values over ensembles of possible
 universes. It is reasonable to wonder how we could ever make contact with a theory
 that only makes these kind of predictions, given that we only have access to one universe.
@@ -797,47 +807,45 @@ So, even in the same spatial region in the one universe, we have access to multi
 \textcolor{red}{Organise this!!!}
 
 
-    Our result will be a constraint on an inflationary parameter, stated at e.g.\ $95\%$ confidence.
-    For example, if we flipped one fair coin $100$ times, we would expect an even split of heads
-    and tails. Should we be suspicious of the fairness of the coin if we instead get $60$ heads
-    and $40$ tails? Or $80$ heads and $20$ tails? An event at least as extreme at a $60$-$40$ split
-    will occur $3.5\%$ of the time. For a $80$-$20$ split however, the probability of an event that
-    extreme is around one part in $10^{10}$, effectively impossible. This means that if we observed
-    a trial where a coin came up heads in $80$ out of $100$ cases, we could suspect that out hypothesis
-    of fairness was incorrect.
-    One can calculate that, for a fair coin, $95\%$ of the time the number of heads will take a value
-    between $41$ and $59$. We call this the $95\%$ confidence interval.
-    What we wish to do is the opposite, however. Instead of calculating using known probabilities,
-    we wish to take a series of observations of some random variable and use these observations
-    to estimate the probability distribution that they were drawn from. Given an infinite number
-    of observations this task has a straightforward solution, simply plotting the normalised
-    histogram of the results. However, in the context of cosmology we will only have a finite amount
-    of information available to us, and thus a limit to how well we can ever measure the relevant
-    probability distributions. This limitation is known as cosmic variance.
+    %Our result will be a constraint on an inflationary parameter, stated at e.g.\ $95\%$ confidence.
+    %For example, if we flipped one fair coin $100$ times, we would expect an even split of heads
+    %and tails. Should we be suspicious of the fairness of the coin if we instead get $60$ heads
+    %and $40$ tails? Or $80$ heads and $20$ tails? An event at least as extreme at a $60$-$40$ split
+    %will occur $3.5\%$ of the time. For a $80$-$20$ split however, the probability of an event that
+    %extreme is around one part in $10^{10}$, effectively impossible. This means that if we observed
+    %a trial where a coin came up heads in $80$ out of $100$ cases, we could suspect that out hypothesis
+    %of fairness was incorrect.
+    %One can calculate that, for a fair coin, $95\%$ of the time the number of heads will take a value
+    %between $41$ and $59$. We call this the $95\%$ confidence interval.
+    %What we wish to do is the opposite, however. Instead of calculating using known probabilities,
+    %we wish to take a series of observations of some random variable and use these observations
+    %to estimate the probability distribution that they were drawn from. Given an infinite number
+    %of observations this task has a straightforward solution, simply plotting the normalised
+    %histogram of the results. However, in the context of cosmology we will only have a finite amount
+    %of information available to us, and thus a limit to how well we can ever measure the relevant
+    %probability distributions. This limitation is known as cosmic variance.
 
 
 
-    We quantify this expected scatter around the mean using a quantity known as the standard deviation.
-    The standard deviation of a random variable $X$ is the square root of the expected value of the
-    squared deviation from the mean $\mu$,
-    \begin{align}
-        \sigma = \sqrt{E\left[{(X-\mu)}^2\right]}.
-    \end{align}
-    In our example above of flipping one coin $100$ times, the total number of heads has $\mu=50$
-    and $\sigma=5$.
+    %We quantify this expected scatter around the mean using a quantity known as the standard deviation.
+    %The standard deviation of a random variable $X$ is the square root of the expected value of the
+    %squared deviation from the mean $\mu$,
+    %\begin{align}
+    %    \sigma = \sqrt{E\left[{(X-\mu)}^2\right]}.
+    %\end{align}
+    %In our example above of flipping one coin $100$ times, the total number of heads has $\mu=50$
+    %and $\sigma=5$.
 
     
     We have only one universe that we can observe, only one draw from the probability distribution
     we are trying to probe. However, there is a lot of information in that one draw.
-    \textcolor{red}{Motivate and explain this all better!} This is related to the concept
-    of ergodicity. This is the statement that $\left<\cdot\right>$ as an expectation over ensembles
-    at a fixed point is the same as the expectation over points for a fixed ensemble.
-    This assumes homogeneity, stationarity, and that distant points are uncorrelated.
-    In terms of our coin example, this is related to the statement that flipping one coin
-    $100$ times should probe the probability distribution in the same way as flipping
-    $100$ identical coins once each.
-    %Ergodicity: ``In an ergodic scenario, the average outcome of the group is the same as the average outcome of the individual over time. An example of an ergodic systems would be the outcomes of a coin toss (heads/tails). If 100 people flip a coin once or 1 person flips a coin 100 times, you get the same outcome.'' from https://taylorpearson.me/ergodicity/
-    % See also https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
+    %\textcolor{red}{Motivate and explain this all better!} This is related to the concept
+    %of ergodicity. This is the statement that $\left<\cdot\right>$ as an expectation over ensembles
+    %at a fixed point is the same as the expectation over points for a fixed ensemble.
+    %This assumes homogeneity, stationarity, and that distant points are uncorrelated.
+    %In terms of our coin example, this is related to the statement that flipping one coin
+    %$100$ times should probe the probability distribution in the same way as flipping
+    %$100$ identical coins once each.
 
 
     \textcolor{red}{We now present a summary\ldots}
@@ -853,19 +861,23 @@ So, even in the same spatial region in the one universe, we have access to multi
     that $f(x)$ can take.
 
 
-    In our example of the $100$ coin flips, we used~\eqref{expectation_value_discrete}
-    to calculate the mean and standard deviation. For a continuous variable,
+    %In our example of the $100$ coin flips, we used~\eqref{expectation_value_discrete}
+    %to calculate the mean and standard deviation.
+    For example, if one wanted to
+    calculate the mean and standard deviation of $100$
+    coin flips, we would use~\eqref{expectation_value_discrete}.
+    For a continuous variable,
     like the average height of a population or the average temperature in a given room,
     we would use~\eqref{expectation_value_cont}. In this thesis, we will be working with
     the expectation value of field configurations, so we will use~\eqref{expectation_value_field}.
-    \textcolor{red}{Talk about quantum to classical transition!}
-    \begin{align}
-        \left<\hat{v}_{\bk}\hat{v}_{\bk'}\right>
-                         &= \left<0|\hat{v}_{\bk}\hat{v}_{\bk'}|0\right>\\
-                         &= |v_k|^2\left<0\left|\left[\hat{a}_\bk,\hat{a}_{-\bk}^{\dagger}\right]\right|0\right>\\
-                         &= |v_k|^2\delta(\bk+\bk')\\
-                         &= P_{v}(k)\delta(\bk+\bk')
-    \end{align}
+    %\textcolor{red}{Talk about quantum to classical transition!}
+    %\begin{align}
+    %    \left<\hat{v}_{\bk}\hat{v}_{\bk'}\right>
+    %                     &= \left<0|\hat{v}_{\bk}\hat{v}_{\bk'}|0\right>\\
+    %                     &= |v_k|^2\left<0\left|\left[\hat{a}_\bk,\hat{a}_{-\bk}^{\dagger}\right]\right|0\right>\\
+    %                     &= |v_k|^2\delta(\bk+\bk')\\
+    %                     &= P_{v}(k)\delta(\bk+\bk')
+    %\end{align}
 
 
 \section{Thesis outline}
