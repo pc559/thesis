@@ -23,7 +23,10 @@
     we used the methods described in previous chapters (as implemented in
     the $\primodal$ code) to generate shape coefficients for each scenario in the scan.
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
-    then used the $\planck$ temperature data to place a constraint
+    then used the $\planck$ temperature\footnote{
+        While at present the $\cmbbest$ code is implemented for temperature only, the methods are general
+        and future implementations will include polarisation.
+    } data to place a constraint
     on $\bir$. 
     The bispectrum of each scenario is given an amplitude
     parameter, which we call $\fnl$, where the scenario prediction
@@ -36,12 +39,13 @@
     when the estimator is applied to a $\cmb$ drawn from a universe with $\fnl=1$.
 
 
-    At present $\cmbbest$ has only been run for the $\Lnsinv$ basis
+    At present $\cmbbest$ has been run for the $\Lnsinv$ basis
     with $\Pmax=30$, so to make contact with it the $\primodal$ scan
     was run with the same basis\footnote{
+        The $\cmbbest$ code has also been run for a $\ksw$ basis
+        and a Fourier basis, but neither of these can describe features
+        with a non-trivial shape.
         Other basis sets described in chapter~\ref{chapter:decomp} will be used in future runs of $\cmbbest$.
-        Also, while at present the $\cmbbest$ code is implemented for temperature only, the methods are general
-        and future implementations will include polarisation.
     }.
     As shown in figure~\ref{fig:dbi_sound_speed_scan_beta}, we find
     \begin{align}\label{eq:cmbbest_bir_constraint}
