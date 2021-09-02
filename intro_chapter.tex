@@ -645,18 +645,9 @@ not been used.
 
 
 \section{Statistical observables}
-\subsection{Probability to observations}\label{corr_functions}
-    \textcolor{red}{
-    Monte-Carlo simulations are used to estimate covariance matrices
-    $\left<a_{lm}a_{l'm'}\right>$,
-    which are not diagonal in the presence of a sky mask.
-    Classical vs.\ quantum correlators (order matters), ensemble vs.\ spatial averages.
-    Probability to observations.
-}
-    
-
+\subsection{From probabilities to observations}\label{corr_functions}
     Everything we have discussed until this point has dealt with quantities
-    with definite values, that have a definite evolution. This will no longer
+    with definite values. This will no longer
     be true when we discuss quantities that have a quantum origin, as
     the prediction of a fundamental quantum theory is a statistical one.
     The true prediction is of a distribution from which our observation will be drawn;
@@ -664,29 +655,58 @@ not been used.
     we must talk in terms of probabilities.
 
 
+    We begin with a brief summary of some probabilistic quantities.
+    We can define the expectation value of a function $f$ of a discrete random variable $x$,
+    the expectation value of a function $f$ of a continuous random variable $x$,
+    or a functional $F$ of a field configuration $f(x)$, respectively as
+    \begin{align}
+        \left<f(x)\right> &= \sum_i f(x_i) P(x_i)\label{expectation_value_discrete}\\
+        \left<f(x)\right> &= \int dx~f(x) \rho(x)\label{expectation_value_cont}\\
+        \left<F\left[f\right]\right> &= \int \mathcal{D}f~F\left[f\right] P\left[f\right]\label{expectation_value_field}
+    \end{align}
+    where the sum and integral over $x$ are over all the values that $x$ can take,
+    and the functional integral $\int \mathcal{D}f$ over $f$ is over all the field configurations
+    that $f(x)$ can take.
+
+
+    %In our example of the $100$ coin flips, we used~\eqref{expectation_value_discrete}
+    %to calculate the mean and standard deviation.
+    For example, if one wanted to
+    calculate the expected number of heads in $100$
+    coin flips, one would use~\eqref{expectation_value_discrete}.
+    %For a continuous variable,
+    %like the average height of a population or the average temperature in a given room,
+    %we would use~\eqref{expectation_value_cont}.
+    In this thesis, we will be working with the expectation value of
+    functions of field configurations, so we will use~\eqref{expectation_value_field}.
     In particular, the quantum mechanical nature of the (inflationary)
     origin of structure means that such predictions
     of inflationary theories will necessarily be statistical. That is to say, the predictions through
-    which we will test these theories will be predictions of ensemble averages, expectation
-    values of measurements applied to some particular draw from the predicted probability distribution.
-    The ensemble average~\eqref{expectation_value_field} of a product of the value of
-    the same field at two different point is known as the
-    two-point correlator, or the two-point function $\left<f(\mathbf{x})f(\mathbf{x'})\right>$.
-    Here, the brackets $\left<\ldots\right>$ refer to the expected value over the ensemble,
-    over all the possible realisations that could be drawn from the probability distribution
-    predicted by the inflation model, weighted by their probability.
+    which we will test these theories will be predictions of these expectation
+    values of the primordial perturbations.
 
 
-    There are two assumptions we wish to immediately impose on this function, and higher order correlators
-    (expectation values of products of more fields).
+    The ensemble average~\eqref{expectation_value_field} of
+    $f(\mathbf{x})f(\mathbf{x'})$ for some function $f$ is known as the
+    two-point correlator, or the two-point function: $\left<f(\mathbf{x})f(\mathbf{x'})\right>$.
+    Note the brackets $\left<\ldots\right>$ refer to the expected value over the ensemble,
+    over all the possible realisations that could be drawn from the probability
+    distribution, and not a spatial average.
+    %predicted by the inflation model, weighted by their probability.
+    Higher order correlators are the
+    expectation values of products the field evaluated at more points.
+
+
+    There are two assumptions we wish to immediately impose on such functions.
     Those conditions are statistical homogeneity and statistical isotropy,
     the requirement that the correlators are invariant under translations and rotations.
-    This does not mean that some realisation of the ensemble is forbidden from having special points---fields
+    This does not mean that some realisation of the ensemble is forbidden from having
+    breaking these symmetries, of course---fields
     are still allowed to be inhomogeneous, and thus (for example) have local extrema.
     The statement of statistical homogeneity is that,
     when averaged over the entire ensemble of possible realisations, these special points
     are equally likely to appear anywhere in space.
-    All observations of the universe so far appear to respect this symmetry of the statistics.
+    All observations of the universe so far appear to respect these two symmetries of the statistics.
 
 
     These conditions on the correlators of $f(\vecx)$ place useful constraints on the correlators of the
@@ -700,35 +720,51 @@ not been used.
     and $B(k_1,k_2,k_3)$ depend only on the magnitudes of the vectors ($k=\left|\veck\right|$) is a result
     of demanding statistical isotropy.
     Note that $\left<f(\mathbf{k_1})f(\mathbf{k_2})f(\mathbf{k_3})\right>$
-    has $9$ apparent degrees of freedom, but $B(k_1,k_2,k_3)$ has only three. This is due to the delta function
+    has $9$ apparent degrees of freedom, but $B(k_1,k_2,k_3)$ has only three.
+    This is due to the delta function
     demanding that the sum of the $\mathbf{k_i}$ vanishes, thus forming a triangle.
     Since the orientation of this triangle
     cannot matter, three parameters will suffice---we choose the magnitudes of the vectors.
+    Similar statements can of course be made for higher point correlators.
 
 
     Our focus in this thesis will be on the predictions that models of inflation make
     for the statistical properties of the distribution of
-    inhomogeneities in the very early universe.
-    This defines the initial conditions for the $\lcdm$ evolution that follows---from
-    this, we can calculate the statistical properties of the $\cmb$ sky that we see.
+    inhomogeneities in the very early universe, as described by the bispectrum $B(k_1,k_2,k_3)$.
+    This is one descriptive property of 
+    the initial conditions for the $\lcdm$ evolution that follows---from
+    this, one can calculate statistical properties of the $\cmb$ sky that we see.
 
 
-    Another symmetry we could imagine is statistical scale invariance.
+    Another symmetry one could imagine is statistical scale invariance.
     Scale invariance is the statement that
     \begin{align}
         \left<f(\mathbf{x})f(\mathbf{x'})\right> = \left<f(\lambda\mathbf{x})f(\lambda\mathbf{x'})\right>.
     \end{align}
-    From \textcolor{red}{calculation}, we can see that scale invariance needs
-    $P(k)\propto k^{-3}$.
+    One can show that this symmetry demands $P(k)\propto k^{-3}$.
     Evidence suggests that this symmetry is \textit{not} respected by the probability
     distribution from which our universe was drawn.
     In fact, it was found that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$
     at $68\%$ CL~\cite{Planck_inflation_2015, Planck_inflation_2018}.
-    The odds of a universe like ours being drawn from a scale-invariant probability
-    distribution are \textcolor{red}{very small. Is this the right way to think about it?}
-    Given that we only have access to one universe, it is reasonable to ask how we could
-    possibly make such a strong statement. We will discuss the resolution of this in the
-    next section.
+    Thus we can make the statement that
+    the odds of a universe like ours being drawn from a scale-invariant probability
+    distribution are very small.
+
+
+    We will close this section with a brief note on Monte Carlo simulations.
+    Using these simulations, for some given probability distribution, we can determine
+    what our observations might look like---even in the presence of
+    complicating factors such as, in the case of observing the harmonics of the temperature fluctuations
+    in the $\cmb$, the presence of our galaxy blocking a significant portion
+    of the sky.
+    For example, if one makes the assumption that the amplitudes of
+    such harmonics were drawn from a Gaussian distribution with some given power spectrum,
+    one can then generate a large ensemble of possible skies.
+    Processing these by simulating the known instrument effects and
+    sky masks gives an ensemble of realistic experimental data, drawn
+    from a Gaussian distribution. If one then wanted to test the temperature
+    fluctuations of the $\cmb$ for deviations from Gaussianity,
+    for example, one could use this ensemble to estimate the rate of false positives.
 
 
     %One such statistical property is the two-point correlation of the temperature $\phi$
@@ -743,8 +779,11 @@ not been used.
     %separation between $x$ and $x'$ \textcolor{red}{talk about cosmic variance
     %of different modes. Angular?}
 
-\subsection{Observations to probability}
+\subsection{From observations to probabilities}
 \textcolor{red}{Checking if dice are fair.
+    Given that we only have access to one universe, it is reasonable to ask how we could
+    possibly make such a strong statement. We will discuss the resolution of this in the
+    next section.
 Organise this!!! Observations to probability.}
 What we wish to do is the opposite, however. Instead of calculating using known probabilities,
     we wish to take a series of observations of some random variable and use these observations
@@ -790,14 +829,6 @@ We could stay in the same spatial region, but magically peek into all the other 
 Or, we could stay in the same universe, but magically peek into every spatial region.
 The ergodic theorem tells us that these two methods will give the same answer,
 thus allowing us to make contact between spatial measurements made in our one universe and the ensemble predictions of inflation.
-
-  
-If you make the assumption that your universe was drawn from a Gaussian
-distribution, you could use Gaussian Monte-Carlo simulations to,
-for example, estimate your rate of false positives for non-Gaussianity.
-The assumed Gaussian distribution (values of $C_l$) is used to generate $a_{lm}$ draws
-\textcolor{red}{check this}.
-But, of course, they will not allow you to get from observations to the true distribution. 
 
 
 Cosmic variance in our measurements is due to both being limited to one universe, and to being
@@ -850,28 +881,6 @@ So, even in the same spatial region in the one universe, we have access to multi
     %$100$ identical coins once each.
 
 
-    \textcolor{red}{We now present a summary\ldots}
-    We can define the expectation value of a function of a discrete or
-    continuous random variable $x$, or a functional $F$ of a field configuration $f(x)$, respectively as
-    \begin{align}
-        \left<f(x)\right> &= \sum_i x_i P(x_i)\label{expectation_value_discrete}\\
-        \left<f(x)\right> &= \int dx~x \rho(x)\label{expectation_value_cont}\\
-        \left<F\left[f(x)\right]\right> &= \int \mathcal{D}f~F\left[f(x)\right] P\left[f(x)\right]\label{expectation_value_field}
-    \end{align}
-    where the sum and integral over $x$ are over the values that $x$ can take,
-    and the functional integral over $f$ is over all the field configurations
-    that $f(x)$ can take.
-
-
-    %In our example of the $100$ coin flips, we used~\eqref{expectation_value_discrete}
-    %to calculate the mean and standard deviation.
-    For example, if one wanted to
-    calculate the mean and standard deviation of $100$
-    coin flips, we would use~\eqref{expectation_value_discrete}.
-    For a continuous variable,
-    like the average height of a population or the average temperature in a given room,
-    we would use~\eqref{expectation_value_cont}. In this thesis, we will be working with
-    the expectation value of field configurations, so we will use~\eqref{expectation_value_field}.
     %\textcolor{red}{Talk about quantum to classical transition!}
     %\begin{align}
     %    \left<\hat{v}_{\bk}\hat{v}_{\bk'}\right>
