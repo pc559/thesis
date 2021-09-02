@@ -70,9 +70,17 @@
     One possible reason for this is the fact we are using slightly different
     scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
     use all the scales in the $\planck$ data. Another possible reason is convergence in the number of
-    maps---$\modal$ uses approximately $300$ maps while $\cmbbest$ uses $140$. Numerical issues
-    in either method
-    could also contribute. See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
+    maps\footnote{
+        In addition to the variance of $\fnl$,
+        the maps are used to calculate the full covariance matrix for the linear term
+        in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnl$
+        will only converge once sufficiently many maps are used.
+        However, this correction (which accounts for the effect of the mask)
+        was found to typically be relevant for local-type shapes,
+        and small for equilateral-type shapes, such as in $\dbi$ inflation.
+    }, with $\modal$ using approximately $300$ maps while $\cmbbest$ uses $140$.
+    Numerical issues in either method could also contribute.
+    See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
 
 
     We can however understand the expected variance of such estimators by simply examining the
@@ -421,11 +429,13 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     would instead imply that $\bir\le0.33$ is ruled out at $95\%$ confidence.
     The difference between our result and the $\planck$ result cannot be explained by
     statistical variance, as they are based on the same $\planck$ temperature data.
+    Possible contributions to this disagreement include
+    our limitation on $\kmax/\kmin$,
+    convergence (for each method's respective convergence parameters),
+    numerical errors, and differing numbers of Gaussian maps used.
     However, as we see for $\fnlequil$ in figure~\ref{fig:equil_constraints_comparison},
-    even between the estimation methods used within $\planck$ there is some variance.
-    Possible contributions to this disagreement include convergence (for their respective convergence parameters),
-    numerical errors, and differing numbers of Gaussian maps used \textcolor{red}{this obviously
-    affects the convergence of $\sigma$, but does it affect $\fnl$? Through the normalisation?}
+    even between the estimation methods used within $\planck$ there is some variance,
+    and we judge the disagreement to be within acceptable bounds.
 
 
     Thus we conclude that our constraint on the $\dbi$ sound speed validates our pipeline as a whole,
