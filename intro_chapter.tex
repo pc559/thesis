@@ -503,11 +503,11 @@ with $\phi=\phi(t)$ and $X=\frac{1}{2}\dphi^2$.
 We will work with the number of e-folds, $N$, as our time variable
 $x'\equiv\frac{dx}{dN}=a\frac{dx}{da}$.
 The expression for the energy density, using~\eqref{stress_tensor}, is
-\begin{align}
+\begin{align}\label{rho_px}
     \rho = 2XP,_X-P,
 \end{align}
 so then the continuity equation~\eqref{continuity_equation} implies
-\begin{align}
+\begin{align}\label{rho_deriv}
     \rho' = -6XP,_X.
 \end{align}
     The sound speed for the adiabatic perturbations is defined as~\cite{Christopherson_2009}
@@ -515,7 +515,7 @@ so then the continuity equation~\eqref{continuity_equation} implies
         c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}_0}{\dot{\rho}_0}
         = \frac{P,_X}{\rho,_X}.
     \end{align}
-    Since we also have $\rho=2X P_X-P$, we see that
+    Since we also have~\eqref{rho_px}, we see that
     \begin{align}
         c_s^2 = \frac{P,_X}{P_X+2X P_{XX}}.
     \end{align}
@@ -523,10 +523,6 @@ so then the continuity equation~\eqref{continuity_equation} implies
     so $P_{XX}=0$ and $c_s=1$.
 
 
-The equation of motion for $\phi$ is~\cite{Hu_2011}
-\begin{align}\label{phieom}
-    \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
-\end{align}
     For reasons we will discuss in section~\ref{pert_evol} we will
     define a quantity $\tau_s$
     in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
@@ -542,16 +538,22 @@ We also define the standard ``slow-roll'' parameters:
 though we have not demanded that these be small.
 From the continuity equation and the Friedmann equation
 we find the useful relation
-\begin{align}
+\begin{align}\label{epsilon_phi}
     %&&\rho' &= -3(\rho+P)\\
     %\implies&&6HH' &= -3(2X P,_{X})\\
     %\implies&&-H^2\varepsilon &= -\left(\frac{1}{2}H^2{\phi'}^2\right) P,_{X}\\
     %\implies&&\varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
     \varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
 \end{align}
+Using~\eqref{rho_deriv}, we see that
+the equation of motion for $\phi$ is~\cite{Hu_2011}
+\begin{align}\label{phieom}
+    \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
+\end{align}
 
 
-In the canonical case this simplifies to
+We now specify to canonical models $P(X,\phi)=X-V(\phi)$.
+In the canonical case~\eqref{epsilon_phi} simplifies to
 $\varepsilon = \frac{1}{2}{\phi'}^2$,
 while in the $\dbi$ case we find
 $\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
