@@ -247,9 +247,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     Radiation is one of the major known components of the present universe, in the form of the
-    photons in the cosmic microwave background, the $\cmb$. Another is matter, by which we mean \textit{dark} matter,
+    photons in the cosmic microwave background, the $\cmb$. Another is matter,
+    by which we mean \textit{dark} matter,
     which is invisible to our telescopes (which depend on electromagnetic radiation) but can be mapped by the
-    effect of its gravity \textcolor{red}{reference?}.
+    effect of its gravity.
     Another component is what cosmologists refer to as baryonic matter, which is
     the protons, electrons, neutrons and all the other particles which make up the visible galaxies, stars
     and humans.
@@ -257,11 +258,14 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
     Evidence for this story comes in the form of predictions for the relative abundances of the lightest
     elements (which were forged in the first few minutes of the universe) and in correlations in the $\lcdm$
-    which can be directly linked to the transition between a universe so densely packed with radiation that it could
+    which can be directly linked to the transition between a universe
+    so densely packed with radiation that it could
     support acoustic pressure waves, and a universe that had dropped below that density.
     There are unanswered questions within the $\lcdm$ model.
-    One question is the solution of the Hubble tension~\textcolor{red}{reference!}---how old is the universe really?
-    All in all, it is incredible only a hundred years ago people were debating whether the universe had a beginning or not
+    One question is the solution of the Hubble tension, a question about the
+    precise rate of expansion of the universe today---see for example~\cite{tensions_2019, Freedman_2021}.
+    All in all, it is incredible only a hundred years ago people were debating
+    whether the universe had a beginning or not
     (and the ``great debate''---were there other galaxies?) to now, where the debate rages over the second and
     third significant figures.
 
@@ -380,20 +384,27 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 \section{Initial conditions for $\lcdm$}
     \subsection{Motivations for inflation}
-    The $\lcdm$ model does not posit a ``Big Bang singularity''---instead, as we have discussed, it
-    posits an early epoch in which the components that we have discussed are in thermal equilibrium,
-    at an incredibly hot temperature. \textcolor{red}{Rephrase.}
-    However, if one assumes that those components are all there are, and runs the equations backwards,
-    one reaches $a=0$ in finite time.
-    \textcolor{red}{Check.}
-
-    \textcolor{red}{Rephrase or move.}
-    These components are distributed incredibly uniformly. This simple scenario then evolves
-    under gravitational collapse (and other interactions) and forms the universe we know.
+    %The $\lcdm$ model does not posit a ``Big Bang singularity''---instead, as we have discussed, it
+    %posits an early epoch in which the components that we have discussed are in thermal equilibrium,
+    %at an incredibly hot temperature. \textcolor{red}{Rephrase.}
+    %However, if one assumes that those components are all there are, and runs the equations backwards,
+    %one reaches $a=0$ in finite time.
+    %\textcolor{red}{Check.}
+    %\textcolor{red}{Rephrase or move.}
+    The $\lcdm$ model posits an early epoch in which the components that
+    we have discussed are in thermal equilibrium,
+    at an incredibly hot temperature.
+    These components are distributed incredibly uniformly, but with some small perturbations.
+    This simple scenario then evolves under the expansion of the universe
+    and the gravitational collapse of perturbations (and other interactions) and forms the universe we know.
     Is this story of $\lcdm$ enough to explain all the features of the
-    universe that we observe? The answer is mostly yes, given the correct initial conditions,
-    the correct starting point. But then that begs the question of how those initial conditions
-    were chosen out of the other possibilities one could imagine.
+    universe that we observe?
+    It turns out that the answer is only yes if the initial conditions for the $\lcdm$
+    model had certain special characteristics.
+    These special characteristics then become clues to the epoch of the universe
+    that preceded $\lcdm$.
+
+
     Two clues that we have are known as the horizon problem, and the flatness problem.
     Roughly speaking, the first is the problem that the universe is more homogeneous on
     large scales than we would expect, given the history of $\lcdm$. Why is the temperature on one
@@ -404,8 +415,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     energy density of the universe.
 
 
-    To fit observations, $\lcdm$ requires initial conditions with a particular set of properties.
-    Some of these properties are surprising, and require an explanation.
     Since $a(\tau)\propto \tau$ during the radiation dominated era we can calculate
     the total comoving distance a photon could have traveled between the singularity at $a_i=0$
     and recombination at $a_{rec}=1/1100$. We find
@@ -563,7 +572,8 @@ $\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
         P_\phi &= \frac{1}{2}\dot{\phi}^2-V(\phi)\\
         \implies H^2 &= \frac{V(\phi)}{3-\varepsilon}
     \end{align}
-    where the last equality has not assumed $\varepsilon$ is small.
+    where the last equality used the Friedmann~\eqref{friedmann_1} equation and
+    has not assumed $\varepsilon$ is small.
 
 
     For successful inflation with a cosmological constant, we want $w=-1$,
@@ -601,12 +611,12 @@ $2XP_{,X}\ll P$.
 For a model with a canonical kinetic term,~\eqref{phieom} simplifies
 to
 \begin{align}
-    \phi''+(3-\varepsilon)\phi'+H^{-2}V'(\phi)=0.
+    \phi''+(3-\varepsilon)\phi'+H^{-2}V_{\phi}(\phi)=0.
 \end{align}
 In the slow-roll approximation we take assume $\phi''\ll\phi'$,
 and so
 \begin{align}
-    \phi'\approx\frac{V'(\phi)}{3H^2}\approx\frac{V'(\phi)}{V(\phi)}.
+    \phi'\approx\frac{V_{\phi}(\phi)}{3H^2}\approx\frac{V_{\phi}(\phi)}{V(\phi)}.
 \end{align}
 From this, we see that demanding that $\varepsilon$ be small places a constraint
 on the flatness of the potential in a canonical model.
