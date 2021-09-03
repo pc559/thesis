@@ -67,7 +67,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     The components of the matter and energy content of the universe enter the equations through
     their stress-energy tensors $T^{\mu\nu}$, which we approximate as that of
     a perfect fluid. Labeling the fluid $X$,
-    \begin{align}
+    \begin{align}\label{stress_tensor}
         T_X^{\mu\nu} = (\rho_X+P_X)U_X^\mu U_X^\nu+P_Xg^{\mu\nu},
     \end{align}
     where the index structure ensures the fluid is isotropic in its rest frame.
@@ -490,8 +490,93 @@ extract the fundamental physics waiting to be found in the universe's youth.
     It turns out that observations show that this is not precisely respected.
 
 
-\subsection{Criteria for successful inflation}
-    \textcolor{red}{Rewrite entirely in terms of $a$, $H$? And move earlier.}
+    \subsection{Driving inflation with a scalar field}
+    We desire a period of exponential expansion in the early universe to explain the
+    scale-invariance of the initial perturbations.
+    One simple way one could imagine driving this expansion is through a single
+    scalar field.
+Consider an inflaton action of the form
+\begin{align}
+S = \int d^4x \sqrt{-g}P(X,\phi)
+\end{align}
+with $\phi=\phi(t)$ and $X=\frac{1}{2}\dphi^2$.
+We will work with the number of e-folds, $N$, as our time variable
+$x'\equiv\frac{dx}{dN}=a\frac{dx}{da}$.
+The expression for the energy density, using~\eqref{stress_tensor}, is
+\begin{align}
+    \rho = 2XP,_X-P,
+\end{align}
+so then the continuity equation~\eqref{continuity_equation} implies
+\begin{align}
+    \rho' = -6XP,_X.
+\end{align}
+    The sound speed for the adiabatic perturbations is defined as~\cite{Christopherson_2009}
+    \begin{align}\label{sound_speed_definition}
+        c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}_0}{\dot{\rho}_0}
+        = \frac{P,_X}{\rho,_X}.
+    \end{align}
+    Since we also have $\rho=2X P_X-P$, we see that
+    \begin{align}
+        c_s^2 = \frac{P,_X}{P_X+2X P_{XX}}.
+    \end{align}
+    For canonical inflation models, $P(X,\phi)=X-V(\phi)$
+    so $P_{XX}=0$ and $c_s=1$.
+
+
+The equation of motion for $\phi$ is~\cite{Hu_2011}
+\begin{align}\label{phieom}
+    \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
+\end{align}
+    For reasons we will discuss in section~\ref{pert_evol} we will
+    define a quantity $\tau_s$
+    in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
+    \begin{align}\label{tausdef}
+        \tau_s'&=\frac{c_s}{aH}.
+    \end{align}
+We also define the standard ``slow-roll'' parameters:
+\begin{align}\label{slowrollparams}
+    \eps &= -\frac{d\ln H}{dN}	\\
+    \eta &= +\frac{d\ln \varepsilon}{dN}\\
+    \eps_s &= +\frac{d\ln c_s}{dN}
+\end{align}
+though we have not demanded that these be small.
+From the continuity equation and the Friedmann equation
+we find the useful relation
+\begin{align}
+    %&&\rho' &= -3(\rho+P)\\
+    %\implies&&6HH' &= -3(2X P,_{X})\\
+    %\implies&&-H^2\varepsilon &= -\left(\frac{1}{2}H^2{\phi'}^2\right) P,_{X}\\
+    %\implies&&\varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
+    \varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
+\end{align}
+
+
+In the canonical case this simplifies to
+$\varepsilon = \frac{1}{2}{\phi'}^2$,
+while in the $\dbi$ case we find
+$\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
+    For a canonical model this scalar field would have
+    \begin{align}
+        \rho_\phi &= \frac{1}{2}\dot{\phi}^2+V(\phi)\\
+        P_\phi &= \frac{1}{2}\dot{\phi}^2-V(\phi)\\
+        \implies H^2 &= \frac{V(\phi)}{3-\varepsilon}
+    \end{align}
+    where the last equality has not assumed $\varepsilon$ is small.
+
+
+    For successful inflation with a cosmological constant, we want $w=-1$,
+    i.e.\ that $V(\phi)\gg\frac{1}{2}\dot{\phi}^2$. Since the kinetic term is required to
+    be small, this is referred to as \textit{slow-roll} inflation.
+We can also see that requiring $\rho_\phi=-p_\phi$ demands that
+$2XP_{,X}\ll P$.
+    The Friedmann equations then become
+    \begin{align}
+        H^2 &\approx \frac{8\pi G}{3}V(\phi),\\
+        \frac{\ddot{a}}{a} &\approx -\frac{4\pi G}{3}\left(-2V(\phi)\right).
+    \end{align}
+
+%\subsection{Criteria for successful inflation}
+%    \textcolor{red}{Rewrite entirely in terms of $a$, $H$? And move earlier.}
     For inflation to solve the horizon problem, it must result in a shrinking comoving
     Hubble radius, disconnecting regions that had previously been in thermal contact.
     This implies that
@@ -529,119 +614,14 @@ We also require $\eta\ll1$ to maintain inflation for the sufficient number
 of e-folds.
 
 
-    \subsection{Driving inflation with a scalar field}
-\textcolor{red}{REORDER WHOLE SECTION.}
-We will work with an inflaton action of the form
-\begin{align}
-S = \int d^4x \sqrt{-g}P(X,\phi)
-\end{align}
-with $X=-\frac{1}{2}g^{ab}\nabla_a \phi\nabla_b \phi$.
-We work with the number of e-folds, $N$, as our time variable
-$x'=\frac{dx}{dN}=a\frac{dx}{da}$
-and recall the definitions of the slow-roll parameters~\eqref{slowrollparams},
-though we make no assumption that these are actually small.
-$c_s$ is the sound speed of the theory, which can vary with time~\cite{Christopherson_2009}
-\begin{align}
-c_s=\frac{P,_X}{P,_X+2XP,_{XX}}.
-\end{align}
-The background quantities are evolved according to the Friedmann equations,
-which are set with consistent initial conditions.
-The expression for the energy density is~\cite{Christopherson_2009}
-\begin{align}
-    \rho = 2XP,_X-P,
-\end{align}
-so then
-\begin{align}
-    \rho' = -6XP,_X.
-\end{align}
-We can also see that requiring $\rho_\phi=-p_\phi$ demands that
-$2XP_{,X}\ll P$.
-
-
-    We take $X=\frac{1}{2}\left(\frac{\partial\phi}{\partial t}\right)^2$.
-    The sound speed for the adiabatic perturbation is defined as
-    \begin{align}\label{sound_speed_definition}
-        c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}_0}{\dot{\rho}_0}
-        = \frac{P,_X}{\rho,_X}.
-    \end{align}
-    Since we also have $\rho=2X P_X-P$, we see that
-    \begin{align}
-        c_s^2 = \frac{P,_X}{P_X+2X P_{XX}}.
-    \end{align}
-    For canonical inflation models, $P(X,\phi)=X-V(\phi)$
-    so $P_{XX}=0$ and $c_s=1$.
-
-
-Then, using the Friedmann equation we obtain
-\textcolor{red}{sign?}
-\begin{align}\label{PXepsilon}
-    \varepsilon &= -\frac{1}{2}{\phi'}^2P,_X.
-\end{align}
-The equation of motion for $\phi$ is~\cite{Hu_2011}
-\begin{align}\label{phieom}
-    \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
-\end{align}
-
-
-    For reasons we will discuss in section~\ref{pert_evol} we will
-    define a quantity $\tau_s$
-    in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
-    \begin{align}\label{tausdef}
-        \tau_s'&=\frac{c_s}{aH}.
-    \end{align}
-
-
-    We desire a period of exponential expansion in the early universe to explain the
-    scale-invariance of the initial perturbations.
-    One simple way one could imagine driving this expansion is through a single
-    scalar field. This scalar field would have
-    \begin{align}
-        \rho_\phi &= \frac{1}{2}\dot{\phi}^2+V(\phi)\\
-        P_\phi &= \frac{1}{2}\dot{\phi}^2-V(\phi).
-    \end{align}
-    For successful inflation with a cosmological constant, we want $w=-1$,
-    i.e.\ that $V(\phi)\gg\frac{1}{2}\dot{\phi}^2$. Since the kinetic term is required to
-    be small, this is referred to as \textit{slow-roll} inflation.
-    The Friedmann equations then become
-    \begin{align}
-        H^2 &\approx \frac{8\pi G}{3}V(\phi),\\
-        \frac{\ddot{a}}{a} &\approx -\frac{4\pi G}{3}\left(-2V(\phi)\right).
-    \end{align}
-We define the Hubble parameter and the standard ``slow-roll'' parameters:
-\begin{equation}
-\label{slowrollparams}
-\begin{split}
-    H = \frac{d\ln a}{dt}	\,,
-    \qquad
-    \eps &= -\frac{d\ln H}{dN}	\\
-    \eta = \frac{d\ln \varepsilon}{dN}	\,,
-    \qquad
-    \eps_s &= +\frac{d\ln c_s}{dN}	\,.
-\end{split}
-\end{equation}
-
-From the continuity equation and the Friedmann equation
-we find the useful relation
-\begin{align}
-    %&&\rho' &= -3(\rho+P)\\
-    %\implies&&6HH' &= -3(2X P,_{X})\\
-    %\implies&&-H^2\varepsilon &= -\left(\frac{1}{2}H^2{\phi'}^2\right) P,_{X}\\
-    %\implies&&\varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
-    \varepsilon &= \frac{1}{2}{\phi'}^2 P,_{X}.
-\end{align}
-In the canonical case this simplifies to
-$\varepsilon = \frac{1}{2}{\phi'}^2$.
-In the $\dbi$ case we find
-$\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
-
-This allows us to rephrase the Friedmann equation in the following useful
-way. Note that this is still exact, the slow-roll approximation has
-not been used.
-\textcolor{red}{WRONG}
-\begin{align}
-    &&H^2 &= \frac{1}{3}\left(\frac{\varepsilon H^2}{P,_{X}}+V(\phi)\right)\\
-    \implies &&  H^2 &= \frac{V(\phi)}{3-\frac{\varepsilon}{P,_{X}}}.
-\end{align}
+%This allows us to rephrase the Friedmann equation in the following useful
+%way. Note that this is still exact, the slow-roll approximation has
+%not been used.
+%\textcolor{red}{WRONG}
+%\begin{align}
+%    &&H^2 &= \frac{1}{3}\left(\frac{\varepsilon H^2}{P,_{X}}+V(\phi)\right)\\
+%    \implies &&  H^2 &= \frac{V(\phi)}{3-\frac{\varepsilon}{P,_{X}}}.
+%\end{align}
 
 
 \section{Statistical observables}
