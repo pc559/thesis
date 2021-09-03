@@ -421,8 +421,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
     part of the sky so close to the temperature on the other side of the sky?
     The second is the problem that the curvature of the universe appears to be so
     small, despite the fact that there is no reason to believe it should be set to precisely
-    zero, and one would expect the dynamics to increase it's relative contribution to the
-    energy density of the universe.
+    zero.
+    %, and one would expect the dynamics to increase it's relative contribution to the
+    %energy density of the universe.
+    We will not go into detail on the flatness problem except to state that
+    a natural explanation of this would be an attractive quality in a
+    theory of the very early universe.
 
 
     Since $a(\tau)\propto \tau$ during the radiation dominated era we can calculate
@@ -441,7 +445,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}
         \tan^{-1}\left(2\frac{x_{rec}-0}{x_{0}-x_{rec}}\right) \approx 2^{\circ}
     \end{align}
-    on the $\cmb$ sky today. We can also calculate the number of disconnected patches
+    % 2.34
+    on the $\cmb$ sky today.
+    \textcolor{red}{Check against Weinberg.}
+    We can also calculate the number of disconnected patches
     we should see as
     \begin{align}
         \frac{4\pi(x_{0}-x_{rec})^2}{\pi(x_{rec}-0)^2} \approx 10^5.
@@ -463,18 +470,18 @@ extract the fundamental physics waiting to be found in the universe's youth.
     causal contact.
 
 
-    The flatness problem is the statement that our universe is much flatter that one would expect.
-    In~\eqref{flrw_metric}, the possibility exists that $dS_3^2$ is not the simple flat form we
-    see observationally.
-    One can write down this curvature as a contribution on the right hand side of~\eqref{friedmann_omega},
-    taking the form $\Omega_K=\frac{-K}{a^2H_0^2}$.
-    One then observes that this relative contribution would be expected to increase with time,
-    as it drops off more slowly than either matter or radiation.
-    \textcolor{red}{But now $\sum \Omega_i\neq1$ check this!}
-    This means that if the universe is very close to flat now (as we measure it to be)
-    then it must have been surprisingly close to flat at the beginning of the $\lcdm$
-    evolution. A natural explanation of this would be an attractive quality in a
-    theory of the very early universe.
+    %The flatness problem is the statement that our universe is much flatter that one would expect.
+    %In~\eqref{flrw_metric}, the possibility exists that $dS_3^2$ is not the simple flat form we
+    %see observationally.
+    %One can write down this curvature as a contribution on the right hand side of~\eqref{friedmann_omega},
+    %taking the form $\Omega_K=\frac{-K}{a^2H_0^2}$.
+    %One then observes that this relative contribution would be expected to increase with time,
+    %as it drops off more slowly than either matter or radiation.
+    %\textcolor{red}{But now $\sum \Omega_i\neq1$ check this!}
+    %This means that if the universe is very close to flat now (as we measure it to be)
+    %then it must have been surprisingly close to flat at the beginning of the $\lcdm$
+    %evolution. A natural explanation of this would be an attractive quality in a
+    %theory of the very early universe.
 
 
     We will mention three more features of the $\lcdm$ initial conditions that we would
@@ -540,8 +547,6 @@ so then the continuity equation~\eqref{continuity_equation} implies
     \end{align}
     For canonical inflation models, $P(X,\phi)=X-V(\phi)$
     so $P_{XX}=0$ and $c_s=1$.
-
-
     For reasons we will discuss in section~\ref{pert_evol} we will
     define a quantity $\tau_s$
     in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
@@ -571,11 +576,11 @@ the equation of motion for $\phi$ is~\cite{Hu_2011}
 \end{align}
 
 
-We now specify to canonical models $P(X,\phi)=X-V(\phi)$.
 In the canonical case~\eqref{epsilon_phi} simplifies to
 $\varepsilon = \frac{1}{2}{\phi'}^2$,
 while in the $\dbi$ case we find
 $\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
+We now specify to canonical models $P(X,\phi)=X-V(\phi)$.
     For a canonical model this scalar field would have
     \begin{align}
         \rho_\phi &= \frac{1}{2}\dot{\phi}^2+V(\phi)\\
@@ -586,12 +591,14 @@ $\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
     has not assumed $\varepsilon$ is small.
 
 
-    For successful inflation with a cosmological constant, we want $w=-1$,
-    i.e.\ that $V(\phi)\gg\frac{1}{2}\dot{\phi}^2$. Since the kinetic term is required to
+    For successful inflation with the potential of the scalar field acting as a
+    cosmological constant, we want $w\approx-1$,
+    i.e.\ that $V(\phi)\gg\frac{1}{2}\dot{\phi}^2=\varepsilon H^2$. Since the kinetic term is required to
     be small, this is referred to as \textit{slow-roll} inflation.
-We can also see that requiring $\rho_\phi=-p_\phi$ demands that
+We can also see that requiring $\rho_\phi=-p_\phi$ using~\eqref{rho_px} demands that
 $2XP_{,X}\ll P$.
-    The Friedmann equations then become
+    For a canonical model in slow-roll,
+    the Friedmann equations then become
     \begin{align}
         H^2 &\approx \frac{8\pi G}{3}V(\phi),\\
         \frac{\ddot{a}}{a} &\approx -\frac{4\pi G}{3}\left(-2V(\phi)\right).
@@ -611,8 +618,10 @@ $2XP_{,X}\ll P$.
             &= -\frac{1}{a}\left(1-\varepsilon\right)
     \end{align}
     and so we need $\varepsilon<1$ to successfully inflate the universe.
-    This is necessary but not sufficient---we still need to generate
-    the correct statistics for the primordial perturbations.
+    However we see that for exponential expansion we have already demanded
+    $\varepsilon\equiv-\dot{H}/H^2\ll1$ so this must be satisfied.
+    %This is necessary but not sufficient---we still need to generate
+    %the correct statistics for the primordial perturbations.
     This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
     To match the measured deviation from scale-invariance in standard slow-roll
     inflation we would need $\varepsilon\sim O(10^{-2})$.
@@ -630,10 +639,8 @@ and so
 \end{align}
 From this, we see that demanding that $\varepsilon$ be small places a constraint
 on the flatness of the potential in a canonical model.
-
-
 We also require $\eta\ll1$ to maintain inflation for the sufficient number
-of e-folds.
+of e-folds to solve the horizon problem.
 
 
 %This allows us to rephrase the Friedmann equation in the following useful
