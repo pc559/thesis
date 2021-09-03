@@ -34,6 +34,7 @@ We aim to mature the connection between models of inflation and their predicted 
 extract the fundamental physics waiting to be found in the universe's youth.
 
 
+    We begin with a brief discussion of the fundamentals of cosmology.
     General relativity is the theory which describes how the evolution of the universe depends
     on its matter and energy content. It describes the path of light as a geodesic, a straight line
     in spacetime---with spacetime being described in terms of curved geometry.
@@ -47,7 +48,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     define a class of solutions to the Einstein equations.
     The metric of each universe is known as a Friedmann–Lemaître–Robertson–Walker metric
     (or more usually, an FLRW metric). In this context
-    the Einstein equations become the Friedmann equations, which we will soon present.
+    the Einstein equations become the Friedmann equations, which we will soon present
+    in~\eqref{friedmann_1}.
     But first, we present the the FLRW metric (we will always set the speed of light to unity\footnote{
         We will also set $\hbar=\mpl^{-1}=\sqrt{8\pi G}=1$.
     })
@@ -58,10 +60,22 @@ extract the fundamental physics waiting to be found in the universe's youth.
     which describes the evolution of the universe.
     The line element $ds^2$ then determines the distance between two spacetime points.
     Or, more intuitively, it determines the proper time measured by an observer who freely falls
-    between two events will be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
+    between two events to be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
     The homogeneity, isotropy and curvature of space are encoded in $dS_3$,
     but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
     We will only consider a flat universe, so $dS_3^2=dx^2+dy^2+dz^2$.
+
+
+    Radiation is one of the cosmologically important components of the present universe, in the form of the
+    photons in the cosmic microwave background, the $\cmb$.
+    Today these photons free-stream through the universe.
+    Another is matter, by which we mean \textit{dark} matter,
+    which is invisible to our telescopes (which depend on electromagnetic radiation) but can be mapped by the
+    effect of its gravity.
+    Another component is what cosmologists refer to as baryonic matter, which is
+    the protons, electrons, neutrons and all the other particles which make up the visible galaxies, stars
+    and humans.
+    \textcolor{red}{Introduce $\Lambda$.}
 
 
     The components of the matter and energy content of the universe enter the equations through
@@ -104,7 +118,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}\label{einstein_equations}
         G_{\mu\nu} = 8\pi G T_{\mu\nu}
     \end{align}
-    where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$.
+    where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$ which
+    will be presented in~\eqref{einstein_tensor}.
     Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
     these equations simplify to the promised Friedmann equations\footnote{
         In~\eqref{einstein_equations} and~\eqref{friedmann_1} we have temporarily reinstated $8\pi G$.}
@@ -127,7 +142,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     components of the universe, one can then calculate the time dependence of the
     scale factor $a(t)$ and of the densities $\rho_X$ and $P_X$ of each component $X$.
     This defines the homogeneous background evolution of the universe---evolution
-    which observable in physical phenomena
+    which is observable in physical phenomena
     such as red-shifted photons arriving from distant galaxies.
     As we have mentioned, such
     photons travel on geodesics. The geodesic equation that we use to determine
@@ -162,12 +177,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     The interpretation of this result is that as the universe expands,
     the photon's measured energy decreases, and its measured wavelength increases.
-    The geodesic equation~\eqref{geodesic_eqn_1} encodes many other physical effects when applied
-    to the evolution of perturbations around the homogeneous background
-    (i.e.\, allowing $g_{\mu\nu}$ to deviate from homogeneity)
-    allowing us to understand how the statistics of the perturbations at the
-    start of the $\lcdm$ evolution evolved into the perturbations we see today.
-    \textcolor{red}{Rephrase.}
+    %The geodesic equation~\eqref{geodesic_eqn_1} encodes many other physical effects when applied
+    %to the evolution of perturbations around the homogeneous background
+    %(i.e.\, allowing $g_{\mu\nu}$ to deviate from homogeneity)
+    %allowing us to understand how the statistics of the perturbations at the
+    %start of the $\lcdm$ evolution evolved into the perturbations we see today.
+    %\textcolor{red}{Rephrase.}
 
 
     Using~\eqref{continuity_equation} and the equation of state ($w$, summarised in table~\ref{lcdm_dep_table})
@@ -184,8 +199,9 @@ extract the fundamental physics waiting to be found in the universe's youth.
     $a(t)$, again summarised in table~\ref{lcdm_dep_table}.
 
 
-    Using this knowledge we can
-    rewrite the Friedmann equation~\eqref{friedmann_1} as
+    Using this knowledge,
+    and choosing our scaling such that $a_0=1$,
+    we can rewrite the Friedmann equation~\eqref{friedmann_1} as
     \begin{align}\label{friedmann_omega}
         H^2 = H_0^2\left(\frac{\Omega_{r,0}}{a^4}+\frac{\Omega_{m,0}}{a^3}+\Omega_{\Lambda}\right)
     \end{align}
@@ -197,7 +213,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     A subscript of $0$ will denote a quantity evaluated today.
     The critical density $\rho_{crit,0}$ is the density for which the universe is flat,
     so for our universe $\sum\Omega_{i,0}=1$.
-    We will choose our scaling such that $a_0=1$.
 
 
     The measured values for these quantities, as presented in~\cite{Planck_parameters_2018},
@@ -209,6 +224,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     The temperature of the blackbody $\cmb$ radiation is
     also found to be $T_{\gamma,0}=2.725\pm0.001K$, from which
     we can calculate $\Omega_{\gamma,0}=9.4\times10^{-5}$.
+    \textcolor{red}{Verify.}
     %Since
     %$\rho = \frac{\pi^2}{15}T^4$
     %for photons, and $T_{\gamma}=2.725\pm0.001K$
@@ -246,28 +262,21 @@ extract the fundamental physics waiting to be found in the universe's youth.
     and the net flow of thermal energy between them was zero.
 
 
-    Radiation is one of the major known components of the present universe, in the form of the
-    photons in the cosmic microwave background, the $\cmb$. Another is matter,
-    by which we mean \textit{dark} matter,
-    which is invisible to our telescopes (which depend on electromagnetic radiation) but can be mapped by the
-    effect of its gravity.
-    Another component is what cosmologists refer to as baryonic matter, which is
-    the protons, electrons, neutrons and all the other particles which make up the visible galaxies, stars
-    and humans.
-
-
     Evidence for this story comes in the form of predictions for the relative abundances of the lightest
-    elements (which were forged in the first few minutes of the universe) and in correlations in the $\lcdm$
-    which can be directly linked to the transition between a universe
-    so densely packed with radiation that it could
-    support acoustic pressure waves, and a universe that had dropped below that density.
-    There are unanswered questions within the $\lcdm$ model.
-    One question is the solution of the Hubble tension, a question about the
+    elements (which were forged in the first few minutes of the universe)
+    and in ``baryon acoustic oscillations'' in the $\cmb$ and large scale structure ($\lss$).
+    These can be directly linked to the end of the coupling
+    between the baryons and the acoustic waves in the radiation,
+    before the release of the $\cmb$.
+    %so densely packed with radiation that it could
+    %support acoustic pressure waves, and a universe that had dropped below that density.
+    There are however unanswered questions within the $\lcdm$ model.
+    One is the Hubble tension, a question about the
     precise rate of expansion of the universe today---see for example~\cite{tensions_2019, Freedman_2021}.
-    All in all, it is incredible only a hundred years ago people were debating
-    whether the universe had a beginning or not
-    (and the ``great debate''---were there other galaxies?) to now, where the debate rages over the second and
-    third significant figures.
+    All in all, it is incredible that only a hundred years ago the cutting edge debate was
+    whether the universe had a beginning or not---compared to
+    now, where the debate rages over the second and
+    third significant figures of its age.
 
 
     Before focusing our whole attention on the past, let us briefly
@@ -296,16 +305,16 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}\label{conformal_time_defn}
         \frac{d\tau}{dt} = \frac{1}{a},
     \end{align}
-    we find that for the photon, $d\chi=d\tau$.
-    This means that on a plot of $\chi$ vs. $\tau$, the path of a photon
-    will be a line of slope $1$, even in an expanding universe.
+    we find that for the photon travelling in the $x$ direction, $dx=d\tau$.
+    This means that on a plot of $x$ vs. $\tau$, the path of a photon
+    will be a line of a slope of unity, even in an expanding universe.
     Integrating, we then find that
     \begin{align}
-        \tau(t)=\chi(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0
+        \tau(t)=x(t)=(Ha_0)^{-1}\left(1-e^{-H(t-t_0)}\right)+\tau_0
     \end{align}
     where as usual a $0$ subscript denotes a quantity evaluated today.
     We see that the comoving distance the photon will travel is finite, even though the physical
-    distance (and the time taken, $\int a d\chi$) diverges.
+    distance (and the time taken, $\int a dx$) diverges.
     Integrating~\eqref{friedmann_omega} in the same way that generated figure~\ref{fig:lcdm_tau}
     we find that the points that we see in today's $\cmb$ are a comoving distance of $14.2\Gpc$ away.
     We also find the asymptotic value of $\tau$ to be $19.2\Gpc$, indicating that we will never see the
@@ -371,6 +380,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     Thus, without inflation, there is a maximum scale on which we would expect the
     $\cmb$ to be correlated, and a maximum comoving distance that we can ever
     expect to receive $\cmb$ photons from.
+    \textcolor{red}{Double check this.}
 }\label{fig:lcdm_tau}
 \end{figure}
 %\begin{figure}[!pth]
@@ -419,22 +429,22 @@ extract the fundamental physics waiting to be found in the universe's youth.
     the total comoving distance a photon could have traveled between the singularity at $a_i=0$
     and recombination at $a_{rec}=1/1100$. We find
     \begin{align}
-        \chi_{rec} = \int_{0}^{\tau_{rec}} d \tau = \int_{0}^{a_{rec}} \frac{d\tau}{da}da \propto a_{rec}.
+        x_{rec} = \int_{0}^{\tau_{rec}} d \tau = \int_{0}^{a_{rec}} \frac{d\tau}{da}da \propto a_{rec}.
     \end{align}
     We can see that this is finite.
-    Including the prefactor we can find that $\chi_{rec}=280\Mpc$.
+    Including the prefactor we can find that $x_{rec}=280\Mpc$.
     We can also calculate that the comoving distance that a photon could have
     freely streamed through the universe since
-    last scattering is $\chi_0=14000\Mpc$.
+    last scattering is $x_0=14000\Mpc$.
     This means that we would expect the homogeneous patches at recombination to span
     at most an angle of
     \begin{align}
-        \tan^{-1}\left(2\frac{\chi_{rec}-0}{\chi_{0}-\chi_{rec}}\right) \approx 2^{\circ}
+        \tan^{-1}\left(2\frac{x_{rec}-0}{x_{0}-x_{rec}}\right) \approx 2^{\circ}
     \end{align}
     on the $\cmb$ sky today. We can also calculate the number of disconnected patches
     we should see as
     \begin{align}
-        \frac{4\pi(\chi_{0}-\chi_{rec})^2}{\pi(\chi_{rec}-0)^2} \approx 10^5.
+        \frac{4\pi(x_{0}-x_{rec})^2}{\pi(x_{rec}-0)^2} \approx 10^5.
     \end{align}
     This is completely at odds with observations---the $\cmb$ is in fact very close to
     homogeneous \textit{across the entire sky}, clearly a feature of our universe
@@ -722,10 +732,9 @@ of e-folds.
 
 
     Our focus in this thesis will be on the predictions that models of inflation make
-    for the statistical properties of the distribution of
-    inhomogeneities in the very early universe, as described by the bispectrum $B(k_1,k_2,k_3)$.
-    This is one descriptive property of 
-    the initial conditions for the $\lcdm$ evolution that follows after---from
+    for the the bispectrum $B(k_1,k_2,k_3)$.
+    This is one characteristic property of 
+    the initial conditions for the $\lcdm$ evolution that follows after. From
     this, one can calculate statistical properties of the $\cmb$ sky that we see.
 
 
@@ -760,6 +769,9 @@ of e-folds.
     fluctuations of the $\cmb$ for deviations from Gaussianity,
     for example, one could use this ensemble to estimate the rate of false positives
     of that test.
+    Thus, Monte Carlo simulations provide a way to generate possible observations,
+    even in complicated situations,
+    when the probability distribution is assumed.
 
 
     %One such statistical property is the two-point correlation of the temperature $\phi$
@@ -776,7 +788,7 @@ of e-folds.
 
 \subsection{From observations to probabilities}
     Instead of describing observations generated from known probabilities,
-    we wish to do the opposite.
+    we usually wish to do the opposite.
     We wish to take a series of observations of some random variable and use these observations
     to understand the probability distribution that they were drawn from.
     %Correlation functions are expectation values over ensembles of possible
@@ -993,7 +1005,7 @@ relevant examples of bispectrum shapes.
 %in terms of an expansion in an arbitrary basis.
 Since the paradigm presented here is only viable if one can find a basis
 that can efficiently represent a wide variety of bispectra,
-the remainder of chapter~\ref{chapter:decomp} is devoted to presenting this exploration.
+the majority of chapter~\ref{chapter:decomp} is devoted to presenting this exploration.
 This topic is distinct and separate from our numerical methods, but nonetheless vital.
 %Attention is given to the effects of the
 %non-physical $k$-configurations on the convergence of our expansion on
