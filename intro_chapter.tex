@@ -8,8 +8,8 @@ In that light we see images of the universe as it was when the light left its so
 We see the moon as it was a second ago, or the Andromeda Galaxy as it was millions of
 years ago. To what extreme can we push this? How far back in time can we see? As we look further
 away, and further back in time, we see a universe that looks nothing like the one we know today.
-We see a universe that was extremely hot and dense, but also extremely uniform---whereas today
-we have distinct galaxies and the empty spaces in between, looking far enough back we see a universe
+We see a universe that was extremely hot and dense, but also extremely uniform. Today
+we have distinct galaxies and the empty spaces in between, but looking far enough back we see a universe
 without that structure, instead simply uniformly hot and dense everywhere.
 
 
@@ -52,6 +52,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     in~\eqref{friedmann_1}.
     But first, we present the the FLRW metric (we will always set the speed of light to unity\footnote{
         We will also set $\hbar=\mpl^{-1}=\sqrt{8\pi G}=1$.
+        \textcolor{red}{CHECK.}
     })
     \begin{align}\label{flrw_metric}
         ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2,
@@ -59,8 +60,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     where $a(t)$ has the interpretation as the scale factor
     which describes the evolution of the universe.
     The line element $ds^2$ then determines the distance between two spacetime points.
-    Or, more intuitively, it determines the proper time measured by an observer who freely falls
-    between two events to be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
+    %Or, more intuitively, it determines the proper time measured by an observer who freely falls
+    %between two events to be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
     The homogeneity, isotropy and curvature of space are encoded in $dS_3$,
     but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
     We will only consider a flat universe, so $dS_3^2=dx^2+dy^2+dz^2$.
@@ -81,7 +82,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     Finally, the component which at present makes up the largest contribution to the
     energy budget of the universe, dark energy.
     Dark energy appears to act as a vacuum energy, as a cosmological constant which does not
-    dilute as the universe expands. We denote this constant by $\Lambda$.
+    dilute as the universe expands. The radiation is denoted by $\gamma$,
+    the dark matter by $m$, and the cosmological constant by $\Lambda$.
 
 
     The components of the matter and energy content of the universe enter the equations through
@@ -96,7 +98,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     These fluids are completely characterised by the time dependence
     of their rest-frame energy density $\rho_X(t)$ and their rest-frame
     pressure density $P_X(t)$,
-    both of which have no dependence on $\vecx$, to preserve the homogeneity of the solution.
+    both of which have no dependence on position, to preserve the homogeneity of the solution.
     For the components of the universe that we wish to describe,
     taking the quantity $w_X=\frac{P_X}{\rho_X}$ as constant will be a good description.
     This quantity $w$ takes the values $0$, $1/3$ and $-1$ for matter, radiation
@@ -119,8 +121,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{table}
 
 
-    If we take the spatial curvature of the universe to be vanishingly small,
-    the Einstein equations are then
+    Without spatial curvature, the Einstein equations are then
     \begin{align}\label{einstein_equations}
         G_{\mu\nu} = 8\pi G T_{\mu\nu}
     \end{align}
@@ -147,8 +148,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     Given the equations of state and the densities of the different
     components of the universe, one can then calculate the time dependence of the
     scale factor $a(t)$ and of the densities $\rho_X$ and $P_X$ of each component $X$.
-    This defines the homogeneous background evolution of the universe---evolution
-    which is observable in physical phenomena
+    This gives us the homogeneous background evolution of the universe---evolution
+    which has observable effects in physical phenomena
     such as red-shifted photons arriving from distant galaxies.
     As we have mentioned, such
     photons travel on geodesics. The geodesic equation that we use to determine
@@ -251,6 +252,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
     higher energy densities in the early universe. Running the clock back far enough, we see
     that despite $\Omega_{\gamma,0}\ll\Omega_{m,0}$ today, at one stage it was the
     case that $\Omega_{\gamma}\gg\Omega_{m}$, and the universe was dominated by radiation.
+    This epoch is the limit on how far back in time we can see---the density of free electrons
+    was so high that the mean free path of photons was very short. Once the temperature
+    dropped enough that neutral atoms formed, the mean free path of photons became long
+    enough that they could travel cosmological distances, and eventually fall into our telescopes.
     %In that early stage of the universe, the temperature was high enough that the photons
     %were tightly coupled to the baryons. The photon pressure supported pressure waves in that
     %nearly-homogeneous fluid, and the coupling meant that the baryons were dragged along with those
@@ -267,7 +272,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     and the net flow of thermal energy between them was zero.
 
 
-    Evidence for this story comes in the form of predictions for the relative abundances of the lightest
+    The evidence for this story is strong. It includes
+    predictions for the relative abundances of the lightest
     elements (which were forged in the first few minutes of the universe)
     and in ``baryon acoustic oscillations'' in the $\cmb$ and large scale structure ($\lss$).
     These can be directly linked to the end of the coupling
@@ -278,7 +284,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     There are however unanswered questions within the $\lcdm$ model.
     One is the Hubble tension, a question about the
     precise rate of expansion of the universe today---see for example~\cite{tensions_2019, Freedman_2021}.
-    All in all, it is incredible that only a hundred years ago the cutting edge debate was
+    All in all, it is incredible that only a century ago the cutting edge debate was
     whether the universe had a beginning or not---compared to
     now, where the debate rages over the second and
     third significant figures of its age.
@@ -319,7 +325,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     where as usual a $0$ subscript denotes a quantity evaluated today.
     We see that the comoving distance the photon will travel is finite, even though the physical
-    distance (and the time taken, $\int a dx$) diverges.
+    distance (and the time taken, $\int dt$) diverges.
     Integrating~\eqref{friedmann_omega} in the same way that generated figure~\ref{fig:lcdm_tau}
     we find that the points that we see in today's $\cmb$ are a comoving distance of $14.2\Gpc$ away.
     We also find the asymptotic value of $\tau$ to be $19.2\Gpc$, indicating that we will never see the
@@ -334,8 +340,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
 \caption{
     The evolution of the components of the universe up to the present, and slightly beyond.
     The vertical grey lines mark matter-radiation equality, matter-dark energy equality,
-    and the present day, respectively. We measure these quantities at the present, and
-    extrapolate into the past and future using the Friedmann equation~\eqref{friedmann_omega}.
+    and the present day, respectively.
+    %We measure these quantities at the present, and
+    %extrapolate into the past and future using the Friedmann equation~\eqref{friedmann_omega}.
+    These quantities are evolved using~\eqref{friedmann_omega} and~\eqref{continuity_equation}.
     In the past, densities of matter and radiation were
     far higher, and the radiation energy density dominated over the matter.
     During this high density epoch, the expansion of the universe ($H(t)$) was far stronger.
@@ -359,7 +367,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     During the radiation and matter dominated eras, the evolution of
     $a(t)$ as been slowing---this is decelerating expansion.
     However, as $\Lambda$ comes to dominate,
-    the $\dot{a}$ will begin to increase, and the universe will enter
+    $\dot{a}$ will begin to increase, and the universe will enter
     and epoch of accelerated expansion.
 }\label{fig:lcdm_adot}
 \end{figure}
@@ -407,7 +415,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     The $\lcdm$ model posits an early epoch in which the components that
     we have discussed are in thermal equilibrium,
     at an incredibly hot temperature.
-    These components are distributed incredibly uniformly, but with some small perturbations.
+    These components were distributed incredibly uniformly, but with some small perturbations.
     This simple scenario then evolves under the expansion of the universe
     and the gravitational collapse of perturbations (and other interactions) and forms the universe we know.
     Is this story of $\lcdm$ enough to explain all the features of the
@@ -431,17 +439,21 @@ extract the fundamental physics waiting to be found in the universe's youth.
     theory of the very early universe.
 
 
-    Since $a(\tau)\propto \tau$ during the radiation dominated era we can calculate
+    Since $a(\tau)\propto \tau^2$ during the matter dominated era we can approximate
     the total comoving distance a photon could have traveled between the singularity at $a_i=0$
     and recombination at $a_{rec}=1/1100$. We find
     \begin{align}
-        x_{rec} = \int_{0}^{\tau_{rec}} d \tau = \int_{0}^{a_{rec}} \frac{d\tau}{da}da \propto a_{rec}.
+        x_{rec} = \int_{0}^{\tau_{rec}} d \tau = \int_{0}^{a_{rec}} \frac{d\tau}{da}da \propto \sqrt{a_{rec}}.
     \end{align}
     We can see that this is finite.
-    Including the prefactor we can find that $x_{rec}=280\Mpc$.
+    Including the radiation dominated period does not change this conclusion---in fact
+    we can find the conformal distance $x_{rec}=280\Mpc$.
+    % Compared to the physical = 278Mpc/1100 = 310kpc.
+    \textcolor{red}{Check all this again.}
     We can also calculate that the comoving distance that a photon could have
     freely streamed through the universe since
-    last scattering is $x_0=14000\Mpc$.
+    last scattering is $x_0=14000\Mpc$ (this matches the physical distance
+    since $a_0=1$).
     This means that we would expect the homogeneous patches at recombination to span
     at most an angle of
     \begin{align}
@@ -498,14 +510,16 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}
         \frac{\delta\rho_i}{\dot{\bar{\rho}}_i} = \frac{\delta\rho_j}{\dot{\bar{\rho}}_j}.
     \end{align}
-    To phrase this another way, by performing a local reparametrisation of time $t\rightarrow t+\delta t(x)$
+    To phrase this another way, we can choose a local reparametrisation of time $t\rightarrow t+\delta t(x)$
+    with $\delta t(x)=\frac{\delta\rho_i}{\dot{\bar{\rho}}_i}$, so that
     \begin{align}
         \bar{\rho}_i(t)+\delta \rho_i(t,x) = \bar{\rho}_i(t)+\delta t(x)\dot{\bar{\rho}}_i
         = \bar{\rho}_i(t+\delta t(x))
     \end{align}
-    we can absorb the perturbations in \textit{all} of the components. The implication that we can draw
-    is that the initial conditions of these separate components were generated by a process that was simpler than
-    it could have been.
+    and thus the reparametrisation can absorb the perturbations in
+    \textit{all} of the components.
+    An implication we can draw from this is that a single degree of freedom
+    would be sufficient to lay down these initial perturbations.
 
 
     The Gaussianity of the initial conditions is the statement that their statistics are completely described by
@@ -519,8 +533,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     \subsection{Driving inflation with a scalar field}
-    We desire a period of exponential expansion in the early universe to explain the
-    scale-invariance of the initial perturbations.
+    These features of the early universe can be explained by a period of exponential expansion
+    preceding the usual $\lcdm$ evolution.
     One simple way one could imagine driving this expansion is through a single
     scalar field.
 Consider an inflaton action of the form
