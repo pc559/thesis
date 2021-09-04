@@ -50,10 +50,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     (or more usually, an FLRW metric). In this context
     the Einstein equations become the Friedmann equations, which we will soon present
     in~\eqref{friedmann_1}.
-    But first, we present the the FLRW metric (we will always set the speed of light to unity\footnote{
-        We will also set $\hbar=\mpl^{-1}=\sqrt{8\pi G}=1$.
-        \textcolor{red}{CHECK.}
-    })
+    But first, we present the the FLRW metric (we will always set the speed of light to unity)
     \begin{align}\label{flrw_metric}
         ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2,
     \end{align}
@@ -128,8 +125,9 @@ extract the fundamental physics waiting to be found in the universe's youth.
     where $G_{\mu\nu}$ is a complicated function of $g_{\mu\nu}$ which
     will be presented in~\eqref{einstein_tensor}.
     Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
-    these equations simplify to the promised Friedmann equations\footnote{
-        In~\eqref{einstein_equations} and~\eqref{friedmann_1} we have temporarily reinstated $8\pi G$.}
+    these equations simplify to the promised Friedmann equations
+    %\footnote{
+    %    In~\eqref{einstein_equations} and~\eqref{friedmann_1} we have temporarily reinstated $8\pi G$.}
     \begin{align}\label{friedmann_1}
         H^2 &= \frac{8\pi G \rho}{3},\\
         \frac{\ddot{a}}{a} &= -\frac{4\pi G}{3}\left(\rho+3P\right),
@@ -227,10 +225,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
         \Omega_{m,0} &= 0.3111 \pm 0.0056,\\
         \Omega_{\Lambda} &=  0.6889 \pm 0.0056.
     \end{align}
-    The temperature of the blackbody $\cmb$ radiation is
-    also found to be $T_{\gamma,0}=2.725\pm0.001K$, from which
-    we can calculate $\Omega_{\gamma,0}=9.4\times10^{-5}$.
-    \textcolor{red}{Verify. This seems too big?}
+    The temperature of the blackbody $\cmb$ radiation has also been
+    found to be $T_{\gamma,0}=2.725\pm0.001K$~\cite{Fixsen_2009}.
+    %from which
+    %we can calculate $\Omega_{\gamma,0}=9.4\times10^{-5}$.
     %Since
     %$\rho = \frac{\pi^2}{15}T^4$
     %for photons, and $T_{\gamma}=2.725\pm0.001K$
@@ -384,16 +382,15 @@ extract the fundamental physics waiting to be found in the universe's youth.
 \centering     %%% not \center
     \includegraphics[width=.75\columnwidth]{plots/lcdm_tau.png}
 \caption{
-    The evolution of the conformal time $\tau$ since the $\lcdm$ singularity,
-    if there is no inflation.
-    We see that without inflation there is finite conformal time in the past
-    and that due to eventual $\Lambda$ dominance
-    eventually $\tau$ will asymptote to a constant,
+    The evolution of the conformal time $\tau$ during $\lcdm$.
+    We see that
+    due to the eventual $\Lambda$ dominance,
+    $\tau$ will asymptote to a constant,
     denoted here by the horizontal grey line at $\tau=\tau_0+(H_0a_0)^{-1}$.
-    Thus, without inflation, there is a maximum scale on which we would expect the
-    $\cmb$ to be correlated, and a maximum comoving distance that we can ever
+    %Thus, without inflation, there is a maximum scale on which we would expect the
+    %$\cmb$ to be correlated, and 
+    Thus, there is a maximum comoving distance that we can ever
     expect to receive $\cmb$ photons from.
-    \textcolor{red}{Double check this.}
 }\label{fig:lcdm_tau}
 \end{figure}
 %\begin{figure}[!pth]
@@ -541,7 +538,7 @@ Consider an inflaton action of the form
 \begin{align}
 S = \int d^4x \sqrt{-g}P(X,\phi)
 \end{align}
-with $\phi=\phi(t)$ and $X=\frac{1}{2}\dphi^2$.
+with $\phi=\phi(t)$ and $X\equiv-\frac{1}{2}g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi=\frac{1}{2}\dphi^2$.
 We will work with the number of e-folds, $N$, as our time variable
 $x'\equiv\frac{dx}{dN}=a\frac{dx}{da}$.
 The energy-momentum tensor is defined as
@@ -558,7 +555,7 @@ so then the continuity equation~\eqref{continuity_equation} implies
 \end{align}
     The sound speed for the adiabatic perturbations is defined as~\cite{Christopherson_2009}
     \begin{align}\label{sound_speed_definition}
-        c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}_0}{\dot{\rho}_0}
+        c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}}{\dot{\rho}}
         = \frac{P,_X}{\rho,_X}.
     \end{align}
     Since we also have~\eqref{rho_px}, we see that
@@ -641,7 +638,7 @@ $2XP_{,X}\ll P$.
     $\varepsilon\equiv-\dot{H}/H^2\ll1$ so this must be satisfied.
     %This is necessary but not sufficient---we still need to generate
     %the correct statistics for the primordial perturbations.
-    This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
+    %This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
     To match the measured deviation from scale-invariance in standard slow-roll
     inflation we would need $\varepsilon\sim O(10^{-2})$.
 
