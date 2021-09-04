@@ -87,7 +87,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     The components of the matter and energy content of the universe enter the equations through
-    their stress-energy tensors $T^{\mu\nu}$, which we approximate as that of
+    their energy-momentum tensors $T^{\mu\nu}$, which we approximate as that of
     a perfect fluid. Labeling the fluid $X$,
     \begin{align}\label{stress_tensor}
         T_X^{\mu\nu} = (\rho_X+P_X)U_X^\mu U_X^\nu+P_Xg^{\mu\nu},
@@ -544,7 +544,11 @@ S = \int d^4x \sqrt{-g}P(X,\phi)
 with $\phi=\phi(t)$ and $X=\frac{1}{2}\dphi^2$.
 We will work with the number of e-folds, $N$, as our time variable
 $x'\equiv\frac{dx}{dN}=a\frac{dx}{da}$.
-The expression for the energy density, using~\eqref{stress_tensor}, is
+The energy-momentum tensor is defined as
+\begin{align}\label{gr_energy}
+    T_{\mu\nu} = -2\frac{\partial\mathcal{L}}{\partial g^{\mu\nu}}+g_{\mu\nu}\mathcal{L}.
+\end{align}
+The expression for the energy density then follows as
 \begin{align}\label{rho_px}
     \rho = 2XP,_X-P,
 \end{align}
