@@ -1,22 +1,10 @@
 %\input{commands}
 \chapter{Introduction II: Probing Inflation}\label{chapter:intro_bispectra}
 \textcolor{red}{Put this somewhere:}
-In this chapter we will review details of the bispectrum and how it is obtained.
-
-
-The standard cosmological history, the $\Lambda CDM$ model, explains the structure we see in the distribution of matter (large-scale structure, LSS) and radiation (the cosmic microwave background, \textit{CMB}) in our universe. However, this model still requires initial conditions. These initial conditions – adiabatic perturbations on a uniform background, close to Gaussian, with a power spectrum that is nearly (but not exactly) scale-invariant – are provided by an epoch of “inflation”, an epoch before the Big Bang of the $\Lambda CDM$ model. 
-
-During inflation, the universe is supposed to have expanded rapidly, stretching quantum fluctuations from small scales to large. This seeded the formation of structure and encoded correlations that we would eventually measure today.
-Much information on fundamental physics has been gleaned from the two-point correlators of observations. For higher order correlators (which probe the non-linearities of interactions in the early universe) calculating the predictions of a model of inflation and comparing them to what we see in the sky is much more computationally intensive. Previous work, including that done by the Planck collaboration~\cite{Planck_NG_2018}, has managed to constrain some models of inflation through their three-point correlations (or rather through their proxy, the bispectrum).
-The computational complexity was dealt with by making layers of approximations and the space
-of models which could be constrained was limited.
-One notable simplifying assumption is that of “separability”, which makes the process of \textit{CMB} estimation much more tractable~\cite{Komatsu_2005}.
-
-
-The formalism used to calculate inflationary non-Gaussianities within an inflation scenario is
-known as the in-in formalism~\cite{weinberg_in_in}\ldots
-
-
+In this chapter we will review details of the bispectrum, including how it is predicted
+by an inflationary scenario and connected to the $\cmb$ sky.
+We will see the computational complexity of this calculation,
+the approximations that have previously been used to make it tractable.
 
 
 The primordial bispectrum is one of the main
@@ -44,10 +32,11 @@ holes has also been studied~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_pa
 Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
 usr_dimopoulos,usr_martin}
 \textcolor{red}{Check those references!}
-However, constraining such imprints is extremely difficult observationally.
-Even once the data has been obtained, using existing methods it is
-extremely computationally intensive to translate this into constraints
-on specific inflation scenarios. Much progress has been made by course-graining
+However, understanding the inflationary prediction is only the first part of the process.
+The computational challenge of using these predictions to translate
+$\cmb$ data into constraints on specific inflation scenarios has been tackled by
+various methods.
+Much progress has been made by course-graining
 the model space into a small number of approximate templates,
 and leveraging the simplifying characteristic of separability
 with respect to the three parameters of the bispectrum~\cite{Komatsu_2005, Munchmeyer_2014}.
@@ -60,14 +49,19 @@ it is a valuable measure of the interactions in play during inflation.
 If some inflation model predicts a bispectrum that is sufficiently well approximated by
 the standard separable templates, the constraints on those standard templates
 can be translated into constraints on the parameters of the model.
+
+
 The fact that all primordial templates estimated thus far from the CMB
 are consistent with zero has already provided such constraints
 in certain scenarios~\cite{Planck_NG_2015, Planck_NG_2018}.
 With this high-precision \planck~data, and data from forthcoming experiments
 such as the Simons Observatory (SO)~\cite{simons}
 and CMB-S4~\cite{abazajian2016cmbs4},
-robust pipelines must be developed to circumvent the computational difficulties and
+robust pipelines must be developed to bypass the approximations and
+limitations of previous methods and
 extract the maximum amount of information possible.
+
+
 Due to the nature of bispectrum estimation in the CMB and
 LSS~\cite{lss_baldauf,lss_karagiannis,chen_future_lss,Scoccimarro_2012}
 constraining an arbitrary template is difficult.
@@ -81,7 +75,9 @@ to calculating primordial bispectra.
 This modal philosophy is a flexible method that has broadened the range of constrained
 bispectrum templates, by expanding them in a carefully chosen basis.
 The Modal estimator is thus capable of constraining
-non-separable templates, while the $\ksw$ estimator cannot.
+non-separable templates, while the $\ksw$ estimator, for example, cannot.
+
+
 In this work we exploit the intrinsic separability of the
 tree-level in-in formalism to apply these methods at the level of inflation.
 Expressing the primordial bispectrum in a separable
@@ -91,6 +87,8 @@ The main advantage is that expressing the primordial shape function
 in this way reduces the process of bispectrum estimation in the CMB to a
 cost which is large, but need only be paid once per basis,
 not per scenario.
+
+
 A proof of concept of this approach at the primordial level was presented in~\cite{Funakoshi},
 and the details of the bispectrum estimation part will be detailed in~\cite{Sohn_2021}.
 We go beyond the work of~\cite{Funakoshi} both in developing the choice of basis
@@ -102,20 +100,14 @@ allowing us to apply the method to feature bispectra for the first time.
 
 
 \section{Perturbations about the background}
-    We can get a lot of information on the evolution of the perturbations
-    from observations, and that tells us about the history of universe,
-    which tells us about its content, etc\ldots
+    %We can get a lot of information on the evolution of the perturbations
+    %from observations, and that tells us about the history of universe,
+    %which tells us about its content, etc\ldots
     We now turn our attention to the details of the perturbations.
-
-
-    The sound speed $c_s$~\eqref{sound_speed_definition} is
-    the propagation speed of the perturbations.
-    This defines a sound horizon, $c_s/H$---as the modes cross this sound
-    horizon they freeze.
-
-
-    The action for the perturbations is derived by working in a general gauge
-    (using the ADM formalism) and splitting the relevant quantities into a background
+    The action for the perturbations is derived by
+    %working in a general gauge
+    %(using the ADM formalism) and
+    splitting the relevant quantities into a background
     part and a small perturbation
     \begin{align}
         \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}.
@@ -135,7 +127,11 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}\label{zeta_action}
         S_{2} = \int d^3x dt~\frac{a\varepsilon}{c_s^2}\left(a^2\dot{\zeta}^2-c_s^2\left(\partial\zeta\right)^2\right)
     \end{align}
-    Defining $v=-z\zeta$ and switching to conformal time we can rewrite this as
+    The sound speed $c_s$~\eqref{sound_speed_definition} is
+    the propagation speed of the perturbations.
+    This defines a sound horizon, $c_s/H$---as the modes cross this sound
+    horizon they freeze.
+    Defining $v=-z\zeta$ and switching to conformal time we can rewrite~\eqref{zeta_action} as
     \begin{align}\label{v_action}
         S_{2} = \frac{1}{2}\int d^3x d\tau \left[{\left(\frac{d v}{d \tau}\right)}^2-c_s^2\left(\partial v\right)^2+\frac{1}{z}\frac{d^2z}{d\tau^2}v^2\right]
     \end{align}
@@ -151,8 +147,8 @@ allowing us to apply the method to feature bispectra for the first time.
     \end{align}
     where we have neglected terms that are slow-roll suppressed.
     The evolution of the perturbations is therefore well approximated using
-    $\frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2$
-    unless there are features that make the slow-roll parameters large.
+    $\frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2$,
+    unless the evolution deviates from the slow-roll attractor.
 
     \subsection{Evolution of the perturbations}\label{pert_evol}
     %https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
@@ -169,7 +165,7 @@ allowing us to apply the method to feature bispectra for the first time.
     Systems with multiple degrees of freedom have $\zeta$ evolving even outside
     the horizon. See~\cite{Christopherson_2009} for a discussion on how this relates
     to non-adiabatic pressure in inflation models with non-canonical kinetic terms.}.
-    This is useful as it means that $\zeta_k$ will then be frozen during the transition from inflation to the
+    It is useful as it means that $\zeta_k$ will then be frozen during the transition from inflation to the
     usual radiation dominated period, and we need only pick up the evolution again once it
     re-enters the horizon in the well-understood radiation era.
 
@@ -204,8 +200,9 @@ allowing us to apply the method to feature bispectra for the first time.
     \subsection{Early time behaviour}
     \subsubsection{Quantizing the perturbations}
     We now wish to quantize the perturbations.
-    We will quantize $v$,
-    as at early times it should behave like a free field in Minkowski space.
+    We will quantize $v$, as its Fourier modes
+    should behave like a free field in Minkowski space
+    when they are deep in the horizon.
     We expand
     \begin{align}\label{operator_expansion}
         v(\tau,\vecx) &= \int\frac{d^3\veck}{(2\pi)^3}\left[
@@ -233,24 +230,13 @@ allowing us to apply the method to feature bispectra for the first time.
     if we demand that $v_k\pi^*_k-\pi_kv^*_k=1$.
 
 
+\subsubsection{Initial conditions for the perturbations}
     We can define the vacuum state by $\ahat_{\veck}\left| 0\right>=0$.
     Demanding this to be an eigenstate of $H$ forces $\pi_k=\pm ikv_k$.
     \textcolor{red}{How does this relate to before?}
+    Choosing the lowest energy state \textcolor{red}{singles out\ldots}
+    and this is known as the Bunch-Davies vacuum.
 
-    \subsubsection{Initial conditions for the perturbations}
-    \textcolor{red}{Make $\zeta$ vs.\ $u_k$ vs.\ $v_k$ consistent throughout!}
-    The Bunch-Davies vacuum leads us to the mode functions
-    \begin{align}\label{uk_solution}
-        \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ikc_s\tau\right)e^{ic_s k\tau}.
-    \end{align}
-    The power spectrum is enhanced by a factor of $c_s$,
-    \begin{align}
-        P(k) = \frac{H^2}{4\varepsilon c_s k^3}
-    \end{align}
-    due to the larger prefactor.
-
-    The vacuum is not unique. We choose it so that it
-    asymptotes to the Minkowski vacuum in the limit $\tau\to-\infty$.
 
     Demanding that the early time behaviour matches that of flat space
     gives us that
@@ -259,6 +245,20 @@ allowing us to apply the method to feature bispectra for the first time.
     \end{align}
     when $\tau_s\rightarrow -\infty$.
     \textcolor{red}{Is this really $\tau_s$ or $\tau$?}
+
+
+    \textcolor{red}{Make $\zeta$ vs.\ $u_k$ vs.\ $v_k$ consistent throughout!}
+    The Bunch-Davies vacuum leads us to the mode functions
+    \begin{align}\label{uk_solution}
+        \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}
+    \end{align}
+    which results in a power spectrum enhanced by a factor of $c_s$,
+    \begin{align}
+        P(k) = \frac{H^2}{4\varepsilon c_s k^3}.
+    \end{align}
+
+
+    \subsection{Late time behaviour}
     Assuming \textcolor{red}{assumptions} we can write the solution to the equations
     of motion in terms of the Hankel function $H^{(2)}_i$ as~\cite{px_burrage}
     \begin{align}
@@ -267,7 +267,7 @@ allowing us to apply the method to feature bispectra for the first time.
     where $\nu = \frac{3}{2}+\varepsilon+\frac{\eta}{2}+\frac{\epscs}{2}$
     \textcolor{red}{Rewrite this in terms of $\tau_s$. Citation?}
 
-    \subsection{Late time behaviour}
+
     At late times we can use the limit
     \begin{align}
         \lim_{x\rightarrow 0}H^{(1)}_\nu(x)\rightarrow-\frac{i}{\pi}\Gamma(\nu)\left(\frac{x}{2}\right)^{-\nu}.
@@ -284,53 +284,20 @@ allowing us to apply the method to feature bispectra for the first time.
     for that quantity there.
 
 
-The equation of motion for the perturbations is~\eqref{modefneqn_zeta_N},
-%\begin{align}\label{modefneqn}
-%\zeta_k''+(3-\varepsilon+\eta-2\varepsilon_s)\zeta_k'+\frac{c_s^2k^2}{a^2H^2}\zeta_k=0
-%\end{align}
-where $c_s=1$ for standard canonical inflation.
-We use standard Bunch-Davies initial conditions,
-which leads us to impose the following condition deep in the horizon:
-\begin{align}\label{bd_ic}
-\zeta_k = \frac{i}{a}\sqrt{\frac{c_s}{4\varepsilon k}} e^{-ik\tau_s}
-\end{align}
-where $\tau_s$ is defined in~\eqref{tausdef}.
-The solution in slow-roll (without features) is then approximately
-\begin{align}\label{modefnsapprox}
-    \zeta_k \propto (1+ik\tau_s)e^{-ik\tau_s}.
-\end{align}
-At leading order in slow-roll, using definition~\eqref{spectrum_definitions},
-the power spectrum is~\cite{mukhanov_1999,chen_ng_0605}
-\begin{align}
-P_{\zeta}(k) = \frac{H^2}{4\varepsilon c_sk^3},
-\end{align}
-where the right hand side is evaluated at $c_{s}k=aH$.
-We also define a dimensionless version
-\begin{align}
-    \primpowerspec(k) = \frac{k^3}{2\pi^2}P_\zeta(k)
-\end{align}
-which is typically parameterised as
+The dimensionless power spectrum $\primpowerspec$ is
+is typically parameterised as
 \begin{align}
     \primpowerspec(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
 \end{align}
-The spectral index can be found to be
+The scalar spectral index $n_s$ can then be found to be
 \begin{align}
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
 at leading order in slow-roll.
 
 
-Initially we consider the same basic models as in~\cite{Funakoshi};
-a quadratic potential
-\begin{align}\label{eq:quadratic_potential}
-    \quadpot = \frac{1}{2}m^2\phi^2.
-\end{align}
-with a canonical kinetic term,
-and a non-canonical model,
-the $\dbi$ model described in section~\ref{sec:interactions}.
-
-
     \section{The primordial power spectrum}
+    \textcolor{red}{Drastically cut this down.}
     Define the $\cmb$ power spectrum, discuss constraints.
     \textcolor{red}{Note we neglect ISW throughout. Mention polarisation, B-modes~\cite{Baumann_bmodes_2014}.\\
     How does this rule out e.g.\ $m^2\phi^2$?}
@@ -419,11 +386,9 @@ demanding statistical isotropy restricts the remaining dependence to the magnitu
 We denote the magnitude of $\mathbf{k_i}$ as $k_i$.
 This leaves us with a function of three parameters,
 $k_1,k_2,k_3$.
-It is useful to define the dimensionless shape function:
+It is useful to define the dimensionless shape function
 \begin{align}\label{shapefn}
-{
     S(k_1,k_2,k_3) = (k_1k_2k_3)^2B(k_1,k_2,k_3).
-}
 \end{align}
 As we saw in~\ref{corr_functions}
 the bispectrum is only defined where the triangle condition
@@ -574,9 +539,9 @@ and $1$ if $p,r,s$ are all distinct.
 S^{local}(k_1,k_2,k_3)
     &= \frac{6}{5}A_\zeta^2\fnllocal\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\\
     &= \frac{6}{5}\fnllocal\bigg(
-        \primpowerspec(k_2)\primpowerspec(k_3)
-        +\primpowerspec(k_3)\primpowerspec(k_1)
-        +\primpowerspec(k_1)\primpowerspec(k_2)
+        P_\zeta(k_2)P_\zeta(k_3)
+        +P_\zeta(k_3)P_\zeta(k_1)
+        +P_\zeta(k_1)P_\zeta(k_2)
     \bigg)\\
     &= \frac{6}{5}A_\zeta^2\fnllocal\frac{K_3}{6\,K_{111}}.
 \end{align}
@@ -685,7 +650,7 @@ is given in~\eqref{gr_energy}.
 For a $P(X,\phi)$ model this evaluates to
 \begin{align}
     T_{\mu\nu} &= g_{\mu\nu}P(X,\phi)+P_{,X}(X,\phi)\partial_{\mu}\phi\partial_{\nu}\phi\\
-            &\approx g_{\mu\nu}P(X,\phi)+2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
+            &\approx g_{\mu\nu}P(X,\phi)-2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
 \end{align}
 
 
@@ -697,9 +662,9 @@ For a $P(X,\phi)$ model this evaluates to
         %\rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
         %            &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
         \rho(X, \phi) &= \frac{1}{f(\phi)}\frac{1}{\sqrt{1-2f(\phi)X}}-\frac{1}{f(\phi)}+V(\phi)\\
-        \rho,_X(X, \phi) &= \frac{1}{\left(1-f(\phi)X\right)^{\frac{3}{2}}}\\
+        \rho,_X(X, \phi) &= \frac{1}{\left(1-2f(\phi)X\right)^{\frac{3}{2}}}\\
         c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
-                    &= 1-f(\phi)X
+                    &= 1-2f(\phi)X
     \end{align}
     We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
     speed tends to unity.
@@ -997,7 +962,17 @@ in the long mode was shown in~\cite{not_so_sqz}.
 
 
     \subsection{Basic shapes}
-    With a canonical kinetic term, the slow-roll result for the shape is:
+Initially we consider the same basic models as in~\cite{Funakoshi};
+a quadratic potential
+\begin{align}\label{eq:quadratic_potential}
+    \quadpot = \frac{1}{2}m^2\phi^2.
+\end{align}
+with a canonical kinetic term,
+and a non-canonical model,
+the $\dbi$ model described in section~\ref{sec:interactions}.
+
+
+    With a canonical kinetic term, the slow-roll result for the shape is
 \begin{align}\label{malda_shape}
     S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
 \end{align}
