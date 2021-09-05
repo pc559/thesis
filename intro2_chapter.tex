@@ -388,19 +388,19 @@ the $\dbi$ model described in section~\ref{sec:interactions}.
     (so small $l$) this quantity is independent of $l$.
 
 
-    For intermediate scales, the acoustic oscillations and the Doppler effect
-    becomes relevant, and the transfer function additionally encodes this processing
-    \begin{align}
-        C_l \approx 4\pi\int d\ln k~\primpowerspec(k){\left[
-            \frac{(\Theta_0+\psi)(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j_l(k\chi_*)
-            -\frac{v_\gamma(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j'_l(k\chi_*)
-            \right]}^2.
-    \end{align}
-    \textcolor{red}{Derivative of $j$ with respect to its argument.}
+    %For intermediate scales, the acoustic oscillations and the Doppler effect
+    %becomes relevant, and the transfer function additionally encodes this processing
+    %\begin{align}
+    %    C_l \approx 4\pi\int d\ln k~\primpowerspec(k){\left[
+    %        \frac{(\Theta_0+\psi)(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j_l(k\chi_*)
+    %        -\frac{v_\gamma(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j'_l(k\chi_*)
+    %        \right]}^2.
+    %\end{align}
+    %\textcolor{red}{Derivative of $j$ with respect to its argument.}
 
 
-    For small scales, diffusion of photons escaping \textcolor{red}{pressure waves??}
-    damps out the sharp peaks of the acoustic oscillations.
+    %For small scales, diffusion of photons escaping \textcolor{red}{pressure waves??}
+    %damps out the sharp peaks of the acoustic oscillations.
 
 
 \section{The primordial bispectrum}
@@ -680,12 +680,9 @@ and we choose
 in line with~\cite{Bean_ir_dbi, Chen_dbi}.
 
 
-The energy-momentum tensor in~\eqref{einstein_equations}, in terms of the matter Lagrangian $\mathcal{L}_m$, is
-\begin{align}
-    T_{\mu\nu} = -2\frac{\partial \mathcal{L}_m}{\partial g^{\mu\nu}}
-                + g_{\mu\nu}\mathcal{L}_m
-\end{align}
-which for a $P(X,\phi)$ model evaluates to
+The energy-momentum tensor in~\eqref{einstein_equations}, in terms of the matter Lagrangian $\mathcal{L}_m$,
+is given in~\eqref{gr_energy}.
+For a $P(X,\phi)$ model this evaluates to
 \begin{align}
     T_{\mu\nu} &= g_{\mu\nu}P(X,\phi)+P_{,X}(X,\phi)\partial_{\mu}\phi\partial_{\nu}\phi\\
             &\approx g_{\mu\nu}P(X,\phi)+2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
@@ -695,15 +692,15 @@ which for a $P(X,\phi)$ model evaluates to
     Following~\cite{Christopherson_2009, mukhanov_1999},
     we can then calculate the useful quantities
     \begin{align}
-        P(X, \phi) &= -\frac{1}{f(\phi)}\left(\sqrt{1-f(\phi)X}-1\right)-V(\phi)\\
-        P,_X(X, \phi) &= \frac{1}{2\sqrt{1-f(\phi)X}}\\
-        \rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
-                    &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
-        \rho,_X(X, \phi) &= \frac{1}{2}\frac{1}{\left(1-f(\phi)X\right)^{\frac{3}{2}}}\\
+        P(X, \phi) &= -\frac{1}{f(\phi)}\left(\sqrt{1-2f(\phi)X}-1\right)-V(\phi)\\
+        P,_X(X, \phi) &= \frac{1}{\sqrt{1-2f(\phi)X}}\\
+        %\rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
+        %            &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
+        \rho(X, \phi) &= \frac{1}{f(\phi)}\frac{1}{\sqrt{1-2f(\phi)X}}-\frac{1}{f(\phi)}+V(\phi)\\
+        \rho,_X(X, \phi) &= \frac{1}{\left(1-f(\phi)X\right)^{\frac{3}{2}}}\\
         c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
                     &= 1-f(\phi)X
     \end{align}
-    \textcolor{red}{Factor of two in $P,_X$?}
     We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
     speed tends to unity.
     From this, we can calculate the $\phi$ equation of motion~\eqref{phieom}
@@ -713,6 +710,7 @@ which for a $P(X,\phi)$ model evaluates to
                 +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
                 -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
     \end{align}
+    \textcolor{red}{Double check this is all consistent.}
     This can be compared with the equations of motion presented in~\cite{dbi_silverstein}
     and~\cite{warp_features_dbi}.
     See also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
