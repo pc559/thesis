@@ -14,6 +14,21 @@ validate the implementation of our methods (the $\primodal$ code) on phenomenolo
 
 \section{Numerics of mode evolution}
     \subsection{The initial conditions}
+    For the background quantities, we
+    can evolve $\tau_s$, $\phi$ and $H$ numerically
+    using~\eqref{tausdef},~\eqref{phieom} and~\eqref{epsilon_phi} respectively.
+    In the examples we use, we set the initial conditions by prescribing $\phi_{start}$,
+    calculating an approximate value of $\phi'_{start, approx}$ using the slow-roll approximation,
+    then using $\phi'_{start, approx}$ to obtain values for $c^{start}_s$ and $H_{start}$.
+    Taking those values for the sound speed and Hubble parameter as exact, along with the
+    prescribed value for $\phi_{start}$, we can calculate the corresponding exact value
+    of $\phi'_{start}$ using the background Friedmann equation~\eqref{friedmann_1},
+    obtaining consistent initial conditions to start our numerical evolution.
+    This procedure was described in~\cite{warp_features_dbi}.
+    %\textcolor{red}{Is it exactly the same?}
+    See~\cite{cmb_pol_ics} also for a brief discussion on consistent initial conditions.
+
+
     The Bunch-Davies initial conditions for each mode are set sufficiently early that the modes
     have converged to the attractor solution before the start of the numerical in-in integration.
     Since it is necessary to start the numerical integration when all modes are deep

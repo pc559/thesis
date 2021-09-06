@@ -33,7 +33,46 @@ holes~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_passaglia}.
 %Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
 %usr_dimopoulos,usr_martin}
 \textcolor{red}{Check those references!}
-We will focus on non-Gaussianity from a single field in this thesis.
+We will focus on non-Gaussianity from a single field in this thesis,
+however inflation scenarios with more than one field are an
+active field of research.
+In these models, which are motivated by string theory considerations~\cite{achucarro_multifield1},
+non-linearities of interactions between fields during inflation
+can generate observably large non-Gaussian signals.
+This is in part because they can evade the squeezed limit consistency condition~\cite{sqz_consistency}.
+The extra degrees of freedom in these scenarios can also generate bispectrum shapes not usually
+seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}),
+making the exploration of the case of multiple fields a prime target.
+    \textcolor{red}{MERGE}
+
+
+    \textcolor{red}{MERGE}
+If the fundamental physical model of inflation is a single field,
+then the non-linearities of the self-interactions of that field may have
+produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
+Detecting these signatures in the $\cmb$ bispectrum requires an understanding
+of their form~\cite{Komatsu_2005}, which motivates the study of these dynamics.
+Models of inflation that can produce observably large non-Gaussian signatures,
+and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
+include string theory-inspired models such as $\dbi$ inflation~\cite{dbi_silverstein}
+and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
+\textcolor{red}{Previous axion citations?}
+(which gives large non-Gaussianity through the resonance mechanism).
+
+
+    \textcolor{red}{MERGE}
+    There is an extensive literature on the calculation
+of bispectra from models of inflation~\cite{chen_easther_lim_1,chen_easther_lim_2,chen_ng_0605,seery_ng_0503,px_burrage,adshead,flauger_pajer_resonant,features_bartolo,bdy_passaglia}.
+Multi-field models can produce large
+correlations between modes of very different scales;
+non-canonical kinetic terms can reduce the sound speed of the perturbations,
+boosting both the smooth non-Gaussian correlations, and any
+features which may be present~\cite{dbi_adshead,dbi_in_the_sky,warp_features_dbi,dbi_silverstein,dbi_step_miranda,chen_folded_resonant,osc_avila};
+effectively single-field models with imaginary sound speeds can generate a bispectrum
+mostly orthogonal to the usual equilateral and local templates~\cite{RP_1}.
+The methods outlined in this thesis have been implemented
+and tested for single-field models,
+with multi-field models being a prime target for future work.
 
 
 However, understanding the inflationary prediction is only the first part of the process.
@@ -135,7 +174,10 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}\label{v_action}
         S_{2} = \frac{1}{2}\int d^3x d\tau \left[{\left(\frac{d v}{d \tau}\right)}^2-c_s^2\left(\partial v\right)^2+\frac{1}{z}\frac{d^2z}{d\tau^2}v^2\right]
     \end{align}
-    where $z^2 = 2a^2\varepsilon/c_s^2 = a^2\left(\rho+P\right)/\left(c_sH\right)^2$.
+    where
+    \begin{align}\label{z_defn}
+        z^2 = 2a^2\varepsilon/c_s^2 = a^2\left(\rho+P\right)/\left(c_sH\right)^2.
+    \end{align}
     In terms of $v$, we can recognise the dynamics as that of a
     canonically normalised scalar field, oscillating
     with a frequency that changes as the universe expands.
@@ -203,9 +245,9 @@ allowing us to apply the method to feature bispectra for the first time.
 
 
     \subsection{Early time behaviour}
-    \subsubsection{Quantizing the perturbations}
+    %\subsubsection{Quantizing the perturbations}
     We now wish to quantize the perturbations.
-    We will quantize $v$, as its Fourier modes
+    We will quantize $y$, as its Fourier modes
     should behave like a free field in Minkowski space
     when they are deep in the horizon.
     We expand
@@ -235,7 +277,7 @@ allowing us to apply the method to feature bispectra for the first time.
     if we demand that $v_k\pi^*_k-\pi_kv^*_k=1$.
 
 
-\subsubsection{Initial conditions for the perturbations}
+%\subsubsection{Initial conditions for the perturbations}
     We can define the vacuum state by $\ahat_{\veck}\left| 0\right>=0$.
     Demanding this to be an eigenstate of $H$ forces $\pi_k=\pm ikv_k$.
     \textcolor{red}{How does this relate to before?}
@@ -248,19 +290,8 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}
         v_k = \frac{1}{\sqrt{2{c_s}k}}e^{-ik\tau_s}
     \end{align}
-    when $\tau_s\rightarrow -\infty$.
-    \textcolor{red}{Is this really $\tau_s$ or $\tau$?}
-
-
+    when $\frac{{c_s}k}{aH}\rightarrow \infty$.
     \textcolor{red}{Make $\zeta$ vs.\ $u_k$ vs.\ $v_k$ consistent throughout!}
-    The Bunch-Davies vacuum leads us to the mode functions
-    \begin{align}\label{uk_solution}
-        \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}
-    \end{align}
-    which results in a power spectrum enhanced by a factor of $c_s$,
-    \begin{align}
-        P(k) = \frac{H^2}{4\varepsilon c_s k^3}.
-    \end{align}
 
 
     \subsection{Late time behaviour}
@@ -285,11 +316,22 @@ allowing us to apply the method to feature bispectra for the first time.
     This means we can obtain the final power spectrum by evaluating
     it separately for each $k$. In fact, we choose to evaluate the asymptotic expression
     at sound-horizon crossing $c_sk=aH$. Note that we are \textit{not} evaluating
-    $\zeta_k\zeta^*_k$ at horizon crossing---we are evaluating the asymptotic expression
-    for that quantity there.
+    $\zeta_k\zeta^*_k$ at horizon crossing---we are evaluating the
+    late-time asymptotic expression for that quantity there.
 
 
-The dimensionless power spectrum $\primpowerspec$ is
+    The Bunch-Davies vacuum leads us to the mode functions
+    \begin{align}\label{uk_solution}
+        \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}
+    \end{align}
+    which results in a power spectrum enhanced by a factor of $c_s$,
+    \begin{align}
+        P(k) = \frac{H^2}{4\varepsilon c_s k^3}
+    \end{align}
+    where the right-hand side is evaluated at $c_sk=aH$.
+
+
+The dimensionless power spectrum $\primpowerspec$~\eqref{primpowerspec_defn}
 is typically parameterised as
 \begin{align}
     \primpowerspec(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
@@ -299,6 +341,36 @@ The scalar spectral index $n_s$ can then be found to be
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
 at leading order in slow-roll.
+
+
+    For completeness, we note some possible points of notational confusion.
+    In~\cite{px_burrage} the definition $s^{there}=d\ln c_s/dN$ is used, however we refer to this
+    quantity (as we defined in~\eqref{slowrollparams}) as $\epscs$.
+    In~\cite{Hu_2011}, the quantity referred to as $s$ is the integral of the sound speed
+    with respect to conformal time---we refer to this quantity as $\tau_s$,
+    which we defined in~\eqref{tausdef}.
+    In~\cite{warp_features_dbi}, $\tau_s^{here}$ is also referred to as $s$,
+    but $\epscs^{here}$ is referred to as $\sigma_1$.
+    This is summarised in table~\ref{tab:notation}.
+
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{ccccc}
+        \toprule
+        Here & Definition &~\cite{px_burrage}&~\cite{Hu_2011} &~\cite{warp_features_dbi}\\
+        \midrule
+        $\tau_s$ &~\eqref{tausdef} & ~ & $s$ & $s$ \\
+        $\epscs$ &~\eqref{slowrollparams} & $s$ & ~ & $\sigma_1$ \\
+        $z$ &~\eqref{z_defn} & $\varepsilon/c_s^2$ & ~ & ~ \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+        Notation summary and comparison.
+        \textcolor{red}{Check N/A's. What about $X=\frac{1}{2}\dphi^2$ vs.\ $X=\dphi^2$?}
+    }\label{tab:notation}
+  \end{center}
+\end{table}
 
 
     \section{The primordial power spectrum}
@@ -326,6 +398,8 @@ at leading order in slow-roll.
     \end{align}
     and the power spectrum is
     \begin{align}
+        \left<TT\right> &= ?\\
+        \left<a_{lm}a_{l'm'}\right> &= ?\\
         C_l &= \frac{1}{2l+1}\sum_m a_{lm} a_{l-m}.
     \end{align}
     The variance is given by
@@ -357,7 +431,7 @@ at leading order in slow-roll.
         \int_0^{\infty}d\ln x~j_l^2(x) = \frac{1}{2l(l+1)}
     \end{align}
     to find that $l(l+1)C_l\propto \text{const}$, i.e.\ that on large scales
-    (so small $l$) this quantity is independent of $l$.
+    (small $l$) this quantity is independent of $l$.
 
 
     %For intermediate scales, the acoustic oscillations and the Doppler effect
@@ -427,11 +501,15 @@ $\fnllocal$, $\fnlequil$ and $\fnlortho$
 when $F$ is (respectively) the local (see~\eqref{local_shape}),
 equilateral (see~\eqref{equil_shape}) and orthogonal templates,
 as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
+We note that a distinction is sometimes made between the ``scale dependence''
+of the bispectrum, meaning the dependence on $k_1+k_2+k_3$, and the ``shape dependence'',
+meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
 
     \section{A field guide to the definitions of $\fnl$}
     In our template-free pipeline, we take $\fnl$ as a coefficient of our expansion
-    of the numerically calculated primordial shape. Thus, for us, we rule out an
-    inflation scenario by ruling out $\fnl=1$. There are, however, many competing
+    of the numerically calculated primordial shape. Thus in the work we present in
+    later chapters of this thesis, $\fnl$ is scenario specific and we rule out an
+    inflation scenario by ruling out $\fnl=1$. There are, however, competing
     definitions and conventions for $\fnl$ in the literature, especially between
     the observations-side and the primordial-side. We list some below, for convenience.
 
@@ -482,38 +560,8 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     which clearly (except for the local case) depends on $k_1$, $k_2$ and $k_3$.
 
 
-    For completeness, we also note another possible point of notational confusion.
-    In~\cite{px_burrage} the definition $s^{there}=d\ln c_s/dN$ is used, however we refer to this
-    quantity (as we defined in~\eqref{slowrollparams}) as $\epscs$.
-    In~\cite{Hu_2011}, the quantity referred to as $s$ is the integral of the sound speed
-    with respect to conformal time---we refer to this quantity as $\tau_s$,
-    which we defined in~\eqref{tausdef}.
-    In~\cite{warp_features_dbi}, $\tau_s^{here}$ is also referred to as $s$,
-    but $\epscs^{here}$ is referred to as $\sigma_1$.
-    This is summarised in table~\ref{tab:notation}.
-
-
-\begin{table}[h!]
-  \begin{center}
-    \begin{tabular}{ccccc}
-        \toprule
-        Here & Definition &~\cite{px_burrage}&~\cite{Hu_2011} &~\cite{warp_features_dbi}\\
-        \midrule
-        $\tau_s$ &~\eqref{tausdef} & ~ & $s$ & $s$ \\
-        $\epscs$ &~\eqref{slowrollparams} & $s$ & ~ & $\sigma_1$ \\
-        $z$ & ~ & $\varepsilon/c_s^2$ & ~ & ~ \\
-        \bottomrule
-    \end{tabular}
-    \caption{
-        Notation summary and comparison.
-        \textcolor{red}{Check N/A's. What about $X=\frac{1}{2}\dphi^2$ vs.\ $X=\dphi^2$?}
-    }\label{tab:notation}
-  \end{center}
-\end{table}
-
-
     \subsection{Templates}
-    The momentum dependence of the various possible bispectrum shapes can be complex
+    The momentum dependence of the various possible bispectrum templates can be complex
     and it is therefore useful to define a standard notation in which to express this dependence.
     For example in~\cite{Fergusson_2010, Pajer_boostless_2020} the elementary
     symmetric polynomials are used to compactly represent the results in a way that is manifestly
@@ -522,7 +570,7 @@ as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
     There are also numerical advantages to the Legendre polynomials, as discussed in~\cite{Fergusson_2010}.}.
 
 
-In this work we will use the notation employed in~\cite{FergShell_2}:
+In this and later sections we will use the notation employed in~\cite{FergShell_2}:
 \begin{align}\label{shape_notation}
 \begin{split}
     K_p &= \sum_{i=1,2,3} k_i^p, \\
@@ -536,9 +584,8 @@ and $1$ if $p,r,s$ are all distinct.
 
 
     The local template is the shape which results from assuming the perturbation is
-    quadratic in a Gaussian field~\textcolor{red}{Shouldn't be dimensionless, check
-    this everywhere. Note on $n_s$, that's wrong here too.
-    Connect to~\eqref{fnllocal_quadratic}
+    quadratic in a Gaussian field~\textcolor{red}{Note on $n_s$,
+    connect to~\eqref{fnllocal_quadratic}
     }
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3)
@@ -547,7 +594,7 @@ S^{local}(k_1,k_2,k_3)
         P_\zeta(k_2)P_\zeta(k_3)
         +P_\zeta(k_3)P_\zeta(k_1)
         +P_\zeta(k_1)P_\zeta(k_2)
-    \bigg)\\
+    \bigg)(k_1k_2k_3)^2\\
     &= \frac{6}{5}A_\zeta^2\fnllocal\frac{K_3}{6\,K_{111}}.
 \end{align}
 This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
@@ -565,18 +612,22 @@ This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
 This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
 
-
-
     \section{Step 1: the interaction Hamiltonian}
     \subsection{Constraints}
-    Since General Relativity has a diffeomorphism invariance, it has a redundancy
-    which must be settled before the true degrees of freedom are manifest.
-    One does this by decomposing the metric (typically in the $ADM$ formalism)
-    and expanding the action \textcolor{red}{is this what I want?}
+    %Since General Relativity has a diffeomorphism invariance, it has a redundancy
+    %which must be settled before the true degrees of freedom are manifest.
+    %One does this by decomposing the metric (typically in the $ADM$ formalism)
+    %and expanding the action \textcolor{red}{is this what I want?}
+    We begin with the action
+    %S=\int dx^4\sqrt{g}\left[\frac{R}{2}-\frac{1}{2}(\nabla\phi)^2-V(\phi)\right].
     \begin{align}\label{gr_action}
-        S=\int dx^4\sqrt{g}\left[\frac{R}{2}-\frac{1}{2}(\nabla\phi)^2-V(\phi)\right]
+        S=\int d^4x\sqrt{-g}\left[\frac{1}{2}R+P(X, \phi)\right].
     \end{align}
-    to obtain the constraint equations---one can then solve the constraints
+    Note that unlike~\eqref{inflaton_action} we have explicitly included the
+    Ricci scalar $R$.
+    One proceeds by expanding this action in the perturbations (typically
+    using the ADM formalism)
+    to obtain the constraint equations. One can then solve the constraints
     (perturbatively, aided by choice of gauge) and substitute
     back into the action, leaving only the dynamical variables.
     At the level of the background one then obtains the Friedmann equations;
@@ -587,7 +638,7 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
 
     To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
-    For a simple Lagrangian such as $\mathcal{L}_0=\frac{1}{2}\dzeta^2$,
+    For a simple Lagrangian such as $\mathcal{L}_{0}=\frac{1}{2}\dzeta^2$,
     we find $\pi=\dzeta$. However if the Lagrangian contains other cubic terms
     with an explicit $\dzeta$, this relation will change and may not be easily invertible.
     However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(\zeta^4,\dzeta^4)$,
@@ -601,42 +652,20 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     \end{align}
     where $H_b$ evolves the homogeneous background, $H_0$ is quadratic in $\zeta$ and evolves the free
     fields, and the interaction Hamiltonian $H_{int}$ contains the terms cubic and above.
-    In practice we will only use the part cubic in $\zeta$, $H_{int}^{(3)}$, which we will use to calculate
+    In practice we will only use the part cubic in $\zeta$ and $\dzeta$,
+    labeled $H_{int}^{(3)}$. We will use this to calculate
     the higher order correlations coming from the interactions. We will occasionally drop the superscript and
     refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $H_{int}$.
 
 
     \subsection{Interactions}\label{sec:interactions}
-    \textcolor{red}{MERGE}
-If the fundamental physical model of inflation is of a single field,
-then the non-linearities of the self-interactions of that field may have
-produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
-Detecting these signatures in the $\cmb$ bispectrum requires an understanding
-of their form~\cite{Komatsu_2005}, which motivates the study of these dynamics.
-Models of inflation that can produce observably large non-Gaussian signatures,
-and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
-include string theory-inspired models such as $\dbi$ inflation~\cite{dbi_silverstein}
-and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
-\textcolor{red}{Previous axion citations?}
-(which gives large non-Gaussianity through the resonance mechanism).
-
-
-Another source of possibly observable non-Gaussian signatures can be
-found in inflation scenarios with more than one active field.
-In these models, which are motivated by string theory considerations~\cite{achucarro_multifield1},
-non-linearities of interactions between fields during inflation
-can generate observably large non-Gaussian signals.
-This is in part because they can evade the squeezed limit consistency condition~\cite{sqz_consistency}.
-The extra degrees of freedom in these scenarios can generate bispectrum shapes not usually
-seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}),
-making the exploration of the case of multiple fields a prime target.
-    \textcolor{red}{MERGE}
-
-
-    Simpler derivation neglecting the metric perturbations to begin with.
-    Discuss $\dbi$, then $P(X, \phi)$.
-
-
+Initially we consider the same basic models as in~\cite{Funakoshi};
+a quadratic potential
+\begin{align}\label{eq:quadratic_potential}
+    \quadpot = \frac{1}{2}m^2\phi^2.
+\end{align}
+with a canonical kinetic term.
+We will also consider a non-canonical model in detail, the $\dbi$ model.
     The $\dbi$ model has kinetic term
 \begin{align}\label{eq:dbi_action}
     S_{\dbi}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
@@ -647,27 +676,27 @@ and we choose
     V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
     m=\sqrt{\beta_{IR}}H
 \end{align}
-in line with~\cite{Bean_ir_dbi, Chen_dbi}.
+where $\lambda_{\dbi}$, $\bir$ and $V_0$ are constants
+which define the scenario in question.
+This is in line with~\cite{Bean_ir_dbi, Chen_dbi}.
 
 
 The energy-momentum tensor in~\eqref{einstein_equations}, in terms of the matter Lagrangian $\mathcal{L}_m$,
 is given in~\eqref{gr_energy}.
-For a $P(X,\phi)$ model this evaluates to
-\begin{align}
-    T_{\mu\nu} &= g_{\mu\nu}P(X,\phi)+P_{,X}(X,\phi)\partial_{\mu}\phi\partial_{\nu}\phi\\
-            &\approx g_{\mu\nu}P(X,\phi)-2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
-\end{align}
-
-
+%For a $P(X,\phi)$ model this evaluates to
+%\begin{align}
+%    T_{\mu\nu} &= g_{\mu\nu}P(X,\phi)+P_{,X}(X,\phi)\partial_{\mu}\phi\partial_{\nu}\phi\\
+%            &\approx g_{\mu\nu}P(X,\phi)-2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
+%\end{align}
     Following~\cite{Christopherson_2009, mukhanov_1999},
-    we can then calculate the useful quantities
+    we can then use this to calculate the useful quantities
     \begin{align}
         P(X, \phi) &= -\frac{1}{f(\phi)}\left(\sqrt{1-2f(\phi)X}-1\right)-V(\phi)\\
-        P,_X(X, \phi) &= \frac{1}{\sqrt{1-2f(\phi)X}}\\
+        %P,_X(X, \phi) &= \frac{1}{\sqrt{1-2f(\phi)X}}\\
         %\rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
         %            &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
         \rho(X, \phi) &= \frac{1}{f(\phi)}\frac{1}{\sqrt{1-2f(\phi)X}}-\frac{1}{f(\phi)}+V(\phi)\\
-        \rho,_X(X, \phi) &= \frac{1}{\left(1-2f(\phi)X\right)^{\frac{3}{2}}}\\
+        %\rho,_X(X, \phi) &= \frac{1}{\left(1-2f(\phi)X\right)^{\frac{3}{2}}}\\
         c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
                     &= 1-2f(\phi)X
     \end{align}
@@ -686,31 +715,21 @@ For a $P(X,\phi)$ model this evaluates to
     See also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
 
 
-    We can now evolve $\tau_s$, $\phi$ and $H$ numerically
-    using~\eqref{tausdef},~\eqref{phieom} and~\eqref{epsilon_phi} respectively.
-    In the examples we use, we set the initial conditions by prescribing $\phi_{start}$,
-    calculating an approximate value of $\phi'_{start, approx}$ using the slow-roll approximation,
-    then using $\phi'_{start, approx}$ to obtain values for $c^{start}_s$ and $H_{start}$.
-    Taking those values for the sound speed and Hubble parameter as exact, along with the
-    prescribed value for $\phi_{start}$, we can calculate the corresponding exact value
-    of $\phi'_{start}$ using the background Friedmann equation~\eqref{friedmann_1},
-    obtaining consistent initial conditions to start our numerical evolution.
-    This procedure was described in~\cite{warp_features_dbi}.
-    \textcolor{red}{Is it exactly the same?}
-    See~\cite{cmb_pol_ics} for a brief discussion on consistent initial conditions.
-    We will discuss this further in section~\ref{sec:interactions}.
-
-
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
     \subsection{Using the in-in formalism}
     \textcolor{red}{
-    Conditions for small non-Gaussianity,\\
-    so we need non-canonical kinetic term, or features, or something.\\
     Cite~\cite{Bartolo_review_2004, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
-    Renaux-Petel_2015, Meerburg_clock}.}
+    Renaux-Petel_2015, Meerburg_clock}.
+    What is a state? The vacuum, for example.
+}
 
 
-    The standard starting point for calculating
+The setting for this calculation will be the interaction picture. In the Schr\"{o}dinger
+picture the time dependence is carried by the states, whereas in the Heisenberg picture
+the time dependence is carried by the operators. In contrast to both,
+the interaction picture splits the time dependence between the two---the states evolve according
+to the free Hamiltonian (the quadratic part) while the operators see the interaction.
+The standard formalism for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
 The in-in formalism takes the time evolution of the interaction picture mode
 functions as an input for calculating the bispectrum.
@@ -740,10 +759,12 @@ in its dependence on $k_1$, $k_2$ and $k_3$, and that the time integral
 can be done in such a way as to preserve this separability.
 This intrinsic separability has clearly been lost in
 the example in~\eqref{example_eft2},
-but can be regained (to arbitrary precision) by approximating it
+but can be regained (to arbitrary numerical precision) by approximating it
 with a sum of separable terms. Our general aim will be to directly calculate
 this sum for a broad range of inflation models.
 
+
+\textcolor{red}{Move up?}
 We now briefly outline the set-up of the standard calculation.
 The Lagrangian is expanded in the perturbations and used to obtain the Hamiltonian.
 The Hamiltonian is split into $H_0$ and $\Hint$.
@@ -771,13 +792,13 @@ late time cancellation between a term in the interaction Hamiltonian and the
 correction to the correlator that adjusts for the field redefinition.
 
 
-The bispectrum arising from a single field inflation model,
-with a canonical kinetic term, slowly rolling, turns out to produce
-unobservably small non-Gaussianity~\cite{Maldacena}.
-However, by breaking these assumptions large signals can arise.
-These signals are usually calculated using~\eqref{inin_integral} within tailored approximations.
-The results are not always separable, so further approximations must then be made to
-allow comparison with the CMB.
+%The bispectrum arising from a single field inflation model,
+%with a canonical kinetic term, slowly rolling, turns out to produce
+%unobservably small non-Gaussianity~\cite{Maldacena}.
+%However, by breaking these assumptions large signals can arise.
+%These signals are usually calculated using~\eqref{inin_integral} within tailored approximations.
+%The results are not always separable, so further approximations must then be made to
+%allow comparison with the CMB.
 
 
 We now detail an explicit example of an in-in calculation.
@@ -845,7 +866,7 @@ where we used~\eqref{creation_annihilation_commutator}.
 
 
 So, inserting~\eqref{hint_example} into~\eqref{inin_example}
-and rewriting $\dzeta(\vecx)$ in terms of its Fourier transform,
+%and rewriting $\dzeta(\vecx)$ in terms of its Fourier transform,
 we get
 \begin{align}\label{inin_example_start}
     \left<\zeta_{\mathbf{k_1}}(t)\right.&\left.\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>\\
@@ -967,17 +988,8 @@ in the long mode was shown in~\cite{not_so_sqz}.
 
 
     \subsection{Basic shapes}
-Initially we consider the same basic models as in~\cite{Funakoshi};
-a quadratic potential
-\begin{align}\label{eq:quadratic_potential}
-    \quadpot = \frac{1}{2}m^2\phi^2.
-\end{align}
-with a canonical kinetic term,
-and a non-canonical model,
-the $\dbi$ model described in section~\ref{sec:interactions}.
-
-
-    With a canonical kinetic term, the slow-roll result for the shape is
+    With a canonical kinetic term
+    the slow-roll result for the shape is
 \begin{align}\label{malda_shape}
     S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
 \end{align}
@@ -1005,25 +1017,12 @@ on the effective sound speed which from \planck~has a lower limit $c_s^{\dbi} \g
 at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
 
-    \subsection{Summary, scaling}
-    There is an extensive literature on the calculation
-of bispectra from models of inflation~\cite{chen_easther_lim_1,chen_easther_lim_2,chen_ng_0605,seery_ng_0503,px_burrage,adshead,flauger_pajer_resonant,features_bartolo,bdy_passaglia}.
-Multi-field models can produce large
-correlations between modes of very different scales;
-non-canonical kinetic terms can reduce the sound speed of the perturbations,
-boosting both the smooth non-Gaussian correlations, and any
-features which may be present~\cite{dbi_adshead,dbi_in_the_sky,warp_features_dbi,dbi_silverstein,dbi_step_miranda,chen_folded_resonant,osc_avila};
-effectively single-field models with imaginary sound speeds can generate a bispectrum
-mostly orthogonal to the usual equilateral and local templates~\cite{RP_1}.
-The methods outlined in this thesis have been implemented
-and tested for single-field models,
-with multi-field models being a prime target for future work.
-
-
+    \subsection{Scaling}
 These templates can be modified to be more physically realistic by including
 scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
 For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
-in a reasonable first approximation by including a prefactor.
+in a reasonable first approximation by including a prefactor,
+as was done in~\cite{Planck_NG_2013}.
 We define the product scaling template
 \begin{align}\label{dbi_prod_shape}
     S^{\dbi-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
@@ -1035,22 +1034,7 @@ and the sum scaling template
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
 
 
-Much success has been had in constraining non-Gaussianity
-in the CMB using separable approximations to these approximate templates.
-Other methods target oscillations~\cite{reso_estimator, excited_estimator},
-by expanding the shape function
-in $k_1+k_2+k_3$, thus limiting their ability to capture shapes whose
-phase varies across the tetrapyd.
-Our motivation in this work for directly calculating the primordial
-bispectrum in a separable form is to build towards
-a pipeline to constrain a broader section of the model space,
-removing these layers of approximations,
-though these standard results provide useful validation tests.
-    \subsection{Shapes from features during inflation}
-    Explicit details of how resonance and features generate large NG.
-    Refer to~\ref{sec:inin_calc_example}.
-
-
+\subsection{Shapes from features during inflation}
 For our more stringent validation tests we work with feature model scenarios
 based on the above base models.
 To explore non-Gaussianity coming from sharp features we include
@@ -1066,7 +1050,7 @@ extended resonant features on the basic potential
 For more details on these models, see~\cite{chen_easther_lim_2}.
 
 
-We now turn to feature templates.
+We now turn to feature templates, that result from the preceding potential features.
 The result of adding a feature of the form~\eqref{eq:kink_potential}
 is to add oscillatory features of the form
 \begin{align}\label{cos_shape}
@@ -1195,8 +1179,8 @@ Work on forecasting future constraints on features was performed
     However, if we simply calculate this quantity for some theoretical model we will not be able to
     interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
     drawn from a purely Gaussian distribution could, through random chance,
-    result in a non-zero $\mathcal{E}$. This problem is solved using Gaussian maps.
-    Many $\cmb$ are generated from Gaussian initial conditions, and then the estimator
+    result in a non-zero $\mathcal{E}$. This problem is solved using simulated Gaussian maps.
+    Many $\cmb$ skies are generated from Gaussian initial conditions, and then the estimator
     is applied to each. This gives a distribution of $\mathcal{E}$, from which we can
     calculate $1\sigma$ and $2\sigma$ regions for $\mathcal{E}$. Then the result of the
     estimator (when applied to the real $\cmb$ sky) can be compared to this distribution
@@ -1219,7 +1203,8 @@ Work on forecasting future constraints on features was performed
         \frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}\bar{b}_{l_1l_2l_3}}{\tilde{C}_{l_1}\tilde{C}_{l_2}\tilde{C}_{l_3}}
         \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right).
     \end{align}
-    Here, the diagonal approximation is insufficient for the linear term, so the
+    Here, the diagonal approximation is insufficient for the linear term
+    (especially for local type shapes), so the
     full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is calculated using an ensemble average
     over a suite of Gaussian simulations. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
@@ -1233,27 +1218,22 @@ Work on forecasting future constraints on features was performed
     \begin{align}
         b_{l_1l_2l_3} = h^{-1}_{l_1l_2l_3}B_{l_1l_2l_3}.
     \end{align}
+    \textcolor{red}{Why?}
 
 
     \subsection{Complexity of bispectrum estimation}
-
-\textcolor{red}{
-Memory bound computation, so tabulation won't help. The time is due to moving data.
-Not much to do with the maps?}
-
-
     The bispectrum, like the power spectrum, is a quantity that describes
 the statistical distribution of which our universe is only one realisation.
-We use this one sky we have access to to estimate the amplitude of
+We can use this one sky that we have access to to estimate the amplitude of
 particular bispectrum templates,
 and use these estimates to constrain inflationary physics; 
 see~\cite{astro2020_features,astro2020_png} for recent reviews.
-There are two parts to the pipeline of bispectrum estimation.
-Firstly, calculating the primordial bispectrum at the end of some inflation scenario,
-and then calculating the effect this bispectrum
-has on some appropriate observable today.
-One well-developed example is
-the bispectrum of temperature fluctuations in the CMB, which uses transfer functions
+%There are two parts to the pipeline of bispectrum estimation.
+%Firstly, calculating the primordial bispectrum at the end of some inflation scenario,
+%and then calculating the effect this bispectrum
+%has on some appropriate observable today.
+To calculate the bispectrum of temperature fluctuations in the CMB, 
+one uses transfer functions
 (which we saw previously in~\eqref{eqn:transfer_function})
 to evolve and project the primordial bispectrum onto our sky.
 In principle, this is the same process as power spectrum estimation.
@@ -1283,11 +1263,17 @@ Similar quantities for the equilateral and orthogonal templates are also
 commonly quoted.
 In addition to broadening the range of constrained models through increases in efficiency,
 the modal decomposition method of~\cite{FergShell_1,FergShell_2,FergShell_3}
-allows to go beyond this paradigm, efficiently constraining inflationary bispectra in the CMB using
+allows to go beyond this paradigm, efficiently constraining inflationary templates in the CMB using
 all of the shape information; essentially constraining an $\fnl$
-specific to a given bispectrum. This bypasses the approximation step at the level of the templates,
-of finding a separable approximation to the primordial bispectrum.
-In this work, our numerical methods remove the need for some of the approximations
+specific to a given template. This bypasses the approximation step at the level of the templates,
+of finding a separable approximation to the primordial template.
+The results of these methods are constraints on the parameters of
+certain inflation models through approximate phenomenological templates.
+These constraints can be found in~\cite{Planck_NG_2015, Planck_NG_2018}.
+
+
+In this work, our numerical methods remove the need for some of the
+earlier set of approximations
 made before this, during inflation, directly linking the parameters of the inflation scenario
 with the relevant observable.
 In addition to this improvement in accuracy, calculating the modal decomposition
@@ -1295,16 +1281,10 @@ directly from the model of inflation is far more efficient
 than numerically calculating the bispectrum configuration by configuration.
 
 
-If the shape function~\eqref{shapefn} has the form:
-\begin{equation}\label{sepXYZ}
-S(k_1,k_2,k_3) = X(k_1)Y(k_2)Z(k_3),
-\end{equation}
-or can be expressed as a sum of such terms,
-it is called separable.
+Recall the definition of separability~\eqref{sepXYZ}.
 The link between the separability of the primordial bispectrum
-and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb},
-where we also see that if the primordial bispectrum is separable
-then the overall dimension
+and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb}.
+If the primordial bispectrum is separable then the overall dimension
 of the calculation can be reduced from seven to five, 
 since the spherical Bessel functions $j_{l_i}$ and the
 transfer functions $\Delta_{l_i}$ already appear in a separable way.
@@ -1331,6 +1311,47 @@ it may be be difficult to see how constraints on existing
 features can be applied.
 
 
+    Separability is required, so usually one approximates non-separable templates
+    by separable ones.
+    For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
+    template~\eqref{equil_shape}.
+
+
+    $\ksw$-type estimators take as their starting point the realisation that many
+    templates can be rewritten as a simple finite sum of separable functions.
+    For example, the simple local~\eqref{local_shape}, equilateral~\eqref{equil_shape} and orthogonal~\cite{Planck_NG_2013}
+    templates can be built up from a small set of
+    simple monomials, namely $k^{-1}$, $1$, $k$ and $k^{2}$.
+    This method is able to constrain shapes with that contain very high frequency linear oscillations\footnote{
+    Since $e^{iw(k_1+k_2+k_3)}=e^{iwk_1}e^{iwk_2}e^{iwk_3}$.},
+    but is limited in that it cannot function for shapes whose shape dependence is not
+    sum-separable.
+
+
+    \textcolor{red}{Merge.}
+Much success has been had in constraining non-Gaussianity
+in the CMB using separable approximations to these approximate templates.
+Other methods target oscillations~\cite{reso_estimator, excited_estimator},
+by expanding the shape function
+in $k_1+k_2+k_3$, thus limiting their ability to capture shapes whose
+phase varies across the tetrapyd.
+
+
+    The Modal method~\cite{FergShell_2014} is more versatile, 
+    leveraging the benefits of separability in a broader set of models through expansion.
+    For example, this method can deal with primordial templates with envelopes.
+    The Modal code proceeds using two sets of basis functions, one in $k$ space at the end
+    of inflation, and another in $l$ space for the $\cmb$.
+    For a given primordial template, the best-fit linear combination of the primordial basis
+    is found, generating a set of coefficients.
+    The template need not be a sum of separable functions, but should be well-approximated by this
+    decomposition in the primordial basis.
+    The coefficients of this decomposition are then projected onto the $\cmb$ basis, to calculate the constraint.
+
+
+    \textcolor{red}{These methods have been used to obtain constraints\ldots}
+
+
 \section{Previous work on in-in separability.}
     In~\cite{Funakoshi} it was pointed out that one can compute using the
 tree-level in-in formalism in such a way as to preserve its intrinsic
@@ -1341,12 +1362,8 @@ This work built on the philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}
 in which a formalism was developed to
 leverage the tractability of separable CMB bispectrum estimation
 for generic primordial bispectra, by expanding them in a separable basis.
-The results of these methods (not using the work of~\cite{Funakoshi})
-are constraints on the parameters of certain inflation models through approximate
-phenomenological templates.
-These constraints can be found in~\cite{Planck_NG_2015, Planck_NG_2018}.
 The idea of~\cite{Funakoshi} is an extension of that philosophy to the primordial level,
-and our work is in implementing that idea.
+and our work is in maturing that idea.
 In~\cite{FergShell_1,FergShell_2,FergShell_3} an orthogonal basis on the tetrapyd was used,
 removing the need to fit non-physical configurations.
 One of the main differences between that work and this
@@ -1375,7 +1392,6 @@ This is discussed in section~\ref{sec:inner_product}.
 
     \textcolor{red}{Summary of the achievements and limitations of~\cite{Funakoshi}, how I went beyond them.}
     \section{Configuration-by-configuration codes}
-    Cite~\cite{Ringeval}.
     Previous work on the numerical calculations of inflationary
 non-Gaussianity include the BINGO code~\cite{BINGO},
 Chen et al~\cite{chen_easther_lim_1,chen_easther_lim_2},
@@ -1384,28 +1400,28 @@ and the Transport Method~\cite{transport_main,transport_pytransport,transport_py
 All but the last directly apply the tree-level in-in formalism $k$-configuration by $k$-configuration for a given model;
 they integrate a product of three mode functions and a background-dependent term from the interaction Hamiltonian, of form similar to~\eqref{inin_sep}.
 The eventual result is a grid of points representing the primordial bispectrum.
+See~\cite{Ringeval} for a review. \textcolor{red}{Check!}
 
 
 The most advanced publicly released code for the calculation of inflationary perturbations
 is based on the Transport Method.
-Like the previously mentioned work it calculates the bispectrum $k$-configuration by $k$-configuration.
+Like the other mentioned work it calculates the bispectrum $k$-configuration by $k$-configuration.
 However the method is different in its details.
 Instead of performing integrals,
 a set of coupled ODEs is set up and solved.
 The power spectra and bispectra themselves are evolved, their time derivatives calculated by
 differentiating the in-in formalism\footnote{
-    Infinite hierarchy of coupled equations.
-    Choose a basis to make it nice?
-    Real vs Imag...?
-    Sounds cool, not worth pursuing.
     One could imagine applying the same philosophy to our method.
     Certainly, at first sight this seems more natural, that if the core
     quantities in our method are the coefficients in some basis expansion,
     why not evolve them directly? Why take the apparently circuitous route
+    (that we will see in chapter~\ref{chapter:decomp} and chapter~\ref{chapter:methods})
     of evolving the $\zeta_k(\tau)$, and decomposing them at every timestep?
     The answer is that the ``equations of motion'' for the coefficients of the expansion
-    obtained by substituting the mode expansion of $\zeta_k(\tau)$ into~\eqref{modefneqn_zeta_N}
-    are coupled in an infinite hierarchy.
+    obtained by substituting a mode expansion of $\zeta_k(\tau)$ into~\eqref{modefneqn_zeta_N}
+    are coupled in an infinite hierarchy, making this a difficult
+    direction to pursue. This is, however, a basis dependent statement
+    and the possibility remains that a basis may be found to ameliorate this problem.
     }.
 The publicly released code is very sophisticated,
 able to deal with multiple fields in curved field spaces,
@@ -1436,46 +1452,12 @@ In~\cite{transport_main} this is achieved in the initial conditions for the bisp
 other methods impose some non-trivial cutoff at early times.
 
 
-    \section{Separable approximations to non-separable templates}
-    Separability is required, so usually one approximates non-separable templates
-    by separable ones.
-    For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
-    template~\eqref{equil_shape}.
-    \textcolor{red}{Quantitative comparison of equilateral template and $\dbi$ shape,
-    with and without scaling.}
-
-
-    $\ksw$-type estimators take as their starting point the realisation that many
-    templates can be rewritten as a simple finite sum of separable functions.
-    For example, the simple local~\eqref{local_shape}, equilateral~\eqref{equil_shape} and orthogonal~\cite{Planck_NG_2013}
-    templates can be built up from a small set of
-    simple monomials, namely $k^{-1}$, $1$, $k$ and $k^{2}$.
-    This method is able to constrain shapes with that contain very high frequency linear oscillations\footnote{
-    Since $e^{iw(k_1+k_2+k_3)}=e^{iwk_1}e^{iwk_2}e^{iwk_3}$.},
-    but is limited in that it cannot function for shapes whose shape dependence is not
-    sum-separable.
-
-
-    The Modal method~\cite{FergShell_2014} is more versatile, 
-    leveraging the benefits of separability in a broader set of models through expansion.
-    For example, this method can deal with primordial templates with envelopes.
-    The Modal code proceeds using two sets of basis functions, one in $k$ space at the end
-    of inflation, and another in $l$ space for the $\cmb$.
-    For a given primordial template, the best-fit linear combination of the primordial basis
-    is found, generating a set of coefficients.
-    The template need not be a sum of separable functions, but should be well-approximated by this
-    decomposition in the primordial basis.
-    The coefficients of this decomposition are then projected onto the $\cmb$ basis, to calculate the constraint.
-
-
-    \textcolor{red}{These methods have been used to obtain constraints\ldots}
     \section{$\cmbbest$}
     The method implemented in $\cmbbest$~\cite{Sohn_2021} is roughly a generalisation of the $\ksw$ method.
     Contrasting the Modal method, $\cmbbest$ requires only one basis, a primordial one, in $k$ space.
     This basis is then projected forwards onto the $\cmb$. This is a massively resource-intensive calculation
-    with the naive implementation scaling as $\Pmax^6$ and requiring terabytes of RAM for reasonable method parameters,
-    which slow the calculation due to the need to move data back and forth \textcolor{red}{because data
-    is really heavy and hard to carry}.
+    with the naive implementation scaling as $\Pmax^6$. It also requires terabytes
+    of RAM for reasonable method parameters.
     This calculation was tackled in~\cite{Sohn_2021}, which implemented optimisations which allowed this calculation
     to be run for $\Pmax=30$ using reasonable supercomputer resources. The motivation for implementing this algorithmically
     and numerically difficult calculation is that it need only be done once per basis. Once it is done, then
@@ -1489,10 +1471,12 @@ other methods impose some non-trivial cutoff at early times.
     as more descriptive basis sets translate directly into more constraints on inflationary models.
 
 
-    The quantity in~\eqref{diagonal_covariance} is not assumed to be diagonal\textcolor{red}{CHECK THIS},
-    it is calculated by taking an
-    ensemble average of $140$ Gaussian simulations. $\fnl$ estimates are made for all of these simulations,
-    with the results found to be distributed normally. The variance of this distribution then provides us with
+    In the methods implemented in $\cmbbest$,
+    the quantity in~\eqref{diagonal_covariance} is not assumed to be diagonal,
+    as this was found to lead to inaccurate results.
+    It is calculated by taking an ensemble average of $140$ Gaussian simulations.
+    $\fnl$ estimates are also made for all of these simulations,
+    with the variance of this distribution providing
     a measure to assess the significance of any $\fnl$ detection in the true $\cmb$.
 
 
@@ -1507,7 +1491,7 @@ other methods impose some non-trivial cutoff at early times.
 
 
 \section{Optimising the separable decomposition of primordial bispectra}
-\textcolor{red}{MERGE}
+\textcolor{red}{MERGE or DROP?}
 The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
 This convergence depends centrally on the basis choice, as we explored in~\cite{probing_precision}.
 While in that work we described basis sets that could efficiently capture both the
