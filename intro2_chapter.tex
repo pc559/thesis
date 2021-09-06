@@ -1,9 +1,8 @@
 %\input{commands}
 \chapter{Introduction II: Probing Inflation}\label{chapter:intro_bispectra}
-\textcolor{red}{Put this somewhere:}
 In this chapter we will review details of the bispectrum, including how it is predicted
 by an inflationary scenario and connected to the $\cmb$ sky.
-We will see the computational complexity of this calculation,
+We will discuss the computational complexity of this calculation, and
 the approximations that have previously been used to make it tractable.
 
 
@@ -11,6 +10,7 @@ The primordial bispectrum is one of the main
 characteristics used to distinguish between models of inflation. While it is well
 known that the physics of inflation must have been extremely close
 to linear, and the initial seeds of structure it laid down
+drawn from a probability distribution that was
 very close to Gaussian, there is expected to have been some level of coupling
 between the Fourier modes of the perturbations.
 In the simplest example of an inflation model this is
@@ -18,7 +18,7 @@ expected to be unobservable~\cite{Maldacena},
 but the possibility remains that inflation was driven by
 more complex physics that may have left an observable imprint on our universe today.
 Some models of inflation have interactions that predict non-Gaussian
-correlations at observable levels. Ways this can happen include
+correlations at observable levels. This can happen through
 self-interactions~\cite{px_burrage,dbi_in_the_sky},
 interactions between multiple fields~\cite{Byrnes_2010, Gao_turn,
 achucarro_multifield1, achucarro_multifield2, achucarro_robust_16, achucarro_natural,
@@ -27,17 +27,21 @@ achucarro_gong_cs_corr, achucarro_cs_12, achucarro_eft, curvaton_comprehensive},
 sharp features~\cite{adshead, gsr, step_novaes}
 and periodic features~\cite{flauger_pajer_resonant, Pajer_2013, Meerburg_2012, Meerburg_osc, Meerburg_2010,
 Barnaby_2011, Peiris_2013, Easther_2013, Cabass_2018, Behbahani_2011}.
-The link between primordial non-Gaussianity and primordial black
-holes has also been studied~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_passaglia}.
-Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
-usr_dimopoulos,usr_martin}
+Another observable consequence of primordial non-Gaussianity
+that has been studied is the generation of primordial black
+holes~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_passaglia}.
+%Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
+%usr_dimopoulos,usr_martin}
 \textcolor{red}{Check those references!}
+We will focus on non-Gaussianity from a single field in this thesis.
+
+
 However, understanding the inflationary prediction is only the first part of the process.
 The computational challenge of using these predictions to translate
 $\cmb$ data into constraints on specific inflation scenarios has been tackled by
 various methods.
 Much progress has been made by course-graining
-the model space into a small number of approximate templates,
+the model space, using a small number of approximate representative templates,
 and leveraging the simplifying characteristic of separability
 with respect to the three parameters of the bispectrum~\cite{Komatsu_2005, Munchmeyer_2014}.
 
@@ -49,22 +53,20 @@ it is a valuable measure of the interactions in play during inflation.
 If some inflation model predicts a bispectrum that is sufficiently well approximated by
 the standard separable templates, the constraints on those standard templates
 can be translated into constraints on the parameters of the model.
-
-
 The fact that all primordial templates estimated thus far from the CMB
 are consistent with zero has already provided such constraints
 in certain scenarios~\cite{Planck_NG_2015, Planck_NG_2018}.
-With this high-precision \planck~data, and data from forthcoming experiments
+With the high-precision \planck~data, and data from forthcoming experiments
 such as the Simons Observatory (SO)~\cite{simons}
-and CMB-S4~\cite{abazajian2016cmbs4},
-robust pipelines must be developed to bypass the approximations and
-limitations of previous methods and
-extract the maximum amount of information possible.
+and CMB-S4~\cite{abazajian2016cmbs4}, robust pipelines must be developed to
+extract the maximum amount of information possible,
+by bypassing the approximations and
+limitations of previous methods.
 
 
-Due to the nature of bispectrum estimation in the CMB and
-LSS~\cite{lss_baldauf,lss_karagiannis,chen_future_lss,Scoccimarro_2012}
-constraining an arbitrary template is difficult.
+Constraining an arbitrary template using previous methods has been difficult
+due to the nature of bispectrum estimation in the CMB and
+LSS~\cite{lss_baldauf,lss_karagiannis,chen_future_lss,Scoccimarro_2012}.
 Our aim in this work is to develop the inflationary part
 of a pipeline to allow to efficiently test a much broader range of models.
 In this work, we explore shapes arising from tree-level effects in single field models.
@@ -78,19 +80,21 @@ The Modal estimator is thus capable of constraining
 non-separable templates, while the $\ksw$ estimator, for example, cannot.
 
 
-In this work we exploit the intrinsic separability of the
-tree-level in-in formalism to apply these methods at the level of inflation.
+To do this, we will exploit the intrinsic separability of the
+tree-level in-in formalism to apply the modal methods at the level of inflation.
 Expressing the primordial bispectrum in a separable
-basis expansion leads to vast increases in efficiency both at the primordial
-and late-universe parts of the calculation.
-The main advantage is that expressing the primordial shape function
+basis expansion turns out to lead to an increase in the efficiency
+of the calculation at the primordial level.
+However, the main advantage remains as the fact that
+expressing the primordial shape function
 in this way reduces the process of bispectrum estimation in the CMB to a
-cost which is large, but need only be paid once per basis,
+cost which (while large) need only be paid once per basis,
 not per scenario.
+The details of the bispectrum estimation part of
+the pipeline will be detailed in~\cite{Sohn_2021}.
 
 
-A proof of concept of this approach at the primordial level was presented in~\cite{Funakoshi},
-and the details of the bispectrum estimation part will be detailed in~\cite{Sohn_2021}.
+A proof of concept of this approach at the primordial level was presented in~\cite{Funakoshi}.
 We go beyond the work of~\cite{Funakoshi} both in developing the choice of basis
 (the feasibility of the method depending vitally on the chosen basis
 achieving sufficiently fast convergence in a broad range of interesting models)
@@ -103,12 +107,12 @@ allowing us to apply the method to feature bispectra for the first time.
     %We can get a lot of information on the evolution of the perturbations
     %from observations, and that tells us about the history of universe,
     %which tells us about its content, etc\ldots
-    We now turn our attention to the details of the perturbations.
+    We begin by discussing the details of the perturbations.
     The action for the perturbations is derived by
     %working in a general gauge
     %(using the ADM formalism) and
     splitting the relevant quantities into a background
-    part and a small perturbation
+    part and a small perturbation, which we can parameterise as
     \begin{align}
         \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}.
     \end{align}
@@ -127,10 +131,6 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}\label{zeta_action}
         S_{2} = \int d^3x dt~\frac{a\varepsilon}{c_s^2}\left(a^2\dot{\zeta}^2-c_s^2\left(\partial\zeta\right)^2\right)
     \end{align}
-    The sound speed $c_s$~\eqref{sound_speed_definition} is
-    the propagation speed of the perturbations.
-    This defines a sound horizon, $c_s/H$---as the modes cross this sound
-    horizon they freeze.
     Defining $v=-z\zeta$ and switching to conformal time we can rewrite~\eqref{zeta_action} as
     \begin{align}\label{v_action}
         S_{2} = \frac{1}{2}\int d^3x d\tau \left[{\left(\frac{d v}{d \tau}\right)}^2-c_s^2\left(\partial v\right)^2+\frac{1}{z}\frac{d^2z}{d\tau^2}v^2\right]
@@ -139,6 +139,10 @@ allowing us to apply the method to feature bispectra for the first time.
     In terms of $v$, we can recognise the dynamics as that of a
     canonically normalised scalar field, oscillating
     with a frequency that changes as the universe expands.
+    The sound speed $c_s$~\eqref{sound_speed_definition} is
+    the propagation speed of the perturbations.
+    This defines a sound horizon, $c_s/H$---as the modes cross this sound
+    horizon they freeze.
     Expanding the mass, we find
     \begin{align}
         %\frac{z''}{z} = 2{\left(aH\right)}^2\left(1+\frac{\eta}{2}-\varepsilon_s\right)\left(1+\frac{\eta-2\epscs-2\varepsilon+2\eta'-4\epscs'}{4}\right)
