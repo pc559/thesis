@@ -56,10 +56,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     where $a(t)$ has the interpretation as the scale factor
     which describes the evolution of the universe.
-    The line element $ds^2$ then determines the distance between two spacetime points.
+    The line element $ds^2$ then determines the interval between two spacetime points.
     %Or, more intuitively, it determines the proper time measured by an observer who freely falls
     %between two events to be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
-    The homogeneity, isotropy and curvature of space are encoded in $dS_3$,
+    The homogeneity, isotropy and curvature of space are encoded in $dS^2_3$,
     but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
     We will only consider a flat universe, so $dS_3^2=dx^2+dy^2+dz^2$.
 
@@ -76,7 +76,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     A more familiar component is what cosmologists refer to as baryonic matter, which is
     the protons, electrons, neutrons and all the other particles which make up the visible galaxies, stars
     and humans.
-    Finally, the component which at present makes up the largest contribution to the
+    The last component we will mention is the component which at present makes up the largest contribution to the
     energy budget of the universe, dark energy.
     Dark energy appears to act as a vacuum energy, as a cosmological constant which does not
     dilute as the universe expands. The radiation is denoted by $\gamma$,
@@ -217,8 +217,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     A subscript of $0$ will denote a quantity evaluated today.
     The critical density $\rho_{crit,0}$ is the density for which the universe is flat,
     so for our universe $\sum\Omega_{i,0}=1$.
-
-
     The measured values for these quantities, as presented in~\cite{Planck_parameters_2018},
     are
     \begin{align}\label{measured_params}
@@ -273,7 +271,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     The evidence for this story is strong. It includes
     predictions for the relative abundances of the lightest
     elements (which were forged in the first few minutes of the universe)
-    and in ``baryon acoustic oscillations'' in the $\cmb$ and large scale structure ($\lss$).
+    and ``baryon acoustic oscillations'' in the $\cmb$ and large scale structure ($\lss$).
     These can be directly linked to the end of the coupling
     between the baryons and the acoustic waves in the radiation,
     before the release of the $\cmb$.
@@ -282,13 +280,13 @@ extract the fundamental physics waiting to be found in the universe's youth.
     There are however unanswered questions within the $\lcdm$ model.
     One is the Hubble tension, a question about the
     precise rate of expansion of the universe today---see for example~\cite{tensions_2019, Freedman_2021}.
-    All in all, it is incredible that only a century ago the cutting edge debate was
+    Despite the remaining questions, it is incredible that only a century ago the cutting edge debate was
     whether the universe had a beginning or not---compared to
     now, where the debate rages over the second and
     third significant figures of its age.
 
 
-    Before focusing our whole attention on the past, let us briefly
+    Before focusing our whole attention on the past in the rest of this thesis, let us briefly
     look toward the future of the universe.
     What will we see as the universe evolves?
     Eventually $a$ will be
@@ -307,8 +305,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     where $H$ is a constant, having frozen in to a factor $\sqrt{\Omega_{\Lambda}}$ smaller than
     its value today.
-
-
     One question we can ask is how far light will travel in the lifetime of the universe.
     Since $ds^2=0$ for a photon, if we define the conformal time $\tau$ such that
     \begin{align}\label{conformal_time_defn}
@@ -326,11 +322,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
     distance (and the time taken, $\int dt$) diverges.
     Integrating~\eqref{friedmann_omega} in the same way that generated figure~\ref{fig:lcdm_tau}
     we find that the points that we see in today's $\cmb$ are a comoving distance of $14.2\Gpc$ away.
-    We also find the asymptotic value of $\tau$ to be $19.2\Gpc$, indicating that we will never see the
-    light that was emitted from the $\cmb$ at comoving distances greater than this.
     Since $a_0=1$, the present physical distance to these points is equal to the comoving distance,
     but this will increase exponentially in the future.
-    %This is the behaviour we would also like in the very early universe, as we will see.
+    We also find the asymptotic value of $\tau$ to be $19.2\Gpc$, indicating that we will never see the
+    light that was emitted from the $\cmb$ at comoving distances greater than this.
 
 \begin{figure}[!pth]
 \centering     %%% not \center
@@ -366,7 +361,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     $a(t)$ as been slowing---this is decelerating expansion.
     However, as $\Lambda$ comes to dominate,
     $\dot{a}$ will begin to increase, and the universe will enter
-    and epoch of accelerated expansion.
+    an epoch of accelerated expansion.
 }\label{fig:lcdm_adot}
 \end{figure}
 \begin{figure}[!pth]
@@ -423,7 +418,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     that preceded $\lcdm$.
 
 
-    Two clues that we have are known as the horizon problem, and the flatness problem.
+    Two of the clues that we have are known as the horizon problem, and the flatness problem.
     Roughly speaking, the first is the problem that the universe is more homogeneous on
     large scales than we would expect, given the history of $\lcdm$. Why is the temperature on one
     part of the sky so close to the temperature on the other side of the sky?
@@ -431,7 +426,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     small, despite the fact that there is no reason to believe it should be set to precisely zero.
     %, and one would expect the dynamics to increase it's relative contribution to the
     %energy density of the universe.
-    We will not go into detail on the flatness problem except to state that
+    We will not go into the details of the flatness problem except to state that
     a natural explanation of this would be an attractive quality in a
     theory of the very early universe.
 
@@ -443,10 +438,9 @@ extract the fundamental physics waiting to be found in the universe's youth.
         x_{rec} = \int_{0}^{\tau_{rec}} d \tau = \int_{0}^{a_{rec}} \frac{d\tau}{da}da \propto \sqrt{a_{rec}}.
     \end{align}
     We can see that this is finite.
-    Including the radiation dominated period does not change this conclusion---in fact
-    we can find the conformal distance $x_{rec}=280\Mpc$.
+    Including the radiation dominated period does not change this conclusion---we
+    can find the conformal distance $x_{rec}=280\Mpc$.
     % Compared to the physical = 278Mpc/1100 = 310kpc.
-    \textcolor{red}{Check all this again.}
     We can also calculate that the comoving distance that a photon could have
     freely streamed through the universe since
     last scattering is $x_0=14000\Mpc$ (this matches the physical distance
@@ -473,11 +467,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
     %Photons travelling on $45'$ lines on a $\tau-x$ plot.
     While in the basic $\lcdm$ model there has not been enough conformal time since $a=0$ for
     opposite sides of the $\cmb$ to come into thermal equilibrium, this can be remedied by
-    adding an epoch that causes the horizon to shrink---this would give large scales enough time
+    adding an epoch that causes the horizon (the characteristic conformal length scale $(aH)^{-1}$)
+    to shrink---this would give large scales enough time
     to come into thermal equilibrium, then leave them outside the horizon. The usual $\lcdm$ evolution
     would then come into play, bringing these scales back inside the horizon where we can observe them.
-    One way of doing this is via a cosmological constant---in that case the horizon $1/(aH)$ shrinks
-    exponentially, and we find that $\tau=-1/(aH)$, so in the limit $a\rightarrow 0$ we see there is
+    One way of doing this is via an effective cosmological constant---in that case the horizon $1/(aH)$ shrinks
+    exponentially. We then find that $\tau=-1/(aH)$, so in the limit $a\rightarrow 0$ we see there is
     infinite conformal time in the past, to allow the entire observable universe to come into
     causal contact.
 
@@ -517,20 +512,18 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \textit{all} of the components.
     An implication we can draw from this is that a single degree of freedom
     would be sufficient to lay down these initial perturbations.
-
-
     The Gaussianity of the initial conditions is the statement that their statistics are completely described by
     their two-point function. We will discuss this in more detail in a later section.
-    The deviation from perfect scale invariance has been measured to high confidence by the $\planck$
-    satellite.
-    Earlier measurements were made by the WMAP satellite~\cite{Senatore_wmap_2009}.
     Later in section~\ref{corr_functions} we will define scale invariance,
     the statement that correlations do not depend on the scale at which they are measured.
-    It turns out that observations show that this is not precisely respected.
+    It turns out that observations show that this is not precisely respected,
+    with the deviation from perfect scale invariance being measured to high confidence by the $\planck$
+    satellite.
+    Earlier measurements were made by the WMAP satellite~\cite{Senatore_wmap_2009}.
 
 
     \subsection{Driving inflation with a scalar field}
-    These features of the early universe can be explained by a period of exponential expansion
+    These features of the early universe can be explained by a period of near-exponential expansion
     preceding the usual $\lcdm$ evolution.
     One simple way one could imagine driving this expansion is through a single
     scalar field.
@@ -540,8 +533,10 @@ S = \int d^4x \sqrt{-g}P(X,\phi)
 \end{align}
 with $\phi=\phi(t)$ and $X\equiv-\frac{1}{2}g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi=\frac{1}{2}\dphi^2$.
 We will work with the number of e-folds, $N$, as our time variable
-$x'\equiv\frac{dx}{dN}=a\frac{dx}{da}$.
-The energy-momentum tensor is defined as
+$x'\equiv\frac{dx}{dN}=H^{-1}\frac{dx}{dt}$.
+
+
+The energy-momentum tensor is
 \begin{align}\label{gr_energy}
     T_{\mu\nu} = -2\frac{\partial\mathcal{L}_m}{\partial g^{\mu\nu}}+g_{\mu\nu}\mathcal{L}_m.
 \end{align}
@@ -591,8 +586,6 @@ the equation of motion for $\phi$ is~\cite{Hu_2011}
 \begin{align}\label{phieom}
     \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
 \end{align}
-
-
 In the canonical case~\eqref{epsilon_phi} simplifies to
 $\varepsilon = \frac{1}{2}{\phi'}^2$,
 while in the $\dbi$ case we find
@@ -635,13 +628,13 @@ $2XP_{,X}\ll P$.
             &= -\frac{1}{a}\left(1-\varepsilon\right)
     \end{align}
     and so we need $\varepsilon<1$ to successfully inflate the universe.
-    However we see that for exponential expansion we have already demanded
+    However we see that for near-exponential expansion we have already demanded
     $\varepsilon\equiv-\dot{H}/H^2\ll1$ so this must be satisfied.
     %This is necessary but not sufficient---we still need to generate
     %the correct statistics for the primordial perturbations.
     %This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
     To match the measured deviation from scale-invariance in standard slow-roll
-    inflation we would need $\varepsilon\sim O(10^{-2})$.
+    inflation it turns out we would need $\varepsilon\sim O(10^{-2})$.
 
 
 For a model with a canonical kinetic term,~\eqref{phieom} simplifies
@@ -656,8 +649,9 @@ and so
 \end{align}
 From this, we see that demanding that $\varepsilon$ be small places a constraint
 on the flatness of the potential in a canonical model.
-We also require $\eta\ll1$ to maintain inflation for the sufficient number
-of e-folds to solve the horizon problem.
+Requiring inflation to last for the sufficient number
+of e-folds to solve the horizon problem
+also constrains $\eta\ll1$.
 
 
 %This allows us to rephrase the Friedmann equation in the following useful
@@ -672,7 +666,7 @@ of e-folds to solve the horizon problem.
 
 \section{Statistical observables}
 \subsection{From probabilities to observations}\label{corr_functions}
-    Everything we have discussed until this point has dealt with quantities
+    The discussion until this point has focused on quantities
     with definite values. This will no longer
     be true when we discuss quantities that have a quantum origin, as
     the prediction of a fundamental quantum theory is a statistical one.
@@ -705,7 +699,8 @@ of e-folds to solve the horizon problem.
     %like the average height of a population or the average temperature in a given room,
     %we would use~\eqref{expectation_value_cont}.
     In this thesis, we will be working with the expectation value of
-    functions of field configurations, so we will use~\eqref{expectation_value_field}.
+    functions of field configurations, so will be working with quantities
+    defined in terms of~\eqref{expectation_value_field}.
     In particular, the quantum mechanical nature of the inflationary
     origin of structure means that such predictions
     of inflationary theories will necessarily be statistical. That is to say, the predictions through
@@ -755,20 +750,18 @@ of e-folds to solve the horizon problem.
     Similar statements can of course be made for higher point correlators.
 
 
-    If the bispectrum has the form
-    \begin{equation}\label{sepXYZ}
-        B(k_1,k_2,k_3) = X(k_1)Y(k_2)Z(k_3),
-    \end{equation}
-    or can be expressed as a sum of such terms, it is called separable.
-    This property allows useful simplifications to calculations that
-    will be explored in~\ref{chapter:intro_bispectra}.
-
-
     Our focus in this thesis will be on the predictions that models of inflation make
     for the the bispectrum $B(k_1,k_2,k_3)$.
     This is one characteristic property of 
     the initial conditions for the $\lcdm$ evolution that follows after. From
     this, one can calculate statistical properties of the $\cmb$ sky that we see.
+    If the bispectrum has the form
+    \begin{equation}\label{sepXYZ}
+        B(k_1,k_2,k_3) = X(k_1)Y(k_2)Z(k_3),
+    \end{equation}
+    or can be expressed as a sum of such terms, it is called separable.
+    This property allows useful simplifications to such calculations, that
+    will be explored in chapter~\ref{chapter:intro_bispectra}.
 
 
     Another symmetry one could imagine is statistical scale invariance.
@@ -779,7 +772,7 @@ of e-folds to solve the horizon problem.
     One can show that this symmetry demands $P(k)\propto k^{-3}$.
     Motivated by this, it is usual to define the dimensionless power spectrum
     \begin{align}\label{primpowerspec_defn}
-        \mathcal{P}(k) = \frac{k^3P(k)}{2\pi^2}
+        \mathcal{P}(k) = \frac{k^3}{2\pi^2}P(k).
     \end{align}
     % By looking at <f(x)^2>
     Evidence suggests that this symmetry is \textit{not} respected by the probability
@@ -855,23 +848,20 @@ of e-folds to solve the horizon problem.
     Of course, we do not have access to spatial infinity,
     thus our spatial averages will only ever be an approximation of the
     true ensemble averages---this is known as cosmic variance.
-
-
     To summarise,
-    there are two ways to beat cosmic variance (to measure the ensemble
+    there are two ways to beat this cosmic variance (to measure an ensemble
     average $<f(\vecx)^2>$ at some fixed $\vecx$, say).
     We could stay in the same spatial region, but magically peek into all the other universes.
     Or, we could stay in the same universe, but magically peek into every spatial region.
     The ergodic theorem tells us that these two methods will give the same answer,
     thus allowing us to make contact between spatial measurements made in
     our one universe and the ensemble predictions of inflation.
-    In practice, we have some other advantages too,
-    %For example, the distribution from which the Fourier coefficients are drawn
-    %depends only on $|\veck|$, so each new direction we measure will give us new information.
-    as even in the same spatial region in the one universe we can have access to multiple
-    independent samples of the distribution.
-    %Cosmic variance in our measurements is due to both being limited to one universe, and to being
-    %limited to a finite spatial region within that universe.
+
+
+    In practice, we have other advantages.
+    Even in a limited spatial region we can have access to multiple
+    samples drawn independently from one distribution, for example
+    in multipole moments due to statistical isotropy.
 
 
     %Our result will be a constraint on an inflationary parameter, stated at e.g.\ $95\%$ confidence.
@@ -989,7 +979,7 @@ despite minimal optimisation.
     The final highlighted result, obtained in collaboration, is the connection
     of an inflationary scenario to the $\cmb$ through the $\cmbbest$ code\footnote{
         Developed by Wuhyun Sohn.}.
-    This allows a constraint to be placed on the sound speed of $\dbi$ inflation, $c_s$.
+    This allowed in particular a constraint to be placed on the sound speed of $\dbi$ inflation, $c_s$.
     At the level of the CMB, validation of the method as a whole
     (when applied to the $\planck$ data)
     is achieved by comparison with the
