@@ -271,17 +271,13 @@ allowing us to apply the method to feature bispectra for the first time.
         &= i \delta^{(3)}(\vecx-\mathbf{y})
     \end{align}
     if we demand that $v_k\pi^*_k-\pi_kv^*_k=i$.
-
-
 %\subsubsection{Initial conditions for the perturbations}
     %We can define the vacuum state by $\ahat_{\veck}\left| 0\right>=0$.
     %Demanding this to be an eigenstate of $H$ forces $\pi_k=\pm ikv_k$.
     %Choosing the lowest energy state\ldots
     %and this is known as the Bunch-Davies vacuum.
-
-
-    Demanding that the early time behaviour matches that of flat space
-    gives us that
+    Demanding that the early time behaviour of $y_k$ matches that of flat space
+    gives us
     \begin{align}
         v_k = \frac{1}{\sqrt{2{c_s}k}}e^{-ik\tau_s}
     \end{align}
@@ -369,57 +365,51 @@ at leading order in slow-roll.
 
 
     \section{The primordial power spectrum}
-    \textcolor{red}{Drastically cut this down.}
-    Define the $\cmb$ power spectrum, discuss constraints.
-    \textcolor{red}{Note we neglect ISW throughout. Mention polarisation, B-modes~\cite{Baumann_bmodes_2014}.\\
-    How does this rule out e.g.\ $m^2\phi^2$?}
-
-
-    In general when projecting a three dimensional random field onto a sphere (the $\cmb$ sky)
-    the statistics are projected as
+    The temperature anisotropies of the $\cmb$ are decomposed in spherical
+    harmonics
     \begin{align}
-        \left<f_{lm}f^*_{l'm'}\right> = 4\pi \delta_{ll'}\delta_{mm'}
-        \int d\ln k \mathcal{P}_{\mathcal{F}}(k) j_l^2(kr)
+        \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{lm} a_{lm}Y_{lm}(\hat{\mathbf{n}}).
+    \end{align}
+    Projecting the large scale primordial inhomogeneities onto a sphere (the $\cmb$ sky)
+    the statistics are projected as
+    \textcolor{red}{Check a.}
+    \begin{align}
+        \left<a_{lm}a^*_{l'm'}\right> &= \delta_{ll'}\delta_{mm'}C_l\\
+        C_l &\approx 4\pi\int d\ln k~\primpowerspec(k){\left[
+            j_l(k\chi_*)/5
+            \right]}^2.
     \end{align}
     where $j_l(x)$ is a Bessel function, and the $\delta_{ll'}$ and $\delta_{mm'}$
     are demanded by statistical isotropy. The Bessel function encodes the fact that a three dimensional
     wave of a given wavelength intersects the sphere at multiple different angular separations.
 
 
-    The temperature anisotropies of the $\cmb$ are decomposed in spherical
-    harmonics as
-    \begin{align}
-        \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{lm} a_{lm}Y_{lm}(\hat{\mathbf{n}})
+    For large scales, where there was not enough time for oscillations
+    before recombination, there is no processing of the primordial statistics
+    and the term $\left(j_l(k\chi_*)/5\right)^2$ acts as a transfer
+    function that simply encodes the projection effects.
+    For smaller scales where the physics is more complicated this would be encoded in
+    some more general transfer function $\Delta_l(k)$
+    \begin{align}\label{eqn:transfer_function}
+        C_l &\approx 4\pi\int d\ln k~\primpowerspec(k)
+            \Delta_l(k).
     \end{align}
-    and the power spectrum is
+
+
+    We can write down an estimator for the power spectrum
     \begin{align}
-        \left<TT\right> &= ?\\
-        \left<a_{lm}a_{l'm'}\right> &= ?\\
-        C_l &= \frac{1}{2l+1}\sum_m a_{lm} a_{l-m}.
+        %\left<TT\right> &= ?\\
+        %\left<a_{lm}a_{l'm'}\right> &= ?\\
+        \hat{C}_l &= \frac{1}{2l+1}\sum_m a_{lm} a_{l-m}.
     \end{align}
-    The variance is given by
+    The variance of this estimator is given by
     \begin{align}
         var\left(\hat{C}_l\right) = \frac{2}{2l+1} C^2_l,
     \end{align}
     which reflects the fact that for the distribution of $C_l$,
-    there are $2l+1$ independently draws that we can observe.
+    there are $2l+1$ independently drawn modes that we can observe.
 
-    The $\cmb$ power spectrum $C_l$ is calculated from the primordial power spectrum $\primpowerspec$
-    using a transfer function
-    \begin{align}\label{eqn:transfer_function}
-        C_l \approx 4\pi\int d\ln k~\primpowerspec(k)
-            \Delta_l(k).
-    \end{align}
-    For large scales, where there was not enough time for oscillations
-    before recombination, there is no processing of the primordial statistics
-    and the transfer function simply encodes the projection effects
-    \begin{align}
-        C_l \approx 4\pi\int d\ln k~\primpowerspec(k){\left[
-            j_l(k\chi_*)/5
-            \right]}^2.
-    \end{align}
-    For large $l$ the spherical Bessel functions have a sharp peak when $k\chi_*=l$,
-    so for large $l$ we see that $C_l$ is mostly determined by $\primpowerspec(l/\chi_*)$.
+
     For $\primpowerspec(k)=A_s$, i.e.\ perfectly scale invariant,
     we can use that
     \begin{align}
@@ -1064,16 +1054,14 @@ see~\cite{chen_folded_resonant}.
 
 
 \section{Step 3: the $\cmb$ bispectrum}
-    For a three dimensional statistical distribution projected onto
-    a sphere, we expect the three-point statistics to be projected
-    like (as in~\eqref{eq:bll})
-    \begin{align}
-        \left<f_{l_1m_1}f_{l_2m_2}f_{l_3m_3}\right> = B_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
-    \end{align}
-    where ${{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}$ enforces statistical isotropy.
-
-
-    For the $\cmb$ in particular, we calculate the projected bispectrum using~\cite{FergShell_2}
+    %For a three dimensional statistical distribution projected onto
+    %a sphere, we expect the three-point statistics to be projected
+    %like
+    %\begin{align}
+    %    \left<f_{l_1m_1}f_{l_2m_2}f_{l_3m_3}\right> = B_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
+    %\end{align}
+    %where ${{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}$ enforces statistical isotropy.
+    For the $\cmb$, we calculate the projected bispectrum using~\cite{FergShell_2}
     \begin{equation}
     \label{eq:reduced_cmb}
     b_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
@@ -1086,11 +1074,12 @@ see~\cite{chen_folded_resonant}.
     We will repeat the simple example outlined in~\cite{FergShell_2}. If we
     take $S(k_1,k_2,k_3)=1$ for all configurations, then the above four-dimensional integral
     simplifies greatly. If we also restrict to large angular scales ($l\ll200$)
-    then we can use the \textcolor{red}{Sachs-Wolfe} approximation
+    then we can use the approximation
     \begin{align}
-        \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k).
+        \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k)
     \end{align}
-    \textcolor{red}{How does this relate to $\chi_*$, and why $3$?}
+    where $\tau_0-\tau_{dec}$ is the conformal distance to last scattering.
+    \textcolor{red}{Check. Why $3$?}
 
     The integral becomes
     \begin{equation}
@@ -1103,7 +1092,7 @@ see~\cite{chen_folded_resonant}.
     Now, using that
     \begin{align}
         \int_0^\infty dk~j_l(k)j_l(xk)\qquad=\qquad&\frac{\pi}{2}\frac{x^{-(l+1)}}{2l+1}\qquad&&\text{for $x>1$}\\
-                            \qquad&\frac{\pi}{2}\frac{x^{l}}{2l+1}\qquad&&\text{for $x<1$}
+                            =\qquad&\frac{\pi}{2}\frac{x^{l}}{2l+1}\qquad&&\text{for $x<1$}
     \end{align}
     we find that
     \begin{align} 
