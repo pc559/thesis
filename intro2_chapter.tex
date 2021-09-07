@@ -58,7 +58,6 @@ Models of inflation that can produce observably large non-Gaussian signatures,
 and are therefore constrained by the current experimental bounds~\cite{Planck_NG_2018},
 include string theory-inspired models such as $\dbi$ inflation~\cite{dbi_silverstein}
 and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
-\textcolor{red}{Previous axion citations?}
 (which gives large non-Gaussianity through the resonance mechanism).
 
 
@@ -354,7 +353,6 @@ at leading order in slow-roll.
     \end{tabular}
     \caption{
         Notation summary and comparison.
-        \textcolor{red}{Check N/A's.}
     }\label{tab:notation}
   \end{center}
 \end{table}
@@ -368,7 +366,6 @@ at leading order in slow-roll.
     \end{align}
     Projecting the large scale primordial inhomogeneities onto a sphere (the $\cmb$ sky)
     the statistics are projected as
-    \textcolor{red}{Check a.}
     \begin{align}
         \left<a_{lm}a^*_{l'm'}\right> &= \delta_{ll'}\delta_{mm'}C_l\\
         C_l &\approx 4\pi\int d\ln k~\primpowerspec(k){\left[
@@ -489,7 +486,7 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     the observations-side and the primordial-side. We list some below, for convenience.
 
 
-    For the local form, we have \textcolor{red}{Check prefactor!}
+    For the local form, we have
     \begin{align}\label{fnllocal_quadratic}
         \zeta(\vecx) = \zeta_G(\vecx) - \frac{3}{5}\fnllocal\left(\zeta_G(\vecx)^2-\left<\zeta_G(\vecx)^2\right>\right)
     \end{align}
@@ -565,23 +562,26 @@ and $1$ if $p,r,s$ are all distinct.
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3)
     &= \frac{6}{5}A_\zeta^2\fnllocal\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\\
+    &= \frac{6}{5}A_\zeta^2\fnllocal\frac{K_3}{6\,K_{111}}.
+\end{align}
+This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$,
+and is used to test for multi-field effects~\cite{Planck_NG_2015}.
+It can also be modified to include the expected scaling
+\begin{align}
+S^{local}(k_1,k_2,k_3)
     &= \frac{6}{5}\fnllocal\bigg(
         P_\zeta(k_2)P_\zeta(k_3)
         +P_\zeta(k_3)P_\zeta(k_1)
         +P_\zeta(k_1)P_\zeta(k_2)
-    \bigg)(k_1k_2k_3)^2\\
-    &= \frac{6}{5}A_\zeta^2\fnllocal\frac{K_3}{6\,K_{111}}.
+    \bigg)(k_1k_2k_3)^2.
 \end{align}
-This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
-    The local template is used to test for multi-field effects~\cite{Planck_NG_2015}.
 
 
     Non-Gaussianity arising from inflation with a non-canonical kinetic term can
     sometimes be described by the equilateral template
 \begin{align}\label{equil_shape}
     S^{equil}(k_1,k_2,k_3)
-    &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}\\
-    &= \frac{18}{5}A_\zeta^2\fnlequil\frac{K_3??}{6\,K_{111}??}.
+    &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}
 \end{align}
 This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
@@ -608,7 +608,6 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     at second order one obtains the quadratic action, which evolves the
     interaction picture fields; and at third order, one obtains the cubic
     interaction Hamiltonian.
-    \textcolor{red}{Check this!}
 
 
     To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
@@ -683,7 +682,6 @@ is given in~\eqref{gr_energy}.
                 +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
                 -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
     \end{align}
-    \textcolor{red}{Double check this is all consistent.}
     This can be compared with the equations of motion presented in~\cite{dbi_silverstein}
     and~\cite{warp_features_dbi}.
     See also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
@@ -921,14 +919,13 @@ We will now continue the calculation within the slow-roll approximation,
 using~\eqref{uk_solution}. We approximate $g(\tau')$ and the slow-roll
 parameters as constant, and use $a\approx-1/(H\tau)$.
 We see that we will need to perform the following integral by parts
-\textcolor{red}{sign?}
+\textcolor{red}{Sign? Check all.}
 \begin{align}
     \int_{-\infty(1+i\varepsilon)}^{0}d\tau~\tau^2 e^{-ic_sK\tau}
     &= \frac{-2i}{c_s^3K^3}
 \end{align}
 where we recall $K=k_1+k_2+k_3$.
 Using this, we finally obtain
-\textcolor{red}{sign?}
 \begin{align}
     S(k_1, k_2, k_3) = -3\frac{g H^5}{8\varepsilon^3}\frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}
 \end{align}
@@ -937,7 +934,6 @@ of which give the same result in this example.
 We can make contact with $\fnl^{EFT2}$ of~\cite{Planck_NG_2018, Senatore_wmap_2009}
 by setting $g(t)=-\frac{\varepsilon}{Hc_s^2}(1-c_s^2)\left(1+\frac{2\tilde{c}_3}{3c_s^2}\right)$
 and recalling $\Phi=\frac{3}{5}\zeta$.
-\textcolor{red}{Check this again!}
 
 
     \subsection{The squeezed limit consistency condition}
@@ -1281,12 +1277,6 @@ it may be be difficult to see how constraints on existing
 features can be applied.
 
 
-    Separability is required, so usually one approximates non-separable templates
-    by separable ones.
-    For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
-    template~\eqref{equil_shape}.
-
-
     $\ksw$-type estimators take as their starting point the realisation that many
     templates can be rewritten as a simple finite sum of separable functions.
     For example, the simple local~\eqref{local_shape}, equilateral~\eqref{equil_shape}
@@ -1299,7 +1289,10 @@ features can be applied.
     sum-separable.
 
 
-    \textcolor{red}{Merge.}
+Since separability is so vital, the usual strategy is to approximate non-separable templates
+by separable ones.
+For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
+template~\eqref{equil_shape}.
 Much success has been had in constraining non-Gaussianity
 in the CMB using separable approximations to these approximate templates.
 Other methods target oscillations~\cite{reso_estimator, excited_estimator},
@@ -1318,9 +1311,6 @@ phase varies across the tetrapyd.
     The template need not be a sum of separable functions, but should be well-approximated by this
     decomposition in the primordial basis.
     The coefficients of this decomposition are then projected onto the $\cmb$ basis, to calculate the constraint.
-
-
-    \textcolor{red}{These methods have been used to obtain constraints\ldots}
 
 
 \section{Previous work on in-in separability.}
@@ -1361,7 +1351,6 @@ This is discussed in section~\ref{sec:inner_product}.
     %\subsection{Comparison to the present work}
 
 
-    \textcolor{red}{Summary of the achievements and limitations of~\cite{Funakoshi}, how I went beyond them.}
     \section{Configuration-by-configuration codes}
     Previous work on the numerical calculations of inflationary
 non-Gaussianity include the BINGO code~\cite{BINGO},
