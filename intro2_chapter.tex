@@ -33,6 +33,8 @@ holes~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_passaglia}.
 %Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
 %usr_dimopoulos,usr_martin}
 \textcolor{red}{Check those references!}
+
+
 We will focus on non-Gaussianity from a single field in this thesis,
 however inflation scenarios with more than one field are an
 active field of research.
@@ -41,12 +43,12 @@ non-linearities of interactions between fields during inflation
 can generate observably large non-Gaussian signals.
 This is in part because they can evade the squeezed limit consistency condition~\cite{sqz_consistency}.
 The extra degrees of freedom in these scenarios can also generate bispectrum shapes not usually
-seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}),
-making the exploration of the case of multiple fields a prime target.
-    \textcolor{red}{MERGE}
+seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}).
+The methods outlined in this thesis have been implemented
+and tested for single-field models,
+with multi-field models being a prime target for future work.
 
 
-    \textcolor{red}{MERGE}
 If the fundamental physical model of inflation is a single field,
 then the non-linearities of the self-interactions of that field may have
 produced observably large non-Gaussian signatures~\cite{Tolley_2010, achucarro_eft}.
@@ -60,8 +62,7 @@ and axion-monodromy~\cite{axion_monodr_review_09, Flauger_2014}
 (which gives large non-Gaussianity through the resonance mechanism).
 
 
-    \textcolor{red}{MERGE}
-    There is an extensive literature on the calculation
+There is an extensive literature on the details of the calculation
 of bispectra from models of inflation~\cite{chen_easther_lim_1,chen_easther_lim_2,chen_ng_0605,seery_ng_0503,px_burrage,adshead,flauger_pajer_resonant,features_bartolo,bdy_passaglia}.
 Multi-field models can produce large
 correlations between modes of very different scales;
@@ -70,9 +71,6 @@ boosting both the smooth non-Gaussian correlations, and any
 features which may be present~\cite{dbi_adshead,dbi_in_the_sky,warp_features_dbi,dbi_silverstein,dbi_step_miranda,chen_folded_resonant,osc_avila};
 effectively single-field models with imaginary sound speeds can generate a bispectrum
 mostly orthogonal to the usual equilateral and local templates~\cite{RP_1}.
-The methods outlined in this thesis have been implemented
-and tested for single-field models,
-with multi-field models being a prime target for future work.
 
 
 However, understanding the inflationary prediction is only the first part of the process.
@@ -162,7 +160,6 @@ allowing us to apply the method to feature bispectra for the first time.
     where $h_{ij}$ is the spatial part of the metric.
     %The relation between $\zeta$ in uniform density gauge and
     %$\delphi$ in spatially flat gauge is
-    %\textcolor{red}{SOUND SPEED?}
     %\begin{align}
     %    \zeta=-\frac{\delphi}{\sqrt{2\varepsilon}a}.
     %\end{align}
@@ -223,7 +220,6 @@ allowing us to apply the method to feature bispectra for the first time.
     however, this is not ideal as $c_s$ depends on time.
     Instead, let us use $\tau_s$ as our time parameter.
     If we follow~\cite{Hu_2011} and define
-    \textcolor{red}{Should that $2$ be there?}
     \begin{align}
         y_k=\sqrt{2kc_s}v_k,
     \end{align}
@@ -427,11 +423,6 @@ at leading order in slow-roll.
     %        -\frac{v_\gamma(\eta_*,\mathbf{k})}{\mathcal{R}(\mathbf{k})}j'_l(k\chi_*)
     %        \right]}^2.
     %\end{align}
-    %\textcolor{red}{Derivative of $j$ with respect to its argument.}
-
-
-    %For small scales, diffusion of photons escaping \textcolor{red}{pressure waves??}
-    %damps out the sharp peaks of the acoustic oscillations.
 
 
 \section{The primordial bispectrum}
@@ -585,9 +576,8 @@ This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$.
     The local template is used to test for multi-field effects~\cite{Planck_NG_2015}.
 
 
-    Non-Gaussianity arising from gravitational collapse \textcolor{red}{CHECK THIS}
-    and from inflation with a non-canonical kinetic term can be described by the
-    equilateral template
+    Non-Gaussianity arising from inflation with a non-canonical kinetic term can
+    sometimes be described by the equilateral template
 \begin{align}\label{equil_shape}
     S^{equil}(k_1,k_2,k_3)
     &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}\\
@@ -601,7 +591,7 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     %Since General Relativity has a diffeomorphism invariance, it has a redundancy
     %which must be settled before the true degrees of freedom are manifest.
     %One does this by decomposing the metric (typically in the $ADM$ formalism)
-    %and expanding the action \textcolor{red}{is this what I want?}
+    %and expanding the action
     We begin with the action
     %S=\int dx^4\sqrt{g}\left[\frac{R}{2}-\frac{1}{2}(\nabla\phi)^2-V(\phi)\right].
     \begin{align}\label{gr_action}
@@ -732,7 +722,6 @@ From this calculation we obtain the dimensionless shape function $S(k_1,k_2,k_2)
 defined in~\eqref{shapefn},
 which is then used as input into~\eqref{eq:reduced_cmb}.
 As an example, if one takes $\Hint\propto\dot{\zeta}^3$, this set-up can produce the standard EFT shape
-\textcolor{red}{expand on this}
 \begin{align}\label{example_eft2}
     S(k_1, k_2, k_3) = \frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}.
 \end{align}
@@ -748,7 +737,6 @@ with a sum of separable terms. Our general aim will be to directly calculate
 this sum for a broad range of inflation models.
 
 
-\textcolor{red}{Move up?}
 We now briefly outline the set-up of the standard calculation.
 The Lagrangian is expanded in the perturbations and used to obtain the Hamiltonian.
 The Hamiltonian is split into $H_0$ and $\Hint$.
@@ -894,7 +882,6 @@ We now perform the contractions. If we contract one of the $\zeta_{\mathbf{k_i}}
 another, then the delta function will force one of $\mathbf{p}$, $\mathbf{q}$
 or $\mathbf{r}$ to be zero. Since we want $\zeta_\mathbf{k}$ to be a perturbation
 and not a contribution to the background, this cannot contribute.
-\textcolor{red}{CHECK THIS.}
 
 The results of the contractions will therefore have the form
 \begin{align}
