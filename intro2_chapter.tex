@@ -490,9 +490,8 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     In our template-free pipeline, we take $\fnl$ as a coefficient of our expansion
     of the numerically calculated primordial shape. Thus in the work we present in
     later chapters of this thesis, $\fnl$ is scenario specific and we rule out an
-    inflation scenario by ruling out $\fnl=1$. There are, however, competing
-    definitions and conventions for $\fnl$ in the literature, especially between
-    the observations-side and the primordial-side. We list some below, for convenience.
+    inflation scenario by ruling out $\fnl=1$. We present here some of the ways
+    $\fnl$ is defined in the literature, for convenience.
 
 
     For the local form, we have
@@ -556,8 +555,6 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     symmetric\footnote{This representation is useful here in presenting analytic templates, however in performing
     our calculations we will require a one-dimensional basis, not a basis in three variables.
     There are also numerical advantages to the Legendre polynomials, as discussed in~\cite{Fergusson_2010}.}.
-
-
 In this and later sections we will use the notation employed in~\cite{FergShell_2}:
 \begin{align}\label{shape_notation}
 \begin{split}
@@ -572,9 +569,7 @@ and $1$ if $p,r,s$ are all distinct.
 
 
     The local template is the shape which results from assuming the perturbation is
-    quadratic in a Gaussian field~\textcolor{red}{Note on $n_s$,
-    connect to~\eqref{fnllocal_quadratic}
-    }
+    quadratic in a Gaussian field
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3)
     &= \frac{6}{5}A_\zeta^2\fnllocal\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\\
@@ -583,6 +578,7 @@ S^{local}(k_1,k_2,k_3)
 This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$,
 and is used to test for multi-field effects~\cite{Planck_NG_2015}.
 It can also be modified to include the expected scaling
+\textcolor{red}{are the $\pi$ factors correct?}
 \begin{align}
 S^{local}(k_1,k_2,k_3)
     &= \frac{6}{5}\fnllocal\bigg(
@@ -623,7 +619,7 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     At the level of the background one then obtains the Friedmann equations;
     at second order one obtains the quadratic action, which evolves the
     interaction picture fields; and at third order, one obtains the cubic
-    interaction Hamiltonian.
+    interaction Lagrangian.
 
 
     To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
@@ -666,7 +662,7 @@ and we choose
     m=\sqrt{\beta_{IR}}H
 \end{align}
 where $\lambda_{\dbi}$, $\bir$ and $V_0$ are constants
-which define the scenario in question.
+which (along with $\phi_0$) define the scenario in question.
 This is in line with~\cite{Bean_ir_dbi, Chen_dbi}.
 
 
@@ -684,41 +680,36 @@ is given in~\eqref{gr_energy}.
         %P,_X(X, \phi) &= \frac{1}{\sqrt{1-2f(\phi)X}}\\
         %\rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
         %            &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
-        \rho(X, \phi) &= \frac{1}{f(\phi)}\frac{1}{\sqrt{1-2f(\phi)X}}-\frac{1}{f(\phi)}+V(\phi)\\
+        \rho(X, \phi) &= \frac{1}{f(\phi)}\left(\frac{1}{\sqrt{1-2f(\phi)X}}-1\right)+V(\phi)\\
         %\rho,_X(X, \phi) &= \frac{1}{\left(1-2f(\phi)X\right)^{\frac{3}{2}}}\\
         c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
                     &= 1-2f(\phi)X
     \end{align}
     We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
     speed tends to unity.
-    From this, we can calculate the $\phi$ equation of motion~\eqref{phieom}
+    From these quantities, we can calculate the $\phi$ equation of motion~\eqref{phieom}
     \begin{align}
         \phi'' &= -(3c_s^2-\varepsilon)\phi'
                 -\frac{3f_\phi(\phi)}{2f(\phi)}\phi'^2
                 +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
                 -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
     \end{align}
-    This can be compared with the equations of motion presented in~\cite{dbi_silverstein}
-    and~\cite{warp_features_dbi}.
-    See also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
+    See~\cite{dbi_silverstein, warp_features_dbi} for further discussion,
+    and also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
 
 
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
     \subsection{Using the in-in formalism}
-    \textcolor{red}{
-    Cite~\cite{Bartolo_review_2004, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
-    Renaux-Petel_2015, Meerburg_clock}.
-    What is a state? The vacuum, for example.
-}
-
-
 The setting for this calculation will be the interaction picture. In the Schr\"{o}dinger
 picture the time dependence is carried by the states, whereas in the Heisenberg picture
 the time dependence is carried by the operators. In contrast to both,
-the interaction picture splits the time dependence between the two---the states evolve according
-to the free Hamiltonian (the quadratic part) while the operators see the interaction.
+the interaction picture splits the time dependence between the two---the operators evolve according
+to the free Hamiltonian (the quadratic part) while the states see the interaction.
 The standard formalism for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
+See also~\cite{Chen_review_2010, Babich_2004, Baumann_horizon_2011,
+Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
+% Bartolo_review_2004 ?
 The in-in formalism takes the time evolution of the interaction picture mode
 functions as an input for calculating the bispectrum.
 At tree-level, the in-in formalism gives us the
@@ -753,7 +744,7 @@ this sum for a broad range of inflation models.
 
 We now briefly outline the set-up of the standard calculation.
 The Lagrangian is expanded in the perturbations and used to obtain the Hamiltonian.
-The Hamiltonian is split into $H_0$ and $\Hint$.
+The Hamiltonian for the perturbations is split into $H_0$ and $\Hint$.
 The first part is used to evolve the interaction picture fields, $\zeta_I$,
 which we will simply refer to as $\zeta$, as in~\eqref{inin_integral}.
 The perturbations see an interaction Hamiltonian $\Hint$,
@@ -813,8 +804,8 @@ To proceed with this calculation we will use Wick's theorem
 \end{align}
 where $:~:$ denotes normal ordering---ordering operators so that those
 which annihilate $\left|0\right>$ are to the right and those which annihilate
-$\left<0\right|$ are put to the left. Thus, if $:~:$ contains uncontracted
-operators, the term vanishes inside $<~>$.
+$\left<0\right|$ are put to the left. Thus, if a normal ordered term contains
+uncontracted operators, the term vanishes inside an expectation value.
 
 
 By ``$\sum$ pairwise contractions'' we mean the sum over every possible permutation of contracting one pair,
@@ -833,20 +824,20 @@ To evaluate the pairwise contractions we will make use of the fact that, from~\e
 \begin{align}
     \left<\zeta_{\mathbf{k_1}}(t_1)\zeta_{\mathbf{k_2}}(t_2)\right>
     &= \left<0\left|
-            \left(u_{k_1}(t_1)\hat{a}_\mathbf{k_1} +
-            u^*_{k_1}(t_1)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
-            \left(u_{k_2}(t_2)\hat{a}_\mathbf{k_2} +
-            u^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
+            \left(v_{k_1}(t_1)\hat{a}_\mathbf{k_1} +
+            v^*_{k_1}(t_1)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
+            \left(v_{k_2}(t_2)\hat{a}_\mathbf{k_2} +
+            v^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
         \right|0\right>\\
     &= \left<0\left|
-            u_{k_1}(t_1)\hat{a}_\mathbf{k_1}
-            u^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}
+            v_{k_1}(t_1)\hat{a}_\mathbf{k_1}
+            v^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}
         \right|0\right>\\
-    &= u_{k_1}(t_1)u^*_{k_2}(t_2)\left<0\left|
+    &= v_{k_1}(t_1)v^*_{k_2}(t_2)\left<0\left|
             \left[\hat{a}_\mathbf{k_1},
             \hat{a}^{\dagger}_{-\mathbf{k_2}}\right]
         \right|0\right>\\
-    &= u_{k_1}(t_1)u^*_{k_2}(t_2)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
+    &= v_{k_1}(t_1)v^*_{k_2}(t_2)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
 \end{align}
 where we used~\eqref{creation_annihilation_commutator}.
 
@@ -861,8 +852,6 @@ we get
     \int d^3x~\left(g(t) a^3\dzeta^3(\vecx,t')\right)
     \right>\right).
 \end{align}
-where the operators on the right hand side are in the interaction picture,
-but we have dropped the $I$ for simplicity of notation.
 Continuing, we replace $\zeta$ with its Fourier transform
 \begin{align}\label{inin_example_2}
     \bigg<-2i \zeta_{\mathbf{k_1}}(t)&\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)
@@ -900,7 +889,7 @@ and not a contribution to the background, this cannot contribute.
 The results of the contractions will therefore have the form
 \begin{align}
     \left<\zeta_{\mathbf{k_1}}(t)\dzeta_{\mathbf{p}}(t')\right>
-    &= u_{k_1}(t)\udot^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
+    &= v_{k_1}(t)\vdot^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
 \end{align}
 and permutations.
 Using the delta functions to perform the momentum integrals,
@@ -909,11 +898,11 @@ and recalling~\eqref{bispectrum_definition}, we obtain
 \begin{align}\label{inin_computer}
     B(k_1, k_1,&k_3)
     =
-    \Re\bigg(-2i u_{k_1}(0)u_{k_2}(0)u_{k_3}(0)\nonumber\\
+    \Re\bigg(-2i v_{k_1}(0)v_{k_2}(0)v_{k_3}(0)\nonumber\\
     &\cdot\int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(g(\tau') a^4(\tau')\bigg)
-    \udot^*_{k_1}(\tau')
-    \udot^*_{k_2}(\tau')
-    \udot^*_{k_3}(\tau')
+    \vdot^*_{k_1}(\tau')
+    \vdot^*_{k_2}(\tau')
+    \vdot^*_{k_3}(\tau')
     +\text{perms}
     \bigg).
 \end{align}
@@ -922,7 +911,7 @@ one could use this form. Until this point we have assumed nothing about the solu
 equations of motion, and we have not made a slow-roll approximation (although we have
 of course only included the tree-level effects).
 After one had chosen some prescription for numerically implementing the
-$i\varepsilon$ prescription, one would need to evolve a set of $u_{k}$
+$i\varepsilon$ prescription, one would need to evolve a set of $v_{k}$
 according to the equations of motion and then perform the above time integral.
 
 
@@ -953,7 +942,7 @@ and recalling $\Phi=\frac{3}{5}\zeta$.
 
 
     \subsection{The squeezed limit consistency condition}
-The squeezed limit of canonical single-field bispectra will not cause
+The squeezed limit of single-field bispectra will not cause
 observable deviations from a Gaussian universe,
 due to a cancellation when switching to physical coordinates~\cite{Cabass_2016}.
 Here, we will only consider primordial phenomenology
@@ -976,7 +965,7 @@ in the long mode was shown in~\cite{not_so_sqz}.
 \begin{align}\label{malda_shape}
     S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
 \end{align}
-with $\eta=2\varepsilon$ for~\eqref{eq:quadratic_potential}.
+with $\eta=2\varepsilon$ for the quadratic potential~\eqref{eq:quadratic_potential}.
 At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
 However, the amplitude of this shape is expected to be tiny,
 and the dominant contributions (the squeezed configurations) are expected
@@ -1002,17 +991,17 @@ The shape~\eqref{dbi_shape} can be approximated by the separable equilateral tem
 
     \subsection{Scaling}
 These templates can be modified to be more physically realistic by including
-scaling consistent with the spectral index $n_s$~\cite{Planck_NG_2015}.
+scaling similar to the spectral index $n_s$~\cite{Planck_NG_2015}.
 For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
 in a reasonable first approximation by including a prefactor,
 as was done in~\cite{Planck_NG_2013}.
 We define the product scaling template
 \begin{align}\label{dbi_prod_shape}
-    S^{\dbi-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
+    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 and the sum scaling template
 \begin{align}\label{dbi_sum_shape}
-    S^{\dbi-n_s}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
+    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
 
@@ -1064,36 +1053,34 @@ see~\cite{chen_folded_resonant}.
     \begin{equation}
     \label{eq:reduced_cmb}
     b_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
-        \int~d^3k (k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta_{l_i}(k_i)\right],
+        \int d^3k~(k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta_{l_i}(k_i)\right],
     \end{equation}
     analogously to~\eqref{eqn:transfer_function}.
     We see that the expression for the shape function $(k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)$ appears directly.
 
 
     We will repeat the simple example outlined in~\cite{FergShell_2}. If we
-    take $S(k_1,k_2,k_3)=1$ for all configurations, then the above four-dimensional integral
+    take ${S(k_1,k_2,k_3)=1}$ for all configurations, then the above four-dimensional integral
     simplifies greatly. If we also restrict to large angular scales ($l\ll200$)
     then we can use the approximation
     \begin{align}
         \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k)
     \end{align}
     where $\tau_0-\tau_{dec}$ is the conformal distance to last scattering.
-    \textcolor{red}{Check. Why $3$?}
+    \textcolor{red}{Check. Why $3$? Why does less then $200$ count as large?}
 
-    The integral becomes
+    The integral then becomes
     \begin{equation}
     \label{eq:reduced_cmb_constant}
     b_{l_1l_2l_3} = \left(\frac{2}{3\pi}\right)^3\int_{0}^{\infty}drr^2
         \int d^3k \prod_{i=1}^{3}\left[j_{l_i}(k_ir)j_l((\tau_0-\tau_{dec})k_i)\right].
     \end{equation}
-
-
-    Now, using that
+    Using the following result
     \begin{align}
         \int_0^\infty dk~j_l(k)j_l(xk)\qquad=\qquad&\frac{\pi}{2}\frac{x^{-(l+1)}}{2l+1}\qquad&&\text{for $x>1$}\\
                             =\qquad&\frac{\pi}{2}\frac{x^{l}}{2l+1}\qquad&&\text{for $x<1$}
     \end{align}
-    we find that
+    we arrive at an expression for the $\cmb$ angular bispectrum
     \begin{align} 
         b_{l_1l_2l_3} &= \frac{f_{NL}}{27}\frac{1}{(2l_1+1)(2l_2+1)(2l_3+1)}
         \left[\int^1_0dx x^{l_1+l_2+l_3+2}+\int^\infty_1dx x^{-l_1-l_2-l_3-1}\right]\label{eq:bll_constant_integral}\\
@@ -1101,7 +1088,8 @@ see~\cite{chen_folded_resonant}.
         \left[\frac{1}{l_1+l_2+l_3+3}+\frac{1}{l_1+l_2+l_3}\right]\label{eq:bll_constant}.
     \end{align}
     Note that this example of constant $S$ is not especially realistic as a shape that could
-    come from a model of inflation. Note also that the acoustic oscillations have not been taken
+    come from a model of inflation. Note also that the acoustic oscillations and
+    other relevant physics have not been taken
     into account here---these would imprint oscillations at higher $l$.
     Nevertheless, it is instructive to write down the scaling behaviour of this
     simple example, and to see how separability is lost between~\eqref{eq:reduced_cmb_constant}
@@ -1124,6 +1112,7 @@ Work on forecasting future constraints on features was performed
 
 
     The bispectrum derived from theory is denoted
+    \textcolor{red}{B vs b. Tidy all this up!}
     \begin{align}
         \left<\triplea\right>
     \end{align}
@@ -1135,6 +1124,7 @@ Work on forecasting future constraints on features was performed
     \begin{align}\label{eq:bll}
         B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
     \end{align}
+    where the Wigner $3j$ symbol is demanded by isotropy.
 
 
     The standard method for estimating the $\cmb$ bispectrum is to calculate the least squares
@@ -1155,6 +1145,7 @@ Work on forecasting future constraints on features was performed
         N = \left|\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\right|^2
     \end{align}
     we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator $\mathcal{E}$)
+    \textcolor{red}{Change estimator symbol!}
     \begin{align}
         \mathcal{E} = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
     \end{align}
@@ -1200,13 +1191,13 @@ Work on forecasting future constraints on features was performed
     \begin{align}
         b_{l_1l_2l_3} = h^{-1}_{l_1l_2l_3}B_{l_1l_2l_3}.
     \end{align}
-    \textcolor{red}{Why?}
+    \textcolor{red}{Why? Is that what was calculated in the previous section?}
 
 
     \subsection{Complexity of bispectrum estimation}
     The bispectrum, like the power spectrum, is a quantity that describes
-the statistical distribution of which our universe is only one realisation.
-We can use this one sky that we have access to to estimate the amplitude of
+the statistical distribution of which our universe is a realisation.
+We can use this one accessible sky to estimate the amplitude of
 particular bispectrum templates,
 and use these estimates to constrain inflationary physics; 
 see~\cite{astro2020_features,astro2020_png} for recent reviews.
@@ -1250,7 +1241,7 @@ all of the shape information; essentially constraining an $\fnl$
 specific to a given template. This bypasses the approximation step at the level of the templates,
 of finding a separable approximation to the primordial template.
 The results of these methods are constraints on the parameters of
-certain inflation models through approximate phenomenological templates.
+certain inflation models through the approximate phenomenological templates.
 These constraints can be found in~\cite{Planck_NG_2015, Planck_NG_2018}.
 
 
@@ -1340,7 +1331,8 @@ in which a formalism was developed to
 leverage the tractability of separable CMB bispectrum estimation
 for generic primordial bispectra, by expanding them in a separable basis.
 The idea of~\cite{Funakoshi} is an extension of that philosophy to the primordial level,
-and our work is in maturing that idea.
+and our work is in expanding that methodology so that it can be applied
+to interesting examples.
 In~\cite{FergShell_1,FergShell_2,FergShell_3} an orthogonal basis on the tetrapyd was used,
 removing the need to fit non-physical configurations.
 One of the main differences between that work and this
@@ -1376,7 +1368,6 @@ and the Transport Method~\cite{transport_main,transport_pytransport,transport_py
 All but the last directly apply the tree-level in-in formalism $k$-configuration by $k$-configuration for a given model;
 they integrate a product of three mode functions and a background-dependent term from the interaction Hamiltonian, of form similar to~\eqref{inin_sep}.
 The eventual result is a grid of points representing the primordial bispectrum.
-See~\cite{Ringeval} for a review. \textcolor{red}{Check!}
 
 
 The most advanced publicly released code for the calculation of inflationary perturbations
@@ -1412,7 +1403,7 @@ sidetracked inflation~\cite{RP_1}.
     these papers, $\fnlequil$ and $\fnl^{flat}$ refer to the definition given in~\eqref{transport_fnl_defn}
     evaluated on equilateral and flat configurations respectively.
     In these works it was found that squeezed limit configurations were much more
-    difficult to calculate using that software. While this analysis is very sophisticated, much
+    expensive to calculate using that method. While this analysis is very sophisticated,
     information is lost due to taking the bispectrum at points only, and not using the full
     inflationary shape function.
     % See figure 2 and 20 for their time taken, which is ~100s, for 6(?) scalar fields.
@@ -1461,46 +1452,43 @@ other methods impose some non-trivial cutoff at early times.
     to $\kmin$ was important in determining the success of the method. If $\kmax/\kmin$ was too small
     then important information was lost, and validation estimates of $\fnl$ for the local shape
     did not agree with previous methods. In that work it was determined that $\kmax/\kmin=1000$ was
-    sufficient, hence that is the value we will use in testing out basis sets
-    \textcolor{red}{CHECK THIS!!!}.
-
+    sufficient, hence that is the value we will use in testing our basis sets.
 
 
 \section{Optimising the separable decomposition of primordial bispectra}
-\textcolor{red}{MERGE or DROP?}
-The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
-This convergence depends centrally on the basis choice, as we explored in~\cite{probing_precision}.
-While in that work we described basis sets that could efficiently capture both the
-basic shapes and some more complicated oscillatory shapes,
-the question remains as to how to find the optimal separable description of a given bispectrum.
-
-
-This is complementary to the philosophy of the main pipeline,
-which is to find a large general basis which covers a wide range of models.
-Instead, it may be possible to reduce the separable description of any given
-bispectrum to a sufficiently compact form that template-free estimation
-tailored to a scenario could be computationally tractable.
-
-
-Additionally, the most relevant metric for convergence is the convergence of
-the observables, not the bispectrum at the end of inflation---exploring the
-relative efficiencies of different basis sets in this context could be very
-fruitful in expanding the range of models which could be constrained.
-
-
-To pursue efficient separable decomposition, one avenue that could be explored is
-the use of techniques which have not
-previously been exploited in the setting of bispectrum calculation and estimation.
-One possible avenue is tensor rank decomposition techniques and other methods of tensor approximation,
-which are of use in, for example, signal processing. See~\cite{tensor_decomp_review} for a review.
-
-
-By using these techniques to approximate the coefficient matrix (which is the output of $\primodal$)
-we can determine a linear combination of our basis functions which can more efficiently
-describe that particular bispectrum.
-These techniques can be applied to explore the general limits of separable approximations to primordial bispectra,
-with a focus on convergence at the level of observations. This would make clear the widest possible set
-of models that can be constrained through the bispectrum.
-
-
+\textcolor{red}{Shorten, move to future work?}
+%The convergence of our separable expansion is a vital issue in determining the feasibility of our methods.
+%This convergence depends centrally on the basis choice, as we explored in~\cite{probing_precision}.
+%While in that work we described basis sets that could efficiently capture both the
+%basic shapes and some more complicated oscillatory shapes,
+%the question remains as to how to find the optimal separable description of a given bispectrum.
+%
+%
+%This is complementary to the philosophy of the main pipeline,
+%which is to find a large general basis which covers a wide range of models.
+%Instead, it may be possible to reduce the separable description of any given
+%bispectrum to a sufficiently compact form that template-free estimation
+%tailored to a scenario could be computationally tractable.
+%
+%
+%Additionally, the most relevant metric for convergence is the convergence of
+%the observables, not the bispectrum at the end of inflation---exploring the
+%relative efficiencies of different basis sets in this context could be very
+%fruitful in expanding the range of models which could be constrained.
+%
+%
+%To pursue efficient separable decomposition, one avenue that could be explored is
+%the use of techniques which have not
+%previously been exploited in the setting of bispectrum calculation and estimation.
+%One possible avenue is tensor rank decomposition techniques and other methods of tensor approximation,
+%which are of use in, for example, signal processing. See~\cite{tensor_decomp_review} for a review.
+%
+%
+%By using these techniques to approximate the coefficient matrix (which is the output of $\primodal$)
+%we can determine a linear combination of our basis functions which can more efficiently
+%describe that particular bispectrum.
+%These techniques can be applied to explore the general limits of separable approximations to primordial bispectra,
+%with a focus on convergence at the level of observations. This would make clear the widest possible set
+%of models that can be constrained through the bispectrum.
+%
 
