@@ -322,10 +322,10 @@ allowing us to apply the method to feature bispectra for the first time.
     For a review and discussion of corrections see~\cite{px_burrage}.
 
 
-The dimensionless power spectrum $\primpowerspec$~\eqref{primpowerspec_defn}
-is typically parameterised as
+%The dimensionless power spectrum $\primpowerspec$~\eqref{primpowerspec_defn}
+The power spectrum is typically parameterised as
 \begin{align}
-    \primpowerspec(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
+    P_\zeta(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
 \end{align}
 The scalar spectral index $n_s$ can then be found to be
 \begin{align}
@@ -517,11 +517,10 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     is used,
     as in equation $(6)$ in~\cite{Planck_NG_2013}.
     The parameter $A_\Phi$ comes from
-    \textcolor{red}{CHECK}
     \begin{align}
-        \mathcal{P}_\Phi(k) = \frac{A_\Phi}{k^{1-n_s}}\approx\left(\frac{3}{5}\right)^2\frac{H^2}{4\varepsilon c_sk^{1-n_s}}
+        P_\Phi(k) = \frac{A_\Phi}{k^{4-n_s}}\approx\left(\frac{3}{5}\right)^2\frac{H^2}{4\varepsilon c_sk^{4-n_s}}
     \end{align}
-    where we used $\Phi=\frac{3}{5}\zeta$ and the slow-roll result for $\primpowerspec$.
+    where we used $\Phi=\frac{3}{5}\zeta$ and the slow-roll result for $P(k)$.
     In~\cite{seery_ng_0503, chen_ng_0605, dbi_in_the_sky} $\fnl$ is similarly defined in terms
     of the shape function evaluated on equilateral triangles,
     as the templates considered had no scale dependence.
@@ -540,11 +539,9 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     \begin{align}\label{transport_fnl_defn}
         \fnl(k_1,k_2,k_3) = \frac{5}{6}\frac{B(k_1,k_2,k_3)}{P(k_1)P(k_2)+P(k_1)P(k_3)+P(k_2)P(k_3)},
     \end{align}
-    \textcolor{red}{CHECK}
     which depends on $k_1$, $k_2$ and $k_3$. In the local case we see that this reduces to
-    the usual definition of $\fnllocal$ across the entire tetrapyd. In the equilateral limit,
-    we see that it coincides with the definition of $\fnlequil$.
-    \textcolor{red}{CHECK}
+    the usual definition of $\fnllocal$ across the entire tetrapyd. %In the equilateral limit,
+    %we see that it coincides with the definition of $\fnlequil$.
 
 
     \subsection{Templates}
@@ -924,7 +921,6 @@ We will now continue the calculation within the slow-roll approximation,
 using~\eqref{uk_solution}. We approximate $g(\tau')$ and the slow-roll
 parameters as constant, and use $a\approx-1/(H\tau)$.
 We see that we will need to perform the following integral by parts
-\textcolor{red}{Sign? Check all.}
 \begin{align}
     \int_{-\infty(1+i\varepsilon)}^{0}d\tau~\tau^2 e^{-ic_sK\tau}
     &= \frac{-2i}{c_s^3K^3}
@@ -1144,18 +1140,18 @@ Work on forecasting future constraints on features was performed
     \begin{align}
         N = \left|\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\right|^2
     \end{align}
-    we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator $\mathcal{E}$)
+    we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator $\epsilon$)
     \textcolor{red}{Change estimator symbol!}
     \begin{align}
-        \mathcal{E} = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
+        \epsilon = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
     \end{align}
     However, if we simply calculate this quantity for some theoretical model we will not be able to
     interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
     drawn from a purely Gaussian distribution could, through random chance,
-    result in a non-zero $\mathcal{E}$. This problem is solved using simulated Gaussian maps.
+    result in a non-zero $\epsilon$. This problem is solved using simulated Gaussian maps.
     Many $\cmb$ skies are generated from Gaussian initial conditions, and then the estimator
-    is applied to each. This gives a distribution of $\mathcal{E}$, from which we can
-    calculate $1\sigma$ and $2\sigma$ regions for $\mathcal{E}$. Then the result of the
+    is applied to each. This gives a distribution of $\epsilon$, from which we can
+    calculate $1\sigma$ and $2\sigma$ regions for $\epsilon$. Then the result of the
     estimator (when applied to the real $\cmb$ sky) can be compared to this distribution
     to determine the significance of the result.
 
@@ -1172,7 +1168,7 @@ Work on forecasting future constraints on features was performed
     to incorporate noise from the experiment.
     The estimator can then be written as~\cite{Fergusson_polyspectra, Fergusson_efficient}
     \begin{align}
-        \mathcal{E} = \frac{1}{\bar{N}^2}\sum_{l_im_i}
+        \epsilon = \frac{1}{\bar{N}^2}\sum_{l_im_i}
         \frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}\bar{b}_{l_1l_2l_3}}{\tilde{C}_{l_1}\tilde{C}_{l_2}\tilde{C}_{l_3}}
         \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right).
     \end{align}
@@ -1395,14 +1391,13 @@ able to deal with multiple fields in curved field spaces,
 recently being used to explore the bispectra resulting from
 sidetracked inflation~\cite{RP_1}.
     \subsection{Usage in recent works}
-    \textcolor{red}{CHECK ALL THIS.}
     In~\cite{RP_1, Fumagalli_2019} and especially
     in~\cite{Marzouk_D3}, a large ensemble of inflationary trajectories is considered
     using the transport method~\cite{transport_pytransport_2}.
-    For these trajectories, the bispectrum is calculated for a certain number of $k$-configurations---in
-    these papers, $\fnlequil$ and $\fnl^{flat}$ refer to the definition given in~\eqref{transport_fnl_defn}
+    For these trajectories, the bispectrum is calculated for a certain number of $k$-configurations.
+    In these works, $\fnlequil$ and $\fnl^{flat}$ refer to the definition given in~\eqref{transport_fnl_defn}
     evaluated on equilateral and flat configurations respectively.
-    In these works it was found that squeezed limit configurations were much more
+    It was found that squeezed limit configurations were much more
     expensive to calculate using that method. While this analysis is very sophisticated,
     information is lost due to taking the bispectrum at points only, and not using the full
     inflationary shape function.
