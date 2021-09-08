@@ -1094,38 +1094,26 @@ see~\cite{chen_folded_resonant}.
     \subsection{Linear regression}
     % https://arxiv.org/pdf/1006.1642.pdf
     % https://arxiv.org/pdf/0912.5516.pdf
-    E.g.~\cite{Smith_2011, Komatsu_2005, Byun_1, Byun_2, modal_battefeld}.
-
-
-Work on forecasting future constraints on features was performed
-    in~\cite{Sohn_2019} \textcolor{red}{Where else?}
-    For recent reviews, see~\cite{astro2020_png, astro2020_features, Ballardini_2017, Sypsas_2017,
-    Palma_2017}.
-    While there are some standard shapes with very tight constraints,
-    there are still regions of the model space that have not been constrained.
-
-
     The bispectrum derived from theory is denoted
-    \textcolor{red}{B vs b. Tidy all this up!}
     \begin{align}
         \left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}
     \end{align}
     whereas the bispectrum measured from the $\cmb$ is
     \begin{align}
-        B^{l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
+        B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
     \end{align}
-    We also have
+    We can also write the angle averaged bispectrum
     \begin{align}\label{eq:bll}
         B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
     \end{align}
-    where the Wigner $3j$ symbol is demanded by isotropy.
+    using the Wigner $3j$ symbol.
 
 
     The standard method for estimating the $\cmb$ bispectrum is to calculate the least squares
     fit between the theory bispectrum and the observed bispectrum. That is, we find $\lambda$
     such that the following expression is minimised:
     \begin{align}
-        \sum_{l_i,m_i}{\left(\lambda\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}
+        L=\sum_{l_i,m_i}{\left(\lambda\frac{\left<\triplea\right>}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}
                 - \frac{\tripleaobs}{\sqrt{C_{l_1}C_{l_2}C_{l_3}}}\right)}^2.
     \end{align}
     The solution to this is simply
@@ -1137,7 +1125,7 @@ Work on forecasting future constraints on features was performed
     \begin{align}
         N_B = \sum_{l_i,m_i}\frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}}{C_{l_1}C_{l_2}C_{l_3}}
     \end{align}
-    we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator $\epsilon$)
+    we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator, $\epsilon$)
     \begin{align}
         \epsilon = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
     \end{align}
@@ -1177,21 +1165,20 @@ Work on forecasting future constraints on features was performed
     We have here used the Gaunt integral
     \begin{align}
         \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt \\
-        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}},
+        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}.
     \end{align}
-    and we then find
-    \begin{align}
-        b_{l_1l_2l_3} = h^{-1}_{l_1l_2l_3}B_{l_1l_2l_3}.
-    \end{align}
+    %and we then find
+    %\begin{align}
+    %    b_{l_1l_2l_3} = h^{-1}_{l_1l_2l_3}B_{l_1l_2l_3}.
+    %\end{align}
 
 
     \subsection{Complexity of bispectrum estimation}
     The bispectrum, like the power spectrum, is a quantity that describes
 the statistical distribution of which our universe is a realisation.
-We can use this one accessible sky to estimate the amplitude of
-particular bispectrum templates,
-and use these estimates to constrain inflationary physics; 
-see~\cite{astro2020_features,astro2020_png} for recent reviews.
+We can use this one accessible sky to constrain inflationary physics; 
+see~\cite{astro2020_features, astro2020_png, astro2020_features, Ballardini_2017, Sypsas_2017,
+    Palma_2017} for recent reviews.
 %There are two parts to the pipeline of bispectrum estimation.
 %Firstly, calculating the primordial bispectrum at the end of some inflation scenario,
 %and then calculating the effect this bispectrum
@@ -1209,7 +1196,7 @@ As a result of this complexity, this second step is computationally impractical 
 Progress can be made by finding an approximation to the primordial shape
 that is separable, and using this simplification
 to make the calculation tractable
-through the $\ksw$ estimator~\cite{Komatsu_2005, Munchmeyer_2014}.
+through the $\ksw$ estimator~\cite{Komatsu_2005, Munchmeyer_2014, Smith_2011}.
 For example, one may find that a particular inflation scenario generates
 a primordial bispectrum with a high correlation with some standard shape,
 then look at how well that standard shape is constrained by the CMB.
@@ -1347,6 +1334,11 @@ easier to interpret than the correlation defined in~\cite{Funakoshi},
 and that includes the magnitude as well as the shape information
 on the full tetrapyd.
 This is discussed in section~\ref{sec:inner_product}.
+
+
+Some work has also been done on basis sets for three-dimensional
+bispectra~\cite{Byun_1, Byun_2, modal_battefeld}, in the context
+of the tetrapyd after inflation.
     %\subsection{Comparison to the present work}
 
 
