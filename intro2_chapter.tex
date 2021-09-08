@@ -2,8 +2,9 @@
 \chapter{Introduction II: Probing Inflation}\label{chapter:intro_bispectra}
 In this chapter we will review details of the bispectrum, including how it is predicted
 by an inflationary scenario and connected to the $\cmb$ sky.
-We will discuss the computational complexity of this calculation, and
-the approximations that have previously been used to make it tractable.
+We will point out where our methods diverge from previous work,
+briefly discuss the computational complexity of the $\cmb$ calculation, and
+the approximations that have previously been used to make this tractable.
 
 
 The primordial bispectrum is one of the main
@@ -32,7 +33,6 @@ that has been studied is the generation of primordial black
 holes~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_passaglia}.
 %Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
 %usr_dimopoulos,usr_martin}
-\textcolor{red}{Check those references!}
 
 
 We will focus on non-Gaussianity from a single field in this thesis,
@@ -44,9 +44,10 @@ can generate observably large non-Gaussian signals.
 This is in part because they can evade the squeezed limit consistency condition~\cite{sqz_consistency}.
 The extra degrees of freedom in these scenarios can also generate bispectrum shapes not usually
 seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagalli_2019}).
-The methods outlined in this thesis have been implemented
+Multi-field models are a prime target for future work---the
+methods outlined in this thesis have been implemented
 and tested for single-field models,
-with multi-field models being a prime target for future work.
+though those methods are expected to generalise to this case.
 
 
 If the fundamental physical model of inflation is a single field,
@@ -121,7 +122,7 @@ tree-level in-in formalism to apply the modal methods at the level of inflation.
 Expressing the primordial bispectrum in a separable
 basis expansion turns out to lead to an increase in the efficiency
 of the calculation at the primordial level.
-However, the main advantage remains as the fact that
+However, the main advantage is still that
 expressing the primordial shape function
 in this way reduces the process of bispectrum estimation in the CMB to a
 cost which (while large) need only be paid once per basis,
@@ -172,7 +173,7 @@ allowing us to apply the method to feature bispectra for the first time.
     \end{align}
     where
     \begin{align}\label{z_defn}
-        z^2 = 2a^2\varepsilon/c_s^2 = a^2\left(\rho+P\right)/\left(c_sH\right)^2.
+        z^2 = \frac{2a^2\varepsilon}{c_s^2} = a^2\frac{\rho+P}{\left(c_sH\right)^2}.
     \end{align}
     In terms of $v$, we can recognise the dynamics as that of a
     canonically normalised scalar field, oscillating
@@ -219,14 +220,14 @@ allowing us to apply the method to feature bispectra for the first time.
     however, this is not ideal as $c_s$ depends on time.
     Instead, let us use $\tau_s$ as our time parameter.
     If we follow~\cite{Hu_2011} and define
-    \begin{align}
+    \begin{align}\label{y_defn}
         y_k=\sqrt{2kc_s}v_k,
     \end{align}
     we obtain
     \begin{align}\label{modefneqn_tau_s}
-        \frac{\partial^2 y_k}{\partial \tau_s^2} + \left(k^2 - 2\left(\frac{aH}{c_s}\right)^2(1+\ldots)\right)y_k \approx 0
+        \frac{\partial^2 y_k}{\partial \tau_s^2} + \left(k^2 - 2\left(\frac{aH}{c_s}\right)^2(1+\ldots)\right)y_k = 0
     \end{align}
-    where we have neglected terms which are slow-roll suppressed.
+    where ``\ldots'' represents terms which are slow-roll suppressed.
     %where again \ldots~represents terms which are slow-roll suppressed.
 
 
@@ -240,9 +241,7 @@ allowing us to apply the method to feature bispectra for the first time.
 
     \subsection{Early time behaviour}
     %\subsubsection{Quantizing the perturbations}
-    We now wish to quantize the perturbations. We notice that if we quantize $y$, its Fourier modes
-    should behave like a free field in Minkowski space with respect to $\tau_s$
-    when they are deep in the horizon. We expand $v$ as
+    We now wish to quantize the perturbations. We expand $v$ as
     \begin{align}\label{operator_expansion}
         v(\tau,\vecx) &= \int\frac{d^3\veck}{(2\pi)^3}\left[
             v_k(\tau)\hat{a}_\veck e^{i\veck\cdot\vecx}+
@@ -271,7 +270,11 @@ allowing us to apply the method to feature bispectra for the first time.
     %Demanding this to be an eigenstate of $H$ forces $\pi_k=\pm ikv_k$.
     %Choosing the lowest energy state\ldots
     %and this is known as the Bunch-Davies vacuum.
-    Demanding that the early time behaviour of $y_k$ matches that of flat space
+    We notice that if we quantize $y$
+    (defined in~\eqref{y_defn}), its Fourier modes
+    should behave like a free field in Minkowski space with respect to $\tau_s$
+    when they are deep in the horizon.
+    Demanding this early time behaviour of $y_k$
     gives us
     \begin{align}
         v_k = \frac{1}{\sqrt{2{c_s}k}}e^{-ik\tau_s}
@@ -309,11 +312,13 @@ allowing us to apply the method to feature bispectra for the first time.
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}.
     \end{align}
     Treating the solution more carefully, one can obtain
-    a power spectrum enhanced by a factor of $c_s$,
+    the predicted power spectrum
     \begin{align}
         P(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
     where the right-hand side is evaluated at $c_sk=aH$.
+    This is enhanced by a factor of $c_s$ compared to the
+    usual canonical power spectrum.
     For a review and discussion of corrections see~\cite{px_burrage}.
 
 
@@ -403,7 +408,7 @@ at leading order in slow-roll.
     there are $2l+1$ independently drawn modes that we can observe.
 
 
-    For $\primpowerspec(k)=A_s$, i.e.\ perfectly scale invariant,
+    For $\primpowerspec(k)=A_s$, i.e.\ a perfectly scale invariant power spectrum,
     we can use that
     \begin{align}
         \int_0^{\infty}d\ln x~j_l^2(x) = \frac{1}{2l(l+1)}
@@ -450,6 +455,10 @@ is satisfied, which implies that the triangle inequality must hold
 \begin{align}\label{triangle_inequality}
     k_1+k_2 &\geq k_3~\text{and cyclic perms}.
 \end{align}
+Thus, we will occasionally speak of the bispectrum as a function of types
+of triangles---for example, when the three magnitudes are
+equal they form an equilateral triangle, and when one is much smaller than
+the other two, that is a squeezed triangle.
 The space of configurations we are interested in is therefore
 reduced from the full cube $[\kmin,\kmax]^3$
 to a tetrapyd (illustrated in figure~\ref{slice_explained}),
@@ -492,23 +501,26 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     \end{align}
     where $\zeta_G(\vecx)$ is a Gaussian field. The parameter $\fnllocal$ therefore has a clear
     interpretation as parametrising the deviation from Gaussianity. From this form,
-    one obtains a bispectrum of the form~\eqref{local_shape}.
+    one obtains a bispectrum of the form~\eqref{local_shape}. This is the version of $\fnl$
+    that is most usually referred to.
 
 
     In~\cite{Planck_NG_2013}, $\fnl$ is defined individually for each template, in such a way
     that for some template $X$, in the equilateral limit $k_1=k_2=k_3$
     \begin{align}\label{planck_fnl_defn}
-        B^X_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^X}{k^6},
+        B^X_\Phi(k,k,k) = \frac{6A_\Phi^2\fnl^X}{k^6},
     \end{align}
-    for example equation $(5)$ in~\cite{Planck_NG_2013},
-    or
+    for example equation $(5)$ in~\cite{Planck_NG_2013}.
+    When considering a deviation from scale invariance, the form
     \begin{align}\label{planck_fnl_defn_ns}
-        B^X_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^X}{k^{8-2n_s}},
+        B^X_\Phi(k,k,k) = \frac{6A_\Phi^2\fnl^X}{k^{8-2n_s}},
     \end{align}
+    is used,
     as in equation $(6)$ in~\cite{Planck_NG_2013}.
-    The parameter $A_\phi$ comes from
+    The parameter $A_\Phi$ comes from
+    \textcolor{red}{CHECK}
     \begin{align}
-        P_\Phi(k) = \frac{A_\phi}{k^{4-n_s}}\approx\left(\frac{3}{5}\right)^2\frac{H^2}{4\varepsilon c_sk^{4-n_s}}
+        \mathcal{P}_\Phi(k) = \frac{A_\Phi}{k^{1-n_s}}\approx\left(\frac{3}{5}\right)^2\frac{H^2}{4\varepsilon c_sk^{1-n_s}}
     \end{align}
     where we used $\Phi=\frac{3}{5}\zeta$ and the slow-roll result for $\primpowerspec$.
     In~\cite{seery_ng_0503, chen_ng_0605, dbi_in_the_sky} $\fnl$ is similarly defined in terms
@@ -517,7 +529,7 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     One particular example is the $\dbi$ template, which we will present explicitly in~\eqref{dbi_shape}.
     For now, we briefly state the definition of $\fnl^{\dbi}$, from~\cite{Planck_NG_2013}
     \begin{align}
-        B^{\dbi}_\Phi(k,k,k) = \frac{6A_\phi^2\fnl^{\dbi}}{k^{6}}.
+        B^{\dbi}_\Phi(k,k,k) = \frac{6A_\Phi^2\fnl^{\dbi}}{k^{6}}.
     \end{align}
     Comparing to~\eqref{dbi_shape}, we find that
     \begin{align}\label{fnl_dbi_defn}
@@ -529,7 +541,11 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     \begin{align}\label{transport_fnl_defn}
         \fnl(k_1,k_2,k_3) = \frac{5}{6}\frac{B(k_1,k_2,k_3)}{P(k_1)P(k_2)+P(k_1)P(k_3)+P(k_2)P(k_3)},
     \end{align}
-    which clearly (except for the local case) depends on $k_1$, $k_2$ and $k_3$.
+    \textcolor{red}{CHECK}
+    which depends on $k_1$, $k_2$ and $k_3$. In the local case we see that this reduces to
+    the usual definition of $\fnllocal$ across the entire tetrapyd. In the equilateral limit,
+    we see that it coincides with the definition of $\fnlequil$.
+    \textcolor{red}{CHECK}
 
 
     \subsection{Templates}
