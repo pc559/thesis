@@ -1044,7 +1044,10 @@ see~\cite{chen_folded_resonant}.
     %    \left<f_{l_1m_1}f_{l_2m_2}f_{l_3m_3}\right> = B_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
     %\end{align}
     %where ${{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}$ enforces statistical isotropy.
-    For the $\cmb$, we calculate the projected bispectrum using~\cite{FergShell_2}
+    In this section we will present a basic example of how the primordial bispectrum
+    $B(k_1, k_2, k_3)$ is connected to the $\cmb$ bispectrum, which will be discussed in more
+    detail in the next section.
+    For the $\cmb$, we calculate the reduced $\cmb$ bispectrum using~\cite{FergShell_2}
     \begin{equation}
     \label{eq:reduced_cmb}
     b_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
@@ -1098,11 +1101,16 @@ see~\cite{chen_folded_resonant}.
     \begin{align}
         \left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}
     \end{align}
-    whereas the bispectrum measured from the $\cmb$ is
+    where we have used the Gaunt integral
+    \begin{align}
+        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt \\
+        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}.
+    \end{align}
+    The bispectrum measured from the $\cmb$ is
     \begin{align}
         B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
     \end{align}
-    We can also write the angle averaged bispectrum
+    We can write the angle averaged bispectrum
     \begin{align}\label{eq:bll}
         B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
     \end{align}
@@ -1162,15 +1170,6 @@ see~\cite{chen_folded_resonant}.
     over a suite of Gaussian simulations. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
     by the galaxy.
-    We have here used the Gaunt integral
-    \begin{align}
-        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt \\
-        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}.
-    \end{align}
-    %and we then find
-    %\begin{align}
-    %    b_{l_1l_2l_3} = h^{-1}_{l_1l_2l_3}B_{l_1l_2l_3}.
-    %\end{align}
 
 
     \subsection{Complexity of bispectrum estimation}
