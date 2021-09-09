@@ -503,9 +503,8 @@ institution.
 In this thesis I describe the research I performed during my PhD studies
 at the University of Cambridge, supervised by Professor Paul Shellard.
 Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
-describe original work, except where specified below, and in the text.
-
-Chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
+describe original work, while
+chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
 and mostly follow standard textbook material, collected and written by myself.
 Some of chapter~\ref{chapter:intro_bispectra} is edited material from~\cite{probing_precision},
 which was co-authored with Paul Shellard.
@@ -515,7 +514,7 @@ describe original research I performed in collaboration with Paul Shellard, and
 mostly consist of edited material that was originally published
 in~\cite{probing_precision}.
 I have updated the text and figures in chapter~\ref{chapter:decomp}
-to include improved basis sets that I have developed since, however.
+to include improved basis sets that I have developed since the publication of~\cite{probing_precision}.
 Figure~\ref{fig:plot_time_integrand_scan} is also new,
 and I am grateful to the anonymous referee of~\cite{probing_precision} for
 their comments which suggested it.
@@ -527,7 +526,7 @@ Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhy
 James Fergusson and Paul Shellard.
 This work will be published in~\cite{Sohn_2021}. The methods described therein have
 been implemented in the $\cmbbest$ code, which was designed and implemented by Wuhyun Sohn.
-My main contribution to~\cite{Sohn_2021} is contained in chapter~\ref{chapter:constraints}.
+My main contribution to~\cite{Sohn_2021} is described in chapter~\ref{chapter:constraints}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Abstract

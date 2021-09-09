@@ -25,7 +25,7 @@
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
     then used the $\planck$ temperature\footnote{
         While at present the $\cmbbest$ code is implemented for temperature only, the methods are general
-        and future implementations will include polarisation.
+        and future implementations will include E-mode polarisation.
     } data to place a constraint
     on $\bir$. 
     The bispectrum of each scenario is given an amplitude
@@ -40,7 +40,9 @@
 
 
     At present $\cmbbest$ has been run for the $\Lnsinv$ basis
-    with $\Pmax=30$, so to make contact with it the $\primodal$ scan
+    with $\Pmax=30$, for the $\planck$ 2018 map and simulations,
+    foreground cleaned using SMICA~\cite{Planck_NG_2018}.
+    To make contact with it the $\primodal$ scan
     was run with the same basis\footnote{
         The $\cmbbest$ code has also been run for a $\ksw$ basis
         and a Fourier basis, but neither of these can describe features
@@ -69,10 +71,13 @@
     it is not unexpected that we did not reproduce it exactly.
     One possible reason for this is the fact we are using slightly different
     scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
-    use all the scales in the $\planck$ data. Another possible reason is convergence in the number of
+    use all the scales in the $\planck$ data.
+    %We use $\kmin=0.00020875905683771526$
+    We use $\kmin=2.09\times10^{-4}$.
+    Another possible reason is convergence in the number of
     maps\footnote{
         In addition to the variance of $\fnl$,
-        the maps are used to calculate the full covariance matrix for the linear term
+        the maps are used to approximate the full covariance matrix for the linear term
         in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnl$
         will only converge once sufficiently many maps are used.
         However, this correction (which accounts for the effect of the mask)
@@ -84,8 +89,9 @@
 
 
     We can however understand the expected variance of such estimators by simply examining the
-    scatter between the estimators used within the $\planck$ analysis.
-    Note that this is not statistical variance, but simply method variance.
+    scatter between the estimators used within the $\planck$ 2018 analysis.
+    Note that this is not statistical variance, but simply method variance,
+    coming from the difficulty of $\cmb$ bispectrum estimation.
     We show this in figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
     which is closely related to the $\dbi$ template.
     We see that the result obtained by $\cmbbest$ is different, but still lies
@@ -171,18 +177,18 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     From~\cite{Chen_dbi} we can use slow-roll relations to determine the approximate
     value of $N_e$
     %We find
-    for our values of $\phi$
+    for our values of $\phi$ as
     \begin{align}
         N_e &= \frac{\sqrt{\lambda_{\dbi}}H}{\phi}\approx10^2.%112
     \end{align}
     We can also then write down the expected relation between the sound speed
     and $\bir$
     \begin{align}
-        c_s &\approx \frac{3}{\bir N_e}.%&&\approx 0.054.
+        c_s &\approx \frac{3}{\bir N_e}%&&\approx 0.054.
     \end{align}
     which we indeed find to be approximately true for our numerical results.
     We start the background evolution on the slow-roll attractor, finding initial conditions which
-    satisfy the Friedman constraint, as discussed in section~\ref{sec:interactions}.
+    satisfy the Friedmann constraint, as discussed in section~\ref{sec:interactions}.
     For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
     is within $3.044\pm0.014$,
     and that $n_s^{*}$ is within $0.9649\pm0.0042$.
@@ -202,7 +208,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 \begin{table}[h!]
   \begin{center}
-    \begin{tabular}{lrrrr}
+    \begin{tabular}{lrrr}
         \toprule
         $\bir$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ \\
         \midrule
@@ -216,7 +222,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         \bottomrule
     \end{tabular}
     \caption{
-        Summary of scenario parameters across the scan, evaluated at the horizon
+        Summary of scenario parameters at the upper and lower limits of the scan, evaluated at the horizon
       crossing of the pivot scale.
       }\label{tab:scan_summary_sr}
   \end{center}
@@ -240,7 +246,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 \begin{table}[h!]
   \begin{center}
-    \begin{tabular}{lrrrrrrr}
+    \begin{tabular}{lrr}
         \toprule
         $\bir$ &  $n_s^{*}$ &  $n_{NG}^{*}$\\
         \midrule
@@ -249,7 +255,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         \bottomrule
     \end{tabular}
       \caption{
-          Summary of the slow-roll predictions for the scaling indices across the scan.
+          Summary of the slow-roll predictions for the scaling indices
+          at the upper and lower limits of the scan.
       }\label{tab:scan_summary_ns}
   \end{center}
 \end{table}
@@ -327,7 +334,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     In figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
     in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
     comparing $\Pmax=25$ and $\Pmax=30$,
-    the relative error in $\fnl+2\sigma$ is sufficiently small that we can be
+    the relative error in the quantity that determines the constraint,
+    $\fnl+2\sigma$, is sufficiently small that we can be
     confident our results have converged in $\Pmax$.
     We also see that it is (for the majority of the scan) smaller
     that the corresponding relative error at the primordial level, plotted in
@@ -392,12 +400,13 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 %\section{EFT stuff, build off Enrico's recent work.}
 %    Words
 \section{Conclusions}
-    Using our methods (as implemented in the $\primodal$ code) we can calculate the shape coefficients
+    Through the methods described in this thesis (as implemented in the $\primodal$ code)
+    we can calculate the shape coefficients
     $\alpha_{pqr}$ for each value of $\bir$ in the scan described in section~\ref{sec:setup}.
     In this scan, these coefficients are with respect to the $\Lnsinv$ basis.
     Using these coefficients, we can use the methods described in~\cite{Sohn_2021} (as implemented
     in the $\cmbbest$ code) to place a constraint on the amplitude of that predicted bispectrum.
-    This constraint uses the $\planck$ temperature data.
+    This constraint uses the latest $\planck$ temperature data.
     The constraint then directly translates to a constraint on the inflationary parameters of that scenario,
     without the need for further approximations.
     This is done by giving the bispectrum of each scenario an amplitude
@@ -437,6 +446,6 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
     Thus we conclude that our constraint on the $\dbi$ sound speed validates our pipeline as a whole,
     laying a solid foundation to move forward to shapes that have no standard template,
-    obtaining totally new constraints.
+    constraining previously unexplored models.
 
 
