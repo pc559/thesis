@@ -77,7 +77,7 @@ However, understanding the inflationary prediction is only the first part of the
 The computational challenge of using these predictions to translate
 $\cmb$ data into constraints on specific inflation scenarios has been tackled by
 various methods.
-Much progress has been made by course-graining
+Much progress has been made by coarse-graining
 the model space, using a small number of approximate representative templates,
 and leveraging the simplifying characteristic of separability
 with respect to the three parameters of the bispectrum~\cite{Komatsu_2005, Munchmeyer_2014}.
@@ -90,7 +90,7 @@ it is a valuable measure of the interactions in play during inflation.
 If some inflation model predicts a bispectrum that is sufficiently well approximated by
 the standard separable templates, the constraints on those standard templates
 can be translated into constraints on the parameters of the model.
-The fact that all primordial templates estimated thus far from the CMB
+The fact that the amplitudes of all primordial templates estimated thus far from the CMB
 are consistent with zero has already provided such constraints
 in certain scenarios~\cite{Planck_NG_2015, Planck_NG_2018}.
 With the high-precision \planck~data, and data from forthcoming experiments
@@ -114,7 +114,7 @@ to calculating primordial bispectra.
 This modal philosophy is a flexible method that has broadened the range of constrained
 bispectrum templates, by expanding them in a carefully chosen basis.
 The Modal estimator is thus capable of constraining
-non-separable templates, while the $\ksw$ estimator, for example, cannot.
+non-separable templates, while the $\ksw$ estimator~\cite{Komatsu_2005}, for example, cannot.
 
 
 To do this, we will exploit the intrinsic separability of the
@@ -218,7 +218,7 @@ allowing us to apply the method to feature bispectra for the first time.
         \frac{\partial^2 v_k}{\partial \tau^2} + \left(c_s^2k^2 - \frac{1}{z}\frac{d^2 z}{d \tau^2}\right)v_k = 0
     \end{align}
     however, this is not ideal as $c_s$ depends on time.
-    Instead, let us use $\tau_s$ as our time parameter.
+    Instead, let us use $\tau_s$~\eqref{tausdef} as our time parameter.
     If we follow~\cite{Hu_2011} and define
     \begin{align}\label{y_defn}
         y_k=\sqrt{2kc_s}v_k,
@@ -357,7 +357,8 @@ at leading order in slow-roll.
         \bottomrule
     \end{tabular}
     \caption{
-        Notation summary and comparison.
+        Notation summary and comparison for some inflationary parameters
+        used in the literature.
     }\label{tab:notation}
   \end{center}
 \end{table}
@@ -377,9 +378,10 @@ at leading order in slow-roll.
             j_l(k\chi_*)/5
             \right]}^2.
     \end{align}
-    where $j_l(x)$ is a Bessel function, and the $\delta_{ll'}$ and $\delta_{mm'}$
-    are demanded by statistical isotropy. The Bessel function encodes the fact that a three dimensional
+    where $j_l(x)$ is the spherical Bessel function, and the $\delta_{ll'}$ and $\delta_{mm'}$
+    are demanded by statistical isotropy. The spherical Bessel function encodes the fact that a three dimensional
     wave of a given wavelength intersects the sphere at multiple different angular separations.
+    The conformal distance to last scattering is $\chi_*$.
 
 
     For large scales, where there was not enough time for oscillations
@@ -394,18 +396,20 @@ at leading order in slow-roll.
     \end{align}
 
 
-    We can write down an estimator for the power spectrum
+    We can write down an estimator for the angular power spectrum.
+    Since $C_l$ depends only on $l$, we can
+    use all the values of $m$ for each $l$
     \begin{align}
         %\left<TT\right> &= ?\\
         %\left<a_{lm}a_{l'm'}\right> &= ?\\
-        \hat{C}_l &= \frac{1}{2l+1}\sum_m a_{lm} a_{l-m}.
+        \hat{C}_l &= \frac{1}{2l+1}\sum_{m=-l}^{l} a_{lm} a_{l-m}.
     \end{align}
     The variance of this estimator is given by
     \begin{align}
         var\left(\hat{C}_l\right) = \frac{2}{2l+1} C^2_l,
     \end{align}
-    which reflects the fact that for the distribution of $C_l$,
-    there are $2l+1$ independently drawn modes that we can observe.
+    which reflects the fact that multipoles with higher $l$ have
+    more independently drawn modes that we can observe.
 
 
     For $\primpowerspec(k)=A_s$, i.e.\ a perfectly scale invariant power spectrum,
@@ -461,8 +465,8 @@ equal they form an equilateral triangle, and when one is much smaller than
 the other two, that is a squeezed triangle.
 The space of configurations we are interested in is therefore
 reduced from the full cube $[\kmin,\kmax]^3$
-to a tetrapyd (illustrated in figure~\ref{slice_explained}),
-the intersection of that cube with the
+to a~\textit{tetrapyd} (illustrated in figure~\ref{slice_explained}),
+which is the intersection of that cube with the
 tetrahedron that satisfies~\eqref{triangle_inequality}.
 This has important implications that we will explore in
 chapter~\ref{chapter:decomp}. 
@@ -569,10 +573,10 @@ and $1$ if $p,r,s$ are all distinct.
     quadratic in a Gaussian field
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3)
-    &= \frac{6}{5}A_\zeta^2\fnllocal\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\\
+    &= \frac{6}{5}A_\zeta^2\fnllocal\left(\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\right)\\
     &= \frac{6}{5}A_\zeta^2\fnllocal\frac{K_3}{6\,K_{111}}.
 \end{align}
-This template peaks on squeezed triangles, i.e.\ when $k_1\sim k_2\gg k_3$,
+This template peaks on squeezed triangles, i.e.\ when $k_1\approx k_2\gg k_3$,
 and is used to test for multi-field effects~\cite{Planck_NG_2015}.
 It can also be modified to include the expected scaling
 \begin{align}
@@ -603,7 +607,7 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     We begin with the action
     %S=\int dx^4\sqrt{g}\left[\frac{R}{2}-\frac{1}{2}(\nabla\phi)^2-V(\phi)\right].
     \begin{align}\label{gr_action}
-        S=\int d^4x\sqrt{-g}\left[\frac{1}{2}R+P(X, \phi)\right].
+        S=\int d^4x\sqrt{-g}\left[\frac{1}{2}M^2_{Pl}R+P(X, \phi)\right].
     \end{align}
     Note that unlike~\eqref{inflaton_action} we have explicitly included the
     Ricci scalar $R$.
@@ -986,7 +990,7 @@ The shape~\eqref{dbi_shape} can be approximated by the separable equilateral tem
 
     \subsection{Scaling}
 These templates can be modified to be more physically realistic by including
-scaling similar to the spectral index $n_s$~\cite{Planck_NG_2015}.
+scaling similar to the scalar spectral index $n_s$~\cite{Planck_NG_2015}.
 For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
 in a reasonable first approximation by including a prefactor,
 as was done in~\cite{Planck_NG_2013}.
@@ -1023,7 +1027,7 @@ is to add oscillatory features of the form
 \begin{align}\label{cos_shape}
     S^{\cos}(k_1,k_2,k_3) = \cos(w(k_1+k_2+k_3))
 \end{align}
-though more realistically there is some phase, shape dependence and a modulating envelope,
+though more realistically there is some phase, some shape dependence, and a modulating envelope,
 as detailed in~\cite{adshead}.
 The result of adding a resonant feature of the form~\eqref{eq:resonant_potential}
 is to generate logarithmic oscillatory features in the shape function of the form
@@ -1050,7 +1054,7 @@ see~\cite{chen_folded_resonant}.
     For the $\cmb$, we calculate the reduced $\cmb$ bispectrum using~\cite{FergShell_2}
     \begin{equation}
     \label{eq:reduced_cmb}
-    b_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}drr^2
+    b_{l_1l_2l_3} = \left(\frac{2}{\pi}\right)^3\int_{0}^{\infty}dr~r^2
         \int d^3k~(k_1k_2k_3)^2 B_{\Phi}(k_1,k_2,k_3)\prod_{i=1}^{3}\left[j_{l_i}(k_ir)\Delta_{l_i}(k_i)\right],
     \end{equation}
     analogously to~\eqref{eqn:transfer_function}.
@@ -1099,13 +1103,16 @@ see~\cite{chen_folded_resonant}.
     % https://arxiv.org/pdf/0912.5516.pdf
     The bispectrum derived from theory is denoted
     \begin{align}
-        \left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}
+        \left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}.
     \end{align}
-    where we have used the Gaunt integral
+    The quantity $\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}$ is the Gaunt integral
     \begin{align}
         \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt \\
-        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}.
+        &= \sqrt{\frac{(2l_1+1)(2l_2+1)(2l_3+1)}{4\pi}}
+        {{l_1~~l_2~~l_3} \choose {0~~0~~0}}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}\\
+        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
     \end{align}
+    where we have used the Wigner $3j$ symbol, and defined $h_{l_1l_2l_3}$.
     The bispectrum measured from the $\cmb$ is
     \begin{align}
         B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
@@ -1114,7 +1121,6 @@ see~\cite{chen_folded_resonant}.
     \begin{align}\label{eq:bll}
         B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
     \end{align}
-    using the Wigner $3j$ symbol.
 
 
     The standard method for estimating the $\cmb$ bispectrum is to calculate the least squares
@@ -1404,7 +1410,7 @@ other methods impose some non-trivial cutoff at early times.
     The method implemented in $\cmbbest$~\cite{Sohn_2021} is roughly a generalisation of the $\ksw$ method.
     Contrasting the Modal method, $\cmbbest$ requires only one basis, a primordial one, in $k$ space.
     This basis is then projected forwards onto the $\cmb$. This is a massively resource-intensive calculation
-    with the naive implementation scaling as $\Pmax^6$. It also requires terabytes
+    with the na\"{i}ve implementation scaling as $\Pmax^6$. It also requires terabytes
     of RAM for reasonable method parameters.
     This calculation was tackled in~\cite{Sohn_2021}, which implemented optimisations which allowed this calculation
     to be run for $\Pmax=30$ using reasonable supercomputer resources. The motivation for implementing this algorithmically
