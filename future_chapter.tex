@@ -1,15 +1,17 @@
 \chapter{Conclusions}\label{chapter:conclusion}
 
 \section{Summary}
-Through the work detailed in this thesis the inherent separability of the tree level in-in formalism
-has been exploited, using expansions in separable basis functions.
-Following the modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}, and building on the basic idea of~\cite{Funakoshi},
+The work detailed in this thesis enables the exploitation of the inherent separability
+of the tree level in-in formalism, using expansions in separable basis functions.
+Following the modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}, and
+building on the basic idea of~\cite{Funakoshi},
 this method obviates the requirement of considering an approximate separable template,
 which was a limitation of previous analyses. Instead,
 the goal is to work with the full numerically calculated tree-level inflationary bispectrum of the scenario
 being considered. The output is not a grid of points, but a set of coefficients of
 the explicitly separable basis expansion.
-This preserves the separability and therefore allows us to skip the usual template-approximation step.
+This preserves the separability and therefore allows us to skip the usual template-approximation step,
+opening the door to constraining models with non-trivial bispectra.
 We have:
 \begin{itemize}
     \item developed practical sets of such basis functions, showing the overall method
@@ -31,7 +33,7 @@ These methods and basis sets have been implemented in the $\primodal$ code, whic
 the shape coefficients for a given inflation scenario, in a given basis.
 We have explored and contrasted the advantages of the various basis sets we described, and thoroughly
 validated our methods on single-field inflation models with non-trivial phenomenology.
-This validation showed that our calculation of these coefficients is fast and accurate to high orders.
+This validation shows that our calculation of these coefficients is fast and accurate to high orders.
 
 
 The latter part of this bispectrum estimation pipeline
@@ -43,8 +45,8 @@ parts of the pipeline.
 We scanned across a fundamental parameter, $\bir$, of the $\dbi$ model of inflation.
 Our goal was to obtain a constraint on this parameter using our
 template-free analysis---we found 
-$\bir\le0.46$ at $95\%$ confidence using $\planck$ temperature data.
-This differed from the equivalent constraint found by the $\modal$ estimator
+$\bir\le0.46$ at $95\%$ confidence using $\planck$ 2018 temperature data.
+This differs from the equivalent constraint found by the $\modal$ estimator
 in the $\planck$ analysis, but the results are sufficiently in agreement that we
 can take this as a broad validation of our pipeline.
 
@@ -61,7 +63,7 @@ advantage is the link to observations.
 Unlike previous numerical and semi-analytic methods,
 once the shape function is expressed in some basis as in~\eqref{goal},
 the integral~\eqref{eq:reduced_cmb} and other computationally intensive steps involved
-in estimating a particular bispectrum in the $\cmb$, can be precomputed. Since this
+in estimating a particular bispectrum in the $\cmb$ can be precomputed. Since this
 large cost is only paid once per basis, once a basis
 which converges well for a broad range of models
 has been found, an extremely broad exploration of primordial bispectra becomes immediately feasible in the $\cmb$.

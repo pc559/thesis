@@ -679,7 +679,7 @@ also constrains $\eta\ll1$.
     We begin with a brief summary of some probabilistic quantities.
     We can define the expectation value of a function $f$ of a discrete random variable $x$,
     the expectation value of a function $f$ of a continuous random variable $x$,
-    or a functional $F$ of a field configuration $f(x)$, respectively as
+    or the expectation value of a functional $F$ of a field configuration $f(x)$, respectively as
     \begin{align}
         \left<f(x)\right> &= \sum_i f(x_i) P(x_i)\label{expectation_value_discrete}\\
         \left<f(x)\right> &= \int dx~f(x) \rho(x)\label{expectation_value_cont}\\
@@ -705,8 +705,8 @@ also constrains $\eta\ll1$.
     In particular, the quantum mechanical nature of the inflationary
     origin of structure means that such predictions
     of inflationary theories will necessarily be statistical. That is to say, the predictions through
-    which we will test these theories will be predictions of these expectation
-    values of the primordial perturbations.
+    which we will test these theories will be predictions of expectation
+    values of these primordial perturbations.
 
 
     The ensemble average~\eqref{expectation_value_field} of
@@ -725,7 +725,7 @@ also constrains $\eta\ll1$.
     the requirement that the correlators are invariant under translations and rotations.
     This does not mean that some realisation of the ensemble is forbidden from
     breaking these symmetries, of course---fields
-    are still allowed to be inhomogeneous, and thus (for example) have local extrema.
+    are still allowed to be inhomogeneous, and thus have special points such as local extrema.
     The statement of statistical homogeneity is that,
     when averaged over the entire ensemble of possible realisations, these special points
     are equally likely to appear anywhere in space.
@@ -754,7 +754,7 @@ also constrains $\eta\ll1$.
     Our focus in this thesis will be on the predictions that models of inflation make
     for the the bispectrum $B(k_1,k_2,k_3)$.
     This is one characteristic property of 
-    the initial conditions for the $\lcdm$ evolution that follows after. From
+    the initial conditions for the $\lcdm$ evolution. From
     this, one can calculate statistical properties of the $\cmb$ sky that we see.
     If the bispectrum has the form
     \begin{equation}\label{sepXYZ}
@@ -762,12 +762,12 @@ also constrains $\eta\ll1$.
     \end{equation}
     or can be expressed as a sum of such terms, it is called separable.
     This property allows useful simplifications to such calculations, that
-    will be explored in chapter~\ref{chapter:intro_bispectra}.
+    will be discussed in chapter~\ref{chapter:intro_bispectra}.
 
 
     Another symmetry one could imagine is statistical scale invariance.
     Scale invariance is the statement that
-    \begin{align}
+    \begin{align}\label{scale_inv}
         \left<f(\mathbf{x})f(\mathbf{x'})\right> = \left<f(\lambda\mathbf{x})f(\lambda\mathbf{x'})\right>.
     \end{align}
     One can show that this symmetry demands $P(k)\propto k^{-3}$.
@@ -776,7 +776,9 @@ also constrains $\eta\ll1$.
         \mathcal{P}(k) = \frac{k^3}{2\pi^2}P(k).
     \end{align}
     % By looking at <f(x)^2>
-    Evidence suggests that this symmetry is \textit{not} respected by the probability
+
+
+    Evidence suggests that the symmetry~\eqref{scale_inv} is \textit{not} respected by the probability
     distribution from which our universe was drawn.
     In fact, it has been estimated that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$
     at $68\%$ CL~\cite{Planck_inflation_2015, Planck_inflation_2018}.
@@ -785,7 +787,7 @@ also constrains $\eta\ll1$.
     distribution are negligibly small.
 
 
-    We will close this section with a brief note on Monte Carlo simulations.
+    We will close this section with a brief note on simulations.
     Using these simulations, for some given probability distribution, we can determine
     what our observations might look like---even in the presence of
     complicating factors such as, in the case of observing the harmonics of the temperature fluctuations
@@ -800,7 +802,7 @@ also constrains $\eta\ll1$.
     fluctuations of the $\cmb$ for deviations from Gaussianity,
     for example, one could use this ensemble to estimate the rate of false positives
     of that test.
-    Thus, Monte Carlo simulations provide a way to generate possible observations,
+    Thus, simulations provide a way to generate possible observations,
     even in complicated situations,
     when the probability distribution is assumed.
 
@@ -851,7 +853,7 @@ also constrains $\eta\ll1$.
     true ensemble averages---this is known as cosmic variance.
     To summarise,
     there are two ways to beat this cosmic variance (to measure an ensemble
-    average $<f(\vecx)^2>$ at some fixed $\vecx$, say).
+    average $\left<f(\vecx)^2\right>$ at some fixed $\vecx$, say).
     We could stay in the same spatial region, but magically peek into all the other universes.
     Or, we could stay in the same universe, but magically peek into every spatial region.
     The ergodic theorem tells us that these two methods will give the same answer,

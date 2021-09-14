@@ -1101,26 +1101,29 @@ see~\cite{chen_folded_resonant}.
     \subsection{Linear regression}
     % https://arxiv.org/pdf/1006.1642.pdf
     % https://arxiv.org/pdf/0912.5516.pdf
-    The bispectrum derived from theory is denoted
+    The bispectrum derived from theory is
     \begin{align}
-        \left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}.
+        %\left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}.
+        \left<\triplea\right> = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}
     \end{align}
-    The quantity $\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}$ is the Gaunt integral
+    where isotropy demands that $b_{l_1l_2l_3}$ does not depend on the $m_i$,
+    and the quantity $\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}$ is the Gaunt integral
     \begin{align}
-        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt \\
-        &= \sqrt{\frac{(2l_1+1)(2l_2+1)(2l_3+1)}{4\pi}}
-        {{l_1~~l_2~~l_3} \choose {0~~0~~0}}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}\\
-        &= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
+        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt. %\\
+        %&= \sqrt{\frac{(2l_1+1)(2l_2+1)(2l_3+1)}{4\pi}}
+        %{{l_1~~l_2~~l_3} \choose {0~~0~~0}}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}\\
+        %&= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
     \end{align}
-    where we have used the Wigner $3j$ symbol, and defined $h_{l_1l_2l_3}$.
-    The bispectrum measured from the $\cmb$ is
+    %where we have used the Wigner $3j$ symbol, and defined $h_{l_1l_2l_3}$.
+    The bispectrum measured from the $\cmb$ is denoted
     \begin{align}
-        B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
+        %B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
+        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b^{obs}_{l_1l_2l_3} &= \tripleaobs.
     \end{align}
-    We can write the angle averaged bispectrum
-    \begin{align}\label{eq:bll}
-        B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
-    \end{align}
+    %We can write the angle averaged bispectrum
+    %\begin{align}\label{eq:bll}
+    %    B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
+    %\end{align}
 
 
     The standard method for estimating the $\cmb$ bispectrum is to calculate the least squares
@@ -1137,16 +1140,20 @@ see~\cite{chen_folded_resonant}.
     where $\cdot$ denotes summation over $l_i$ and $m_i$.
     Defining the normalisation~\cite{Fergusson_polyspectra, Fergusson_efficient} 
     \begin{align}
-        N_B = \sum_{l_i,m_i}\frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}}{C_{l_1}C_{l_2}C_{l_3}}
+        N_B = \sum_{l_i,m_i}\frac{\left(\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}\right)^2}{C_{l_1}C_{l_2}C_{l_3}}
     \end{align}
     we can rewrite this in the usual way (with $\lambda$ identified as the result of the estimator, $\epsilon$)
     \begin{align}
-        \epsilon = \frac{1}{N}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
+        \epsilon = \frac{1}{N_B}\sum_{l_i,m_i}\frac{\left<\triplea\right>\tripleaobs}{C_{l_1}C_{l_2}C_{l_3}}.
     \end{align}
-    However, if we simply calculate this quantity for some theoretical model we will not be able to
-    interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
-    drawn from a purely Gaussian distribution could, through random chance,
-    result in a non-zero $\epsilon$. This problem is solved using simulated Gaussian maps.
+    This estimator is optimal~\cite{Babich:2005en}, so its variance
+    saturates the Cramer-Rao bound and can be calculated theoretically.
+    %However, if we simply calculate this quantity for some theoretical model we will not be able to
+    %interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
+    %drawn from a purely Gaussian distribution could, through random chance,
+    %result in a non-zero $\epsilon$. This problem is solved using simulated Gaussian maps.
+    Monte Carlo simulations are also used to estimate the variance, to ensure systematics
+    are taken into account correctly.
     Many $\cmb$ skies are generated from Gaussian initial conditions, and then the estimator
     is applied to each. This gives a distribution of $\epsilon$, from which we can
     calculate $1\sigma$ and $2\sigma$ regions for $\epsilon$. Then the result of the
@@ -1155,23 +1162,26 @@ see~\cite{chen_folded_resonant}.
 
 
     This procedure must be modified to account for experimental noise, beam effects and
-    the presence of a mask (to exclude to regions of the sky saturated by our galaxy).
+    the presence of a mask (to exclude to regions of the sky saturated by our galaxy
+    and other foreground contaminants).
     The assumption is also made that the covariance matrix is diagonal, and the
     following quantities are defined:
     \begin{align}
-        C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta_{m_1~-m_2},\label{diagonal_covariance}\\
+        %C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta_{m_1~-m_2},\label{diagonal_covariance}\\
            \tilde{C_l} &= b_l^2C_l+N_l,\\
-           \bar{b}_{l_1l_2l_3} &= b_{l_1}b_{l_2}b_{l_3}b_{l_1l_2l_3},
+           \tilde{b}_{l_1l_2l_3} &= b_{l_1}b_{l_2}b_{l_3}b_{l_1l_2l_3},
     \end{align}
-    to incorporate noise from the experiment.
-    The estimator can then be written as~\cite{Fergusson_polyspectra, Fergusson_efficient}
+    to incorporate the experimental beam $b_l$ and the noise power
+    spectrum $N_l$ from the experiment.
+    The estimator can then be written as~\cite{Creminelli:2005hu, Fergusson_polyspectra, Fergusson_efficient}
     \begin{align}
         \epsilon = \frac{1}{\bar{N}^2}\sum_{l_im_i}
         \frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}\bar{b}_{l_1l_2l_3}}{\tilde{C}_{l_1}\tilde{C}_{l_2}\tilde{C}_{l_3}}
-        \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right).
+        \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right)
     \end{align}
+    which retains optimality~\cite{Creminelli:2005hu}.
     Here, the diagonal approximation is insufficient for the linear term
-    (especially for local type shapes), so the
+    (which is especially important for local type shapes), so the
     full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is calculated using an ensemble average
     over a suite of Gaussian simulations. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
