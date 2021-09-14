@@ -1151,20 +1151,13 @@ see~\cite{chen_folded_resonant}.
     %However, if we simply calculate this quantity for some theoretical model we will not be able to
     %interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
     %drawn from a purely Gaussian distribution could, through random chance,
-    %result in a non-zero $\epsilon$. This problem is solved using simulated Gaussian maps.
-    Monte Carlo simulations are also used to estimate the variance, to ensure systematics
-    are taken into account correctly.
-    Many $\cmb$ skies are generated from Gaussian initial conditions, and then the estimator
-    is applied to each. This gives a distribution of $\epsilon$, from which we can
-    calculate $1\sigma$ and $2\sigma$ regions for $\epsilon$. Then the result of the
-    estimator (when applied to the real $\cmb$ sky) can be compared to this distribution
-    to determine the significance of the result.
+    %result in a non-zero $\epsilon$. This problem is solved using simulated Gaussian maps. 
 
 
     This procedure must be modified to account for experimental noise, beam effects and
     the presence of a mask (to exclude to regions of the sky saturated by our galaxy
     and other foreground contaminants).
-    The assumption is also made that the covariance matrix is diagonal, and the
+    The covariance matrix is approximated as diagonal, and the
     following quantities are defined:
     \begin{align}
         %C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta_{m_1~-m_2},\label{diagonal_covariance}\\
@@ -1186,14 +1179,23 @@ see~\cite{chen_folded_resonant}.
     over a suite of Gaussian simulations. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
     by the galaxy.
+    While the estimator is still optimal,
+    Monte Carlo simulations are also used to estimate the variance, to ensure systematics
+    are taken into account correctly.
+    Many $\cmb$ skies are generated from Gaussian initial conditions, and then the estimator
+    is applied to each. This gives a distribution of $\epsilon$, from which we can
+    calculate $1\sigma$ and $2\sigma$ regions for $\epsilon$. Then the result of the
+    estimator (when applied to the real $\cmb$ sky) can be compared to this distribution
+    to determine the significance of the result.
+
 
 
     \subsection{Complexity of bispectrum estimation}
-    The bispectrum, like the power spectrum, is a quantity that describes
-the statistical distribution of which our universe is a realisation.
-We can use this one accessible sky to constrain inflationary physics; 
-see~\cite{astro2020_features, astro2020_png, astro2020_features, Ballardini_2017, Sypsas_2017,
-    Palma_2017} for recent reviews.
+    %The bispectrum, like the power spectrum, is a quantity that describes
+%the statistical distribution of which our universe is a realisation.
+%We can use this one accessible sky to constrain inflationary physics; 
+%see~\cite{astro2020_png, astro2020_features, Ballardini_2017, Sypsas_2017,
+%    Palma_2017} for recent reviews.
 %There are two parts to the pipeline of bispectrum estimation.
 %Firstly, calculating the primordial bispectrum at the end of some inflation scenario,
 %and then calculating the effect this bispectrum
@@ -1205,9 +1207,7 @@ to evolve and project the primordial bispectrum onto our sky.
 In principle, this is the same process as power spectrum estimation.
 However, for the bispectrum the computational challenge is far greater,
 requiring both compute-intensive and large in-memory components.
-
-
-As a result of this complexity, this second step is computationally impractical for generic primordial bispectra.
+As a result of this complexity, this step is computationally impractical for generic primordial bispectra.
 Progress can be made by finding an approximation to the primordial shape
 that is separable, and using this simplification
 to make the calculation tractable
