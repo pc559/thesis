@@ -275,8 +275,8 @@ allowing us to apply the method to feature bispectra for the first time.
     should behave like a free field in Minkowski space with respect to $\tau_s$
     when they are deep in the horizon.
     Demanding this early time behaviour of $y_k$
-    gives us
-    \begin{align}
+    gives us the Bunch-Davies vacuum
+    \begin{align}\label{bd_ic}
         v_k = \frac{1}{\sqrt{2{c_s}k}}e^{-ik\tau_s}
     \end{align}
     when $\frac{{c_s}k}{aH}\rightarrow \infty$.
@@ -1167,7 +1167,7 @@ see~\cite{chen_folded_resonant}.
     to incorporate the experimental beam $b_l$ and the noise power
     spectrum $N_l$ from the experiment.
     The estimator can then be written as~\cite{Creminelli:2005hu, Fergusson_polyspectra, Fergusson_efficient}
-    \begin{align}
+    \begin{align}\label{estimator_with_linear}
         \epsilon = \frac{1}{N_B^2}\sum_{l_im_i}
         \frac{\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}\bar{b}_{l_1l_2l_3}}{\tilde{C}_{l_1}\tilde{C}_{l_2}\tilde{C}_{l_3}}
         \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right)
@@ -1436,7 +1436,7 @@ other methods impose some non-trivial cutoff at early times.
 
 
     In the methods implemented in $\cmbbest$,
-    the quantity in~\eqref{diagonal_covariance} is not assumed to be diagonal,
+    the covariance matrix in the linear term of~\eqref{estimator_with_linear} is not assumed to be diagonal,
     as this was found to lead to inaccurate results.
     It is calculated by taking an ensemble average of $140$ Gaussian simulations.
     $\fnl$ estimates are also made for all of these simulations,

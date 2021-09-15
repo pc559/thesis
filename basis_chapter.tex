@@ -35,7 +35,7 @@ describe will be independent of the basis, it is vital we
 explore possible sets of basis functions $Q_n(k_1,k_2,k_3)$
 and their effects on convergence;
 that will be the main subject of this chapter.
-In this section we will set the notation we will use to recast
+In this initial section we will set the notation we will use to recast
 the standard numerical in-in calculation into a calculation of $\alpha_n$ in~\eqref{goal}.
 We will sketch the steps involved, including accounting for the effect of spatial derivatives
 in the interaction Hamiltonian on our final result.
@@ -51,7 +51,7 @@ of basis, but the methods we will describe to calculate them
 will be practical for any basis.
 Our aim will be to separate out the dependence on $k$ and $\tau_s$,
 without losing any of the information contained in the tree-level in-in formalism,
-except in the sense that is controlled by $\Pmax$.
+except in the sense that is controlled by $\Pmax$, the size of the basis.
 We will set up an efficient numerical implementation of the calculation,
 a necessary consideration to allow this method to be useful in exploring
 parameter spaces in primordial phenomenology.
@@ -107,8 +107,8 @@ to integrate analytically (using the $i\varepsilon$ prescription), provided the 
 the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
 However, for high precision bispectrum predictions we must incorporate the full time-dependence,
 while solving~\eqref{modefneqn_zeta_N} to find accurate mode functions $\zeta_{\bf k}(\tau)$ numerically.
-Obtaining the full 3D bispectrum directly is computationally demanding at high resolution because
-it requires repetitive integration of~\eqref{inin_sep} at each specific point for the wavenumbers $(k_1, k_2, k_3)$,
+Obtaining the full 3D bispectrum at high resolution using this direct method is computationally demanding however, because
+it requires repetitive integration of~\eqref{inin_sep} at each specific configuration of the wavenumbers $(k_1, k_2, k_3)$,
 a problem which is drastically compounded by bispectrum parameter searches e.g.\ for oscillatory models. 
 
 
@@ -116,7 +116,8 @@ The terms contained in $v^{(i)}(k_1, k_2,k_3)$ depend on the structure of the sp
 but not the specific scenario. These terms are separable;
 we will discuss their precise form in section~\ref{sec:h_int}.
 We include their contribution to the final result after the time integrals have been computed.
-The factors which depend only on time, $w_i(\tau)$, depend on the scenario
+In contrast,
+the factors which depend only on time ($w_i(\tau)$) depend on the scenario
 but do not need to be decomposed in $k$.
 The remaining factors have both $k$ and time dependence;
 they must be decomposed in $k$ at every timestep.
@@ -162,9 +163,10 @@ Substituting these expansions into~\eqref{inin_sep}, we obtain the following dec
     = \Re\bigg[v^{(i)}(k_1, k_2,k_3)\int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau)\nonumber\\
     &\qquad\cdot\sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\bigg]\\
 	&= v^{(i)}(k_1, k_2,k_3)\sum_{prs}\bigg(\Re\int^0_{-\infty} d\tau\, w^{(i)}(\tau)\nonumber\\
-    &\qquad\qquad\cdot f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\bigg)\threeqs + \text{cyclic perms}\,.
+    &\qquad\qquad\cdot f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\bigg)\threeqs + \text{cyclic perms}
 \end{align}
-For the sake of compactness of notation we use $P$ to stand for the
+where the dependence on $k_i$ has now been brought outside the time integral.
+For the sake of compactness of notation we will now use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
 integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in section~\ref{sec:starting}.
@@ -208,13 +210,14 @@ number of time integrals of the form~\eqref{inin_kindep} we need to calculate.
 
 Note the basis sets on the left and right hand side of~\eqref{V_definition}
 need not match. In fact, if those two basis sets do match, then generically information
-will be lost---for example, if the basis set on the left is $\Lbasic$, then terms
+will be lost---for example, if the basis set on the left is the Legendre polynomials up to order $n$, then terms
 in $v^{(i)}(k_1,k_2,k_3)$ with positive powers will introduce higher order
 dependencies on $k$, and negative powers will introduce $1/k$ behaviour. In
 practice, to prevent this loss of information, we take the basis set on the right hand
 side of~\eqref{V_definition} to be an expanded version of that on the left. For
-example, if the left hand basis was $\Lbasic$ of size $\Pmax$, the right hand basis would
-be $\Linvk$ of size $\Pmax+3$.
+example, if the left hand basis was the Legendre polynomials up to order $n$, the right hand basis would
+include polynomials up to order $n+2$ and also a term to capture $1/k$ behaviour.
+This will be discussed in detail later in this chapter.
 
 
 We can see from~\eqref{inin_kindep} that the number of time integrals needed is controlled by
