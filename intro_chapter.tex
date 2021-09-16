@@ -26,9 +26,10 @@ between this hot, dense initial state and today.
 More work remains to be done, however---one aspect we can question is the origin of the non-uniformities
 that provided the seeds of structure. What was the physics that generated them?
 The goal of the work described in this thesis is to develop methods to connect this physics
-to the sky we see today; more precisely, we aim to use the light from the early universe (the cosmic microwave
-background, the $\cmb$)
-to constrain physical theories of the very early universe (the epoch of inflation) using a particular
+to the sky we see today; more precisely, we aim to use the light from
+the early universe, the Cosmic Microwave Background ($\cmb$),
+to constrain physical theories of the very early universe (the epoch of exponential
+expansion known as inflation) using a particular
 statistical description, known as the bispectrum.
 We aim to mature the connection between models of inflation and their predicted bispectra, so we can better
 extract the fundamental physics waiting to be found in the universe's youth.
@@ -36,8 +37,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
     We begin with a brief discussion of the fundamentals of cosmology.
     General relativity is the theory which describes how the evolution of the universe depends
-    on its matter and energy content. It describes the path of light as a geodesic, a straight line
-    in spacetime---with spacetime being described in terms of curved geometry.
+    on its matter and energy content. It describes the path of light as a geodesic,
+    the generalisation of a straight line to curved spacetime.
     The equations that we derive from this theory (the Einstein equations) are written in terms of a metric,
     which we denote by $g_{\mu\nu}$. This object defines our notion of distance, and thus encodes
     the causal structure of the universe---which events can influence which other events.
@@ -45,23 +46,25 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
     Spatially homogeneous and isotropic universes (i.e.\ ones that at some given
     time, look the same everywhere and in every direction)
-    define a class of solutions to the Einstein equations.
-    The metric of each universe is known as a Friedmann–Lemaître–Robertson–Walker metric
+    define a class of solutions of the Einstein equations.
+    The metric of such a homogeneous and isotropic universe
+    is known as a Friedmann–Lemaître–Robertson–Walker metric
     (or more usually, an FLRW metric). In this context
-    the Einstein equations become the Friedmann equations, which we will soon present
+    the Einstein equations reduce to the Friedmann equations, which we will soon present
     in~\eqref{friedmann_1}.
     But first, we present the the FLRW metric (we will always set the speed of light to unity)
     \begin{align}\label{flrw_metric}
         ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2,
     \end{align}
     where $a(t)$ has the interpretation as the scale factor
-    which describes the evolution of the universe.
+    which describes the evolution of this homogeneous and isotropic universe.
+\textcolor{red}{Define conformal time here, conformal distance, physical distance.}
     The line element $ds^2$ then determines the interval between two spacetime points.
     %Or, more intuitively, it determines the proper time measured by an observer who freely falls
     %between two events to be the integral of $d\tau=\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}$.
     The homogeneity, isotropy and curvature of space are encoded in $dS^2_3$,
-    but a non-trivial time dependence of $a(t)$ breaks the homogeneity of time.
-    We will only consider a flat universe, so $dS_3^2=dx^2+dy^2+dz^2$.
+    but a non-trivial time dependence of $a(t)$ breaks homogeneity in time.
+    We will only consider a flat universe, so $dS_3^2=dx^2+dy^2+dz^2$. \textcolor{red}{WHY?}
 
 
     The curvature of spacetime and its evolution is determined by the matter and energy
@@ -69,23 +72,25 @@ extract the fundamental physics waiting to be found in the universe's youth.
     Radiation is one of the cosmologically important components of the present universe, in the form of the
     photons in the cosmic microwave background, the $\cmb$.
     Today these photons free-stream through the universe.
-    Another component is matter, by which we mean \textit{dark} matter.
+    Another component is matter, the primary part of which
+    is \textit{dark} matter.
     This is invisible to our telescopes (which depend on electromagnetic radiation) but can be mapped by the
     effect its mass has on the curvature of spacetime, which we see through
     effects such as the lensing of passing photons.
     A more familiar component is what cosmologists refer to as baryonic matter, which is
     the protons, electrons, neutrons and all the other particles which make up the visible galaxies, stars
     and humans.
-    The last component we will mention is the component which at present makes up the largest contribution to the
-    energy budget of the universe, dark energy.
-    Dark energy appears to act as a vacuum energy, as a cosmological constant which does not
+    The last component of our universe that we will mention is dark energy.
+    At present, dark energy makes up the largest contribution to the
+    energy budget of the universe.
+    Dark energy appears to act as a vacuum energy, or a cosmological constant which does not
     dilute as the universe expands. The radiation is denoted by $\gamma$,
-    the dark matter by $m$, and the cosmological constant by $\Lambda$.
+    the matter by $m$, and the cosmological constant by $\Lambda$.
 
 
     The components of the matter and energy content of the universe enter the equations through
-    their energy-momentum tensors $T^{\mu\nu}$, which we approximate as that of
-    a perfect fluid. Labeling the fluid $X$,
+    their energy-momentum tensors $T^{\mu\nu}$, which in a homogeneous and isotropic universe
+    we can approximate as that of a perfect fluid. Labeling the fluid $X$,
     \begin{align}\label{stress_tensor}
         T_X^{\mu\nu} = (\rho_X+P_X)U_X^\mu U_X^\nu+P_Xg^{\mu\nu},
     \end{align}
@@ -99,7 +104,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     For the components of the universe that we wish to describe,
     taking the quantity $w_X=\frac{P_X}{\rho_X}$ as constant will be a good description.
     This quantity $w$ takes the values $0$, $1/3$ and $-1$ for matter, radiation
-    and dark energy (described by a cosmological constant) respectively.
+    and dark energy (described by a cosmological constant~\textcolor{red}{just $\Lambda$, stop mentioning dark energy?})
+    respectively.
 
 
     \begin{table}[h!]
@@ -136,7 +142,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     energy densities and of the pressure densities of the
     components of the universe.
     A dot will refer to a derivative with respect to coordinate time $t$.
-    We also have the continuity equation
+    We also have the continuity equation\textcolor{red}{From where? When true for all components?}
     \begin{align}\label{continuity_equation}
         \dot{\rho}_X + 3\frac{\dot{a}}{a}\left(\rho_X+P_X\right) &= 0
     \end{align}
@@ -215,6 +221,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     for $X$ being radiation, matter and dark energy.
     A subscript of $0$ will denote a quantity evaluated today.
+    \textcolor{red}{$\rho=8\pi G$ divided by and so on.}
     The critical density $\rho_{crit,0}$ is the density for which the universe is flat,
     so for our universe $\sum\Omega_{i,0}=1$.
     The measured values for these quantities, as presented in~\cite{Planck_parameters_2018},
@@ -235,6 +242,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     %Therefore, $\Omega_{\gamma,0}h^2=2.47\times 10^{-5}$.
 
 
+    \textcolor{red}{Move plots here, link to scaling arguments.}
     Given these numbers, and~\eqref{friedmann_omega}, we can make some statements
     about the past, present and future of the universe, illustrated in figure~\ref{fig:lcdm_components}.
     Firstly, the present---we see that the cosmological constant,
@@ -248,6 +256,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     higher energy densities in the early universe. Running the clock back far enough, we see
     that despite $\Omega_{\gamma,0}\ll\Omega_{m,0}$ today, at one stage it was the
     case that $\Omega_{\gamma}\gg\Omega_{m}$, and the universe was dominated by radiation.
+    \textcolor{red}{Weak, cut.}
     This epoch is the limit on how far back in time we can see---the density of free electrons
     was so high that the mean free path of photons was very short. Once the temperature
     dropped enough that neutral atoms formed, the mean free path of photons became long
@@ -272,6 +281,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     predictions for the relative abundances of the lightest
     elements (which were forged in the first few minutes of the universe)
     and ``baryon acoustic oscillations'' in the $\cmb$ and large scale structure ($\lss$).
+\textcolor{red}{Not evidence for thermal equilibrium.}
     These can be directly linked to the end of the coupling
     between the baryons and the acoustic waves in the radiation,
     before the release of the $\cmb$.
@@ -284,6 +294,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     whether the universe had a beginning or not---compared to
     now, where the debate rages over the second and
     third significant figures of its age.
+\textcolor{red}{Muddled.}
 
 
     Before focusing our whole attention on the past in the rest of this thesis, let us briefly
@@ -322,6 +333,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     distance (and the time taken, $\int dt$) diverges.
     Integrating~\eqref{friedmann_omega} in the same way that generated figure~\ref{fig:lcdm_tau}
     we find that the points that we see in today's $\cmb$ are a comoving distance of $14.2\Gpc$ away.
+\textcolor{red}{Why $a_0=1$?}
     Since $a_0=1$, the present physical distance to these points is equal to the comoving distance,
     but this will increase exponentially in the future.
     We also find the asymptotic value of $\tau$ to be $19.2\Gpc$, indicating that we will never see the
@@ -351,6 +363,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     it evolves as some power of $t$ (see table~\ref{lcdm_dep_table}),
     however as $\Lambda$ comes to dominate
     it will begin to grow exponentially.
+    \textcolor{red}{Vertical lines. Scatter these plots in text, link tighter.}
 }\label{fig:lcdm_a}
 \end{figure}
 \begin{figure}[!pth]
@@ -399,38 +412,44 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 \section{Initial conditions for $\lcdm$}
     \subsection{Motivations for inflation}
+    \textcolor{red}{Mention reheating somewhere! Efficient, not thermal.}
     %The $\lcdm$ model does not posit a ``Big Bang singularity''---instead, as we have discussed, it
     %posits an early epoch in which the components that we have discussed are in thermal equilibrium,
     %at an incredibly hot temperature.
     %However, if one assumes that those components are all there are, and runs the equations backwards,
     %one reaches $a=0$ in finite time.
-    The $\lcdm$ model posits an early epoch in which the components that
+    The $\lcdm$ model relys upon an early epoch in which the components that
     we have discussed are in thermal equilibrium,
-    at an incredibly hot temperature.
-    These components were distributed incredibly uniformly, but with some small perturbations.
+    at an incredibly high temperature.
+    These components were distributed almost perfectly uniformly, but with some tiny perturbations.
     This simple scenario then evolves under the expansion of the universe
     and the gravitational collapse of perturbations (and other interactions) and forms the universe we know.
-    Is this story of $\lcdm$ enough to explain all the features of the
-    universe that we observe?
-    It turns out that the answer is only yes if the initial conditions for the $\lcdm$
-    model had certain special characteristics.
-    These special characteristics then become clues to the epoch of the universe
-    that preceded $\lcdm$.
+    These special characteristics of this early epoch
+    then become clues to the epoch of the universe that preceded $\lcdm$.
+    \textcolor{red}{Muddled.}
+    %Is this story of $\lcdm$ enough to explain all the features of the
+    %universe that we observe?
+    %It turns out that the answer is yes, if the initial conditions for the $\lcdm$
+    %model have certain special characteristics.
+    %This story of $\lcdm$ explains many features of the
+    %universe that we observe, given that 
 
 
     Two of the clues that we have are known as the horizon problem, and the flatness problem.
     Roughly speaking, the first is the problem that the universe is more homogeneous on
     large scales than we would expect, given the history of $\lcdm$. Why is the temperature on one
-    part of the sky so close to the temperature on the other side of the sky?
+    side of the sky so close to the temperature on the other side of the sky?
     The second is the problem that the curvature of the universe appears to be so
-    small, despite the fact that there is no reason to believe it should be set to precisely zero.
+    small, despite the fact that there is no reason to believe it should be.
     %, and one would expect the dynamics to increase it's relative contribution to the
     %energy density of the universe.
     We will not go into the details of the flatness problem except to state that
     a natural explanation of this would be an attractive quality in a
     theory of the very early universe.
+    \textcolor{red}{Cut mention of flatness?}
 
 
+    \textcolor{red}{Where did this come from?}
     Since $a(\tau)\propto \tau^2$ during the matter dominated era we can approximate
     the total comoving distance a photon could have traveled between the singularity at $a_i=0$
     and recombination at $a_{rec}=1/1100$. We find
@@ -447,6 +466,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     since $a_0=1$).
     This means that we would expect the homogeneous patches at recombination to span
     at most an angle of
+    \textcolor{red}{Where does this come from?}
     \begin{align}
         \tan^{-1}\left(2\frac{x_{rec}-0}{x_{0}-x_{rec}}\right) \approx 2^{\circ}
     \end{align}
@@ -470,7 +490,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     opposite sides of the $\cmb$ to come into thermal equilibrium, this can be remedied by
     adding an epoch that causes the horizon (the characteristic conformal length scale $(aH)^{-1}$)
     to shrink---this would give large scales enough time
-    to come into thermal equilibrium, then leave them outside the horizon. The usual $\lcdm$ evolution
+    to come into thermal equilibrium, before they leave the horizon. The usual $\lcdm$ evolution
     would then come into play, bringing these scales back inside the horizon where we can observe them.
     One way of doing this is via an effective cosmological constant---in that case the horizon $1/(aH)$ shrinks
     exponentially. We then find that $\tau=-1/(aH)$, so in the limit $a\rightarrow 0$ we see there is
@@ -491,6 +511,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     %theory of the very early universe.
 
 
+    \textcolor{red}{Should this be moved later? Have perturbations been mentioned?
+    What is scale invariance? Link.}
     We will mention three more features of the $\lcdm$ initial conditions that we would
     like an explanation for. Those three features are the adiabaticity of the initial
     perturbations, the (as measured so far) Gaussianity of those perturbations, and finally
@@ -524,6 +546,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     \subsection{Driving inflation with a scalar field}
+    \textcolor{red}{Meaning of sound speed when homogeneous. Do I actually show it successfully inflates?}
     These features of the early universe can be explained by a period of near-exponential expansion
     preceding the usual $\lcdm$ evolution.
     One simple way one could imagine driving this expansion is through a single
@@ -535,13 +558,15 @@ S = \int d^4x \sqrt{-g}P(X,\phi)
 with $\phi=\phi(t)$ and $X\equiv-\frac{1}{2}g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi=\frac{1}{2}\dphi^2$.
 We will work with the number of e-folds, $N$, as our time variable
 $x'\equiv\frac{dx}{dN}=H^{-1}\frac{dx}{dt}$.
+    \textcolor{red}{Define e-folds. Which $g_{\mu\nu}$ is the above true for?}
 
 
-The energy-momentum tensor is
+The energy-momentum tensor is defined as
 \begin{align}\label{gr_energy}
     T_{\mu\nu} = -2\frac{\partial\mathcal{L}_m}{\partial g^{\mu\nu}}+g_{\mu\nu}\mathcal{L}_m.
 \end{align}
 The expression for the energy density then follows as
+    \textcolor{red}{Identification, interpretation as $\rho$.}
 \begin{align}\label{rho_px}
     \rho = 2XP,_X-P,
 \end{align}
@@ -564,15 +589,16 @@ so then the continuity equation~\eqref{continuity_equation} implies
     define a quantity $\tau_s$
     in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
     \begin{align}\label{tausdef}
-        \tau_s'&=\frac{c_s}{aH}.
+        \tau_s'&\equiv\frac{c_s}{aH}.
     \end{align}
 We also define the standard ``slow-roll'' parameters:
 \begin{align}\label{slowrollparams}
-    \eps &= -\frac{d\ln H}{dN}	\\
-    \eta &= +\frac{d\ln \varepsilon}{dN}\\
-    \eps_s &= +\frac{d\ln c_s}{dN}
+    \eps &\equiv -\frac{d\ln H}{dN}	\\
+    \eta &\equiv +\frac{d\ln \varepsilon}{dN}\\
+    \eps_s &\equiv +\frac{d\ln c_s}{dN}
 \end{align}
 though we have not demanded that these be small.
+\textcolor{red}{Why would they be small?}
 From the continuity equation and the Friedmann equation
 we find the useful relation
 \begin{align}\label{epsilon_phi}
@@ -587,9 +613,11 @@ the equation of motion for $\phi$ is~\cite{Hu_2011}
 \begin{align}\label{phieom}
     \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
 \end{align}
+\textcolor{red}{Define canonical.}
 In the canonical case~\eqref{epsilon_phi} simplifies to
 $\varepsilon = \frac{1}{2}{\phi'}^2$,
 while in the $\dbi$ case we find
+\textcolor{red}{Define $\dbi$, Dirac, branes.}
 $\varepsilon = \frac{1}{2}\frac{{\phi'}^2}{c_s}$.
 We will now briefly discuss the special case of canonical models,
 with $P(X,\phi)=X-V(\phi)$.
@@ -636,6 +664,7 @@ $2XP_{,X}\ll P$.
     %This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
     To match the measured deviation from scale-invariance in standard slow-roll
     inflation it turns out we would need $\varepsilon\sim O(10^{-2})$.
+    \textcolor{red}{What are perturbations?}
 
 
 For a model with a canonical kinetic term,~\eqref{phieom} simplifies
@@ -653,6 +682,7 @@ on the flatness of the potential in a canonical model.
 Requiring inflation to last for the sufficient number
 of e-folds to solve the horizon problem
 also constrains $\eta\ll1$.
+    \textcolor{red}{Expand!}
 
 
 %This allows us to rephrase the Friedmann equation in the following useful
@@ -666,6 +696,7 @@ also constrains $\eta\ll1$.
 
 
 \section{Statistical observables}
+\textcolor{red}{Move to later chapter?}
 \subsection{From probabilities to observations}\label{corr_functions}
     The discussion until this point has focused on quantities
     with definite values. This will no longer
@@ -680,6 +711,7 @@ also constrains $\eta\ll1$.
     We can define the expectation value of a function $f$ of a discrete random variable $x$,
     the expectation value of a function $f$ of a continuous random variable $x$,
     or the expectation value of a functional $F$ of a field configuration $f(x)$, respectively as
+\textcolor{red}{Cut this entirely?? Define $P$?}
     \begin{align}
         \left<f(x)\right> &= \sum_i f(x_i) P(x_i)\label{expectation_value_discrete}\\
         \left<f(x)\right> &= \int dx~f(x) \rho(x)\label{expectation_value_cont}\\
@@ -692,6 +724,7 @@ also constrains $\eta\ll1$.
 
     %In our example of the $100$ coin flips, we used~\eqref{expectation_value_discrete}
     %to calculate the mean and standard deviation.
+\textcolor{red}{Cut?}
     For example, if one wanted to
     calculate the expected number of heads in $100$
     coin flips (or the variance in that number),
@@ -720,6 +753,7 @@ also constrains $\eta\ll1$.
     expectation values of products the field evaluated at more points.
 
 
+\textcolor{red}{Imposed by inflation? But they are evidence for inflation?}
     There are two assumptions we wish to immediately impose on such functions.
     Those conditions are statistical homogeneity and statistical isotropy,
     the requirement that the correlators are invariant under translations and rotations.
@@ -747,12 +781,15 @@ also constrains $\eta\ll1$.
     This is due to the delta function
     demanding that the sum of the $\mathbf{k_i}$ vanishes, thus forming a triangle.
     Since the orientation of this triangle
-    cannot matter, three parameters will suffice---we choose the magnitudes of the vectors.
+    cannot matter, three parameters will suffice. The conventional choice is
+    the magnitudes of the vectors.
     Similar statements can of course be made for higher point correlators.
 
 
+\textcolor{red}{Move separability later.}
     Our focus in this thesis will be on the predictions that models of inflation make
     for the the bispectrum $B(k_1,k_2,k_3)$.
+\textcolor{red}{Muddled.}
     This is one characteristic property of 
     the initial conditions for the $\lcdm$ evolution. From
     this, one can calculate statistical properties of the $\cmb$ sky that we see.
@@ -778,15 +815,18 @@ also constrains $\eta\ll1$.
     % By looking at <f(x)^2>
 
 
-    Evidence suggests that the symmetry~\eqref{scale_inv} is \textit{not} respected by the probability
+    Evidence suggests that the symmetry~\eqref{scale_inv} is 
+    only approximately respected by the probability
     distribution from which our universe was drawn.
     In fact, it has been estimated that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$
     at $68\%$ CL~\cite{Planck_inflation_2015, Planck_inflation_2018}.
     Thus we can make the statement that
     the odds of a universe like ours being drawn from a scale-invariant probability
     distribution are negligibly small.
+\textcolor{red}{The odds of this being an extreme fluctuation are\ldots}
 
 
+\textcolor{red}{Do we need this?}
     We will close this section with a brief note on simulations.
     Using these simulations, for some given probability distribution, we can determine
     what our observations might look like---even in the presence of
@@ -828,7 +868,7 @@ also constrains $\eta\ll1$.
     Are we doomed from the start? Thankfully, it turns out, that is not the case.
 
 
-    Inflation is the theory we use to calculate a probability distribution
+    Inflation is the theory we use to define the probability distribution
     that our universe may have been drawn from.
     %If we only have a finite amount of data from this ensemble,
     %we cannot perfectly measure some given average, as we will be limited by cosmic variance.
@@ -861,6 +901,7 @@ also constrains $\eta\ll1$.
     our one universe and the ensemble predictions of inflation.
 
 
+\textcolor{red}{Make clearer. Link to power spectrum, then bispectrum.}
     In practice, we have other advantages.
     Even in a limited spatial region we can have access to multiple
     samples drawn independently from one distribution, for example
@@ -924,9 +965,9 @@ Given the context we have outlined,
     The concrete results of such a goal are constraints on the parameters of inflation models,
     not constraints on phenomenological templates or summary $\fnl$ parameters.
     This allows the use of the full bispectrum shape information from an inflation scenario,
-    not point samples or a limit. The novelty of our results comes from the separable
-    and numerical methods
-    granting access to more accurate, and in some cases new, bispectrum shapes.
+    not point samples or a limit. The novelty of our results comes from our separable
+    approach and numerical methods
+    granting access to more accurate, and new, bispectrum shapes.
 
 
     To achieve these goals we have developed methods to preserve the

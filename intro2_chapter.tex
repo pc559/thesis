@@ -47,7 +47,7 @@ seen in single-field models (for example, see recent work in~\cite{RP_2, Fumagal
 Multi-field models are a prime target for future work---the
 methods outlined in this thesis have been implemented
 and tested for single-field models,
-though those methods are expected to generalise to this case.
+though they are expected to generalise to this case.
 
 
 If the fundamental physical model of inflation is a single field,
@@ -109,16 +109,16 @@ of a pipeline to allow to efficiently test a much broader range of models.
 In this work, we explore shapes arising from tree-level effects in single field models.
 We do this numerically, allowing quantitative results for a broad
 range of models, and avoiding extra approximations.
-Our general aim is to apply the modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}
+Our general aim is to apply the Modal philosophy of~\cite{FergShell_1,FergShell_2,FergShell_3}
 to calculating primordial bispectra.
-This modal philosophy is a flexible method that has broadened the range of constrained
+This Modal philosophy is a flexible method that has broadened the range of constrained
 bispectrum templates, by expanding them in a carefully chosen basis.
 The Modal estimator is thus capable of constraining
 non-separable templates, while the $\ksw$ estimator~\cite{Komatsu_2005}, for example, cannot.
 
 
 To do this, we will exploit the intrinsic separability of the
-tree-level in-in formalism to apply the modal methods at the level of inflation.
+tree-level in-in formalism to apply the Modal methods at the level of inflation.
 Expressing the primordial bispectrum in a separable
 basis expansion turns out to lead to an increase in the efficiency
 of the calculation at the primordial level.
@@ -135,7 +135,7 @@ A proof of concept of this approach at the primordial level was presented in~\ci
 We go beyond the work of~\cite{Funakoshi} both in developing the choice of basis
 (the feasibility of the method depending vitally on the chosen basis
 achieving sufficiently fast convergence in a broad range of interesting models)
-and in the methods we use to allow us to go to much higher order in our modal expansion,
+and in the methods we use to allow us to go to much higher order in our Modal expansion,
 allowing us to apply the method to feature bispectra for the first time.
 
 
@@ -372,6 +372,7 @@ at leading order in slow-roll.
     \end{align}
     Projecting the large scale primordial inhomogeneities onto a sphere (the $\cmb$ sky)
     the statistics are projected as
+    \textcolor{red}{Where does the $5$ come from. Derive this!}
     \begin{align}
         \left<a_{lm}a^*_{l'm'}\right> &= \delta_{ll'}\delta_{mm'}C_l\\
         C_l &\approx 4\pi\int d\ln k~\primpowerspec(k){\left[
@@ -399,6 +400,7 @@ at leading order in slow-roll.
     We can write down an estimator for the angular power spectrum.
     Since $C_l$ depends only on $l$, we can
     use all the values of $m$ for each $l$
+    \textcolor{red}{Angle average. $m$ is angle, $l$ is scale. Why?}
     \begin{align}
         %\left<TT\right> &= ?\\
         %\left<a_{lm}a_{l'm'}\right> &= ?\\
@@ -466,14 +468,15 @@ the other two, that is a squeezed triangle.
 The space of configurations we are interested in is therefore
 reduced from the full cube $[\kmin,\kmax]^3$
 to a~\textit{tetrapyd} (illustrated in figure~\ref{slice_explained}),
-which is the intersection of that cube with the
+    \textcolor{red}{Maybe move part of that to here? Then reference back from section $4$?}
+which is defined as intersection of that cube with the
 tetrahedron that satisfies~\eqref{triangle_inequality}.
 This has important implications that we will explore in
 chapter~\ref{chapter:decomp}. 
 
 
 The amplitude of a bispectrum shape is usually
-quoted in terms of some $\fnl^F$ parameter.
+quoted in terms of some amplitude parameter $\fnl^F$.
 We can schematically define $\fnl^F$ for some template $F$ as follows:
 \begin{equation}\label{def:fnl}
 {
@@ -494,7 +497,9 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     In our template-free pipeline, we take $\fnl$ as a coefficient of our expansion
     of the numerically calculated primordial shape. Thus in the work we present in
     later chapters of this thesis, $\fnl$ is scenario specific and we rule out an
-    inflation scenario by ruling out $\fnl=1$. We present here some of the ways
+    inflation scenario by ruling out $\fnl=1$.
+    \textcolor{red}{Move our definition to the end, emphasise its scaling.}
+    We present here some of the ways
     $\fnl$ is defined in the literature, for convenience.
 
 
@@ -546,6 +551,7 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     which depends on $k_1$, $k_2$ and $k_3$. In the local case we see that this reduces to
     the usual definition of $\fnllocal$ across the entire tetrapyd. %In the equilateral limit,
     %we see that it coincides with the definition of $\fnlequil$.
+    \textcolor{red}{Compare to other limit definitions.}
 
 
     \subsection{Templates}
@@ -596,6 +602,7 @@ S^{local}(k_1,k_2,k_3)
     &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}
 \end{align}
 This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
+    \textcolor{red}{Use $K_{pq}$ notation?}
 
 
     \section{Step 1: the interaction Hamiltonian}
@@ -714,6 +721,7 @@ The in-in formalism takes the time evolution of the interaction picture mode
 functions as an input for calculating the bispectrum.
 At tree-level, the in-in formalism gives us the
 following expression:
+    \textcolor{red}{Derive this! Get it from the Schr\"{o}dinger equation?}
 \begin{align}\label{inin_integral}
 {
     \left< \zeta_{\mathbf{k_1}}(\tau)\zeta_{\mathbf{k_2}}(\tau)\zeta_{\mathbf{k_3}}(\tau) \right>
@@ -802,7 +810,7 @@ To proceed with this calculation we will use Wick's theorem
     \left<0\left|\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}\right|0\right>
     &= \left<0\left|:\zeta_{\mathbf{k_1}}\ldots\zeta_{\mathbf{k_n}}:~+:\sum~\text{pairwise contractions:}~\right|0\right>
 \end{align}
-where $:~:$ denotes normal ordering---ordering operators so that those
+where $:~:$ denotes normal ordering. Normal ordering places operators so that those
 which annihilate $\left|0\right>$ are to the right and those which annihilate
 $\left<0\right|$ are put to the left. Thus, if a normal ordered term contains
 uncontracted operators, the term vanishes inside an expectation value.
@@ -956,9 +964,11 @@ With $\mathbf{k_S}\equiv\left(\mathbf{k_2}-\mathbf{k_3}\right)/2 $:
 where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
 That the error in the consistency relation decreases at least quadratically
 in the long mode was shown in~\cite{not_so_sqz}.
+\textcolor{red}{How is this used?}
 
 
     \subsection{Basic shapes}
+\textcolor{red}{Introduction to this section. Mention power spectrum, shift symmetry.}
     With a canonical kinetic term
     the slow-roll result for the shape is
 \begin{align}\label{malda_shape}
@@ -967,6 +977,7 @@ in the long mode was shown in~\cite{not_so_sqz}.
 with $\eta=2\varepsilon$ for the quadratic potential~\eqref{eq:quadratic_potential}.
 At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
 However, the amplitude of this shape is expected to be tiny,
+\textcolor{red}{In what sense? Looks like $1/\varepsilon$?}
 and the dominant contributions (the squeezed configurations) are expected
 to have no observable effect~\cite{Cabass_2016}.
 
@@ -987,6 +998,7 @@ Any constraint on the magnitude of this template can be translated into one
 on the effective sound speed which from \planck~has a lower limit $c_s^{\dbi} \geq 0.087$
 at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
+\textcolor{red}{Compare amplitude.}
 
     \subsection{Scaling}
 These templates can be modified to be more physically realistic by including
@@ -1003,9 +1015,11 @@ and the sum scaling template
     S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
+\textcolor{red}{Why does this improve the fit?}
 
 
 \subsection{Shapes from features during inflation}
+\textcolor{red}{What are features? Motivate them. Look at $\planck$.}
 For our more stringent validation tests we work with feature model scenarios
 based on the above base models.
 To explore non-Gaussianity coming from sharp features we include
@@ -1025,18 +1039,19 @@ We now turn to feature templates, that result from the preceding potential featu
 The result of adding a feature of the form~\eqref{eq:kink_potential}
 is to add oscillatory features of the form
 \begin{align}\label{cos_shape}
-    S^{\cos}(k_1,k_2,k_3) = \cos(w(k_1+k_2+k_3))
+    S^{\cos}(k_1,k_2,k_3) \approx \cos(w(k_1+k_2+k_3))
 \end{align}
 though more realistically there is some phase, some shape dependence, and a modulating envelope,
 as detailed in~\cite{adshead}.
 The result of adding a resonant feature of the form~\eqref{eq:resonant_potential}
 is to generate logarithmic oscillatory features in the shape function of the form
 \begin{align}\label{ln_cos_shape}
-    S^{\ln-\cos}(k_1,k_2,k_3) = \cos(w\ln(k_1+k_2+k_3)).
+    S^{\ln-\cos}(k_1,k_2,k_3) \approx \cos(w\ln(k_1+k_2+k_3)).
 \end{align}
 With a non-canonical kinetic term, this can also
 cause out-of-phase oscillations in the folded limit as well as a modulating shape,
 see~\cite{chen_folded_resonant}.
+\textcolor{red}{What does it look like? Out of phase with what?}
 
 
 
@@ -1070,6 +1085,7 @@ see~\cite{chen_folded_resonant}.
         \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k)
     \end{align}
     where $\tau_0-\tau_{dec}$ is the conformal distance to last scattering.
+\textcolor{red}{What is this approximation? Sachs-Wolfe. Why large scales. Link to derivation earlier.}
     The integral then becomes
     \begin{equation}
     \label{eq:reduced_cmb_constant}
@@ -1089,7 +1105,9 @@ see~\cite{chen_folded_resonant}.
         \left[\frac{1}{l_1+l_2+l_3+3}+\frac{1}{l_1+l_2+l_3}\right]\label{eq:bll_constant}.
     \end{align}
     Note that this example of constant $S$ is not especially realistic as a shape that could
-    come from a model of inflation. Note also that the acoustic oscillations and
+    come from a model of inflation.
+\textcolor{red}{Correlates well with equilateral shape.}
+    Note also that the acoustic oscillations and
     other relevant physics have not been taken
     into account here---these would imprint oscillations at higher $l$.
     Nevertheless, it is instructive to write down the scaling behaviour of this
@@ -1101,7 +1119,7 @@ see~\cite{chen_folded_resonant}.
     \subsection{Linear regression}
     % https://arxiv.org/pdf/1006.1642.pdf
     % https://arxiv.org/pdf/0912.5516.pdf
-    The bispectrum derived from theory is
+    The $\cmb$ bispectrum derived from a given inflationary scenario is denoted
     \begin{align}
         %\left<\triplea\right> = B^{l_1l_2l_3}_{m_1m_2m_3} = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}.
         \left<\triplea\right> = \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b_{l_1l_2l_3}
@@ -1109,7 +1127,7 @@ see~\cite{chen_folded_resonant}.
     where isotropy demands that $b_{l_1l_2l_3}$ does not depend on the $m_i$,
     and the quantity $\mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}$ is the Gaunt integral
     \begin{align}
-        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &= \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt. %\\
+        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3} &\equiv \int d\Omega Y_{l_1m_1}\nhatbrkt Y_{l_2m_2}\nhatbrkt Y_{l_3m_3}\nhatbrkt. %\\
         %&= \sqrt{\frac{(2l_1+1)(2l_2+1)(2l_3+1)}{4\pi}}
         %{{l_1~~l_2~~l_3} \choose {0~~0~~0}}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}\\
         %&= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
@@ -1150,7 +1168,7 @@ see~\cite{chen_folded_resonant}.
     saturates the Cramer-Rao bound and can be calculated theoretically.
     %However, if we simply calculate this quantity for some theoretical model we will not be able to
     %interpret the result. This is because even a $\cmb$ sky in a universe with initial conditions
-    %drawn from a purely Gaussian distribution could, through random chance,
+    %drawn from a purely Gaussian distribution will, through random chance,
     %result in a non-zero $\epsilon$. This problem is solved using simulated Gaussian maps. 
 
 
@@ -1173,6 +1191,7 @@ see~\cite{chen_folded_resonant}.
         \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right)
     \end{align}
     which retains optimality~\cite{Creminelli:2005hu}.
+\textcolor{red}{Motivate linear term. In the diagonal case, it is subtracting a monopole?}
     Here, the diagonal approximation is insufficient for the linear term
     (which is especially important for local type shapes), so the
     full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is calculated using an ensemble average
@@ -1192,7 +1211,7 @@ see~\cite{chen_folded_resonant}.
 
     \subsection{Complexity of bispectrum estimation}
     %The bispectrum, like the power spectrum, is a quantity that describes
-%the statistical distribution of which our universe is a realisation.
+%the statistical distribution of which our universe is a single realisation.
 %We can use this one accessible sky to constrain inflationary physics; 
 %see~\cite{astro2020_png, astro2020_features, Ballardini_2017, Sypsas_2017,
 %    Palma_2017} for recent reviews.
@@ -1215,7 +1234,7 @@ through the $\ksw$ estimator~\cite{Komatsu_2005, Munchmeyer_2014, Smith_2011}.
 For example, one may find that a particular inflation scenario generates
 a primordial bispectrum with a high correlation with some standard shape,
 then look at how well that standard shape is constrained by the CMB.
-The modal decomposition method of~\cite{FergShell_1,FergShell_2,FergShell_3}
+The Modal decomposition method of~\cite{FergShell_1,FergShell_2,FergShell_3}
 leveraged these simplifications in a more structured way
 for generic bispectra, broadening the range of constrained models.
 
@@ -1228,7 +1247,7 @@ this template is used as a proxy for the class of inflation models that produce 
 Similar quantities for the equilateral and orthogonal templates are also
 commonly quoted.
 In addition to broadening the range of constrained models through increases in efficiency,
-the modal decomposition method of~\cite{FergShell_1,FergShell_2,FergShell_3}
+the Modal decomposition method of~\cite{FergShell_1,FergShell_2,FergShell_3}
 allows to go beyond this paradigm, efficiently constraining inflationary templates in the CMB using
 all of the shape information; essentially constraining an $\fnl$
 specific to a given template. This bypasses the approximation step at the level of the templates,
@@ -1240,9 +1259,10 @@ These constraints can be found in~\cite{Planck_NG_2015, Planck_NG_2018}.
 
 In this work, our numerical methods remove the need for some of the
 earlier set of approximations
+\textcolor{red}{what are they}
 made before this, during inflation, directly linking the parameters of the inflation scenario
 with the relevant observable.
-In addition to this improvement in accuracy, calculating the modal decomposition
+In addition to this improvement in accuracy, calculating the Modal decomposition
 directly from the model of inflation is far more efficient 
 than numerically calculating the bispectrum configuration by configuration.
 
@@ -1252,6 +1272,7 @@ The link between the separability of the primordial bispectrum
 and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb}.
 If the primordial bispectrum is separable then the overall dimension
 of the calculation can be reduced from seven to five, 
+\textcolor{red}{link to equation}
 since the spherical Bessel functions $j_{l_i}$ and the
 transfer functions $\Delta_{l_i}$ already appear in a separable way.
 This property can also be used to
@@ -1287,6 +1308,7 @@ features can be applied.
     Since $e^{iw(k_1+k_2+k_3)}=e^{iwk_1}e^{iwk_2}e^{iwk_3}$.},
     but is limited in that it cannot function for shapes whose shape dependence is not
     sum-separable.
+    \textcolor{red}{Cosine basis.}
 
 
 Since separability is so vital, the usual strategy is to approximate non-separable templates
@@ -1299,6 +1321,7 @@ Other methods target oscillations~\cite{reso_estimator, excited_estimator},
 by expanding the shape function
 in $k_1+k_2+k_3$, thus limiting their ability to capture shapes whose
 phase varies across the tetrapyd.
+    \textcolor{red}{Cosine basis.}
 
 
     The Modal method~\cite{FergShell_2014} is more versatile, 
@@ -1314,7 +1337,8 @@ phase varies across the tetrapyd.
 
 
 \section{Previous work on in-in separability.}
-    In~\cite{Funakoshi} it was pointed out that one can compute using the
+    In~\cite{Funakoshi} it was pointed out that one can compute the inflationary
+    bispectrum using the
 tree-level in-in formalism in such a way as to preserve its intrinsic
 separability. In addition to making this point,~\cite{Funakoshi} lays
 out some of the basic structure of an implementation of that computation,
@@ -1408,8 +1432,9 @@ sidetracked inflation~\cite{RP_1}.
     However despite the differences, all configuration-by-configuration methods face the same problems:
 firstly, that calculating enough points in the bispectrum to ensure that
 the whole picture has been captured is expensive, especially for non-trivial features.
-Even once that has been achieved, what is obtained is a grid of points
-which must be processed further to be usefully compared to observation.
+Even once that has been achieved, what is obtained is a grid of points.
+Since this is not separable, it
+must be processed further to be usefully compared to observation.
 Secondly, they must carefully implement some variation
 of the $i\eps$ prescription without affecting the numerical results.
 In~\cite{transport_main} this is achieved in the initial conditions for the bispectra;
@@ -1419,6 +1444,7 @@ other methods impose some non-trivial cutoff at early times.
     \section{$\cmbbest$}
     The method implemented in $\cmbbest$~\cite{Sohn_2021} is roughly a generalisation of the $\ksw$ method.
     Contrasting the Modal method, $\cmbbest$ requires only one basis, a primordial one, in $k$ space.
+    The size of the basis is referred to as $\Pmax$.
     This basis is then projected forwards onto the $\cmb$. This is a massively resource-intensive calculation
     with the na\"{i}ve implementation scaling as $\Pmax^6$. It also requires terabytes
     of RAM for reasonable method parameters.

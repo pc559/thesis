@@ -1,9 +1,9 @@
 %\input{commands}
 \chapter{Decomposing Primordial Shapes}\label{chapter:decomp}
-As we have seen, while at tree level the bispectrum is an integral
+As we have seen, at tree level the bispectrum is an integral
 over a separable integrand (see~\eqref{inin_integral} and
-the example presented in~\eqref{inin_computer}),
-this separability is usually lost
+the example presented in~\eqref{inin_computer}).
+This separability is usually lost
 in the final result. In this chapter we outline a formalism that preserves the
 separability, by expanding the integrand in a separable basis. We also explore
 possible choices for this separable basis, testing them on various
@@ -20,6 +20,7 @@ bispectrum~\cite{FergShell_1,FergShell_2,FergShell_3}.
 Our goal in this work is the efficient calculation of more general bispectra
 which may have significant (possibly oscillatory) features, requiring searches across inflationary parameters.
 To achieve this, we represent the shape function~\eqref{shapefn} using a set of basis functions as
+    \textcolor{red}{Include triple $q$. Define $\Pmax$.}
 \begin{align}\label{goal}
 S(k_1, k_2,k_3) &= \sum_n \alpha_n  \, Q_n(k_1,k_2,k_3)\,,
 \end{align}
@@ -168,6 +169,7 @@ Substituting these expansions into~\eqref{inin_sep}, we obtain the following dec
 where the dependence on $k_i$ has now been brought outside the time integral.
 For the sake of compactness of notation we will now use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
+    \textcolor{red}{Muddled? Define $V$ properly, more clearly.}
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
 integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in section~\ref{sec:starting}.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
@@ -216,7 +218,7 @@ dependencies on $k$, and negative powers will introduce $1/k$ behaviour. In
 practice, to prevent this loss of information, we take the basis set on the right hand
 side of~\eqref{V_definition} to be an expanded version of that on the left. For
 example, if the left hand basis was the Legendre polynomials up to order $n$, the right hand basis would
-include polynomials up to order $n+2$ and also a term to capture $1/k$ behaviour.
+include polynomials up to order $n+2$, and also include a term to capture $1/k$ behaviour.
 This will be discussed in detail later in this chapter.
 
 
@@ -331,6 +333,8 @@ this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better rep
 between two shape functions
 than the correlation used in~\cite{Funakoshi}, as it is easier to interpret and
 more stringent.
+    \textcolor{red}{If there was a primordial estimator, this would be the fractional sigma error.
+    Is it? But it's limited to be less than $\sqrt{2}$?}
 
 
 The full relative difference~\eqref{relative_difference} also includes the amplitude
@@ -353,6 +357,7 @@ relative to the representative value
     converge most efficiently.
     In this work however we focus on calculating the primordial shape function accurately
     and efficiently and leave exploiting this freedom to a future work.
+    \textcolor{red}{Link to James 2006(?) paper.}
 
 
     An important part of this work is testing the expected convergence of our various
@@ -409,6 +414,7 @@ We shall consider constructing the separable basis functions $Q_n(k_1,k_2,k_3)$
 out of
 %symmetrised
 triplet products of normalized one-dimensional modes $q_p(k)$ as
+    \textcolor{red}{Move way earlier.}
 \begin{align}\label{modes3d}
     Q_n(k_1,k_2,k_3)\equiv q_{p} (k_1) \, q_{r}(k_2)\, q_{s}(k_3)\,.
 \end{align}
