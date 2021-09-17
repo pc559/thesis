@@ -710,6 +710,7 @@ is given in~\eqref{gr_energy}.
 
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
     \subsection{Using the in-in formalism}
+    \textcolor{red}{This is all out of order. Is it comprehensive enough?}
 The setting for this calculation will be the interaction picture. In the Schr\"{o}dinger
 picture the time dependence is carried by the states, whereas in the Heisenberg picture
 the time dependence is carried by the operators. In contrast to both,
@@ -722,9 +723,59 @@ Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
 % Bartolo_review_2004 ?
 The in-in formalism takes the time evolution of the interaction picture mode
 functions as an input for calculating the bispectrum.
-At tree-level, the in-in formalism gives us the
-following expression:
-    \textcolor{red}{Derive this! Get it from the Schr\"{o}dinger equation?}
+
+
+We wish to calculate the expectation value of some operator $\left<\op\right>$.
+To calculate this directly is difficult for a theory with interactions.
+In the interaction picture however, the operators evolve only according to the
+free Hamiltonian, so can their time dependence can be found. To take advantage of this,
+we rewrite our desired expectation value as
+\begin{align}
+    \left<\op\right> &= \left<F^{-1}(t,t_0)\op^I F(t,t_0)\right>\label{heis_to_int}
+\end{align}
+where the operator $F$ is built out of two time evolution operators
+\begin{align}
+    F(t,t_0) &= U_0^{-1}(t,t_0)U(t,t_0)\label{f_def}
+\end{align}
+that obey
+\begin{align}
+    U_0(t_0,t_0) = 1 = U(t_0,t_0).
+\end{align}
+For a careful definition and derivation, see Appendix A2 of~\cite{weinberg_in_in}---here,
+we will simply note that $U(t,t_0)$ evolves the Heisenberg picture operators in time
+\begin{align}
+    \delphi(t) &= U^{-1}(t,t_0)\delphi(t_0)U(t,t_0)\\
+    \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0)\\
+    \frac{d}{dt}U(t,t_0) &= -iH\left[\delphi(t_0),\delpi(t_0);t\right]U(t,t_0)\label{u_def}
+\end{align}
+using the full Hamiltonian, while $U_0(t,t_0)$ evolves the interaction picture operators in time
+\begin{align}
+    \delphi^I(t) &= U_0^{-1}(t,t_0)\delphi^I(t_0)U_0(t,t_0)\\
+    \delpi^I(t) &= U_0^{-1}(t,t_0)\delpi^I(t_0)U_0(t,t_0)\\
+    \frac{d}{dt}U_0(t,t_0) &= -iH_0\left[\delphi^I(t),\delpi^I(t);t\right]U_0(t,t_0)\label{u0_def}
+\end{align}
+using only the part of the Hamiltonian quadratic in the perturbations.
+The above follows from the Heisenberg equations of motion for the perturbations.
+Thus, we can roughly think of $F(t,t_0)$ in~\eqref{heis_to_int} as evolving the interaction picture fields
+back to the initial point $t_0$ (where the Heisenberg and interaction pictures coincide) and then
+evolving the operators forward in the Heisenberg picture, giving the full evolution.
+
+
+From~\eqref{f_def},~\eqref{u_def} and~\eqref{u0_def} we can find the equation of motion for $F(t,t_0)$
+\begin{align}
+    \frac{d}{dt}F(t,t_0) &= -iH_I\left[\delphi^I(t),\delpi^I(t);t\right]F(t,t_0).
+\end{align}
+This can be solved using the time ordering operator $T$
+\begin{align}
+    F(t,t_0) = T\exp\left(-i\int^t_{t_0}H_I(t)dt\right).
+\end{align}
+
+
+At tree-level, for the bispectrum of $\zeta$, we obtain from~\eqref{heis_to_int}
+    \textcolor{red}{
+    The above can be rewritten as follows~\cite{careful_contour}.
+    $\phi$ or $\zeta$?
+    }
 \begin{align}\label{inin_integral}
 {
     \left< \zeta_{\mathbf{k_1}}(\tau)\zeta_{\mathbf{k_2}}(\tau)\zeta_{\mathbf{k_3}}(\tau) \right>
