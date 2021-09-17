@@ -1,5 +1,5 @@
 \chapter{Methods and Validation}\label{chapter:methods}
-In chapter~\ref{chapter:decomp} we outlined a formalism for recasting the tree-level in-in
+In Chapter~\ref{chapter:decomp} we outlined a formalism for recasting the tree-level in-in
 calculation for the bispectrum into a form that preserves its separability.
 We then showed that despite the effects of the non-physical configurations we could still
 achieve sufficient convergence for a range of interesting models, by investigating how
@@ -31,7 +31,7 @@ validate the implementation of our methods (the $\primodal$ code) on phenomenolo
     The Bunch-Davies initial conditions for each mode are set sufficiently early that the modes
     have converged to the attractor solution before the start of the numerical in-in integration.
     Since it is necessary to start the numerical integration when all modes are deep
-    in the horizon (as we will see in figure~\ref{fig:plot_time_integrand_scan})
+    in the horizon (as we will see in Figure~\ref{fig:plot_time_integrand_scan})
     this means the modes must start their evolution when they are are oscillating
     with a high frequency. As they evolve
     and cross the horizon they will stop oscillating and eventually freeze-out.
@@ -39,7 +39,7 @@ validate the implementation of our methods (the $\primodal$ code) on phenomenolo
     as once all the modes have frozen there will be no more contribution to~\eqref{inin_kindep}.
     This happens as the integrand of~\eqref{inin_kindep} either becomes purely
     imaginary or vanishes (although this is dependent on the form of $\Hint$ used,
-    as we will discuss in section~\ref{sec:stopping}).
+    as we will discuss in Section~\ref{sec:stopping}).
     We must use different numerical set-ups in early times versus late times to
     ensure the efficient calculation of an accurate result.
 
@@ -330,20 +330,20 @@ their precise values have no significant effect on the final result.
 For definiteness, we take $\beta/w=1\times10^{-4}$, small enough that
 the integrand has many oscillations while it is ``turning on'',
 so matches the contribution of an infinite limit to high accuracy.
-We demonstrate this in figure~\ref{fig:time_integrands}
+We demonstrate this in Figure~\ref{fig:time_integrands}
 for a toy $\Hint=(-1/\tau)\dot{\zeta}^3$,
 which produces the shape~\eqref{example_eft2}.
 
 
 We also demonstrate this for a realistic DBI model and resonance model
-in figure~\ref{fig:plot_time_integrand_scan}.
+in Figure~\ref{fig:plot_time_integrand_scan}.
 Here we reparametrise the damping in a form that with a more obvious physical
 interpretation.
 We use the form $e^{-100{\left(\frac{{\tau_s^{start}-\tau_s}}{\tau_s^{start}-\tau_s^{cut}}\right)}^2}$.
 The point $\tau_s=\tau_s^{start}$ is the earliest point we calculate the integrand for,
 i.e.\ before this point we set the integrand to exactly zero---we
 see that at this point the integrand is suppressed by a factor of $e^{-100}$.
-In figure~\ref{fig:plot_time_integrand_scan} we see that $\tau_s^{start}-\tau_s^{cut}=0$
+In Figure~\ref{fig:plot_time_integrand_scan} we see that $\tau_s^{start}-\tau_s^{cut}=0$
 (i.e.\ the na\"{i}ve method of starting the integrand with a sharp cut)
 gives unacceptably large errors across the range of the scan. For sufficiently large
 $\tau_s^{start}$ this is ameliorated by a positive $\tau_s^{start}-\tau_s^{cut}$.
@@ -361,7 +361,7 @@ for each mode $k$ to be approximately given by $\tau^k_s = \frac{-\left|\phi'\ri
 %$\tau_s\approx-\frac{0.14}{2(0.02)(2.088\times10^{-4})}\approx-1.7\times10^{4}$.
 This means that for our example, we expect the earliest resonance time to be
 $\tau_s\approx-\frac{0.14}{2(0.02)(2.088\times10^{-4})}\approx-1.7\times10^{4}$.
-Indeed, in figure~\ref{fig:plot_time_integrand_scan} we see that
+Indeed, in Figure~\ref{fig:plot_time_integrand_scan} we see that
 we must have $\kmax\tau_s^{start}<-10^3$
 to correctly capture the feature.
 
@@ -507,7 +507,7 @@ so we choose the line
     \frac{k_L}{k_S}&=\frac{2\kmin}{\kmax},
 \end{align}
 which connects $(\kmax,\kmax,2\kmin)$ to $(\kmax/2,\kmax/2,\kmin)$.
-While we took $\frac{\kmin}{\kmax}=\frac{1}{1000}$ in chapter~\ref{chapter:decomp},
+While we took $\frac{\kmin}{\kmax}=\frac{1}{1000}$ in Chapter~\ref{chapter:decomp},
 we will take $\frac{\kmin}{\kmax}=\frac{1}{550}$ in this chapter---this
 still allows $\frac{2\kmin}{\kmax}$ to be sufficiently squeezed to be a stringent test.
 
@@ -561,7 +561,7 @@ We also test both resonant scenarios using the squeezed limit consistency condit
 
 
 We display the phenomenology of our various validation examples
-by plotting slices through the tetrapyd, as detailed in figure~\ref{slice_explained}.
+by plotting slices through the tetrapyd, as detailed in Figure~\ref{slice_explained}.
 Along with the phenomenology plots we plot the residual
 (with respect to the totally converged result)
 on the same slice, relative to the magnitude of the shape~\eqref{rep_val}.
@@ -589,7 +589,7 @@ satisfy the Friedmann equation to sufficient precision.
 The second scenario is chosen to have a value for $n_s^{*}-1$
 consistent with the $\textit{Planck}$ result,
 by choosing $\phi_0=16.5$, so that $\varepsilon\approx0.8\times10^{-2}$.
-The shapes are shown in figure~\ref{slice_plot_malda}.
+The shapes are shown in Figure~\ref{slice_plot_malda}.
 
 
 We choose the first scenario to have such a small value of $\varepsilon$
@@ -619,7 +619,7 @@ verifying our result to $0.05\%$.
 
 
 This is a validation of the convergence of our basis,
-reaffirming the template decomposition results of figure~\ref{fig:recon_malda_dbi}
+reaffirming the template decomposition results of Figure~\ref{fig:recon_malda_dbi}
 in the setting of the in-in formalism.
 It is also a stringent validation of our methods of including the higher-order
 coefficients, as insufficient care taken in the early-time sections of
@@ -666,7 +666,7 @@ equation is satisfied to sufficient precision.
 The first scenario is deep in slow-roll, with $\lambda_{DBI}=1.9\times10^{18}$, while
 the second scenario saturates the $\textit{Planck}$
 limit on $c_s$, with $\lambda_{DBI}=1.9\times10^{15}$.
-The resulting shapes are shown in figure~\ref{slice_plot_dbi}.
+The resulting shapes are shown in Figure~\ref{slice_plot_dbi}.
 
 
 The scenario deep in slow-roll has a error of $0.082\%$
@@ -748,8 +748,8 @@ When the step size is small, as expected,
 our result matches the analytic result of~\cite{adshead},
 presented there in equations (48), (54), (55).
 We plot a comparison of the result of~\cite{adshead} and our result
-in figure~\ref{fig:tanh_scan}.
-For larger step size, we check the squeezed limit in figure~\ref{fig:tanh_sqz},
+in Figure~\ref{fig:tanh_scan}.
+For larger step size, we check the squeezed limit in Figure~\ref{fig:tanh_sqz},
 where we also show point tests against the PyTransport code.
 Across this range of step sizes, for the resulting shapes we obtain
 a full tetrapyd convergence test result
@@ -820,7 +820,7 @@ generating non-Gaussianity around horizon crossing.
 \includegraphics[width=.75\columnwidth]{plots/tanh_scan_C_cropped.png}
 \caption{
     We sample more shapes with step sizes between the two
-    feature models shown in figure~\ref{slice_plot_tanh}.
+    feature models shown in Figure~\ref{slice_plot_tanh}.
     We plot the relative difference,
     integrated over the full tetrapyd
     in the sense of~\eqref{relative_difference},
@@ -839,13 +839,13 @@ generating non-Gaussianity around horizon crossing.
 Now we further validate our code against two
 resonance models. In contrast to the previous sharp kink,
 this feature is extended, requiring precision at earlier times.
-The first, shown in figure~\ref{pytr_comparison_min},
+The first, shown in Figure~\ref{pytr_comparison_min},
 is a model with a canonical kinetic term, on a
 quadratic potential with a superimposed
 oscillation~\eqref{eq:resonant_potential}.
 We take $bf=10^{-7}$, and $f=10^{-2}$.
 The resulting bispectrum has oscillations logarithmic in $k_1+k_2+k_3$.
-In figure~\ref{pytr_comparison_min} we see the excellent agreement
+In Figure~\ref{pytr_comparison_min} we see the excellent agreement
 between our result and the PyTransport result, once initial conditions
 in both codes are set early enough to achieve convergence.
 This validates the code on non-Gaussianity generated deeper
@@ -858,12 +858,12 @@ of $0.93\%$, a squeezed limit test result of $1.1\%$
 and a relative difference of $3.0\%$ with respect to the
 PyTransport result,
 although this is only integrated over the two-dimensional slice presented in
-figure~\ref{pytr_comparison_min}.
+Figure~\ref{pytr_comparison_min}.
 
 
 The time taken for the PyTransport code (per configuration) varies by a factor of around forty
 between the equilateral limit and the squeezed limit,
-as we show in figure~\ref{pytr_comparison_min}.
+as we show in Figure~\ref{pytr_comparison_min}.
 While the PyTransport code is extremely fast at calculating the shape function
 for a single $k$-configuration,
 to obtain this two-dimensional slice through the tetrapyd took around seven hours;
@@ -880,7 +880,7 @@ We expect that our implementation can be optimised beyond this.
 The second scenario we consider here also has an
 oscillation superimposed on its potential, but this time
 is a non-canonical model, the DBI model.
-The resulting bispectrum is shown in figure~\ref{slice_plot_dbi_reso}.
+The resulting bispectrum is shown in Figure~\ref{slice_plot_dbi_reso}.
 Note especially the out-of-phase oscillations in the flattened limit,
 which are potentially observable.
 For the purpose of displaying this phenomenology, we place a window

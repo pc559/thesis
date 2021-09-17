@@ -342,7 +342,7 @@ at leading order in slow-roll.
     which we defined in~\eqref{tausdef}.
     In~\cite{warp_features_dbi}, $\tau_s^{here}$ is also referred to as $s$,
     but $\epscs^{here}$ is referred to as $\sigma_1$.
-    This is summarised in table~\ref{tab:notation}.
+    This is summarised in Table~\ref{tab:notation}.
 
 
 \begin{table}[h!]
@@ -467,12 +467,12 @@ equal they form an equilateral triangle, and when one is much smaller than
 the other two, that is a squeezed triangle.
 The space of configurations we are interested in is therefore
 reduced from the full cube $[\kmin,\kmax]^3$
-to a~\textit{tetrapyd} (illustrated in figure~\ref{slice_explained}),
+to a~\textit{tetrapyd} (illustrated in Figure~\ref{slice_explained}),
     \textcolor{red}{Maybe move part of that to here? Then reference back from section $4$?}
 which is defined as intersection of that cube with the
 tetrahedron that satisfies~\eqref{triangle_inequality}.
 This has important implications that we will explore in
-chapter~\ref{chapter:decomp}. 
+Chapter~\ref{chapter:decomp}. 
 
 
 The amplitude of a bispectrum shape is usually
@@ -631,11 +631,13 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
     To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
     For a simple Lagrangian such as $\mathcal{L}_{0}=\frac{1}{2}\dzeta^2$,
-    we find $\pi=\dzeta$. However if the Lagrangian contains other cubic terms
-    with an explicit $\dzeta$, this relation will change and may not be easily invertible.
+    we find $\pi\equiv\frac{\partial \mathcal{L}_0}{\partial \dzeta}=\dzeta$. However if the Lagrangian contains cubic terms
+    containing $\dzeta$, this relation will change and may not be easily invertible.
     However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(\zeta^4,\dzeta^4)$,
     so calculating the cubic interaction Hamiltonian to this order
-    from the cubic interaction Lagrangian is trivial.
+    from the cubic interaction Lagrangian is trivial.\footnote{
+        \textcolor{red}{Detail for $\dzeta^3$.}
+    }
 
 
     We will work with a Hamiltonian that has been split into three parts,
@@ -793,7 +795,7 @@ We will take
 \end{align}
 where $g(t)$ is some function of time.
 This example is particularly simple as it contains no spatial derivatives.
-We will include those when we outline our formalism fully in section~\ref{sec:setting_notation}.
+We will include those when we outline our formalism fully in Section~\ref{sec:setting_notation}.
 We wish to calculate
 \begin{align}\label{inin_example}
     \left<\zeta_{\mathbf{k_1}}(t)\zeta_{\mathbf{k_2}}(t)\zeta_{\mathbf{k_3}}(t)\right>&=
@@ -924,7 +926,7 @@ according to the equations of motion and then perform the above time integral.
 
 
 This is the point where our work will diverge from the standard calculation---this
-will be detailed in section~\ref{sec:setting_notation}. For now, we merely note that
+will be detailed in Section~\ref{sec:setting_notation}. For now, we merely note that
 the integrand of~\eqref{inin_computer} is explicitly separable in $k_1$, $k_2$ and $k_3$.
 
 
@@ -1364,15 +1366,15 @@ We also detail a particular set of basis functions that improves upon those desc
 in~\cite{Funakoshi} in its rate of convergence, its transparency,
 and its flexibility.
 We do this without sacrificing orthogonality.
-This is detailed in chapter~\ref{chapter:decomp}.
+This is detailed in Chapter~\ref{chapter:decomp}.
 Our improvements over the methods sketched in~\cite{Funakoshi} allow us to validate
 on non-trivial bispectra for the first time, including sharp deviations from slow-roll, which we present in
-section~\ref{sec:validation}.
+Section~\ref{sec:validation}.
 We quote our results in terms of a measure that is
 easier to interpret than the correlation defined in~\cite{Funakoshi},
 and that includes the magnitude as well as the shape information
 on the full tetrapyd.
-This is discussed in section~\ref{sec:inner_product}.
+This is discussed in Section~\ref{sec:inner_product}.
 
 
 Some work has also been done on basis sets for three-dimensional
@@ -1404,7 +1406,7 @@ differentiating the in-in formalism\footnote{
     Certainly, at first sight this seems more natural, that if the core
     quantities in our method are the coefficients in some basis expansion,
     why not evolve them directly? Why take the apparently circuitous route
-    (that we will see in chapter~\ref{chapter:decomp} and chapter~\ref{chapter:methods})
+    (that we will see in Chapter~\ref{chapter:decomp} and Chapter~\ref{chapter:methods})
     of evolving the $\zeta_k(\tau)$, and decomposing them at every timestep?
     The answer is that the ``equations of motion'' for the coefficients of the expansion
     obtained by substituting a mode expansion of $\zeta_k(\tau)$ into~\eqref{modefneqn_zeta_N}
@@ -1456,8 +1458,8 @@ other methods impose some non-trivial cutoff at early times.
 
     $\cmbbest$ is a generalisation of the $\ksw$ method in the sense that for a specific choice of basis, it simplifies
     to the $\ksw$ method. However, by choosing a more descriptive basis set (for example, one of the basis sets we have developed
-    in chapter~\ref{chapter:decomp}) a much broader range of models can be constrained. This was one of our main
-    motivations in carefully exploring and comparing the basis sets in chapter~\ref{chapter:decomp},
+    in Chapter~\ref{chapter:decomp}) a much broader range of models can be constrained. This was one of our main
+    motivations in carefully exploring and comparing the basis sets in Chapter~\ref{chapter:decomp},
     as more descriptive basis sets translate directly into more constraints on inflationary models.
 
 

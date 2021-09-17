@@ -41,7 +41,7 @@ the standard numerical in-in calculation into a calculation of $\alpha_n$ in~\eq
 We will sketch the steps involved, including accounting for the effect of spatial derivatives
 in the interaction Hamiltonian on our final result.
 The rest of this chapter is then devoted to developing and comparing possible basis sets.
-In chapter~\ref{chapter:methods} we will then use the formalism and the basis sets of this chapter to
+In Chapter~\ref{chapter:methods} we will then use the formalism and the basis sets of this chapter to
 make precise the numerical considerations of the calculation,
 especially our methods of dealing with the high-frequency
 oscillations at early times.
@@ -115,7 +115,7 @@ a problem which is drastically compounded by bispectrum parameter searches e.g.\
 
 The terms contained in $v^{(i)}(k_1, k_2,k_3)$ depend on the structure of the spatial derivatives in the interaction Hamiltonian,
 but not the specific scenario. These terms are separable;
-we will discuss their precise form in section~\ref{sec:h_int}.
+we will discuss their precise form in Section~\ref{sec:h_int}.
 We include their contribution to the final result after the time integrals have been computed.
 In contrast,
 the factors which depend only on time ($w_i(\tau)$) depend on the scenario
@@ -171,7 +171,7 @@ For the sake of compactness of notation we will now use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
     \textcolor{red}{Muddled? Define $V$ properly, more clearly.}
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
-integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in section~\ref{sec:starting}.
+integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in Section~\ref{sec:starting}.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
 \begin{align}\label{inin_kdep_cont}
@@ -287,7 +287,7 @@ after the in-in computation is completed, is trivial.
 
 Having now set our notation and outlined the calculation, in the following sections we
 discuss possible basis sets, before presenting the details on
-the numerical implementation of these methods in chapter~\ref{chapter:methods}.
+the numerical implementation of these methods in Chapter~\ref{chapter:methods}.
 
 
 \section{Testing basis sets}\label{sec:inner_product}
@@ -342,7 +342,7 @@ in its measure, which will be important in obtaining an precise link
 between fundamental inflationary parameters and the resulting primordial bispectrum.
 We will use this measure to test the accuracy and efficiency of our basis expansion
 in reconstructing the standard templates, and later to quantify the convergence
-of our validation examples in section~\ref{sec:validation}.
+of our validation examples in Section~\ref{sec:validation}.
 In that section we also plot residuals on slices through the tetrapyd,
 relative to the representative value
 \begin{align}\label{rep_val}
@@ -434,7 +434,7 @@ Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appro
 %that is, $\alpha_n = \alpha_{prs} \equiv \alpha_{(prs)}$.
 This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$. 
 Given the basis-agnostic formalism we outlined in~\ref{sec:setting_notation} and
-the basis-agnostic methods we will outline in chapter~\ref{chapter:methods}
+the basis-agnostic methods we will outline in Chapter~\ref{chapter:methods}
 %sections~\ref{sec:setting_notation},~\ref{sec:h_int} and~\ref{sec:k_dep},
 we are free to choose our set of basis functions to optimise for efficient convergence,
 ensuring our results are useful for comparison with observations. 
@@ -498,12 +498,12 @@ To overcome this problem, as we shall discuss, we will extend our basis to expli
     Given that this three-dimensional behaviour is generic, one might worry that we should
     take more care in building it into our one-dimensional basis.
     However, the excellent convergence in
-    section~\ref{sec:validation}
+    Section~\ref{sec:validation}
     shows that $\Linvk$ and $\Lnsboth$ can capture this behaviour well,
     and that this worry is unwarranted.
     In fact, since this behaviour comes from the oscillations
     at early times, observing this behaviour is a useful
-    check on our results.% in section~\ref{sec:validation}.
+    check on our results.% in Section~\ref{sec:validation}.
 }.
 
 One useful starting choice for modal bispectrum expansions has been the shifted,
@@ -515,14 +515,14 @@ with a rescaling of the argument $\kbar$ to ensure the wavenumber $k$ falls with
 \begin{align}\label{krescaled}
     \kbar=\frac{2k-\kmax-\kmin}{\kmax-\kmin}\,.
 \end{align}
-There is freedom to vary this mapping, which we shall exploit in section~\ref{sec:resobasis_definition}.
+There is freedom to vary this mapping, which we shall exploit in Section~\ref{sec:resobasis_definition}.
 We shall label as $\Lbasic$ the basis function set of pure Legendre polynomials in~\eqref{P0_definition},
 with $r=0,1,\dots, p_{\rm max}\text{$-$}1$.
 These were considered also in~\cite{Funakoshi}, however,
 while they prove to be particularly functional building blocks for other modal applications,
 in the context of the in-in formalism
 they converge so slowly even for simple shapes as to be inadequate when taken on their own.
-This poor rate of convergence with $\Lbasic$ for two local- and equilateral-type shapes is shown in figure~\ref{fig:recon_malda_dbi}.
+This poor rate of convergence with $\Lbasic$ for two local- and equilateral-type shapes is shown in Figure~\ref{fig:recon_malda_dbi}.
 This is due to the $1/k$ behaviour inherent in these shapes,
 which is compounded in the equilateral models by pathologies exterior to the tetrapyd,
 as we have discussed.
@@ -601,7 +601,7 @@ and the final basis function is
 \begin{align}\label{P1_definition}
     q_{\Pmax-1}(k) = \text{Orth}\left[{1}/ {k},~\Lbasic^{\Pmax-1}\right].
 \end{align}
-As we see in figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
+As we see in Figure~\ref{fig:recon_malda_dbi}, the convergence properties for the augmented basis  $\Linvk$ are dramatically improved.
 
 
 In addition to our Legendre basis functions, the pure $\Lbasic$ basis and
@@ -650,7 +650,7 @@ In order to compare the efficacy of the different basis function sets,
 we have investigated their convergence on Maldacena's shape~\eqref{malda_shape} and the $\dbi$ shape~\eqref{dbi_shape}.
 To mimic the in-in calculation, we expand the shape on the cube, but test the result on the tetrapyd
 using~\eqref{relative_difference}.
-The results are shown in figure~\ref{fig:recon_malda_dbi}.
+The results are shown in Figure~\ref{fig:recon_malda_dbi}.
 We find that the Legendre polynomials basis set $\Lbasic$ converges so slowly as to be unusable
 (with the Fourier modes $\Fbasic$ worse and not plotted).
 However, the augmented Legendre basis $\Linvk$ (including $1/k$) leads to rapid convergence with an improvement of four orders
@@ -662,7 +662,7 @@ the error on the tetrapyd.  For the $\dbi$ shape, however, the
 fit on the tetrapyd lags significantly behind, due to the effect
 of the large non-physical configurations. This explains the order of
 magnitude difference between the convergence at
-each $\Pmax$ for the two shapes in figure~\ref{fig:recon_malda_dbi}.
+each $\Pmax$ for the two shapes in Figure~\ref{fig:recon_malda_dbi}.
 
 
 \begin{figure}[!pth]
@@ -692,12 +692,12 @@ of the triangle, $K=k_1+k_2+k_3$).
 We test our sets of basis functions on these two shapes,
 and also when they are multiplied by~\eqref{dbi_shape} to obtain a feature
 template with both shape and scale dependence.
-As shown in figure~\ref{fig:recon_osc_dbiosc},
+As shown in Figure~\ref{fig:recon_osc_dbiosc},
 $\Fbasic$ naturally outperform the basis sets built from Legendre modes for a pure oscillation.
 However when the equilateral-type $\dbi$ template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
 $\Finvk$ converge poorly. Instead, the basis sets built from Legendre modes offer a better more robust option,
 with the $\scalingbasis$ basis performing best.
-In figure~\ref{fig:log_recon_osc_dbiosc} we see that for a logarithmic
+In Figure~\ref{fig:log_recon_osc_dbiosc} we see that for a logarithmic
 oscillation, the $\resobasis$ basis converges in the fewest modes.
 
 
@@ -748,7 +748,7 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
     the basis functions defined in~\eqref{reso_basis_definition} perform well
     even when there is non-trivial shape dependence.
     (b) On the cube, we see that the results converge orders of magnitude faster---see
-    discussion in section~\ref{sec:large_non_physical}.
+    discussion in Section~\ref{sec:large_non_physical}.
 }\label{fig:log_recon_osc_dbiosc}
 \end{figure}
 
@@ -783,7 +783,7 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
     in determining which covers the widest range of features.
     The $\Lnsinv$ basis is not included in every plot, but would always perform between
     the $\Lbasic$ and $\scalingbasis$ basis.
-    The basis sets are defined in table~\ref{tab:basis_summary},
+    The basis sets are defined in Table~\ref{tab:basis_summary},
     and some are plotted in figures~\ref{fig:basis_pmax5_plots_a}
           and~\ref{fig:basis_pmax5_plots_b}.
     Basis sets~$\Linvk$ and $\scalingbasis$ work well for the linear oscillations,
@@ -817,7 +817,7 @@ oscillation, the $\resobasis$ basis converges in the fewest modes.
 
 Finally, we consider convergence in the light of the more subtle scale-dependence due to
 the spectral index $n_s$ of the power spectrum.
-The simple canonical examples in figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence,
+The simple canonical examples in Figure~\ref{fig:recon_malda_dbi} had shape dependence and no scale dependence,
 but this would only be expected of scenarios unrealistically deep in the slow-roll limit.
 When we include this scale dependence, using~\eqref{dbi_prod_shape} with $n^*_s$, 
 it proves very useful to include these deviations from
@@ -841,7 +841,7 @@ which we refer to as $\Lnsboth$.
     with respect to a different set of functions.
 
 
-As we see in figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
+As we see in Figure~\ref{fig:recon_dbi_ns}, for equilateral type shapes
 even a small overall scale dependence causes significant degradation in the convergence of
 the original augmented Legendre basis $\Linvk$.
 However, incorporating the spectral index $n_s$  into the basis functions $\Lnsinv$ and $\Lnsboth$
@@ -851,7 +851,7 @@ We conclude using power spectrum information to augment the basis functions with
 on the spectral index enables the efficient approximation of high precision primordial bispectra.
 This is still not optimal, however, as the scaling of the bispectrum is not uniquely defined by the
 scaling of the power spectrum, so more flexibility would be desirable---we will explore this further
-in section~\ref{sec:scaling_definition}.
+in Section~\ref{sec:scaling_definition}.
 
 
 \section{The $\scalingbasis$ basis}\label{sec:scaling_definition}
@@ -883,7 +883,7 @@ in section~\ref{sec:scaling_definition}.
     Since for the DBI case the scaling exponent $\epsilon$ is expected to be of the
     same order as $n_s-1$ and $\varepsilon_s$, we see that this
     approximation is good for our case,
-    where (as we will discuss in section~\ref{sec:tradeoff})
+    where (as we will discuss in Section~\ref{sec:tradeoff})
     we have $\ln\left(\frac{\kmax}{\kmin}\right)\approx6.91$.
     By adding $k^{-1}$ and $\ln(k)k^{-1}$ separately to our
     basis, their relative coefficient will be set to the value
@@ -893,19 +893,19 @@ in section~\ref{sec:scaling_definition}.
     about the scaling a priori (except that it is small).
 
 
-    For the feature templates, for example figure~\ref{fig:plot_freq_scan},
+    For the feature templates, for example Figure~\ref{fig:plot_freq_scan},
     we see that the $\scalingbasis$ basis performs equivalently to $\Lnsinv$
     and $\Lbasic$.
     This is because these template have no scaling or complex shape dependence,
     and the fit to the oscillatory feature is due to the Legendre polynomials
     in the basis.
-    In figure~\ref{fig:plot_freq_scan_dbi} we see that the $1/k$ behaviour is
+    In Figure~\ref{fig:plot_freq_scan_dbi} we see that the $1/k$ behaviour is
     necessary to achieve an acceptable fit, but since these templates
     do not need non-integer scaling, the $\scalingbasis$ basis performs
     equivalently to $\Linvk$, as expected.
 
 
-    As we can see in figure~\ref{fig:recon_dbi_ns} however, the $\scalingbasis$ basis
+    As we can see in Figure~\ref{fig:recon_dbi_ns} however, the $\scalingbasis$ basis
     converges quickly to a DBI template with a realistic scaling. It outperforms
     the $\Lnsinv$ basis, despite not assuming power spectrum information.
 
@@ -940,7 +940,7 @@ in section~\ref{sec:scaling_definition}.
     so the $\resobasis$ basis is orthogonal
     due to the way we defined $\bar{k}$ for this basis set.
 
-    In figure~\ref{fig:plot_freq_scan} we see that for linear oscillations, as expected,
+    In Figure~\ref{fig:plot_freq_scan} we see that for linear oscillations, as expected,
     the $\resobasis$ basis converges for a much smaller range for frequencies
     (for fixed basis set size $\Pmax=30$) than the other basis sets we test.
     For logarithmic oscillations however, we see that the range of accessible
@@ -957,7 +957,7 @@ in section~\ref{sec:scaling_definition}.
     in the region where none of our basis sets provide acceptable convergence
     for $\Pmax=30$.
 
-    We also note the surprising result in figure~\ref{fig:recon_dbi_ns}
+    We also note the surprising result in Figure~\ref{fig:recon_dbi_ns}
     that the $\resobasis$ basis performs best at converging to the
     scale-dependent DBI template. However, the convergence of the
     $\scalingbasis$ basis is still perfectly adequate in this case.
@@ -968,7 +968,7 @@ in section~\ref{sec:scaling_definition}.
         \subfloat[$\scalingbasis$ basis]{\label{fig:basis_plot_e}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_scaling}}\\
         \caption{
             We plot the $\Lbasic$, $\Linvk$ and $\scalingbasis$ basis sets from
-            table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that these sets
+            Table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that these sets
             have Legendre polynomial basis elements in common, but differ in
             which functions they are augmented by, which are added to the start of the
             indexing.
@@ -982,7 +982,7 @@ in section~\ref{sec:scaling_definition}.
         \subfloat[$\resobasis$ basis]{\label{fig:basis_plot_f}\includegraphics[width=.85\columnwidth]{basis_plot_diagrams/basis_pmax5_plot_reso}}\\
         \caption{
             We plot the $\Fbasic$, $\Finvk$ and $\resobasis$ basis sets from
-            table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that
+            Table~\ref{tab:basis_summary}, for $\Pmax=5$. Note that
             $\Fbasic$ and $\Finvk$
             have Fourier basis elements in common, but differ in
             which functions they are augmented by. The $\resobasis$ basis
@@ -1004,7 +1004,7 @@ in section~\ref{sec:scaling_definition}.
     and on the tetrapyd, as expected for a shape where the physical and non-physical
     configurations are of the same order of magnitude.
     For an oscillation with a DBI shape however, we see a large difference,
-    as shown in figure~\ref{fig:log_recon_osc_dbiosc}.
+    as shown in Figure~\ref{fig:log_recon_osc_dbiosc}.
     On the cube we see fast, monotonic convergence---the $\resobasis$ basis
     and $\scalingbasis$ basis perform well, quickly bring $\totalcorcub$
     below $0.1\%$.
@@ -1043,7 +1043,7 @@ in section~\ref{sec:scaling_definition}.
 \section{A tradeoff between $\Pmax$ and $\kmax/\kmin$}\label{sec:tradeoff}
     While it may not be intuitively apparent, the value of $\kmax/\kmin$
     affects convergence even in the absence of significant features.
-    We can see this in figure~\ref{fig:recon_dbi_ns}.
+    We can see this in Figure~\ref{fig:recon_dbi_ns}.
     In this figure we plot the convergence of various basis sets for the scale-dependent
     DBI template~\eqref{dbi_prod_shape}, for $\kmax/\kmin=550$ and
     for $\kmax/\kmin=1000$. We see that the convergence is slower

@@ -19,7 +19,7 @@
 
 
     In the context of the scan
-    (which we will describe in section~\ref{sec:setup}),
+    (which we will describe in Section~\ref{sec:setup}),
     we used the methods described in previous chapters (as implemented in
     the $\primodal$ code) to generate shape coefficients for each scenario in the scan.
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
@@ -47,9 +47,9 @@
         The $\cmbbest$ code has also been run for a $\ksw$ basis
         and a Fourier basis, but neither of these can describe features
         with a non-trivial shape.
-        Other basis sets described in chapter~\ref{chapter:decomp} will be used in future runs of $\cmbbest$.
+        Other basis sets described in Chapter~\ref{chapter:decomp} will be used in future runs of $\cmbbest$.
     }.
-    As shown in figure~\ref{fig:dbi_sound_speed_scan_beta}, we find
+    As shown in Figure~\ref{fig:dbi_sound_speed_scan_beta}, we find
     \begin{align}\label{eq:cmbbest_bir_constraint}
         \bir\le0.46\qquad(95\%,~T~\text{only}).
     \end{align}
@@ -92,7 +92,7 @@
     scatter between the estimators used within the $\planck$ 2018 analysis.
     Note that this is not statistical variance, but simply method variance,
     coming from the difficulty of $\cmb$ bispectrum estimation.
-    We show this in figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
+    We show this in Figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
     which is closely related to the $\dbi$ template.
     We see that the result obtained by $\cmbbest$ is different, but still lies
     between the results of the $\ksw$ and $\modal$ estimators.
@@ -117,7 +117,7 @@
             scenario by ruling out $f_{NL}^{\dbi}=1$.
             %We can see that the $\cmbbest$ result does not agree with the $\modal$
             %result~\eqref{eq:planck_dbi_constraint},
-            %but as we see in figure~\ref{fig:equil_constraints_comparison},
+            %but as we see in Figure~\ref{fig:equil_constraints_comparison},
             %the discrepancy is not unexpected. We discuss possible explanations in the text.
             Note that the $\bir$ is approximately inversely proportional to $c^*_s$.
             The confidence interval is the variance of the estimated $\fnl$ obtained
@@ -155,7 +155,7 @@
 
 \section{Connecting to $\cmbbest$}\label{sec:setup}
 The potential we use is the IR one discussed in~\cite{Bean_ir_dbi}, as
-we outlined in section~\ref{sec:interactions}.
+we outlined in Section~\ref{sec:interactions}.
 See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     We use equation~\eqref{eq:dbi_warp}, which has four free parameters,
     $\bir$, $\lambda_{\dbi}$, $\phi_0$, and $V_0$.
@@ -188,12 +188,12 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     \end{align}
     which we indeed find to be approximately true for our numerical results.
     We start the background evolution on the slow-roll attractor, finding initial conditions which
-    satisfy the Friedmann constraint, as discussed in section~\ref{sec:interactions}.
+    satisfy the Friedmann constraint, as discussed in Section~\ref{sec:interactions}.
     For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
     is within $3.044\pm0.014$,
     and that $n_s^{*}$ is within $0.9649\pm0.0042$.
-    In table~\ref{tab:scan_summary_sr} we summarise the scenario parameters for the scan,
-    and in table~\ref{tab:scan_summary_ns} we summarise the resulting scaling indices.
+    In Table~\ref{tab:scan_summary_sr} we summarise the scenario parameters for the scan,
+    and in Table~\ref{tab:scan_summary_ns} we summarise the resulting scaling indices.
  
 
 %    \begin{tabular}{lrrrrrrrrrr}
@@ -204,7 +204,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 %        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $-3.63\times 10^{-2}$  &  $-8.99\times 10^{-2}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$  &  $2.71\times 10^{-2}$ \\
 %        \bottomrule
 %    \end{tabular}
-    %in table~\ref{tab:scan_summary_bkgd} we summarise the background parameters,
+    %in Table~\ref{tab:scan_summary_bkgd} we summarise the background parameters,
 
 \begin{table}[h!]
   \begin{center}
@@ -302,7 +302,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     between $\Pmax=30$ and $\Pmax=25$,
     with $\fnl$ obtained from the $\planck$ map for each scenario in the scan.
     We see that the convergence across the majority of the scan is better than that of the
-    convergence in the primordial bispectrum, as plotted in figure~\ref{fig:prim_conv}.
+    convergence in the primordial bispectrum, as plotted in Figure~\ref{fig:prim_conv}.
     This validates the $\Pmax$ convergence of our pipeline as a whole.
 }\label{fig:cmb_conv}
 \end{figure}
@@ -319,7 +319,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     the convergence in the final constraint.
 
 
-    In figure~\ref{fig:prim_conv} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
+    In Figure~\ref{fig:prim_conv} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
     We quantify the convergence by measuring $\totalcor$~\eqref{relative_difference} between
     $\Pmax=30$ and $\Pmax=25$.
     For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
@@ -327,11 +327,11 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     falling in the range $[10^{-4}, 10^{-3}]$.
     %$[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
     However, to connect to the $\cmbbest$ code we must use
-    the $\Lnsinv$ basis. We see from figure~\ref{fig:prim_conv}
+    the $\Lnsinv$ basis. We see from Figure~\ref{fig:prim_conv}
     that it is sufficient for our purposes.
 
 
-    In figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
+    In Figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
     in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
     comparing $\Pmax=25$ and $\Pmax=30$,
     the relative error in the quantity that determines the constraint,
@@ -339,12 +339,12 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     confident our results have converged in $\Pmax$.
     We also see that it is (for the majority of the scan) smaller
     that the corresponding relative error at the primordial level, plotted in
-    figure~\ref{fig:prim_conv}.
+    Figure~\ref{fig:prim_conv}.
 
 
     When we examine the convergence to the sum~\eqref{dbi_sum_shape}
     and product~\eqref{dbi_prod_shape} scaling templates,
-    in figure~\ref{fig:prim_conv},
+    in Figure~\ref{fig:prim_conv},
     we see that neither is obviously the better match to the numerical result.
     This is due to the numerical result having a non-zero squeezed limit
     coming from the usual slow-roll suppressed local-type contributions
@@ -383,7 +383,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     $\dbi$ template~\eqref{dbi_shape} in $\Lnsinv$ and using the result
     to obtain a constraint on $c_s$.
     The constraint obtained from such a decomposition
-    is plotted as the dashed line in figure~\ref{fig:dbi_sound_speed_scan_beta}.
+    is plotted as the dashed line in Figure~\ref{fig:dbi_sound_speed_scan_beta}.
     Comparing the template decomposition constraint to the constraint
     obtained using the $\primodal$ coefficients calculated
     from the in-in formalism (in the same figure) we see no significant difference.
@@ -402,7 +402,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 \section{Conclusions}
     Through the methods described in this thesis (as implemented in the $\primodal$ code)
     we can calculate the shape coefficients
-    $\alpha_{pqr}$ for each value of $\bir$ in the scan described in section~\ref{sec:setup}.
+    $\alpha_{pqr}$ for each value of $\bir$ in the scan described in Section~\ref{sec:setup}.
     In this scan, these coefficients are with respect to the $\Lnsinv$ basis.
     Using these coefficients, we can use the methods described in~\cite{Sohn_2021} (as implemented
     in the $\cmbbest$ code) to place a constraint on the amplitude of that predicted bispectrum.
@@ -419,7 +419,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
     Using this method we investigated the scenarios in the scan described in~\eqref{eq:bir_range}
     and~\eqref{eq:scan_params}. We found that $\bir\le0.46$ is ruled out at $95\%$ confidence---this
-    is shown in figure~\ref{fig:dbi_sound_speed_scan_beta}.
+    is shown in Figure~\ref{fig:dbi_sound_speed_scan_beta}.
 
 
     In this chapter we also quantified the convergence of this result, by comparing the full $\Pmax=30$
@@ -439,7 +439,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     our limitation on $\kmax/\kmin$,
     convergence (for each method's respective convergence parameters),
     numerical errors, and differing numbers of Gaussian maps used.
-    However, as we see for $\fnlequil$ in figure~\ref{fig:equil_constraints_comparison},
+    However, as we see for $\fnlequil$ in Figure~\ref{fig:equil_constraints_comparison},
     even between the estimation methods used within $\planck$ there is some variance,
     and we judge the disagreement to be within acceptable bounds.
 
