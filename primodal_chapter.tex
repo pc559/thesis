@@ -541,25 +541,6 @@ resulting from non-Bunch-Davies behaviour of the mode functions.
 We also test both resonant scenarios using the squeezed limit consistency condition.
 
 
-\begin{figure}[!pth]
-\centering
-    \subfloat{\includegraphics[width=.75\columnwidth]{plots/tetrapyd_3d_colour_split.png}}\\
-    \subfloat{\includegraphics[width=.75\columnwidth]{plots/slice_explained.png}}
-\caption{
-    For ease of display, we will plot the two-dimensional $k_1=k_2$ slice of the tetrapyd
-    for each of our validation examples, as shown schematically here in the bottom plot.
-    Horizontal lines on this plot have
-    constant $k_3$. The bottom edge is $k_3=\kmin$, the top
-    edge is $k_3=\kmax$. The right edge is $k_1=k_2=\kmax$, the
-    left edge is $k_1=k_2=k_3/2$, i.e.\ the limit imposed by the triangle condition.
-    Plotted in red (in the bottom plot) from top-left to bottom-right,
-    are the flattened, equilateral and squeezed limits. For comparison,
-    half of the tetrapyd is shown in the three-dimensional plot above
-    (we thank Paul Shellard for the top part of this plot).
-}\label{slice_explained}
-\end{figure}
-
-
 We display the phenomenology of our various validation examples
 by plotting slices through the tetrapyd, as detailed in Figure~\ref{slice_explained}.
 Along with the phenomenology plots we plot the residual
@@ -569,6 +550,23 @@ We emphasise that while these plots display slices through the
 tetrapyd, our actual result describes the shape function on the
 entire three-dimensional volume of the tetrapyd, and
 we measure our convergence over this whole space.
+
+
+\begin{figure}[h!]
+\centering
+    \subfloat{\includegraphics[width=\columnwidth]{plots/slice_explained.png}}
+\caption{
+    For ease of display, we will plot the two-dimensional $k_1=k_2$ slice of the tetrapyd
+    for each of our validation examples, as shown schematically here.
+    Horizontal lines on this plot have
+    constant $k_3$. The bottom edge is $k_3=\kmin$, the top
+    edge is $k_3=\kmax$. The right edge is $k_1=k_2=\kmax$, the
+    left edge is $k_1=k_2=k_3/2$, i.e.\ the limit imposed by the triangle condition.
+    Plotted in red from top-left to bottom-right,
+    are the flattened, equilateral and squeezed limits.
+}\label{slice_explained}
+\end{figure}
+
 
 While one of the main advantages of this method is its direct link
 to the CMB, in this section we only concern ourselves with validating the
