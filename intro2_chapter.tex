@@ -643,14 +643,14 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
     We will work with a Hamiltonian that has been split into three parts,
     \begin{align}
-        H = H_b + H_0 + H_{int},
+        H = H_b + H_0 + \Hint,
     \end{align}
     where $H_b$ evolves the homogeneous background, $H_0$ is quadratic in $\zeta$ and evolves the free
-    fields, and the interaction Hamiltonian $H_{int}$ contains the terms cubic and above.
+    fields, and the interaction Hamiltonian $\Hint$ contains the terms cubic and above.
     In practice we will only use the part cubic in $\zeta$ and $\dzeta$,
-    labeled $H_{int}^{(3)}$. We will use this to calculate
+    which can be labeled $\Hint^{(3)}$. We will use this to calculate
     the higher order correlations coming from the interactions. We will occasionally drop the superscript and
-    refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $H_{int}$.
+    refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $\Hint$.
 
 
     \subsection{Interactions}\label{sec:interactions}
@@ -712,20 +712,21 @@ is given in~\eqref{gr_energy}.
     \subsection{The in-in formalism}\label{sec:in_in}
 The standard formalism for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
-See also~\cite{careful_contour, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
-Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
 For a careful discussion, see especially Appendix A2 of~\cite{weinberg_in_in}---here,
 we will simply sketch the derivation.
+See also~\cite{careful_contour, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
+Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
 The setting for this calculation is the interaction picture. In the Schr\"{o}dinger
 picture the time dependence is carried by the states, whereas in the Heisenberg picture
 the time dependence is carried by the operators.
 For notational convenience we will write the operator $\hat{H}$ as simply $H$.
-We can write this with reference to some initial time $t_i$, where the pictures coincide
+We can write the solutions to the Schr\"{o}dinger and Heisenberg equations of motion
+with reference to some initial time $t_i$, where we take the pictures to coincide:
 \begin{align}
     \left|\psi,t\right>_S&=e^{-i\int_{t_i}^{t}{H}dt}\left|\psi,t_i\right>_S\\
     \op_H(t) &= e^{i\int_{t_i}^{t}{H}dt}\op_Se^{-i\int_{t_i}^{t}{H}dt}
 \end{align}
-where $\op_S(t)=\op_S(t_i)$ and $\left|\psi,t\right>_H=\left|\psi,t_i\right>_S$.
+with $\op_S(t)=\op_S(t_i)$ and $\left|\psi,t\right>_H=\left|\psi,t_i\right>_S$.
 We will be interested in the case where $\tau_i\rightarrow-\infty$.
 In contrast to these two pictures,
 the interaction picture splits the time dependence between the operators and
@@ -762,25 +763,26 @@ of the full expectation value.
 
 
 The operator $U(t,t_0)$ evolves the Heisenberg picture operators in time
-using $\tilde{H}=H_0+H_I$
+using $\tilde{H}=H_0+\Hint$
 \begin{align}
     \delphi(t) &= U^{-1}(t,t_0)\delphi(t_0)U(t,t_0)\\
-    \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0)
+    \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0).
 \end{align}
-which along with the Heisenberg equation of motion
-(the explicit time dependence in $\tilde{H}$ comes from coefficients
-that depend on the background evolution)
+We can write the Heisenberg equation of motion, which has
+explicit time dependence in $\tilde{H}$ due to coefficients
+that depend on the background evolution,
 \begin{align}
-    \frac{d}{dt}\delphi(\vecx,t) &= i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right]\label{heis_phi}
+    \frac{d}{dt}\delphi(\vecx,t) &= i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right].\label{heis_phi}
 \end{align}
-gives us
+From this we can calculate
 \begin{align}
     i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right]
     &= -U^{-1}\dot{U}U^{-1}\delphi(t_0) U+U^{-1}\delphi(t_0) \dot{U}\\
     &= -U^{-1}\dot{U}\delphi(t)+\delphi(t)U^{-1} \dot{U}\\
     &= \left[-U^{-1}\dot{U},\delphi(t)\right]
 \end{align}
-where we have temporarily omitted the arguments of $U(t,t_0)$.
+where $\dot{U}=\frac{dU}{dt}$,
+and we have temporarily omitted the arguments of $U(t,t_0)$.
 We then have
 \begin{align}
     \frac{d}{dt}U(t,t_0) &= -iU(t,t_0)\tilde{H}\left[\delphi(t),\delpi(t);t\right]U^{-1}(t,t_0)U(t,t_0)\\
@@ -788,6 +790,8 @@ We then have
 \end{align}
 where particular attention should be paid to the evaluation time of the operators from
 which the $\tilde{H}$ is built.
+
+
 In contrast, $U_0(t,t_0)$ evolves the interaction picture operators in time
 using only the part of the Hamiltonian quadratic in the perturbations
 \begin{align}
@@ -802,13 +806,13 @@ which by a similar calculation (recalling that $\delphi^I$ evolves with $H_0$) g
 
 From~\eqref{f_def},~\eqref{u_def} and~\eqref{u0_def} we can find the equation of motion for $F(t,t_0)$
 \begin{align}
-    \frac{d}{dt}F(t,t_0) &= -iH_I\left[\delphi^I(t),\delpi^I(t);t\right]F(t,t_0)
+    \frac{d}{dt}F(t,t_0) &= -i\Hint\left[\delphi^I(t),\delpi^I(t);t\right]F(t,t_0)
 \end{align}
-where we recall that $H_I$ is built from the interaction pictures fields, containing cubic
-and higher order terms, which we see are here evaluated at $t$.
+where $\Hint$ is cubic and higher order in the perturbations,
+but is now built from the interaction picture fields evaluated at $t$.
 This can be solved using the time ordering operator $T$
 \begin{align}\label{f_soln}
-    F(t,t_0) = T\exp\left(-i\int^t_{t_0}H_I(t)dt\right).
+    F(t,t_0) = T\exp\left(-i\int^t_{t_0}\Hint(t)dt\right).
 \end{align}
 
 
@@ -820,6 +824,7 @@ moved slightly onto the complex plane, introducing a factor which kills off the
 interactions in the distant past~\cite{Maldacena}.
 That is, instead of taking
 $\tau=-\infty$ we take $\tau=-\infty(1+i\epsilon)$.
+This is known as the $i\epsilon$ prescription.
 To calculate $F^{-1}$, we use an anti-time ordering operator,
 and take $\tau=-\infty(1-i\epsilon)$.
 
@@ -835,7 +840,9 @@ the expectation value of a product of three interaction picture fields vanishes
 }
 \end{align}
 where all the operators on the right-hand side are in the interaction picture
-and $\Hint$ is the interaction Hamiltonian, containing terms cubic in $\zeta$.
+and $\Hint$ is the interaction Hamiltonian, written in terms of $\zeta$ and its
+(interaction picture) conjugate momentum $\dzeta$.
+We will now take $\Hint$ to contain only terms cubic in the perturbations.
 From this calculation we obtain the dimensionless shape function $S(k_1,k_2,k_2)$,
 defined in~\eqref{shapefn},
 which is then used as input into~\eqref{eq:reduced_cmb}.
