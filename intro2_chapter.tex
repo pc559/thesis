@@ -712,36 +712,38 @@ is given in~\eqref{gr_energy}.
     \subsection{The in-in formalism}\label{sec:in_in}
 The standard formalism for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
-See also~\cite{Chen_review_2010, Babich_2004, Baumann_horizon_2011,
+See also~\cite{careful_contour, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
 Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
-The setting for this calculation will be the interaction picture. In the Schr\"{o}dinger
+For a careful discussion, see especially Appendix A2 of~\cite{weinberg_in_in}---here,
+we will simply sketch the derivation.
+The setting for this calculation is the interaction picture. In the Schr\"{o}dinger
 picture the time dependence is carried by the states, whereas in the Heisenberg picture
 the time dependence is carried by the operators.
-For a careful discussion, see Appendix A2 of~\cite{weinberg_in_in}---here,
-we will simply sketch the derivation.
+For notational convenience we will write the operator $\hat{H}$ as simply $H$.
 We can write this with reference to some initial time $t_i$, where the pictures coincide
 \begin{align}
-    \left|\psi,t\right>_S&=e^{-i\int_{t_i}^{t}\hat{H}dt}\left|\psi,t_i\right>_S\\
-    \op_H(t) &= e^{i\int_{t_i}^{t}\hat{H}dt}\op_Se^{-i\int_{t_i}^{t}\hat{H}dt}
+    \left|\psi,t\right>_S&=e^{-i\int_{t_i}^{t}{H}dt}\left|\psi,t_i\right>_S\\
+    \op_H(t) &= e^{i\int_{t_i}^{t}{H}dt}\op_Se^{-i\int_{t_i}^{t}{H}dt}
 \end{align}
-where $\op_S(t)=\op_S(t_i)$.
+where $\op_S(t)=\op_S(t_i)$ and $\left|\psi,t\right>_H=\left|\psi,t_i\right>_S$.
 We will be interested in the case where $\tau_i\rightarrow-\infty$.
-In contrast to both,
-the interaction picture splits the time dependence between the two---the operators evolve according
+In contrast to these two pictures,
+the interaction picture splits the time dependence between the operators and
+states---the operators evolve according
 to the free Hamiltonian (the quadratic part) while the states see the interaction
 \begin{align}
-    \left|\psi,t\right>_I&=e^{i\int_{t_i}^{t}\hat{H}_0dt}e^{-i\int_{t_i}^{t}\hat{H}dt}\left|\psi,t_i\right>_S\\
-    \op_I(t) &= e^{i\int_{t_i}^{t}\hat{H_0}dt}\op_Se^{-i\int_{t_i}^{t}\hat{H_0}dt}.
+    \left|\psi,t\right>_I&=e^{i\int_{t_i}^{t}{H}_0dt}e^{-i\int_{t_i}^{t}{H}dt}\left|\psi,t_i\right>_S\\
+    \op_I(t) &= e^{i\int_{t_i}^{t}{H}_0dt}\op_Se^{-i\int_{t_i}^{t}{H}_0dt}.
 \end{align}
 
 
-We wish to calculate the expectation value of some operator $\left<\op\right>$.
+We wish to calculate the equal time expectation value of some operator $\left<\op(t)\right>$.
 To calculate this directly is difficult for a theory with interactions.
 In the interaction picture however, the operators evolve only according to the
-free Hamiltonian, so their time dependence can be found. To take advantage of this,
+free Hamiltonian, so their time dependence can be more easily obtained. To take advantage of this,
 we would like to rewrite our desired expectation value as
 \begin{align}
-    \left<\op\right> &= \left<F^{-1}(t,t_0)\op^I F(t,t_0)\right>\label{heis_to_int}
+    \left<\op(t)\right> &= \left<F^{-1}(t,t_0)\op^I(t) F(t,t_0)\right>\label{heis_to_int}
 \end{align}
 to relate the correlators of the interacting theory to the correlators of the
 free theory.
@@ -753,6 +755,12 @@ that obey
 \begin{align}
     U_0(t_0,t_0) = 1 = U(t_0,t_0).
 \end{align}
+As we will see, we will be able to roughly interpret $F(t,t_0)$ as evolving the interaction picture fields
+back to the initial point $t_0$ (where the Heisenberg and interaction pictures coincide) and then
+evolving the operators forward in the Heisenberg picture, giving the time evolution
+of the full expectation value.
+
+
 The operator $U(t,t_0)$ evolves the Heisenberg picture operators in time
 using $\tilde{H}=H_0+H_I$
 \begin{align}
@@ -762,7 +770,6 @@ using $\tilde{H}=H_0+H_I$
 which along with the Heisenberg equation of motion
 (the explicit time dependence in $\tilde{H}$ comes from coefficients
 that depend on the background evolution)
-\textcolor{red}{sign?}
 \begin{align}
     \frac{d}{dt}\delphi(\vecx,t) &= i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right]\label{heis_phi}
 \end{align}
@@ -780,7 +787,7 @@ We then have
     \implies \frac{d}{dt}U(t,t_0) &= -i\tilde{H}\left[\delphi(t_0),\delpi(t_0);t\right]U(t,t_0)\label{u_def}
 \end{align}
 where particular attention should be paid to the evaluation time of the operators from
-which the Hamiltonian is built.
+which the $\tilde{H}$ is built.
 In contrast, $U_0(t,t_0)$ evolves the interaction picture operators in time
 using only the part of the Hamiltonian quadratic in the perturbations
 \begin{align}
@@ -791,9 +798,6 @@ which by a similar calculation (recalling that $\delphi^I$ evolves with $H_0$) g
 \begin{align}
     \frac{d}{dt}U_0(t,t_0) &= -iH_0\left[\delphi^I(t_0),\delpi^I(t_0);t\right]U_0(t,t_0).\label{u0_def}
 \end{align}
-Thus, we can roughly think of $F(t,t_0)$ in~\eqref{heis_to_int} as evolving the interaction picture fields
-back to the initial point $t_0$ (where the Heisenberg and interaction pictures coincide) and then
-evolving the operators forward in the Heisenberg picture, giving the full evolution.
 
 
 From~\eqref{f_def},~\eqref{u_def} and~\eqref{u0_def} we can find the equation of motion for $F(t,t_0)$
@@ -801,19 +805,28 @@ From~\eqref{f_def},~\eqref{u_def} and~\eqref{u0_def} we can find the equation of
     \frac{d}{dt}F(t,t_0) &= -iH_I\left[\delphi^I(t),\delpi^I(t);t\right]F(t,t_0)
 \end{align}
 where we recall that $H_I$ is built from the interaction pictures fields, containing cubic
-and higher order terms.
+and higher order terms, which we see are here evaluated at $t$.
 This can be solved using the time ordering operator $T$
-\begin{align}
+\begin{align}\label{f_soln}
     F(t,t_0) = T\exp\left(-i\int^t_{t_0}H_I(t)dt\right).
 \end{align}
-\textcolor{red}{Now we project onto the vacuum\ldots}
 
 
-At tree-level, for the bispectrum of $\zeta$, we obtain from~\eqref{heis_to_int}
-    \textcolor{red}{
-    The above can be rewritten as follows~\cite{careful_contour}.
-    $\phi$ or $\zeta$?
-    }
+We have not yet accounted for the evolution of the vacuum state.
+We wish the interacting vacuum $\left|\Omega\right>$
+to coincide with the free vacuum $\left|0\right>$ in the far past.
+We achieve this by taking the integration contour in~\eqref{f_soln} to be
+moved slightly onto the complex plane, introducing a factor which kills off the
+interactions in the distant past~\cite{Maldacena}.
+That is, instead of taking
+$\tau=-\infty$ we take $\tau=-\infty(1+i\epsilon)$.
+To calculate $F^{-1}$, we use an anti-time ordering operator,
+and take $\tau=-\infty(1-i\epsilon)$.
+
+
+We would like to calculate the bispectrum of $\zeta$ at tree level.
+Expanding~\eqref{f_soln} in~\eqref{heis_to_int}, and recalling that
+the expectation value of a product of three interaction picture fields vanishes
 \begin{align}\label{inin_integral}
 {
     \left< \zeta_{\mathbf{k_1}}(\tau)\zeta_{\mathbf{k_2}}(\tau)\zeta_{\mathbf{k_3}}(\tau) \right>
