@@ -607,7 +607,6 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
     \section{Step 1: the interaction Hamiltonian}
     \subsection{Set-up}\
-    \textcolor{red}{Some of this needs to be moved later, e.g.\ interaction picture stuff.}
     %Since General Relativity has a diffeomorphism invariance, it has a redundancy
     %which must be settled before the true degrees of freedom are manifest.
     %One does this by decomposing the metric (typically in the $ADM$ formalism)
@@ -626,7 +625,8 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     back into the action, leaving only the dynamical variables.
     At the level of the background one then obtains the Friedmann equations;
     at second order one obtains the quadratic action, which evolves the
-    interaction picture fields; and at third order, one obtains the cubic
+    interaction picture fields, as we will discuss in Section~\ref{sec:in_in};
+    and at third order, one obtains the cubic
     interaction Lagrangian.
 
 
@@ -709,31 +709,43 @@ is given in~\eqref{gr_energy}.
 
 
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
-    \subsection{Using the in-in formalism}
-    \textcolor{red}{This is all out of order. Is it comprehensive enough?}
-The setting for this calculation will be the interaction picture. In the Schr\"{o}dinger
-picture the time dependence is carried by the states, whereas in the Heisenberg picture
-the time dependence is carried by the operators. In contrast to both,
-the interaction picture splits the time dependence between the two---the operators evolve according
-to the free Hamiltonian (the quadratic part) while the states see the interaction.
+    \subsection{The in-in formalism}\label{sec:in_in}
 The standard formalism for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
 See also~\cite{Chen_review_2010, Babich_2004, Baumann_horizon_2011,
 Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
-% Bartolo_review_2004 ?
-The in-in formalism takes the time evolution of the interaction picture mode
-functions as an input for calculating the bispectrum.
+The setting for this calculation will be the interaction picture. In the Schr\"{o}dinger
+picture the time dependence is carried by the states, whereas in the Heisenberg picture
+the time dependence is carried by the operators.
+For a careful discussion, see Appendix A2 of~\cite{weinberg_in_in}---here,
+we will simply sketch the derivation.
+We can write this with reference to some initial time $t_i$, where the pictures coincide
+\begin{align}
+    \left|\psi,t\right>_S&=e^{-i\int_{t_i}^{t}\hat{H}dt}\left|\psi,t_i\right>_S\\
+    \op_H(t) &= e^{i\int_{t_i}^{t}\hat{H}dt}\op_Se^{-i\int_{t_i}^{t}\hat{H}dt}
+\end{align}
+where $\op_S(t)=\op_S(t_i)$.
+We will be interested in the case where $\tau_i\rightarrow-\infty$.
+In contrast to both,
+the interaction picture splits the time dependence between the two---the operators evolve according
+to the free Hamiltonian (the quadratic part) while the states see the interaction
+\begin{align}
+    \left|\psi,t\right>_I&=e^{i\int_{t_i}^{t}\hat{H}_0dt}e^{-i\int_{t_i}^{t}\hat{H}dt}\left|\psi,t_i\right>_S\\
+    \op_I(t) &= e^{i\int_{t_i}^{t}\hat{H_0}dt}\op_Se^{-i\int_{t_i}^{t}\hat{H_0}dt}.
+\end{align}
 
 
 We wish to calculate the expectation value of some operator $\left<\op\right>$.
 To calculate this directly is difficult for a theory with interactions.
 In the interaction picture however, the operators evolve only according to the
-free Hamiltonian, so can their time dependence can be found. To take advantage of this,
-we rewrite our desired expectation value as
+free Hamiltonian, so their time dependence can be found. To take advantage of this,
+we would like to rewrite our desired expectation value as
 \begin{align}
     \left<\op\right> &= \left<F^{-1}(t,t_0)\op^I F(t,t_0)\right>\label{heis_to_int}
 \end{align}
-where the operator $F$ is built out of two time evolution operators
+to relate the correlators of the interacting theory to the correlators of the
+free theory.
+The operator $F$ is built out of two unitary time evolution operators
 \begin{align}
     F(t,t_0) &= U_0^{-1}(t,t_0)U(t,t_0)\label{f_def}
 \end{align}
@@ -741,31 +753,55 @@ that obey
 \begin{align}
     U_0(t_0,t_0) = 1 = U(t_0,t_0).
 \end{align}
-For a careful definition and derivation, see Appendix A2 of~\cite{weinberg_in_in}---here,
-we will simply note that $U(t,t_0)$ evolves the Heisenberg picture operators in time
+The operator $U(t,t_0)$ evolves the Heisenberg picture operators in time
+using $\tilde{H}=H_0+H_I$
 \begin{align}
     \delphi(t) &= U^{-1}(t,t_0)\delphi(t_0)U(t,t_0)\\
-    \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0)\\
-    \frac{d}{dt}U(t,t_0) &= -iH\left[\delphi(t_0),\delpi(t_0);t\right]U(t,t_0)\label{u_def}
+    \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0)
 \end{align}
-using the full Hamiltonian, while $U_0(t,t_0)$ evolves the interaction picture operators in time
+which along with the Heisenberg equation of motion
+(the explicit time dependence in $\tilde{H}$ comes from coefficients
+that depend on the background evolution)
+\textcolor{red}{sign?}
+\begin{align}
+    \frac{d}{dt}\delphi(\vecx,t) &= i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right]\label{heis_phi}
+\end{align}
+gives us
+\begin{align}
+    i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right]
+    &= -U^{-1}\dot{U}U^{-1}\delphi(t_0) U+U^{-1}\delphi(t_0) \dot{U}\\
+    &= -U^{-1}\dot{U}\delphi(t)+\delphi(t)U^{-1} \dot{U}\\
+    &= \left[-U^{-1}\dot{U},\delphi(t)\right]
+\end{align}
+where we have temporarily omitted the arguments of $U(t,t_0)$.
+We then have
+\begin{align}
+    \frac{d}{dt}U(t,t_0) &= -iU(t,t_0)\tilde{H}\left[\delphi(t),\delpi(t);t\right]U^{-1}(t,t_0)U(t,t_0)\\
+    \implies \frac{d}{dt}U(t,t_0) &= -i\tilde{H}\left[\delphi(t_0),\delpi(t_0);t\right]U(t,t_0)\label{u_def}
+\end{align}
+where particular attention should be paid to the evaluation time of the operators from
+which the Hamiltonian is built.
+In contrast, $U_0(t,t_0)$ evolves the interaction picture operators in time
+using only the part of the Hamiltonian quadratic in the perturbations
 \begin{align}
     \delphi^I(t) &= U_0^{-1}(t,t_0)\delphi^I(t_0)U_0(t,t_0)\\
-    \delpi^I(t) &= U_0^{-1}(t,t_0)\delpi^I(t_0)U_0(t,t_0)\\
-    \frac{d}{dt}U_0(t,t_0) &= -iH_0\left[\delphi^I(t),\delpi^I(t);t\right]U_0(t,t_0)\label{u0_def}
+    \delpi^I(t) &= U_0^{-1}(t,t_0)\delpi^I(t_0)U_0(t,t_0)
 \end{align}
-using only the part of the Hamiltonian quadratic in the perturbations.
-The above follows from the Heisenberg equations of motion for the perturbations.
+which by a similar calculation (recalling that $\delphi^I$ evolves with $H_0$) gives us
+\begin{align}
+    \frac{d}{dt}U_0(t,t_0) &= -iH_0\left[\delphi^I(t_0),\delpi^I(t_0);t\right]U_0(t,t_0).\label{u0_def}
+\end{align}
 Thus, we can roughly think of $F(t,t_0)$ in~\eqref{heis_to_int} as evolving the interaction picture fields
 back to the initial point $t_0$ (where the Heisenberg and interaction pictures coincide) and then
 evolving the operators forward in the Heisenberg picture, giving the full evolution.
 
 
 From~\eqref{f_def},~\eqref{u_def} and~\eqref{u0_def} we can find the equation of motion for $F(t,t_0)$
-\textcolor{red}{where we recall that $UU$ evolves\ldots}
 \begin{align}
-    \frac{d}{dt}F(t,t_0) &= -iH_I\left[\delphi^I(t),\delpi^I(t);t\right]F(t,t_0).
+    \frac{d}{dt}F(t,t_0) &= -iH_I\left[\delphi^I(t),\delpi^I(t);t\right]F(t,t_0)
 \end{align}
+where we recall that $H_I$ is built from the interaction pictures fields, containing cubic
+and higher order terms.
 This can be solved using the time ordering operator $T$
 \begin{align}
     F(t,t_0) = T\exp\left(-i\int^t_{t_0}H_I(t)dt\right).
