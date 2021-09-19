@@ -416,7 +416,6 @@ at leading order in slow-roll.
     We can write down an estimator for the angular power spectrum.
     Since $C_l$ depends only on $l$, we can
     use all the values of $m$ for each $l$
-    \textcolor{red}{Angle average. $m$ is angle, $l$ is scale. Why?}
     \begin{align}
         %\left<TT\right> &= ?\\
         %\left<a_{lm}a_{l'm'}\right> &= ?\\
@@ -517,11 +516,6 @@ of the bispectrum, meaning the dependence on $k_1+k_2+k_3$, and the ``shape depe
 meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
 
     \section{A field guide to $\fnl$}
-    In our template-free pipeline, we take $\fnl$ as a coefficient of our expansion
-    of the numerically calculated primordial shape. Thus in the work we present in
-    later chapters of this thesis, $\fnl$ is scenario specific and we rule out an
-    inflation scenario by ruling out $\fnl=1$.
-    \textcolor{red}{Move our definition to the end, emphasise its scaling.}
     We present here some of the ways
     $\fnl$ is defined in the literature, for convenience.
 
@@ -577,6 +571,14 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     \textcolor{red}{Compare to other limit definitions.}
 
 
+    In our template-free pipeline, we take $\fnl$ as a fitting coefficient of our expansion
+    of the numerically calculated primordial shape.
+    This will be described in Chapter~\ref{chapter:constraints},
+    where we will use an $\fnl$ which is scenario specific,
+    and assessing the consistency of a scenario with data
+    will be equivalent to assessing the consistency of $\fnl=1$.
+
+
     \subsection{Templates}
     The momentum dependence of the various possible bispectrum templates can be complex
     and it is therefore useful to define a standard notation in which to express this dependence.
@@ -625,7 +627,6 @@ S^{local}(k_1,k_2,k_3)
     &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}
 \end{align}
 This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
-    \textcolor{red}{Use $K_{pq}$ notation?}
 
 
     \section{Step 1: the interaction Hamiltonian}
@@ -657,11 +658,21 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     For a simple Lagrangian such as $\mathcal{L}_{0}=\frac{1}{2}\dzeta^2$,
     we find $\pi\equiv\frac{\partial \mathcal{L}_0}{\partial \dzeta}=\dzeta$. However if the Lagrangian contains cubic terms
     containing $\dzeta$, this relation will change and may not be easily invertible.
-    However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(\zeta^4,\dzeta^4)$,
-    so calculating the cubic interaction Hamiltonian to this order
-    from the cubic interaction Lagrangian is trivial.\footnote{
-        \textcolor{red}{Detail for $\dzeta^3$.}
-    }
+    However one can show that it will still be true that $\mathcal{H}_{int}=-\mathcal{L}_{int}+\mathcal{O}(4)$,
+    so calculating the cubic interaction Hamiltonian to third order in the perturbations
+    from the cubic interaction Lagrangian is trivial\footnote{
+        Ignoring terms with no time derivatives, take $\mathcal{L}=\frac{1}{2}\dzeta^2+g\dzeta^3$
+        as an example.
+        Then, $\pi=\frac{\partial\mathcal{L}}{\partial \dzeta}=\dzeta+3g\dzeta^2$.
+        Calculating the Hamiltonian density
+        \begin{align}
+            \mathcal{H} &= \pi\dzeta - \mathcal{L}\\
+                    &= \pi(\pi-3g\dzeta^2) - \frac{1}{2}(\pi-3g\dzeta^2)^2-g\dzeta^3\\
+                    &\approx \frac{1}{2}\pi^2-3g\dzeta^3 +3g\dzeta^3-g\dzeta^3\\
+                    &\approx \frac{1}{2}\pi^2-g\dzeta^3
+        \end{align}
+        where we have neglected terms higher order in the perturbations.
+    }.
 
 
     We will work with a Hamiltonian that has been split into three parts,
