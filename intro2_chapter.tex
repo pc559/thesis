@@ -365,24 +365,40 @@ at leading order in slow-roll.
 
 
     \section{The primordial power spectrum}
-    The temperature anisotropies of the $\cmb$ are decomposed in spherical
-    harmonics
+    The temperature anisotropies of the $\cmb$ can be decomposed in spherical
+    harmonics $Y_{lm}$ as follows
     \begin{align}
-        \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{lm} a_{lm}Y_{lm}(\hat{\mathbf{n}}).
+        \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{l,m} a_{lm}Y_{lm}(\hat{\mathbf{n}}).
     \end{align}
-    Projecting the large scale primordial inhomogeneities onto a sphere (the $\cmb$ sky)
-    the statistics are projected as
-    \textcolor{red}{Where does the $5$ come from. Derive this!}
+    If we demand the statistics are invariant under rotation, it can be shown that
     \begin{align}
-        \left<a_{lm}a^*_{l'm'}\right> &= \delta_{ll'}\delta_{mm'}C_l\\
-        C_l &\approx 4\pi\int d\ln k~\primpowerspec(k){\left[
-            j_l(k\chi_*)/5
+        \left<a_{lm}a^*_{l'm'}\right> &= \delta_{ll'}\delta_{mm'}C_l.
+    \end{align}
+    We can project the large scale primordial inhomogeneities onto the $\cmb$ sky,
+    using the Rayleigh plane wave expansion and the addition theorem
+    for spherical harmonics. Writing $\vecx=r\hat{\vecn}$,
+    \begin{align}
+        e^{i\veck\cdot\vecx} &= \sum_i i^l(2l+1)j_l(kr)P_l(\hat{\veck}\cdot\hat{\vecn})\\
+                    &= 4\pi\sum_{lm}i^l j_l(kr)Y^*_{lm}(\hat{\veck})Y_{lm}(\hat{\vecn})\label{addition_expan}
+    \end{align}
+    where $j_l(x)$ is the spherical Bessel function.
+    Expanding the fractional temperature fluctuations
+    $\frac{\Delta T}{T}(\vecx)$ in Fourier modes,
+    and then expanding the factor $e^{i\veck\cdot\vecx}$ using~\eqref{addition_expan},
+    we find
+    \begin{align}
+        C_l &\approx 4\pi\int d\ln k~\frac{\primpowerspec(k)}{25}{\left[
+            j_l(k\chi_*)
             \right]}^2.
     \end{align}
-    where $j_l(x)$ is the spherical Bessel function, and the $\delta_{ll'}$ and $\delta_{mm'}$
-    are demanded by statistical isotropy. The spherical Bessel function encodes the fact that a three dimensional
+    The factor of $1/5$ comes from the relation between the fractional temperature
+    fluctuations and the primordial curvature perturbations on large scales. These are the scales
+    that are sufficiently large that we can neglect acoustic oscillations during the
+    radiation dominated epoch, leaving inhomogeneous gravitational redshifting
+    (the Sachs-Wolfe effect) as the dominant contribution.
+    The spherical Bessel function encodes the fact that a three dimensional
     wave of a given wavelength intersects the sphere at multiple different angular separations.
-    The conformal distance to last scattering is $\chi_*$.
+    The comoving distance to last scattering is $\chi_*$.
 
 
     For large scales, where there was not enough time for oscillations
@@ -1203,7 +1219,7 @@ see~\cite{chen_folded_resonant}.
     \begin{align}
         \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k)
     \end{align}
-    where $\tau_0-\tau_{dec}$ is the conformal distance to last scattering.
+    where $\tau_0-\tau_{dec}$ is the comoving distance to last scattering.
 \textcolor{red}{What is this approximation? Sachs-Wolfe. Why large scales. Link to derivation earlier.}
     The integral then becomes
     \begin{equation}
