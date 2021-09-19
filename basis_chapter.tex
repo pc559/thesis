@@ -20,12 +20,20 @@ bispectrum~\cite{FergShell_1,FergShell_2,FergShell_3}.
 Our goal in this work is the efficient calculation of more general bispectra
 which may have significant (possibly oscillatory) features, requiring searches across inflationary parameters.
 To achieve this, we represent the shape function~\eqref{shapefn} using a set of basis functions as
-    \textcolor{red}{Include triple $q$. Define $\Pmax$.}
 \begin{align}\label{goal}
 S(k_1, k_2,k_3) &= \sum_n \alpha_n  \, Q_n(k_1,k_2,k_3)\,,
 \end{align}
 where the basis functions $Q_n(k_1,k_2,k_3)$ are explicitly separable functions of their arguments.
+We shall consider constructing the separable basis functions $Q_n(k_1,k_2,k_3)$
+out of triplet products of normalized one-dimensional modes $q_p(k)$ as
+\begin{align}\label{modes3d}
+    Q_n(k_1,k_2,k_3)\equiv q_{p} (k_1) \, q_{r}(k_2)\, q_{s}(k_3)\,.
+\end{align}
+Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appropriate manner.
+This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$.
 The specific bispectrum information of each scenario is encoded in $\alpha_n$.
+
+
 Translating this result into a constraint from the CMB
 will require a large once-off computational cost---however, this cost will be
 paid once per set of basis functions $Q_n$, not per scenario.
@@ -169,7 +177,6 @@ Substituting these expansions into~\eqref{inin_sep}, we obtain the following dec
 where the dependence on $k_i$ has now been brought outside the time integral.
 For the sake of compactness of notation we will now use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
-    \textcolor{red}{Muddled? Define $V$ properly, more clearly.}
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
 integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in Section~\ref{sec:starting}.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
@@ -333,8 +340,6 @@ this more exacting measure $\totalcor$ from~\cite{hung_1902} is a far better rep
 between two shape functions
 than the correlation used in~\cite{Funakoshi}, as it is easier to interpret and
 more stringent.
-    \textcolor{red}{If there was a primordial estimator, this would be the fractional sigma error.
-    Is it? But it's limited to be less than $\sqrt{2}$?}
 
 
 The full relative difference~\eqref{relative_difference} also includes the amplitude
@@ -352,12 +357,13 @@ relative to the representative value
 
     One degree of freedom that we have not exploited is weighting the decomposition
     to optimise the convergence of the final observable.
-    This could be advantageous as it is possible that the CMB could be more sensitive
+    This could be advantageous as it is possible that the $\cmb$ could be more sensitive
     to certain $k$-configurations than others, and so we would like those configurations to
     converge most efficiently.
+    In~\cite{FergShell_2} a good approximation was found for the appropriate weighting
+    on the tetrapyd.
     In this work however we focus on calculating the primordial shape function accurately
-    and efficiently and leave exploiting this freedom to a future work.
-    \textcolor{red}{Link to James 2006(?) paper.}
+    and efficiently with a flat weighting, and leave exploiting this freedom to a future work.
 
 
     An important part of this work is testing the expected convergence of our various
@@ -410,15 +416,6 @@ for use in the expansion~\eqref{goal}.
 Whether the goal is to explore primordial phenomenology or for direct comparison with observations,
 the convergence of our basis set will determine the efficiency and practicality
 of our methods.
-We shall consider constructing the separable basis functions $Q_n(k_1,k_2,k_3)$
-out of
-%symmetrised
-triplet products of normalized one-dimensional modes $q_p(k)$ as
-    \textcolor{red}{Move way earlier.}
-\begin{align}\label{modes3d}
-    Q_n(k_1,k_2,k_3)\equiv q_{p} (k_1) \, q_{r}(k_2)\, q_{s}(k_3)\,.
-\end{align}
-Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appropriate manner.
 %(see some ordering alternatives in~\cite{FergShell_3}), while the symmetrised average of all $\{p r s\}$ permutations is 
 %\begin{align}\label{modes3dsum}
 %    q_{(p}q_{r}q_{s)}\equiv(1/3!)\sum_\text{perms}q_{p}q_{r}q_{s}\qquad \text{and} \qquad 
@@ -432,11 +429,11 @@ Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appro
 %Unless stated otherwise, the $\{prs\}$ triples for each permutation set $n$
 %in~\eqref{modes3d} are represented by the coefficient with $0\le p\le r\le s$,
 %that is, $\alpha_n = \alpha_{prs} \equiv \alpha_{(prs)}$.
-This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$. 
 Given the basis-agnostic formalism we outlined in~\ref{sec:setting_notation} and
 the basis-agnostic methods we will outline in Chapter~\ref{chapter:methods}
 %sections~\ref{sec:setting_notation},~\ref{sec:h_int} and~\ref{sec:k_dep},
-we are free to choose our set of basis functions to optimise for efficient convergence,
+we are free to choose our set of basis functions in~\eqref{{modes3d}}
+to optimise for efficient convergence,
 ensuring our results are useful for comparison with observations. 
 There are a wide variety of options available, such as polynomial bases
 or Fourier series, that can be chosen for the $q_p(k)$.

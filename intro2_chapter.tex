@@ -364,7 +364,7 @@ at leading order in slow-roll.
 \end{table}
 
 
-    \section{The primordial power spectrum}
+    \section{The power spectrum}\label{sec:power_spec_estimator}
     The temperature anisotropies of the $\cmb$ can be decomposed in spherical
     harmonics $Y_{lm}$ as follows
     \begin{align}
@@ -386,7 +386,7 @@ at leading order in slow-roll.
     $\frac{\Delta T}{T}(\vecx)$ in Fourier modes,
     and then expanding the factor $e^{i\veck\cdot\vecx}$ using~\eqref{addition_expan},
     we find
-    \begin{align}
+    \begin{align}\label{sachs_cl_example}
         C_l &\approx 4\pi\int d\ln k~\frac{\primpowerspec(k)}{25}{\left[
             j_l(k\chi_*)
             \right]}^2.
@@ -568,7 +568,6 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
     which depends on $k_1$, $k_2$ and $k_3$. In the local case we see that this reduces to
     the usual definition of $\fnllocal$ across the entire tetrapyd. %In the equilateral limit,
     %we see that it coincides with the definition of $\fnlequil$.
-    \textcolor{red}{Compare to other limit definitions.}
 
 
     In our template-free pipeline, we take $\fnl$ as a fitting coefficient of our expansion
@@ -688,10 +687,10 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
 
     \subsection{Interactions}\label{sec:interactions}
-Initially we consider the same basic models as in~\cite{Funakoshi};
-a quadratic potential
+We consider the same basic models as in~\cite{Funakoshi}.
+Firstly, a quadratic potential
 \begin{align}\label{eq:quadratic_potential}
-    \quadpot = \frac{1}{2}m^2\phi^2.
+    \quadpot = \frac{1}{2}m^2\phi^2
 \end{align}
 with a canonical kinetic term.
 We will also consider a non-canonical model in detail, the $\dbi$ model.
@@ -703,10 +702,11 @@ and we choose
 \begin{align}\label{eq:dbi_warp}
     f(\phi)=\frac{\lambda_{\dbi}}{\phi^4},\qquad
     V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
-    m=\sqrt{\beta_{IR}}H
+    m=\sqrt{\beta_{IR}}H_{i}
 \end{align}
-where $\lambda_{\dbi}$, $\bir$ and $V_0$ are constants
-which (along with $\phi_0$) define the scenario in question.
+where $\lambda_{\dbi}$, $\bir$ and $V_0$ are constants which
+(along with the initial value of $\phi$, $\phi_0$) define the scenario in question.
+$H_i$ is the Hubble parameter evaluated at the initial time.
 This is in line with~\cite{Bean_ir_dbi, Chen_dbi}.
 
 
@@ -1172,11 +1172,11 @@ along the equilateral limit, which results from slow-roll corrections.
 
 
 \subsection{Shapes from features during inflation}
-\textcolor{red}{What are features? Motivate them. Look at $\planck$.
-Power spectrum first.}
 For our more stringent validation tests we work with feature model scenarios
 based on the above base models.
-To explore non-Gaussianity coming from sharp features we include
+It has long been known that sharp, localised features in the inflationary potential
+can generate large non-Gaussianities~\cite{chen_easther_lim_1}, possibly with observable effects.
+To explore non-Gaussianity coming from such sharp features we include
 a kink~\cite{Adams_step}
 \begin{align}\label{eq:kink_potential}
     V(\phi) = \quadpot\left(1-c\tanh\left(\frac{\phi_f-\phi}{d}\right)\right).
@@ -1233,17 +1233,24 @@ see~\cite{chen_folded_resonant}.
     take ${S(k_1,k_2,k_3)=1}$ for all configurations, then the above four-dimensional integral
     simplifies greatly. If we also restrict to large angular scales
     % (The first acoustic peak is around l=200.)
-    then we can use the approximation
+    then we can use the same large-scale Sachs-Wolfe approximation
+    that was used in Section~\ref{sec:power_spec_estimator}
     \begin{align}
-        \Delta_l(k) = \frac{1}{3}j_l((\tau_0-\tau_{dec})k)
+        \Delta_l(k) = \frac{1}{3}j_l(\chi_*k)
     \end{align}
-    where $\tau_0-\tau_{dec}$ is the comoving distance to last scattering.
-\textcolor{red}{What is this approximation? Sachs-Wolfe. Why large scales. Link to derivation earlier.}
+    where $\chi_*$ is the comoving distance to last scattering
+    \footnote{
+    The factor of $3$ in this equation compared to the factor of $5$
+    in~\eqref{sachs_cl_example} is due to $\zeta=-5\Phi/3$
+    on large scales during matter domination.
+    % See (3.47) of AC.
+\textcolor{red}{Is the factor of $3$ correct?}
+}.
     The integral then becomes
     \begin{equation}
     \label{eq:reduced_cmb_constant}
     b_{l_1l_2l_3} = \left(\frac{2}{3\pi}\right)^3\int_{0}^{\infty}drr^2
-        \int d^3k \prod_{i=1}^{3}\left[j_{l_i}(k_ir)j_l((\tau_0-\tau_{dec})k_i)\right].
+        \int d^3k \prod_{i=1}^{3}\left[j_{l_i}(k_ir)j_l(\chi_*k_i)\right].
     \end{equation}
     Using the following result
     \begin{align}
@@ -1341,14 +1348,12 @@ see~\cite{chen_folded_resonant}.
         \left(\triplea-3C^{sim}_{l_1m_1,l_2m_2}a_{l_3m_3}\right)
     \end{align}
     which retains optimality~\cite{Creminelli:2005hu}.
-\textcolor{red}{Motivate linear term. In the diagonal case, it is subtracting a monopole?}
     Here, the diagonal approximation is insufficient for the linear term
     (which is especially important for local type shapes), so the
     full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is calculated using an ensemble average
     over a suite of Gaussian simulations. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
-    by the galaxy.
-    While the estimator is still optimal,
+    by the galaxy. While the estimator is still optimal,
     Monte Carlo simulations are also used to estimate the variance, to ensure systematics
     are taken into account correctly.
     Many $\cmb$ skies are generated from Gaussian initial conditions, and then the estimator
@@ -1405,16 +1410,6 @@ of finding a separable approximation to the primordial template.
 The results of these methods are constraints on the parameters of
 certain inflation models through the approximate phenomenological templates.
 These constraints can be found in~\cite{Planck_NG_2015, Planck_NG_2018}.
-
-
-In this work, our numerical methods remove the need for some of the
-earlier set of approximations
-\textcolor{red}{what are they}
-made before this, during inflation, directly linking the parameters of the inflation scenario
-with the relevant observable.
-In addition to this improvement in accuracy, calculating the Modal decomposition
-directly from the model of inflation is far more efficient 
-than numerically calculating the bispectrum configuration by configuration.
 
 
 Recall the definition of separability~\eqref{sepXYZ}.

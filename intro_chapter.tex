@@ -106,7 +106,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     universe through a cosmological constant $T_{\mu\nu}=\mpl^2\Lambda g_{\mu\nu}$ which does not
     dilute as the universe expands. The radiation is denoted by $\gamma$,
     the matter by $m$, and the cosmological constant by $\Lambda$.
-    \textcolor{red}{Move to after Einstein equations?}
 
 
     The components of the matter and energy content of the universe enter the equations through
@@ -345,7 +344,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     whether the universe had a beginning or not---compared to
     now, where the debate rages over the second and
     third significant figures of its age.
-\textcolor{red}{Muddled.}
 
 
     Before focusing our whole attention on the past in the rest of this thesis, let us briefly
@@ -455,7 +453,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     and the gravitational collapse of perturbations (and other interactions) and forms the universe we know.
     These special characteristics of this early epoch
     then become clues to the epoch of the universe that preceded $\lcdm$.
-    \textcolor{red}{Muddled.}
     %Is this story of $\lcdm$ enough to explain all the features of the
     %universe that we observe?
     %It turns out that the answer is yes, if the initial conditions for the $\lcdm$
@@ -494,7 +491,6 @@ extract the fundamental physics waiting to be found in the universe's youth.
     since $a_0=1$).
     This means that we would expect the homogeneous patches at recombination to span
     at most an angle of
-    \textcolor{red}{Where does this come from?}
     \begin{align}
         \tan^{-1}\left(2\frac{x_{rec}-0}{x_{0}-x_{rec}}\right) \approx 2^{\circ}
     \end{align}
@@ -539,17 +535,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
     %theory of the very early universe.
 
 
-    \textcolor{red}{Should this be moved later? Have perturbations been mentioned?
-    What is scale invariance? Link.}
     We will mention three more features of the $\lcdm$ initial conditions that we would
-    like an explanation for. Those three features are the adiabaticity of the initial
-    perturbations, the (as measured so far) Gaussianity of those perturbations, and finally
-    the very slight deviation from perfect scale invariance that observations demand the
-    initial power spectrum must have had.
-
-
-    Adiabaticity is the statement that for each of the components of the universe, their
-    initial conditions $\delta\rho_i$ were related such that
+    like an explanation for.
+    Adiabaticity is the statement that for each of the components of the universe
+    $\rho_i(t) = \bar{\rho}_i(t)+\delta\rho_i(t,\vecx)$, their
+    initial background values $\bar{\rho}_i$ and their
+    initial perturbations $\delta\rho_i$ were related such that
     \begin{align}
         \frac{\delta\rho_i}{\dot{\bar{\rho}}_i} = \frac{\delta\rho_j}{\dot{\bar{\rho}}_j}.
     \end{align}
@@ -569,12 +560,11 @@ extract the fundamental physics waiting to be found in the universe's youth.
     the statement that correlations do not depend on the scale at which they are measured.
     It turns out that observations show that this is not precisely respected,
     with the deviation from perfect scale invariance being measured to high confidence by the $\planck$
-    satellite.
-    Earlier measurements were made by the WMAP satellite~\cite{Senatore_wmap_2009}.
+    satellite, with
+    earlier measurements were made by the WMAP satellite~\cite{Senatore_wmap_2009}.
 
 
     \subsection{Driving inflation with a scalar field}
-    \textcolor{red}{Meaning of sound speed when homogeneous. Do I actually show it successfully inflates?}
     These features of the early universe can be explained by a period of near-exponential expansion
     preceding the usual $\lcdm$ evolution.
     One simple way one could imagine driving this expansion is through a single
@@ -588,18 +578,18 @@ Consider an inflaton action of the form
 \begin{align}\label{inflaton_action}
 S = \int d^4x \sqrt{-g}P(X,\phi)
 \end{align}
-with $\phi=\phi(t)$ and $X\equiv-\frac{1}{2}g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi=\frac{1}{2}\dphi^2$.
-We will work with the number of e-folds, $N$, as our time variable
+with $\phi=\phi(t)$ and $X\equiv\frac{1}{2}\dphi^2$.
+We will work with the number of e-folds, $N$, as our time variable,
+defined by $\frac{a}{a_i}=e^N$.
+We then have
 $x'\equiv\frac{dx}{dN}=H^{-1}\frac{dx}{dt}$.
-    \textcolor{red}{Define e-folds. Which $g_{\mu\nu}$ is the above true for?}
 
 
 The energy-momentum tensor is defined as
 \begin{align}\label{gr_energy}
     T_{\mu\nu} = -2\frac{\partial\mathcal{L}_m}{\partial g^{\mu\nu}}+g_{\mu\nu}\mathcal{L}_m.
 \end{align}
-The expression for the energy density then follows as
-    \textcolor{red}{Identification, interpretation as $\rho$.}
+The energy and pressure densities can then be identified as
 \begin{align}\label{rho_px}
     \rho &= 2XP,_X-P\\
     p &= P,
@@ -608,11 +598,13 @@ so then the continuity equation~\eqref{continuity_equation} implies
 \begin{align}\label{rho_deriv}
     \rho' = -6XP,_X.
 \end{align}
-    The sound speed for the adiabatic perturbations is defined as~\cite{Christopherson_2009}
+    The ``sound speed'' for the adiabatic perturbations is defined as~\cite{Christopherson_2009}
     \begin{align}\label{sound_speed_definition}
         c_s^2 = \left. \frac{\partial P}{\partial \rho} \right|_S = \frac{\dot{P}}{\dot{\rho}}
         = \frac{P,_X}{\rho,_X}.
     \end{align}
+    When we allow perturbations about the background this will have the interpretation
+    of a sound speed of those perturbations.
     Since we also have~\eqref{rho_px}, we see that
     \begin{align}
         c_s^2 = \frac{P,_X}{P_X+2X P_{XX}}.
@@ -694,9 +686,8 @@ $2XP_{,X}\ll P$.
     %This is necessary but not sufficient---we still need to generate
     %the correct statistics for the primordial perturbations.
     %This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
-    To match the measured deviation from scale-invariance in standard slow-roll
-    inflation it turns out we would need $\varepsilon\sim O(10^{-2})$.
-    \textcolor{red}{What are perturbations?}
+    %To match the measured deviation from scale-invariance in standard slow-roll
+    %inflation it turns out we would need $\varepsilon\sim O(10^{-2})$.
 
 
 For a model with a canonical kinetic term,~\eqref{phieom} simplifies
@@ -714,7 +705,6 @@ on the flatness of the potential in a canonical model.
 Requiring inflation to last for the sufficient number
 of e-folds to solve the horizon problem
 also constrains $\eta\ll1$.
-    \textcolor{red}{Expand!}
 
 
 %This allows us to rephrase the Friedmann equation in the following useful
@@ -728,7 +718,6 @@ also constrains $\eta\ll1$.
 
 
 \section{Statistical observables}
-\textcolor{red}{Move to later chapter?}
 \subsection{From probabilities to observations}\label{corr_functions}
     The discussion until this point has focused on quantities
     with definite values. This will no longer
@@ -766,7 +755,6 @@ also constrains $\eta\ll1$.
     expectation values of products the field evaluated at more points.
 
 
-\textcolor{red}{Imposed by inflation? But they are evidence for inflation?}
     There are two assumptions we wish to immediately impose on such functions.
     Those conditions are statistical homogeneity and statistical isotropy,
     the requirement that the correlators are invariant under translations and rotations.
@@ -799,10 +787,8 @@ also constrains $\eta\ll1$.
     Similar statements can of course be made for higher point correlators.
 
 
-\textcolor{red}{Move separability later.}
     Our focus in this thesis will be on the predictions that models of inflation make
     for the the bispectrum $B(k_1,k_2,k_3)$.
-\textcolor{red}{Muddled.}
     This is one characteristic property of 
     the initial conditions for the $\lcdm$ evolution. From
     this, one can calculate statistical properties of the $\cmb$ sky that we see.
@@ -836,28 +822,26 @@ also constrains $\eta\ll1$.
     Thus we can make the statement that
     the odds of a universe like ours being drawn from a scale-invariant probability
     distribution are negligibly small.
-\textcolor{red}{The odds of this being an extreme fluctuation are\ldots}
 
 
-\textcolor{red}{Do we need this?}
-    We will close this section with a brief note on simulations.
-    Using these simulations, for some given probability distribution, we can determine
-    what our observations might look like---even in the presence of
-    complicating factors such as, in the case of observing the harmonics of the temperature fluctuations
-    in the $\cmb$, the presence of our galaxy blocking a significant portion
-    of the sky.
-    For example, if one makes the assumption that the amplitudes of
-    such harmonics were drawn from a Gaussian distribution with some given power spectrum,
-    one can then generate a large ensemble of possible skies.
-    Processing these by simulating the known instrument effects and
-    sky masks gives an ensemble of realistic experimental data, drawn
-    from a Gaussian distribution. If one then wanted to test the temperature
-    fluctuations of the $\cmb$ for deviations from Gaussianity,
-    for example, one could use this ensemble to estimate the rate of false positives
-    of that test.
-    Thus, simulations provide a way to generate possible observations,
-    even in complicated situations,
-    when the probability distribution is assumed.
+%    We will close this section with a brief note on simulations.
+%    Using these simulations, for some given probability distribution, we can determine
+%    what our observations might look like---even in the presence of
+%    complicating factors such as, in the case of observing the harmonics of the temperature fluctuations
+%    in the $\cmb$, the presence of our galaxy blocking a significant portion
+%    of the sky.
+%    For example, if one makes the assumption that the amplitudes of
+%    such harmonics were drawn from a Gaussian distribution with some given power spectrum,
+%    one can then generate a large ensemble of possible skies.
+%    Processing these by simulating the known instrument effects and
+%    sky masks gives an ensemble of realistic experimental data, drawn
+%    from a Gaussian distribution. If one then wanted to test the temperature
+%    fluctuations of the $\cmb$ for deviations from Gaussianity,
+%    for example, one could use this ensemble to estimate the rate of false positives
+%    of that test.
+%    Thus, simulations provide a way to generate possible observations,
+%    even in complicated situations,
+%    when the probability distribution is assumed.
 
 
     %One such statistical property is the two-point correlation of the temperature $\phi$
@@ -914,11 +898,15 @@ also constrains $\eta\ll1$.
     our one universe and the ensemble predictions of inflation.
 
 
-\textcolor{red}{Make clearer. Link to power spectrum, then bispectrum.}
-    In practice, we have other advantages.
-    Even in a limited spatial region we can have access to multiple
-    samples drawn independently from one distribution, for example
-    in multipole moments due to statistical isotropy.
+    In practice,
+    even in a limited spatial region we can have access to multiple
+    samples drawn independently from one distribution. One such situation
+    we will see in Section~\ref{sec:power_spec_estimator},
+    with the multipole moments of the $\cmb$ temperature fluctuations.
+    For a given large angular scale there will be multiple coefficients
+    drawn from the same distribution due to statistical isotropy,
+    improving the precision with which the parameters of the
+    distribution can be estimated.
 
 
     %Our result will be a constraint on an inflationary parameter, stated at e.g.\ $95\%$ confidence.
