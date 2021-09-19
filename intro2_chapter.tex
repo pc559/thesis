@@ -1110,11 +1110,15 @@ With $\mathbf{k_S}\equiv\left(\mathbf{k_2}-\mathbf{k_3}\right)/2 $:
 where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
 That the error in the consistency relation decreases at least quadratically
 in the long mode was shown in~\cite{not_so_sqz}.
-\textcolor{red}{How is this used?}
+We will use~\eqref{eq:sqz_consistency} in Chapter~\ref{chapter:methods}
+as a check on our results.
 
 
     \subsection{Basic shapes}
-\textcolor{red}{Introduction to this section. Mention power spectrum, shift symmetry.}
+    We will now briefly review the shape functions that result from
+    standard canonical inflation, and from non-canonical $\dbi$ inflation.
+    
+
     With a canonical kinetic term
     the slow-roll result for the shape is
 \begin{align}\label{malda_shape}
@@ -1123,7 +1127,7 @@ in the long mode was shown in~\cite{not_so_sqz}.
 with $\eta=2\varepsilon$ for the quadratic potential~\eqref{eq:quadratic_potential}.
 At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
 However, the amplitude of this shape is expected to be tiny,
-\textcolor{red}{In what sense? Looks like $1/\varepsilon$?}
+since $S^{Malda}\sim\mathcal{O}(\varepsilon)\mathcal{P}^2_{\zeta}$
 and the dominant contributions (the squeezed configurations) are expected
 to have no observable effect~\cite{Cabass_2016}.
 
@@ -1140,11 +1144,13 @@ For the featureless $\dbi$ scenario, the shape function is~\cite{dbi_in_the_sky}
          \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}
 \end{align}
 to leading order in slow-roll.
-Any constraint on the magnitude of this template can be translated into one 
-on the effective sound speed which from \planck~has a lower limit $c_s^{\dbi} \geq 0.087$
+Since the amplitude of this shape is predicted to be far larger than~\eqref{malda_shape}
+($S^{\dbi}\sim\mathcal{O}(c_s^{-2})\mathcal{P}^2_{\zeta}$)
+a constraint on the magnitude of this template can be translated into one 
+on the effective sound speed. The \planck~analysis found a lower limit $c_s^{\dbi} \geq 0.087$
 at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
-\textcolor{red}{Compare amplitude.}
+
 
     \subsection{Scaling}
 These templates can be modified to be more physically realistic by including
@@ -1161,11 +1167,13 @@ and the sum scaling template
     S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
-\textcolor{red}{Why does this improve the fit?}
+This improves the fit by matching the expected scaling of the shape function
+along the equilateral limit, which results from slow-roll corrections.
 
 
 \subsection{Shapes from features during inflation}
-\textcolor{red}{What are features? Motivate them. Look at $\planck$.}
+\textcolor{red}{What are features? Motivate them. Look at $\planck$.
+Power spectrum first.}
 For our more stringent validation tests we work with feature model scenarios
 based on the above base models.
 To explore non-Gaussianity coming from sharp features we include
@@ -1195,10 +1203,9 @@ is to generate logarithmic oscillatory features in the shape function of the for
     S^{\ln-\cos}(k_1,k_2,k_3) \approx \cos(w\ln(k_1+k_2+k_3)).
 \end{align}
 With a non-canonical kinetic term, this can also
-cause out-of-phase oscillations in the folded limit as well as a modulating shape,
+cause oscillations in the folded limit (out-of-phase
+with the equilateral oscillations) as well as a modulating shape,
 see~\cite{chen_folded_resonant}.
-\textcolor{red}{What does it look like? Out of phase with what?}
-
 
 
 \section{Step 3: the $\cmb$ bispectrum}
@@ -1250,9 +1257,6 @@ see~\cite{chen_folded_resonant}.
                 &= \frac{f_{NL}}{27}\frac{1}{(2l_1+1)(2l_2+1)(2l_3+1)}
         \left[\frac{1}{l_1+l_2+l_3+3}+\frac{1}{l_1+l_2+l_3}\right]\label{eq:bll_constant}.
     \end{align}
-    Note that this example of constant $S$ is not especially realistic as a shape that could
-    come from a model of inflation.
-\textcolor{red}{Correlates well with equilateral shape.}
     Note also that the acoustic oscillations and
     other relevant physics have not been taken
     into account here---these would imprint oscillations at higher $l$.
@@ -1417,8 +1421,7 @@ Recall the definition of separability~\eqref{sepXYZ}.
 The link between the separability of the primordial bispectrum
 and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb}.
 If the primordial bispectrum is separable then the overall dimension
-of the calculation can be reduced from seven to five, 
-\textcolor{red}{link to equation}
+of the calculation can be reduced from seven to five in~\eqref{eq:reduced_cmb},
 since the spherical Bessel functions $j_{l_i}$ and the
 transfer functions $\Delta_{l_i}$ already appear in a separable way.
 This property can also be used to
@@ -1452,9 +1455,9 @@ features can be applied.
     simple monomials, namely $k^{-1}$, $1$, $k$ and $k^{2}$.
     This method is able to constrain shapes with that contain very high frequency linear oscillations\footnote{
     Since $e^{iw(k_1+k_2+k_3)}=e^{iwk_1}e^{iwk_2}e^{iwk_3}$.},
-    but is limited in that it cannot function for shapes whose shape dependence is not
-    sum-separable.
-    \textcolor{red}{Cosine basis.}
+    using a Fourier basis instead of monomials.
+    It is limited in that it cannot function for shapes whose shape dependence is not
+    sum-separable, however.
 
 
 Since separability is so vital, the usual strategy is to approximate non-separable templates
@@ -1467,7 +1470,6 @@ Other methods target oscillations~\cite{reso_estimator, excited_estimator},
 by expanding the shape function
 in $k_1+k_2+k_3$, thus limiting their ability to capture shapes whose
 phase varies across the tetrapyd.
-    \textcolor{red}{Cosine basis.}
 
 
     The Modal method~\cite{FergShell_2014} is more versatile, 
