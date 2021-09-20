@@ -29,7 +29,8 @@ sharp features~\cite{adshead, gsr, step_novaes}
 and periodic features~\cite{flauger_pajer_resonant, Pajer_2013, Meerburg_2012, Meerburg_osc, Meerburg_2010,
 Barnaby_2011, Peiris_2013, Easther_2013, Cabass_2018, Behbahani_2011}.
 Another observable consequence of primordial non-Gaussianity
-that has been studied is the generation of primordial black
+that has been studied,
+through which it could possibly be probed, is the generation of primordial black
 holes~\cite{pbh_byrnes, pbh_young, pbh_franciolini, pbh_passaglia}.
 %Ultra slow-roll is a regime that has been explored~\cite{usr_chowdhury,usr_pattison,
 %usr_dimopoulos,usr_martin}
@@ -135,9 +136,8 @@ A proof of concept of this approach at the primordial level was presented in~\ci
 We go beyond the work of~\cite{Funakoshi} both in developing the choice of basis
 (the feasibility of the method depending vitally on the chosen basis
 achieving sufficiently fast convergence in a broad range of interesting models)
-and in the methods we use to allow us to go to much higher order in our Modal expansion,
+and in the methods we use to allow us to go to much higher order in our primordial expansion,
 allowing us to apply the method to feature bispectra for the first time.
-
 
 
 \section{Perturbations about the background}
@@ -149,10 +149,12 @@ allowing us to apply the method to feature bispectra for the first time.
     %working in a general gauge
     %(using the ADM formalism) and
     splitting the relevant quantities into a background
-    part and a small perturbation, which we can parameterise as
+    part and a small perturbation, which we can parameterise
+    for the inflaton $\phi$ and the metric $g_{\mu\nu}$ as
     \begin{align}
-        \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}.
+        \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}
     \end{align}
+    where $\bar{g}_{\mu\nu}$ is the unperturbed metric defined in~\eqref{flrw_metric}.
     In the uniform density gauge we have (neglecting tensor modes)
     \begin{align}
         \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}
@@ -191,7 +193,7 @@ allowing us to apply the method to feature bispectra for the first time.
     where we have neglected terms that are slow-roll suppressed.
     The evolution of the perturbations is therefore well approximated using
     $\frac{1}{z}\frac{d^2z}{d\tau^2} = 2{\left(aH\right)}^2$,
-    unless the evolution deviates from the slow-roll attractor.
+    unless the evolution deviates from the slow-roll behaviour.
 
     \subsection{Evolution of the perturbations}\label{pert_evol}
     %https://nms.kcl.ac.uk/eugene.lim/AdvCos/lecture2.pdf
@@ -258,7 +260,7 @@ allowing us to apply the method to feature bispectra for the first time.
         \left[\ahat_{\veck},\ahat^{\dagger}_{\veck'}\right] = (2\pi)^3\delta^{(3)}(\veck-\veck').
     \end{align}
     Taking the commutator of $v$ and its conjugate momentum $\pi=\frac{dv}{d\tau}$
-    we can obtain
+    we can obtain the canonical commutator
     \begin{align}
         \left[v(\tau,\vecx),\pi(\tau,\mathbf{y})\right] &=
         \int \frac{d^3 \veck}{(2\pi)^3}\left(v_k\pi^*_k-\pi_kv^*_k\right)e^{i\veck\cdot(\vecx-\mathbf{y})}\\
@@ -308,15 +310,16 @@ allowing us to apply the method to feature bispectra for the first time.
 
 
     Taking the slow-roll parameters as constant, we can obtain a simple approximate solution
+    to~\eqref{modefneqn_zeta_N}
     \begin{align}\label{uk_solution}
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}.
     \end{align}
-    Treating the solution more carefully, one can obtain
-    the predicted power spectrum
+    Treating the solution more carefully, one finds
     \begin{align}
-        P(k) = \frac{H^2}{4\varepsilon c_s k^3}
+        P_\zeta(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
-    where the right-hand side is evaluated at $c_sk=aH$.
+    where the right-hand side is evaluated at $c_sk=aH$,
+    defining the scale dependence of the result.
     This is enhanced by a factor of $c_s$ compared to the
     usual canonical power spectrum.
     For a review and discussion of corrections see~\cite{px_burrage}.
@@ -365,7 +368,7 @@ at leading order in slow-roll.
 
 
     \section{The power spectrum}\label{sec:power_spec_estimator}
-    The temperature anisotropies of the $\cmb$ can be decomposed in spherical
+    The fractional temperature anisotropies of the $\cmb$ can be decomposed in spherical
     harmonics $Y_{lm}$ as follows
     \begin{align}
         \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{l,m} a_{lm}Y_{lm}(\hat{\mathbf{n}}).
@@ -374,18 +377,23 @@ at leading order in slow-roll.
     \begin{align}
         \left<a_{lm}a^*_{l'm'}\right> &= \delta_{ll'}\delta_{mm'}C_l.
     \end{align}
-    We can project the large scale primordial inhomogeneities onto the $\cmb$ sky,
+    We can project the three dimensional inhomogeneities onto the $\cmb$ sky,
     using the Rayleigh plane wave expansion and the addition theorem
     for spherical harmonics. Writing $\vecx=r\hat{\vecn}$,
     \begin{align}
-        e^{i\veck\cdot\vecx} &= \sum_i i^l(2l+1)j_l(kr)P_l(\hat{\veck}\cdot\hat{\vecn})\\
-                    &= 4\pi\sum_{lm}i^l j_l(kr)Y^*_{lm}(\hat{\veck})Y_{lm}(\hat{\vecn})\label{addition_expan}
+        e^{i\veck\cdot\vecx} &= \sum_l i^l(2l+1)j_l(kr)P_l(\hat{\veck}\cdot\hat{\vecn})\\
+                    &= 4\pi\sum_{l,m}i^l j_l(kr)Y^*_{lm}(\hat{\veck})Y_{lm}(\hat{\vecn})\label{addition_expan}
     \end{align}
     where $j_l(x)$ is the spherical Bessel function.
     Expanding the fractional temperature fluctuations
     $\frac{\Delta T}{T}(\vecx)$ in Fourier modes,
     and then expanding the factor $e^{i\veck\cdot\vecx}$ using~\eqref{addition_expan},
     we find
+    \begin{align}
+        a_{lm} &= 4\pi i^l\int\frac{d^3k}{(2\pi)^3}\frac{\Delta T}{T}(\veck)j_l(k\chi_*)Y^*_{lm}(\hat{\veck})
+    \end{align}
+    where $\chi_*$ the comoving distance to last scattering.
+    Then on large scales, we find
     \begin{align}\label{sachs_cl_example}
         C_l &\approx 4\pi\int d\ln k~\frac{\primpowerspec(k)}{25}{\left[
             j_l(k\chi_*)
@@ -398,28 +406,27 @@ at leading order in slow-roll.
     (the Sachs-Wolfe effect) as the dominant contribution.
     The spherical Bessel function encodes the fact that a three dimensional
     wave of a given wavelength intersects the sphere at multiple different angular separations.
-    The comoving distance to last scattering is $\chi_*$.
 
 
     For large scales, where there was not enough time for oscillations
-    before recombination, there is no processing of the primordial statistics
-    and the term $\left(j_l(k\chi_*)/5\right)^2$ acts as a transfer
+    before recombination,
+    the term $\left(j_l(k\chi_*)/5\right)^2$ acts as a transfer
     function that simply encodes the projection effects.
     For smaller scales where the physics is more complicated this would be encoded in
     some more general transfer function $\Delta_l(k)$
     \begin{align}\label{eqn:transfer_function}
-        C_l &\approx 4\pi\int d\ln k~\primpowerspec(k)
+        C_l &= 4\pi\int d\ln k~\primpowerspec(k)
             \Delta_l(k).
     \end{align}
 
 
-    We can write down an estimator for the angular power spectrum.
+    We can write down an estimator for this angular power spectrum.
     Since $C_l$ depends only on $l$, we can
     use all the values of $m$ for each $l$
     \begin{align}
         %\left<TT\right> &= ?\\
         %\left<a_{lm}a_{l'm'}\right> &= ?\\
-        \hat{C}_l &= \frac{1}{2l+1}\sum_{m=-l}^{l} a_{lm} a_{l-m}.
+        \hat{C}_l &= \frac{1}{2l+1}\sum_{m=-l}^{l} a_{lm} a^*_{lm}.
     \end{align}
     The variance of this estimator is given by
     \begin{align}
@@ -434,7 +441,8 @@ at leading order in slow-roll.
     \begin{align}
         \int_0^{\infty}d\ln x~j_l^2(x) = \frac{1}{2l(l+1)}
     \end{align}
-    to find that $l(l+1)C_l\propto \text{const}$, i.e.\ that on large scales
+    to evaluate the expression for the large scale power spectrum~\eqref{sachs_cl_example}.
+    We find that $l(l+1)C_l\propto \text{const}$, i.e.\ that on large scales
     (small $l$) this quantity is independent of $l$.
 
 
@@ -457,7 +465,6 @@ The primordial bispectrum is usually written as:
 = (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3)
 }
 \end{align}
-where $\zeta_{\bf{k}}$ is a Fourier mode of the standard gauge invariant curvature perturbation.
 The delta function comes from demanding statistical homogeneity;
 demanding statistical isotropy restricts the remaining dependence to the magnitudes of the vectors.
 We denote the magnitude of $\mathbf{k_i}$ as $k_i$.
@@ -467,7 +474,7 @@ It is useful to define the dimensionless shape function
 \begin{align}\label{shapefn}
     S(k_1,k_2,k_3) = (k_1k_2k_3)^2B(k_1,k_2,k_3).
 \end{align}
-As we saw in~\ref{corr_functions}
+As we saw in Section~\ref{corr_functions}
 the bispectrum is only defined where the triangle condition
 \begin{align}\label{triangle_condition}
     \mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3} &= 0,
@@ -479,11 +486,11 @@ is satisfied, which implies that the triangle inequality must hold
 Thus, we will occasionally speak of the bispectrum as a function of types
 of triangles---for example, when the three magnitudes are
 equal they form an equilateral triangle, and when one is much smaller than
-the other two, that is a squeezed triangle.
+the other two, a squeezed triangle.
 The space of configurations we are interested in is therefore
 reduced from the full cube $[\kmin,\kmax]^3$
 to a~\textit{tetrapyd} (illustrated in Figure~\ref{fig:tetrapyd_diagram}),
-which is defined as intersection of that cube with the
+which is defined as the intersection of that cube with the
 tetrahedron that satisfies~\eqref{triangle_inequality}.
 This has important implications that we will explore in
 Chapter~\ref{chapter:decomp}. 
@@ -493,6 +500,7 @@ Chapter~\ref{chapter:decomp}.
 \caption{
     Half of the tetrapydal region on which the bispectrum is defined,
     along with the various limits commonly discussed in the literature.
+    We thank Paul Shellard for providing this figure.
 }\label{fig:tetrapyd_diagram}
 \end{figure}
 
@@ -506,12 +514,14 @@ B^{F}(k_1,k_2,k_3) = \fnl^{F}\times F(k_1,k_2,k_3)
 }
 \end{equation}
 where $F$ contains the dependence on the $k$-configuration.
-This definition coincides with the definitions of
-$\fnllocal$, $\fnlequil$ and $\fnlortho$
-when $F$ is (respectively) the local (see~\eqref{local_shape}),
-equilateral (see~\eqref{equil_shape}) and orthogonal templates,
-as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
-We note that a distinction is sometimes made between the ``scale dependence''
+This will be discussed further in later sections,
+here we will merely note
+%This definition coincides with the definitions of
+%$\fnllocal$, $\fnlequil$ and $\fnlortho$
+%when $F$ is (respectively) the local (see~\eqref{local_shape}),
+%equilateral (see~\eqref{equil_shape}) and orthogonal templates,
+%as defined in~\cite{Planck_NG_2013, Planck_NG_2015}.
+that a distinction is sometimes made between the ``scale dependence''
 of the bispectrum, meaning the dependence on $k_1+k_2+k_3$, and the ``shape dependence'',
 meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
 
@@ -575,9 +585,8 @@ is given in~\eqref{gr_energy}.
 \section{A field guide to $\fnl$}
     We present here some of the ways
     $\fnl$ is defined in the literature, for convenience.
-
-
-    For the local form, we have
+    For the local form, one way of generating a non-Gaussian field
+    is to write
     \begin{align}\label{fnllocal_quadratic}
         \zeta(\vecx) = \zeta_G(\vecx) - \frac{3}{5}\fnllocal\left(\zeta_G(\vecx)^2-\left<\zeta_G(\vecx)^2\right>\right)
     \end{align}
@@ -627,7 +636,8 @@ is given in~\eqref{gr_energy}.
     %we see that it coincides with the definition of $\fnlequil$.
 
 
-    In our template-free pipeline, we take $\fnl$ as a fitting coefficient of our expansion
+    In the template-free pipeline that we present in this work,
+    we will take $\fnl$ as a fitting coefficient of our expansion
     of the numerically calculated primordial shape.
     This will be described in Chapter~\ref{chapter:constraints},
     where we will use an $\fnl$ which is scenario specific,
@@ -643,7 +653,7 @@ is given in~\eqref{gr_energy}.
     symmetric\footnote{This representation is useful here in presenting analytic templates, however in performing
     our calculations we will require a one-dimensional basis, not a basis in three variables.
     There are also numerical advantages to the Legendre polynomials, as discussed in~\cite{Fergusson_2010}.}.
-In this and later sections we will use the notation employed in~\cite{FergShell_2}:
+    Here we will use the notation employed in~\cite{FergShell_2}:
 \begin{align}\label{shape_notation}
 \begin{split}
     K_p &= \sum_{i=1,2,3} k_i^p, \\
@@ -657,7 +667,7 @@ and $1$ if $p,r,s$ are all distinct.
 
 
     The local template is the shape which results from assuming the perturbation is
-    quadratic in a Gaussian field
+    quadratic in a Gaussian field~\eqref{fnllocal_quadratic}
 \begin{align}\label{local_shape}
 S^{local}(k_1,k_2,k_3)
     &= \frac{6}{5}A_\zeta^2\fnllocal\left(\frac{k_1^2}{k_2k_3}+\frac{k_2^2}{k_3k_1}+\frac{k_3^2}{k_1k_2}\right)\\
@@ -676,8 +686,9 @@ S^{local}(k_1,k_2,k_3)
 \end{align}
 
 
-    Non-Gaussianity arising from inflation with a non-canonical kinetic term can
-    sometimes be described by the equilateral template
+    Non-Gaussianity arising from inflation with a non-canonical kinetic term,
+    and in the effective field theory of inflation~\cite{Cheung_eft, Baumann_horizon_2011},
+    can typically be described by the equilateral template
 \begin{align}\label{equil_shape}
     S^{equil}(k_1,k_2,k_3)
     &= \frac{18}{5}A_\zeta^2\fnlequil\frac{(k_2+k_3-k_1)(k_3+k_1-k_2)(k_1+k_2-k_3)}{k_1k_2k_3}
@@ -688,8 +699,6 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 \subsection{Basic shapes}
     We will now briefly review the shape functions that result from
     standard canonical inflation, and from non-canonical $\dbi$ inflation.
-    
-
     With a canonical kinetic term
     the slow-roll result for the shape is
 \begin{align}\label{malda_shape}
