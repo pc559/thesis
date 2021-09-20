@@ -712,13 +712,16 @@ $\varepsilon = \frac{1}{2}{\phi'}^2$.
     \begin{align}
         \phi''+(3-\varepsilon)\phi'+H^{-2}V_{\phi}(\phi)=0.
     \end{align}
-    In the slow-roll approximation we take assume $\phi''\ll\phi'$,
-    and so
+    In the slow-roll approximation we assume
+    that $\phi'$ is not just transiently small,
+    i.e.\ that $\phi''\ll\phi'$, and so
     \begin{align}
         \phi'\approx\frac{V_{\phi}(\phi)}{3H^2}\approx\frac{V_{\phi}(\phi)}{V(\phi)}.
     \end{align}
     From this, we see that demanding that $\varepsilon$ be small places a constraint
     on the flatness of the potential in a canonical model.
+    Requiring inflation to last sufficiently long
+    also constrains $\eta\ll1$.
     %Returning to $P(X,\phi)$,
     %we can see that requiring $\rho_\phi=-p_\phi$
     %using~\eqref{rho_px} demands that $2XP_{,X}\ll P$.
@@ -738,20 +741,6 @@ $\varepsilon = \frac{1}{2}{\phi'}^2$.
     and so we need $\varepsilon<1$ to successfully inflate the universe.
     However we see that for near-exponential expansion we have already demanded
     $\varepsilon\equiv-\dot{H}/H^2\ll1$ so this must be satisfied.
-    Requiring inflation to last for the sufficient number
-    of e-folds to solve the horizon problem
-    also constrains $\eta\ll1$.
-
-
-%This allows us to rephrase the Friedmann equation in the following useful
-%way. Note that this is still exact, the slow-roll approximation has
-%not been used.
-% WRONG
-%\begin{align}
-%    &&H^2 &= \frac{1}{3}\left(\frac{\varepsilon H^2}{P,_{X}}+V(\phi)\right)\\
-%    \implies &&  H^2 &= \frac{V(\phi)}{3-\frac{\varepsilon}{P,_{X}}}.
-%\end{align}
-
 
 \section{Statistical observables}
 \subsection{From probabilities to observations}\label{corr_functions}
@@ -850,13 +839,15 @@ $\varepsilon = \frac{1}{2}{\phi'}^2$.
     % By looking at <f(x)^2>
 
 
-    Evidence suggests that the symmetry~\eqref{scale_inv} is 
+    Evidence from the cosmological scales we can observe
+    suggests that the symmetry~\eqref{scale_inv} is 
     only approximately respected by the probability
     distribution from which our universe was drawn.
     In fact, it has been estimated that $P(k)\propto k^{n_s-4}$, with $n_s=0.9649 \pm 0.0042$
     at $68\%$ CL~\cite{Planck_inflation_2015, Planck_inflation_2018}.
     Thus we can make the statement that
-    the odds of a universe like ours being drawn from a scale-invariant probability
+    the odds of a universe like ours being drawn from a
+    perfectly scale-invariant probability
     distribution are negligibly small.
 
 
@@ -1010,6 +1001,7 @@ Given the context we have outlined,
     To achieve these goals we have developed methods to preserve the
     separability that is built in to the tree-level in-in formalism---these
     terms will be defined in Chapter~\ref{chapter:intro_bispectra}.
+    We do this through an expansion in a primordial basis.
     This will link scenarios of inflation to the $\cmb$,
     through an estimator that will be presented in~\cite{Sohn_2021}.
     The calculations involved in that estimator are expensive,
@@ -1035,7 +1027,7 @@ of higher order coefficients of the basis expansion of the tree-level in-in form
 To this end we set up the separable formalism and describe the methods used to overcome the
 difficulties encountered.
 These difficulties include accurately including the highly oscillatory early-time contributions,
-and difficult numerical cancellations between terms in the interaction Hamiltonian
+and avoiding difficult numerical cancellations between terms in the interaction Hamiltonian
 (and corrections from field redefinitions).
 A careful and comprehensive validation of our methods is presented,
 showing that the convergence problems can be overcome, the oscillatory contributions captured efficiently.
@@ -1054,7 +1046,8 @@ than previous methods,
 in the sense that it converges far faster in modes than previous methods would in point samples.
 These methods are implemented in the $\primodal$ code,
 a Python code which can quickly and precisely produce a full feature bispectrum,
-despite minimal optimisation.
+despite minimal optimisation. It is presently implemented for single-field models
+of inflation.
 
 
     The final highlighted result, obtained in collaboration, is the connection
