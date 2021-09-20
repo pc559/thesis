@@ -716,8 +716,9 @@ For the featureless $\dbi$ scenario, the shape function is~\cite{dbi_in_the_sky}
 \begin{align}\label{dbi_shape}
     %S^{DBI}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right)
     %     \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}\\
-    S^{\dbi}(k_1,k_2,k_3) &= -\frac{35}{108}
-         \left(\frac{1}{c_s^2}-1\right)
+    S^{\dbi}(k_1,k_2,k_3) &=\nonumber\\
+    -\frac{35}{108}
+         \left(\frac{1}{c_s^2}-1\right)&
          6\left(\frac{H^2}{4\varepsilon c_s}\right)^2
          \left(\frac{3}{5}\right)
          \left(-\frac{3}{7}\right)
@@ -740,11 +741,11 @@ in a reasonable first approximation by including a prefactor,
 as was done in~\cite{Planck_NG_2013}.
 We define the product scaling template
 \begin{align}\label{dbi_prod_shape}
-    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
+    S^{\dbi}_{prod}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 and the sum scaling template
 \begin{align}\label{dbi_sum_shape}
-    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
+    S^{\dbi}_{sum}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
 \end{align}
 with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
 This improves the fit by matching the expected scaling of the shape function
@@ -769,9 +770,9 @@ extended resonant features on the basic potential
 For more details on these models, see~\cite{chen_easther_lim_2}.
 
 
-We now turn to feature templates, that result from the preceding potential features.
+We now turn to feature templates that result from the preceding potential features.
 The result of adding a feature of the form~\eqref{eq:kink_potential}
-is to add oscillatory features of the form
+is to imprint oscillatory features on the bispectrum of the form
 \begin{align}\label{cos_shape}
     S^{\cos}(k_1,k_2,k_3) \approx \cos(w(k_1+k_2+k_3))
 \end{align}
@@ -785,8 +786,7 @@ is to generate logarithmic oscillatory features in the shape function of the for
 With a non-canonical kinetic term, this can also
 cause oscillations in the folded limit (out-of-phase
 with the equilateral oscillations) as well as a modulating shape,
-see~\cite{chen_folded_resonant}.
-
+as detailed in~\cite{chen_folded_resonant}.
 
 
     \section{Step 1: the interaction Hamiltonian}
@@ -798,7 +798,7 @@ see~\cite{chen_folded_resonant}.
     We begin with the action
     %S=\int dx^4\sqrt{g}\left[\frac{R}{2}-\frac{1}{2}(\nabla\phi)^2-V(\phi)\right].
     \begin{align}\label{gr_action}
-        S=\int d^4x\sqrt{-g}\left[\frac{1}{2}M^2_{Pl}R+P(X, \phi)\right].
+        S=\int d^4x\sqrt{-g}\left[\frac{1}{2}R+P(X, \phi)\right].
     \end{align}
     Note that unlike~\eqref{inflaton_action} we have explicitly included the
     Ricci scalar $R$.
@@ -809,9 +809,9 @@ see~\cite{chen_folded_resonant}.
     back into the action, leaving only the dynamical variables.
     At the level of the background one then obtains the Friedmann equations;
     at second order one obtains the quadratic action, which evolves the
-    interaction picture fields, as we will discuss in Section~\ref{sec:in_in};
+    free ``interaction picture'' fields, as we will discuss in Section~\ref{sec:in_in};
     and at third order, one obtains the cubic
-    interaction Lagrangian.
+    interaction Lagrangian, the source of deviations from Gaussianity.
 
 
     To write the Hamiltonian one needs the momentum $\pi$, conjugate to $\zeta$.
@@ -853,7 +853,7 @@ The standard formalism for calculating
 higher-order correlators for models of inflation is the in-in formalism~\cite{Maldacena,weinberg_in_in}.
 For a careful discussion, see especially Appendix A2 of~\cite{weinberg_in_in}---here,
 we will simply sketch the derivation.
-See also~\cite{careful_contour, Chen_review_2010, Babich_2004, Baumann_horizon_2011,
+See also~\cite{careful_contour},~\cite{Chen_review_2010, Babich_2004,
 Renaux-Petel_2015, Meerburg_clock} for discussions and examples.
 The setting for this calculation is the interaction picture. In the Schr\"{o}dinger
 picture the time dependence is carried by the states, whereas in the Heisenberg picture
@@ -937,7 +937,8 @@ using only the part of the Hamiltonian quadratic in the perturbations
     \delphi^I(t) &= U_0^{-1}(t,t_0)\delphi^I(t_0)U_0(t,t_0)\\
     \delpi^I(t) &= U_0^{-1}(t,t_0)\delpi^I(t_0)U_0(t,t_0)
 \end{align}
-which by a similar calculation (recalling that $\delphi^I$ evolves with $H_0$) gives us
+which by a similar calculation (recalling that $\delphi^I$ evolves
+according to the Heisenberg equation of motion with $H_0$) gives us
 \begin{align}
     \frac{d}{dt}U_0(t,t_0) &= -iH_0\left[\delphi^I(t_0),\delpi^I(t_0);t\right]U_0(t,t_0).\label{u0_def}
 \end{align}
@@ -949,7 +950,7 @@ From~\eqref{f_def},~\eqref{u_def} and~\eqref{u0_def} we can find the equation of
 \end{align}
 where $\Hint$ is cubic and higher order in the perturbations,
 but is now built from the interaction picture fields evaluated at $t$.
-This can be solved using the time ordering operator $T$
+This can be solved using the standard time ordering operator $T$
 \begin{align}\label{f_soln}
     F(t,t_0) = T\exp\left(-i\int^t_{t_0}\Hint(t)dt\right).
 \end{align}
@@ -962,10 +963,10 @@ We achieve this by taking the integration contour in~\eqref{f_soln} to be
 moved slightly onto the complex plane, introducing a factor which kills off the
 interactions in the distant past~\cite{Maldacena}.
 That is, instead of taking
-$\tau=-\infty$ we take $\tau=-\infty(1+i\epsilon)$.
+$\tau_0=-\infty$ we take $\tau_0=-\infty(1+i\epsilon)$.
 This is known as the $i\epsilon$ prescription.
 To calculate $F^{-1}$, we use an anti-time ordering operator,
-and take $\tau=-\infty(1-i\epsilon)$.
+and take the lower bound of the integration to be $-\infty(1-i\epsilon)$.
 
 
 We would like to calculate the bispectrum of $\zeta$ at tree level.
@@ -1001,19 +1002,19 @@ with a sum of separable terms. Our general aim will be to directly calculate
 this sum for a broad range of inflation models.
 
 
-We now briefly outline the set-up of the standard calculation.
-The Lagrangian is expanded in the perturbations and used to obtain the Hamiltonian.
-The Hamiltonian for the perturbations is split into $H_0$ and $\Hint$.
-The first part is used to evolve the interaction picture fields, $\zeta_I$,
-which we will simply refer to as $\zeta$, as in~\eqref{inin_integral}.
-The perturbations see an interaction Hamiltonian $\Hint$,
-of which we will consider the part cubic in the perturbations,
-with time dependent coefficients due to the evolution of the background fields.
-The perturbations are assumed to be initially in the Bunch-Davies vacuum,
-but the non-linear
-evolution introduces correlations between the modes.
-As the modes cross the horizon they begin to behave classically
-and eventually freeze out.
+%We now briefly outline the set-up of the standard calculation.
+%The Lagrangian is expanded in the perturbations and used to obtain the Hamiltonian.
+%The Hamiltonian for the perturbations is split into $H_0$ and $\Hint$.
+%The first part is used to evolve the interaction picture fields, $\zeta_I$,
+%which we will simply refer to as $\zeta$, as in~\eqref{inin_integral}.
+%The perturbations see an interaction Hamiltonian $\Hint$,
+%of which we will consider the part cubic in the perturbations,
+%with time dependent coefficients due to the evolution of the background fields.
+%The perturbations are assumed to be initially in the Bunch-Davies vacuum,
+%but the non-linear
+%evolution introduces correlations between the modes.
+%As the modes cross the horizon they begin to behave classically
+%and eventually freeze out.
 
 
 There is some freedom in how to represent the interaction Hamiltonian,
