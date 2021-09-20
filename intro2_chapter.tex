@@ -515,7 +515,64 @@ We note that a distinction is sometimes made between the ``scale dependence''
 of the bispectrum, meaning the dependence on $k_1+k_2+k_3$, and the ``shape dependence'',
 meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
 
-    \section{A field guide to $\fnl$}
+
+\subsection{Models}\label{sec:interactions}
+We consider the same basic models as in~\cite{Funakoshi}.
+Firstly, a quadratic potential
+\begin{align}\label{eq:quadratic_potential}
+    \quadpot = \frac{1}{2}m^2\phi^2
+\end{align}
+with a canonical kinetic term.
+We will also consider a non-canonical model in detail, the $\dbi$ model.
+    The $\dbi$ model has kinetic term
+\begin{align}\label{eq:dbi_action}
+    S_{\dbi}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
+\end{align}
+and we choose
+\begin{align}\label{eq:dbi_warp}
+    f(\phi)=\frac{\lambda_{\dbi}}{\phi^4},\qquad
+    V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
+    m=\sqrt{\beta_{IR}}H_{i}
+\end{align}
+where $\lambda_{\dbi}$, $\bir$ and $V_0$ are constants which
+(along with the initial value of $\phi$, $\phi_0$) define the scenario in question.
+$H_i$ is the Hubble parameter evaluated at the initial time.
+This is in line with~\cite{Bean_ir_dbi, Chen_dbi}.
+
+
+The energy-momentum tensor in~\eqref{einstein_equations}, in terms of the matter Lagrangian $\mathcal{L}_m$,
+is given in~\eqref{gr_energy}.
+%For a $P(X,\phi)$ model this evaluates to
+%\begin{align}
+%    T_{\mu\nu} &= g_{\mu\nu}P(X,\phi)+P_{,X}(X,\phi)\partial_{\mu}\phi\partial_{\nu}\phi\\
+%            &\approx g_{\mu\nu}P(X,\phi)-2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
+%\end{align}
+    Following~\cite{Christopherson_2009, mukhanov_1999},
+    we can then use this to calculate the useful quantities
+    \begin{align}
+        P(X, \phi) &= -\frac{1}{f(\phi)}\left(\sqrt{1-2f(\phi)X}-1\right)-V(\phi)\\
+        %P,_X(X, \phi) &= \frac{1}{\sqrt{1-2f(\phi)X}}\\
+        %\rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
+        %            &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
+        \rho(X, \phi) &= \frac{1}{f(\phi)}\left(\frac{1}{\sqrt{1-2f(\phi)X}}-1\right)+V(\phi)\\
+        %\rho,_X(X, \phi) &= \frac{1}{\left(1-2f(\phi)X\right)^{\frac{3}{2}}}\\
+        c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
+                    &= 1-2f(\phi)X
+    \end{align}
+    We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
+    speed tends to unity.
+    From these quantities, we can calculate the $\phi$ equation of motion~\eqref{phieom}
+    \begin{align}
+        \phi'' &= -(3c_s^2-\varepsilon)\phi'
+                -\frac{3f_\phi(\phi)}{2f(\phi)}\phi'^2
+                +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
+                -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
+    \end{align}
+    See~\cite{dbi_silverstein, warp_features_dbi} for further discussion,
+    and also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
+
+
+\section{A field guide to $\fnl$}
     We present here some of the ways
     $\fnl$ is defined in the literature, for convenience.
 
@@ -628,6 +685,101 @@ S^{local}(k_1,k_2,k_3)
 This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 
 
+\subsection{Basic shapes}
+    We will now briefly review the shape functions that result from
+    standard canonical inflation, and from non-canonical $\dbi$ inflation.
+    
+
+    With a canonical kinetic term
+    the slow-roll result for the shape is
+\begin{align}\label{malda_shape}
+    S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
+\end{align}
+with $\eta=2\varepsilon$ for the quadratic potential~\eqref{eq:quadratic_potential}.
+At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
+However, the amplitude of this shape is expected to be tiny,
+since $S^{Malda}\sim\mathcal{O}(\varepsilon)\mathcal{P}^2_{\zeta}$
+and the dominant contributions (the squeezed configurations) are expected
+to have no observable effect~\cite{Cabass_2016}.
+
+
+For the featureless $\dbi$ scenario, the shape function is~\cite{dbi_in_the_sky}:
+\begin{align}\label{dbi_shape}
+    %S^{DBI}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right)
+    %     \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}\\
+    S^{\dbi}(k_1,k_2,k_3) &= -\frac{35}{108}
+         \left(\frac{1}{c_s^2}-1\right)
+         6\left(\frac{H^2}{4\varepsilon c_s}\right)^2
+         \left(\frac{3}{5}\right)
+         \left(-\frac{3}{7}\right)
+         \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}
+\end{align}
+to leading order in slow-roll.
+Since the amplitude of this shape is predicted to be far larger than~\eqref{malda_shape}
+($S^{\dbi}\sim\mathcal{O}(c_s^{-2})\mathcal{P}^2_{\zeta}$)
+a constraint on the magnitude of this template can be translated into one 
+on the effective sound speed. The \planck~analysis found a lower limit $c_s^{\dbi} \geq 0.087$
+at $95\%$ significance~\cite{Planck_NG_2015}.
+The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
+
+
+    \subsection{Scaling}
+These templates can be modified to be more physically realistic by including
+scaling similar to the scalar spectral index $n_s$~\cite{Planck_NG_2015}.
+For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
+in a reasonable first approximation by including a prefactor,
+as was done in~\cite{Planck_NG_2013}.
+We define the product scaling template
+\begin{align}\label{dbi_prod_shape}
+    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
+\end{align}
+and the sum scaling template
+\begin{align}\label{dbi_sum_shape}
+    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
+\end{align}
+with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
+This improves the fit by matching the expected scaling of the shape function
+along the equilateral limit, which results from slow-roll corrections.
+
+
+\subsection{Shapes from features during inflation}
+For our more stringent validation tests we work with feature model scenarios
+based on the above base models.
+It has long been known that sharp, localised features in the inflationary potential
+can generate large non-Gaussianities~\cite{chen_easther_lim_1}, possibly with observable effects.
+To explore non-Gaussianity coming from such sharp features we include
+a kink~\cite{Adams_step}
+\begin{align}\label{eq:kink_potential}
+    V(\phi) = \quadpot\left(1-c\tanh\left(\frac{\phi_f-\phi}{d}\right)\right).
+\end{align}
+To explore non-Gaussianity from deeper in the horizon we imprint
+extended resonant features on the basic potential
+\begin{align}\label{eq:resonant_potential}
+    V(\phi) = \quadpot\left(1+bf\sin\left(\frac{\phi}{f}\right)\right).
+\end{align}
+For more details on these models, see~\cite{chen_easther_lim_2}.
+
+
+We now turn to feature templates, that result from the preceding potential features.
+The result of adding a feature of the form~\eqref{eq:kink_potential}
+is to add oscillatory features of the form
+\begin{align}\label{cos_shape}
+    S^{\cos}(k_1,k_2,k_3) \approx \cos(w(k_1+k_2+k_3))
+\end{align}
+though more realistically there is some phase, some shape dependence, and a modulating envelope,
+as detailed in~\cite{adshead}.
+The result of adding a resonant feature of the form~\eqref{eq:resonant_potential}
+is to generate logarithmic oscillatory features in the shape function of the form
+\begin{align}\label{ln_cos_shape}
+    S^{\ln-\cos}(k_1,k_2,k_3) \approx \cos(w\ln(k_1+k_2+k_3)).
+\end{align}
+With a non-canonical kinetic term, this can also
+cause oscillations in the folded limit (out-of-phase
+with the equilateral oscillations) as well as a modulating shape,
+see~\cite{chen_folded_resonant}.
+
+
+
     \section{Step 1: the interaction Hamiltonian}
     \subsection{Set-up}\
     %Since General Relativity has a diffeomorphism invariance, it has a redundancy
@@ -684,62 +836,6 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
     which can be labeled $\Hint^{(3)}$. We will use this to calculate
     the higher order correlations coming from the interactions. We will occasionally drop the superscript and
     refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $\Hint$.
-
-
-    \subsection{Interactions}\label{sec:interactions}
-We consider the same basic models as in~\cite{Funakoshi}.
-Firstly, a quadratic potential
-\begin{align}\label{eq:quadratic_potential}
-    \quadpot = \frac{1}{2}m^2\phi^2
-\end{align}
-with a canonical kinetic term.
-We will also consider a non-canonical model in detail, the $\dbi$ model.
-    The $\dbi$ model has kinetic term
-\begin{align}\label{eq:dbi_action}
-    S_{\dbi}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
-\end{align}
-and we choose
-\begin{align}\label{eq:dbi_warp}
-    f(\phi)=\frac{\lambda_{\dbi}}{\phi^4},\qquad
-    V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
-    m=\sqrt{\beta_{IR}}H_{i}
-\end{align}
-where $\lambda_{\dbi}$, $\bir$ and $V_0$ are constants which
-(along with the initial value of $\phi$, $\phi_0$) define the scenario in question.
-$H_i$ is the Hubble parameter evaluated at the initial time.
-This is in line with~\cite{Bean_ir_dbi, Chen_dbi}.
-
-
-The energy-momentum tensor in~\eqref{einstein_equations}, in terms of the matter Lagrangian $\mathcal{L}_m$,
-is given in~\eqref{gr_energy}.
-%For a $P(X,\phi)$ model this evaluates to
-%\begin{align}
-%    T_{\mu\nu} &= g_{\mu\nu}P(X,\phi)+P_{,X}(X,\phi)\partial_{\mu}\phi\partial_{\nu}\phi\\
-%            &\approx g_{\mu\nu}P(X,\phi)-2X\delta_{0\mu}\delta_{0\nu}P_{,X}(X,\phi).
-%\end{align}
-    Following~\cite{Christopherson_2009, mukhanov_1999},
-    we can then use this to calculate the useful quantities
-    \begin{align}
-        P(X, \phi) &= -\frac{1}{f(\phi)}\left(\sqrt{1-2f(\phi)X}-1\right)-V(\phi)\\
-        %P,_X(X, \phi) &= \frac{1}{\sqrt{1-2f(\phi)X}}\\
-        %\rho(X, \phi) &= \frac{X}{\sqrt{1-f(\phi)X}}-P(X,\phi)\\
-        %            &= \frac{1}{\sqrt{1-f(\phi)X}}(P+V)+V\\
-        \rho(X, \phi) &= \frac{1}{f(\phi)}\left(\frac{1}{\sqrt{1-2f(\phi)X}}-1\right)+V(\phi)\\
-        %\rho,_X(X, \phi) &= \frac{1}{\left(1-2f(\phi)X\right)^{\frac{3}{2}}}\\
-        c^2_s(X, \phi) &= \frac{P,_X}{\rho,_X}\\
-                    &= 1-2f(\phi)X
-    \end{align}
-    We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
-    speed tends to unity.
-    From these quantities, we can calculate the $\phi$ equation of motion~\eqref{phieom}
-    \begin{align}
-        \phi'' &= -(3c_s^2-\varepsilon)\phi'
-                -\frac{3f_\phi(\phi)}{2f(\phi)}\phi'^2
-                +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
-                -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
-    \end{align}
-    See~\cite{dbi_silverstein, warp_features_dbi} for further discussion,
-    and also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
 
 
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
@@ -1114,100 +1210,6 @@ We will use~\eqref{eq:sqz_consistency} in Chapter~\ref{chapter:methods}
 as a check on our results.
 
 
-    \subsection{Basic shapes}
-    We will now briefly review the shape functions that result from
-    standard canonical inflation, and from non-canonical $\dbi$ inflation.
-    
-
-    With a canonical kinetic term
-    the slow-roll result for the shape is
-\begin{align}\label{malda_shape}
-    S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
-\end{align}
-with $\eta=2\varepsilon$ for the quadratic potential~\eqref{eq:quadratic_potential}.
-At the primordial level, this is well approximated by the separable local template~\eqref{local_shape}.
-However, the amplitude of this shape is expected to be tiny,
-since $S^{Malda}\sim\mathcal{O}(\varepsilon)\mathcal{P}^2_{\zeta}$
-and the dominant contributions (the squeezed configurations) are expected
-to have no observable effect~\cite{Cabass_2016}.
-
-
-For the featureless $\dbi$ scenario, the shape function is~\cite{dbi_in_the_sky}:
-\begin{align}\label{dbi_shape}
-    %S^{DBI}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2}\left(\frac{1}{c_s^2}-1\right)
-    %     \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}\\
-    S^{\dbi}(k_1,k_2,k_3) &= -\frac{35}{108}
-         \left(\frac{1}{c_s^2}-1\right)
-         6\left(\frac{H^2}{4\varepsilon c_s}\right)^2
-         \left(\frac{3}{5}\right)
-         \left(-\frac{3}{7}\right)
-         \frac{K_5+2K_{14}-3K_{23}+2K_{113}-8K_{122}}{K_{111}K^2}
-\end{align}
-to leading order in slow-roll.
-Since the amplitude of this shape is predicted to be far larger than~\eqref{malda_shape}
-($S^{\dbi}\sim\mathcal{O}(c_s^{-2})\mathcal{P}^2_{\zeta}$)
-a constraint on the magnitude of this template can be translated into one 
-on the effective sound speed. The \planck~analysis found a lower limit $c_s^{\dbi} \geq 0.087$
-at $95\%$ significance~\cite{Planck_NG_2015}.
-The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
-
-
-    \subsection{Scaling}
-These templates can be modified to be more physically realistic by including
-scaling similar to the scalar spectral index $n_s$~\cite{Planck_NG_2015}.
-For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
-in a reasonable first approximation by including a prefactor,
-as was done in~\cite{Planck_NG_2013}.
-We define the product scaling template
-\begin{align}\label{dbi_prod_shape}
-    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1k_2k_3}{k^3_\star}\right)}^{\frac{n_{NG}}{3}}S^{\dbi}(k_1,k_2,k_3)
-\end{align}
-and the sum scaling template
-\begin{align}\label{dbi_sum_shape}
-    S^{\dbi}(k_1,k_2,k_3) &= {\left(\frac{k_1+k_2+k_3}{3k_\star}\right)}^{n_{NG}}S^{\dbi}(k_1,k_2,k_3)
-\end{align}
-with $n_{NG}=2(-2\varepsilon-\varepsilon_s-\eta)-2\varepsilon_s=2(n_s-1)-2\varepsilon_s$.
-This improves the fit by matching the expected scaling of the shape function
-along the equilateral limit, which results from slow-roll corrections.
-
-
-\subsection{Shapes from features during inflation}
-For our more stringent validation tests we work with feature model scenarios
-based on the above base models.
-It has long been known that sharp, localised features in the inflationary potential
-can generate large non-Gaussianities~\cite{chen_easther_lim_1}, possibly with observable effects.
-To explore non-Gaussianity coming from such sharp features we include
-a kink~\cite{Adams_step}
-\begin{align}\label{eq:kink_potential}
-    V(\phi) = \quadpot\left(1-c\tanh\left(\frac{\phi_f-\phi}{d}\right)\right).
-\end{align}
-To explore non-Gaussianity from deeper in the horizon we imprint
-extended resonant features on the basic potential
-\begin{align}\label{eq:resonant_potential}
-    V(\phi) = \quadpot\left(1+bf\sin\left(\frac{\phi}{f}\right)\right).
-\end{align}
-For more details on these models, see~\cite{chen_easther_lim_2}.
-
-
-We now turn to feature templates, that result from the preceding potential features.
-The result of adding a feature of the form~\eqref{eq:kink_potential}
-is to add oscillatory features of the form
-\begin{align}\label{cos_shape}
-    S^{\cos}(k_1,k_2,k_3) \approx \cos(w(k_1+k_2+k_3))
-\end{align}
-though more realistically there is some phase, some shape dependence, and a modulating envelope,
-as detailed in~\cite{adshead}.
-The result of adding a resonant feature of the form~\eqref{eq:resonant_potential}
-is to generate logarithmic oscillatory features in the shape function of the form
-\begin{align}\label{ln_cos_shape}
-    S^{\ln-\cos}(k_1,k_2,k_3) \approx \cos(w\ln(k_1+k_2+k_3)).
-\end{align}
-With a non-canonical kinetic term, this can also
-cause oscillations in the folded limit (out-of-phase
-with the equilateral oscillations) as well as a modulating shape,
-see~\cite{chen_folded_resonant}.
-
-
 \section{Step 3: the $\cmb$ bispectrum}
     %For a three dimensional statistical distribution projected onto
     %a sphere, we expect the three-point statistics to be projected
@@ -1233,19 +1235,18 @@ see~\cite{chen_folded_resonant}.
     take ${S(k_1,k_2,k_3)=1}$ for all configurations, then the above four-dimensional integral
     simplifies greatly. If we also restrict to large angular scales
     % (The first acoustic peak is around l=200.)
-    then we can use the same large-scale Sachs-Wolfe approximation
+    then we can use the same large-scale Sachs-Wolfe approximation\footnote{
+    The factor of $3$ in this equation compared to the factor of $5$
+    in~\eqref{sachs_cl_example} is due to $\zeta=5\Phi/3$
+    on large scales during matter domination.
+    % See (3.47) of AC.
+\textcolor{red}{Is the factor of $3$ correct?}
+}
     that was used in Section~\ref{sec:power_spec_estimator}
     \begin{align}
         \Delta_l(k) = \frac{1}{3}j_l(\chi_*k)
     \end{align}
-    where $\chi_*$ is the comoving distance to last scattering
-    \footnote{
-    The factor of $3$ in this equation compared to the factor of $5$
-    in~\eqref{sachs_cl_example} is due to $\zeta=-5\Phi/3$
-    on large scales during matter domination.
-    % See (3.47) of AC.
-\textcolor{red}{Is the factor of $3$ correct?}
-}.
+    where $\chi_*$ is the comoving distance to last scattering.
     The integral then becomes
     \begin{equation}
     \label{eq:reduced_cmb_constant}

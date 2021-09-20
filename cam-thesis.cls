@@ -524,7 +524,7 @@ this work, and is validated in these sections.
 
 Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
 James Fergusson and Paul Shellard.
-This work will be published in~\cite{Sohn_2021}. The methods described therein have
+This work will be published in~\cite{Sohn_2021}. The methods that will be described in~\cite{Sohn_2021} have
 been implemented in the $\cmbbest$ code, which was designed and implemented by Wuhyun Sohn.
 My main contribution to~\cite{Sohn_2021} is described in chapter~\ref{chapter:constraints}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
