@@ -594,11 +594,13 @@ extract the fundamental physics waiting to be found in the universe's youth.
     their two-point correlations. We will define this, and discuss in more detail
     in Section~\ref{corr_functions}, where we will also define scale invariance,
     the statement that correlations do not depend on the scale at which they are measured.
-    It turns out that observations show that that scale invariance is not precisely respected,
-    with the deviation from perfect scale invariance being measured to high confidence by the $\planck$
+    It turns out that observations show that the $\cmb$ appears close to Gaussian, although
+    scale invariance is not precisely respected.
+    The deviation from perfect scale invariance has been measured to high confidence by the $\planck$
     satellite, with
-    earlier measurements were made by the WMAP satellite~\cite{Senatore_wmap_2009}.
-    These are some of the properties of the early universe that are explained by the epoch of inflation.
+    earlier measurements made by the WMAP satellite~\cite{Senatore_wmap_2009}.
+    These are some of the properties of the early universe that the epoch of inflation
+    must explain.
 
 
     \subsection{Driving inflation with a scalar field}
@@ -617,15 +619,17 @@ S = \int d^4x \sqrt{-g}P(X,\phi)
 \end{align}
 with $\phi=\phi(t)$ and $X\equiv\frac{1}{2}\dphi^2$.
 We will work with the number of e-folds, $N$, as our time variable,
-defined by $\frac{a}{a_i}=e^N$.
+defined by $\frac{a}{a_0}\equiv e^{N-N_0}$.
 We then have
 $x'\equiv\frac{dx}{dN}=H^{-1}\frac{dx}{dt}$.
 
 
 The energy-momentum tensor is defined as
 \begin{align}\label{gr_energy}
-    T_{\mu\nu} = -2\frac{\partial\mathcal{L}_m}{\partial g^{\mu\nu}}+g_{\mu\nu}\mathcal{L}_m.
+    T_{\mu\nu} = -2\frac{\partial\mathcal{L}_m}{\partial g^{\mu\nu}}+g_{\mu\nu}\mathcal{L}_m
 \end{align}
+where $\mathcal{L}_m$ is the non-gravitational part of the Lagrangian
+density ${\sqrt{-g}\mathcal{L}=\sqrt{-g}\left(R+\mathcal{L}_m\right)}$.
 The energy and pressure densities can then be identified as
 \begin{align}\label{rho_px}
     \rho &= 2XP,_X-P\\
@@ -652,6 +656,8 @@ so then the continuity equation~\eqref{continuity_equation} implies
     the sound speed can deviate from unity.
     One such example we will follow in detail in this work is
     Dirac-Born-Infield ($\dbi$) inflation~\cite{dbi_in_the_sky}.
+
+
     For reasons we will discuss in Section~\ref{pert_evol} we will
     define a quantity $\tau_s$
     in analogy with the usual $\tau$ defined in~\eqref{conformal_time_defn}:
@@ -678,6 +684,8 @@ the equation of motion for $\phi$ is~\cite{Hu_2011}
 \begin{align}\label{phieom}
     \phi''+(3c_s^2-\varepsilon)\phi'+H^{-2}\frac{\rho_\phi}{\rho_X}=0.
 \end{align}
+
+
 We will now briefly discuss the special case of canonical models,
 with $P(X,\phi)=X-V(\phi)$.
 In this case~\eqref{epsilon_phi} simplifies to
@@ -690,22 +698,32 @@ $\varepsilon = \frac{1}{2}{\phi'}^2$.
     \end{align}
     where the last equality used the Friedmann~\eqref{friedmann_1} equation and
     has not assumed $\varepsilon$ is small.
-
-
     For successful inflation with the potential of the scalar field acting as a
     cosmological constant, we want $w\approx-1$,
     i.e.\ that $V(\phi)\gg\frac{1}{2}\dot{\phi}^2=\varepsilon H^2$. Since the kinetic term is required to
     be small, this is referred to as \textit{slow-roll} inflation.
-We can also see that requiring $\rho_\phi=-p_\phi$ using~\eqref{rho_px} demands that
-$2XP_{,X}\ll P$.
     For a canonical model in slow-roll,
     the Friedmann equations then become
     \begin{align}
         H^2 &\approx \frac{8\pi G}{3}V(\phi),\\
         \frac{\ddot{a}}{a} &\approx -\frac{4\pi G}{3}\left(-2V(\phi)\right).
     \end{align}
+    For a model with a canonical kinetic term,~\eqref{phieom} simplifies to
+    \begin{align}
+        \phi''+(3-\varepsilon)\phi'+H^{-2}V_{\phi}(\phi)=0.
+    \end{align}
+    In the slow-roll approximation we take assume $\phi''\ll\phi'$,
+    and so
+    \begin{align}
+        \phi'\approx\frac{V_{\phi}(\phi)}{3H^2}\approx\frac{V_{\phi}(\phi)}{V(\phi)}.
+    \end{align}
+    From this, we see that demanding that $\varepsilon$ be small places a constraint
+    on the flatness of the potential in a canonical model.
+    %Returning to $P(X,\phi)$,
+    %we can see that requiring $\rho_\phi=-p_\phi$
+    %using~\eqref{rho_px} demands that $2XP_{,X}\ll P$.
 
-%\subsection{Criteria for successful inflation}
+
     For inflation to solve the horizon problem, it must result in a shrinking comoving
     Hubble radius, disconnecting regions that had previously been in thermal contact.
     This implies that
@@ -720,28 +738,9 @@ $2XP_{,X}\ll P$.
     and so we need $\varepsilon<1$ to successfully inflate the universe.
     However we see that for near-exponential expansion we have already demanded
     $\varepsilon\equiv-\dot{H}/H^2\ll1$ so this must be satisfied.
-    %This is necessary but not sufficient---we still need to generate
-    %the correct statistics for the primordial perturbations.
-    %This implies we must be close to a perfect de Sitter phase, i.e.\ $\varepsilon\ll1$.
-    %To match the measured deviation from scale-invariance in standard slow-roll
-    %inflation it turns out we would need $\varepsilon\sim O(10^{-2})$.
-
-
-For a model with a canonical kinetic term,~\eqref{phieom} simplifies
-to
-\begin{align}
-    \phi''+(3-\varepsilon)\phi'+H^{-2}V_{\phi}(\phi)=0.
-\end{align}
-In the slow-roll approximation we take assume $\phi''\ll\phi'$,
-and so
-\begin{align}
-    \phi'\approx\frac{V_{\phi}(\phi)}{3H^2}\approx\frac{V_{\phi}(\phi)}{V(\phi)}.
-\end{align}
-From this, we see that demanding that $\varepsilon$ be small places a constraint
-on the flatness of the potential in a canonical model.
-Requiring inflation to last for the sufficient number
-of e-folds to solve the horizon problem
-also constrains $\eta\ll1$.
+    Requiring inflation to last for the sufficient number
+    of e-folds to solve the horizon problem
+    also constrains $\eta\ll1$.
 
 
 %This allows us to rephrase the Friedmann equation in the following useful
