@@ -859,11 +859,14 @@ The setting for this calculation is the interaction picture. In the Schr\"{o}din
 picture the time dependence is carried by the states, whereas in the Heisenberg picture
 the time dependence is carried by the operators.
 For notational convenience we will write the operator $\hat{H}$ as simply $H$.
+We will also write $\tilH\equiv H_0+\Hint$ for the part of the Hamiltonian
+which evolves the perturbations, which is order quadratic and higher,
+since the linear part evolves the background fields.
 We can write the solutions to the Schr\"{o}dinger and Heisenberg equations of motion
 with reference to some initial time $t_i$, where we take the pictures to coincide:
 \begin{align}
-    \left|\psi,t\right>_S&=e^{-i\int_{t_i}^{t}{H}dt}\left|\psi,t_i\right>_S\\
-    \op_H(t) &= e^{i\int_{t_i}^{t}{H}dt}\op_Se^{-i\int_{t_i}^{t}{H}dt}
+    \left|\psi,t\right>_S&=e^{-i\int_{t_i}^{t}{\tilH}dt}\left|\psi,t_i\right>_S\\
+    \op_H(t) &= e^{i\int_{t_i}^{t}{\tilH}dt}\op_Se^{-i\int_{t_i}^{t}{\tilH}dt}
 \end{align}
 with $\op_S(t)=\op_S(t_i)$ and $\left|\psi,t\right>_H=\left|\psi,t_i\right>_S$.
 We will be interested in the case where $\tau_i\rightarrow-\infty$.
@@ -872,8 +875,8 @@ the interaction picture splits the time dependence between the operators and
 states---the operators evolve according
 to the free Hamiltonian (the quadratic part) while the states see the interaction
 \begin{align}
-    \left|\psi,t\right>_I&=e^{i\int_{t_i}^{t}{H}_0dt}e^{-i\int_{t_i}^{t}{H}dt}\left|\psi,t_i\right>_S\\
-    \op_I(t) &= e^{i\int_{t_i}^{t}{H}_0dt}\op_Se^{-i\int_{t_i}^{t}{H}_0dt}.
+    \left|\psi,t\right>_I&=e^{i\int_{t_i}^{t}{\tilH}_0dt}e^{-i\int_{t_i}^{t}{\tilH}dt}\left|\psi,t_i\right>_S\\
+    \op_I(t) &= e^{i\int_{t_i}^{t}{\tilH}_0dt}\op_Se^{-i\int_{t_i}^{t}{\tilH}_0dt}.
 \end{align}
 
 
@@ -902,20 +905,20 @@ of the full expectation value.
 
 
 The operator $U(t,t_0)$ evolves the Heisenberg picture operators in time
-using $\tilde{H}=H_0+\Hint$
+using $\tilH$
 \begin{align}
     \delphi(t) &= U^{-1}(t,t_0)\delphi(t_0)U(t,t_0)\\
     \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0).
 \end{align}
 We can write the Heisenberg equation of motion, which has
-explicit time dependence in $\tilde{H}$ due to coefficients
+explicit time dependence in $\tilH$ due to coefficients
 that depend on the background evolution,
 \begin{align}
-    \frac{d}{dt}\delphi(\vecx,t) &= i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right].\label{heis_phi}
+    \frac{d}{dt}\delphi(\vecx,t) &= i\left[\tilH\left[\delphi(t),\delpi(t);t\right],\delphi\right].\label{heis_phi}
 \end{align}
 From this we can calculate
 \begin{align}
-    i\left[\tilde{H}\left[\delphi(t),\delpi(t);t\right],\delphi\right]
+    i\left[\tilH\left[\delphi(t),\delpi(t);t\right],\delphi\right]
     &= -U^{-1}\dot{U}U^{-1}\delphi(t_0) U+U^{-1}\delphi(t_0) \dot{U}\\
     &= -U^{-1}\dot{U}\delphi(t)+\delphi(t)U^{-1} \dot{U}\\
     &= \left[-U^{-1}\dot{U},\delphi(t)\right]
@@ -924,11 +927,11 @@ where $\dot{U}=\frac{dU}{dt}$,
 and we have temporarily omitted the arguments of $U(t,t_0)$.
 We then have
 \begin{align}
-    \frac{d}{dt}U(t,t_0) &= -iU(t,t_0)\tilde{H}\left[\delphi(t),\delpi(t);t\right]U^{-1}(t,t_0)U(t,t_0)\\
-    \implies \frac{d}{dt}U(t,t_0) &= -i\tilde{H}\left[\delphi(t_0),\delpi(t_0);t\right]U(t,t_0)\label{u_def}
+    \frac{d}{dt}U(t,t_0) &= -iU(t,t_0)\tilH\left[\delphi(t),\delpi(t);t\right]U^{-1}(t,t_0)U(t,t_0)\\
+    \implies \frac{d}{dt}U(t,t_0) &= -i\tilH\left[\delphi(t_0),\delpi(t_0);t\right]U(t,t_0)\label{u_def}
 \end{align}
 where particular attention should be paid to the evaluation time of the operators from
-which the $\tilde{H}$ is built.
+which the $\tilH$ is built.
 
 
 In contrast, $U_0(t,t_0)$ evolves the interaction picture operators in time
