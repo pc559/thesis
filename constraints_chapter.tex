@@ -60,45 +60,7 @@
     \end{align}
 
 
-    Equation (55) in~\cite{Planck_NG_2018} presents the 
-    constraint on the sound speed during $\dbi$ inflation
-    derived from the $\cmb$ bispectrum using the $\modal$ estimator
-    \begin{align}\label{eq:planck_dbi_constraint}
-        c_s^{\dbi}&\ge0.079\qquad(95\%,~T~\text{only},~\modal)
-    \end{align}
-    using the definition~\eqref{fnl_dbi_defn} and the template~\eqref{dbi_shape}.
-    While our goal was to use this previous constraint as a validation of our own pipeline,
-    it is not unexpected that we did not reproduce it exactly.
-    One possible reason for this is the fact we are using slightly different
-    scales---since we are limited to $\kmax/\kmin=1000$ for convergence reasons, we cannot
-    use all the scales in the $\planck$ data.
-    %We use $\kmin=0.00020875905683771526$
-    We use $\kmin=2.09\times10^{-4}\Mpc^{-1}$.
-    Another possible reason is convergence in the number of
-    maps\footnote{
-        In addition to the variance of $\fnl$,
-        the maps are used to approximate the full covariance matrix for the linear term
-        in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnl$
-        will only converge once sufficiently many maps are used.
-        However, this correction (which accounts for the effect of the mask)
-        was found to typically be relevant for local-type shapes,
-        and small for equilateral-type shapes, such as in $\dbi$ inflation.
-    }, with $\modal$ using approximately $300$ maps while $\cmbbest$ uses $140$.
-    Numerical issues in either method could also contribute.
-    See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
-
-
-    We can however understand the expected variance of such estimators by simply examining the
-    scatter between the estimators used within the $\planck$ 2018 analysis.
-    Note that this is not statistical variance, but simply method variance,
-    coming from the difficulty of $\cmb$ bispectrum estimation.
-    We show this in Figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
-    which is closely related to the $\dbi$ template.
-    We see that the result obtained by $\cmbbest$ is different, but still lies
-    between the results of the $\ksw$ and $\modal$ estimators.
-
-
-    \begin{figure}[htbp!]
+    \begin{figure}[h!]
         \centering
         %\includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_busy.png}
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/beta_ir_constraint_with_beta.png}
@@ -128,7 +90,46 @@
     \end{figure}
 
 
-    \begin{figure}[htbp!]
+    Equation (55) in~\cite{Planck_NG_2018} presents the 
+    constraint on the sound speed during $\dbi$ inflation
+    derived from the $\cmb$ bispectrum using the $\modal$ estimator
+    \begin{align}\label{eq:planck_dbi_constraint}
+        c_s^{\dbi}&\ge0.079\qquad(95\%,~T~\text{only},~\modal)
+    \end{align}
+    using the definition~\eqref{fnl_dbi_defn} and the template~\eqref{dbi_shape}.
+    While our goal was to use this previous constraint as a validation of our own pipeline,
+    it is not unexpected that we did not reproduce it exactly.
+    One possible reason for this is the fact we are using slightly different
+    scales---since we are limited to $\kmax/\kmin=1000$
+    ($\kmin=2.09\times10^{-4}\Mpc^{-1}$)
+    for convergence reasons, we cannot
+    use all the scales in the $\planck$ data.
+    %We use $\kmin=0.00020875905683771526$
+    Another possible reason is convergence in the number of
+    maps\footnote{
+        In addition to the variance of $\fnl$,
+        the maps are used to approximate the full covariance matrix for the linear term
+        in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnl$
+        will only converge once sufficiently many maps are used.
+        However, this correction (which accounts for the effect of the mask)
+        was found to typically be relevant for local-type shapes,
+        and small for equilateral-type shapes, such as in $\dbi$ inflation.
+    }, with $\modal$ using approximately $300$ maps while $\cmbbest$ uses $140$.
+    Numerical issues in either method could also contribute.
+    See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
+
+
+    We can however understand the expected method variance of such estimators by simply examining the
+    scatter between the estimators used within the $\planck$ 2018 analysis.
+    Note that this is not statistical variance, but simply method variance,
+    coming from the difficulty of $\cmb$ bispectrum estimation.
+    We show this in Figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
+    which is closely related to the $\dbi$ template.
+    We see that the result obtained by $\cmbbest$ is different, but still lies
+    between the results of the $\ksw$ and $\modal$ estimators.
+
+
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
         \caption{
@@ -261,8 +262,41 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
   \end{center}
 \end{table}
 
+\section{Convergence}
+    It is not obvious how the convergence of the primordial bispectrum translates to
+    convergence of the estimate for $\fnl$, as different
+    momentum configurations will be processed and projected differently.
+    For example, if the primordial bispectrum has equal absolute error in a given
+    equilateral configuration v.s.\ a squeezed configuration, will the error in
+    each have comparable effect on the final constraint, or will one matter more?
+    We will now discuss the convergence at the primordial level and compare it to
+    the convergence in the final constraint.
 
-\begin{figure}[htbp!]
+
+    In Figure~\ref{fig:prim_conv} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
+    We quantify the convergence by measuring $\totalcor$, as defined in~\eqref{relative_difference}, between
+    $\Pmax=30$ and $\Pmax=25$.
+    For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
+    The convergence in the $\scalingbasis$ basis is better, with $\totalcor$
+    falling in the range $[10^{-4}, 10^{-3}]$.
+    %$[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
+    However, to connect to the $\cmbbest$ code we must use
+    the $\Lnsinv$ basis. We see from Figure~\ref{fig:prim_conv}
+    that it is sufficient for our purposes.
+
+
+    In Figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
+    in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
+    comparing $\Pmax=25$ and $\Pmax=30$,
+    the relative error in the quantity that determines the constraint,
+    $\fnl+2\sigma$, is sufficiently small that we can be
+    confident our results have converged in $\Pmax$.
+    We also see that it is (for the majority of the scan) smaller
+    that the corresponding relative error at the primordial level, plotted in
+    Figure~\ref{fig:prim_conv}.
+
+
+\begin{figure}[h!]
 \centering
     \subfloat[The $\scalingbasis$ basis]{\label{fig:prim_conv_log30}
         \includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_template_corrs_log30.png}}\\
@@ -293,7 +327,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 }\label{fig:prim_conv}
 \end{figure}
 
-\begin{figure}[htbp!]
+
+\begin{figure}[h!]
 \centering
 %\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_fnl_errs_p1ns30}
 \includegraphics[width=\columnwidth]{wuhyun_plots/errors_for_planck_map.png}
@@ -306,40 +341,6 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     This validates the $\Pmax$ convergence of our pipeline as a whole.
 }\label{fig:cmb_conv}
 \end{figure}
-
-
-\section{Convergence}
-    It is not obvious how the convergence of the primordial bispectrum translates to
-    convergence of the estimate for $\fnl$, as different
-    momentum configurations will be processed and projected differently.
-    For example, if the primordial bispectrum has equal absolute error in a given
-    equilateral configuration v.s.\ a squeezed configuration, will the error in
-    each have comparable effect on the final constraint, or will one matter more?
-    We will now discuss the convergence at the primordial level and compare it to
-    the convergence in the final constraint.
-
-
-    In Figure~\ref{fig:prim_conv} we show convergence results for $\Lnsinv$ with $\Pmax=30$.
-    We quantify the convergence by measuring $\totalcor$~\eqref{relative_difference} between
-    $\Pmax=30$ and $\Pmax=25$.
-    For this basis the match to the template is good in the equilateral limit, but quite poor in the squeezed limit.
-    The convergence in the $\scalingbasis$ basis is better, with $\totalcor$
-    falling in the range $[10^{-4}, 10^{-3}]$.
-    %$[1.02\times 10^{-4}, 9.24\times 10^{-4}]$.
-    However, to connect to the $\cmbbest$ code we must use
-    the $\Lnsinv$ basis. We see from Figure~\ref{fig:prim_conv}
-    that it is sufficient for our purposes.
-
-
-    In Figure~\ref{fig:cmb_conv} we see how this convergence translates to convergence
-    in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
-    comparing $\Pmax=25$ and $\Pmax=30$,
-    the relative error in the quantity that determines the constraint,
-    $\fnl+2\sigma$, is sufficiently small that we can be
-    confident our results have converged in $\Pmax$.
-    We also see that it is (for the majority of the scan) smaller
-    that the corresponding relative error at the primordial level, plotted in
-    Figure~\ref{fig:prim_conv}.
 
 
     When we examine the convergence to the sum~\eqref{dbi_sum_shape}
@@ -413,7 +414,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     parameter, which we call $\fnl$---this is then scenario specific
     and template-free, in contrast to previous works.
     Since by definition the scenario predicts $\fnl=1$,
-    if it is found that $\fnl=1$ is ruled out for a given scenario, then that scenario is judged to
+    if it is found that $\fnl=1$ is at $2\sigma$ tension
+    for a given scenario, then that scenario is judged to
     be inconsistent with the data.
 
 
