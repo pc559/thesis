@@ -968,7 +968,7 @@ interactions in the distant past~\cite{Maldacena}.
 That is, instead of taking
 $\tau_0=-\infty$ we take $\tau_0=-\infty(1+i\epsilon)$.
 This is known as the $i\epsilon$ prescription.
-To calculate $F^{-1}$, we use an anti-time ordering operator,
+To calculate $F^{-1}$, we must take care to use the anti-time ordering operator,
 and take the lower bound of the integration to be $-\infty(1-i\epsilon)$.
 
 
@@ -983,7 +983,7 @@ the expectation value of a product of three interaction picture fields vanishes
 }
 \end{align}
 where all the operators on the right-hand side are in the interaction picture
-and $\Hint$ is the interaction Hamiltonian, written in terms of $\zeta$ and its
+and $\Hint$ is the interaction Hamiltonian written in terms of $\zeta$ and its
 (interaction picture) conjugate momentum $\dzeta$.
 We will now take $\Hint$ to contain only terms cubic in the perturbations.
 From this calculation we obtain the dimensionless shape function $S(k_1,k_2,k_2)$,
@@ -1083,29 +1083,29 @@ Therefore, the only surviving contribution will the term with every $\zeta_{\mat
 contracted in a pair.
 
 
-To evaluate the pairwise contractions we will make use of the fact that, from~\eqref{operator_expansion},
+To evaluate the pairwise contractions we expand $\zeta$ similarly to~\eqref{operator_expansion},
 \begin{align}
     \left<\zeta_{\mathbf{k_1}}(t_1)\zeta_{\mathbf{k_2}}(t_2)\right>
     &= \left<0\left|
-            \left(v_{k_1}(t_1)\hat{a}_\mathbf{k_1} +
-            v^*_{k_1}(t_1)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
-            \left(v_{k_2}(t_2)\hat{a}_\mathbf{k_2} +
-            v^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
+            \left(\zeta_{k_1}(t_1)\hat{a}_\mathbf{k_1} +
+            \zeta^*_{k_1}(t_1)\hat{a}^{\dagger}_{-\mathbf{k_1}}\right)
+            \left(\zeta_{k_2}(t_2)\hat{a}_\mathbf{k_2} +
+            \zeta^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}\right)
         \right|0\right>\\
     &= \left<0\left|
-            v_{k_1}(t_1)\hat{a}_\mathbf{k_1}
-            v^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}
+            \zeta_{k_1}(t_1)\hat{a}_\mathbf{k_1}
+            \zeta^*_{k_2}(t_2)\hat{a}^{\dagger}_{-\mathbf{k_2}}
         \right|0\right>\\
-    &= v_{k_1}(t_1)v^*_{k_2}(t_2)\left<0\left|
+    &= \zeta_{k_1}(t_1)\zeta^*_{k_2}(t_2)\left<0\left|
             \left[\hat{a}_\mathbf{k_1},
             \hat{a}^{\dagger}_{-\mathbf{k_2}}\right]
         \right|0\right>\\
-    &= v_{k_1}(t_1)v^*_{k_2}(t_2)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
+    &= \zeta_{k_1}(t_1)\zeta^*_{k_2}(t_2)(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2})
 \end{align}
 where we used~\eqref{creation_annihilation_commutator}.
 
 
-So, inserting~\eqref{hint_example} into~\eqref{inin_example}
+Inserting~\eqref{hint_example} into~\eqref{inin_example}
 %and rewriting $\dzeta(\vecx)$ in terms of its Fourier transform,
 we get
 \begin{align}\label{inin_example_start}
@@ -1152,7 +1152,7 @@ and not a contribution to the background, this cannot contribute.
 The results of the contractions will therefore have the form
 \begin{align}
     \left<\zeta_{\mathbf{k_1}}(t)\dzeta_{\mathbf{p}}(t')\right>
-    &= v_{k_1}(t)\vdot^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
+    &= \zeta_{k_1}(t)\dzeta^*_{p}(t')(2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{p}).
 \end{align}
 and permutations.
 Using the delta functions to perform the momentum integrals,
@@ -1161,11 +1161,11 @@ and recalling~\eqref{bispectrum_definition}, we obtain
 \begin{align}\label{inin_computer}
     B(k_1, k_1,&k_3)
     =
-    \Re\bigg(-2i v_{k_1}(0)v_{k_2}(0)v_{k_3}(0)\nonumber\\
+    \Re\bigg(-2i \zeta_{k_1}(0)\zeta_{k_2}(0)\zeta_{k_3}(0)\nonumber\\
     &\cdot\int_{-\infty(1+i\varepsilon)}^{0}d\tau'\bigg(g(\tau') a^4(\tau')\bigg)
-    \vdot^*_{k_1}(\tau')
-    \vdot^*_{k_2}(\tau')
-    \vdot^*_{k_3}(\tau')
+    \dzeta^*_{k_1}(\tau')
+    \dzeta^*_{k_2}(\tau')
+    \dzeta^*_{k_3}(\tau')
     +\text{perms}
     \bigg).
 \end{align}
@@ -1174,7 +1174,7 @@ one could use this form. Until this point we have assumed nothing about the solu
 equations of motion, and we have not made a slow-roll approximation (although we have
 of course only included the tree-level effects).
 After one had chosen some prescription for numerically implementing the
-$i\varepsilon$ prescription, one would need to evolve a set of $v_{k}$
+$i\varepsilon$ prescription, one would need to evolve a set of $\zeta_{k}$
 according to the equations of motion and then perform the above time integral.
 
 
@@ -1253,7 +1253,6 @@ as a check on our results.
     in~\eqref{sachs_cl_example} is due to $\zeta=5\Phi/3$
     on large scales during matter domination.
     % See (3.47) of AC.
-\textcolor{red}{Is the factor of $3$ correct?}
 }
     that was used in Section~\ref{sec:power_spec_estimator}
     \begin{align}
@@ -1347,11 +1346,11 @@ as a check on our results.
     the presence of a mask (to exclude to regions of the sky saturated by our galaxy
     and other foreground contaminants).
     The covariance matrix is approximated as diagonal, and the
-    following quantities are defined:
+    following quantities are defined
     \begin{align}
         %C_{l_1m_1,l_2m_2}&\approx C_l\delta_{l_1l_2}\delta_{m_1~-m_2},\label{diagonal_covariance}\\
-           \tilde{C_l} &= b_l^2C_l+N_l,\\
-           \tilde{b}_{l_1l_2l_3} &= b_{l_1}b_{l_2}b_{l_3}b_{l_1l_2l_3},
+           \tilde{C_l} &\equiv b_l^2C_l+N_l,\\
+           \tilde{b}_{l_1l_2l_3} &\equiv b_{l_1}b_{l_2}b_{l_3}b_{l_1l_2l_3},
     \end{align}
     to incorporate the experimental beam $b_l$ and the noise power
     spectrum $N_l$ from the experiment.
@@ -1364,7 +1363,7 @@ as a check on our results.
     which retains optimality~\cite{Creminelli:2005hu}.
     Here, the diagonal approximation is insufficient for the linear term
     (which is especially important for local type shapes), so the
-    full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is calculated using an ensemble average
+    full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is approximated using an ensemble average
     over a suite of Gaussian simulations. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
     by the galaxy. While the estimator is still optimal,
@@ -1426,18 +1425,6 @@ certain inflation models through the approximate phenomenological templates.
 These constraints can be found in~\cite{Planck_NG_2015, Planck_NG_2018}.
 
 
-Recall the definition of separability~\eqref{sepXYZ}.
-The link between the separability of the primordial bispectrum
-and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb}.
-If the primordial bispectrum is separable then the overall dimension
-of the calculation can be reduced from seven to five in~\eqref{eq:reduced_cmb},
-since the spherical Bessel functions $j_{l_i}$ and the
-transfer functions $\Delta_{l_i}$ already appear in a separable way.
-This property can also be used to
-efficiently generate non-Gaussian initial conditions
-for simulations~\cite{Scoccimarro_2012}.
-
-
 The numbers $\fnl^F$ are useful summary parameters.
 From the data-side, they represent the result of
 a complex and intensive process
@@ -1454,6 +1441,18 @@ the real shape function by some standard template.
 In particular, if one is interested in a feature model,
 it may be be difficult to see how constraints on existing
 features can be applied.
+
+
+Recall the definition of separability~\eqref{sepXYZ}.
+The link between the separability of the primordial bispectrum
+and the reduced CMB bispectrum can be seen from~\eqref{eq:reduced_cmb}.
+If the primordial bispectrum is separable then the overall dimension
+of the calculation can be reduced from seven to five in~\eqref{eq:reduced_cmb},
+since the spherical Bessel functions $j_{l_i}$ and the
+transfer functions $\Delta_{l_i}$ already appear in a separable way.
+This property can also be used to
+efficiently generate non-Gaussian initial conditions
+for simulations~\cite{Scoccimarro_2012}.
 
 
     $\ksw$-type estimators take as their starting point the realisation that many
