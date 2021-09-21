@@ -202,7 +202,8 @@ and
 %\begin{align}
 %    \alpha_n^{(i)} = \frac{3!}{\Xi_P}\alpha_P^{(i)}.
 %\end{align}
-The numerical calculation of $V^{(i)}_{P\tilde{P}}$ (as defined by~\eqref{V_definition}) is highly efficient as $v^{(i)}(k_1, k_2,k_3)$
+The numerical calculation of $V^{(i)}_{P\tilde{P}}$ (as defined by~\eqref{V_definition}) is
+highly efficient (despite na\"ively scaling as $\Pmax^6$) because $v^{(i)}(k_1, k_2,k_3)$
 is a sum of separable terms. The details of these terms
 depend only on the spatial derivatives in the interaction Hamiltonian, not the scenario being
 considered, so the matrix can be precomputed and stored.
@@ -235,7 +236,7 @@ Since we have extracted the spatial derivatives, the only remaining
 possible source of asymmetric $k$-dependence
 comes from $\zeta^3$, $\zeta^2\zeta'$, $\zeta'^2\zeta$ or $\zeta'^3$
 so the time integral in~\eqref{inin_kindep} will always be (at least) symmetric in $p$ and $r$. },
-where $N_v$ is the number of interaction vertices
+where $N_V$ is the number of interaction vertices
 and $\Pmax$ is the size of the basis.
 Since the calculational cost of doing the internal decompositions depends only
 linearly on the size of internal basis, improvements there are dwarfed by improvements
