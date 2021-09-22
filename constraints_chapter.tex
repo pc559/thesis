@@ -1,21 +1,44 @@
 %\input{commands}
 \chapter{An Inflationary Constraint from the $\cmb$ Bispectrum}\label{chapter:constraints}
-\section{$\dbi$ sound speed constraint}
-    In this chapter, we use $\planck$ data to place a constraint on $\dbi$ inflation.
+\section{The $\primodal$-$\cmbbest$ pipeline}
+    In this chapter, we aim to validate our full pipeline,
+    testing the connection between the methods we described in previous Chapters~\ref{chapter:decomp}
+    and~\ref{chapter:methods}
+    (implemented in the $\primodal$ code) and the methods described in~\cite{Sohn_2021}
+    (which are implemented in the $\cmbbest$ code, which we discussed
+    in Section~\ref{sec:cmbbest}).
+    We perform this validation by
+    using $\planck$ data to place a constraint on $\dbi$ inflation.
     We then compare this result to a constraint on the same parameter obtained by the $\planck$
-    collaboration~\cite{Planck_NG_2018},
-    with the aim of validating the full $\primodal$-$\cmbbest$ pipeline.
+    collaboration~\cite{Planck_NG_2018}.
+
+
+    %with the aim of validating the full $\primodal$-$\cmbbest$ pipeline.
     The $\planck$ result was obtained by constraining the amplitude
-    of the $\dbi$ template~\eqref{dbi_shape}, and using a slow-roll relation~\eqref{fnl_dbi_defn}
+    of the $\dbi$ template~\eqref{dbi_shape}, and using the relation~\eqref{fnl_dbi_defn}
     to map this to a constraint on the sound speed.
     In our pipeline, in contrast, we scan over a fundamental parameter of the model, $\bir$,
     with the other parameters of the model held fixed.
     This means the sound speed is not a constant, and is instead found by numerically evolving the background.
-    We use $c_s^*$ to refer to the sound speed at horizon crossing of the pivot scale.
+    We use $c_s^*$ to refer to the sound speed (of each scenario) at horizon crossing of the pivot scale.
     We obtain the full shape and amplitude information (within our $k$-range) for
     each scenario in our scan and the final
     constraint makes use of the entirety of that information, up to
-    convergence in $\Pmax$.
+    convergence in $\Pmax$, the size of the basis.
+
+
+    One important limitation of our scan, however, is that we do not
+    prescribe how inflation ends, as we neglect the details of reheating.
+    This means that we do not have a mapping from the scales during inflation and the scales
+    measured today. As such, the constraint we obtain on the sound speed during inflation
+    cannot be directly translated into a constraint on more fundamental parameters
+    (as was done, for example, in~\cite{Planck_NG_2013} where the sound speed constraint
+    was translated into a constraint on a fundamental parameter by marginalising over the
+    number of inflationary e-folds).
+    Our result is still a useful validation of our pipeline---specifically, we validate the convergence
+    of our methods at the level of the constraint, demonstrating that this pipeline can be applied to constraining
+    inflationary parameters, even if the bispectrum in question is non-separable and takes into account
+    slow-roll corrections such as a non-separable scaling.
 
 
     In the context of the scan
@@ -27,7 +50,119 @@
         While at present the $\cmbbest$ code is implemented for temperature only, the methods are general
         and future implementations will include E-mode polarisation.
     } data to place a constraint
-    on $\bir$. 
+    on $c_s^*$.
+
+
+\section{Connecting to $\cmbbest$}\label{sec:setup}
+The potential we use is the IR one discussed in~\cite{Bean_ir_dbi}, as
+we outlined in Section~\ref{sec:interactions}.
+See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
+    We use equation~\eqref{eq:dbi_warp}, which has four free parameters,
+    $\bir$, $\lambda_{\dbi}$, $\phi_0$, and $V_0$.
+    We use $\bir$ to parameterise our scan,
+    which we take across the range
+    \begin{align}\label{eq:bir_range}
+        \bir\in[0.1885, 0.58].
+    \end{align}
+    with the parameters
+    \begin{align}\label{eq:scan_params}
+        \lambda_{\dbi}&=2.00475\times10^{15}\\
+        V_0 &= 5.2\times10^{-12}\mpl^4\\
+        \phi_0 &= 0.46042\mpl
+    \end{align}
+    held fixed.
+
+
+    The number of e-folds to the end of inflation is denoted $N_e$.
+    From~\cite{Chen_dbi} we can use slow-roll relations to determine the approximate
+    value of $N_e$
+    %We find
+    for our values of $\phi$ as
+    \begin{align}
+        N_e &= \frac{\sqrt{\lambda_{\dbi}}H}{\phi}\approx10^2.%112
+    \end{align}
+    We can also then write down the expected relation between the sound speed
+    and $\bir$
+    \begin{align}
+        c_s &\approx \frac{3}{\bir N_e}%&&\approx 0.054.
+    \end{align}
+    which we indeed find to be approximately true for our numerical results.
+    We start the background evolution on the slow-roll attractor, finding initial conditions which
+    satisfy the Friedmann constraint, as discussed in Section~\ref{sec:interactions}.
+    For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
+    is within $3.044\pm0.014$,
+    and that $n_s^{*}$ is within $0.9649\pm0.0042$.
+    In Table~\ref{tab:scan_summary_sr} we summarise the scenario parameters for the scan,
+    and in Table~\ref{tab:scan_summary_ns} we summarise the resulting scaling indices.
+ 
+
+%    \begin{tabular}{lrrrrrrrrrr}
+%        \toprule
+%        $\bir$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ &   $n_s^{*}$ &  $n_{NG}^{*}$ &   $\phi^{*}$ &     $H^{*}$ &   $\eta^{*}$ \\
+%        \midrule
+%        $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  &  $-3.50\times 10^{-2}$  &  $-8.72\times 10^{-2}$  &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$  &  $2.63\times 10^{-2}$ \\
+%        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $-3.63\times 10^{-2}$  &  $-8.99\times 10^{-2}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$  &  $2.71\times 10^{-2}$ \\
+%        \bottomrule
+%    \end{tabular}
+    %in Table~\ref{tab:scan_summary_bkgd} we summarise the background parameters,
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{lrrr}
+        \toprule
+        $\bir$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ \\
+        \midrule
+        $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  \\
+        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  \\
+        \bottomrule
+        $\bir$ &    $\eta^{*}$ &  $\phi^{*}$ &     $H^{*}$ \\
+        \midrule
+        $1.89\times 10^{-1}$  &  $2.63\times 10^{-2}$ &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$\\
+        $5.80\times 10^{-1}$  &  $2.71\times 10^{-2}$ &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
+        \bottomrule
+    \end{tabular}
+    \caption{
+        Summary of scenario parameters at the upper and lower limits of the scan, evaluated at the horizon
+      crossing of the pivot scale.
+      }\label{tab:scan_summary_sr}
+  \end{center}
+\end{table}
+
+
+%\begin{table}[h!]
+%  \begin{center}
+%    \begin{tabular}{lrrr}
+%        \toprule
+%        $\bir$ &  $\phi^{*}$ &     $H^{*}$ \\
+%        \midrule
+%        $1.89\times 10^{-1}$  &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$\\
+%        $5.80\times 10^{-1}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
+%        \bottomrule
+%    \end{tabular}
+%    \caption{Summary of scenario parameters across the scan.}\label{tab:scan_summary_bkgd}
+%  \end{center}
+%\end{table}
+
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{lrr}
+        \toprule
+        $\bir$ &  $n_s^{*}$ &  $n_{NG}^{*}$\\
+        \midrule
+        $1.89\times 10^{-1}$  &  $9.650\times 10^{-1}$  &  $-8.72\times 10^{-2}$\\
+        $5.80\times 10^{-1}$  &  $9.637\times 10^{-1}$  &  $-8.99\times 10^{-2}$\\
+        \bottomrule
+    \end{tabular}
+      \caption{
+          Summary of the slow-roll predictions for the scaling indices
+          at the upper and lower limits of the scan.
+      }\label{tab:scan_summary_ns}
+  \end{center}
+\end{table}
+
+
+\section{$\dbi$ sound speed constraint}
     The bispectrum of each scenario is given an amplitude
     parameter, which we call $\fnl$, where the scenario prediction
     corresponds to $\fnl=1$. Thus, if we can rule out $\fnl=1$,
@@ -153,114 +288,6 @@
         }\label{fig:equil_constraints_comparison}
     \end{figure}
 
-
-\section{Connecting to $\cmbbest$}\label{sec:setup}
-The potential we use is the IR one discussed in~\cite{Bean_ir_dbi}, as
-we outlined in Section~\ref{sec:interactions}.
-See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
-    We use equation~\eqref{eq:dbi_warp}, which has four free parameters,
-    $\bir$, $\lambda_{\dbi}$, $\phi_0$, and $V_0$.
-    We use $\bir$ to parameterise our scan,
-    which we take across the range
-    \begin{align}\label{eq:bir_range}
-        \bir\in[0.1885, 0.58].
-    \end{align}
-    with the parameters
-    \begin{align}\label{eq:scan_params}
-        \lambda_{\dbi}&=2.00475\times10^{15}\\
-        V_0 &= 5.2\times10^{-12}\mpl^4\\
-        \phi_0 &= 0.46042\mpl
-    \end{align}
-    held fixed.
-
-
-    The number of e-folds to the end of inflation is denoted $N_e$.
-    From~\cite{Chen_dbi} we can use slow-roll relations to determine the approximate
-    value of $N_e$
-    %We find
-    for our values of $\phi$ as
-    \begin{align}
-        N_e &= \frac{\sqrt{\lambda_{\dbi}}H}{\phi}\approx10^2.%112
-    \end{align}
-    We can also then write down the expected relation between the sound speed
-    and $\bir$
-    \begin{align}
-        c_s &\approx \frac{3}{\bir N_e}%&&\approx 0.054.
-    \end{align}
-    which we indeed find to be approximately true for our numerical results.
-    We start the background evolution on the slow-roll attractor, finding initial conditions which
-    satisfy the Friedmann constraint, as discussed in Section~\ref{sec:interactions}.
-    For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
-    is within $3.044\pm0.014$,
-    and that $n_s^{*}$ is within $0.9649\pm0.0042$.
-    In Table~\ref{tab:scan_summary_sr} we summarise the scenario parameters for the scan,
-    and in Table~\ref{tab:scan_summary_ns} we summarise the resulting scaling indices.
- 
-
-%    \begin{tabular}{lrrrrrrrrrr}
-%        \toprule
-%        $\bir$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ &   $n_s^{*}$ &  $n_{NG}^{*}$ &   $\phi^{*}$ &     $H^{*}$ &   $\eta^{*}$ \\
-%        \midrule
-%        $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  &  $-3.50\times 10^{-2}$  &  $-8.72\times 10^{-2}$  &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$  &  $2.63\times 10^{-2}$ \\
-%        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  &  $-3.63\times 10^{-2}$  &  $-8.99\times 10^{-2}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$  &  $2.71\times 10^{-2}$ \\
-%        \bottomrule
-%    \end{tabular}
-    %in Table~\ref{tab:scan_summary_bkgd} we summarise the background parameters,
-
-\begin{table}[h!]
-  \begin{center}
-    \begin{tabular}{lrrr}
-        \toprule
-        $\bir$ &    $c_s^{*}$ &  $\varepsilon_s^{*}$ &   $\varepsilon^{*}$ \\
-        \midrule
-        $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  \\
-        $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  \\
-        \bottomrule
-        $\bir$ &    $\eta^{*}$ &  $\phi^{*}$ &     $H^{*}$ \\
-        \midrule
-        $1.89\times 10^{-1}$  &  $2.63\times 10^{-2}$ &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$\\
-        $5.80\times 10^{-1}$  &  $2.71\times 10^{-2}$ &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
-        \bottomrule
-    \end{tabular}
-    \caption{
-        Summary of scenario parameters at the upper and lower limits of the scan, evaluated at the horizon
-      crossing of the pivot scale.
-      }\label{tab:scan_summary_sr}
-  \end{center}
-\end{table}
-
-
-%\begin{table}[h!]
-%  \begin{center}
-%    \begin{tabular}{lrrr}
-%        \toprule
-%        $\bir$ &  $\phi^{*}$ &     $H^{*}$ \\
-%        \midrule
-%        $1.89\times 10^{-1}$  &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$\\
-%        $5.80\times 10^{-1}$  &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
-%        \bottomrule
-%    \end{tabular}
-%    \caption{Summary of scenario parameters across the scan.}\label{tab:scan_summary_bkgd}
-%  \end{center}
-%\end{table}
-
-
-\begin{table}[h!]
-  \begin{center}
-    \begin{tabular}{lrr}
-        \toprule
-        $\bir$ &  $n_s^{*}$ &  $n_{NG}^{*}$\\
-        \midrule
-        $1.89\times 10^{-1}$  &  $9.650\times 10^{-1}$  &  $-8.72\times 10^{-2}$\\
-        $5.80\times 10^{-1}$  &  $9.637\times 10^{-1}$  &  $-8.99\times 10^{-2}$\\
-        \bottomrule
-    \end{tabular}
-      \caption{
-          Summary of the slow-roll predictions for the scaling indices
-          at the upper and lower limits of the scan.
-      }\label{tab:scan_summary_ns}
-  \end{center}
-\end{table}
 
 \section{Convergence}
     It is not obvious how the convergence of the primordial bispectrum translates to
