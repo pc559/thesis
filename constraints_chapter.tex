@@ -27,7 +27,7 @@
     to map this to a constraint on the sound speed.
     In our pipeline, in contrast, we scan over a fundamental parameter of the model, $\bir$,
     with the other parameters of the model held fixed.
-    This means the sound speed is not a constant, and is instead found by numerically evolving the background.
+    This means the sound speed of a given scenario is not a constant, and is instead found by numerically evolving the background.
     We use $c_s^*$ to refer to the sound speed (of each scenario) at horizon crossing of the pivot scale.
     We obtain the full shape and amplitude information (within our $k$-range) for
     each scenario in our scan and the final
@@ -177,14 +177,15 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 \section{$\dbi$ sound speed constraint}
     The bispectrum of each scenario is given an amplitude
-    parameter which we call $\fnl$ (schematically $S\rightarrow\fnl S$), where the scenario prediction
-    corresponds to $\fnl=1$. Thus, if we can rule out $\fnl=1$,
-    we can judge that scenario to be inconsistent with the data.
+    parameter which we call $\fnlone$, where the scenario prediction
+    corresponds to $\fnlone=1$ (schematically $\alpha_{pqr}\rightarrow\fnlone \alpha_{pqr}$).
+    Thus, if we find that $\fnlone=1$ is inconsistent with the data,
+    we can judge that scenario to be inconsistent with the data as well.
     The $\cmbbest$ code determines the confidence interval of the result
     by applying the estimator to $140$ full focal plane realistic Gaussian
     simulations~\cite{Planck_ffp10_2015}. The variance of the results from those
     Gaussian maps is then assumed to approximate the variance of the result
-    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnl=1$,
+    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnlone=1$,
     motivated by the expectation that the non-Gaussianity is weak.
 
 
@@ -226,15 +227,15 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
             using $\primodal$, then projecting those bispectra onto the $\cmb$
             and comparing them to the $\planck$ $\cmb$ temperature data using
             $\cmbbest$. Since the amplitude is fixed by the scenario, we rule out a
-            scenario by ruling out $f_{NL}^{\dbi}=1$.
+            scenario by ruling out $\fnlone^{\dbi}=1$.
             %We can see that the $\cmbbest$ result does not agree with the $\modal$
             %result~\eqref{eq:planck_dbi_constraint},
             %but as we see in Figure~\ref{fig:equil_constraints_comparison},
             %the discrepancy is not unexpected. We discuss possible explanations in the text.
             Note that the $\bir$ is approximately inversely proportional to $c^*_s$.
-            The confidence interval is the variance of the estimated $\fnl$ obtained
+            The confidence interval is the variance of the estimated $\fnlone$ obtained
             from $140$ Gaussian maps.
-            % $\sigma$ is the expected deviation between the measured $\fnl$ and the
+            % $\sigma$ is the expected deviation between the measured $\fnlone$ and the
             % real one? It \textit{feels} like it should be centered on zero\ldots
         }\label{fig:dbi_sound_speed_scan_beta}
     \end{figure}
@@ -256,16 +257,16 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     %We use $\kmin=0.00020875905683771526$
     Another possible reason is convergence in the number of
     maps\footnote{
-        In addition to the variance of $\fnl$,
+        In addition to the variance of $\fnlone$,
         the maps are used to approximate the full covariance matrix for the linear term
-        in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnl$
+        in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnlone$
         will only converge once sufficiently many maps are used.
         However, this correction (which accounts for the effect of the mask)
         was found to typically be relevant for local-type shapes,
         and small for equilateral-type shapes, such as in $\dbi$ inflation.
     }, with $\modal$ using approximately $300$ maps while $\cmbbest$ uses $140$.
     Numerical issues in either method could also contribute.
-    See~\cite{Sohn_2021} for an in-depth discussion of these possibilities.
+    An in-depth discussion of these possibilities will be presented in~\cite{Sohn_2021}.
 
 
     We can however understand the expected method variance of such estimators by simply examining the
@@ -305,7 +306,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 \section{Convergence}
     It is not obvious how the convergence of the primordial bispectrum translates to
-    convergence of the estimate for $\fnl$, as different
+    convergence of the estimate for $\fnlone$, as different
     momentum configurations will be processed and projected differently.
     For example, if the primordial bispectrum has equal absolute error in a given
     equilateral configuration v.s.\ a squeezed configuration, will the error in
@@ -330,7 +331,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     in the final constraint, at the $\cmb$ level. We see that across the $\bir$ range,
     comparing $\Pmax=25$ and $\Pmax=30$,
     the relative error in the quantity that determines the constraint,
-    $\fnl+2\sigma$, is sufficiently small that we can be
+    $\fnlone+2\sigma$, is sufficiently small that we can be
     confident our results have converged in $\Pmax$.
     We also see that it is (for the majority of the scan) smaller
     that the corresponding relative error at the primordial level, plotted in
@@ -374,9 +375,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 %\includegraphics[width=\columnwidth]{dbi_scan_template_corrs_plots/dbi_primodal_scan_fnl_errs_p1ns30}
 \includegraphics[width=\columnwidth]{wuhyun_plots/errors_for_planck_map.png}
 \caption{
-    We plot the relative error in the value of $\fnl^{2\sigma}=\fnl+2\sigma$,
+    We plot the relative error in the value of $\fnlone^{2\sigma}=\fnlone+2\sigma$,
     between $\Pmax=30$ and $\Pmax=25$,
-    with $\fnl$ obtained from the $\planck$ map for each scenario in the scan.
+    with $\fnlone$ obtained from the $\planck$ map for each scenario in the scan.
     We see that the convergence across the majority of the scan is better than that of the
     convergence in the primordial bispectrum, as plotted in Figure~\ref{fig:prim_conv}.
     This validates the $\Pmax$ convergence of our pipeline as a whole.
@@ -453,10 +454,10 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     without the need for further approximations (if one assumes some prescription
     for the end of inflation, to match onto the usual $\lcdm$ evolution).
     This is done by giving the bispectrum of each scenario an amplitude
-    parameter, which we call $\fnl$---this is then scenario specific
+    parameter, which we call $\fnlone$---this is then scenario specific
     and template-free, in contrast to previous works.
-    Since by definition the scenario predicts $\fnl=1$,
-    if it is found that $\fnl=1$ is at $2\sigma$ tension
+    Since by definition the scenario predicts $\fnlone=1$,
+    if it is found that $\fnlone=1$ is at $2\sigma$ tension
     for a given scenario, then that scenario is judged to
     be inconsistent with the data.
 
@@ -464,6 +465,11 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     Using this method we investigated the scenarios in the scan described in~\eqref{eq:bir_range}
     and~\eqref{eq:scan_params}. We found $c_s^*\ge0.056$ at $95\%$ confidence---this
     is shown in Figure~\ref{fig:dbi_sound_speed_scan_beta}.
+    We cannot directly translate this into a constraint on $\bir$ as we have not
+    taken care to match our primordial scales to the present day observable scales
+    (through a prescription for reheating), although it serves as a demonstration
+    that such direct constraints on inflationary parameters are within close reach
+    of our pipeline.
 
 
     In this chapter we also quantified the convergence of this result, by comparing the full $\Pmax=30$
