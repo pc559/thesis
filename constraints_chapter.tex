@@ -1,5 +1,13 @@
 %\input{commands}
 \chapter{An Inflationary Constraint from the $\cmb$ Bispectrum}\label{chapter:constraints}
+    \textcolor{red}{Appendix B: Expected level of agreement from
+    bispectrum estimators with correlated weights.
+    Equilateral as validation of $\cmbbest$ earlier.
+    Plan: de-scope the thesis chapter, still an interesting validation
+    and demonstration. To-do: remove all references to achieving a direct constraint
+    on inflationary parameters. Emphasise demonstration. Check all references to $\beta$.
+    Note on the power spectrum?}
+
 \section{The $\primodal$-$\cmbbest$ pipeline}
     In this chapter, we aim to validate our full pipeline,
     testing the connection between the methods we described in previous Chapters~\ref{chapter:decomp}
@@ -14,7 +22,7 @@
 
 
     %with the aim of validating the full $\primodal$-$\cmbbest$ pipeline.
-    The $\planck$ result was obtained by constraining the amplitude
+    The $\planck$ result~\cite{Planck_NG_2018} was obtained by constraining the amplitude
     of the $\dbi$ template~\eqref{dbi_shape}, and using the relation~\eqref{fnl_dbi_defn}
     to map this to a constraint on the sound speed.
     In our pipeline, in contrast, we scan over a fundamental parameter of the model, $\bir$,
@@ -29,13 +37,14 @@
 
     One important limitation of our scan, however, is that we do not
     prescribe how inflation ends, as we neglect the details of reheating.
-    This means that we do not have a mapping from the scales during inflation and the scales
-    measured today. As such, the constraint we obtain on the sound speed during inflation
+    This means that we do not have a mapping from the scales during inflation and the observable scales
+    today. As such, the constraint we obtain on the sound speed during inflation
     cannot be directly translated into a constraint on more fundamental parameters
     (as was done, for example, in~\cite{Planck_NG_2013} where the sound speed constraint
     was translated into a constraint on a fundamental parameter by marginalising over the
     number of inflationary e-folds).
-    Our result is still a useful validation of our pipeline---specifically, we validate the convergence
+    Our result is still a useful validation of our pipeline---specifically, we validate the
+    accuracy and convergence (in $\Pmax$)
     of our methods at the level of the constraint, demonstrating that this pipeline can be applied to constraining
     inflationary parameters, even if the bispectrum in question is non-separable and takes into account
     slow-roll corrections such as a non-separable scaling.
@@ -53,7 +62,7 @@
     on $c_s^*$.
 
 
-\section{Connecting to $\cmbbest$}\label{sec:setup}
+\section{Scan parameters}\label{sec:setup}
 The potential we use is the IR one discussed in~\cite{Bean_ir_dbi}, as
 we outlined in Section~\ref{sec:interactions}.
 See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
@@ -71,6 +80,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         \phi_0 &= 0.46042\mpl
     \end{align}
     held fixed.
+    \textcolor{red}{Gives a realistic scaling of the power spectrum,
+    if not the overall amplitude.}
 
 
     The number of e-folds to the end of inflation is denoted $N_e$.
@@ -436,7 +447,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     in the $\cmbbest$ code) to place a constraint on the amplitude of that predicted bispectrum.
     This constraint uses the latest $\planck$ temperature data.
     The constraint then directly translates to a constraint on the inflationary parameters of that scenario,
-    without the need for further approximations.
+    without the need for further approximations (if one assumes some prescription
+    for the end of inflation, to match onto the usual $\lcdm$ evolution).
     This is done by giving the bispectrum of each scenario an amplitude
     parameter, which we call $\fnl$---this is then scenario specific
     and template-free, in contrast to previous works.
