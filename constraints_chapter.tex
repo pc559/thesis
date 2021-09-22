@@ -46,7 +46,7 @@
     Our result is still a useful validation of our pipeline---specifically, we validate the
     accuracy and convergence (in $\Pmax$)
     of our methods at the level of the constraint, demonstrating that this pipeline can be applied to constraining
-    inflationary parameters, even if the bispectrum in question is non-separable and takes into account
+    inflationary parameters, and can handle bispectra that are non-separable and include
     slow-roll corrections such as a non-separable scaling.
 
 
@@ -55,8 +55,8 @@
     we used the methods described in previous chapters (as implemented in
     the $\primodal$ code) to generate shape coefficients for each scenario in the scan.
     The $\cmbbest$ code, which implements the methods described in~\cite{Sohn_2021},
-    then used the $\planck$ temperature\footnote{
-        While at present the $\cmbbest$ code is implemented for temperature only, the methods are general
+    then used the $\planck$ 2018 temperature\footnote{
+        At present the $\cmbbest$ code is implemented for temperature only, but the methods are general
         and future implementations will include E-mode polarisation.
     } data to place a constraint
     on $c_s^*$.
@@ -71,7 +71,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     We use $\bir$ to parameterise our scan,
     which we take across the range
     \begin{align}\label{eq:bir_range}
-        \bir\in[0.1885, 0.58].
+        %\bir\in[0.1885, 0.58].
+        \bir\in[0.19, 0.58].
     \end{align}
     with the parameters
     \begin{align}\label{eq:scan_params}
@@ -80,8 +81,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         \phi_0 &= 0.46042\mpl
     \end{align}
     held fixed.
-    \textcolor{red}{Gives a realistic scaling of the power spectrum,
-    if not the overall amplitude.}
+    This will give an approximately fixed power spectrum, with a realistic
+    scaling ($n_s^{*}$ is within $0.9649\pm0.0042$ across the scan),
+    while allowing the bispectrum to vary across the scan.
 
 
     The number of e-folds to the end of inflation is denoted $N_e$.
@@ -100,9 +102,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     which we indeed find to be approximately true for our numerical results.
     We start the background evolution on the slow-roll attractor, finding initial conditions which
     satisfy the Friedmann constraint, as discussed in Section~\ref{sec:interactions}.
-    For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
-    is within $3.044\pm0.014$,
-    and that $n_s^{*}$ is within $0.9649\pm0.0042$.
+    %For each scenario in this scan we ensure that $\ln\left(10^{10}A_s\right)$
+    %is within $3.044\pm0.014$,
+    %and that $n_s^{*}$ is within $0.9649\pm0.0042$.
     In Table~\ref{tab:scan_summary_sr} we summarise the scenario parameters for the scan,
     and in Table~\ref{tab:scan_summary_ns} we summarise the resulting scaling indices.
  
@@ -126,7 +128,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         $1.89\times 10^{-1}$  &  $1.39\times 10^{-1}$  &  $  8.57\times 10^{-3}$  &  $7.44\times 10^{-5}$  \\
         $5.80\times 10^{-1}$  &  $4.50\times 10^{-2}$  &  $  8.67\times 10^{-3}$  &  $2.31\times 10^{-4}$  \\
         \bottomrule
-        $\bir$ &    $\eta^{*}$ &  $\phi^{*}$ &     $H^{*}$ \\
+        $\bir$ &    $\eta^{*}$ &  $\phi^{*}~[\mpl]$ &     $H^{*}~[\mpl]$ \\
         \midrule
         $1.89\times 10^{-1}$  &  $2.63\times 10^{-2}$ &  $5.19\times 10^{-1}$  &  $1.31\times 10^{-6}$\\
         $5.80\times 10^{-1}$  &  $2.71\times 10^{-2}$ &  $5.15\times 10^{-1}$  &  $1.30\times 10^{-6}$\\
@@ -175,14 +177,15 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 \section{$\dbi$ sound speed constraint}
     The bispectrum of each scenario is given an amplitude
-    parameter, which we call $\fnl$, where the scenario prediction
+    parameter which we call $\fnl$ (schematically $S\rightarrow\fnl S$), where the scenario prediction
     corresponds to $\fnl=1$. Thus, if we can rule out $\fnl=1$,
     we can judge that scenario to be inconsistent with the data.
     The $\cmbbest$ code determines the confidence interval of the result
     by applying the estimator to $140$ full focal plane realistic Gaussian
     simulations~\cite{Planck_ffp10_2015}. The variance of the results from those
     Gaussian maps is then assumed to approximate the variance of the result
-    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnl=1$.
+    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnl=1$,
+    motivated by the expectation that the non-Gaussianity is weak.
 
 
     At present $\cmbbest$ has been run for the $\Lnsinv$ basis
@@ -196,10 +199,11 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
         Other basis sets described in Chapter~\ref{chapter:decomp} will be used in future runs of $\cmbbest$.
     }.
     As shown in Figure~\ref{fig:dbi_sound_speed_scan_beta}, we find
-    \begin{align}\label{eq:cmbbest_bir_constraint}
-        \bir\le0.46\qquad(95\%,~T~\text{only}).
-    \end{align}
-    This translates into a constraint
+    %\begin{align}\label{eq:cmbbest_bir_constraint}
+    %    \bir\le0.46\qquad(95\%,~T~\text{only}).
+    %\end{align}
+    %This translates into
+    a constraint
     on the sound speed (at horizon crossing) of
     \begin{align}\label{eq:cmbbest_dbi_constraint}
         c_s^{*}\ge0.056\qquad(95\%,~T~\text{only}).
@@ -431,7 +435,7 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     From this we can quantitatively see that the slow-roll
     suppressed effects, despite becoming dominant in the squeezed limit,
     do not appreciably affect the constraint on the $\dbi$ scenario.
-    This also confirms that the difference between constraints~\eqref{eq:cmbbest_bir_constraint}
+    This also confirms that the difference between constraints~\eqref{eq:cmbbest_dbi_constraint}
     and~\eqref{eq:planck_dbi_constraint} is not due to the more accurate shape function
     used in our method.
 
@@ -471,9 +475,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     finding them to be negligible, as expected.
 
 
-    In the context of the same parameter scan,
-    the $\planck$ constraint~\eqref{eq:planck_dbi_constraint}
-    would instead imply that $\bir\le0.33$ is ruled out at $95\%$ confidence.
+    %In the context of the same parameter scan,
+    %the $\planck$ constraint~\eqref{eq:planck_dbi_constraint}
+    %would instead imply that $\bir\le0.33$ is ruled out at $95\%$ confidence.
     The difference between our result and the $\planck$ result cannot be explained by
     statistical variance, as they are based on the same $\planck$ temperature data.
     Possible contributions to this disagreement include
