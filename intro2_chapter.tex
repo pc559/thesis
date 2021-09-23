@@ -733,7 +733,7 @@ at $95\%$ significance~\cite{Planck_NG_2015}.
 The shape~\eqref{dbi_shape} can be approximated by the separable equilateral template~\eqref{equil_shape}.
 
 
-    \subsection{Scaling}
+    \section{Scaling}
 These templates can be modified to be more physically realistic by including
 scaling similar to the scalar spectral index $n_s$~\cite{Planck_NG_2015}.
 For example, we can add some scale dependence to the $\dbi$ template~\eqref{dbi_shape}
@@ -752,7 +752,7 @@ This improves the fit by matching the expected scaling of the shape function
 along the equilateral limit, which results from slow-roll corrections.
 
 
-\subsection{Shapes from features during inflation}
+\section{Shapes from features during inflation}
 For our more stringent validation tests we work with feature model scenarios
 based on the above base models.
 It has long been known that sharp, localised features in the inflationary potential
@@ -845,6 +845,8 @@ as detailed in~\cite{chen_folded_resonant}.
     which can be labeled $\Hint^{(3)}$. We will use this to calculate
     the higher order correlations coming from the interactions. We will occasionally drop the superscript and
     refer to the cubic interaction Hamiltonian as simply the interaction Hamiltonian $\Hint$.
+    The particular form of $\Hint$ we will use in our validation examples will be
+    detailed in Section~\ref{sec:h_int}.
 
 
     \section{Step 2: the primordial bispectrum}\label{sec:inin_calc_example}
@@ -1041,6 +1043,7 @@ correction to the correlator that adjusts for the field redefinition.
 %allow comparison with the CMB.
 
 
+\subsection{An example calculation}
 We now detail an explicit example of an in-in calculation.
 We will take
 \begin{align}\label{hint_example}
@@ -1470,7 +1473,7 @@ for simulations~\cite{Scoccimarro_2012}.
 
 Since separability is so vital, the usual strategy is to approximate non-separable templates
 by separable ones.
-For example, the~\eqref{dbi_shape} is closely approximated by the equilateral
+For example, the $\dbi$ shape~\eqref{dbi_shape} is closely approximated by the equilateral
 template~\eqref{equil_shape}.
 Much success has been had in constraining non-Gaussianity
 in the CMB using separable approximations to these approximate templates.
@@ -1572,16 +1575,17 @@ The publicly released code is very sophisticated,
 able to deal with multiple fields in curved field spaces,
 recently being used to explore the bispectra resulting from
 sidetracked inflation~\cite{RP_1}.
-    \subsection{Usage in recent works}
-    In~\cite{RP_1, Fumagalli_2019} and especially
-    in~\cite{Marzouk_D3}, a large ensemble of inflationary trajectories is considered
-    using the transport method~\cite{transport_pytransport_2}.
-    For these trajectories, the bispectrum is calculated for a certain number of $k$-configurations.
-    In these works, $\fnlequil$ and $\fnl^{flat}$ refer to the definition given in~\eqref{transport_fnl_defn}
-    evaluated on equilateral and flat configurations respectively.
-    It was found that squeezed limit configurations were much more
-    expensive to calculate using that method.
-    % See figure 2 and 20 for their time taken, which is ~100s, for 6(?) scalar fields.
+
+
+In~\cite{RP_1, Fumagalli_2019} and especially
+in~\cite{Marzouk_D3}, a large ensemble of inflationary trajectories is considered
+using the transport method~\cite{transport_pytransport_2}.
+For these trajectories, the bispectrum is calculated for a certain number of $k$-configurations.
+In these works, $\fnlequil$ and $\fnl^{flat}$ refer to the definition given in~\eqref{transport_fnl_defn}
+evaluated on equilateral and flat configurations respectively.
+It was found that squeezed limit configurations were much more
+expensive to calculate using that method.
+% See figure 2 and 20 for their time taken, which is ~100s, for 6(?) scalar fields.
 
 
 While this analysis is very sophisticated,

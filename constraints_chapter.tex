@@ -15,7 +15,7 @@
     (which are implemented in the $\cmbbest$ code, which we discussed
     in Section~\ref{sec:cmbbest}).
     We perform this validation by
-    using $\planck$ data to place a constraint on the sound speed in $\dbi$ inflation~\ref{eq:dbi_action}.
+    using $\planck$ data to place a constraint on the sound speed in $\dbi$ inflation~\eqref{eq:dbi_action}.
     We then compare this result to a constraint on the same parameter obtained by the $\planck$
     collaboration~\cite{Planck_NG_2018}.
 
@@ -24,7 +24,7 @@
     The $\planck$ result~\cite{Planck_NG_2018} was obtained by constraining the amplitude
     of the $\dbi$ template~\eqref{dbi_shape}, and using the relation~\eqref{fnl_dbi_defn}
     to map this to a constraint on the sound speed.
-    In our pipeline, in contrast, we scan over a parameter of the model, $\bir$~\ref{eq:dbi_warp},
+    In our pipeline, in contrast, we scan over a parameter of the model, $\bir$~\eqref{eq:dbi_warp},
     with the other parameters of the model held fixed.
     This means the sound speed of a given scenario is not a constant, and is instead found by numerically evolving the background.
     We use $c_s^*$ to refer to the sound speed (of each scenario) at horizon crossing of the pivot scale.
@@ -59,6 +59,60 @@
         and future implementations will include E-mode polarisation.
     } data to place a constraint
     on $c_s^*$.
+
+
+    We can gain some context on the expected method variance of bispectrum estimators by simply examining the
+    scatter between the estimators used within the $\planck$ 2018 analysis.
+    Note that this is not statistical variance, but simply method variance,
+    coming from the difficulty of $\cmb$ bispectrum estimation.
+    We show this in Figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
+    which is closely related to the $\dbi$ template.
+    We see that the result obtained by $\cmbbest$ is different, but still lies
+    between the results of the $\ksw$ and $\modal$ estimators.
+    For a discussion on the scatter between the estimators used in the $\planck$ analysis,
+    see Appendix B of~\cite{Planck_NG_2013}. In that work it was concluded that in ideal conditions
+    (no noise, no sky mask) the scatter between estimators would be entirely due to their respective
+    approximations of the primordial shapes, with the approximations being such that a scatter
+    of $0.3\sigma$ would be expected.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
+        \caption{
+            A comparison of the various estimation methods used in $\planck$,
+            as presented in table 5 of~\cite{Planck_NG_2018},
+            with the $\cmbbest$ result, presented in~\cite{Sohn_2021}.
+            We plot the constraints obtained by each method for $\fnlequil$,
+            along with their $68\%$ uncertainty margin.
+            Note that the estimation methods are optimal
+            (at least to a very good approximation),
+            hence their uncertainty margins are close to identical.
+            We see that while the estimators do not agree, there is no discrepancy with any
+            significance---in particular, we see that $\cmbbest$ is not an outlier.
+            Possible contributions to the difference in the central values are convergence in each
+            method (for their respective convergence parameters)
+            and numerical issues. It is important to note that the differences between the
+            different results are not due to statistical variance.
+            The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
+            template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
+            in the $\Lnsinv$ basis for $\Pmax=30$.
+        }\label{fig:equil_constraints_comparison}
+    \end{figure}
+
+
+    In our pipeline,
+    the bispectrum of each scenario is given an amplitude
+    parameter which we call $\fnlone$, where the scenario prediction
+    corresponds to $\fnlone=1$ (schematically $\alpha_{pqr}\rightarrow\fnlone \alpha_{pqr}$).
+    Thus, if we find that $\fnlone=1$ is inconsistent with the data,
+    we can judge that scenario to be inconsistent with the data as well.
+    The $\cmbbest$ code determines the confidence interval of the result
+    by applying the estimator to $140$ full focal plane realistic Gaussian
+    simulations~\cite{Planck_ffp10_2015}. The variance of the results from those
+    Gaussian maps is then assumed to approximate the variance of the result
+    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnlone=1$,
+    motivated by the expectation that the non-Gaussianity is weak.
 
 
 \section{Scan parameters}\label{sec:setup}
@@ -175,25 +229,12 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
 
 
 \section{$\dbi$ sound speed constraint}
-    The bispectrum of each scenario is given an amplitude
-    parameter which we call $\fnlone$, where the scenario prediction
-    corresponds to $\fnlone=1$ (schematically $\alpha_{pqr}\rightarrow\fnlone \alpha_{pqr}$).
-    Thus, if we find that $\fnlone=1$ is inconsistent with the data,
-    we can judge that scenario to be inconsistent with the data as well.
-    The $\cmbbest$ code determines the confidence interval of the result
-    by applying the estimator to $140$ full focal plane realistic Gaussian
-    simulations~\cite{Planck_ffp10_2015}. The variance of the results from those
-    Gaussian maps is then assumed to approximate the variance of the result
-    when the estimator is applied to a $\cmb$ drawn from a universe with $\fnlone=1$,
-    motivated by the expectation that the non-Gaussianity is weak.
-
-
     At present $\cmbbest$ has been run for the $\Lnsinv$ basis
     with $\Pmax=30$, for the $\planck$ 2018 map and simulations~\cite{Planck_NG_2018},
     in particular the data that has been foreground cleaned using the SMICA method
     (Spectral Matching of foregrounds implementing Independent
     Component Analysis).
-    To make contact with it the $\primodal$ scan
+    To make contact with $\cmbbest$, the $\primodal$ scan
     was run with the same basis\footnote{
         The $\cmbbest$ code has also been run for a $\ksw$ basis
         and a Fourier basis, but neither of these can describe features
@@ -251,7 +292,9 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     \end{align}
     using the definition~\eqref{fnl_dbi_defn} and the template~\eqref{dbi_shape}.
     While our goal was to use this previous constraint as a validation of our own pipeline,
-    it is not unexpected that we did not reproduce it exactly.
+    it is not unexpected that we did not reproduce it exactly,
+    if we recall the scatter in the estimates for $\fnlequil$
+    in Figure~\ref{fig:equil_constraints_comparison}.
     One possible reason for this is the fact we are using slightly different
     scales---since we are limited to $\kmax/\kmin=1000$
     for convergence reasons, we cannot
@@ -261,52 +304,22 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     maps\footnote{
         In addition to the variance of $\fnlone$,
         the maps are used to approximate the full covariance matrix for the linear term
+        (see equation~\eqref{estimator_with_linear} and discussion below)
         in the estimator of~\cite{Sohn_2021}. Thus, the estimated value of $\fnlone$
         will only converge once sufficiently many maps are used.
         However, this correction (which accounts for the effect of the mask)
         was found to typically be relevant for local-type shapes,
         and small for equilateral-type shapes, such as in $\dbi$ inflation.
     }, with $\modal$ using approximately $300$ maps while $\cmbbest$ uses $140$.
-    Numerical issues in either method could also contribute.
+    Both of these issues would make our constraint less accurate.
+    However, as we will show in~\ref{sec:dbi_convergence}, the representation of the
+    shape used in the $\primodal$-$\cmbbest$ pipeline has converged to high
+    precision, so we do not expect this to contribute to the discrepancy.
+    %Numerical issues in either method could also contribute.
     An in-depth discussion of these possibilities will be presented in~\cite{Sohn_2021}.
 
 
-    We can however understand the expected method variance of such estimators by simply examining the
-    scatter between the estimators used within the $\planck$ 2018 analysis.
-    Note that this is not statistical variance, but simply method variance,
-    coming from the difficulty of $\cmb$ bispectrum estimation.
-    We show this in Figure~\ref{fig:equil_constraints_comparison} for the equilateral template~\eqref{equil_shape}
-    which is closely related to the $\dbi$ template.
-    We see that the result obtained by $\cmbbest$ is different, but still lies
-    between the results of the $\ksw$ and $\modal$ estimators.
-
-
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.9\textwidth]{wuhyun_plots/fnl_equil_planck_scatter.png}
-        \caption{
-            A comparison of the various estimation methods used in $\planck$,
-            as presented in table 5 of~\cite{Planck_NG_2018},
-            with the $\cmbbest$ result, presented in~\cite{Sohn_2021}.
-            We plot the constraints obtained by each method for $\fnlequil$,
-            along with their $68\%$ uncertainty margin.
-            Note that the estimation methods are optimal
-            (at least to a very good approximation),
-            hence their uncertainty margins are close to identical.
-            We see that while the estimators do not agree, there is no discrepancy with any
-            significance---in particular, we see that $\cmbbest$ is not an outlier.
-            Possible contributions to the difference in the central values are convergence in each
-            method (for their respective convergence parameters)
-            and numerical issues. It is important to note that the differences between the
-            different results are not due to statistical variance.
-            The $\cmbbest$ result quoted here was obtained by decomposing the equilateral
-            template~\eqref{equil_shape} (using definition~\eqref{planck_fnl_defn_ns} for $\fnlequil$)
-            in the $\Lnsinv$ basis for $\Pmax=30$.
-        }\label{fig:equil_constraints_comparison}
-    \end{figure}
-
-
-\section{Convergence}
+\section{Convergence}\label{sec:dbi_convergence}
     It is not obvious how the convergence of the primordial bispectrum translates to
     convergence of the estimate for $\fnlone$, as different
     momentum configurations will be processed and projected differently.
@@ -356,10 +369,10 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     we can see that sum scaling~\eqref{dbi_sum_shape} and the
     product scaling~\eqref{dbi_prod_shape} perform
     comparably in matching the numerical result. This is mostly
-    due to those templates neglecting the usual slow-roll suppressed
-    contributions (as in~\eqref{malda_shape}),
-    which do in fact become relevant to the primordial
-    bispectrum deep enough into the squeezed limit, due to their local-type shape.
+    due to those templates neglecting slow-roll suppressed contributions,
+    which, if they have a local-type shape,
+    do in fact become relevant to the primordial
+    bispectrum deep enough into the squeezed limit.
     The $\Lnsinv$ basis is sufficiently convergent across the scan range
     to obtain the desired constraint.
     We see that the convergence error is only slightly better than the error
@@ -392,8 +405,8 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     in Figure~\ref{fig:prim_conv},
     we see that neither is obviously the better match to the numerical result.
     This is due to the numerical result having a non-zero squeezed limit
-    coming from the usual slow-roll suppressed local-type contributions
-    (as in~\eqref{malda_shape}) which are neglected in the $\dbi$ templates.
+    coming from slow-roll suppressed local-type contributions
+    which are neglected in the $\dbi$ templates.
 
 
 %\begin{table}[h!]
@@ -485,12 +498,14 @@ See also~\cite{Chen_dbi, warp_features_dbi} for further discussions.
     %In the context of the same parameter scan,
     %the $\planck$ constraint~\eqref{eq:planck_dbi_constraint}
     %would instead imply that $\bir\le0.33$ is ruled out at $95\%$ confidence.
-    The difference between our result and the $\planck$ result cannot be explained by
-    statistical variance, as they are based on the same $\planck$ temperature data.
-    Possible contributions to this disagreement include
-    our limitation on $\kmax/\kmin$,
+    Possible contributions to statistical variance between our result and the $\planck$ result
+    include our limitation on $\kmax/\kmin$ and differing numbers of Gaussian maps used.
+    However, as these effects are expected to be large only for local
+    type shapes, and as the methods both use the same $\planck$ temperature data,
+    we expect that statistical variance cannot explain the entire discrepancy.
+    Other possible explanations include
     convergence (for each method's respective convergence parameters),
-    numerical errors, and differing numbers of Gaussian maps used.
+    and numerical errors.
     However, as we see for $\fnlequil$ in Figure~\ref{fig:equil_constraints_comparison},
     even between the estimation methods used within $\planck$ there is some variance,
     and we judge the disagreement to be within acceptable bounds.
