@@ -1513,7 +1513,7 @@ phase varies across the tetrapyd.
 
     The Modal method~\cite{FergShell_2014} is more versatile, 
     leveraging the benefits of separability in a broader set of models through expansion.
-    For example, this method can deal with primordial templates with envelopes.
+    For example, this method can deal with primordial templates with significant scale dependence.
     The Modal code proceeds using two sets of basis functions, one in $k$ space at the end
     of inflation, and another in $l$ space for the $\cmb$.
     For a given primordial template, the best-fit linear combination of the primordial basis
@@ -1592,7 +1592,7 @@ differentiating the in-in formalism\footnote{
     quantities in our method are the coefficients in some basis expansion,
     why not evolve them directly? Why take the apparently circuitous route
     (that we will see in Chapter~\ref{chapter:decomp} and Chapter~\ref{chapter:methods})
-    of evolving the $\zeta_k(\tau)$, and decomposing them at every timestep?
+    of evolving $\zeta_k(\tau)$, and decomposing it in $k$ at every timestep?
     The answer is that the ``equations of motion'' for the coefficients of the expansion
     obtained by substituting a mode expansion of $\zeta_k(\tau)$ into~\eqref{modefneqn_zeta_N}
     are coupled in an infinite hierarchy, making this a difficult
@@ -1653,9 +1653,9 @@ must be processed further to be usefully compared to observation.
     the covariance matrix in the linear term of~\eqref{estimator_with_linear} is not assumed to be diagonal,
     as this was found to lead to inaccurate results.
     It is calculated by taking an ensemble average of $140$ Gaussian simulations.
-    $\fnl$ estimates are also made for all of these simulations,
+    The estimator is applied to all of these simulations,
     with the variance of this distribution providing
-    a measure to assess the significance of any $\fnl$ detection in the true $\cmb$.
+    a measure to assess the significance of any possible detection in the true $\cmb$.
 
 
     The convergence of the final estimate is always the primary arbiter for setting method

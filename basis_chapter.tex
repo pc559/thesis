@@ -30,7 +30,8 @@ out of triplet products of normalized one-dimensional modes $q_p(k)$ as
     Q_n(k_1,k_2,k_3)\equiv q_{p} (k_1) \, q_{r}(k_2)\, q_{s}(k_3)\,.
 \end{align}
 Here, $n$ labels the integer triplet $n \leftrightarrow \{p r s\}$ in some appropriate manner.
-This modal expansion is terminated at some $\Pmax$ for which $\text{max}(p,r,s)<\Pmax$.
+This modal expansion is terminated at some $\Pmax$, including all
+terms that obey $\text{max}(p,r,s)<\Pmax$.
 The specific bispectrum information of each scenario is encoded in $\alpha_n$.
 
 
@@ -619,6 +620,9 @@ $q_{p_{\rm max}}(k) = \text{Orth}\left[{1}/ {k},~\Fbasic\right]$ with~\eqref{gra
 When we refer to convergence, we mean in increasing number
 of Legendre polynomials (or sines and cosines) within the initial set.
 The total size of the set will always be referred to as $\Pmax$.
+We summarise our basis sets in Table~\ref{tab:basis_summary}
+and a selection are plotted in Figures~\ref{fig:basis_pmax5_plots_a}
+and~\ref{fig:basis_pmax5_plots_b}.
 
 \begin{table}[h!]
   \begin{center}
@@ -631,8 +635,8 @@ The total size of the set will always be referred to as $\Pmax$.
         $\Finvk$   & Fourier Series & $k$, $k^2$, $k^{-1}$ & \\
         $\Lnsinv$  & Legendre polynomials & $k^{-1+(n_s^{*}-1)}$   & \eqref{Lns_inv}\\
         $\Lnsboth$ & Legendre polynomials& $k^{n_s^{*}-1}$, $k^{-1+(n_s^{*}-1)}$ & \eqref{Lns_both}\\
-        $\scalingbasis$ & Legendre polynomials& $k^{-1}$, $\ln(k)k^{-1}$ &\\
-        $\resobasis$ & $\frac{P_n(\bar{k})}{\sqrt{k}}$, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& &\\
+        $\scalingbasis$ & Legendre polynomials& $k^{-1}$, $\ln(k)k^{-1}$ & \eqref{scaling_basis_definition}\\
+        $\resobasis$ & $\frac{P_n(\bar{k})}{\sqrt{k}}$, with $\bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}$& & \eqref{reso_basis_definition}\\
     \end{tabular}
     \caption{
           Basis summary---the augmentation of the basis is done
@@ -894,7 +898,7 @@ in Section~\ref{sec:scaling_definition}.
     For the feature templates, for example Figure~\ref{fig:plot_freq_scan},
     we see that the $\scalingbasis$ basis performs equivalently to $\Lnsinv$
     and $\Lbasic$.
-    This is because these template have no scaling or complex shape dependence,
+    This is because these template have no simple power-law scaling or complex shape dependence,
     and the fit to the oscillatory feature is due to the Legendre polynomials
     in the basis.
     In Figure~\ref{fig:plot_freq_scan_dbi} we see that the $1/k$ behaviour is
@@ -926,9 +930,9 @@ in Section~\ref{sec:scaling_definition}.
     It differs from the basis described in~\cite{Funakoshi} in that it
     also includes a factor of $\frac{1}{\sqrt{k}}$ to retain orthogonality.
     We define the $n$th basis element as
-    \begin{align}
+    \begin{align}\label{reso_basis_definition}
         \frac{P_n(\bar{k})}{\sqrt{k}}\text{,}\qquad \bar{k}=\frac{2\ln(k)-\ln(\kmin\kmax)}{\ln(\kmax)-\ln(\kmin)}.
-    \end{align}\label{reso_basis_definition}
+    \end{align}
     We then see that
     \begin{align}
         \int_{\kmin}^{\kmax}dk\frac{P_m(\bar{k})}{\sqrt{k}}\frac{P_n(\bar{k})}{\sqrt{k}}
