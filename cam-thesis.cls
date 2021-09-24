@@ -534,8 +534,9 @@ We make particular use of~\cite{lyth_liddle_2009,Baumann_tasi,px_burrage,lim_adv
 throughout this thesis.
 The calculations described in this thesis were implemented using the Python scientific computing
 ecosystem, especially Numpy~\cite{numpy}, Scipy~\cite{scipy},
-and Matplotlib~\cite{matplotlib}. Some of the results in this thesis were calculated
-using the computing facilities of the
+and Matplotlib~\cite{matplotlib}.
+We also made use of the QUADPTS code for calculations of integration nodes and weights~\cite{quadpts}.
+Some of the results in this thesis were calculated using the computing facilities of the
 Cambridge Service for Data-Driven Discovery (CSD3).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
