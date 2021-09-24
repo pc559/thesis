@@ -505,9 +505,11 @@ at the University of Cambridge, supervised by Professor Paul Shellard.
 Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
 describe original work, while
 chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
-and mostly follow standard textbook material, collected and written by myself.
+and mostly follow standard textbook material (particularly~\cite{lyth_liddle_2009,Baumann_tasi,px_burrage,lim_adv_cosmo}
+which are used throughout), collected and written by myself.
 Some of chapter~\ref{chapter:intro_bispectra} is edited material from~\cite{probing_precision},
 which was co-authored with Paul Shellard.
+
 
 Chapters~\ref{chapter:decomp} and~\ref{chapter:methods}
 describe original research I performed in collaboration with Paul Shellard, and
@@ -522,11 +524,19 @@ Most of the results presented in these two chapters were obtained using the $\pr
 which I designed and wrote, which implements the methods described in
 this work, and is validated in these sections.
 
+
 Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
 James Fergusson and Paul Shellard.
 This work will be published in~\cite{Sohn_2021}. The methods that will be described in~\cite{Sohn_2021} have
 been implemented in the $\cmbbest$ code, which was designed and implemented by Wuhyun Sohn.
 My main contribution to~\cite{Sohn_2021} is described in chapter~\ref{chapter:constraints}.
+
+
+The calculations described in this thesis were implemented using the Python scientific computing
+ecosystem, especially Numpy~\cite{numpy}, Scipy~\cite{scipy},
+and Matplotlib~\cite{matplotlib}. Some of the results in this thesis were calculated
+using the computing facilities of the
+Cambridge Service for Data-Driven Discovery (CSD3).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Abstract
