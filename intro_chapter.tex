@@ -62,7 +62,9 @@ extract the fundamental physics waiting to be found in the universe's youth.
     (or more usually, an FLRW metric). In this context
     the Einstein equations reduce to the Friedmann equations, which we will soon present
     in~\eqref{friedmann_1}.
-    But first, we present the FLRW metric (we will always set the speed of light to unity)
+    But first, we present the FLRW metric itself\footnote{
+        In this thesis we will always set the speed of light to unity.
+    }
     \begin{align}\label{flrw_metric}
         ds^2 = g_{\mu\nu}dx^{\mu}dx^{\nu} = - dt^2 + a(t)^2 dS_3^2,
     \end{align}
@@ -94,7 +96,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     The result is a combination of the motion of an object with respect to the comoving coordinates
     $\left(a(t)\frac{dr}{dt}\right)$ and a term due to the expansion of the universe, which we see is linear
-    in $r_{phys}$ with a constant of proportionality of $H$.
+    in $r_{phys}$ with a (time-dependent) coefficient $H$.
 
 
     The local curvature of spacetime and its evolution is determined by the matter and energy
@@ -146,7 +148,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     Fortunately, when $g_{\mu\nu}$ takes the form~\eqref{flrw_metric},
-    these equations simplify to the promised Friedmann equations
+    the equations~\eqref{einstein_equations} simplify to the much simpler Friedmann equations
     %\footnote{
     %    In~\eqref{einstein_equations} and~\eqref{friedmann_1} we have temporarily reinstated $8\pi G$.}
     \begin{align}\label{friedmann_1}
@@ -162,10 +164,10 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \begin{align}\label{continuity_equation}
         \dot{\rho}_X + 3\frac{\dot{a}}{a}\left(\rho_X+p_X\right) &= 0.
     \end{align}
-    This can be shown to hold for each component
-    separately using the first law of thermodynamics for an adiabatic process.
     This describes
-    the effect the expansion of the universe has on the energy density of the fluid.
+    the effect the expansion of the universe has on the energy density of the fluid,
+    and can be shown to hold for each component
+    separately using the first law of thermodynamics for an adiabatic process.
 
     Given the equations of state and the densities of the different
     components of the universe, one can then calculate the time dependence of the
@@ -273,8 +275,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     for $X$ being radiation, matter or the cosmological constant.
     For our flat universe $\sum\Omega_{i,0}=1$.
-    The measured values for these quantities, as presented in~\cite{Planck_parameters_2018},
-    are
+    The measured values for these quantities and their $68\%$ limits,
+    as presented in~\cite{Planck_parameters_2018}, are
     \begin{align}\label{measured_params}
         \Omega_{m,0} &= 0.3111 \pm 0.0056,\\
         \Omega_{\Lambda} &=  0.6889 \pm 0.0056.
@@ -310,13 +312,9 @@ extract the fundamental physics waiting to be found in the universe's youth.
     that despite $\Omega_{\gamma,0}\ll\Omega_{m,0}$ today, at one stage it was the
     case that $\Omega_{\gamma}\gg\Omega_{m}$, and the universe was dominated by radiation.
     This is due to the relative scaling $\frac{\Omega_{\gamma}}{\Omega_{m}}\propto a^{-1}$.
-    This epoch is the limit on how far back in time we can see.
-    At sufficiently early times, the density of free electrons
-    was so high that the mean free path of photons was very short. Once the temperature
-    dropped enough that neutral atoms formed, the mean free path of photons became long
-    enough that they could travel cosmological distances, and eventually fall into our telescopes---this
-    is the origin of the $\cmb$.
-\begin{figure}[hp!]
+    This epoch is the limit on how far back in time we can see---before this point,
+    photons were unable to free stream.
+\begin{figure}[h!]
 \centering     %%% not \center
     \includegraphics[width=.75\columnwidth]{plots/lcdm_components.png}
 \caption{
@@ -332,7 +330,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
     In the future, as $\Lambda$ comes to dominate, $H(t)$ will become constant.
 }\label{fig:lcdm_components}
 \end{figure}
-\begin{figure}[hp!]
+\begin{figure}[h!]
 \centering     %%% not \center
     \includegraphics[width=.75\columnwidth]{plots/lcdm_components_linear.png}
 \caption{
@@ -358,6 +356,11 @@ extract the fundamental physics waiting to be found in the universe's youth.
     were in thermal equilibrium with each other---that is, they were interacting with each other,
     and the interaction was sufficiently efficient that their temperatures matched
     and the net flow of thermal energy between them was zero.
+    At sufficiently early times, the density of free electrons
+    was so high that the mean free path of photons was very short. Once the temperature
+    dropped enough that neutral atoms formed, the mean free path of photons became long
+    enough that they could travel cosmological distances, and eventually fall into our telescopes---this
+    is the origin of the $\cmb$.
 
 
     The evidence for this story is strong. It includes observable
@@ -506,8 +509,8 @@ extract the fundamental physics waiting to be found in the universe's youth.
     side of the sky so close to the temperature on the other side of the sky?
 
 
-    During the matter dominated era, $p=0$ and
-    $a(\tau)\propto \tau^2$. Therefore we can approximate
+    During the matter dominated era, we can take the pressure density to vanish, and
+    therefore find $a(\tau)\propto \tau^2$. Therefore we can approximate
     the total comoving distance a photon could have traveled between the singularity at $a_i=0$
     and recombination at $a_{rec}=1/1100$. We find
     \begin{align}
@@ -543,7 +546,7 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     %Photons travelling on $45'$ lines on a $\tau-x$ plot.
-    While in the basic $\lcdm$ model there has not been enough conformal time since $a=0$ for
+    While in the basic $\lcdm$ model there was not enough conformal time since $a=0$ for
     opposite sides of the $\cmb$ to come into thermal equilibrium, this can be remedied by
     adding an epoch that causes the horizon (the characteristic conformal length scale $(aH)^{-1}$)
     to shrink---this would give large scales enough time
@@ -569,10 +572,12 @@ extract the fundamental physics waiting to be found in the universe's youth.
 
 
     We will mention three more features of the $\lcdm$ initial conditions that we would
-    like an explanation for.
-    Adiabaticity is the statement that for each of the components (denoted here by $i$) of the universe,
+    like an explanation for. We have mentioned that the structure in the universe today
+    grew from the slight deviations from homogeneity in very early universe---these three
+    features are properties of those perturbations.
+    Firstly, adiabaticity is the statement that for each of the components (denoted here by $i$) of the universe,
     whose energy densities we can write as
-    $\rho_i(t) = \bar{\rho}_i(t)+\delta\rho_i(t,\vecx)$, their
+    $\rho_i(\vecx,t) = \bar{\rho}_i(t)+\delta\rho_i(t,\vecx)$, their
     initial background values $\bar{\rho}_i$ and their
     initial perturbations $\delta\rho_i$ were related such that
     \begin{align}
@@ -586,17 +591,18 @@ extract the fundamental physics waiting to be found in the universe's youth.
     \end{align}
     and thus the reparametrisation can absorb the linear perturbations in
     \textit{all} of the components.
-    An implication we can draw from this is that a single degree of freedom
+    The initial perturbations in our universe appear to have obeyed this property---an
+    implication we can draw from this is that a single degree of freedom
     would be sufficient to lay down these initial perturbations.
 
 
     The Gaussianity of the initial conditions is the statement that their statistics are completely described by
-    their two-point correlations. We will define this, and discuss in more detail
-    in Section~\ref{corr_functions}, where we will also define scale invariance,
+    their two-point correlations. We will define this, and discuss the topic in more detail
+    in Section~\ref{corr_functions}. In that section we will also define scale invariance,
     the statement that correlations do not depend on the scale at which they are measured.
     It turns out that observations show that the $\cmb$ appears close to Gaussian, although
     scale invariance is not precisely respected.
-    The deviation from perfect scale invariance has been measured to high confidence by the $\planck$
+    This deviation from perfect scale invariance has been measured to high confidence by the $\planck$
     satellite, with
     earlier measurements made by the WMAP satellite~\cite{Senatore_wmap_2009}.
     These are some of the properties of the early universe that the epoch of inflation
@@ -831,7 +837,12 @@ $\varepsilon = \frac{1}{2}{\phi'}^2$.
     \begin{align}\label{scale_inv}
         \left<f(\mathbf{x})f(\mathbf{x'})\right> = \left<f(\lambda\mathbf{x})f(\lambda\mathbf{x'})\right>.
     \end{align}
-    One can show that this symmetry demands $P(k)\propto k^{-3}$.
+    One can show that this symmetry demands\footnote{
+        Note that this statement only makes sense for scales smaller
+        than some infrared scale, $k>k_{IR}$---if this statement is extended to
+        the background ($k=0$) then $\left<f(\mathbf{x})f(\mathbf{x'})\right>$
+        will diverge.
+    }~$P(k)\propto k^{-3}$.
     Motivated by this, it is usual to define the dimensionless power spectrum
     \begin{align}\label{primpowerspec_defn}
         \mathcal{P}(k) = \frac{k^3}{2\pi^2}P(k).
@@ -1032,7 +1043,7 @@ and avoiding difficult numerical cancellations between terms in the interaction 
 A careful and comprehensive validation of our methods is presented,
 showing that the convergence problems can be overcome, the oscillatory contributions captured efficiently.
 At the primordial level this is done by validating our results using three distinct tests.
-Validation is done on established templates with non-trivial features;
+Validation is done on established templates from the literature with non-trivial features;
 the squeezed-limit consistency condition is verified; our
 full bispectrum results are compared to previous codes through point-tests.
 %This is the first development of a formalism
@@ -1066,7 +1077,7 @@ of inflation.
 
 
 \textbf{Chapter~\ref{chapter:intro_bispectra}} of this thesis
-is an introduction to the bispectrum as an observable.
+is an introduction to the bispectrum as an inflationary observable.
 The various parts of the pipeline that connects inflation scenarios to observations
 through the bispectrum are reviewed.
 The usual paradigm of bispectrum estimation in the CMB is outlined,
