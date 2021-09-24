@@ -8,11 +8,11 @@ the approximations that have previously been used to make this tractable.
 
 
 The primordial bispectrum is one of the main
-characteristics used to distinguish between models of inflation. While it is well
+characteristics used to distinguish between models of inflation. It is well
 known that the physics of inflation must have been extremely close
 to linear, and the initial seeds of structure it laid down
 drawn from a probability distribution that was
-very close to Gaussian, there is expected to have been some level of coupling
+very close to Gaussian. However, there is expected to have been some level of coupling
 between the Fourier modes of the perturbations.
 In the simplest example of an inflation model this is
 expected to be unobservable~\cite{Maldacena},
@@ -115,11 +115,14 @@ to calculating primordial bispectra.
 This Modal philosophy is a flexible method that has broadened the range of constrained
 bispectrum templates, by expanding them in a carefully chosen basis.
 The Modal estimator is thus capable of constraining
-non-separable templates, while the $\ksw$ estimator~\cite{Komatsu_2005}, for example, cannot.
+non-separable templates (with an accuracy determined by the size of the basis expansion),
+while the Komatsu-Spergel-Wandelt ($\ksw$) estimator~\cite{Komatsu_2005}
+(for example) is exact for shapes which have an explicit separable form,
+but cannot be applied to other shapes.
 
 
 To do this, we will exploit the intrinsic separability of the
-tree-level in-in formalism to apply the Modal methods at the level of inflation.
+tree-level in-in formalism to apply these Modal methods at the level of inflation.
 Expressing the primordial bispectrum in a separable
 basis expansion turns out to lead to an increase in the efficiency
 of the calculation at the primordial level.
@@ -272,7 +275,7 @@ allowing us to apply the method to feature bispectra for the first time.
     %Demanding this to be an eigenstate of $H$ forces $\pi_k=\pm ikv_k$.
     %Choosing the lowest energy state\ldots
     %and this is known as the Bunch-Davies vacuum.
-    We notice that if we quantize $y$
+    We notice that if we quantize $y_k$
     (defined in~\eqref{y_defn}), its Fourier modes
     should behave like a free field in Minkowski space with respect to $\tau_s$
     when they are deep in the horizon.
@@ -314,7 +317,7 @@ allowing us to apply the method to feature bispectra for the first time.
     \begin{align}\label{uk_solution}
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}.
     \end{align}
-    Treating the solution more carefully, one finds
+    Treating the solution more carefully, one can find
     \begin{align}
         P_\zeta(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
@@ -369,7 +372,12 @@ at leading order in slow-roll.
 
     \section{The power spectrum}\label{sec:power_spec_estimator}
     The fractional temperature anisotropies of the $\cmb$ can be decomposed in spherical
-    harmonics $Y_{lm}$ as follows
+    harmonics $Y_{lm}$.
+    The spherical harmonics are orthonormal on the sphere
+    \begin{align}\label{spher_ortho}
+        \int~d\hat{\vecn}Y_{lm}(\hat{\vecn})Y^*_{l'm'}(\hat{\vecn}) = \delta_{ll'}\delta_{mm'}
+    \end{align}
+    and we write the expansion as
     \begin{align}
         \frac{\Delta T}{T}(\hat{\mathbf{n}}) &= \sum_{l,m} a_{lm}Y_{lm}(\hat{\mathbf{n}}).
     \end{align}
@@ -392,8 +400,8 @@ at leading order in slow-roll.
     \begin{align}
         a_{lm} &= 4\pi i^l\int\frac{d^3k}{(2\pi)^3}\frac{\Delta T}{T}(\veck)j_l(k\chi_*)Y^*_{lm}(\hat{\veck})
     \end{align}
-    where $\chi_*$ the comoving distance to last scattering.
-    Then on large scales, we find
+    where $\chi_*$ the comoving distance to last scattering. 
+    Then on large scales, using~\eqref{spher_ortho}, we find
     \begin{align}\label{sachs_cl_example}
         C_l &\approx 4\pi\int d\ln k~\frac{\primpowerspec(k)}{25}{\left[
             j_l(k\chi_*)
@@ -462,7 +470,7 @@ The primordial bispectrum is usually written as:
 \begin{align}\label{bispectrum_definition}
 {
 \left< \zeta_{\bf{k_1}}\zeta_{\bf{k_2}}\zeta_{\bf{k_3}} \right>
-= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3)
+= (2\pi)^3\delta^{(3)}(\mathbf{k_1}+\mathbf{k_2}+\mathbf{k_3})B(k_1,k_2,k_3).
 }
 \end{align}
 The delta function comes from demanding statistical homogeneity;
@@ -527,7 +535,8 @@ meaning the dependence on each $k_i$ separately, for fixed $k_1+k_2+k_3$.
 
 
 \section{Models}\label{sec:interactions}
-We consider the same basic models as in~\cite{Funakoshi}.
+For the purpose of validating our methods,
+we consider the same basic models as in~\cite{Funakoshi}.
 Firstly, a quadratic potential
 \begin{align}\label{eq:quadratic_potential}
     \quadpot = \frac{1}{2}m^2\phi^2
@@ -538,7 +547,7 @@ We will also consider a non-canonical model in detail, the $\dbi$ model.
 \begin{align}\label{eq:dbi_action}
     S_{\dbi}=\int d^4x\sqrt{-g}\left(-\frac{1}{f(\phi)}\left(\left(1+f(\phi)\partial_\mu\phi\partial^\mu\phi\right)^{\frac{1}{2}}-1\right)-V(\phi)\right),
 \end{align}
-and we choose
+and we take the canonical choices
 \begin{align}\label{eq:dbi_warp}
     f(\phi)=\frac{\lambda_{\dbi}}{\phi^4},\qquad
     V(\phi)=V_0-\frac{1}{2}m^2\phi^2,\qquad
@@ -592,7 +601,8 @@ is given in~\eqref{gr_energy}.
     \end{align}
     where $\zeta_G(\vecx)$ is a Gaussian field. The parameter $\fnllocal$ therefore has a clear
     interpretation as parametrising the deviation from Gaussianity. From this form,
-    one obtains a bispectrum of the form~\eqref{local_shape}. This is the version of $\fnl$
+    one obtains a bispectrum which is strongly peaked on squeezed configurations
+    (which will be presented in~\eqref{local_shape}). This is the version of $\fnl$
     that is most usually referred to.
 
 
@@ -646,7 +656,8 @@ is given in~\eqref{gr_energy}.
 
 
     \subsection{Templates}
-    The momentum dependence of the various possible bispectrum templates can be complex
+    The momentum dependence of the various possible bispectrum templates can be lengthy
+    to display,
     and it is therefore useful to define a standard notation in which to express this dependence.
     For example in~\cite{Fergusson_2010, Pajer_boostless_2020} the elementary
     symmetric polynomials are used to compactly represent the results in a way that is manifestly
@@ -699,8 +710,11 @@ This template peaks on equilateral triangles, i.e.\ when $k_1\sim k_2\sim k_3$.
 \subsection{Basic shapes}
     We will now briefly review the shape functions that result from
     standard canonical inflation, and from non-canonical $\dbi$ inflation.
+    The goal of the phenomenological templates described in the previous
+    section is to provide a simple approximation to the shapes described
+    in this section, and others in the literature.
     With a canonical kinetic term
-    the slow-roll result for the shape is
+    the slow-roll result for the shape is~\cite{Maldacena}
 \begin{align}\label{malda_shape}
     S^{Malda}(k_1,k_2,k_3) &= -\frac{1}{32}\frac{H^4}{12\varepsilon^2} \left( (3\varepsilon-2\eta)\frac{K_3}{K_{111}}+\varepsilon \left(K_{12}+8\frac{K_{22}}{K}\right) \right)
 \end{align}
@@ -912,7 +926,21 @@ using $\tilH$
     \delphi(t) &= U^{-1}(t,t_0)\delphi(t_0)U(t,t_0)\\
     \delpi(t) &= U^{-1}(t,t_0)\delpi(t_0)U(t,t_0).
 \end{align}
-We can write the Heisenberg equation of motion, which has
+We can write the Heisenberg equation of motion\footnote{
+    The Heisenberg equation of motion for the perturbations
+    comes from the equation of motion for the full field
+    \begin{align}
+        \dphi=\dot{\bar{\phi}}+\dot{\delphi}
+        =i\left[H_b + H_0 + \Hint, \bar{\phi}+\delphi\right]
+    \end{align}
+    and recalling both $\left[\delphi(\vecx,t),\delpi(\mathbf{y},t)\right]=i\delta^{(3)}(\vecx-\mathbf{y})$,
+    and the equations which evolve the background fields
+    \begin{align}
+        \dot{\bar{\phi}}(t)=\frac{\partial\mathcal{H}_b}{\partial\bar{\pi}}\qquad
+        \dot{\bar{\pi}}(t)=-\frac{\partial\mathcal{H}_b}{\partial\bar{\phi}}
+    \end{align}
+    where $\mathcal{H}$ is the Hamiltonian density.
+}, which has
 explicit time dependence in $\tilH$ due to coefficients
 that depend on the background evolution,
 \begin{align}
@@ -1366,8 +1394,8 @@ as a check on our results.
     which retains optimality~\cite{Creminelli:2005hu}.
     Here, the diagonal approximation is insufficient for the linear term
     (which is especially important for local type shapes), so the
-    full covariance matrix $C^{sim}_{l_1m_1,l_2m_2}$ is approximated using an ensemble average
-    over a suite of Gaussian simulations. Excluding this term would result in a large false
+    full covariance matrix $C_{l_1m_1,l_2m_2}$ is approximated using an ensemble average
+    over a suite of Gaussian simulations $C^{sim}_{l_1m_1,l_2m_2}$. Excluding this term would result in a large false
     detection of non-Gaussianity, due to the effects of masking the part of the sky obscured
     by the galaxy. While the estimator is still optimal,
     Monte Carlo simulations are also used to estimate the variance, to ensure systematics
