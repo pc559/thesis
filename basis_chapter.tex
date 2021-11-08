@@ -112,6 +112,7 @@ i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$. It takes the form
     F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  k^2 c^2_s \tau\frac{H^2}{4\varepsilon c_s k} e^{-ik\tau_s}~,\\
     J^{(1)}(\tau,k) ~&=~ (1+ik\tau_s)\frac{H^2}{4\varepsilon c_s k}e^{-ik\tau_s} \,.
 \end{align}
+\textcolor{red}{Scaling? $k^2$?}
 In this slow-roll approximation, such terms in~\eqref{inin_sep} are straightforward
 to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of
 the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
@@ -180,8 +181,10 @@ For the sake of compactness of notation we will now use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
 integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in Section~\ref{sec:starting}.
+\textcolor{red}{Need $\Pmax$ in upper limit for this to be true! Discuss, link. Link to tapering plot too.}
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
+\textcolor{red}{$q_p$ or $Q_p$?}
 \begin{align}\label{inin_kdep_cont}
     I^{(i)}(k_1,k_2,k_3) =&\, v^{(i)}(k_1, k_2,k_3) \sum_{P} \tilde{\alpha}_{P}^{(i)}\,  q_{P}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
     =& \sum_{P} \tilde{\alpha}_{P}^{(i)}\sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
@@ -579,7 +582,7 @@ We will now introduce notation that we will use to describe the construction of 
 We begin with some initial set of orthonormal basis functions, $q_r$, with $r=0,\ldots,N_{initial}-1$
 (in practice these will usually be the
 Legendre polynomials or the Fourier basis functions).
-If we then wish to use some function $f$ to this initial set, which we will denote here by $B_0$,
+If we then wish to add some function $f$ to this initial set, which we will denote here by $B_0$,
 then we define
 \begin{align}\label{gram_schmidt}
     \tilde {f}(k) \;=\;  \text{Orth}\left [f(k),~B_0\right] &~\equiv~ f(k) - \sum_{q\in B_0}\frac{\left\langle f,q \right\rangle}{\left\langle q,q \right\rangle}q(k)
@@ -697,7 +700,7 @@ template with both shape and scale dependence.
 As shown in Figure~\ref{fig:recon_osc_dbiosc},
 $\Fbasic$ naturally outperform the basis sets built from Legendre modes for a pure oscillation.
 However when the equilateral-type $\dbi$ template~\eqref{dbi_shape} is superimposed, even the augmented Fourier modes
-$\Finvk$ converge poorly. Instead, the basis sets built from Legendre modes offer a better more robust option,
+$\Finvk$ converge poorly. Instead, the basis sets built from Legendre modes offer a more robust option,
 with the $\scalingbasis$ basis performing best.
 In Figure~\ref{fig:log_recon_osc_dbiosc} we see that for a logarithmic
 oscillation, the $\resobasis$ basis converges in the fewest modes.
@@ -1008,7 +1011,7 @@ in Section~\ref{sec:scaling_definition}.
     For an oscillation with a DBI shape however, we see a large difference,
     as shown in Figure~\ref{fig:log_recon_osc_dbiosc}.
     On the cube we see fast, monotonic convergence---the $\resobasis$ basis
-    and $\scalingbasis$ basis perform well, quickly bring $\totalcorcub$
+    and $\scalingbasis$ basis perform well, quickly bringing $\totalcorcub$
     below $0.1\%$.
     On the tetrapyd however, we see that $\totalcortet$ only drops below
     $0.1\%$ for $\Pmax<30$ for the $\resobasis$ basis.
@@ -1025,7 +1028,8 @@ in Section~\ref{sec:scaling_definition}.
 
     We also notice that $\totalcortet$ stays fixed at $1$ for low values of $\Pmax$.
     This is due to the basis fitting the large non-physical configurations,
-    and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the cube.
+    and thus in~\eqref{relative_difference}, $S_2 \gg S_1$ everywhere on the tetrapyd.
+    \textcolor{red}{Double check.}
 
 
     For the local shape the mean value of the shape function on the entire cube
@@ -1054,9 +1058,9 @@ in Section~\ref{sec:scaling_definition}.
     For example, if one wanted to achieve an accuracy of $0.1\%$ for this shape
     with the $\scalingbasis$ basis,
     one would need $\Pmax=15$ for $\kmax/\kmin=550$
-    and $\Pmax=20$ for $\kmax/\kmin=1000$
+    and $\Pmax=20$ for $\kmax/\kmin=1000$.
     We also see this effect for the scale-invariant DBI shape~\eqref{dbi_shape}
-    but it significantly less dramatic.
+    but it is significantly less dramatic.
 
 
     We of course desire to use as much of the available data as we can.

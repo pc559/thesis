@@ -76,8 +76,8 @@ gave robust results without needing to loosen the tolerance.
     sample points, one for each of the basis functions.
 
 
-    The integrals over time also require many integrals over the sample points---one
-    for each of the shape coefficients, per vertex, over the decomposition
+    The integrals over time also require many integrals over a fixed set of sample points---one
+    integral for each of the shape coefficients, per vertex, over the decomposition
     coefficients calculated at each timestep.
     Thus, it is important that we have a general method to efficiently integrate many different functions
     over the same sample points.
@@ -340,7 +340,8 @@ in Figure~\ref{fig:plot_time_integrand_scan}.
 Here we reparametrise the damping in a form that with a more obvious physical
 interpretation.
 We use the form $e^{-100{\left(\frac{{\tau_s^{start}-\tau_s}}{\tau_s^{start}-\tau_s^{cut}}\right)}^2}$.
-The point $\tau_s=\tau_s^{start}$ is the earliest point we calculate the integrand for,
+The point $\tau_s=\tau_s^{cut}$ is the earliest point we calculate the integrand for,
+    \textcolor{red}{Double check.}
 i.e.\ before this point we set the integrand to exactly zero---we
 see that at this point the integrand is suppressed by a factor of $e^{-100}$.
 In Figure~\ref{fig:plot_time_integrand_scan} we see that $\tau_s^{start}-\tau_s^{cut}=0$
@@ -690,7 +691,7 @@ Including the minimal information of an individual, approximately
 representative value of $n_s^{*}-1$
 in $\Lnsboth$ allows us to converge to these smooth shapes quickly
 and robustly, overcoming the tetrapyd-vs-cube difficulties described
-in~\ref{chapter:decomp}. Our accurate match to these shapes validates our
+in Chapter~\ref{chapter:decomp}. Our accurate match to these shapes validates our
 implementation in code, and the ability of the method
 (and our basis in particular) to capture very different types of
 bispectrum shapes, local and equilateral.
@@ -733,7 +734,7 @@ bispectrum shapes, local and equilateral.
 Moving on from simple featureless bispectra, we present the results of
 our validation tests on non-Gaussianity coming from a sharp feature in the potential.
 We use the same parameters for the quadratic potential as in the
-second scenario in fig~\ref{slice_plot_malda}.
+second scenario in Figure~\ref{slice_plot_malda}.
 In~\eqref{eq:kink_potential}
 we fix $d=1\times10^{-2}$ and $\phi_{f}=15.55$
 (as with the second canonical quadratic example, $\phi_0=16.5$).

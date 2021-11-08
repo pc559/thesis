@@ -163,6 +163,9 @@ allowing us to apply the method to feature bispectra for the first time.
         \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}
     \end{align}
     where $h_{ij}$ is the spatial part of the metric.
+    \textcolor{red}{What is meant by choice of gauge? In words. How is the
+    second order action obtained?}
+    \textcolor{red}{Define $\Phi$ here.}
     %The relation between $\zeta$ in uniform density gauge and
     %$\delphi$ in spatially flat gauge is
     %\begin{align}
@@ -314,10 +317,12 @@ allowing us to apply the method to feature bispectra for the first time.
 
     Taking the slow-roll parameters as constant, we can obtain a simple approximate solution
     to~\eqref{modefneqn_zeta_N}
+    \textcolor{red}{Or conjugate???}
     \begin{align}\label{uk_solution}
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}.
     \end{align}
     Treating the solution more carefully, one can find
+    \textcolor{red}{Expand.}
     \begin{align}
         P_\zeta(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
@@ -331,13 +336,14 @@ allowing us to apply the method to feature bispectra for the first time.
 %The dimensionless power spectrum $\primpowerspec$~\eqref{primpowerspec_defn}
 The power spectrum is typically parameterised as
 \begin{align}
-    P_\zeta(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
+    \primpowerspec(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
 \end{align}
 The scalar spectral index $n_s$ can then be found to be
 \begin{align}
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
 at leading order in slow-roll.
+    \textcolor{red}{Expand.}
 
 
     For completeness, we note some possible points of notational confusion.
@@ -393,6 +399,7 @@ at leading order in slow-roll.
                     &= 4\pi\sum_{l,m}i^l j_l(kr)Y^*_{lm}(\hat{\veck})Y_{lm}(\hat{\vecn})\label{addition_expan}
     \end{align}
     where $j_l(x)$ is the spherical Bessel function.
+    \textcolor{red}{Define $P_l$.}
     Expanding the fractional temperature fluctuations
     $\frac{\Delta T}{T}(\vecx)$ in Fourier modes,
     and then expanding the factor $e^{i\veck\cdot\vecx}$ using~\eqref{addition_expan},
@@ -581,6 +588,7 @@ is given in~\eqref{gr_energy}.
     We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
     speed tends to unity.
     From these quantities, we can calculate the $\phi$ equation of motion~\eqref{phieom}
+    \textcolor{red}{Define $f_\phi$.}
     \begin{align}
         \phi'' &= -(3c_s^2-\varepsilon)\phi'
                 -\frac{3f_\phi(\phi)}{2f(\phi)}\phi'^2
@@ -804,6 +812,7 @@ as detailed in~\cite{chen_folded_resonant}.
 
 
     \section{Step 1: the interaction Hamiltonian}
+    \textcolor{red}{Steps to achieve what?}
     \subsection{Set-up}\
     %Since General Relativity has a diffeomorphism invariance, it has a redundancy
     %which must be settled before the true degrees of freedom are manifest.
@@ -902,7 +911,7 @@ In the interaction picture however, the operators evolve only according to the
 free Hamiltonian, so their time dependence can be more easily obtained. To take advantage of this,
 we would like to rewrite our desired expectation value as
 \begin{align}
-    \left<\op(t)\right> &= \left<F^{-1}(t,t_0)\op^I(t) F(t,t_0)\right>\label{heis_to_int}
+    \left<\op(t)\right> &= \left<F^{-1}(t,t_0)\op_I(t) F(t,t_0)\right>\label{heis_to_int}
 \end{align}
 to relate the correlators of the interacting theory to the correlators of the
 free theory.
@@ -1021,7 +1030,7 @@ defined in~\eqref{shapefn},
 which is then used as input into~\eqref{eq:reduced_cmb}.
 As an example, if one takes $\Hint\propto\dot{\zeta}^3$, this set-up can produce the standard EFT shape
 \begin{align}\label{example_eft2}
-    S(k_1, k_2, k_3) = \frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}.
+    S(k_1, k_2, k_3) \propto \frac{k_1k_2k_3}{(k_1+k_2+k_3)^3}.
 \end{align}
 
 The central point, as noticed in~\cite{Funakoshi}, is that the
@@ -1232,6 +1241,7 @@ of which give the same result in this example.
 We can make contact with $\fnl^{EFT2}$ of~\cite{Planck_NG_2018, Senatore_wmap_2009}
 by setting $g(t)=-\frac{\varepsilon}{Hc_s^2}(1-c_s^2)\left(1+\frac{2\tilde{c}_3}{3c_s^2}\right)$
 and recalling $\Phi=\frac{3}{5}\zeta$.
+\textcolor{red}{Link back to $\Phi$ definition.}
 
 
     \subsection{The squeezed limit consistency condition}
@@ -1248,6 +1258,7 @@ With $\mathbf{k_S}\equiv\left(\mathbf{k_2}-\mathbf{k_3}\right)/2 $:
 \ \ \  k_1\ll k_S
 \end{align}
 where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
+\textcolor{red}{Scaling?}
 That the error in the consistency relation decreases at least quadratically
 in the long mode was shown in~\cite{not_so_sqz}.
 We will use~\eqref{eq:sqz_consistency} in Chapter~\ref{chapter:methods}
@@ -1470,7 +1481,7 @@ have drawbacks. It acts as an information bottleneck,
 losing some constraining power when one approximates
 the real shape function by some standard template.
 In particular, if one is interested in a feature model,
-it may be be difficult to see how constraints on existing
+it may be difficult to see how constraints on existing
 features can be applied.
 
 
@@ -1492,7 +1503,7 @@ for simulations~\cite{Scoccimarro_2012}.
     and orthogonal~\cite{Planck_NG_2013}
     templates can be built up from a small set of
     simple monomials, namely $k^{-1}$, $1$, $k$ and $k^{2}$.
-    This method is able to constrain shapes with that contain very high frequency linear oscillations\footnote{
+    This method is able to constrain shapes that have very high frequency linear oscillations\footnote{
     Since $e^{iw(k_1+k_2+k_3)}=e^{iwk_1}e^{iwk_2}e^{iwk_3}$.},
     using a Fourier basis instead of monomials.
     It is limited in that it cannot function for shapes whose shape dependence is not
