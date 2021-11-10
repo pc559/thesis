@@ -163,7 +163,7 @@ Armed with this set of modes,
 we can expand any of the interaction terms $F^{(i)}(\tau, k)$, $G^{(i)}(\tau, k)$, $J^{(i)}(\tau, k)$
 in~\eqref{inin_sep} as:
 \begin{align}
-    F^{(i)}(\tau, k) &= \sum _p f_p^{(i)} (\tau) \, q_p(k)\,,\label{mode1Dcoeffs_sum}\\
+    F^{(i)}(\tau, k) &= \sum _{p=0}^{\Pmax} f_p^{(i)} (\tau) \, q_p(k)\,,\label{mode1Dcoeffs_sum}\\
     \text{where} \quad f_p^{(i)} (\tau)  &= \int _\kmin^\kmax dk \,F^{(i)}(\tau, k) \, q_p(k) \,.\label{mode1Dcoeffs_integral}
 \end{align}
 
@@ -171,9 +171,9 @@ in~\eqref{inin_sep} as:
 Substituting these expansions into~\eqref{inin_sep}, we obtain the following decomposition for the $i$-th vertex contribution,
 \begin{align}\label{inin_kdep}
     &I^{(i)}(k_1,k_2,k_3)
-    = \Re\bigg[v^{(i)}(k_1, k_2,k_3)\int^0_{-\infty(1-i\varepsilon)} d\tau\, w^{(i)}(\tau)\nonumber\\
-    &\qquad\cdot\sum_p f_p^{(i)}(\tau) q_p(k_1)\sum_r g_r^{(i)}(\tau) q_r(k_2)\sum_s h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\bigg]\\
-	&= v^{(i)}(k_1, k_2,k_3)\sum_{prs}\bigg(\Re\int^0_{-\infty} d\tau\, w^{(i)}(\tau)\nonumber\\
+    = \Re\bigg[v^{(i)}(k_1, k_2,k_3)\int^0_{-\infty} d\tau\, w^{(i)}(\tau)\nonumber\\
+    &\qquad\cdot\sum_{p=0}^{\Pmax} f_p^{(i)}(\tau) q_p(k_1)\sum_{r=0}^{\Pmax} g_r^{(i)}(\tau) q_r(k_2)\sum_{s=0}^{\Pmax} h_s^{(i)}(\tau) q_s(k_3) + \text{cyclic perms}\bigg]\\
+    &= v^{(i)}(k_1, k_2,k_3)\sum_{p,r,s=0}^{\Pmax}\bigg(\Re\int^0_{-\infty} d\tau\, w^{(i)}(\tau)\nonumber\\
     &\qquad\qquad\cdot f_p^{(i)}(\tau)\, g_r^{(i)}(\tau) \,h_s^{(i)}(\tau)\bigg)\threeqs + \text{cyclic perms}
 \end{align}
 where the dependence on $k_i$ has now been brought outside the time integral.
@@ -182,9 +182,11 @@ triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\t
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
 integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in Section~\ref{sec:starting}.
 \textcolor{red}{Need $\Pmax$ in upper limit for this to be true! Discuss, link. Link to tapering plot too.}
+Note that we must assume that there is some $\Pmax$ that provides a sufficiently precise result.
 Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
 \textcolor{red}{$q_p$ or $Q_p$?}
+All following summations have $\Pmax$ as their upper limit.
 \begin{align}\label{inin_kdep_cont}
     I^{(i)}(k_1,k_2,k_3) =&\, v^{(i)}(k_1, k_2,k_3) \sum_{P} \tilde{\alpha}_{P}^{(i)}\,  q_{P}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
     =& \sum_{P} \tilde{\alpha}_{P}^{(i)}\sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
