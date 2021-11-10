@@ -165,7 +165,27 @@ allowing us to apply the method to feature bispectra for the first time.
     where $h_{ij}$ is the spatial part of the metric.
     \textcolor{red}{What is meant by choice of gauge? In words. How is the
     second order action obtained?}
-    \textcolor{red}{Define $\Phi$ here.}
+    \textcolor{red}{Define $\Phi$ here. Maybe remove mention of $ADM$? See James' notes.}
+    The $ADM$ formalism parametrises the metric using the lapse function $N(\vecx)$
+    and the shift function $N^i(\vecx)$
+    \begin{align}\label{adm_metric}
+        ds^2 = -N^2dt^2+h_{ij}\left(dx^i+N^idt\right)\left(dx^j+N^jdt\right)
+    \end{align}
+    where $h_{ij}$ is the induced metric on the 3-dimensional spatial slices.
+    The lapse and shift then act as Lagrange multipliers, their variation giving us the constraint
+    equations.
+    We then choose a gauge by performing a change of coordinates, typically with
+    the aim of setting some of the perturbations to zero.
+    If we choose to work in Newtonian gauge then the spatial metric is diagonal
+    \begin{align}\label{newtonian_metric}
+        ds^2 = -(1+2\Phi)dt^2+a^2(1-2\Psi)\delta_{ij}dx^idx^j
+    \end{align}
+    where $\Phi$ and $\Psi$ are the Newtonian potentials, which are identical
+    in the absence of anisotropic stress.
+    By perturbatively expanding the perturbations, as well as the lapse and shift,
+    we can solve the constraint equations and obtain a second order action that contains
+    the physical degrees of freedom.
+    \textcolor{red}{Edits end. Check against Lim!}
     %The relation between $\zeta$ in uniform density gauge and
     %$\delphi$ in spatially flat gauge is
     %\begin{align}
@@ -322,7 +342,13 @@ allowing us to apply the method to feature bispectra for the first time.
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}.
     \end{align}
     Treating the solution more carefully, one can find
-    \textcolor{red}{Expand.}
+    the solution in terms of Hankel functions of the first kind $H_{\nu}^{(1)}$
+    \begin{align}
+        f_k(\tau) = \frac{\sqrt{\pi}}{2}H(-\tau)^{3/2}H^{(1)}_{\vu}(-k\tau),\qquad
+        \vu = \sqrt{\frac{9}{4} - \frac{m^2}{H^2}}.
+    \end{align}
+    \textcolor{red}{Expand. Get $m$ from Burrage et al.}
+    Using the late time behaviour of this form we can find
     \begin{align}
         P_\zeta(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
@@ -398,7 +424,8 @@ at leading order in slow-roll.
         e^{i\veck\cdot\vecx} &= \sum_l i^l(2l+1)j_l(kr)P_l(\hat{\veck}\cdot\hat{\vecn})\\
                     &= 4\pi\sum_{l,m}i^l j_l(kr)Y^*_{lm}(\hat{\veck})Y_{lm}(\hat{\vecn})\label{addition_expan}
     \end{align}
-    where $j_l(x)$ is the spherical Bessel function.
+    where $j_l(x)$ is the spherical Bessel function
+    and $P_l$ are the Legendre polynomials.
     \textcolor{red}{Define $P_l$.}
     Expanding the fractional temperature fluctuations
     $\frac{\Delta T}{T}(\vecx)$ in Fourier modes,
@@ -588,13 +615,13 @@ is given in~\eqref{gr_energy}.
     We see that, as expected, in the limit $\lambda_{\dbi}\rightarrow 0$, the sound
     speed tends to unity.
     From these quantities, we can calculate the $\phi$ equation of motion~\eqref{phieom}
-    \textcolor{red}{Define $f_\phi$.}
     \begin{align}
         \phi'' &= -(3c_s^2-\varepsilon)\phi'
                 -\frac{3f_\phi(\phi)}{2f(\phi)}\phi'^2
                 +\frac{f_\phi(\phi)}{H^2f(\phi)^2}
-                -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}.
+                -\left(V_\phi(\phi)+\frac{f_\phi(\phi)}{f(\phi)^2}\right)\frac{c_s^3}{H^2}
     \end{align}
+    where $f_\phi(\phi) = \frac{df}{d\phi}$.
     See~\cite{dbi_silverstein, warp_features_dbi} for further discussion,
     and also~\cite{cmb_pol_ics} for a brief discussion on setting consistent initial conditions.
 
@@ -813,6 +840,8 @@ as detailed in~\cite{chen_folded_resonant}.
 
     \section{Step 1: the interaction Hamiltonian}
     \textcolor{red}{Steps to achieve what?}
+    In this and the following sections we will outline the calculational steps required to connect
+    an inflation scenario to the $\cmb$ bispectrum.
     \subsection{Set-up}\
     %Since General Relativity has a diffeomorphism invariance, it has a redundancy
     %which must be settled before the true degrees of freedom are manifest.
@@ -1241,7 +1270,8 @@ of which give the same result in this example.
 We can make contact with $\fnl^{EFT2}$ of~\cite{Planck_NG_2018, Senatore_wmap_2009}
 by setting $g(t)=-\frac{\varepsilon}{Hc_s^2}(1-c_s^2)\left(1+\frac{2\tilde{c}_3}{3c_s^2}\right)$
 and recalling $\Phi=\frac{3}{5}\zeta$.
-\textcolor{red}{Link back to $\Phi$ definition.}
+$\Phi$ was defined in~\eqref{newtonian_metric}.
+\textcolor{red}{Link back to $\Phi$ definition~\eqref{newtonian_metric}.}
 
 
     \subsection{The squeezed limit consistency condition}
@@ -1254,7 +1284,7 @@ the squeezed limit is still a useful validation test of our results,
 using the standard single-field squeezed limit consistency condition~\cite{sqz_consistency,not_so_sqz}.
 With $\mathbf{k_S}\equiv\left(\mathbf{k_2}-\mathbf{k_3}\right)/2 $:
 \begin{align}\label{eq:sqz_consistency}
-    S(k_1,k_2,k_3) = -\left[(n_s-1)|_{k_S}+\mathcal{O}\left(\frac{k_1^2}{k_S^2}\right)\right]P_{\zeta}(k_1)P_{\zeta}(k_S),
+    S(k_1,k_2,k_3) = -(k_1k_2k_3)^2\left[(n_s-1)|_{k_S}+\mathcal{O}\left(\frac{k_1^2}{k_S^2}\right)\right]P_{\zeta}(k_1)P_{\zeta}(k_S),
 \ \ \  k_1\ll k_S
 \end{align}
 where $S(k_1,k_2,k_3)$ is again our dimensionless shape function.
