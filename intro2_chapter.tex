@@ -426,7 +426,6 @@ at leading order in slow-roll.
     \end{align}
     where $j_l(x)$ is the spherical Bessel function
     and $P_l$ are the Legendre polynomials.
-    \textcolor{red}{Define $P_l$.}
     Expanding the fractional temperature fluctuations
     $\frac{\Delta T}{T}(\vecx)$ in Fourier modes,
     and then expanding the factor $e^{i\veck\cdot\vecx}$ using~\eqref{addition_expan},
@@ -838,11 +837,17 @@ with the equilateral oscillations) as well as a modulating shape,
 as detailed in~\cite{chen_folded_resonant}.
 
 
-    \section{Step 1: the interaction Hamiltonian}
+    \section{Step 1: the interaction Hamiltonian}\label{sec:int_ham}
     \textcolor{red}{Steps to achieve what?}
     In this and the following sections we will outline the calculational steps required to connect
-    an inflation scenario to the $\cmb$ bispectrum.
-    \subsection{Set-up}\
+    an inflation scenario to observations of the $\cmb$ bispectrum. In this section we will discuss the first step,
+    dealing with the interaction Hamiltonian,
+    which the describes the interactions of a given inflation scenario.
+    In Section~\ref{sec:inin_calc_example} we describe the second step, calculating the primordial
+    bispectrum at the end of an inflation scenario. In Section~\ref{sec:cmb_bis} we describe the third step,
+    projecting a primordial bispectrum onto the $\cmb$. In Section~\ref{sec:cmb_bis_est} we describe the final
+    step in our sketch, the process of $\cmb$ bispectrum estimation.
+    \subsection{Set-up}
     %Since General Relativity has a diffeomorphism invariance, it has a redundancy
     %which must be settled before the true degrees of freedom are manifest.
     %One does this by decomposing the metric (typically in the $ADM$ formalism)
@@ -1295,7 +1300,7 @@ We will use~\eqref{eq:sqz_consistency} in Chapter~\ref{chapter:methods}
 as a check on our results.
 
 
-\section{Step 3: the $\cmb$ bispectrum}
+\section{Step 3: the $\cmb$ bispectrum}\label{sec:cmb_bis}
     %For a three dimensional statistical distribution projected onto
     %a sphere, we expect the three-point statistics to be projected
     %like
@@ -1357,7 +1362,7 @@ as a check on our results.
     and~\eqref{eq:bll_constant} even for this simple case.
 
 
-    \section{Step 4: $\cmb$ bispectrum estimation}
+    \section{Step 4: $\cmb$ bispectrum estimation}\label{sec:cmb_bis_est}
     \subsection{Linear regression}
     % https://arxiv.org/pdf/1006.1642.pdf
     % https://arxiv.org/pdf/0912.5516.pdf
