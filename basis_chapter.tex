@@ -112,7 +112,6 @@ i.e.\ $H_{\rm int}^{(1)} = {\zeta'}^2\zeta$. It takes the form
     F^{(1)}(\tau,k) = G^{(1)}(\tau,k)  ~&=~  k^2 c^2_s \tau\frac{H^2}{4\varepsilon c_s k} e^{-ik\tau_s}~,\\
     J^{(1)}(\tau,k) ~&=~ (1+ik\tau_s)\frac{H^2}{4\varepsilon c_s k}e^{-ik\tau_s} \,.
 \end{align}
-\textcolor{red}{Scaling? $k^2$?}
 In this slow-roll approximation, such terms in~\eqref{inin_sep} are straightforward
 to integrate analytically (using the $i\varepsilon$ prescription), provided the time-dependence of
 the slow-roll parameters and the sound speed is neglected~\cite{Maldacena}.
@@ -179,18 +178,27 @@ Substituting these expansions into~\eqref{inin_sep}, we obtain the following dec
 where the dependence on $k_i$ has now been brought outside the time integral.
 For the sake of compactness of notation we will now use $P$ to stand for the
 triplet $p,r,s$ and $\tilde{P}$ to stand for the triplet $\tilde{p},\tilde{r},\tilde{s}$.
+Note that we must assume that there is some $\Pmax$ that provides a sufficiently precise result.
+
+
 Note that we have dropped the $i\varepsilon$ prescription---this is due to the fact that the
 integrals are now convergent, as pointed out in~\cite{Funakoshi}, and as we discuss in Section~\ref{sec:starting}.
-\textcolor{red}{Need $\Pmax$ in upper limit for this to be true! Discuss, link. Link to tapering plot too.}
-Note that we must assume that there is some $\Pmax$ that provides a sufficiently precise result.
-Writing $q_{P}(k_1,k_2,k_3)=\threeqs$,
+The highly oscillatory early-time contributions that are usually killed off by the $i\varepsilon$ prescription
+are here avoided as they only contribute to neglected higher-order terms in the expansion.
+For any bispectrum result that can be captured to sufficient precision for some given $\Pmax$,
+one can always push the starting time for the numerical integration earlier, to ensure these non-physical
+contributions do not affect our result. This is investigated in Figure~\ref{fig:plot_time_integrand_scan}.
+\textcolor{red}{Check!}
+
+
+Writing $Q_{P}(k_1,k_2,k_3)=\threeqs$,
 we continue,
 \textcolor{red}{$q_p$ or $Q_p$?}
 All following summations have $\Pmax$ as their upper limit.
 \begin{align}\label{inin_kdep_cont}
-    I^{(i)}(k_1,k_2,k_3) =&\, v^{(i)}(k_1, k_2,k_3) \sum_{P} \tilde{\alpha}_{P}^{(i)}\,  q_{P}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
-    =& \sum_{P} \tilde{\alpha}_{P}^{(i)}\sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
-    =& \sum_{\tilde{P}} \alpha_{\tilde{P}}^{(i)}\,  q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms} \,,
+    I^{(i)}(k_1,k_2,k_3) =&\, v^{(i)}(k_1, k_2,k_3) \sum_{P} \tilde{\alpha}_{P}^{(i)}\,  Q_{P}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
+    =& \sum_{P} \tilde{\alpha}_{P}^{(i)}\sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}\,  Q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms}\nonumber\\
+    =& \sum_{\tilde{P}} \alpha_{\tilde{P}}^{(i)}\,  Q_{\tilde{P}}(k_1,k_2,k_3) + \text{cyclic perms} \,,
 \end{align}
 where we have written
 \begin{align}\label{inin_kindep}
@@ -198,7 +206,7 @@ where we have written
 \end{align}
 and included the time-independent $k$-prefactors from the interaction Hamiltonian by writing
 \begin{align}\label{V_definition}
-    v^{(i)}(k_1, k_2,k_3)q_P(k_1,k_2,k_3) = \sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}q_{\tilde{P}}(k_1,k_2,k_3)\,,
+    v^{(i)}(k_1, k_2,k_3)q_P(k_1,k_2,k_3) = \sum_{\tilde{P}}V^{(i)}_{P\tilde{P}}Q_{\tilde{P}}(k_1,k_2,k_3)\,,
 \end{align}
 and
 \begin{align}
