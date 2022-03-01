@@ -365,6 +365,7 @@ Indeed, in Figure~\ref{fig:plot_time_integrand_scan} we see that
 we must have $\kmax\tau_s^{start}<-10^3$
 to correctly capture the feature.
 
+It is important to note that this tapering method is not the application of the $i\varepsilon$ prescription. The $i\varepsilon$ prescription comes into these methods through the separation of high-frequency and low-frequency effects by the basis choice. The early time contributions which are usually damped by the $i\varepsilon$ prescription are, in our methods, pushed to the coefficients of higher-order basis elements as the early-time integration limit is taken to the infinite limit. This automatic inclusion of the prescription was noticed in~\cite{Funakoshi}, but the reason was not made explicit, and is relevant for considerations of basis choice.
 
 \section{The interaction Hamiltonian}\label{sec:h_int}
 The methods detailed in the previous section depend on the separability of

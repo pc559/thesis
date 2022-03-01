@@ -1,31 +1,39 @@
 %\input{commands}
 \chapter{Introduction I: Cosmology}\label{chapter:intro_general}
-\textcolor{red}{Plan: go through abstract and expand, write for a general cosmologist.}
-We begin with an introduction to this thesis, before broadening the discussion
-to a summary of the general cosmological context in the remainder of this chapter.
-We will summarise the goals and state of the art of the field. We will summarise
-the main obstacles to these goals which are addressed by the work in this thesis,
-and the main research highlights presented in this thesis.
-\subsection{Analytic vs.\ numeric}
-In Sections~\ref{sec:basic_shapes} and~\ref{sec:prev_inin} we discuss the results of
-analytic and numeric calculations.
-The goal of the field is to use these results to connect models with observations,
-constraining those models. The main obstacles are the limitations of analytic templates
-and the limitations of numeric grid sampling, separability. In this work our results
-differ from these results because they are in a separable form. The research highlights
-are the exploration of possible basis sets,
-$\cmb$ comparison, as discussed in Chapters~\textcolor{red}{reference}.
-\subsection{The steps in the calculation}
-In Sections~\ref{sec:int_ham},~\ref{sec:inin_calc_example},~\ref{sec:cmb_bis} and~\ref{sec:cmb_bis_est}
-we discuss how those analytic and numeric calculations are carried out. The methods that are used
-include making approximations, for example~\textcolor{red}{resonance}. The state of the art is the
-transport method. It is efficient, but the result is not separable. The methods presented in this
-thesis go beyond this by being more efficient in convergence.
-The in-in formalism forces us to consider the whole cube.
-We are effectively the same at Step 1, we point out the difference in Step 2,~\textcolor{red}{no idea
-how they differ in Step 3}, we differ strongly at Step 4.
-We also discuss a method for starting the time integrals in~\ref{sec:starting},
-allowing us to capture the important (but numerically difficult) early-time contributions.
+We will begin with an introduction to this thesis, before broadening the discussion to a summary of the general cosmological context in the remainder of this chapter. We will summarise the goals and state of the art of the field, and the main obstacles to these goals which are addressed by methods developed in this thesis, as well as our main results.
+
+One important goal of cosmology is to probe the fundamental physics of the early universe. This is achieved by confronting models of the early universe with data gathered from telescopes. A crude sketch of the pipeline for this confrontation is as follows. From the theory-side, a model is proposed, and the observational consequences of the model are calculated. From the data-side, telescopes gather data, and statistics which describe this data are calculated. The predictions of the theory are compared with the data, and if the predictions are inconsistent with the data, the theory is ruled out.
+The methods for each step of this pipeline, for the case of inflationary bispectra, are described
+in Sections~\ref{sec:int_ham},~\ref{sec:inin_calc_example},~\ref{sec:cmb_bis} and~\ref{sec:cmb_bis_est}.
+
+The steps in this pipeline can be both calculationally and computationally non-trivial,
+but mature methods must be developed for every step before a model can be confronted with data.
+A core motivation of the methods of separability and Modal methods (discussed in Section~\ref{sec:bis_est})
+is the realisation that, for inflationary bispectra,
+a later step (confrontation with data) only becomes feasible if an earlier step (calculating the
+predictions of a model) is done in a particular way. The general philosophy is to consider the pipeline
+as a whole, and
+a practical implementation of that philosophy is the Modal methods. This thesis is
+the development of those methods to the calculation of inflationary bispectra, through the in-in formalism.
+These ideas will be further discussed in Chapter~\ref{chapter:intro_bispectra}.
+The state of the art in analytic methods is working under certain approximations to make
+calculations tractable, followed by a further layer of approximations to achieve separability.
+We give further detail in Section~\ref{sec:basic_shapes}. The state of the art in numeric methods is
+sophisticated methods for grid sampling the
+bispectrum, which is optimised for rough order of magnitude estimates of correlations, but not
+for bringing the full bispectrum information through the pipeline we sketched above, to be confronted by the data.
+We give further detail in Section~\ref{sec:config_codes}.
+
+Separability is a means of overcoming an obstacle at one stage of the pipeline mentioned above. However applying the Modal philosophy to the in-in formalism does introduce new obstacles which must also be overcome. One new obstacle that we identify and overcome in this work is the contribution of non-physical configurations to the fit, and an exploration of basis set choices in the context of this effect; this is the main discussion of Chapter~\ref{chapter:decomp}.
+Another important obstacle is numerical efficiency, ensuring this calculation can be done sufficiently computationally cheaply that parameter scans become feasible. While the main factor in determining the efficiency of the methods developed in this thesis is the choice of basis set, the time integrals which must be performed to calculate the coefficients can be computationally expensive. These time integrals have an early-time contribution which is small and expensive, and a late-time contribution which is large and relatively cheaper.
+We would like to cut out the expensive early-time contribution so that our computational resources can be spent on the late-time part, which contains the physical information we need. Cutting out the early-time contribution is a delicate process however, due to the highly oscillatory nature of the integrands causing large cancellations.
+We explain how to swap the physical integral for a computationally cheaper one which evaluates to approximately the same result, we carefully show that we do not encounter the convergence problems or previous methods, and provide an intuition that explains the robustness of the method, in Section~\ref{sec:starting}.
+
+The main results of this thesis follow from overcoming these obstacles. We have applied the Modal philosophy for the in-in formalism, allowing the direct connection of theoretical models to data through separable bispectrum methods. We have made this efficient and practical by defining concrete basis sets that can cover a wide range of models from the literature, and by carefully considered numerical methods. We have carefully tested these new methods on a wide range of physical effects, using a range of tests, as described in Chapter~\ref{chapter:methods}.
+We also validate our implementation by obtaining a constraint which we compare to an equivalent one obtained
+by the $\planck$ collaboration, in Chapter~\ref{chapter:constraints}.
+
+
 
 
 \section{The standard cosmological history}\label{sec:general_intro}

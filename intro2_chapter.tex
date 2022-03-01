@@ -1,8 +1,5 @@
 %\input{commands}
 \chapter{Introduction II: Probing Inflation}\label{chapter:intro_bispectra}
-\textcolor{red}{Read James' and Lim's notes for gauge stuff, second order action, ADM, define $\Phi$.}
-\textcolor{red}{Do slow roll corrections for spectral index on paper from Burrage. Resolve conjugate.
-Check example calculation still works out.}
 In this chapter we will review details of the bispectrum, including how it is predicted
 by an inflationary scenario and connected to the $\cmb$ sky.
 We will point out where our methods diverge from previous work,
@@ -166,9 +163,6 @@ allowing us to apply the method to feature bispectra for the first time.
         \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}
     \end{align}
     where $h_{ij}$ is the spatial part of the metric.
-    \textcolor{red}{What is meant by choice of gauge? In words. How is the
-    second order action obtained?}
-    \textcolor{red}{Remove mention of $ADM$? See James' notes.}
     The $ADM$ formalism parametrises the metric using the lapse function $N(\vecx)$
     and the shift function $N^i(\vecx)$
     \begin{align}\label{adm_metric}
@@ -188,7 +182,6 @@ allowing us to apply the method to feature bispectra for the first time.
     By perturbatively expanding the perturbations, as well as the lapse and shift,
     we can solve the constraint equations and obtain a second order action that contains
     the physical degrees of freedom.
-    \textcolor{red}{Edits end. Check against Lim!}
     %The relation between $\zeta$ in uniform density gauge and
     %$\delphi$ in spatially flat gauge is
     %\begin{align}
@@ -350,7 +343,6 @@ allowing us to apply the method to feature bispectra for the first time.
         f_k(\tau) = \frac{\sqrt{\pi}}{2}H(-\tau)^{3/2}H^{(1)}_{\vu}(-k\tau),\qquad
         \vu = \sqrt{\frac{9}{4} - \frac{m^2}{H^2}}.
     \end{align}
-    \textcolor{red}{Expand. Get $m$ from Burrage et al.}
     Using the late time behaviour of this form we can find
     \begin{align}
         P_\zeta(k) = \frac{H^2}{4\varepsilon c_s k^3}
@@ -371,8 +363,10 @@ The scalar spectral index $n_s$ can then be found to be
 \begin{align}
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
-at leading order in slow-roll.
-    \textcolor{red}{Expand.}
+at leading order in slow-roll,
+by considering the solution to the equations
+of motion in terms of Hankel functions;
+see for example~\cite{px_burrage}.
 
 
     For completeness, we note some possible points of notational confusion.
@@ -1280,8 +1274,6 @@ We can make contact with $\fnl^{EFT2}$ of~\cite{Planck_NG_2018, Senatore_wmap_20
 by setting $g(t)=-\frac{\varepsilon}{Hc_s^2}(1-c_s^2)\left(1+\frac{2\tilde{c}_3}{3c_s^2}\right)$
 and recalling $\Phi=\frac{3}{5}\zeta$.
 $\Phi$ was defined in~\eqref{newtonian_metric}.
-\textcolor{red}{Does this give me the right overall sign? I've made a conjugation error
-so the sign should be swapped, I think? Sign of $g(t)$ for $\dbi$?}
 
 
     \subsection{The squeezed limit consistency condition}
@@ -1384,12 +1376,11 @@ as a check on our results.
         %&= h_{l_1l_2l_3}{{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}}
     \end{align}
     %where we have used the Wigner $3j$ symbol, and defined $h_{l_1l_2l_3}$.
-    \textcolor{red}{Remove.}
-    The bispectrum measured from the $\cmb$ is denoted
-    \begin{align}
-        %B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
-        \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b^{obs}_{l_1l_2l_3} &= \tripleaobs.
-    \end{align}
+    %The bispectrum measured from the $\cmb$ is denoted
+    %\begin{align}
+    %    %B^{obs,l_1l_2l_3}_{m_1m_2m_3} &= \tripleaobs.
+    %    \mathcal{G}^{l_1l_2l_3}_{m_1m_2m_3}b^{obs}_{l_1l_2l_3} &= \tripleaobs.
+    %\end{align}
     %We can write the angle averaged bispectrum
     %\begin{align}\label{eq:bll}
     %    B_{l_1l_2l_3} = \sum_{m_i} {{l_1~~l_2~~l_3} \choose {m_1~m_2~m_3}} B^{l_1l_2l_3}_{m_1m_2m_3}.
@@ -1459,7 +1450,7 @@ as a check on our results.
 
 
 
-    \subsection{Complexity of bispectrum estimation}
+    \subsection{Complexity of bispectrum estimation}\label{sec:bis_est}
     %The bispectrum, like the power spectrum, is a quantity that describes
 %the statistical distribution of which our universe is a single realisation.
 %We can use this one accessible sky to constrain inflationary physics; 
@@ -1619,7 +1610,7 @@ of the tetrapyd after inflation.
     %\subsection{Comparison to the present work}
 
 
-    \section{Configuration-by-configuration codes}
+    \section{Configuration-by-configuration codes}\label{sec:config_codes}
     Previous work on the numerical calculations of inflationary
 non-Gaussianity include the BINGO code~\cite{BINGO},
 Chen et al~\cite{chen_easther_lim_1,chen_easther_lim_2},
