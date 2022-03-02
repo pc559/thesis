@@ -158,12 +158,26 @@ allowing us to apply the method to feature bispectra for the first time.
         \phi(t,\vecx)=\bar{\phi}(t)+\delta\phi(t,\vecx), \qquad g_{\mu\nu}=\bar{g}_{\mu\nu}+\delta g_{\mu\nu}
     \end{align}
     where $\bar{g}_{\mu\nu}$ is the unperturbed metric defined in~\eqref{flrw_metric}.
-    In the uniform density gauge we have (neglecting tensor modes)
+    However, this is not uniquely defined, and depends on our choice of time slicing,
+    known as choosing a gauge.
+    We can choose a gauge by performing a change of coordinates, typically with
+    the aim of setting some of the perturbations to zero.
+    In the uniform density gauge we use the scalar field to determine our time slicing,
+    and so we have (neglecting tensor modes)
     \begin{align}
         \delta \phi=0, \qquad h_{ij}=a^2 e^{2\zeta} \delta_{ij}
     \end{align}
     where $h_{ij}$ is the spatial part of the metric.
-    The $ADM$ formalism parametrises the metric using the lapse function $N(\vecx)$
+    If we instead choose to work in Newtonian gauge then the spatial metric is diagonal
+    \begin{align}\label{newtonian_metric}
+        ds^2 = -(1+2\Phi)dt^2+a^2(1-2\Psi)\delta_{ij}dx^idx^j
+    \end{align}
+    where $\Phi$ and $\Psi$ are the Newtonian potentials, which are identical
+    in the absence of anisotropic stress.
+
+
+    To postpone the choice of gauge, we can use the $ADM$ formalism
+    to parameterise the metric using the lapse function $N(\vecx)$
     and the shift function $N^i(\vecx)$
     \begin{align}\label{adm_metric}
         ds^2 = -N^2dt^2+h_{ij}\left(dx^i+N^idt\right)\left(dx^j+N^jdt\right)
@@ -171,15 +185,7 @@ allowing us to apply the method to feature bispectra for the first time.
     where $h_{ij}$ is the induced metric on the 3-dimensional spatial slices.
     The lapse and shift then act as Lagrange multipliers, their variation giving us the constraint
     equations.
-    We then choose a gauge by performing a change of coordinates, typically with
-    the aim of setting some of the perturbations to zero.
-    If we choose to work in Newtonian gauge then the spatial metric is diagonal
-    \begin{align}\label{newtonian_metric}
-        ds^2 = -(1+2\Phi)dt^2+a^2(1-2\Psi)\delta_{ij}dx^idx^j
-    \end{align}
-    where $\Phi$ and $\Psi$ are the Newtonian potentials, which are identical
-    in the absence of anisotropic stress.
-    By perturbatively expanding the perturbations, as well as the lapse and shift,
+    By perturbatively expanding in the perturbations,
     we can solve the constraint equations and obtain a second order action that contains
     the physical degrees of freedom.
     %The relation between $\zeta$ in uniform density gauge and
@@ -339,7 +345,8 @@ allowing us to apply the method to feature bispectra for the first time.
     \end{align}
     Treating the solution more carefully, one can find
     the solution in terms of Hankel functions of the first kind $H_{\nu}^{(1)}$
-    \begin{align}
+    (see for example~\cite{px_burrage})
+    \begin{align}\label{hankel_solution}
         f_k(\tau) = \frac{\sqrt{\pi}}{2}H(-\tau)^{3/2}H^{(1)}_{\vu}(-k\tau),\qquad
         \vu = \sqrt{\frac{9}{4} - \frac{m^2}{H^2}}.
     \end{align}
@@ -364,9 +371,8 @@ The scalar spectral index $n_s$ can then be found to be
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
 at leading order in slow-roll,
-by considering the solution to the equations
-of motion in terms of Hankel functions;
-see for example~\cite{px_burrage}.
+by considering the late-time behaviour of the Hankel function
+solution~\ref{hankel_solution}.
 
 
     For completeness, we note some possible points of notational confusion.
