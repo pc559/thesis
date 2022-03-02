@@ -351,7 +351,7 @@ allowing us to apply the method to feature bispectra for the first time.
         \vu = \sqrt{\frac{9}{4} - \frac{m^2}{H^2}}.
     \end{align}
     Using the late time behaviour of this form we can find
-    \begin{align}
+    \begin{align}\label{ps_at_ah}
         P_\zeta(k) = \frac{H^2}{4\varepsilon c_s k^3}
     \end{align}
     where the right-hand side is evaluated at $c_sk=aH$,
@@ -370,9 +370,12 @@ The scalar spectral index $n_s$ can then be found to be
 \begin{align}
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
-at leading order in slow-roll,
+at leading order in slow-roll.
+This can either be found directly
 by considering the late-time behaviour of the Hankel function
-solution~\ref{hankel_solution}.
+solution~\eqref{hankel_solution},
+or by evaluating the $k$-derivative of~\eqref{ps_at_ah}
+using $c_sk=aH$.
 
 
     For completeness, we note some possible points of notational confusion.
