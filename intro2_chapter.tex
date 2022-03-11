@@ -176,7 +176,7 @@ allowing us to apply the method to feature bispectra for the first time.
     in the absence of anisotropic stress.
 
 
-    To postpone the choice of gauge, we can use the $ADM$ formalism
+    To postpone the choice of gauge, it is usual to use the $ADM$ formalism
     to parameterise the metric using the lapse function $N(\vecx)$
     and the shift function $N^i(\vecx)$
     \begin{align}\label{adm_metric}
@@ -193,7 +193,10 @@ allowing us to apply the method to feature bispectra for the first time.
     %\begin{align}
     %    \zeta=-\frac{\delphi}{\sqrt{2\varepsilon}a}.
     %\end{align}
-    In this way the second order action for the perturbations in this gauge can be found to be~\cite{seery_ng_0506}
+
+    In this way the second order action for the perturbations
+    can be found~\cite{seery_ng_0506, Maldacena}
+    in the uniform density gauge to be
     \begin{align}\label{zeta_action}
         S_{2} = \int d^3x dt~\frac{a\varepsilon}{c_s^2}\left(a^2\dot{\zeta}^2-c_s^2\left(\partial\zeta\right)^2\right).
     \end{align}
@@ -343,7 +346,7 @@ allowing us to apply the method to feature bispectra for the first time.
         %\zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1-ik\tau_s\right)e^{i k\tau_s}.
         \zeta_k(\tau) = \frac{H}{\sqrt{4\varepsilon c_s k^3}}\left(1+ik\tau_s\right)e^{-i k\tau_s}.
     \end{align}
-    Treating the solution more carefully, one can find
+    Treating the solution more carefully, working to first-order in the slow-roll parameters, one can find
     the solution in terms of Hankel functions of the first kind $H_{\nu}^{(1)}$
     (see for example~\cite{px_burrage})
     \begin{align}\label{hankel_solution}
@@ -366,16 +369,15 @@ The power spectrum is typically parameterised as
 \begin{align}
     \primpowerspec(k) = A_s \left(\frac{k}{k_*}\right)^{n_s-1}.
 \end{align}
-The scalar spectral index $n_s$ can then be found to be
+By considering the late-time behaviour of the Hankel function
+solution~\eqref{hankel_solution},
+or by evaluating the $k$-derivative of~\eqref{ps_at_ah}
+using $c_sk=aH$,
+the scalar spectral index $n_s$ can be found to be
 \begin{align}
 n_s-1 = -2\varepsilon-\eta-\varepsilon_s
 \end{align}
 at leading order in slow-roll.
-This can either be found directly
-by considering the late-time behaviour of the Hankel function
-solution~\eqref{hankel_solution},
-or by evaluating the $k$-derivative of~\eqref{ps_at_ah}
-using $c_sk=aH$.
 
 
     For completeness, we note some possible points of notational confusion.
@@ -845,7 +847,8 @@ as detailed in~\cite{chen_folded_resonant}.
 
     \section{Step 1: the interaction Hamiltonian}\label{sec:int_ham}
     In this and the following sections we will outline the calculational steps required to connect
-    an inflation scenario to observations of the $\cmb$ bispectrum. In this section we will discuss the first step,
+    an inflation scenario to observations of the $\cmb$ bispectrum.
+    In this section we will discuss the first step,
     dealing with the interaction Hamiltonian,
     which the describes the interactions of a given inflation scenario.
     In Section~\ref{sec:inin_calc_example} we describe the second step,
