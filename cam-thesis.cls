@@ -498,46 +498,7 @@ institution.
 \fi}
 \fi
 
-\chapter*{Statement of contributions}
-\thispagestyle{empty}
-In this thesis I describe the research I performed during my PhD studies
-at the University of Cambridge, supervised by Professor Paul Shellard.
-Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
-describe original work, while
-Chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
-and mostly follow standard textbook material, collected and written by myself.
-Some of Chapter~\ref{chapter:intro_bispectra} is edited material from~\cite{probing_precision},
-which was co-authored with Paul Shellard.
 
-
-Chapters~\ref{chapter:decomp} and~\ref{chapter:methods}
-describe original research I performed in collaboration with Paul Shellard, and
-mostly consist of edited material that was originally published
-in~\cite{probing_precision}.
-I have updated the text and figures in Chapter~\ref{chapter:decomp}
-to include improved basis sets that I have developed since the publication of~\cite{probing_precision}.
-Figure~\ref{fig:plot_time_integrand_scan} is also new,
-and I am grateful to the anonymous referee of~\cite{probing_precision} for
-their comments which suggested it.
-Most of the results presented in these two chapters were obtained using the $\primodal$ code,
-which I designed and wrote, which implements the methods described in
-this work, and is validated in these sections.
-
-
-Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
-James Fergusson and Paul Shellard.
-This work will be published in~\cite{Sohn_2021}. The methods that will be described in~\cite{Sohn_2021} have
-been implemented in the $\cmbbest$ code, which was designed and implemented by Wuhyun Sohn.
-My main contribution to~\cite{Sohn_2021} is described in Chapter~\ref{chapter:constraints}.
-
-We make particular use of~\cite{lyth_liddle_2009,Baumann_tasi,px_burrage,lim_adv_cosmo}
-throughout this thesis.
-The calculations described in this thesis were implemented using the Python scientific computing
-ecosystem, especially Numpy~\cite{numpy}, Scipy~\cite{scipy},
-and Matplotlib~\cite{matplotlib}.
-We also made use of the QUADPTS code for calculations of integration nodes and weights~\cite{quadpts}.
-Some of the results in this thesis were calculated using the computing facilities of the
-Cambridge Service for Data-Driven Discovery (CSD3).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Abstract
@@ -582,6 +543,47 @@ Cambridge Service for Data-Driven Discovery (CSD3).
 \@acknowledgements{}
 \fi}
 \fi
+
+\chapter*{Statement of contributions}
+\thispagestyle{empty}
+In this thesis I describe the research I performed during my PhD studies
+at the University of Cambridge, supervised by Professor Paul Shellard.
+Chapters~\ref{chapter:decomp},~\ref{chapter:methods} and~\ref{chapter:constraints}
+describe original work, while
+Chapters~\ref{chapter:intro_general} and~\ref{chapter:intro_bispectra} are entirely introductory,
+and mostly follow standard textbook material, collected and written by myself.
+Some of Chapter~\ref{chapter:intro_bispectra} is edited material from~\cite{probing_precision},
+which was co-authored with Paul Shellard.
+
+
+Chapters~\ref{chapter:decomp} and~\ref{chapter:methods}
+describe original research I performed in collaboration with Paul Shellard, and
+mostly consist of edited material that was originally published
+in~\cite{probing_precision}.
+I have updated the text and figures in Chapter~\ref{chapter:decomp}
+to include improved basis sets that I have developed since the publication of~\cite{probing_precision}.
+Figure~\ref{fig:plot_time_integrand_scan} is also new,
+and I am grateful to the anonymous referee of~\cite{probing_precision} for
+their comments which suggested it.
+Most of the results presented in these two chapters were obtained using the $\primodal$ code,
+which I designed and wrote, which implements the methods described in
+this work, and is validated in these sections.
+
+
+Chapter~\ref{chapter:constraints} describes work done in collaboration with Wuhyun Sohn,
+James Fergusson and Paul Shellard.
+This work will be published in~\cite{Sohn_2021}. The methods that will be described in~\cite{Sohn_2021} have
+been implemented in the $\cmbbest$ code, which was designed and implemented by Wuhyun Sohn.
+My main contribution to~\cite{Sohn_2021} is described in Chapter~\ref{chapter:constraints}.
+
+We make particular use of~\cite{lyth_liddle_2009,Baumann_tasi,px_burrage,lim_adv_cosmo}
+throughout this thesis.
+The calculations described in this thesis were implemented using the Python scientific computing
+ecosystem, especially Numpy~\cite{numpy}, Scipy~\cite{scipy},
+and Matplotlib~\cite{matplotlib}.
+We also made use of the QUADPTS code for calculations of integration nodes and weights~\cite{quadpts}.
+Some of the results in this thesis were calculated using the computing facilities of the
+Cambridge Service for Data-Driven Discovery (CSD3).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
